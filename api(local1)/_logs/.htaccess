@@ -1,0 +1,17 @@
+# Block all access to log files
+# Location: api/_logs/.htaccess
+
+# Apache 2.4+
+<IfModule mod_authz_core.c>
+    <FilesMatch ".*">
+        Require all denied
+    </FilesMatch>
+</IfModule>
+
+# Apache 2.2 (fallback for older servers)
+<IfModule !mod_authz_core.c>
+    <FilesMatch ".*">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+</IfModule>

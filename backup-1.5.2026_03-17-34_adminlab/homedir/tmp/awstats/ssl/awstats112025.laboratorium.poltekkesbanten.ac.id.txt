@@ -1,0 +1,4166 @@
+AWSTATS DATA FILE 7.8 (build 20200416)
+# If you remove this file, all statistics for date 202511 will be lost/reset.
+# Last config file used to build this data file was /home/adminlab/tmp/awstats/ssl/awstats.laboratorium.poltekkesbanten.ac.id.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2035                
+POS_TIME 2716                
+POS_VISITOR 115737              
+POS_DAY 134729              
+POS_DOMAIN 3636                
+POS_LOGIN 4071                
+POS_ROBOT 4226                
+POS_WORMS 4954                
+POS_EMAILSENDER 5085                
+POS_EMAILRECEIVER 5228                
+POS_SESSION 135594              
+POS_SIDER 135808              
+POS_FILETYPES 5363                
+POS_DOWNLOADS 5622                
+POS_OS 5691                
+POS_BROWSER 6010                
+POS_SCREENSIZE 7218                
+POS_UNKNOWNREFERER 7292                
+POS_UNKNOWNREFERERBROWSER 8133                
+POS_ORIGIN 9115                
+POS_SEREFERRALS 9257                
+POS_PAGEREFS 9447                
+POS_SEARCHWORDS 9622                
+POS_KEYWORDS 9774                
+POS_MISC 2378                
+POS_ERRORS 9833                
+POS_CLUSTER 3927                
+POS_SIDER_404 10040               
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20251201024126 78 18249 11153334834568
+FirstTime 20251101004906
+LastTime 20251130230700
+LastUpdate 20251201070438 78 0 77 0 0
+TotalVisits 563                 
+TotalUnique 442                 
+MonthHostsKnown 0                   
+MonthHostsUnknown 487                 
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+AddToFavourites 0 267 0
+RealPlayerSupport 0 0 0
+JavaEnabled 0 0 0
+TotalMisc 0 0 0
+JavascriptDisabled 0 0 0
+DirectorSupport 0 0 0
+QuickTimeSupport 0 0 0
+FlashSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+PDFSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 365 564 72285960 212 257 4543072
+1 906 1839 373807615 673 787 3634941
+2 888 1777 342254104 512 636 5870872
+3 517 945 208700766 290 334 1977366
+4 493 1151 245904957 411 770 4769962
+5 373 772 134541947 288 342 1653352
+6 71 141 29327154 66 93 2040133
+7 81 134 30582720 114 125 3046647
+8 27 80 14408021 34 50 713172
+9 26 71 6824053 58 80 1975427
+10 15 17 749026 83 93 4828606
+11 25 32 4185788 75 95 1285733
+12 2 3 13918 35 47 921559
+13 1 8 756458 25 39 1185880
+14 7 12 606452 106 114 734506
+15 4 11 1097920 42 50 636918
+16 1 1 3768 491 494 763830
+17 7 21 8158433 1939 1941 3000382
+18 53 118 20126913 36 59 2980786
+19 83 174 32821451 58 69 66778
+20 245 420 71131171 143 167 10188871
+21 594 1048 194201181 355 420 4102290
+22 695 1174 217460845 427 506 4427301
+23 377 703 123704341 211 264 1986279
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 14
+in 3728 6832 1197968162
+id 1971 3937 785162327
+us 71 166 38946071
+nz 46 159 69836226
+se 18 64 31328336
+jp 9 27 8752776
+gb 6 13 771707
+sg 2 4 20300
+ru 1 8 756458
+cn 1 1 3744
+ca 1 2 10150
+de 1 1 3744
+au 1 1 3744
+it 0 1 90857
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 16
+Googlebot/ 83 5146708 20251130112853 13
+facebookexternalhit/ 59 165096 20251129110714 15
+bingbot/ 52 2715718 20251130021109 7
+bot[\s_+:,\.\;\/\\-] 39 1372885 20251130112125 24
+proximic 34 127296 20251126211145 0
+unknown 12 288 20251128044424 12
+CFNetwork 11 70466 20251128221957 0
+Applebot/ 7 659219 20251121130227 1
+Googlebot\-Image/ 4 19218 20251130112857 0
+feed 4 490445 20251101130939 0
+MixrankBot 3 6616 20251121014555 0
+robot 2 48 20251128232112 2
+[\s_+:,\.\;\/\\-]bot 1 3744 20251112060020 0
+Dalvik/ 1 6406 20251128202033 0
+scrapy 1 3744 20251122220544 0
+AhrefsBot/ 1 24 20251129141407 1
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 9
+ttf 2 3043520 0 0
+svg 185 1088407260 0 0
+png 1362 51692239 0 0
+woff 4 3102464 0 0
+js 2457 292574846 0 0
+map 2 667948 0 0
+Unknown 5511 285125589 0 0
+css 1356 225728928 0 0
+woff2 337 183311808 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 1
+/robots.txt 0 15 360
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 16
+androidjellybean 1 1
+androidpie 53 40
+linux 317 158
+os/2 45 0
+androidoreo 80 65
+win8.1 1 1
+linuxubuntu 1 1
+win2003 123 34
+linuxdebian 2 1
+android10 4434 2432
+macosx 5 5
+macosx15 124 75
+android 666 344
+Unknown 160 12
+ios_iphone 3724 1489
+win10 1480 1198
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 59
+chrome125.0.6422.72 326 185
+safari17.1 34 23
+firefox128.0 1 1
+chrome125.0.0.0 173 47
+safari18.0 299 80
+chrome141.0.0.0 1225 876
+firefox139.0 2 1
+android 1 1
+safari17.5 170 63
+edge101 1 1
+chrome114.0.5735.196 1 1
+safari26.0.1 185 88
+safari17.4.1 88 26
+safari17.7 81 34
+safari 57 48
+safari18.3.1 77 22
+chrome140.0.0.0 227 188
+chrome99.0.4859.172 6 6
+firefox122.0 2 2
+opera89.0.4447.51 3 3
+chrome127.0.0.0 5 5
+netscape5.0 4 4
+safari26.1 140 102
+firefox126.0 2 1
+chrome131.0.0.0 22 9
+safari16.6 188 47
+chrome106.0.5249.126 1 1
+safari18.6 1220 486
+safari18.4 31 19
+chrome91.0.4472.88 150 116
+chrome142.0.0.0 3935 2281
+safari17.1.2 47 17
+chrome123.0.0.0 14 7
+safari18.1.1 56 25
+firefox40.0 1 1
+chrome126.0.0.0 1 1
+chrome139.0.0.0 2 1
+safari16.5.1 52 17
+chrome130.0.0.0 59 39
+chrome141.0.7390.122 1 0
+chrome122.0.0.0 1 1
+firefox99.0 2 2
+Unknown 203 11
+safari26.0 46 36
+safari18.3 130 51
+safari17.6 92 43
+safari16.3 44 15
+safari18.7.2 172 73
+iphone 130 25
+chrome129.0.0.0 2 1
+chrome136.0.0.0 319 261
+safari15.3 154 65
+chrome123.0.6312.118 455 186
+safari18.5 264 110
+safari16.1 42 13
+mozilla 2 1
+chrome91.0.4472.124 8 8
+chrome121.0.0.0 126 34
+chrome138.0.0.0 134 45
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 11
+NetworkingExtension/8621.1.15.10.7_Network/4277.102.4_iOS/18.4.1 20251114194852
+NetworkingExtension/8620.2.4.10.7_Network/4277.82.1_iOS/18.3.1 20251109225111
+WhatsApp/2.23.20.0 20251120225805
+NetworkingExtension/8621.2.5.10.10_Network/4277.122.6_iOS/18.5 20251127022505
+Mozilla/5.0_(compatible;_CensysInspect/1.1;__https://about.censys.io/) 20251123141637
+aria2/1.36.0 20251106151818
+NetworkingExtension/8619.2.8.10.9_Network/4277.42.2_iOS/18.1.1 20251109003443
+NetworkingExtension/8621.3.11.10.3_Network/4277.140.33_iOS/18.6.2 20251128082202
+python-requests/2.32.5 20251129033926
+NetworkingExtension/8621.4.1.10.1_Network/4277.140.33.700.1_iOS/18.7.1 20251110010150
+NetworkingExtension/8621.5.1.10.7_Network/4277.140.33.700.1_iOS/18.7.2 20251127011939
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 13
+python-requests/2.32.5 20251129033926
+NetworkingExtension/8619.2.8.10.9_Network/4277.42.2_iOS/18.1.1 20251109003443
+NetworkingExtension/8621.3.11.10.3_Network/4277.140.33_iOS/18.6.2 20251128082202
+aria2/1.36.0 20251106151818
+NetworkingExtension/8621.2.5.10.10_Network/4277.122.6_iOS/18.5 20251127022505
+NetworkingExtension/8622.1.22.10.9_Network/5569.2.3_iOS/26.0 20251127021021
+NetworkingExtension/8622.2.11.10.8_Network/5569.42.2_iOS/26.1 20251128215346
+NetworkingExtension/8621.5.1.10.7_Network/4277.140.33.700.1_iOS/18.7.2 20251127011939
+NetworkingExtension/8621.4.1.10.1_Network/4277.140.33.700.1_iOS/18.7.1 20251110010150
+NetworkingExtension/8622.1.22.10.11_Network/5569.2.3_iOS/26.0.1 20251127044441
+WhatsApp/2.23.20.0 20251120225805
+NetworkingExtension/8621.1.15.10.7_Network/4277.102.4_iOS/18.4.1 20251114194852
+NetworkingExtension/8620.2.4.10.7_Network/4277.82.1_iOS/18.3.1 20251109225111
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 1139 1345
+From1 7 7
+From2 7 8
+From3 1 1
+From4 4702 9855
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 3
+youtube 1 1
+google_com 0 1
+www_google_com 6 6
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 1
+https://bit.ly/3E80m4r 1 1
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 9
+206 67 8184066
+405 44 25075662
+500 29 15454114
+301 75 18138
+302 2957 1366702
+403 8 65344
+421 1 322
+404 3716 5830862
+419 354 551532
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 3026
+/wp-includes/priv.php 1 -
+/a1.php 1 -
+/status.htm 1 -
+/system/libraries/Javascript/drivers/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/modules/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/wp-includes/Text/Text.php 1 -
+/cgi-bin/stats 1 ()%20{%20ignored
+/wp-content/radio.php 1 -
+/assets/R57.php 1 -
+/poltekkesbanten_2024.tar 1 -
+/wp-content/themes/storied/style.css 1 -
+/wp-content/.about.php 1 -
+/mx.php 1 -
+/wordpress.tar 1 -
+/assets/mariju.php 1 -
+/assets/abbyp.php 1 -
+/wp-includes/blocks/text-columns/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/p.php 1 -
+/uploads/run.php 1 -
+/.well-known/alfacgiapi/perl.alfa 1 -
+/system/fonts/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/post-content/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/image/alfacgiapi/perl.alfa 1 -
+/Sadrazam.php 1 -
+/wp-admin/css/colors/ectoplasm/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/laboratorium-old.tar 1 -
+/wp-content/php-function.php 1 -
+/assets/responsive_filemanager/filemanager/dialog.php 2 -
+/web.zip 1 -
+/wp-includes/blocks/post-date/index.php 1 -
+/wp-includes/blocks/post-author-biography/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/wp-admin.php 1 -
+/assets/css/uploads/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/video/video.php 1 -
+/assets/radio.php 1 -
+/wp-includes/js/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/.config.php 1 -
+/users/user-dark-features 1 -
+/public/css/index.php 1 -
+/webdesa.zip 1 -
+/SDK/webLanguage 1 -
+/indeax.php 1 -
+/wp-admin/xl2023.php 1 www.google.com
+/wp-content/plugins/elementor/includes/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/vendor/ALFA_DATA/perl.alfa 1 -
+/wp-admin/wp.php 1 -
+/ye.php 1 -
+/alm.php 1 -
+/abyyp.php 1 -
+/mmk.php 1 -
+/laboratorium-poltekkesbanten.laboratorium.poltekkesbanten.ac.id.tar 1 -
+/wol.php 1 -
+/assets/hlya.php 1 -
+/assets/js/upgrade/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets/js/updraft/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/modules.php 1 -
+/application/default.php 1 -
+/assets/ms-functions.php 1 -
+/webtools/control/SOAPService 2 -
+/wp-includes/widgets/widgets.php 1 -
+/css/fonts/index.php 1 -
+/asset/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/js/js.php 1 -
+/uploader.php 1 -
+/pmb.rar 1 -
+/public.rar 1 -
+/system/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/ac.tar.gz 1 -
+/assets/fonts.php 1 -
+/blog/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/uploads.php 1 -
+/cgi-bin/status/status.cgi 1 ()%20{%20ignored
+/assets/php-function.php 1 -
+/latespeada1.php 2 -
+/wp-content/themes/twentytwentyone/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/inputs.php 1 -
+/wp-content/default.php 1 -
+/wp-includes/blocks/query-title/index.php 1 -
+/fw.php 2 -
+/wp-includes/assets/assets.php 1 -
+/config/settings.old.php 1 -
+/well-known.rar 1 -
+/wp-includes/SimplePie/Content/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/ac.tar 1 -
+/laboratoriumpoltekkesbanten.rar 1 -
+/website_laboratorium.zip 1 -
+/new-index.php 1 www.google.com
+/wp-includes/assets/radio.php 1 -
+/vendor/phpunit/phpunit/src/Util/PHP/haxorcgiapi/perl.haxor 1 -
+/.env 4 -
+/pages/doenterpagevariables.action 1 -
+/media/boostrap/index.php 1 -
+/xmlsadminzz.php 1 -
+/wp-includes/blocks/site-tagline/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/help/css/index.php 1 -
+/wp-admin/maint/repair_39.php 1 -
+/wp-content/themes/wp/fm.php 1 -
+/blvck.php 1 -
+/wp-includes/SimplePie/Decode/index.php 1 -
+/vendor/laravel-filemanager/js/script.js 2 -
+/wp-content/themes/mero-magazine/ws.php 1 www.google.com
+/sql/poltekkesbanten.sql 1 -
+/seobarbar.php 1 -
+/assets/Wso.php 1 -
+/wp-includes/content.php 1 -
+/old.rar 1 -
+/jurnal.rar 1 -
+/wp-admin/dwqdonat.php 1 -
+/wp-includes/blocks/query-pagination/index.php 1 -
+/wp-includes/blocks/post-content/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/laboratorium1.tar 1 -
+/wp-content/anonsec.php 1 -
+/wp-includes/blocks/audio/ip.ph 1 -
+/wp-includes/blocks/read-more/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/.bypass.php 1 -
+/wp-includes/stats/stats.php 1 -
+/wp-includes/blocks/template-part/template.php 1 -
+/wp-admin/color.php 1 -
+/help/assets/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-l0gin.php 1 -
+/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php.txt 1 -
+/id.php 1 -
+/wp-includes/nive.php 1 -
+/framework/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/Media.php 1 -
+/scripts/setup.php 1 -
+/scan2.php 1 -
+/filemanager.php 1 -
+/media.php 1 -
+/alfas.php 1 -
+/wp-includes/blocks/archives/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/SimplePie/Decode/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/themes/twentyfive/include.php 1 www.google.com
+/wp-includes/Requests/Requests.php 1 -
+/wp-admin/adminer.php 1 -
+/application/controllers/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/source/index.php 1 -
+/wp-includes/input.php 1 -
+/.well-known/passkey-endpoints 1 https://laboratorium.poltekkesbanten.ac.id/login
+/system/libraries/Session/drivers/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/uploads/2024/09/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/c9sell.php 1 -
+/wp-content/uploads/2024/9/403.php 1 -
+/wp-includes/.index.php 1 -
+/glock.php 1 -
+/scanner.php 1 -
+/admin/editor/index.php 1 -
+/wp-content/secure.php7 1 -
+/media/jquery/index.php 1 -
+/cong 1 -
+/wp-content/marijuana.php 1 -
+/fonts.php 1 -
+/vendor/phpunit/phpunit/src/Util/PHP/alfacgiapi/perl.alfa 1 -
+/wp-content/wso112233.php 1 www.google.com
+/wp-includes/SimplePie/index.php 1 -
+/laboratorium.poltekkesbanten.rar 1 -
+/elementor-pro.php 1 -
+/wp-includes/blocks/buttons/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets/mini_shell.php 1 -
+/alfaxx.php 1 -
+/wp-includes/sitemaps/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/laboratorium_poltekkesbanten.zip 1 -
+/wp-includes/.alfa.php 1 -
+/analytics/telemetry/ph/api/hyper/send 1 -
+/wp-content/themes/minus/style.css 1 -
+/cgi-bin/readycloud_control.cgi 1 -
+/laboratorium-poltekkesbanten-laboratorium.poltekkesbanten.ac.id.tar.gz 1 -
+/wp-admin/Sequence.php 1 -
+/lib/pkp/lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/wp-admin/css/colors/midnight/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/alfah.php 1 -
+/sftp-config.json 1 -
+/wp-content/languages/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/class-management.php 1 -
+/wp-content/fonts/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/images/media/media.php 1 -
+/wp-content/mini-shell.php 1 -
+/wp-includes/blocks/site-logo/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/web_laboratorium.tar.gz 1 -
+/wp-content/plugins/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/uploads/2024/08/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/program.php 1 -
+/fm.php 1 -
+/laboratoriumold.tar.gz 1 -
+/wp-includes/blocks/html/index.php 1 -
+/webalizer 3 https://laboratorium.poltekkesbanten.ac.id:443/webalizer/
+/laboratorium_poltekkesbanten.tar 1 -
+/laboratorium_2024.tar 1 -
+/wp-includes/wp-cron.php 1 -
+/s1.php 1 -
+/wp-admin/.info.php 1 -
+/cgi-bin/class_api.php 1 -
+/media/upload/filemanager/filemanager/dialog.php 1 -
+/wp-content/themes/hello-elementor/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-assets.php 1 -
+/laboratorium.poltekkesbanten.ac.id.rar 1 -
+/wp-root.php 1 -
+/assets/abyp.php 1 -
+/POLTEKKESBANTEN.zip 1 -
+/readme.php 2 -
+/wp-admin/alfashell.php 1 -
+/.well-known/change-password 2 https://laboratorium.poltekkesbanten.ac.id/login
+/azdare.php 1 -
+/wp-includes/blocks/avatar/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/mad.php 1 -
+/wp-includes/blocks/comment-author-name/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/laboratorium.poltekkesbanten.ac.id.zip 1 -
+/assets/woldigi-OTH.php 1 -
+/.well-known/acme-challenge/brovas.php 1 -
+/wp-admin/abby.php 1 -
+/wp-includes/blocks/button/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/sistem/images/index.php 1 -
+/laboratorium-old.tar.gz 1 -
+/plugins/splide/spider.min.php 1 -
+/wp-includes/blocks/code/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/themes/themes.php 1 -
+/clay.php 1 -
+/wp-includes/blocks/quote/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/dr.php 1 -
+/accdoc.php 1 -
+/wp-content/plugins.php 1 -
+/constant.php 1 -
+/wp-includes/sodium_compat/namespaced/Core/Curve25519/Ge/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/funky.php 1 -
+/wp-content/B374K.php 1 -
+/wp-content/plugins/wp-file-manager/lib/php/connector.minimal.php 1 www.google.com
+/wp-content/lite.php 1 -
+/assets/Josea.php 1 -
+/wp-includes/alfapass.php 1 -
+/lcms/index.php 1 -
+/wp-admin/css/colors/ocean/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/search.php 2 -
+/website.tar 1 -
+/.admin.php 1 -
+/6index.php 1 www.google.com
+/captcha/autentification.php 1 -
+/wp-includes/blocks/missing/index.php 1 -
+/public/index.php/home/file/user_pics 1 -
+/poltekkesbanten_lama.tar 1 -
+/senpai.php 1 -
+/wp-includes/Text/Diff/Engine/index.php 1 -
+/assets/bak.php 1 -
+/system/libraries/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/.well-known/resource-that-should-not-exist-whose-status-code-should-not-be-200 2 https://laboratorium.poltekkesbanten.ac.id/login
+/help/js/index.php 1 -
+/components/button/snippets/id.php 1 -
+/.p0wny.php 1 -
+/laboratorium_poltekkesbanten.laboratorium.poltekkesbanten.ac.id.tar 1 -
+/laboratorium.poltekkesbanten.ac.id.tar.gz 1 -
+/wp-content/uploads/2024/9/mini.php 1 -
+/scan.php 1 -
+/ui/h5-vsan/rest/proxy/service/com.vmware.vsan.client.services.capability.VsanCapabilityProvider/getClusterCapabilityData 1 -
+/wp-includes/blocks/pattern/index.php 1 -
+/wp-includes/blocks/post-author/index.php 1 -
+/custom-header.php 1 -
+/wp-content/wp-class.php 1 -
+/options.php 1 -
+/null.php 1 -
+/repository/css.php 1 -
+/cgi-bin/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/laboratorium_poltekkesbanten.laboratorium.poltekkesbanten.ac.id.rar 1 -
+/0byt3m1n1.php 1 -
+/wp-content/themes/squared/style.css 1 -
+/public/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 4 -
+/vendor/phpunit/phpunit/src/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/application/helpers/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/file-upload.php 1 -
+/LazyShell.php 1 -
+/wp-admin/wp-caches.php 1 -
+/lock360.php 1 www.google.com
+/views.php 1 -
+/wp-content/.uploads.php 1 -
+/language.php 1 -
+/vendor/sabberworm/index.php 1 -
+/wp-includes/blocks/comments-title/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/post-author/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/core/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/images/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-about.php 1 -
+/fup.php 1 -
+/.vscode/sftp.json 1 -
+/app/readme.php 1 -
+/wp-includes/blocks/list-item/index.php 1 -
+/wp-includes/lite.php 1 -
+/bc.php 1 -
+/backuplaboratorium.tar 1 -
+/wp-includes/js/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/images/..%2fcgi/cgi_i_filter.js 1 https://laboratorium.poltekkesbanten.ac.id/info.html
+/include.php 1 -
+/.alfa403.php 1 -
+/webdesa_laboratorium.zip 1 -
+/4index.php 1 www.google.com
+/app/alfa403.php 1 -
+/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 5 -
+/wp-includes/blocks/spacer/spacer.php 1 -
+/backupmgt/localJob.php 1 -
+/wp-includes/wso.php 1 www.google.com
+/wp-includes/blocks/comment-template/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/alfac.php 1 -
+/wp-includes/blocks/audio/ip.php 1 -
+/static/install.phtml 1 -
+/-/MQyC.php 1 -
+/asset/images/icons/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/backup/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/clears.php 1 -
+/vendor/dompdf/index.php 1 -
+/wp-admin/wp-links.php 1 -
+/wp-includes/bypass.php 1 -
+/wp-includes/blocks/post-featured-image/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/antivirus.php 1 -
+/about/../tree 1 -
+/LABORATORIUMPOLTEKKESBANTEN.tar.gz 1 -
+/wp-includes/blocks/post-date/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/components/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/paragraph/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/plugins/tinymce/js/tinymce/plugins/filemanager/dialog.php 1 -
+/profile.php 1 -
+/wp-content/uploads/2024/4/index.php 1 -
+/wp-menu.php 1 -
+/wp-content/plugins/wp-mail/modules/tags-contribute.php 1 -
+/wp-includes/SimplePie/XML/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/laboratorium1.tar.gz 1 -
+/ac.rar 1 -
+/wp-includes/blocks/template-part/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/themes/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/pwn.php 1 -
+/assets.rar 1 -
+/mini.php 2 -
+/assets/pwn.php 1 -
+/xmlrpcs.php 1 -
+/wp-includes/blocks/freeform/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/admin.php 1 -
+/class-wp-term-conf.php 1 -
+/fbi.php 1 -
+/laboratorium.poltekkesbanten.ac.id.sql 1 -
+/cgi.php 1 -
+/public_html.zip 1 -
+/wp-includes/Text/Diff/Renderer/index.php 1 -
+/public/laravel-filemanager 1 -
+/wp-includs.php 1 -
+/api/v1/login/oauth2/auth 1 -
+/wp-admin/css/colors/midnight/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/comments-pagination-next/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/config.php 1 -
+/wp-includes/blocks/navigation-submenu/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/.about.php 1 -
+/wp-content/plugins/core-stab/index.php 1 www.google.com
+/assets/sa.php 1 -
+/wp-includes/blocks/paragraph/index.php 1 -
+/mce.php 1 -
+/bypass403.php 1 -
+/xx.php 1 -
+/wp-includes/blocks/comment-author-name/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/sistem/fungsi/index.php 1 -
+/alpass.php 1 -
+/backup/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/comment-edit-link/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/goods.php 1 -
+/indexx.php 1 -
+/wp-includes/theme-compat/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/88.php 1 -
+/assets/css/uploads/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 13 -
+/database/laboratorium.poltekkesbanten.ac.id.sql 1 -
+/vendor/phpspec/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/user/adminer.php 1 -
+/media/css/index.php 1 -
+/wp-includes/lock.php 1 -
+/assets/session.php 1 -
+/wp-content/uploads/2024/7/index.php 1 -
+/s2.php 1 -
+/user.action 1 -
+/wp-includes/blocks/comment-date/index.php 1 -
+/wp-includes/blocks/group/index.php 1 -
+/wp-admin/shellpw.php 1 -
+/admin/index.php 1 -
+/wp-admin/images.php 2 -
+/wp-includes/blocks/shortcode/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/web_laboratorium.tar 1 -
+/cgi-bin.rar 1 -
+/wp-includes/database.php 1 -
+/jembut.php 1 -
+/wp-includes/php-compat/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/Indosec.php 1 -
+/wp-admin/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/ban.php 1 -
+/wp-admin/gecko-new.php 1 -
+/application/cache/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/laboratorium_poltekkesbanten.laboratorium.poltekkesbanten.ac.id.zip 1 -
+/wp-includes/style-engine/style-engine.php 2 -
+/chosen.php 1 -
+/wp-content/font-editor.php 1 -
+/wp-content/seobarbar.php 1 -
+/.quarantine/haxorcgiapi/perl.haxor 1 -
+/nahpeh.php 1 -
+/wp-loads.php 1 -
+/wp-admin/session.php 1 -
+/wp-content/uploads/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/images/accesson.php 2 -
+/wp-admin/woldigi-MAR.php 1 -
+/wp-admin/main.php 1 -
+/wp-includes/b374k.php 1 -
+/contents.php 1 -
+/source/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/php-compat/about.php 1 -
+/assets/secure.php7 1 -
+/wp-includes/blocks/pattern/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/system/database/drivers/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets/woldigi-MAR.php 1 -
+/wp-content/themes/twentytwentythree/404.php 1 -
+/.git/config 6 -
+/lite.php 1 -
+/wp-includes/images.php 1 -
+/wp-content/cache.php 1 -
+/wp-admin/images/index.php 1 -
+/wp-admin/load88.php 1 -
+/apple-touch-icon-precomposed.png 179 -
+/cgialfa/config.alfa 1 -
+/ts.php 1 -
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/main.php 1 -
+/wp-includes/block-supports/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/plugins/plugins/fileman 3 https://laboratorium.poltekkesbanten.ac.id/assets/plugins/plugins/fileman//
+/resources/index.php 1 -
+/wp-content/abyp.php 1 -
+/wp-includes/blocks/latest-comments/index.php 1 -
+/assets/readme.php 1 -
+/control.php 1 -
+/public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 4 -
+/sa.php 1 -
+/vendor/mdmsoft/yii2-admin/views/menu/index.php 1 -
+/wp-content/plugins/wpcargo/includes/34dnM61hvBYJSFXgsDyBUApoQEY.php 2 -
+/wp-includes/blocks/comments-pagination-next/index.php 1 -
+/captcha/priv.php 1 -
+/ddd.php 1 -
+/wp-content/plugins/cleantalk-spam-protect/readme.txt 1 -
+/css/themes/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/app/.env 1 -
+/assets/js/plugins/library/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-comments-post.php 1 -
+/components/button/snippets/hoki.php 1 -
+/backup_laboratorium.poltekkesbanten.ac.id.tar 1 -
+/wp-22.php 1 www.google.com
+/laboratorium_2024.zip 1 -
+/lama.rar 1 -
+/app/system.php 1 -
+/wp-includes/mini.php 1 -
+/wp-includes/pomo/log.php 1 -
+/wp-content/uploadfile.php 1 -
+/wp-includes/css/alfa.php 1 -
+/POLTEKKESBANTEN.rar 1 -
+/wp-admin/lite-MAR.php 1 -
+/wp-admin/kn.php 1 -
+/wp-content/uploads/2024/8/mini.php 1 -
+/application/helpers/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/POLTEKKESBANTEN.tar 1 -
+/g3l4y.php 1 -
+/application/config/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-the1me.php 1 -
+/wp-includes/blocks/verse/verse.php 1 -
+/wp-content/abby.php 1 -
+/wp-includes/sample.php 1 -
+/mk.php 1 -
+/1337_DATA/alfacgiapi/perl.alfa 1 -
+/assets/backend/plugins/fileman 3 https://laboratorium.poltekkesbanten.ac.id/assets/backend/plugins/fileman//
+/wp-includes/blocks/preformatted/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/plugins/litespeed-cache/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/uploads/2024/01/wibu.php 1 -
+/backup_laboratorium.poltekkesbanten.ac.id.tar.gz 1 -
+/wp-includes/css/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets/media.php 1 -
+/site.php 1 -
+/wp-includes/ID3/ID3.php 1 -
+/wp-content/alfapass.php 1 -
+/wp-content/plugins/library/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/responsive_filemanager/filemanager/dialog.php 1 -
+/.well-known/acme-challenge/index.php 1 -
+/wp-content/uploads/2024/9/byp.php 1 -
+/wp-content/wp-themes.php 1 -
+/wp-admin/sa.php 1 -
+/wp-content/readme.php 1 -
+/license.php 1 -
+/app/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/class-IXR-date.php 1 -
+/gecko.phtml 1 -
+/bssn.php 1 -
+/vendor/phpunit/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/t.php 1 -
+/fileuploader.php 1 -
+/system/database/drivers/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/SimplePie/simplePie.php 1 -
+/RPC2_Login 2 -
+/econfig.php 1 -
+/wp-content/includes.php 1 -
+/nav-menus.php 1 -
+/wp-includes/blocks/cover/index.php 1 -
+/vendor/phpspec/index.php 1 -
+/LABORATORIUM.tar 1 -
+/application/logs/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/table/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/wpo-cache/LEVIATHAN/haxorcgiapi/perl.haxorwp-content/wpo-cache/config/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/x 1 -
+/wp-admin/alfa403.php 1 -
+/up.php 2 -
+/wp-includes/blocks/comments-title/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/IXR/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/wp-user.php 1 -
+/hiddenhaxor.php 1 -
+/wp-admin/info.php 1 -
+/.rul.php 1 -
+/wp-admin/maint/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/SimplePie/XML/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/comment-edit-link/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/query-pagination-previous/index.php 1 -
+/ppid/index.php 1 -
+/pages/templates2/viewpagetemplate.action 1 -
+/mari.php 1 -
+/wp-includes/java.php 1 -
+/wp-includes/blocks/audio/index.php 1 -
+/aa.php 1 -
+/wp-includes/blocks/query-pagination-previous/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/photos/alfapass.php 1 -
+/custom.php 1 -
+/.tmb/haxorcgiapi/perl.haxor 1 -
+/wp-includes/anonsec.php 1 -
+/system/helpers/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/themes/twentytwentytwo/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/colors.php 1 -
+/poltekkesbanten_2024.zip 1 -
+/wp-includes/blocks/table/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/adminer-5.4.2.php 1 -
+/wp-includes/alfa.php 1 -
+/app/alfa.php 1 -
+/wp-content/xcc.php 2 -
+/wp-admin/css/colors/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/xleet.php 1 -
+/wp-admin/a1.php 1 -
+/install.phtml 1 -
+/wp-includes/Text/Diff/Renderer/outline.php 2 -
+/wp-json/omapp/v1/support 1 https://wp.app.optinmonster.test
+/assets/css/plugins/library/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/.tmb/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/query-title/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/i.php 1 -
+/Tests/Unit/index.php 1 -
+/assets/js/plugins/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/comments-pagination/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/1.php 2 -
+/http/index.php 2 -
+/wp-includes/blocks/missing/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/settings.php 1 -
+/c.php 2 -
+/wp-includes/style-engine/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/public/index.php 1 -
+/options-discussion.php 1 -
+/nvr.php 1 -
+/wp-includes/rest-api/endpoints/security.php 1 -
+/wp-includes/plugins.php 1 -
+/js/chartjs/index.php 1 -
+/wp-includes/blocks/details/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/desa_laboratorium.tar.gz 1 -
+/backup.tar.gz 1 -
+/asset/images/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-contact.php 1 -
+/wp-includes/shell20211028.php 1 www.google.com
+/files/filemanager/dialog.php 1 -
+/input.php 1 -
+/wp-includes/blocks/comments-pagination-numbers/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-crons.php 1 -
+/wp-admin/user/ayazz.php 1 -
+/laboratorium.poltekkesbanten.ac.id.tar 1 -
+/AurallRECMonitor/services/svc-login.php 1 -
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/old.zip 1 -
+/.well-known/traffic-advice 3 -
+/other-decode.php 1 -
+/wiki/pages/createpage-entervariables.action 2 -
+/wp-includes/blocks/freeform/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/mini-fm.php 1 -
+/js/javascript/fm/filemanager/dialog.php 1 -
+/data-user.php 1 -
+/assets/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/alfapass.php 1 -
+/upload/autentification.php 1 -
+/images/..%2finfo.html 3 https://laboratorium.poltekkesbanten.ac.id/info.html
+/lv.php 1 -
+/assets/filemanager/dialog.php 2 -
+/postnews.php 1 www.google.com
+/wp-includes/core-admin.php 1 -
+/class-vendor.php 1 -
+/vendorss/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/assets/plugins/ckeditor/plugins/fileman 3 https://laboratorium.poltekkesbanten.ac.id/assets/plugins/ckeditor/plugins/fileman//
+/help/js/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/form.php 1 -
+/laboratoriumpoltekkesbanten.tar 1 -
+/alfabypass.php 1 -
+/wp-includes/blocks/tag-cloud/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-meil.php 1 -
+/test.cgi 1 ()%20{%20ignored
+/assets/wp-login.php 1 -
+/wp-admin/user/ts.php 1 -
+/js/filemanager/filemanager/dialog.php 1 -
+/sessions.php 1 -
+/wp/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/terminal-root.php 1 -
+/hlya.php 1 -
+/.Wp-back.phP 1 www.google.com
+/wp-includes/blocks/comment-template/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/user.php 1 -
+/error303.php 1 -
+/wp-uploads.php 1 -
+/wp-includes/blocks/navigation-link/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/plugins/cidaas-pro-master/composer.json 6 -
+/style-js.php 1 -
+/settings.php.txt 1 -
+/wp-admin/radio.php 1 -
+/wp-content/plugins/litespeed-cache/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/uploads/2024/04/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets/B374K.php 1 -
+/wp-includes/votes.php 1 -
+/system/database/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/axis2/axis2-admin/login 1 -
+/wp-admin/maint/class_api.php 1 -
+/wp-content/perkosa.php 1 -
+/system/libraries/Session/drivers/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/backlink.php 1 -
+/b0x.php 1 -
+/backup_laboratorium.tar 1 -
+/upgrade/old_sql/index.php 1 -
+/application/libraries/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/vendor/phpdocumentor/index.php 1 -
+/desa.tar.gz 1 -
+/wp-includes/blocks/post-excerpt/index.php 1 -
+/backup/laboratorium.poltekkesbanten.ac.id.sql 1 -
+/wp-includes/Text/Diff/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/install.php 1 -
+/wp-includes/blocks/calendar/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/misc.php 1 -
+/2025.tar 1 -
+/bypas.php 1 -
+/wp-includes/blocks/post-terms/index.php 1 -
+/fx-mini.php 1 -
+/program/include/index.php 1 -
+/adminnn.php 1 -
+/wp-includes/blocks/post-template/index.php 1 -
+/wp-content/modules.php 1 -
+/laboratoriumpoltekkesbanten.tar.gz 1 -
+/backend/views/files.php 1 -
+/assets/lite.php 1 -
+/nothingX.php 1 -
+/wp-includes/blocks/navigation/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/lama.zip 1 -
+/js/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/uploads/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets/andromedax.php 1 -
+/laboratorium1.rar 1 -
+/wp-admin/hoki.php 1 -
+/laboratorium-poltekkesbanten-laboratorium.poltekkesbanten.ac.id.tar 1 -
+/vendor/myclabs/index.php 1 -
+/css/images/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/.well-known/privacy-sandbox-attestations.json 2 https://laboratorium.poltekkesbanten.ac.id/login
+/wp-admin/filemanager.php 1 -
+/wp-navigate.php 1 -
+/lol.php 1 -
+/system/fonts/aib.php 1 -
+/wp-includes/Text/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/woldigi.php 1 -
+/./RestAPI/LogonCustomization 2 -
+/wp-includes/blocks/archives/index.php 1 -
+/wp-content/0byt3m1n1.php 1 -
+/application/language/english/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/.well-known/acme-challenge/file.php 1 -
+/wp-admin/wp-mails.php 1 -
+/wp-includes/blocks/footnotes/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/sessions.php 1 -
+/wp-admin/anon7.php 1 -
+/assets/js/themes/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/alfapass.php 1 -
+/password/index.html 3 -
+/fox2.php 1 -
+/wp-includes/wol.php 1 -
+/2index.php 1 www.google.com
+/wp-content/.xixixi.php 1 -
+/cylul.php 1 -
+/LABORATORIUM.POLTEKKESBANTEN.tar 1 -
+/alfa_bashful.php 1 -
+/assets/js/updraft/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/cgi-bin/test 1 ()%20{%20ignored
+/vendor/laravel-filemanager/css/lfm.css 3 -
+/wp-includes/blocks/read-more/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/comments-title/index.php 1 -
+/%04%D7%7F%BF%18%D8%7F%BF%18%D8%7F%BFd%B8%06%08 1 -
+/cache/index.php 1 -
+/web.rar 1 -
+/journals.rar 1 -
+/wp-includes/.admin.php 1 -
+/chris.php 1 -
+/.anonsec.php 1 -
+/wp-editors.php 1 -
+/pmb.zip 1 -
+/application/index.php 1 -
+/wp-includes/leaf.php 1 -
+/.lib/index.php 1 -
+/wp-editor.php 1 -
+/assets/css/plugins/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/system.tar.gz 1 -
+/wp-mails.php 1 -
+/wp-admin/images/doc.php 1 -
+/asset/haxorcgiapi/perl.haxor 1 -
+/goanywhere/auth/Login.xhtml 1 -
+/wp-includes/hlya.php 1 -
+/wp-includes/includes.php 1 -
+/wp-includes/sodium_compat/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/uploads/2024/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/fsoxhl.php 1 -
+/media/tinymce/index.php 1 -
+/wp-includes/blocks/details/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/font-editor.php 1 -
+/styling-css.php 1 -
+/help/index.php 1 -
+/wp-includes/css/alfa403.php 1 -
+/wp-includes/wp-themes.php 1 -
+/LABORATORIUM.tar.gz 1 -
+/wp-content/filemanager.php 1 -
+/crot.php 1 -
+/gelay-enc.php 1 -
+/app/marijuana.php 1 -
+/application/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/webdesalaboratorium.tar 1 -
+/laboratorium_lama.rar 1 -
+/assets/marijuana.php 1 -
+/radio.php 2 -
+/laboratorium.poltekkesbanten.tar.gz 1 -
+/upgrade/index.php 1 -
+/wp-admin/alfa.php 2 -
+/data/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/wp-includes/blocks/preformatted/index.php 1 -
+/system/libraries/index.php 1 -
+/admin/filemanager/dialog.php 1 -
+/locales.php 2 www.google.com
+/backuplaboratorium.rar 1 -
+/u5mkr.php 1 -
+/tplus/ajaxpro/Ufida.T.CodeBehind._PriorityLevel,App_Code.ashx 1 -
+/-/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/system/libraries/Cache/drivers/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/c99.php 1 -
+/vendors/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/application/controllers/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/adminer.php 3 -
+/wp-includes/wp-config.php 1 -
+/34dnMAPJ0zeBWULZ9VNtOD23Hnm.php' 1 -
+/protected/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/wp-admin/user-old.php 1 -
+/wp-admin/skeined.php 1 -
+/wp-admin/gecko.php 1 -
+/fofi.php 1 -
+/upload/inspect.php 1 -
+/wp-includes/blocks/block/index.php 1 -
+/123.php 1 -
+/wp-content/themes/ccx/index.php 1 www.google.com
+/wp-includes/wp-ajax.php 1 -
+/application/core/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/anonsec.php 1 -
+/wp-includes/blocks/html/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/gecko-old.php 1 -
+/wp-includes/blocks/list-item/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/wp-security.php 1 -
+/uploads/Plugins.php 1 -
+/font-editor.php 1 -
+/help/assets/index.php 1 -
+/wp-includes/fonts/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/download/index.php 1 -
+/fmangersub 1 -
+/public/data_lampiran/upload.php 1 -
+/wp-json/custom/v1 1 -
+/wp-includes/blocks/page-list/index.php 1 -
+/wp-content/nothingX.php 1 -
+/wp-config.php 1 -
+/wp-configs.php 1 -
+/.well-known/pki-validation/saad@alfa26889.php 1 -
+/.bak.php 1 -
+/wp.php 2 -
+/wp-content/uploads/2024/8/Gecko.php 1 -
+/wp-includes/rest-api/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/media/select2/index.php 1 -
+/webadmin/auth/verification.php 1 https://laboratorium.poltekkesbanten.ac.id/webadmin/start/
+/wp-content/themes/classwithtostring.php 1 -
+/poltekkesbanten_lama.rar 1 -
+/wp-includes/blocks/social-links/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/SimplePie/Net/index.php 1 -
+/wp-includes/blocks/avatar/index.php 1 -
+/wp-includes/MARIJUANA.php 1 -
+/wp-content/uploads/ac_assets/IndoSec.php 1 www.google.com
+/wp-content/hid.php 1 -
+/wp-content/wp-cron.php 1 -
+/wp-includes/js/.js.php 1 -
+/system/database/drivers/index.php 1 -
+/easytools.php 1 -
+/wp-admin/index1.php 1 -
+/wp-includes/blocks/file/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/SimplePie/Parse/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/pages/createpage.action 1 -
+/wp-includes/blocks/file/index.php 1 -
+/poltekkesbanten_2024.tar.gz 1 -
+/wp-content/mu-plugins/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/fushigore.php 1 -
+/website_laboratorium.poltekkesbanten.ac.id.zip 1 -
+/sbpass.php 1 -
+/dev.php 1 -
+/wp-feed.php 1 -
+/votes.php 1 -
+/wp-admin/css/colors/colors/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/asset/images/misc/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/34dnM3MXZ01YuXG97x3aBfVIJEc.php 1 -
+/class-wp-block-supports.php 1 -
+/wp-content/uploads/2024/8/index.php 1 -
+/uplosd.html 1 -
+/asset/plugins/filemanager/dialog.php 1 -
+/media/files/index.php 1 -
+/wp-content/wso.php 1 www.google.com
+/wp-sample.php 2 -
+/assets/thirdparty/filemanager/filemanager/dialog.php 2 -
+/assets/includes.php 1 -
+/old.tar 1 -
+/wp-admin/includes.php 1 -
+/file-upload.php 1 -
+/wp-includes/blocks/heading/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/js/style.php 1 -
+/system.zip 1 -
+/minishell.php 1 -
+/wp-includes/blocks/post-comments-form/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/nive.php 1 -
+/lucee/34dnM7ziQQJEjalwfSh1y7M1iES.cfm 1 -
+/wp-admin/auth.php 1 -
+/wp-includes/blocks/gallery/index.php 1 -
+/ghost.php 1 -
+/brovas.php 1 -
+/database/priv.php 1 -
+/wp-includes/fonts.php 1 -
+/assets/sample.php 1 -
+/vendor/phpunit/phpunit/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/start.php 1 -
+/mau-ngapain.php 1 -
+/module/productcomments/CommentGrade 1 -
+/wp-content/wp-links.php 1 -
+/assets/cache.php 1 -
+/wp-includes/0.php 1 -
+/wp-admin/MARIJUANA.php 1 -
+/public/scss/index.php 1 -
+/wp-includes/blocks/rss/rss.php 1 -
+/wp-admin/css/colors/colors/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-ajax.php 1 -
+/wp-includes/blocks/latest-posts/index.php 1 -
+/vendor/phenx/index.php 1 -
+/cgi-bin/mt/mt-xmlrpc.cgi 1 -
+/wp-content/pwn.php 1 -
+/webdesa_laboratorium.poltekkesbanten.ac.id.tar.gz 1 -
+/pmb.tar 1 -
+/assets/cylul.php 1 -
+/wp-admin/wp-admin.php 1 -
+/cgi-bin/cgiServer 1 -
+/wp-admin/.admin.php 1 -
+/PluginsHandling.inc.php 1 -
+/cache/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/administrator/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/controller/origemdb.php 1 -
+/wp-includes/function.php 1 -
+/wp-includes/Text/Diff/Renderer/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/public/data_lampiran/image1.png.php 1 -
+/wp-content/wp-login.php 1 -
+/wp-includes/abbyp.php 1 -
+/wp-content/wol.php 1 -
+/assets/asets.php 1 -
+/puki.php 1 -
+/wp-includes/Wso.php 1 -
+/asset/js/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/boy.php 1 -
+/.well-known/pki-validation/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/.well-known/san.php 1 -
+/digital.php 1 -
+/application.rar 1 -
+/wp-content/uploads/2024/1/index.php 1 -
+/wp-admin/htaccess.php 1 -
+/wp-content/uploads/2023/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/js/widgets/simple.php 1 -
+/wp-content/plugins/pie-register/readme.txt 1 -
+/adminer-5.4.1.php 1 -
+/wp-admin/mini-shell.php 1 -
+/wp-admin/blank.php 1 -
+/wp-includes/blocks/categories/index.php 1 -
+/fierza.php 3 -
+/wp-admin/myass.php 1 -
+/wp-scripts.php 1 -
+/backup.zip 1 -
+/upload/size.php 1 -
+/281.php 1 -
+/public/js/index.php 1 -
+/wp-content/leaf.php 1 -
+/makeasmtp.php 1 -
+/wp-content/wp-caches.php 1 -
+/wp-includes/blocks/pullquote/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/separator/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/Text/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/get-money.php 2 -
+/.bypp.php 1 -
+/laypas.phtml 1 -
+/wp-content/uploads/2024/8/bypass.php 1 -
+/0.php 1 -
+/laboratorium.tar.gz 1 -
+/app/gecko.php 1 -
+/wp-users.php 1 -
+/solr/admin/cores 1 -
+/.xmlrpc.php 1 -
+/wp-plugins.php 1 -
+/program/index.php 1 -
+/app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-content/uploads/2024/09/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/ecp/34dnM6RECagd5FIOidQ60nCTUNJ@DG2HZ.com/PersonalSettings/HomePage.aspx 1 -
+/wp-content/themes/twentytwentythree/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/getcfg.php 1 -
+/template/index.php 1 -
+/wp-includes/blocks/column/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/api/config/stats.php 1 -
+/wp-includes/blocks/comments-pagination-previous/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/journalslaboratorium.tar 1 -
+/database.php 1 -
+/backup_laboratorium.poltekkesbanten.ac.id.rar 1 -
+/asset/css/alfacgiapi/perl.alfa 1 -
+/wp-content/file-upload.php 1 -
+/.well-known/brovas.php 1 -
+/wp-includes/bak.php 1 -
+/defaul.php 1 -
+/wsman 1 -
+/uploads/-/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/block-patterns/block-patterns.php 1 -
+/wp-title.php 1 -
+/assets/uploads/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/file/wso.php 1 -
+/wp-content/.config.php 1 -
+/downloads/index.php 1 -
+/wp-includes/mini_shell.php 1 -
+/wp-admin/user/license.php 1 -
+/nopass.php 1 -
+/wp-admin/system.php 1 -
+/main.php 1 -
+/wp-includes/block-patterns/index.php 1 -
+/wp-includes/blocks/post-excerpt/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/app/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/uploadfile.php 1 -
+/vendor/mpdf/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/plugin/run.php 1 -
+/kominfo.php 1 -
+/assets/.alfa.php 1 -
+/wp-admin/gecko-old.php 1 -
+/wp-includes/blocks/post-navigation-link/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/tinymce/plugins/responsivefilemanager/dialog.php 1 -
+/public/.env 1 -
+/wp-includes/Requests/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/cgibin/webproc 1 -
+/project/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/wp-content/wflogs/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/block-patterns/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-configsss.php 1 -
+/plugins.php 1 -
+/wp-content/p0wny.php 1 -
+/v1/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/wp-content/auth.php 1 -
+/LABORATORIUM.POLTEKKESBANTEN.AC.ID.rar 1 -
+/assets/postfs.php 1 -
+/lau.php 1 -
+/webdesa_laboratorium.rar 1 -
+/admin.php 2 -
+/wg.php 1 -
+/tryLogin.cgi 1 -
+/wp-includes/wolv2.php 1 -
+/wp-includes/blocks/comments/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/bak.php 1 -
+/assets/css/themes/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/settings.php.old 1 -
+/wp-includes/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/e.php 1 -
+/symlink.php 1 -
+/wp-includes/js/kas.php 1 -
+/wp-admin/minishell.php 1 -
+/wp-includes/blocks/term-description/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/updates.php 1 -
+/.lock.php 1 -
+/media/icons/index.php 1 -
+/bypass404.php 1 -
+/q.php 1 -
+/autentification.php 1 -
+/js/ckeditor/index.php 1 -
+/assets/lock666.php 1 -
+/class-ftp-pures.php 1 -
+/wp-functions.php 1 -
+/wp-includes/images/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/mini.php 1 -
+/web.tar.gz 1 -
+/wp-includes/blocks/comment-content/index.php 1 -
+/wp-content/litespeed/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/pmblaboratorium.tar.gz 1 -
+/wp-content/themes/twentytwentyone/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/js/widgets/custom.php 1 -
+/3index.php 1 www.google.com
+/wp-includes/blocks/column/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/database/poltekkesbanten.sql 1 -
+/public/vendor/filemanager/dialog.php 2 -
+/wp-includes/blocks/image/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets/uploads.php 1 -
+/scdc.php 1 -
+/wp-content/uploads/2024/05/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/uploads/2024/9/alfa.php 1 -
+/wp-includes/Requests/requests.php 1 -
+/assets/0.php 1 -
+/wp-includes/blocks/calendar/index.php 1 -
+/wp-includes/blocks/widget-group/hALFA_DATA/alfacgiapi/perl.alfa 1 -
+/pub/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/havk0r.php 1 -
+/hid.php 1 -
+/jurnallaboratorium.tar.gz 1 -
+/backup/poltekkesbanten.sql 1 -
+/wp-includes/blocks/table/table.php 1 -
+/jembud.php 1 -
+/laravel-filemanager 1 -
+/wp-includes/ID3/plugin.php 1 -
+/wp-includes/program.php 1 -
+/blackmamba.php 1 -
+/wp-content/wp-cache.php 1 -
+/tr.php 1 -
+/wp-content/anons79.php 1 -
+/bs.php 1 -
+/wp-content/shell20211028.php 1 www.google.com
+/abby.php 1 -
+/wp-includes/SimplePie/XML/index.php 1 -
+/wp-includes/blocks/search/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/index.php 1 -
+/s3.php 1 -
+/header.php 1 -
+/buy.php 1 -
+/assets/css/updraft/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/themes/seotheme/mar.php 1 www.google.com
+/wp-includes/blocks/pullquote/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/background.php 1 -
+/wp-admin/.wp-admin.php 1 -
+/upload/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/customize.php 1 -
+/website.rar 1 -
+/wp-admin/wol.php 1 -
+/laboratorium.tar 1 -
+/wp-includes/blocks/legacy-widget/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/kn.php 1 -
+/wp-content/plugins/wordpress-seo/src/services/importing/aioseo/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/pattern/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/colors.php 1 -
+/wp-includes/SimplePie/HTTP/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/hiddenuploader.php 1 -
+/ssl.php 1 -
+/wp-admin/includes/class-wp-screen_49.php 1 -
+/wp-signup.php 1 -
+/wp-includes/blocks/more/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/comments-pagination-previous/index.php 1 -
+/assets/303-Nothingx.php 1 -
+/wp-includes/blocks/comments/index.php 1 -
+/indx.php 1 -
+/cgi-bin/status 1 ()%20{%20ignored
+/wp-includes/blocks/post-author-biography/index.php 1 -
+/assets/IndoXploit.php 1 -
+/alfasdonat.php 1 -
+/assets/p37k.php 1 -
+/wp-content/cache/br01.php 1 -
+/wp-includes/pra.php 1 -
+/wp-admin/size.php 1 -
+/assets/autoload.php 1 -
+/theme/admin/dist/filemanager/dialog.php 1 -
+/indoxploit.php 1 -
+/wp-content/fw.php 1 www.google.com
+/cgi-bin.tar 1 -
+/wp-content/themes/hello-elementor/404.php 1 -
+/wp-admin/user/users.php 1 -
+/sample-config-options.php 1 -
+/help/assets/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/video/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/images/images/cache.php 4 -
+/wp-includes/customize/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/p37k.php 1 -
+/wp-admin/includes/index.php 1 -
+/wp-admin/.uploads.php 1 -
+/wp-content/fox-wso.php 1 -
+/service.php 1 -
+/LABORATORIUMPOLTEKKESBANTEN.rar 1 -
+/b.php 1 -
+/.alf.php 1 -
+/45.php 1 -
+/pages.php 1 -
+/wp-content/uploads/2024/6/index.php 1 -
+/owa/auth/x.js 1 -
+/wp-admin-backups.php 1 -
+/wp-admin/news.php 1 -
+/ini.php 1 -
+/wp-includes/fonts/index.php 1 -
+/wp-includes/LazyShell.php 1 -
+/footer-templates.php 1 -
+/wp-includes/css/css.php 1 -
+/lnc.php 1 -
+/wp-content/Indosec.php 1 -
+/wp-includes/block-patterns/file.php 1 -
+/help/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/.config.php 1 -
+/tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/wp-content/xl2023.php 1 www.google.com
+/config.php 2 -
+/file/uplod.php 1 -
+/system/libraries/Cache/drivers/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/repository/jox.php 1 -
+/wp-admin/css/colors/blue/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/n.php 1 -
+/wp-includes/certificates/certificates.php 2 -
+/oldlaboratorium.tar.gz 1 -
+/2024.tar 1 -
+/wp-content/themes/rise/style.css 1 -
+/system/languange/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets/skeined.php 1 -
+/application/views/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/eror.php 1 -
+/user/files/filemanager/dialog.php 1 -
+/bsh.servlet.BshServlet 1 -
+/wp-admin/core-admin.php 1 -
+/406.php 1 www.google.com
+/assets/go.php 1 -
+/laboratorium2.rar 1 -
+/assets/priv.php 1 -
+/tc.CBS.Appl/tcspseudo 1 -
+/LABORATORIUM.POLTEKKESBANTEN.AC.ID.tar 1 -
+/wp-includes/cylul.php 1 -
+/repository/shinta.php 1 -
+/wp-includes/blocks/navigation-link/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/upload-file.php 1 -
+/wp-content/xmlrpc.php 1 -
+/old.tar.gz 1 -
+/shop/mini.php 1 -
+/user-cron.php 1 -
+/nc4r3p1.php 1 -
+/wp-includes/wp-class.php 2 -
+/.well-known/acme-challenge/haxorcgiapi/perl.haxor 1 -
+/config/internet.php 1 -
+/abbyp.phtml 1 -
+/journals.zip 1 -
+/wp-content/plugins/sid/sidwso.php 1 www.google.com
+/.of.php 1 -
+/assets/bypass.php 1 -
+/assets/C99.php 1 -
+/wp-content/themes/focusblog/style.css 1 -
+/wp-includes/blocks/query-no-results/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/goform/setmac 1 https://laboratorium.poltekkesbanten.ac.id/index.htmlr
+/cgialfa/user.alfa 1 -
+/database_log.phar 1 -
+/filemanager/byps.php 1 -
+/.well-known/acme-challenge/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/plugins/showbizpro/temp/update_extract/wuVoS.php 1 -
+/wp-admin/widgets-log.php 1 -
+/includes/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets/data/tinymce/plugins/filemanager/dialog.php 1 -
+/wp-configss.php 1 -
+/default.php 1 -
+/wp-includes/blocks/image/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/php-compat/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/includes/shell.php 1 -
+/al.php 1 -
+/wp-content/alfa403.php 1 -
+/seeyon/htmlofficeservlet 1 -
+/wp-includes/SimplePie/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/vendor/mpdf/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/laboratorium_lama.tar.gz 1 -
+/wp-admin/votes.php 1 -
+/phpinfo.php 1 www.google.com
+/seok.php 1 -
+/system/fonts/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-update.php 1 -
+/style.php 1 -
+/aknahsdfsd.php 1 -
+/file-manager/ckeditor 1 -
+/app/haxorcgiapi/perl.haxor 1 -
+/fpui/loginServlet 1 -
+/dashboardUser 1 -
+/other.php 1 -
+/wp-content/uploads/-/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/plugins/simple/wp-add.php 1 -
+/web_laboratorium.zip 1 -
+/wp-admin/uploadfile.php 1 -
+/gelay.php 1 -
+/wp-content/upgrade/index.php 1 -
+/LABORATORIUMPOLTEKKESBANTEN.zip 1 -
+/templates.php 1 -
+/autodex.php 1 -
+/wp-content/wp-mails.php 1 -
+/assets/wp555.php 1 -
+/assets/ckeditor/plugins/fileman 2 https://laboratorium.poltekkesbanten.ac.id/assets/ckeditor/plugins/fileman//
+/searcher.php 1 -
+/wp-admin/css/colors/light/func.php 1 -
+/assets/r1.php 1 -
+/wp-includes/blocks/blocks.php 1 -
+/fuck.php5 1 -
+/anonsec.phtml 1 -
+/public.tar 1 -
+/wp-admin/user/user-old.php 1 -
+/wp-content/ms-functions.php 1 -
+/wp-content/Josea.php 1 -
+/wp-includes/blocks/latest-comments/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/public/filemanager 1 -
+/.well-known/apple-app-site-association 3 https://laboratorium.poltekkesbanten.ac.id/login
+/size.php 1 -
+/php-function.php 1 -
+/cgi-bin/test.cgi 1 ()%20{%20ignored
+/poltekkesbanten.tar.gz 1 -
+/wp-content/uploads/kaswara/fonts_icon/qmeunh/ho.php 1 -
+/wp-includes/run.php 1 -
+/wp-content/.cache.php 1 -
+/assets/phpinf.php 1 -
+/fvck-.php 1 -
+/public/fonts/index.php 1 -
+/wpadminss.php 1 -
+/cache/styling-css.php 1 -
+/.well-known/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/ID3/vp.php 1 www.google.com
+/wp-lib.php 1 -
+/wp-includes/blocks/comments-pagination/index.php 1 -
+/wp-content/pluginsnew.php 1 -
+/database/index.php 1 -
+/wp-includes/fox-wso.php 1 -
+/LABORATORIUM.POLTEKKESBANTEN.tar.gz 1 -
+/blog-header.php 1 -
+/wp-content/cache/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/sistem/data/index.php 1 -
+/old/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/block-supports/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/images/media/LEVIATHAN/haxorcgiapi/perl.haxoralfacgiapi/perl.alfa 1 -
+/wrpoliksa.php 1 -
+/wp-includes/blocks/query-no-results/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/plugins/bj-lazy-load/thumb.php 2 -
+/wp-admin/includes/logs.php 1 www.google.com
+/login/xmlrpc.php 2 https://kontainer.samudera.id/blog//wp-login.php
+/include/mini.php 1 -
+/wp-type.php 1 -
+/abyp.phtml 1 -
+/api/snapshots 1 -
+/file.php 1 -
+/corn.php 1 -
+/program/steps/index.php 1 -
+/wp-includes/blocks/buttons/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/asset.php 1 -
+/wp-admin/wp-json.php 1 -
+/desa_laboratorium.rar 1 -
+/wp-content/uploads/2024/07/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/gecko.php 1 -
+/wp-content/alfa_bashful.php 1 -
+/journals.tar.gz 1 -
+/wp-content/uploads/2024/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/jurnal.tar 1 -
+/99.php 1 -
+/website_laboratorium.rar 1 -
+/file/filemanager/dialog.php 1 -
+/assets/teslas.php 1 -
+/template/custom/content-editor 1 -
+/_search 1 -
+/wp-includes/server.php 1 -
+/wp-content/themes/twentytwentyone/assets/css/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/SimplePie/Content/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/asset/css/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/geoserver 1 https://laboratorium.poltekkesbanten.ac.id/geoserver/
+/Not-Found.php 1 -
+/wp-content/root.php 1 -
+/wp-admin/admin-ajax.php 19 -
+/wp-includes/blocks/query-pagination/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/css/colors/blue/makeasmtp.php 1 -
+/wp-includes/assets/index.php 1 -
+/.tester23634.php 1 -
+/files/uploader.php 1 -
+/wp-includes/PHPMailer/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/asset/media/alfacgiapi/perl.alfa 1 -
+/web_laboratorium.poltekkesbanten.ac.id.rar 1 -
+/upload/filemanager/dialog.php 1 -
+/plugins/filemanager/dialog.php 1 -
+/wp-content/uploads/2023/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp_backup.php 1 -
+/wp-json/buddypress/v1/signup 1 -
+/web_laboratorium.rar 1 -
+/wp-content/plugins/wp-statistics/readme.txt 1 -
+/wp-includes/blocks/post-title/index.php 1 -
+/css/index.php 1 -
+/1index.php 1 www.google.com
+/weblaboratorium.tar.gz 1 -
+/wp-admin/includes/capil%20.php 1 -
+/public/assets/plugins/jquery-countdown/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/rest-api/fields/function.php 1 -
+/app/Libraries/index.php 1 -
+/newfile.php 1 -
+/wp-content/Wso.php 1 -
+/pmb.tar.gz 1 -
+/media/bootstrap-modal/index.php 1 -
+/database/factories/index.php 1 -
+/wp-includes/blocks/query/index.php 1 -
+/wp-admin/user/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/druid/indexer/v1/sampler 1 -
+/wp-content/links-opml.php 1 -
+/mobile/plugin/browser.jsp 1 -
+/wp-content/kem.php 1 -
+/sql/laboratorium.sql 1 -
+/wp-admin/cylul.php 1 -
+/kn.php 1 -
+/fileman.php 1 -
+/.pwn.php 1 -
+/system/helpers/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/query-no-results/index.php 1 -
+/desa.rar 1 -
+/jp.php 1 -
+/.wp-crons.php 1 -
+/laboratorium2.tar 1 -
+/wp-includes/blocks/post-author-biography/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes.php 1 -
+/wp-content/wp-user.php 1 -
+/homeaction.php 1 -
+/alpa.php 1 -
+/wp-includes/blocks/post-date/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/links-opml.php 1 -
+/mv.php 1 -
+/wp-includes/blocks/columns/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/wordpress.php 1 -
+/wp-includes/blocks/comment-reply-link/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/shell.php 2 -
+/wp-includes/blocks/details/index.php 1 -
+/d.php 1 -
+/assets/gecko.php 1 -
+/assets/size.php 1 -
+/vendor/phpunit/phpunit/src/Util/PHP/.eval-stdin.php 1 -
+/wp-includes/css/.css.php 1 -
+/trash236735.php 1 -
+/doc.php 1 www.google.com
+/assets/-/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/b374k.php 1 -
+/file/alfa.php 1 -
+/alo.php 1 -
+/wp-includes/blocks/shortcode/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/social-link/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/operator_lang.php 1 -
+/options-index.php 1 -
+/p37k.php 1 -
+/wp-includes/html-api/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/widgets/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/well-known.tar 1 -
+/zone.php 1 -
+/Cron.php 1 -
+/js/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/dwqdonat.php 1 -
+/includes/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/laboratorium-old.rar 1 -
+/wp-admin/fox-wso.php 1 -
+/wp-includes/blocks/embed/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wordpress.zip 1 -
+/aduh.php 1 -
+/wp-includes/blocks/page-list-item/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/R57.php 1 -
+/wp-includes/wp-assets.php 1 -
+/local/alfa.php 1 -
+/wp-includes/html-api/index.php 1 -
+/.quarantine/alfacgiapi/perl.alfa 1 -
+/assets/Gel4y.php 1 -
+/wp-content/teslas.php 1 -
+/well-known.zip 1 -
+/js/js.php 1 -
+/desa.zip 1 -
+/css/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/tinymce/filemanager/dialog.php 1 -
+/application/views/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/SimplePie/Cache/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/HxSEO%20TEAM/alfacgiapi/perl.alfa 1 -
+/images/run.php 1 -
+/wp-admin/wolv2.php 1 -
+/wp-admin/hlya.php 1 -
+/wp-includes/blocks/query-pagination-numbers/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/upload.php 1 www.google.com
+/wp-includes/lock666.php 1 -
+/wp-content/bak.php 1 -
+/wp-xmlrpc.php 1 -
+/404.php 2 -
+/Gel4y.php 1 -
+/website_laboratorium.poltekkesbanten.ac.id.rar 1 -
+/assets/auth.php 1 -
+/system/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/database.sql 1 -
+/wp-includes/css/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/R57.php 1 -
+/assets/lock.php 1 -
+/wp-admin/network/hid.php 1 -
+/wp-content/sa.php 1 -
+/wp-admin/content.php 1 -
+/public_html.tar 1 -
+/kenapa.php 1 -
+/components/get-started/snippets/config.php 1 -
+/numberv2.php 1 -
+/wp-content/uploads/2024/8/403.php 1 -
+/modules/mini.php 1 -
+/assets/alfa403.php 1 -
+/webdesa.tar.gz 1 -
+/.tmb/gc.php 1 -
+/k0nt0ll4nc1a0c1b41.php 1 -
+/wp-content/uploads/2024/08/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/css/colors/ectoplasm/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/comments-pagination-previous/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/post-template/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/alfax.php 1 -
+/cache.php 1 -
+/wp-admin/leaf.php 1 -
+/wp-content/priv.php 1 -
+/ah.php 1 -
+/wp-includes/blocks/freeform/index.php 1 -
+/app/Providers/index.php 1 -
+/opet.php 1 -
+/wp-includes/blocks/spacer/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/laboratorium_poltekkesbanten.tar.gz 1 -
+/new/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/votes.php 1 -
+/wp-content/themes/Newspaper/woocommerce/404.php 1 -
+/wp-includes/blocks/latest-posts/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/web.tar 1 -
+/xxx.php 1 -
+/uninstall.php 1 -
+/wp-includes/blocks/loginout/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/themes/pressive/style.css 1 -
+/cgi-bin/wp-blog.php 1 -
+/alp.php 1 -
+/wp-content/xxx/xxx-xxx/xxxx-xx-xx/pages/xxxxxx.php 1 www.google.com
+/image/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/fox.php 1 -
+/.xx.php 1 -
+/wolv2.php 1 -
+/appGet.cgi 1 https://laboratorium.poltekkesbanten.ac.id
+/LABORATORIUM.POLTEKKESBANTEN.AC.ID.tar.gz 1 -
+/fuck.php 1 -
+/uploads/filemanager/dialog.php 1 -
+/assets/js/plugins/library/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/uploads/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/un.php 1 www.google.com
+/wp-includes/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/mgmt/shared/authn/login 1 -
+/wp-includes/blocks/block/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/site/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/cgi-bin/alfacgiapi/perl.alfa 1 -
+/settings.php.bak 1 -
+/assets/error.php 1 -
+/fonts/montserrat/404.php 1 -
+/apple-touch-icon.png 178 -
+/lock666.php 1 -
+/dav/server.php/files/personal/../..//..//../data/settings/settings.xml 1 -
+/wp-content/plugins/instabuilder2/cache/plugins/moon.php 1 www.google.com
+/wp-admin/abbyp.php 1 -
+/javanese.php 1 -
+/vendor/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/debug.cgi 1 ()%20{%20ignored
+/maintenance.php 1 -
+/wp-admin/about.php 1 -
+/wp-content/gecko-new.php 1 -
+/wp-includes/sodium_compat/namespaced/Core/Curve25519/Ge/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets.tar 1 -
+/wp-content/themes/luxe/style.css 1 -
+/digi.php 1 -
+/settings.php 1 -
+/wp-includes/blocks/list/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/epinyinsss.php 1 -
+/media/js/index.php 1 -
+/wp-includes/blocks/column/index.php 1 -
+/wp-includes/js/tinymce/skins/lightgray/img/index.php 1 -
+/sure.php 1 -
+/_fragment 1 -
+/assets/assets.php 1 -
+/application.tar.gz 1 -
+/journals.tar 1 -
+/assets/js/uploads/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/cybers.php 1 -
+/journalslaboratorium.zip 1 -
+/.well-known/acme-challenge/plugins.php 1 -
+/table.css.php 1 -
+/backuplaboratorium.zip 1 -
+/wp-content/C99.php 1 -
+/lib-parse.php 1 -
+/wp-includes/blocks/comment-content/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/system/languange/english/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/.well-known/pki-validation/haxorcgiapi/perl.haxor 1 -
+/wp-includes/anon7.php 1 -
+/public/_ignition/execute-solution 1 -
+/wp-includes/uploader.php 1 -
+/wp-content/themes/twentytwentyone/assets/css/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/f.php 1 -
+/wp-admin/mini.php 1 -
+/Wso.php 1 -
+/wp-content/mu-plugins/wp-seo-integration/assets/css/admin.css 1 -
+/help.php 1 -
+/laboratorium2.tar.gz 1 -
+/wp-includes/blocks/group/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/SimplePie/Cache/Cache.php 1 -
+/wp-includes/defaults.php 1 -
+/lama.tar.gz 1 -
+/skins/larry/index.php 1 -
+/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/DateTimeExcel/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/cache/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/admin.php 1 -
+/web_laboratorium.poltekkesbanten.ac.id.tar.gz 1 -
+/wp-includes/blocks/preformatted/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets/general.php 1 -
+/wp-includes/html-api/html-api.php 2 -
+/wp-admin/406.php 1 www.google.com
+/ojs/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/anonsec.php 1 -
+/poltekkesbanten_2024.rar 1 -
+/wp-smail.php 1 -
+/media/images/index.php 1 -
+/webdesa_laboratorium.tar.gz 1 -
+/laboratorium-old.zip 1 -
+/wp-content/sitemaps-xml.php 1 -
+/o.php 1 -
+/tesla.php 1 -
+/assets/pra.php 1 -
+/.well-known/index.php 1 -
+/assets/wp-config.php 1 -
+/wts.php 1 -
+/wp-includes/blocks/query-title/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/fm.php 1 -
+/wp-admin/xadm-log.php 2 -
+/wp-content/uploads/2024/5/index.php 1 -
+/click.php 1 -
+/captcha/about.php 1 -
+/wp-includes/blocks/calendar/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/database/laboratorium.sql 1 -
+/wp-includes/indexx.php 1 -
+/wp-content/themes/classic/inc/index.php 1 www.google.com
+/images/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/303-Nothingx.php 1 -
+/outline.php 2 -
+/wp-content/themes/twentytwentyfour/styles/home.php 1 -
+/application/third_party/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/nothingX.php 1 -
+/wp-includes/adminer.php 1 -
+/phpfm.php 1 -
+/delete_cart_goods.php 1 -
+/wp-content/benteke.php 1 -
+/mar.php 1 -
+/inspect.php 1 -
+/wp-content/uploads/alfa403.php 1 -
+/wp-includes/pwn.php 1 -
+/wp-footer.php 1 -
+/wp-includes/ID3/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/v.php 1 -
+/sitemaps-xml.php 1 -
+/caches.php 1 -
+/uploads/s.php 1 -
+/webdesa_laboratorium.poltekkesbanten.ac.id.zip 1 -
+/./RestAPI/Connection 1 -
+/old/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/.well-known/acme-challenge/install.php 1 -
+/.wibu.php 1 -
+/wp-includes/ID3/readme.php 1 -
+/wp-includes/alfashell.php 1 -
+/wp-includes/blocks/avatar/foxwso.php 1 -
+/wp-content/system.php 1 -
+/library.php 1 -
+/desalaboratorium.tar 1 -
+/backend/modules/admin/views/menu/index.php 1 -
+/assets/kem.php 1 -
+/credits.php 1 -
+/backup_laboratorium.tar.gz 1 -
+/wp-admin/maint/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/cgi-bin/haxorcgiapi/perl.haxor 1 -
+/wp-content/.content.php 1 -
+/wp-includes/theme-compat/theme-compat.php 2 -
+/xmlrs.php 1 -
+/report.php 1 -
+/wp-content/uploads/pp-files/saklx.php 1 -
+/wp-admin/anons79.php 1 -
+/laboratorium_old.rar 1 -
+/wp-user.php 1 -
+/wp-includes/IXR/IXR.php 1 -
+/pmblaboratorium.tar 1 -
+/server.php 1 -
+/wp-content/themes/namathemes/404.php 1 -
+/assets/autentification.php 1 -
+/pmblaboratorium.rar 1 -
+/assets/.assets.php 1 -
+/wp-includes/p0wny.php 1 -
+/laboratorium.rar 1 -
+/w.php 1 -
+/wp-includes/0byt3m1n1.php 1 -
+/wp-includes/Sadrazam.php 1 -
+/wp-includes/C99.php 1 -
+/wp-content/alfashell.php 1 -
+/wp-includes/.uploads.php 1 -
+/wp-includes/PHPMailer/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/public/index.php/material/Material/_download_imgage 1 -
+/asset/media/haxorcgiapi/perl.haxor 1 -
+/pentes.php 1 -
+/wp-admin/views.php 1 -
+/system/database/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin-int.php 1 -
+/wp-includes/SimplePie/Decode/HTML/index.php 2 -
+/wp-admin/alfa_bashful.php 1 -
+/wp-content/shellpw.php 1 -
+/assets/b.php 1 -
+/_adminer/index.php 1 -
+/wp-includes/user-old.php 1 -
+/index.php/oai 1 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/system/database/index.php 1 -
+/laboratorium.zip 1 -
+/adminer/index.php 1 -
+/system/libraries/cache/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/wp.php 1 -
+/wp-content/alfa.php 1 -
+/assets.zip 1 -
+/website.zip 1 -
+/wp-content/updraft/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/rss/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/Gel4y.php 1 -
+/data.php 2 -
+/backup_laboratorium.poltekkesbanten.ac.id.zip 1 -
+/wp-engine.php 1 -
+/wp-content/.templates.php 1 -
+/wp-admin/profile.php 1 -
+/wp-includes/sitemaps/sitemaps.php 1 -
+/assets/css/themes/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/cyber.php 1 -
+/wordpress.rar 1 -
+/fileHandler.php 1 -
+/.tmb/alfacgiapi/perl.alfa 1 -
+/assets/server.php 1 -
+/program/resources/index.php 1 -
+/admin/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/rest-api/index.php 1 -
+/system/core/compat/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/wp-config.php 1 -
+/website_laboratorium.tar 1 -
+/wp-content/uploads/2024/9/MARIJUANA.php 1 -
+/template/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/css.php 2 -
+/wp-content/wp-mail.php 1 -
+/rawraas.php 1 -
+/alfa403.php 1 -
+/local/moodle_webshell/webshell.php 1 -
+/wp-admin/css/colors/modern/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/godsend.php 1 -
+/po-content/filemanager/dialog.php 1 -
+/wp-system.php 1 -
+/wp-content/wpo-cache/ALFA_DATA/alfacgiapi/perl.alfawp-content/wpo-cache/config/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/load88.php 1 -
+/wp-includes/block-supports/block-supports.php 1 -
+/wsoyanzorng.php 1 www.google.com
+/wp-mains.php 1 -
+/h.php 1 -
+/wp-includes/blocks/post-template/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/teslas.php 1 -
+/wp-admin/p37k.php 1 -
+/2025.rar 1 -
+/wp-admin/network/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/application/models/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/nextpage/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/vendor/phpunit/phpunit/src/Util/PHP/eval.php 1 -
+/sistem/css/index.php 1 -
+/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/DateTimeExcel/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/config.phtml 1 -
+/wp-content/views.php 1 -
+/plugins/themes/pragma/gabut/cmd.php 1 -
+/env 1 -
+/poltekkesbanten.sql 1 -
+/wp-includes/sitemaps/providers/var.php 1 -
+/system/libraries/Javascript/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/program.php 1 -
+/Assets/mini.php 1 -
+/file/idx.php 1 -
+/.well-known/acme-challenge/admin.php 1 -
+/adminer/adminer.php 1 -
+/wp-includes/blocks/avatar/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/run.php 1 -
+/wp-includes/blocks/loginout/index.php 1 -
+/sql.php 1 -
+/plugins/help/index.php 1 -
+/xm.php 1 -
+/wp-includes/about.php 1 -
+/error.php 1 -
+/wp-content/maria.php 1 -
+/dsrdelete.json 1 https://laboratorium.poltekkesbanten.ac.id/login
+/wp-content/plugins/wc-multivendor-marketplace/readme.txt 1 -
+/wp-includes/blocks/quote/quote.php 1 -
+/app/index.php 1 -
+/class.php 1 -
+/v1/34dnMA9WxvWTfNPx0PDCZpicLDl.php 1 -
+/perkosa.php 1 -
+/mt/pekok.php 1 www.google.com
+/filemanager/up.php 1 -
+/assets/images/gui/cache.php 1 -
+/wp-admin/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/laboratorium_old.zip 1 -
+/assets/js/upgrade/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/gecko.php 2 -
+/.well-known/related-website-set.json 2 https://laboratorium.poltekkesbanten.ac.id/login
+/wp-content/uploads/2024/8/alfa.php 1 -
+/alfa.php 1 -
+/vendor/phpspec/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/.config.php 1 -
+/wp-includes/class-wp-link.php 1 -
+/wp-admin/plugin.php 1 -
+/media/filemanager/dialog.php 1 -
+/bottom.php 1 -
+/wp-includes/embed-wp.php 1 www.google.com
+/application/-/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/widget-group/hLEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/pluginsnew.php 1 -
+/wp-content/themes/twentystd 1 -
+/wp-content/MARIJUANA.php 1 -
+/oldlaboratorium.rar 1 -
+/apple-touch-icon-120x120.png 8 -
+/wp-admin/.wpadmin.php 1 -
+/oldlaboratorium.tar 1 -
+/asset/images/icons/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/files/leaf.php 1 -
+/5index.php 1 www.google.com
+/wp-includes/font-editor.php 1 -
+/lanciao.php 1 -
+/lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 4 -
+/wp-includes/sodium_compat/namespaced/Core/Curve25519/Ge/spaced/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/cyber.php 1 -
+/asset/images/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/local/index.php 1 -
+/wp-content/themes/voice/style.css 1 -
+/wp-aa.php 1 -
+/wp-includes/blocks/query-pagination-next/index.php 1 -
+/application/language/english/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/lock.php 1 -
+/mau-ngapain 1 -
+/css/alfacgiapi/perl.alfa 1 -
+/laboratorium1.zip 1 -
+/files/mini.php 1 -
+/cron.php 1 -
+/asset/js/alfacgiapi/perl.alfa 1 -
+/nulz.php 1 -
+/desalaboratorium.tar.gz 1 -
+/wp-includes/blocks/legacy-widget/index.php 1 -
+/asset/css/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/fox-wso.php 1 -
+/wp-content/themes/twentytwentythree/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/Assets/temp/hotspot/img/logohotspot.txt 1 -
+/pkexec.php 1 -
+/byte.php 1 -
+/update.php 1 -
+/wp-content/anonymus.php 1 -
+/superbyp.php 1 -
+/wp-includes/SimplePie/Net/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/post-terms/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/SimplePie/Decode/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/block-patterns/block-patternsphp 1 -
+/wp-content/fonts.php 1 -
+/wp-includes/mini-shell.php 1 -
+/LABORATORIUM.POLTEKKESBANTEN.zip 1 -
+/wp-content/wp-navigate.php 1 -
+/wp-includes/widgets/class-wp-widget-index.php 1 www.google.com
+/laboratorium-poltekkesbanten.laboratorium.poltekkesbanten.ac.id.tar.gz 1 -
+/service/~iufo/com.ufida.web.action.ActionServlet 1 -
+/db/poltekkesbanten.sql 1 -
+/system/mini.php 1 -
+/servlet/codesettree 1 -
+/plugin.php 1 -
+/simplebackup.php 1 -
+/desa_laboratorium.poltekkesbanten.ac.id.tar.gz 1 -
+/system/libraries/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/upload-file.php 1 -
+/wp-admin/general.php 1 -
+/wp-includes/blocks/page-list/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/form.php 1 -
+/wp-content/plugins/wordpress-seo/src/services/importing/aioseo/fix_services/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-edit.php 1 -
+/assets/js/plugins/elfinder/php/mime.types 1 -
+/libraries/index.php 1 -
+/wp-themes.php 1 -
+/wp-includes/ID3/jaspxgrb.php 1 -
+/jurnal.zip 1 -
+/wp-content/plugins/seo-local-rank/admin/vendor/datatables/examples/resources/examples.php 1 -
+/%04%D7%7F%BF%18%D8%7F%BF%18%D8%7F%BF%08%B7%06%08 1 -
+/admin/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admins.php 1 -
+/wp-admin/ts.php 1 -
+/wp-includes/blocks/nextpage/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/network/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/x.php 3 www.google.com
+/wp-includes/fonts/.fonts.php 1 -
+/wp-content/uploads/2024/05/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/db.sql 1 -
+/public/vendor/laravel-filemanager/js/script.js 2 -
+/wp-admin/ms-functions.php 1 -
+/wp-includes/blocks/tag-cloud/tag-cloud.php 1 -
+/assets/shel.php 1 -
+/wp-admin/maint/index.php 1 -
+/shinta.php 1 -
+/wp-content/color.php 1 -
+/2025.zip 1 -
+/logupload 1 https://laboratorium.poltekkesbanten.ac.id
+/action.php 1 -
+/assets/xs.php 1 -
+/template/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/plugins.php 1 -
+/plugins/index.php 1 -
+/wp-content/uploads/2024/9/Gecko.php 1 -
+/bypwso.php 1 -
+/upload/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/edit-comments.php 1 -
+/shl.php 1 -
+/webdesa.tar 1 -
+/sql/laboratorium.poltekkesbanten.ac.id.sql 1 -
+/wp-content/sym403.php 1 -
+/alfabusuk.php 1 -
+/weblaboratorium.zip 1 -
+/wp-content/406.php 1 www.google.com
+/wp-includes/SimplePie/Cache/index.php 1 -
+/wp-content/filemandonat.php 1 -
+/wp-admin.php 1 -
+/wp-content/plugins/salient-home-slider/includes/frontend/scan.php 1 -
+/application.zip 1 -
+/403.php 2 -
+/help/admin-guide/test.jsp 1 -
+/wp-includes/blocks/template-part/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/.abyp.php 1 -
+/wp-admin/abyp.php 1 -
+/wp-admin/indexx.php 1 -
+/llms.txt 1 https://laboratorium.poltekkesbanten.ac.id/login
+/wp-includes/ms-functions.php 1 -
+/index2.php 1 -
+/fx.php 1 -
+/wp-content/uploads/-/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/public.zip 1 -
+/pwn.php 1 -
+/seeyon/test123456.jsp 1 -
+/zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 4 -
+/public/images/index.php 1 -
+/index404.php 1 -
+/sasa.php 1 -
+/lama.tar 1 -
+/apply_sec.cgi 2 -
+/backup.php 1 -
+/fileadmin.php 1 -
+/wp-includes/blocks/pullquote/index.php 1 -
+/wp-includes/filemanager.php 1 -
+/wp-admin/content-wp.php 1 -
+/desa_laboratorium.tar 1 -
+/wp-includes/gecko-new.php 1 -
+/assets/filemanager.php 1 -
+/wp-admin/kem.php 1 -
+/wp-admin 10 https://www.google.com/
+/.lite.php 1 -
+/laboratorium_poltekkesbanten.rar 1 -
+/database/sql.php 1 -
+/wp-admin/user/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/asset/images/misc/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/alf.php 1 -
+/Dz.php 1 -
+/kiannn.php 1 -
+/uploads/default.php 1 -
+/png.php 1 -
+/public/assets/filemanager/dialog.php 1 -
+/Parameter.php 1 -
+/leaf.php 1 -
+/file/up.php 1 -
+/abyp.php 1 -
+/website_laboratorium.poltekkesbanten.ac.id.tar 1 -
+/pentester.php 1 -
+/backup/laboratorium.sql 1 -
+/wp-content/uploads/2024/04/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/user/user-new.php 1 -
+/laboratorium-poltekkesbanten.laboratorium.poltekkesbanten.ac.id.zip 1 -
+/wp-includes/uploads.php 1 -
+/xl2023.php 1 www.google.com
+/wso.php 1 -
+/wp-includes/blocks/term-description/description.php 1 -
+/anon7.php 1 -
+/uploads/autentification.php 1 -
+/wp-content/uploads/2024/9/1.php 1 -
+/wp-admin/priv.php 1 -
+/wp-content/alfas.php 1 -
+/poltekkesbanten_lama.tar.gz 1 -
+/wp-content/plugins/imagements/images/34dnlzhznf8xvpndlx3bmesthrh.php 1 -
+/wp-includes/blocks/code/index.php 1 -
+/options-general.php 1 -
+/plugins/blocks/announcementsBlock/gabut/cmd.php 1 -
+/upload/alfapass.php 1 -
+/wp-content/options.php 1 -
+/DB_config.shtml 1 -
+/wp-admin/lite.php 1 -
+/wp-admin/server.php 1 -
+/wp-content/backups-dup-lite/tmp/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/sitemaps/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/info.php 1 -
+/poltekkesbanten.zip 1 -
+/system/helpers/index.php 1 -
+/system/fonts/bypass.php 1 -
+/wp-content/wflogs/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/phpimage.php 1 -
+/wp-one.php 1 -
+/encoded.php 1 -
+/plugin-wp.php 1 -
+/wp-admin/readme.php 1 -
+/wp-includes/wso112233.php 1 www.google.com
+/entity.php 1 -
+/wp-content/upload-file.php 1 -
+/css/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/litespeed.php 1 -
+/files/index.php 1 -
+/C99.php 1 -
+/wp-admin/images/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/site-logo/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/encrypted.php 1 -
+/wp-includes/blocks/audio/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/lest.php 1 -
+/filemanager/dialog.php 5 -
+/assets/js/vendor/ckeditor/filemanager/dialog.php 1 -
+/wp-content/plugins/ccx/index.php 1 www.google.com
+/wp-includes/SimplePie/SimplePie.php 1 -
+/mini_shell.php 1 -
+/db/laboratorium.poltekkesbanten.ac.id.sql 1 -
+/lock.php 1 -
+/js/filemanager/dialog.php 1 -
+/wp-admin/wp-lib.php 1 -
+/wp-includes/certificates/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/phpqrcode/temp/templates.php 1 -
+/rootshell.php 1 -
+/index.action 6 -
+/wp-includes/mariju.php 1 -
+/wp-includes/blocks/list/index.php 1 -
+/wp-content/backups-dup-lite/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/application/language/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/asset/js/haxorcgiapi/perl.haxor 1 -
+/wp-admin/admins-ajax.php 1 -
+/js.php 2 -
+/wp-content/config.php 1 -
+/wp-includes/SimplePie/Content/index.php 1 -
+/.Indosec.php 1 -
+/wp-admin/network/index.php 1 -
+/laboratorium_2024.tar.gz 1 -
+/wp-content.php 1 -
+/wp-includes/blocks/comment-author-name/index.php 1 -
+/oldlaboratorium.zip 1 -
+/wp-includes/blocks/navigation-submenu/index.php 1 -
+/tmp/index.php 1 -
+/wp-includes/blocks/comments-pagination-numbers/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/updraft/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/tiny.php 1 -
+/fck.php 1 -
+/weaver/org.apache.xmlrpc.webserver.XmlRpcServlet 1 -
+/wp-content/uploads/2024/06/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/user/file/filemanager/dialog.php 1 -
+/assets/program.php 1 -
+/wp-content/plugins/paid-memberships-pro/js/pmpro-checkout.js 1 -
+/app/info.php 1 -
+/wp-includes/blocks/comments-pagination-next/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/images/index.php 1 -
+/p0wny.php 1 -
+/admins.php 1 -
+/jurnallaboratorium.zip 1 -
+/wp-content/plugins/elementor-pro/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/byp.php 1 -
+/wp-includes/blocks/button/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/HxSEO%20TEAM/alfacgiapi/perl.alfa 1 -
+/.well-known/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/media/upload/filemanager/dialog.php 2 -
+/wp-includes/alfa_bashful.php 1 -
+/sistem/index.php 1 -
+/filemanager/filemanager/dialog.php 2 -
+/wp-mailcek.php 1 -
+/vendor/symfony/index.php 1 -
+/wp-content/.alfa.php 1 -
+/wp-content/plugins/ioptimization/IOptimize.php 1 www.google.com
+/assets/colors.php 1 -
+/ckeditor/plugins/fileman 1 https://laboratorium.poltekkesbanten.ac.id/ckeditor/plugins/fileman//
+/casper.php 1 -
+/assets/css/upgrade/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/input.php 1 -
+/wp-content/abbyp.php 1 -
+/public/plugins/tinymce/js/tinymce/plugins/responsive_filemanager/filemanager/dialog.php 1 -
+/wp-includes/Indosec.php 1 -
+/assets/root.php 1 -
+/wp-includes/blocks/list-item/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/load.php 1 -
+/info.php 1 -
+/diare.php 1 -
+/assets/css/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/web_laboratorium.poltekkesbanten.ac.id.tar 1 -
+/wp-content/themes/twentytwentytwo/404.php 1 -
+/app/app.php 1 -
+/oai 2 -
+/wp-content/database.php 1 -
+//uapi-cgi/certmngr.cgi 1 -
+/j.php 1 -
+/assets/function.php 1 -
+/.well-known/db_connect.php 1 -
+/shell20211028.php 1 www.google.com
+/wp-includes/rest-api/fields/ip.php 2 -
+/laravel/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/pmblaboratorium.zip 1 -
+/mariju.php 1 -
+/assets/css/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/viewlog.jsp 1 -
+/application/hooks/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/contactus.php 4 -
+/skeined.php 1 -
+/wp-includes/blocks/quote/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/axis2-admin/login 1 -
+/laravel71/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-trackback.php 1 -
+/wp-admin/user/index.php 1 -
+/wp-track.php 1 -
+/vendor/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/templates/editor-preload-container 1 -
+/user-old.php 1 -
+/laboratorium.poltekkesbanten.zip 1 -
+/wp-admin/network/about.php 1 -
+/.bypss.php 1 -
+/lite-MAR.php 1 -
+/wp-includes/blocks/social-links/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/post-author/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/fw.php 1 www.google.com
+/wpadmin.php 1 -
+/wp-admin/wp-security.php 1 -
+/wp-includes/blocks/paragraph/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/admin.php 4 -
+/wp-includes/blocks/navigation-link/index.php 1 -
+/buyer.php 1 -
+/db/laboratorium.sql 1 -
+/system/core/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/backupmgt/pre_connect_check.php 1 -
+/wp-includes/gecko.php 1 -
+/jox.php 1 -
+/wp-admin/css/colors/xmrlpc.php 1 -
+/wp-includes/pomo/newup.php 1 www.google.com
+/wp-content/fm.php 1 -
+/network.php 1 -
+/wp-includes/blocks/tag-cloud/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/alfasdonat.php 1 -
+/wp-content/uploads/2024/8/byp.php 1 -
+/cgialfa/perl.alfa 1 -
+/defaults.php 1 -
+/function.php 2 -
+/wp-includes/blocks/html/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/hid.php 1 -
+/assets/seobarbar.php 1 -
+/wp-content/size.php 1 -
+/.well-known/security.txt 2 https://laboratorium.poltekkesbanten.ac.id/login
+/assets/css/plugins/library/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/XML-RPC.php 1 -
+/_adminer.php 1 -
+/css/haxorcgiapi/perl.haxor 1 -
+/administrator/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wordpress.php 1 -
+/assets/p0wny.php 1 -
+/menten.php 1 -
+/public/assets/plugins/jquery-countdown/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/cgi/networkDiag.cgi 1 -
+/no2.php 1 -
+/g.php 1 -
+/wp-admin/js/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/user/wp-size.php 1 -
+/upload/run.php 1 -
+/wp-content/program.php 1 -
+/wp-content/plugins/wordpress-seo/src/services/importing/aioseo/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/program/js/index.php 1 -
+/wp-admin/wso112233.php 1 www.google.com
+/wp-admin/b374k.php 1 -
+/wp-includes/session.php 1 -
+/wp-content/uploads/tr.php 1 -
+/core-admin.php 1 -
+/public/plugins/index.php 1 -
+/degesaciihaxor.php 1 -
+/assets/alfasdonat.php 1 -
+/uploads.php 1 -
+/application/third_party/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/video/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/theme-compat/oembed.php 1 -
+/backend/modules/admin/views/item/index.php 1 -
+/nagiosxi/login.php 3 -
+/desa_laboratorium.zip 1 -
+/asset/thirdparty/filemanager/filemanager/dialog.php 1 -
+/system/core/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/jumping.php 1 -
+/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/paranoidhax.php 1 -
+/z.php 1 -
+/wp-admin/css/colors/modern/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/plugins/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/website_laboratorium.poltekkesbanten.ac.id.tar.gz 1 -
+/wp-admin/css/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/system/languange/index.php 1 -
+/wp-includes/blocks/archives/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/image/index.php 1 -
+/wp-includes/root.php 1 -
+/webdesa_laboratorium.poltekkesbanten.ac.id.tar 1 -
+/help/js/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/.wp-blog-header.php 1 -
+/users.php 1 -
+/wp-includes/abby.php 1 -
+/database/migrations/index.php 1 -
+/laboratorium-poltekkesbanten-laboratorium.poltekkesbanten.ac.id.zip 1 -
+/sellers.json 1 https://laboratorium.poltekkesbanten.ac.id/login
+/a.php 2 -
+/wp-content/wp.php 1 -
+/wp-includes/images/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/upgrade/wp-config.php 1 -
+/files/mmk.php 1 -
+/wp-includes/blocks/loginout/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/query-pagination-next/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/system/languange/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/post-navigation-link/index.php 1 -
+/wp-includes/wp-lib.php 1 -
+/.alm.php 1 -
+/assets/.root.php 1 -
+/wp-includes/SimplePie/Decode/HTML/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/settings.php.swp 1 -
+/vendor/laravel-filemanager/img/folder.png 3 -
+/wp-includes/sodium_compat/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/.htaccess.php 1 -
+/help/css/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/abyp.php 1 -
+/wp-admin/run.php 1 -
+/wp-content/plugins/contact-form-7/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/.index.php 1 -
+/wp-admin/js/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/inputs.php 1 -
+/assets/simple.php 1 -
+/poltekkesbanten.tar 1 -
+/webdesa_laboratorium.poltekkesbanten.ac.id.rar 1 -
+/web/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 4 -
+/poltekkesbanten.rar 1 -
+/wp-content/maintenance.php 1 -
+/wp-content/sc.php 1 -
+/.well-known/acme-challenge/atomlib.php 1 www.google.com
+/back-up.php 1 -
+/ex.php 1 -
+/wp-includes/wp-cache.php 1 -
+/wp-includes/wp-security.php 1 -
+/access.php 1 -
+/wp-content/plugins/wordpress-seo/src/services/importing/aioseo/fix_services/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets/css/plugins/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/laboratorium_poltekkesbanten.laboratorium.poltekkesbanten.ac.id.tar.gz 1 -
+/wp-includes/Text/Diff/index.php 1 -
+/wp-includes/blocks/media-text/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/template/beez3/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wso112233.php 1 www.google.com
+/wp-content/R57.php 1 -
+/backup_laboratorium.rar 1 -
+/.tmb/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/user/user.php 1 -
+/ss.php 1 -
+/vendor/phpunit/index.php 1 -
+/wp-content/adminer.php 1 -
+/.well-known/acme-challenge/mariju.php 1 -
+/asset/filemanager/dialog.php 1 -
+/backup.tar 1 -
+/wp-includes/blocks/post-comments-form/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/general.php 1 -
+/wp-admin/wso.php 1 www.google.com
+/wp-includes/blocks/audio/bssn.php 1 -
+/wp-includes/blocks/post-author-name/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/wp-assets.php 1 -
+/wp-content/ts.php 1 -
+/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/v1/backend1 1 -
+/wp-content/plugins/seoplugins/mar.php 1 www.google.com
+/fggg.php 1 -
+/Tests/Feature/index.php 1 -
+/wp-admin/user/capil%20.php 1 -
+/wp-includes/blocks/page-list-item/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/about.php 3 -
+/template/default/index.php 1 -
+/l.php 1 -
+/administrator.php 1 -
+/cgi-bin.tar.gz 1 -
+/system/fonts/index.php 1 -
+/wp-content/plugins/elementor-pro/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/block-supports/block.php 1 -
+/controller/login.php 2 -
+/.env.php 1 -
+/alfa4.php 1 -
+/wp-includes/rest-api/rest-api.php 2 -
+/wp-content/class-wp-block-supports.php 1 -
+/wp-admin/options.php 2 something
+/application/run.php 1 -
+/wp-content/form.php 1 -
+/.git.php 1 -
+/as.php 1 -
+/byps.403.php 1 -
+/wp-admin/wjsindex.php 1 -
+/system.tar 1 -
+/orb.php 1 -
+/wp-admin/.xixixi.php 1 -
+/2024.tar.gz 1 -
+/wp-includes/pomo/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/post-comments-form/index.php 1 -
+/wp-includes/html-api/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets/js/plugins/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/.alfa.php 1 -
+/login.action 3 -
+/sym403.php 1 -
+/media/datetimepicker/index.php 1 -
+/asset/tinymce4/tinymce/plugins/filemanager/dialog.php 1 -
+/class-wp.php 1 -
+/application/config/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/poltekkesbanten_lama.zip 1 -
+/wp-includes/gecko-old.php 1 -
+/wp-content/themes/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/system/libraries/Javascript/drivers/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/css/colors/ocean/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/cloud.php 1 -
+/wp-content/backups-dup-lite/tmp/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/by.php 1 -
+/home/download 1 -
+/public/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/system/languange/english/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/application/libraries/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/images/media/ALFA_DATA/alfacgiapi/perl.alfawp-includes/customize/HxSEO%20TEAM/alfacgiapi/perl.alfa 1 -
+/weblaboratorium.rar 1 -
+/ok.php 1 -
+/wp-content/uploads/s.php 1 -
+/wp-includes/blocks/term-description/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/siadu/static/install.phtml 1 -
+/wp-admin/includes/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/weblaboratorium.tar 1 -
+/s.php 1 -
+/wp-includes/PHPMailer/PHPMailer.php 1 -
+/wp-content/cache/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/post-featured-image/index.php 1 -
+/assets/java.php 1 -
+/wp-includes/blocks/post-terms/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/local/mini.php 1 -
+/userfuns.php 1 www.google.com
+/asset/images/gui/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/audio/net.php 1 -
+/wp-admin/user/size.php 1 -
+/assets/xmlrpc.php 1 -
+/dj.php 1 -
+/asu.phtml 1 -
+/wp-includes/pomo/treame.php 1 www.google.com
+/themes.php 1 -
+/webdesalaboratorium.rar 1 -
+/moderator.php 1 -
+/.bypps.php 1 -
+/public/data_lampiran/user.php 1 -
+/wp-blog-header.php 1 -
+/AdminService/urest/v1/LogonResource 1 -
+/.quarantine/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/app/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/plugins/splide/splide.core.php 1 -
+/system/core/compat/index.php 1 -
+/wp-admin/shell.php 1 -
+/laravel52/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 4 -
+/wp-admin/css/colors/adaaja/docindex.php 1 -
+/css/themes/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/public/data_lampiran/image2.php7 1 -
+/wp-content/plugins/simple/simple.php 1 -
+/wp-content/go.php 1 -
+/wp-content/function.php 1 -
+/wp-content/lolalf.php 1 -
+/assets/js/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/bower_components/responsivefilemanager/filemanager/dialog.php 1 -
+/js/javascript/fm/dialog.php 1 -
+/wp-admin/bypass.php 1 -
+/wp-includes/blocks/site-title/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/sa.php 1 -
+/jandamuda.php 1 -
+/border-core.php 1 -
+/wp-admin/network/priv.php 1 -
+/zu.php 1 -
+/wp-content/blog-header.php 1 -
+/wp-includes/blocks/embed/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/public_html.rar 1 -
+/index.phtml 1 -
+/san.php 1 -
+/wp-includes/css/index.php 1 -
+/upload/default.php 1 -
+/sistem/js/index.php 1 -
+/index.php/index/oai 2 -
+/upload/konslet.php 1 -
+/index1.php 1 -
+/wp-default.php 1 -
+/wp-admin/.09x2.php 1 -
+/wp-content/sample.php 1 -
+/java.php 1 -
+/wp-includes/blocks/gallery/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/modules/index.php 1 -
+/wp-info.php 1 www.google.com
+/.well-known/pki-validation/moon.php 1 -
+/assets/adminer.php 1 -
+/wp-admin/wp-add.php 1 -
+/wp-includes/Text/Diff/Engine/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/fsociety.php 1 -
+/components/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/p0wny-shell.php 1 -
+/wp-includes/wpbuff.php 1 -
+/assets/about.php 1 -
+/bypass.php 1 -
+/run 1 -
+/.uploads.php 1 -
+/wp-admin/.templates.php 1 -
+/wp-includes/blocks/query-pagination/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/swacy.php 1 -
+/lee.php 1 -
+/wp-includes/wp-links.php 1 -
+/wp-includes/blocks/home-link/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/plugins/akismet/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/application/core/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/group/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/js/index.php 1 -
+/wp-includes/pomo/cache.php 1 -
+/wp-includes/B374K.php 1 -
+/wp-includes/config.php 1 -
+/abbyp.php 1 -
+/upl.php 1 -
+/wp-includes/blocks/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-cache.php 1 -
+/error/index.php 1 -
+/wp-includes/SimplePie/HTTP/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/colors.php 1 -
+/ciau.php 1 -
+/web_laboratorium.poltekkesbanten.ac.id.zip 1 -
+/Language.php 1 -
+/vendor/sebastian/index.php 1 -
+/sistem/assets/index.php 1 -
+/wp-includes/blocks/nextpage/index.php 1 -
+/wp-includes/blocks/button/index.php 1 -
+/wp-files.php 1 -
+/blank.php 1 -
+/en.php 1 -
+/csv.php 1 -
+/wp-content/plugins/wpcargo/includes/barcode.php 1 -
+/wp-includes/blocks/comment-reply-link/index.php 1 -
+/wp-includes/php-compat/php-compat.php 2 -
+/wp-content/wp-ucen.php 1 -
+/cgi-bin/run.php 1 -
+/wp-content/themes/ignition/style.css 1 -
+/LABORATORIUMPOLTEKKESBANTEN.tar 1 -
+/wp-content/images.php 1 -
+/backend/backend/auth/restore 1 -
+/asset/responsive_filemanager/filemanager/dialog.php 2 -
+/wp-caches.php 1 -
+/phpmyadmin 1 -
+/ucen.php 1 -
+/asset/ckeditor/plugins/fileman 2 https://laboratorium.poltekkesbanten.ac.id/asset/ckeditor/plugins/fileman//
+/assets/uploads/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/fsh.php 1 -
+/laravel/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/surend.php 1 -
+/geek-404.php 1 -
+/mains.php 1 -
+/wp-includes/IXR/index.php 2 -
+/dwqdonat.php 1 -
+/confluence/pages/createpage-entervariables.action 2 -
+/kas.php 1 -
+/uploadzip.php 1 -
+/wp-includes/blocks/navigation/index.php 1 -
+/wp-content/themes/twentytwentyfour/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/sym403.php 1 -
+/wp-comments.php 1 -
+/unh.php 1 -
+/Config/SaveUploadedHotspotLogoFile 1 https://laboratorium.poltekkesbanten.ac.id
+/templates/alfapass.php 1 -
+/assets/js/uploads/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/surveipelanggan/indexx.php 1 -
+/wp-admin/shell20211028.php 1 www.google.com
+/assets/alfa.php 1 -
+/wp-includes/ts.php 1 -
+/wp-admin/mains.php 1 -
+/jurnallaboratorium.tar 1 -
+/backuplaboratorium.tar.gz 1 -
+/wp-content/lock.php 1 -
+/images/index.php 1 -
+/wp-admin/nive.php 1 -
+/apple-touch-icon-120x120-precomposed.png 8 -
+/wp-includes/blocks/page-list-item/index.php 1 -
+/database/ALFA_DATA/perl.alfa 1 -
+/wp-includes/IXR/wp-coment.php 1 -
+/wp-content/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/certificates/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/fm.php 1 -
+/ite.php 1 -
+/system/libraries/Session/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/lock666.php 1 -
+/wp-admin/function.php 1 -
+/inc.php 1 -
+/application/models/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/htaccess.php 1 -
+/1x.php 1 -
+/fype.php 1 -
+/plugin/filemanager/dialog.php 3 -
+/wp-content/mini.php 1 -
+/mah.php 2 -
+/wp-content/uploader.php 1 -
+/kronis224.php 1 -
+/wp-admin/anonsec.php 1 -
+/.well-known/pki-validation/wp-login.php 1 -
+/laboratorium_lama.tar 1 -
+/captcha/captcha.php 1 -
+/wp-admin/images/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/.wpcontent.php 1 -
+/wp-includes/blocks/post-title/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/comments-pagination/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/author/bot/feed 1 -
+/wp-includes/Text/index.php 1 -
+/wp-admin/postfs.php 1 -
+/alfa_asli.php 1 -
+/wp-includes/blocks/more/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/ar.php 1 -
+/tete.php 1 -
+/wp-includes/blocks/navigation/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/su.php 1 -
+/.well-known/assetlinks.json 26 -
+/y.php 1 -
+/cgi-bin.zip 1 -
+/application/logs/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/Text/Diff/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/images/samll.php 1 -
+/pages/createpage-entervariables.action 3 -
+/wp-includes/sodium_compat/sodium_compat.php 2 -
+/wp-includes/IXR/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/css/colors/light/setting.php 1 -
+/wp-content/server.php 1 -
+/wp-admin/input.php 1 -
+/alfa123.phpmain.min.css.php 1 -
+/alfanew.php 1 -
+/asu.php 1 -
+/fm/dialog.php 3 -
+/alfabusuq.php 1 -
+/wp-json/pie/v1/login 1 -
+/wp-includes/SimplePie/Parse/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/vendor/phpunit/phpunit/src/Util/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/filemanager/abyp.php 1 -
+/wp-admin/content-config.php 1 -
+/wp-includes/blocks/file/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/xploit.php 1 -
+/alfashell.php 1 -
+/wp-includes/blocks/heading/index.php 1 -
+/css/images/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/social-link/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/.well-known/web-identity 2 https://laboratorium.poltekkesbanten.ac.id/login
+/wp-includes/sodium_compat/namespaced/Core/Curve25519/Ge/spaced/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/votes.php 1 -
+/mydb.php 1 -
+/special.php 1 -
+/uploads/-/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/user/user-default.php 1 -
+/include/index.php 1 -
+/wp-admin/css/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/js/chosen/index.php 1 -
+/wp-includes/blocks/search/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/sessions.php 1 -
+/s99.php 1 -
+/wp-content/uploads/2024/06/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/comment-date/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/system/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/webdesa.rar 1 -
+/wp-includes/blocks/more/index.php 1 -
+/2025.tar.gz 1 -
+/wp-includes/options.php 1 -
+/wp-content/languages/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/desa.tar 1 -
+/sql.sql 1 -
+/wp-admin/css/colors/blue/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-map.php 1 -
+/wp-includes/blocks/missing/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/shell-bypass.php 1 -
+/wp-admin/wp-login.php 1 -
+/konslet.php 1 -
+/wp-content/user-old.php 1 -
+/wp-content/Gel4y.php 1 -
+/.zc.php 1 -
+/wp-content/index.php 2 -
+/wp-admin/sample.php 1 -
+/assets/nani.php 1 -
+/years.php 1 -
+/assets/indexx.php 1 -
+/.well-known/455.php 1 -
+/wp-admin/edit.php 2 -
+/wp-content/mariju.php 1 -
+/wp-includes/blocks/separator/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/photo/alfapass.php 1 -
+/assets/system.php 1 -
+/rbs.php 1 -
+/async-upload.php 1 -
+/wp-admin/css/colors/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/woldigi-OTH.php 1 -
+/wp-content/session.php 1 -
+/cgi-bin/admin.php 1 -
+/vendor/mikey179/index.php 1 -
+/wp-admin/css/colors/sunrise/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/repository/1x.php 1 -
+/Gel4y.phtml 1 -
+/xmlrpcsss.php 1 -
+/assets/info.php 1 -
+/ext.php 1 -
+/application/-/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/js/index.php 1 -
+/wp-includes/SimplePie/Content/Type/index.php 1 -
+/backup.rar 1 -
+/alfasetan.php 1 -
+/.skeined.php 1 -
+/IndoXploit.php 1 -
+/wp-includes/blocks/columns/index.php 1 -
+/Cart.php 1 -
+/fileupload.php 1 -
+/assets/plugins/filemanager/dialog.php 1 -
+/wp-content/backups-dup-lite/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/upload-file.php 1 -
+/wp-admin/alfas.php 1 -
+/wp-content/content.php 1 -
+/settings.php.dist 1 -
+/wp-content/wp-admin.php 1 -
+/assets/0byt3m1n1.php 1 -
+/ojs/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/marijuana.php 1 -
+/.byp.php 1 -
+/wp-includes/default.php 1 -
+/xmlrpc.php 18 -
+/vendor/filemanager/dialog.php 1 -
+/wp-admin/js/index.php 1 -
+/wp-content/0.php 1 -
+/wp-content/mu-plugins/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/asset/css/haxorcgiapi/perl.haxor 1 -
+/website_laboratorium.tar.gz 1 -
+/wp-includes/sitemaps/index.php 1 -
+/includes.php 1 -
+/LABORATORIUM.POLTEKKESBANTEN.rar 1 -
+/assets/upload/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/text-columns/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-links.php 1 -
+/alb.php 1 -
+/wp-includes/blocks/categories/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/LazyShell.php 1 -
+/wp-includes/Text/Diff/Renderer/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/Gel4y.php 1 -
+/program/localization/index.php 1 -
+/wp-includes/SimplePie/Category-options.php 1 -
+/wp-content/skeined.php 1 -
+/app/alfacgiapi/perl.alfa 1 -
+/casa/nodes/thumbprints 1 -
+/assets/css/theme/wrpoliksa.php 1 -
+/havk0r.php 1 -
+/old-index.php 1 www.google.com
+/phpinf.php 1 -
+/4ism3.php 1 -
+/public/data_lampiran/data.php 1 -
+/wp-content/uploads/2024/3/index.php 1 -
+/.well-known/gpc.json 2 https://laboratorium.poltekkesbanten.ac.id/login
+/wp-includes/widgets/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/system/libraries/aib.php 1 -
+/antivirus.php 1 -
+/wp-admin/wp-cache.php 1 -
+/wp-admin/lolalf.php 1 -
+/wp-includes/blocks/latest-posts/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/system/libraries/cache/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets/javascript/fm/filemanager/dialog.php 1 -
+/wp-includes/size.php 1 -
+/amp.php 1 -
+/form.php 1 -
+/zentao/user-login.html 1 https://laboratorium.poltekkesbanten.ac.id/zentao/user-login.html
+/wp-includes/blocks/code/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/js/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/sample.php 1 -
+/well-known.tar.gz 1 -
+/vendor/phpunit/phpunit/src/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/phpqrcode/temp/kem/1.php 1 -
+/wp-includes/fonts/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/edit-form.php 1 www.google.com
+/wawe.php 1 www.google.com
+/wp-admin/fonts.php 1 -
+/system.rar 1 -
+/wordpress/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/vendor/install.phtml 1 -
+/database_log.php 1 -
+/wp-includes/xl2023.php 1 www.google.com
+/js/jquery/ui/autodex.php 1 -
+/asset/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/content.php 1 -
+/assets/js/themes/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/blog/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/vendor/phpunit/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/gm.php 1 -
+/wp-admin/wp-ajax.php 1 -
+/wp-content/plugin.php 1 -
+/wp-includes/Requests/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/filemanager 1 -
+/303-Nothingx.php 1 -
+/assets/upload/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/laboratoriumold.tar 1 -
+/wp-includes/blocks/navigation-submenu/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/journalslaboratorium.tar.gz 1 -
+/-/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/laboratoriumold.rar 1 -
+/wp-admin/uploads.php 1 -
+/desa_laboratorium.poltekkesbanten.ac.id.rar 1 -
+/wp-admin/user/core-admin.php 1 -
+/wp-includes/PHPMailer/index.php 1 -
+/image/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/hoki.php 1 -
+/system/libraries/Javascript/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/log.php 1 -
+/ht.php 1 -
+/webdesa_laboratorium.tar 1 -
+/assets/css/updraft/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/plugins/sneeit-framework/css/menus.css 1 -
+/wp-includes/blocks/post-content/index.php 1 -
+/laboratoriumpoltekkesbanten.zip 1 -
+/vendor/webmozart/index.php 1 -
+/B374K.php 1 -
+/wp-includes/radio.php 1 -
+/wp-content/wp-lib.php 1 -
+/wp-includes/theme-compat/LEVILEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/koplak.php 1 -
+/admin/editor/mini.php 1 -
+/ads.txt 1 https://laboratorium.poltekkesbanten.ac.id/login
+/wp-content/themes/sketch/404.php 1 www.google.com
+/wp-includes/block-patterns/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/block-supports/index.php 1 -
+/login/blog/robots.txt 2 https://kontainer.samudera.id/blog//wp-login.php
+/assets/modules.php 1 -
+/wp-content/uploads/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/database/seeds/index.php 1 -
+/wp-content/plugins/all-in-one-wp-migration/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/vendor/phpunit/phpunit/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/rest-api/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/user-edit.php 1 -
+/wp-error.php 1 -
+/cgi-bin/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/.well-known/bypassup.jpg.php 1 -
+/container.php 1 -
+/dxx.php 1 -
+/jurnallaboratorium.rar 1 -
+/public/data_lampiran/lampiran_isi/index.php 1 -
+/anonsec.php7 1 -
+/wp-ucen.php 1 -
+/wp-content/uploads/2024/9/index.php 1 -
+/goform/formWsc 1 -
+/index.php/index/about/aboutThisPublishingSystem 1 -
+/wp-myluv.php 1 -
+/priv8.php 1 -
+/asset/js/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/uploads/js.php 1 -
+/wp-settings.php 1 -
+/laboratorium_old.tar.gz 1 -
+/wp-includes/SimplePie/Net/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/.composer/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/wp-content/wp-add.php 1 -
+/assets/abby.php 1 -
+/wp-content/themes/hello-elementor/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/includes/customize-nav-menus.js.php 1 -
+/2024.rar 1 -
+/ac.zip 1 -
+/wp-content/uploads/wp-logout.php 1 www.google.com
+/wp-includes/alfas.php 1 -
+/wp-admin/simp.php 1 -
+/wp-includes/litespeed.php 1 -
+/public.tar.gz 1 -
+/litespeed.php 1 -
+/wp-booking.php 1 www.google.com
+/wp-includes/pluginsnew.php 1 -
+/wikindex.php 1 www.google.com
+/wp-includes/blocks/post-author-name/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/includes/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/haxorcgiapi/perl.haxor 1 -
+/wp-includes/.templates.php 1 -
+/embed-core.php 1 -
+/system/core/index.php 1 -
+/hello.php 1 -
+/bootstrap/cache/index.php 1 -
+/wp-includes/blocks/comment-template/index.php 1 -
+/themes/frontend/fonts/ciau.php 1 -
+/m.php 1 -
+/wp-includes/blocks/media-text/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/laboratorium.poltekkesbanten.tar 1 -
+/public/plugins/tinymce/js/tinymce/plugins/filemanager/dialog.php 1 -
+/wp-admin/uploader.php 1 -
+/wp-content/themes/twentytwentyone/404.php 1 -
+/wp-content/run.php 1 -
+/asset/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/wp-includes/blocks/audio/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/anon.php 1 -
+/assets/font-editor.php 1 -
+/wp-content/main.php 1 -
+/assets/default.php 1 -
+/laboratorium_lama.zip 1 -
+/desa_laboratorium.poltekkesbanten.ac.id.tar 1 -
+/index4.php 1 -
+/wordpress.tar.gz 1 -
+/wp-content/themes/twentytwentyfour/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/.well-known/acme-challenge/alfacgiapi/perl.alfa 1 -
+/classes/file/script.php 1 -
+/wp-content/document.php 1 -
+/laboratorium-poltekkesbanten-laboratorium.poltekkesbanten.ac.id.rar 1 -
+/assets/sym403.php 1 -
+/wp-admin/.alfa.php 1 -
+/wp-includes/blocks/footnotes/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/asset/alfacgiapi/perl.alfa 1 -
+/asset/media/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/.info.php 1 -
+/wp-content/plugins/elementor/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/themes/twentytwentytwo/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/Options-Meta.php 1 -
+/wp-content/mini_shell.php 1 -
+/journalslaboratorium.rar 1 -
+/lucee/admin/imgProcess.cfm 2 -
+/application/language/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/ip.php 1 -
+/xiaom.php 1 -
+/wp-admin/abyyp.php 1 -
+/link.php 1 -
+/module/ph_simpleblog/list 2 -
+/premiums.php 1 -
+/.Gel4y.php 1 -
+/Assets/index.php 1 -
+/wp-add.php 1 -
+/wp-includes/SimplePie/Cache/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/SimplePie/Decode/HTML/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/post-excerpt/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/wp-assets.php 1 -
+/db.php 1 -
+/asset/media/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/pomo/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/uploads/2024/2/index.php 1 -
+/erorr.php 1 -
+/wp-includes/blocks/query-pagination-previous/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/list/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/spacer/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/db-config.php 1 -
+/admin 1 https://www.bing.com/
+/shellter.php 1 -
+/wp-content/themes/virtue/assets/css/index.php 1 -
+/wp-content/defaults.php 1 -
+/wp-includes/blocks/comments-pagination-numbers/index.php 1 -
+/wp-content/themes/pridmag/db.php 1 www.google.com
+/checkbox.php 1 -
+/Site/mini.php 1 -
+/tk.php 1 -
+/r00t.php 1 -
+/wp-class.php 2 -
+/wp-includes/blocks/query-pagination-numbers/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/https.php 1 -
+/help/css/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/fvnky.php 1 -
+/alfxx.php 1 -
+/wp-admin/cyber.php 1 -
+/wp-content/plugins/elementor/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/ccx/index.php 1 www.google.com
+/media/html5shim/index.php 1 -
+/assets/-/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/.well-known/pki-validation/atomlib.php 1 www.google.com
+/wp-includes/blocks/query-pagination-next/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/ID3/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/default.php 1 -
+/wp-includes/blocks/site-tagline/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/coba.php 1 -
+/assets/plugin.php 1 -
+/u.php 1 -
+/wp-includes/lolalf.php 1 -
+/wp-includes/mains.php 1 -
+/wp-blog.php 2 -
+/settings.php.save 1 -
+/wp-content/hoki.php 1 -
+/desa_laboratorium.poltekkesbanten.ac.id.zip 1 -
+/wp-includes/SimplePie/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/images/images.php 1 -
+/pub/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/post-featured-image/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/template/beez3/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/jurnal.tar.gz 1 -
+/public/data_lampiran/image1.php56 1 -
+/content.php 1 -
+/wp-admin/sessions.php 1 -
+/%20Username%20:%20Hashifah%20Nafisah%20Password%20:%20SILABPOlkesten2011 1 -
+/enhancecp 1 -
+/wp-admin/lock666.php 1 -
+/wp-includes/blocks/cover/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/.quarantine/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/.xixixi.php 1 -
+/wp-includes/blocks/post-navigation-link/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/source/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/autoload.php 1 -
+/wp-includes/blocks/query-pagination-numbers/index.php 1 -
+/edit.php 3 -
+/02.php 1 -
+/wp-includes/blocks/page-list/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/customize/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/themes/performag/style.css 1 -
+/wp-admin/marijuana.php 1 -
+/assets/css/upgrade/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/files.php 1 -
+/wp-content/kn.php 1 -
+/wp-includes/PHPMailer/SMPT.php 1 -
+/vendor/run.php 1 -
+/website.tar.gz 1 -
+/public_html.tar.gz 1 -
+/foxx.php 1 www.google.com
+/wp-content/themes/index.php 1 -
+/document.php 1 -
+/wp-includes/blocks/block/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-admin/css/colors/blue/autoload_classmap.php 1 -
+/laboratorium_old.tar 1 -
+/wp-login.php 5 https://wordpress.org/
+/assets/plugins/elfinder/php/mime.types 1 -
+/wp-includes/SimplePie/Content/Type/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/asset/images/gui/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/wol.php 1 -
+/system/index.php 1 -
+/wp-includes/p37k.php 1 -
+/wp-includes/blocks/legacy-widget/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/LABORATORIUM.rar 1 -
+/export/classroom-course-statistics 1 -
+/wp-admin/wp-config.php 1 -
+/wp-content/uploads/2024/07/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/desalaboratorium.rar 1 -
+/sys.php 1 -
+/wp-includes/wp-add.php 1 -
+/cms.php 1 -
+/documents.php 1 -
+/vendor/composer/index.php 1 -
+/template/default/assets/index.php 1 -
+/wp-mail.php 1 -
+/simple.php 1 -
+/system/libraries/Session/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/sila.php 1 -
+/webdesalaboratorium.zip 1 -
+/wp-content/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/comment-reply-link/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/simple.php 1 -
+/includes/index.php 1 -
+/webadmin/about.php 1 www.google.com
+/vendor/doctrine/index.php 1 -
+/backup.sql 1 -
+/mum.php 1 -
+/blog-verify 4 -
+/wp-includes/senpai.php 1 -
+/wp-content/plugins/contact-form-7/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/system/core/compat/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp555.php 1 -
+/wp-content/uploads/2022/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/block-patterns/oi.php 1 -
+/wp-includes/customize/customize.php 2 -
+/api/v1/method.callAnon/getPasswordPolicy 1 -
+/wp-admin/root.php 1 -
+/wp-includes/IndoXploit.php 1 -
+/application/hooks/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/ajaxPages/writeBrowseFilePathAjax.php 2 -
+/laboratoriumold.zip 1 -
+/folders/cmd.php 1 -
+/wp-content/uploads/hstmp/NEAGVk.php 1 -
+/wp-content/themes/twentyfifteen/fm.php 1 -
+/deploy-git-app/senpai.php 1 -
+/wp-includes/blocks/heading/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/SimplePie/HTTP/index.php 1 -
+/wp-includes/SimplePie/Content/Type/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-json 1 https://laboratorium.poltekkesbanten.ac.id/wp-json/
+/wp-includes/wp-caches.php 1 -
+/diagram_lang.php 1 -
+/LABORATORIUM.zip 1 -
+/application/cache/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/new/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/postfs.php 1 -
+/wordpress/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/uc.php 1 -
+/wp-includes/fonts/fonts.php 1 -
+/wp-includes/blocks/rss/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/POLTEKKESBANTEN.tar.gz 1 -
+/wp-includes/blocks/categories/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/cobbler_api 1 -
+/wp-includes/Cache.php 1 -
+/alfaaneh.php 1 -
+/wp-content/core-admin.php 1 -
+/wp-content/plugins/instabuilder2/cache/up.php 1 www.google.com
+/wp-includes/SimplePie/Parse/index.php 1 -
+/uplaod.php 1 -
+/wp-admin/litespeed.php 1 -
+/checkLogin.cgi 1 -
+/sc.php 1 -
+/wp-content/fonts/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/admin.php 1 -
+/wp-includes/blocks/home-link/index.php 1 -
+/wp-content/uploads/2024/9/bypass.php 1 -
+/uploads/alfapass.php 1 -
+/admin1.php 1 -
+/wp-admin/.cache.php 1 -
+/wp-content/uploads/workreap-temp/34dnLqQe8jZF990ujLvFJjQkHFo.php 1 -
+/core.php 1 -
+/vendor/phpunit/phpunit/src/Util/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/assets/sc.php 1 -
+/wp-content/litespeed/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/cover/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-email.php 1 www.google.com
+/wp-content/.admin.php 1 -
+/api/v4/ci/lint 1 -
+/wp-content/uploads/2022/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-lgin.php 1 -
+/laboratorium2.zip 1 -
+/wp-includes/blocks/comments/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/theme-compat/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/blocks/post-author-name/index.php 1 -
+/wp-includes/blocks/media-text/index.php 1 -
+/wp-admin/mariju.php 1 -
+/marijuana.php 1 -
+/wp-includes/widgets/index.php 1 -
+/wp-includes/blocks/columns/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/blocks/embed/index.php 1 -
+/user-new.php 1 -
+/wp-includes/blocks/text-columns/columns.php 1 -
+/laboratorium.sql 1 -
+/wp-includes/blocks/comment-edit-link/index.php 1 -
+/laboratorium-poltekkesbanten.laboratorium.poltekkesbanten.ac.id.rar 1 -
+/item.php 1 -
+/wp-includes/blocks/home-link/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/style-engine/style.php 1 -
+/upgrade.php 1 -
+/wp-includes/blocks/widget-group/group.php 1 -
+/assets/Sadrazam.php 1 -
+/x.php 2 -
+/wp-includes/Requests/index.php 1 -
+/wp-includes/wp-login.php 1 -
+/user/index.html 1 https://laboratorium.poltekkesbanten.ac.id/user/kunjungan
+/of.php 1 -
+/wp-admin/wp-user.php 1 -
+/wp-includes/Text/Diff/wkwwkwk.php 1 -
+/alfa.php7 1 -
+/ac.php 1 -
+/wp-includes/HxSEO%20TEAM/alfacgiapi/perl.alfa 1 -
+/assets/config.php 1 -
+/wp-content/boy.php 1 -
+/webdesalaboratorium.tar.gz 1 -
+/assets/images/konten/plugins.php 1 -
+/index.html 20 -
+/k.php 1 -
+/plugins/generic/plumAnalytics/gabut/cmd.php 1 -
+/.well-known/pki-validation/alfacgiapi/perl.alfa 1 -
+/app/Exceptions/index.php 1 -
+/wp-content/about.php 1 -
+/wp-includes/js/tinymce/utils/index.php 1 -
+/image/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/lolalf.php 1 -
+/wp-admin/pra.php 1 -
+/backup_laboratorium.zip 1 -
+/session.php 1 -
+/assets/alfas.php 1 -
+/wp-includes/blocks/verse/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-security.php 1 -
+/LABORATORIUM.POLTEKKESBANTEN.AC.ID.zip 1 -
+/wp-admin/css/colors/sunrise/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-config.bak.php 1 -
+/shop/index.php 1 -
+/wp-content/plugins/akismet/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/.hx0.php 1 -
+/xyn.php 1 -
+/wp-content/upgrade/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/fileman 2 https://laboratorium.poltekkesbanten.ac.id/fileman/
+/wp-includes/ID3/index.php 1 -
+/wp-admin/user/priv.php 1 -
+/wp-includes/blocks/latest-comments/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/php19.php 1 -
+/laboratorium_2024.rar 1 -
+/wp-includes/template.php 1 -
+/wp-includes/Text/Diff/Engine/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/locale.php 1 -
+/files/indexx.php 1 -
+/butani/config/internet.php 1 -
+/wp-includes/blocks/gallery/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-content/plugins/salient-home-slider/includes/frontend/admin.php 1 -
+/wp-includes/blocks/verse/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/app-ads.txt 1 https://laboratorium.poltekkesbanten.ac.id/login
+/brand.php 1 -
+/priv.php 1 -
+/gank.php.PhP 1 www.google.com
+/wp-includes/blocks/site-title/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-content/HxSEO%20TEAM/alfacgiapi/perl.alfa 1 -
+/assets.tar.gz 1 -
+/Indosec.php 1 -
+/wp-content/language.php 1 -
+/js/plugins/elfinder/php/mime.types 1 -
+/wp-content/bypass.php 1 -
+/cgi-bin/test-cgi 1 ()%20{%20ignored
+/.well-known/webauthn 2 https://laboratorium.poltekkesbanten.ac.id/login
+/wp-includes/blocks/comment-content/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-cron.php 1 -
+/.cache.php 1 -
+/wp-includes/customize/index.php 1 -
+/.well-known/haxorcgiapi/perl.haxor 1 -
+/simple-shell.php 1 -
+/app/media.php 1 -
+/desalaboratorium.zip 1 -
+/wp-includes/blocks/comment-date/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/management.php 1 -
+/01.php 1 -
+/wp-content/plugins/all-in-one-wp-migration/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/assets/main.php 1 -
+/wp-includes/blocks/footnotes/index.php 1 -
+/wp-includes/blocks/post-title/LEVIATHAN/haxorcgiapi/perl.haxor 1 -
+/wp-includes/pomo/pomo.php 1 -
+/root.php 1 -
+/backend/modules/admin/views/route/index.php 1 -
+/assets/uploadfile.php 1 -
+/help/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/xxxx.php 1 -
+/wp-content/alfacgiapi/perl.alfa 1 -
+/application.tar 1 -
+/app/Console/index.php 1 -
+/wp-blog-opml.php 1 -
+/html2pdf/readme.php 1 -
+/wp-includes/style-engine/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/2024.zip 1 -
+/plugins/elfinder/php/mime.types 1 -
+/wp-content/settingan.php 1 -
+/r.php 1 -
+/assets/nive.php 1 -
+/wp-content/nani.php 1 -
+/ms-functions.php 1 -
+/wp-content/plugins/sexy-contact-form/includes/fileupload/index.php 1 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 487
+103.177.177.129 2987 5682 1001376189 20251130210915
+103.206.72.5 490 580 45369438 20251127033154
+182.2.182.244 84 118 13412214 20251117061639
+103.167.170.226 79 191 55550748 20251126080729
+103.177.177.217 56 97 21451103 20251107003132
+182.6.3.237 52 52 7663588 20251120004500
+180.254.65.119 38 59 10273755 20251129010748
+182.2.182.33 31 35 906364 20251117052636
+114.10.112.129 26 26 1757296 20251117023754
+103.230.81.48 25 112 65165133 20251127020241
+140.213.26.246 24 32 7800680 20251116213850
+114.8.234.23 24 42 8434365 20251116182145
+114.4.78.122 24 37 2460731 20251102225130
+103.81.110.25 23 58 17367503 20251125042049
+182.6.3.229 21 21 2728321 20251120000739
+182.6.9.56 21 32 37238467 20251120225521
+103.230.81.37 21 47 4671093 20251127022128
+114.10.64.77 21 21 74049 20251109225300
+114.8.201.73 21 21 1382613 20251127035634
+114.4.213.36 20 33 2585193 20251117052007
+103.164.12.13 20 35 6922606 20251128044203
+103.255.163.103 20 51 10568409 20251127022912
+114.10.75.215 19 55 70250192 20251113010800
+114.8.199.8 19 47 10165076 20251117053015
+114.8.214.185 18 18 1109333 20251120212032
+114.124.247.92 3 16 2037356 20251112024344
+140.213.21.31 2 2 39283 20251113014843
+182.2.181.36 4 7 98042 20251106012215
+182.2.177.32 3 3 56474 20251117043215
+140.213.21.92 2 2 80287 20251127012624
+125.161.1.39 5 19 8149375 20251127021152
+114.8.203.39 1 5 599266 20251130211337
+182.2.183.157 3 3 46331 20251106020721
+114.10.64.198 1 5 328502 20251128091551
+140.213.20.247 1 5 346417 20251117041613
+140.213.250.245 1 1 3744 20251106021910
+112.215.152.93 1 1 21809 20251116030657
+140.213.140.227 1 1 21795 20251113032943
+114.10.114.142 4 4 95922 20251113032747
+182.2.183.159 1 1 21423 20251106021430
+103.18.34.145 5 5 89782 20251127053340
+114.8.200.72 4 7 100188 20251124221600
+13.229.44.94 1 1 0 20251116190904
+140.213.9.227 5 5 386610 20251127035921
+182.6.163.125 8 12 1911973 20251113033618
+114.4.212.58 4 4 86688 20251107031202
+182.2.180.179 1 1 3744 20251113201143
+114.8.202.245 4 4 96262 20251113012257
+140.213.128.184 0 1 6406 
+182.3.44.98 17 17 3406842 20251106114140
+182.6.161.29 1 8 756458 20251120222158
+182.6.3.238 3 3 313664 20251120000415
+114.10.28.152 4 4 119440 20251117042024
+114.10.113.159 8 8 337153 20251127020442
+114.10.29.128 5 5 97381 20251113011826
+182.3.47.172 1 1 3744 20251120225805
+114.4.83.71 10 24 2731188 20251112024049
+180.243.7.195 9 41 22826939 20251124035515
+110.136.55.92 0 1 6406 
+114.4.215.245 1 8 756458 20251128054122
+114.10.24.59 2 17 7537285 20251125211343
+112.215.224.123 1 1 3744 20251127022252
+182.2.183.156 1 1 21609 20251106021156
+140.213.21.34 0 1 90857 
+182.3.37.165 7 13 1370443 20251117050931
+172.225.74.117 1 5 496851 20251116044223
+72.14.201.146 1 1 3744 20251120221904
+140.213.21.234 0 2 12812 
+140.213.20.252 1 1 3744 20251130042148
+140.213.4.6 0 1 6406 
+182.6.4.124 1 1 3744 20251121023531
+182.3.44.55 1 3 585192 20251125002355
+112.215.225.217 1 1 15336 20251112022926
+182.6.11.252 4 7 200007 20251103015343
+112.215.66.229 2 7 344578 20251130230650
+112.215.225.183 1 5 438106 20251117041601
+114.10.65.193 7 26 14843641 20251110040948
+140.213.31.154 1 1 21809 20251116050046
+114.10.115.206 7 24 8285539 20251127012254
+34.106.10.191 3 17 1846890 20251113093328
+162.120.185.27 1 1 3744 20251120222131
+114.10.113.150 4 4 86985 20251113233654
+114.8.208.194 2 2 19701 20251114003746
+180.244.12.42 7 7 136799 20251127034030
+114.10.25.121 6 10 1828591 20251120211505
+140.213.129.159 13 26 2687241 20251116205200
+140.213.6.24 2 4 739888 20251116030402
+182.3.45.117 17 30 2394325 20251129231133
+140.213.20.133 1 8 756458 20251124200730
+182.2.177.216 7 20 2142299 20251128220605
+114.8.215.88 5 5 138578 20251128051707
+182.2.182.210 2 8 771605 20251127013527
+114.10.25.203 4 4 101974 20251117044241
+182.3.42.7 0 1 80599 
+114.4.213.203 2 10 6791114 20251113022354
+182.3.45.187 2 4 36977 20251125002354
+114.8.212.227 0 5 412909 
+114.10.115.193 10 10 252538 20251113033516
+182.3.53.55 6 6 88735 20251103014716
+111.94.121.150 1 8 756458 20251129002944
+114.8.205.226 1 1 29215 20251117035108
+180.244.13.253 1 1 3744 20251127052156
+140.213.129.201 1 1 33028 20251103023021
+64.233.172.38 1 4 424148 20251113020323
+103.18.34.254 6 6 148610 20251128091827
+110.136.0.216 11 30 8361374 20251123172405
+114.8.199.57 5 5 70843 20251117042946
+103.136.171.165 6 20 8169274 20251124044443
+114.8.212.105 3 3 42967 20251129102301
+140.213.129.169 5 13 7303430 20251117042041
+64.227.171.81 1 2 10150 20251125003505
+114.10.112.57 5 5 105907 20251127020746
+114.10.74.9 8 23 8276822 20251117044246
+209.97.163.236 1 1 3744 20251107165819
+167.99.68.138 3 3 7488 20251114140835
+36.71.64.178 1 1 3744 20251121221742
+114.4.82.219 4 4 87724 20251116211252
+114.10.113.15 1 8 756458 20251128115323
+180.243.3.13 2 10 1162604 20251107012853
+202.157.184.38 2 4 20300 20251127020019
+140.213.30.96 1 7 750052 20251127021749
+140.213.20.40 5 10 1021629 20251127023403
+114.10.69.10 1 1 3744 20251112021349
+112.215.66.237 1 1 3744 20251130230322
+112.215.45.51 1 3 343549 20251105234348
+140.213.142.21 2 2 576520 20251109224954
+35.240.213.242 1 1 3744 20251121122504
+140.213.21.88 1 6 664417 20251127045929
+140.213.31.79 2 2 51381 20251103023659
+114.8.214.189 6 6 173495 20251127013741
+114.10.28.255 9 35 4436044 20251105012748
+114.8.214.234 1 1 3744 20251109210235
+114.8.203.124 2 2 56019 20251128052447
+114.8.205.179 6 21 8186034 20251127020450
+114.4.78.33 3 6 18219294 20251113052840
+146.75.160.28 11 29 15631540 20251127015039
+110.136.2.18 3 10 763946 20251121220901
+110.136.43.68 1 5 581302 20251108064134
+36.69.92.126 5 5 113669 20251127012515
+110.136.60.3 5 8 166073 20251117042851
+192.178.15.40 0 1 88151 
+114.10.75.161 4 4 80518 20251120015824
+103.165.195.130 12 26 8703398 20251124045335
+182.3.45.175 0 1 171895 
+180.243.0.169 5 20 14164220 20251110233116
+140.213.6.215 2 9 986389 20251116030312
+182.6.6.204 1 1 552144 20251105072619
+140.213.31.173 1 5 199260 20251127021017
+114.4.213.56 1 1 24493 20251117050310
+143.198.170.61 1 1 3744 20251103092106
+140.213.30.17 1 1 3744 20251110005650
+114.122.101.222 1 8 756458 20251108040514
+114.4.215.44 7 21 2113794 20251116050410
+114.4.213.88 16 29 2441471 20251120233637
+114.10.64.194 1 8 756458 20251125081406
+140.213.138.247 0 1 503168 
+160.19.178.109 6 20 8145992 20251127021136
+114.10.64.205 7 22 14204658 20251120230343
+101.255.119.193 2 9 758707 20251107221455
+114.4.83.24 2 9 759255 20251121031157
+36.77.239.122 1 8 756458 20251101083618
+140.213.134.227 1 2 6071633 20251109225112
+114.8.204.246 1 9 844799 20251112204207
+182.6.3.110 1 3 58642 20251113051347
+114.79.5.116 10 25 14310710 20251117041841
+182.2.180.41 1 1 14797 20251107014256
+140.213.138.144 1 2 10150 20251115211000
+114.4.83.135 14 14 158354 20251127024136
+103.179.173.163 1 1 3744 20251102013936
+140.213.30.145 4 4 77694 20251113014917
+114.10.25.207 12 26 1713441 20251127024557
+162.142.125.219 1 2 10150 20251123141632
+182.6.0.21 9 10 240508 20251106012828
+140.213.251.22 6 18 19766264 20251127020237
+180.254.68.171 10 23 2216007 20251110023941
+103.81.110.116 3 3 11232 20251115211303
+176.65.132.76 1 1 3744 20251124084218
+182.3.51.8 2 9 771660 20251113235601
+180.243.1.200 5 18 2103943 20251117051518
+114.8.215.124 4 7 95387 20251106215319
+182.3.37.112 0 2 12812 
+114.10.115.17 1 7 750052 20251112091659
+112.215.66.232 1 3 522465 20251130224152
+114.10.68.150 12 12 360873 20251112023820
+112.215.224.66 1 3 45339 20251127013739
+114.10.25.154 11 11 428647 20251110015805
+114.8.207.249 4 4 98187 20251127020343
+114.10.65.82 5 5 233556 20251125211513
+114.10.64.251 3 17 8089500 20251113045421
+182.6.1.176 4 4 92280 20251128105010
+182.6.8.88 5 6 112548 20251113020417
+112.215.66.239 0 1 3840 
+202.10.62.51 3 10 782078 20251127074048
+114.8.215.62 1 7 750052 20251111022227
+103.81.110.19 5 18 2101976 20251114051713
+114.8.202.95 0 1 6406 
+180.243.14.86 5 18 2102802 20251117043349
+112.215.45.55 1 1 3916 20251116025931
+160.19.18.204 1 5 599266 20251115043627
+114.10.65.27 3 3 23453 20251114003741
+140.213.30.129 5 20 2780495 20251106012059
+208.102.51.6 3 3 11232 20251113030620
+114.8.199.254 1 3 1391227 20251109210059
+114.4.82.97 6 21 8150008 20251126215643
+182.3.44.43 0 1 503168 
+112.215.170.196 1 1 3744 20251117042215
+103.189.123.8 1 8 756458 20251130224153
+110.138.3.46 3 3 50436 20251124044113
+180.243.11.137 7 25 2130135 20251117043132
+114.4.214.106 7 33 4440001 20251111014530
+61.5.20.223 5 18 2100840 20251128191934
+140.213.6.147 2 5 241733 20251116030058
+140.213.137.244 6 6 314483 20251116205056
+104.28.118.69 0 1 90857 
+114.10.64.70 5 20 622950 20251112185724
+114.8.211.227 2 2 20001 20251126002217
+114.8.201.90 11 11 257137 20251116203643
+93.185.162.128 1 8 756458 20251115063238
+114.10.31.178 0 1 6406 
+114.8.196.61 6 19 2113437 20251113221954
+114.8.204.127 10 40 5457825 20251117043920
+182.6.9.58 1 1 3744 20251121022325
+140.213.21.100 0 1 6406 
+103.59.160.209 1 1 3744 20251108105321
+140.213.138.13 4 10 7219108 20251110040939
+114.10.65.60 2 4 41799 20251120022933
+112.215.66.231 2 2 37106 20251130230700
+182.6.2.210 5 9 1670147 20251106081616
+103.153.96.50 1 1 3744 20251101111725
+140.213.4.42 1 1 3744 20251129065547
+182.2.180.197 5 18 2114807 20251106020213
+112.215.170.56 7 15 7480164 20251116050015
+103.177.177.209 8 21 4521124 20251123234855
+180.243.7.225 5 5 114630 20251117053628
+140.213.11.173 1 1 26732 20251106222604
+114.10.68.51 9 10 126355 20251106221228
+112.215.66.227 1 1 3916 20251130224132
+140.213.31.58 5 5 145263 20251127012552
+114.10.65.214 1 4 434406 20251113222804
+114.10.42.66 1 1 3744 20251129033926
+182.6.9.12 6 6 673548 20251113012220
+112.215.66.230 3 3 582711 20251130230445
+114.4.83.55 7 20 2878942 20251120092621
+182.2.176.31 1 5 3744 20251112050026
+180.243.9.85 0 1 6406 
+114.10.24.14 3 3 45316 20251120225934
+104.28.118.71 0 1 80599 
+114.10.70.150 3 16 2021303 20251112022934
+182.2.183.8 5 5 87497 20251114004613
+162.120.184.24 1 1 3744 20251120000037
+182.6.1.242 4 4 69684 20251127012310
+182.6.6.188 5 18 2104834 20251117040726
+140.213.7.144 2 2 57908 20251105011547
+114.8.211.248 11 20 898046 20251117045736
+182.6.3.228 8 8 602131 20251119235842
+182.6.11.176 6 6 164542 20251127013249
+140.213.137.237 1 1 21689 20251117042232
+34.106.140.71 2 9 1090432 20251112154044
+114.10.65.223 5 11 138864 20251117042742
+114.8.212.10 1 4 508409 20251129072346
+103.36.8.19 1 1 3744 20251128070731
+114.10.75.251 7 25 2843575 20251125081033
+180.243.6.102 1 1 3744 20251125084313
+114.8.210.230 2 2 18939 20251120202920
+64.233.173.230 2 5 162164 20251127044111
+103.166.158.193 4 4 68316 20251124035509
+182.3.45.163 1 1 33705 20251125002412
+104.28.118.70 0 1 88151 
+114.8.234.136 4 4 93328 20251127013404
+172.225.72.77 1 1 552144 20251116044405
+140.213.2.76 4 4 50075 20251112022844
+103.18.34.142 13 34 10291315 20251127014627
+182.2.177.34 4 4 88151 20251126224101
+140.213.9.32 0 4 322052 
+112.215.45.246 1 1 3916 20251116030049
+112.215.152.218 1 1 3744 20251128050627
+112.215.238.1 3 4 614216 20251117060251
+182.3.45.139 3 3 94709 20251113215245
+114.10.66.73 11 24 2061928 20251124221612
+36.70.39.229 0 1 6406 
+180.243.13.132 2 9 778208 20251127021613
+114.10.71.54 0 2 12812 
+114.10.115.141 9 24 181032 20251117050159
+140.213.20.216 5 16 1876555 20251127015358
+3.138.185.30 1 1 3744 20251123124327
+112.215.151.14 9 35 4147421 20251117043517
+182.6.3.230 4 4 1590635 20251119231927
+140.213.15.71 2 2 21792 20251105011435
+182.6.4.167 4 4 104630 20251117043522
+140.213.30.153 2 3 55807 20251127013734
+140.213.137.125 2 8 1279858 20251106221641
+114.10.64.197 11 11 308610 20251127012930
+140.213.30.207 3 4 285835 20251117042935
+182.3.43.15 0 1 90857 
+182.6.3.119 1 1 37516 20251113051409
+192.178.15.32 1 2 150640 20251103022837
+140.213.20.143 3 15 1870873 20251117042753
+114.8.201.54 2 2 61947 20251113050749
+140.213.20.136 3 3 80763 20251113022939
+182.3.43.27 0 1 88151 
+213.173.108.219 0 1 90857 
+64.233.173.231 3 5 435298 20251113033422
+114.4.82.114 10 41 16339938 20251113032957
+114.8.211.9 4 4 103043 20251106025942
+180.243.6.89 1 7 750052 20251117044311
+114.4.212.163 8 21 2187466 20251113211601
+157.245.204.136 1 1 3744 20251102103716
+114.79.3.85 1 1 3744 20251128202033
+112.215.66.228 1 5 514663 20251130224027
+140.213.14.13 1 1 21809 20251116043147
+114.10.112.211 0 1 6406 
+114.10.115.230 2 10 1162604 20251108211433
+140.213.137.78 0 5 410393 
+167.71.98.169 2 2 7488 20251109043122
+182.6.11.177 0 1 6406 
+140.213.134.197 4 5 99304 20251113102653
+180.244.42.154 1 8 756458 20251128073658
+140.213.142.13 2 2 49131 20251103022943
+182.2.164.248 5 18 7976898 20251109232125
+182.6.161.247 0 1 6406 
+112.215.224.194 1 1 3744 20251103023607
+182.3.36.244 10 10 236820 20251117053353
+140.213.20.152 1 6 587708 20251116213523
+114.10.24.176 5 5 166786 20251113020546
+114.4.79.250 8 10 207630 20251114034655
+182.6.161.6 11 24 2319338 20251124050254
+182.253.48.48 1 1 3744 20251104223222
+114.8.234.205 8 8 129745 20251106220944
+182.2.181.82 6 6 89892 20251109232558
+172.225.72.81 1 1 14164 20251116044642
+103.167.171.147 1 8 756458 20251114021116
+114.124.146.145 8 8 208535 20251121050705
+114.10.119.166 1 1 3744 20251128204426
+182.2.183.203 2 9 774661 20251113012403
+112.215.66.236 1 1 15287 20251130230545
+182.6.167.239 4 5 87949 20251109231606
+114.8.205.100 4 4 91864 20251107074709
+114.8.199.47 5 20 2739989 20251124220351
+146.75.160.29 7 35 15696796 20251127014214
+182.2.179.217 0 1 6406 
+182.6.3.216 1 1 3744 20251101004906
+114.8.205.5 5 18 2097968 20251103022949
+112.215.45.180 0 1 88151 
+114.4.79.5 14 27 2290370 20251127021519
+114.10.113.172 4 4 95824 20251106015028
+182.6.167.220 8 13 1948585 20251117025425
+182.2.176.36 6 24 8204613 20251127031452
+114.10.30.205 2 2 18966 20251112211439
+140.213.21.232 1 5 578596 20251127021002
+140.213.26.239 3 16 2042604 20251113031521
+172.225.74.120 7 28 14939009 20251116044327
+112.215.225.231 6 13 1092652 20251106012758
+182.2.181.80 6 8 117844 20251113212201
+182.9.33.10 7 14 772835 20251113055650
+182.6.3.78 5 25 5795985 20251120022754
+66.114.58.243 6 17 2308402 20251128025725
+114.8.199.80 6 22 14226700 20251120213720
+114.4.213.187 0 1 6406 
+140.213.0.44 7 7 192555 20251117045249
+114.10.71.99 1 1 3916 20251112021809
+140.213.31.201 1 8 756458 20251103022806
+140.213.2.157 4 11 740505 20251116050027
+182.253.59.194 6 19 2110983 20251126041129
+64.233.172.37 1 2 150640 20251113020323
+114.4.215.6 1 3 175200 20251112025835
+182.6.160.95 5 12 2050080 20251110000217
+182.2.166.171 4 18 8071793 20251109210251
+114.10.29.26 15 23 25123565 20251105232947
+182.3.50.244 2 6 51003 20251117042802
+182.2.176.9 4 4 82977 20251110020417
+140.213.11.94 1 1 3744 20251124002842
+114.10.113.252 7 20 2106407 20251109224200
+34.87.90.161 3 3 11232 20251113113231
+64.233.172.39 0 1 88151 
+140.213.21.203 1 1 19063 20251103023612
+13.212.202.144 1 1 3744 20251126205955
+114.8.207.173 7 20 2199996 20251127014030
+114.8.234.59 7 20 2116950 20251128223259
+182.2.180.103 1 1 3744 20251110010424
+110.138.8.42 6 16 7425406 20251128082626
+114.4.82.189 3 4 29208 20251113013238
+114.8.210.192 5 18 2112631 20251106050125
+140.213.33.65 1 2 339659 20251109232128
+110.137.154.51 1 1 3744 20251106200749
+182.6.3.244 9 9 468354 20251120000334
+140.213.20.203 2 8 772507 20251113020209
+114.10.113.186 4 21 14188118 20251117042128
+146.70.14.19 3 10 760475 20251115094516
+140.213.132.202 6 19 2147989 20251126231808
+140.213.128.122 2 8 809121 20251110040941
+112.215.45.87 1 1 33482 20251127020923
+180.243.64.38 0 1 6406 
+51.89.60.56 1 1 3744 20251128144214
+140.213.137.159 1 9 868146 20251117041955
+180.242.129.108 0 2 12812 
+182.3.51.181 5 7 100238 20251113033602
+182.2.179.157 1 1 28157 20251106020836
+114.10.75.243 2 6 603010 20251116215742
+112.215.45.244 0 1 90857 
+182.6.162.97 2 4 96757 20251113033430
+114.10.27.44 5 21 2440523 20251116212809
+140.213.31.106 14 14 1006729 20251116212856
+103.65.237.52 2 2 7488 20251125112841
+114.8.211.216 3 8 942669 20251113005636
+182.3.42.31 1 4 490445 20251121222122
+192.178.15.33 0 3 420404 
+114.4.212.141 8 9 204430 20251117050329
+182.6.0.94 5 9 1799211 20251103023604
+103.18.34.158 3 3 64107 20251117042806
+103.166.158.197 0 1 6406 
+52.77.228.104 2 2 3819 20251120102350
+114.8.200.39 5 15 7157906 20251103022837
+114.10.24.223 4 4 84278 20251117042415
+140.213.138.185 3 3 99403 20251126232119
+112.215.66.238 1 2 103438 20251130230542
+182.2.176.45 18 18 233488 20251117055649
+140.213.20.105 2 2 31142 20251110005702
+114.10.117.165 1 1 3744 20251108074423
+182.6.2.120 2 2 73411 20251113024118
+103.65.236.119 1 1 3744 20251110044528
+114.10.113.167 7 20 2104575 20251125211008
+182.6.6.19 2 2 7488 20251110010118
+206.189.89.146 3 3 7488 20251115115456
+140.213.142.1 1 7 750052 20251111030225
+103.183.8.59 0 1 6406 
+114.10.67.172 4 4 96426 20251103032740
+157.20.32.210 2 2 7518 20251102050152
+182.2.180.40 3 4 40150 20251106233525
+182.253.59.231 3 3 38498 20251112045044
+39.96.211.65 1 1 3744 20251106151818
+140.213.0.245 2 14 1486764 20251117060118
+140.213.5.212 5 5 134514 20251117043537
+182.2.182.131 4 4 78706 20251110001950
+36.69.83.158 4 18 8114321 20251130063904
+182.2.179.141 7 22 2863202 20251117042428
+140.213.21.246 6 6 426971 20251116213806
+114.10.31.176 1 3 343549 20251112204924
+114.4.212.23 4 4 97550 20251117042138
+140.213.31.23 0 3 98447 
+180.243.1.46 8 29 2941478 20251129011830
+140.213.251.35 0 1 6406 
+182.2.176.8 7 27 8900795 20251117041844
+182.6.11.160 7 21 2310681 20251121035904
+112.215.238.113 10 10 901892 20251127035758
+140.213.9.243 10 10 527095 20251127032855
+159.89.177.246 1 2 10150 20251110223829
+64.233.173.229 1 4 567154 20251113221219
+182.6.1.86 7 20 2171869 20251127022305
+140.213.129.70 1 2 339659 20251114205224
+112.215.66.234 0 1 30514 
+182.253.59.138 1 2 339659 20251113033423
+103.81.110.245 1 1 3744 20251128232035
+114.79.5.172 6 13 771976 20251124221734
+172.225.72.73 7 21 8205728 20251120214017
+114.8.203.130 4 4 96039 20251106071742
+114.124.241.29 13 27 8357360 20251121184353
+180.243.4.222 6 24 8225692 20251126233441
+114.4.78.251 1 8 756458 20251102222837
+112.215.224.122 5 5 156367 20251106025458
+182.6.160.222 2 2 60399 20251113023037
+36.77.233.68 0 1 6406 
+114.10.116.41 0 1 6406 
+114.10.31.177 9 9 125203 20251105011102
+114.4.79.184 5 18 2109574 20251114005134
+140.213.31.230 14 14 345538 20251113022333
+172.225.74.127 2 3 6628375 20251116044436
+114.10.64.229 14 27 2379347 20251127012634
+182.2.179.160 1 1 173657 20251106021051
+182.6.3.123 1 1 3744 20251113045928
+114.4.213.115 5 19 19355694 20251113020946
+180.254.66.146 5 6 109235 20251128222549
+182.2.176.33 1 1 14797 20251106234639
+15.235.59.82 1 1 3744 20251116192709
+162.120.185.36 1 1 3744 20251127044703
+51.77.95.18 2 2 7488 20251123175735
+112.215.225.117 4 12 1314903 20251127023348
+114.8.199.226 5 5 95212 20251114003316
+112.215.66.225 1 1 15375 20251130230444
+161.97.108.203 2 2 7488 20251114075733
+114.10.112.190 5 5 126441 20251117050637
+103.69.106.170 7 22 14238654 20251127021645
+140.213.31.140 1 7 665601 20251127021203
+182.3.47.160 16 29 3009549 20251121000625
+114.10.112.38 8 8 31376 20251126232037
+182.2.177.203 2 2 66588 20251112014835
+125.161.254.249 4 4 68539 20251120054248
+140.213.21.27 7 7 302973 20251113022954
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 29
+20251101 5 26 2276886 5
+20251102 41 113 10389405 7
+20251103 179 406 76659059 17
+20251104 9 30 3253588 2
+20251105 364 700 156073697 14
+20251106 769 1200 190465485 40
+20251107 108 172 25928259 12
+20251108 7 31 2543674 6
+20251109 340 625 127054641 15
+20251110 185 339 85230685 21
+20251111 53 133 14272229 5
+20251112 249 567 71579804 29
+20251113 624 1170 299363208 60
+20251114 106 223 24021599 17
+20251115 12 31 2145069 6
+20251116 259 437 76729893 31
+20251117 675 1434 289417873 61
+20251119 17 17 2457546 3
+20251120 201 329 102349656 26
+20251121 47 100 13659064 13
+20251122 1 2 10150 1
+20251123 172 213 25504567 8
+20251124 237 445 94926705 19
+20251125 96 276 50528368 18
+20251126 214 406 67025135 19
+20251127 697 1382 255175199 61
+20251128 112 262 47630303 24
+20251129 54 83 5299340 8
+20251130 23 64 11683875 15
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+2mn-5mn 62
+0s-30s 249
+1h+ 29
+15mn-30mn 30
+30s-2mn 109
+30mn-1h 28
+5mn-15mn 56
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 248
+/user/kunjungan 1692 55537771 31 237
+/login 1122 4204162 458 175
+/profile 698 13051874 11 37
+/user/peminjaman 403 16405316 15 20
+/thema/assets/css/icons/tabler-icons/fonts/tabler-icons.woff2 337 183311808 9 19
+/user/req_peminjaman 265 35043091 8 8
+/home 197 3830316 19 14
+/petugas/request 170 5710535 1 6
+/petugas/ruang 98 11373397 0 3
+/user/jadwal_praktikum 98 4310606 0 7
+/petugas/tambah_jadwal 81 3016368 1 1
+/password/reset 39 114695 3 4
+/petugas/pengembalian 37 21729504 0 2
+/changePassword 35 521270 0 2
+/user/req_jadwal 28 977046 3 7
+/petugas/laporan/bahan_bhp 26 1866996 0 0
+/petugas/laporan 24 722037 0 0
+/admin/users 19 56823789 0 1
+/petugas/request_jadwal 19 600944 1 1
+/petugas/pengembalian_detail2/1205 16 874475 0 0
+/user/peminjaman_detail/1240 11 178010 0 0
+/petugas/laporan/penggunaan_lab 11 423292 0 0
+/petugas/pengembalian_detail2/1158 10 414364 0 0
+/petugas/barang 10 11410007 0 0
+/petugas/pengembalian_detail2/1149 10 412966 0 0
+/index.php/login 1 3774 1 1
+/petugas/request_detail/1311 1 27871 0 0
+/petugas/request_detail/1324 1 27874 0 0
+/petugas/request_detail/1189 1 27310 0 0
+/petugas/request_detail/1194 1 26016 0 0
+/petugas/request_detail/1225 1 30519 0 0
+/petugas/pengembalian_detail2/488 2 80374 0 0
+/user/peminjaman_detail/1224 1 13516 0 0
+/petugas/request_detail/1183 1 26024 0 0
+/petugas/request_detail/1151 1 29518 0 0
+/petugas/request_detail/1172 1 32603 0 0
+/user/peminjaman_detail/1205 1 17166 0 0
+/petugas/request_detail/1214 1 25967 0 0
+/petugas/pengembalian_detail2/1157 2 65541 0 0
+/petugas/pengembalian_detail2/1136 6 244165 0 0
+/petugas/request_detail/1216 1 31194 0 0
+/petugas/pengembalian_detail2/1182 5 149110 0 0
+/petugas/request_detail/1150 2 56967 0 0
+/user/peminjaman_detail/1263 1 11908 0 0
+/petugas/laporan/pinjaman_alat_lab 2 53096 0 0
+/petugas/request_detail/1217 1 31204 0 0
+/admin/user/3227 1 32482 0 0
+/petugas/request_detail/1185 1 32764 0 0
+/petugas/request_detail/1157 1 26090 0 0
+/user/peminjaman_detail/1243 6 92905 0 1
+/user/peminjaman_detail/518 1 11925 0 0
+/user/peminjaman_detail/1189 3 34230 0 0
+/petugas/request_detail/1215 1 35787 0 0
+/petugas/request_detail/1290 1 26194 0 0
+/petugas/request_detail/1317 1 26685 0 0
+/petugas/request_detail/943 1 32781 0 0
+/petugas/detail_jadwal/1359 1 39018 0 0
+/petugas/belum_dikembalikan 3 162744 0 0
+/petugas/request_detail/1207 1 30789 0 0
+/user/peminjaman_detail/1179 2 23834 0 0
+/petugas/request_detail/1149 2 73234 0 0
+/petugas/request_detail/1155 1 28413 0 0
+/petugas/pengembalian_detail2/1155 4 136684 0 0
+/petugas/request_detail/1204 1 31930 0 0
+/petugas/laporan/pinjaman_alat_medis 2 251032 0 0
+/user/peminjaman_detail/1385 1 17605 0 0
+/user/peminjaman_detail/825 1 11724 0 1
+/petugas/request_detail/1304 1 25989 0 0
+/user/peminjaman_detail/1204 1 13129 0 0
+/petugas/request_detail/1223 1 37434 0 0
+/petugas/pengembalian_detail2/1133 5 194161 0 0
+/user/peminjaman_detail/785 1 11514 0 0
+/petugas/detail_jadwal/1355 1 38996 0 0
+/user/peminjaman_detail/783 1 12715 0 0
+/petugas/request_detail/1171 1 32607 0 0
+/petugas/request_detail/1173 1 32589 0 0
+/petugas/request_detail/1169 1 32615 0 0
+/petugas/request_detail/1224 1 32855 0 0
+/petugas/pengembalian_detail2/1203 2 52835 0 0
+/petugas/request_detail/1208 1 29390 0 0
+/user/peminjaman_detail/1226 2 25420 0 0
+/petugas/pengembalian_detail2/1179 6 177477 0 0
+/petugas/pengembalian_detail2/603 1 27004 0 0
+/petugas/request_detail/1174 1 32593 0 0
+/petugas/pengembalian_detail2/1160 2 53109 0 0
+/petugas/pengembalian_detail2/1207 7 241220 0 0
+/petugas/detail_jadwal/1354 1 38998 0 0
+/user/peminjaman_detail/821 1 12302 0 0
+/admin/user_manage 7 8673041 0 0
+/user/peminjaman_detail/520 1 12304 0 0
+/petugas/request_detail/1191 1 37434 0 0
+/petugas/request_detail/1199 1 26244 0 0
+/petugas/pengembalian_detail2/1216 3 103763 0 0
+/user/peminjaman_detail/291 1 17652 0 1
+/petugas/pengembalian_detail2/1135 2 66468 0 0
+/petugas/detail_jadwal/1353 3 117009 0 0
+/thema/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js.map 2 667948 0 2
+/petugas/request_detail/1184 1 32757 0 0
+/petugas/pengembalian_detail2/1215 7 293455 0 0
+/user/peminjaman_detail/519 1 13121 0 0
+/petugas/request_detail/1303 1 25995 0 0
+/user/peminjaman_detail/1220 1 11938 0 0
+/petugas/request_detail/1096 1 26088 0 0
+/user/peminjaman_detail/1190 1 18560 0 0
+/user/peminjaman_detail/1096 2 22291 0 1
+/petugas/request_detail/1213 1 25943 0 0
+/petugas/barangmedis 7 11401165 0 0
+/user/peminjaman_detail/1231 1 12492 0 0
+/user/peminjaman_detail/1282 1 11144 0 0
+/petugas/request_detail/243 1 35193 0 0
+/petugas/request_detail/1003 1 32394 0 0
+/petugas/request_detail/1181 1 32595 0 0
+/petugas/request_detail/1170 1 32613 0 0
+/petugas/request_detail/1197 1 26023 0 0
+/petugas/request_detail/957 1 25952 0 0
+/user/peminjaman_detail/488 6 116676 0 0
+/petugas/request_detail/1188 1 32816 0 0
+/admin/user_edit/3223 1 29532 0 0
+/petugas/request_detail/945 1 32766 0 0
+/petugas/request_detail/1209 1 27097 0 0
+/petugas/pengembalian_detail2/1219 2 65027 0 0
+/petugas/pengembalian_detail2/1156 3 96842 0 0
+/user/peminjaman_detail/1127 1 11141 0 1
+/user/peminjaman_detail/1168 1 31141 0 0
+/petugas/request_detail/1187 1 32813 0 0
+/user/peminjaman_detail/1239 9 119046 0 0
+/user/peminjaman_detail/781 1 21337 0 0
+/petugas/request_detail/1205 1 43632 0 0
+/thema/assets/css/icons/tabler-icons/fonts/tabler-icons.woff 4 3102464 0 0
+/petugas/request_detail/1186 1 32810 0 0
+/petugas/request_detail/1226 1 30519 0 0
+/user/peminjaman_detail/1274 1 13144 0 0
+/petugas/request_detail/1210 1 28250 0 0
+/petugas/request_detail/1287 1 26199 0 0
+/user/peminjaman_detail/1232 1 14906 0 0
+/user/peminjaman_detail/1161 1 11024 0 1
+/admin/user/50 2 62680 0 0
+/petugas/request_detail/1190 2 56648 0 0
+/petugas/request_detail/1203 1 26332 0 0
+/petugas/request_detail/1177 1 32580 0 0
+/petugas/request_detail/1211 1 29577 0 0
+/user/peminjaman_detail/1191 2 38531 0 0
+/petugas/request_detail/241 2 72745 0 0
+/admin/user/2985 1 31089 0 0
+/petugas/pengembalian_detail2/1145 3 79865 0 0
+/user/peminjaman_detail/1003 1 11132 0 0
+/petugas/request_detail/1218 1 31075 0 0
+/user/peminjaman_detail/1257 1 18140 0 0
+/petugas/pengembalian_detail2/1204 7 273263 0 0
+/petugas/request_detail/1293 1 26199 0 0
+/petugas/request_detail/1180 1 32588 0 0
+/petugas/request_detail/1158 1 35286 0 0
+/petugas/request_detail/1198 1 27097 0 0
+/petugas/pengembalian_detail2/1159 3 85317 0 0
+/petugas/request_detail/1153 1 29657 0 0
+/user/peminjaman_detail/1360 1 11561 0 0
+/user/peminjaman_detail/292 1 11123 0 0
+/petugas/request_detail/941 1 32797 0 0
+/petugas/request_detail/1292 1 26210 0 0
+/petugas/request_detail/1154 1 28377 0 0
+/petugas/request_detail/944 2 65382 0 0
+/petugas/request_detail/1167 1 32706 0 0
+/petugas/request_detail/376 1 35215 0 0
+/petugas/request_detail/1219 1 30042 0 0
+/petugas/request_detail/1318 1 26549 0 0
+/petugas/request_detail/1212 1 25869 0 0
+/petugas/request_detail/1305 1 26146 0 0
+/petugas/barangbhp 6 865290 0 2
+/petugas/pengembalian_detail2/1130 2 60401 0 0
+/petugas/pengembalian_detail2/1152 2 52840 0 0
+/petugas/pengembalian_detail2/1150 4 120681 0 0
+/petugas/pengembalian_detail2/1138 2 66357 0 0
+/petugas/request_detail/1227 1 30478 0 0
+/user/peminjaman_detail/1225 1 12732 0 0
+/user/peminjaman_detail/523 1 11516 0 0
+/petugas/request_detail/1160 1 26084 0 0
+/petugas/request_detail/1168 1 32600 0 0
+/user/peminjaman_detail/293 1 11386 0 0
+/admin/master_data 3 1678292 0 1
+/admin/user_edit/3224 1 34784 0 0
+/petugas/pengembalian_detail2/1151 5 160040 0 0
+/admin/user_edit/2985 2 56486 0 1
+/petugas/request_detail/1310 2 53877 0 0
+/petugas/request_detail/1307 1 26413 0 0
+/user/peminjaman_detail/1256 2 35119 0 1
+/user/peminjaman_detail/822 1 11530 0 0
+/petugas/request_detail/1178 1 32587 0 0
+/petugas/request_detail/1138 1 32493 0 0
+/user/peminjaman_detail/1264 1 14245 0 0
+/user/peminjaman_detail/1183 5 55235 0 0
+/user/peminjaman_detail/1305 1 24681 0 0
+/user/peminjaman_detail/1238 3 43237 0 0
+/user/peminjaman_detail/1386 1 17602 0 1
+/user/peminjaman_detail/784 1 11387 0 0
+/user/peminjaman_detail/1242 4 64242 0 1
+/petugas/request_detail/1193 1 25986 0 0
+/petugas/request_detail/1159 1 28574 0 0
+/petugas/request_detail/1182 1 35319 0 0
+/petugas/request_detail/1206 1 42491 0 0
+/petugas/pengembalian_detail2/1129 3 84899 0 0
+/petugas/pengembalian_detail2/626 1 30698 0 0
+/user/peminjaman_detail/526 1 11039 0 0
+/petugas/request_detail/1196 1 26023 0 0
+/petugas/request_detail/942 1 32789 0 0
+/petugas/pengembalian_detail2/1096 2 53121 0 0
+/petugas/request_detail/1176 1 32577 0 0
+/petugas/pengembalian_detail2/969 2 53113 0 0
+/petugas/request_detail/939 2 65410 0 0
+/petugas/request_detail/1192 1 26018 0 0
+/petugas/request_detail/1156 3 78644 0 0
+/petugas/request_detail/1152 1 26090 0 0
+/petugas/request_detail/1288 1 27332 0 0
+/petugas/request_detail/1165 2 61824 0 0
+/thema/assets/css/icons/tabler-icons/fonts/tabler-icons.ttf 2 3043520 0 0
+/user/peminjaman_detail/525 1 11121 0 0
+/petugas/request_detail/940 2 65416 0 0
+/petugas/request_detail/1291 1 27376 0 0
+/petugas/pengembalian_detail2/851 1 38911 0 0
+/user/peminjaman_detail/517 1 13466 0 0
+/petugas/request_detail/1161 1 25984 0 0
+/user/peminjaman_detail/1260 1 18059 0 1
+/petugas/pengembalian_detail2/1217 3 103710 0 0
+/user/peminjaman_detail/1241 5 68265 1 0
+/petugas/request_detail/1179 1 35237 0 0
+/petugas/laporan/pinjaman_bahan_bhp 7 215324 0 1
+/admin/user/74 1 37734 0 0
+/petugas/pengembalian_detail2/1142 3 79973 0 0
+/user/peminjaman_detail/1310 1 24960 0 0
+/petugas/request_detail/1175 1 32578 0 0
+/register 3 225 1 1
+/user/peminjaman_detail/1244 1 12942 0 0
+/user/peminjaman_detail/1182 1 11932 0 0
+/petugas/request_detail/1130 1 29382 0 0
+/petugas/pengembalian_detail2/1167 3 78645 0 0
+/petugas/request_detail/1306 1 26281 0 0
+/petugas/pengembalian_detail2/1144 4 105651 0 0
+/petugas/laporan/kunjungan_lab 10 3157196 0 0
+/petugas/pengembalian_detail2/1148 2 52847 0 0
+/user/peminjaman_detail/782 1 14669 0 0
+/petugas/pengembalian_detail2/1147 2 52837 0 0
+/petugas/request_detail/1319 1 26411 0 0
+/admin/user/47 2 75724 0 0
+/user/peminjaman_detail/1206 1 16088 0 0
+/petugas/request_detail/1289 1 27346 0 0
+/petugas/request_detail/1195 1 26016 0 0
+/user/peminjaman_detail/823 1 11125 0 0
+/user/peminjaman_detail/824 1 11131 0 0
+/petugas/request_detail/1302 1 25985 0 0
+END_SIDER

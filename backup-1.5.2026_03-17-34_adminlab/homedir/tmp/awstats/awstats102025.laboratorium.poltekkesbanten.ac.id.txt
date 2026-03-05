@@ -1,0 +1,4224 @@
+AWSTATS DATA FILE 7.8 (build 20200416)
+# If you remove this file, all statistics for date 202510 will be lost/reset.
+# Last config file used to build this data file was /home/adminlab/tmp/awstats/awstats.laboratorium.poltekkesbanten.ac.id.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2031                
+POS_TIME 2713                
+POS_VISITOR 133292              
+POS_DAY 138534              
+POS_DOMAIN 3570                
+POS_LOGIN 4027                
+POS_ROBOT 4182                
+POS_WORMS 4576                
+POS_EMAILSENDER 4707                
+POS_EMAILRECEIVER 4850                
+POS_SESSION 139226              
+POS_SIDER 139435              
+POS_FILETYPES 4985                
+POS_DOWNLOADS 5178                
+POS_OS 5226                
+POS_BROWSER 5437                
+POS_SCREENSIZE 6192                
+POS_UNKNOWNREFERER 6266                
+POS_UNKNOWNREFERERBROWSER 6641                
+POS_ORIGIN 6787                
+POS_SEREFERRALS 6925                
+POS_PAGEREFS 7088                
+POS_SEARCHWORDS 7236                
+POS_KEYWORDS 7388                
+POS_MISC 2377                
+POS_ERRORS 7447                
+POS_CLUSTER 3883                
+POS_SIDER_404 7613                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20251101052305 109 24407 13137580469737
+FirstTime 20251001003709
+LastTime 20251031220450
+LastUpdate 20251101065954 109 0 108 0 0
+TotalVisits 166                 
+TotalUnique 119                 
+MonthHostsKnown 0                   
+MonthHostsUnknown 138                 
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+DirectorSupport 0 0 0
+JavascriptDisabled 0 0 0
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+PDFSupport 0 0 0
+RealPlayerSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 6 0
+FlashSupport 0 0 0
+TotalMisc 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 68 133 29078273 546 549 788046
+1 10 26 15152390 410 415 599410
+2 41 71 23484564 2583 2588 3718673
+3 94 121 15164269 167 179 225355
+4 83 207 78762470 148 152 2555731
+5 16 31 14328749 328 329 1630897
+6 20 20 100530 379 385 564992
+7 17 23 653882 720 721 1050100
+8 12 12 37360 460 562 690568
+9 16 29 1555062 364 465 539725
+10 8 22 8150987 342 346 516296
+11 2 2 7472 199 302 301675
+12 2 2 3736 75 77 112020
+13 8 8 29918 1264 1271 2433167
+14 11 16 41096 733 737 1253737
+15 0 0 0 76 84 112318
+16 0 0 0 41 41 54787
+17 5 5 18680 659 665 983658
+18 6 6 22416 192 199 944534
+19 5 19 8154759 409 410 625785
+20 18 46 15796344 375 376 485834
+21 41 74 29275864 117 120 709426
+22 79 163 35763753 127 134 810325
+23 69 128 22914764 331 429 471934
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 17
+in 341 595 143053208
+us 103 161 32924028
+id 93 264 97845440
+se 22 69 24393834
+gb 17 18 69918
+jp 9 9 33624
+ua 8 8 29918
+ru 8 9 36294
+be 8 8 29888
+gr 6 6 22416
+de 5 5 11208
+nl 3 4 17674
+za 3 3 11208
+au 2 2 7472
+cz 1 1 3736
+sg 1 1 3736
+fr 1 1 3736
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 7
+bingbot/ 20 1977609 20251031140035 2
+Googlebot/ 12 7742 20251023101933 10
+no_user_agent 11 41276 20251022060613 0
+Go\-http\-client/ 3 11208 20251019033119 0
+robot 1 24 20251026142123 1
+CFNetwork 1 6406 20251030031215 0
+bot[\s_+:,\.\;\/\\-] 1 24 20251020180125 1
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 6
+js 238 27122812 0 0
+png 127 4934428 0 0
+svg 36 211634745 0 0
+css 132 21151505 0 0
+Unknown 601 17641672 0 0
+woff2 30 16012176 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 10
+ios_ipad 8 8
+Unknown 9 8
+macosx14 2 2
+linux 6 4
+linuxubuntu 3 3
+ios_iphone 822 321
+win10 284 269
+androidnougat 10 10
+android10 17 3
+macosx15 3 3
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 38
+chrome139.0.0.0 4 2
+chrome88.0.4240.193 84 84
+safari16.1 21 7
+chrome111.0.0.0 2 2
+opera62.0.3331.101 2 2
+chrome80.0.3987.149 6 6
+Unknown 5 5
+chrome116.0.0.0 1 1
+chrome141.0.0.0 8 1
+chrome58.0.3029.110 1 1
+iphone 20 4
+chrome78.0.3904.108 6 6
+mozilla 3 2
+chrome60.0.3112.107 10 10
+safari 157 126
+safari26.0.1 10 1
+safari15.3 34 8
+firefox110.0 2 2
+chrome140.0.0.0 167 145
+safari17.1.2 29 8
+chrome79.0 6 6
+netscape5.0 2 2
+safari18.1.1 103 30
+safari16.4 10 10
+firefox28.0 3 3
+firefox65.0 2 2
+safari18.5 27 9
+safari17.2 1 1
+chrome114.0.0.0 5 5
+safari17.7 74 24
+safari16.6 58 15
+safari14.0.3 1 1
+safari16.3 133 41
+safari17.6 128 40
+chrome89.0.4389.114 10 10
+safari18.6 8 2
+safari17.4.1 19 5
+chrome109.0.0.0 2 2
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 5
+Mozilla/5.0_zgrab/0.x 20251016220647
+Mozilla/5.0_(compatible;_CensysInspect/1.1;__https://about.censys.io/) 20251021130809
+python-requests/2.31.0 20251030101647
+Mozilla/5.0_(compatible;_InternetMeasurement/1.0;__https://internet-measurement.com/) 20251013001557
+Mozila/5.0 20251017172838
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 2
+Mozila/5.0 20251017172838
+python-requests/2.31.0 20251030101647
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 250 257
+From1 7 7
+From2 1 1
+From3 0 0
+From4 373 899
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+www_google_com 1 1
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 6
+419 27 42066
+404 10587 15706272
+500 2 1239497
+301 468 125189
+405 5 2846250
+302 392 175430
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 3695
+/wp-content/updraft/alfacgiapi/404.php 2 -
+/wp-admin/maint/wp-cron.php 1 www.google.com
+/wp-consar.php 5 www.google.com
+/reisen/wp-login.php 1 www.google.com
+/font.php 1 www.google.com
+/woh.php 1 -
+/wp-admin/maint/maint/ajax-actions.php 4 -
+/upload/server/php 1 -
+/wp-includes/ID3/index.php 2 www.google.com
+/you.php 1 www.google.com
+/deployment.config 1 -
+/0z.php 3 www.google.com
+/admin/includes/general.js 1 -
+/22.php 2 www.google.com
+/wp-content/about.php 18 www.google.com
+/rk2.php 3 -
+/tmp/vuln.php 1 www.google.com
+/.quarantine/alfacgiapi/bash.alfa 4 -
+/assets/alfacgiapi/404.php 2 -
+/con.php 4 www.google.com
+/wp-admin/js/function.php 1 -
+/uploads/kcfinder-3.12/upload.php 1 -
+/config.bak.php 1 -
+/command.php 1 -
+/wp-includes/radio.php 2 www.google.com
+/laboratorium9 1 www.google.com
+/administrator/templates/hathor/error.php 1 www.google.com
+/b374k.php 4 www.google.com
+/wp-includes/shell20211028.php 3 -
+/wp.php 19 www.google.com
+/adminpanel/kcfinder-3.12/upload.php 1 -
+/wp-content/includes/checkbox.php 1 www.google.com
+/wp-content/up.php 2 www.google.com
+/php-backdoor.php 1 www.google.com
+/vendor 1 www.google.com
+/.git/config 2 www.google.com
+/wp-includes/SimplePie/index.php 2 www.google.com
+/lab.php 2 www.google.com
+/wp-content/themes/rishi/db.php 2 www.google.com
+/submission 1 -
+/bs.php7 1 www.google.com
+/assets/ckeditor/kcfinder-3.12/upload.php 1 -
+/wp-content/uploads/wp-login.php 5 www.google.com
+/login/news/wp-includes/wlwmanifest.xml 56 -
+/3.php 8 www.google.com
+/lib/fileman/index.html 2 -
+/wp-content/updraft/alfacgiapi/radio.php 2 -
+/backup_db 1 www.google.com
+/zacosmall.php 1 www.google.com
+/cache-compat.php 5 www.google.com
+/wp-admin/css/colors/coffee/alfa.php 1 www.google.com
+/wp-includes/inputs.php 1 -
+/gggssdd.php 1 -
+/uploads/server/php 1 -
+/about/class.api.php 1 -
+/ciis.php 3 www.google.com
+/cf.php 1 -
+/wp-includes/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/jindex.php 6 www.google.com
+/wp-content/themes/ALFA_DATA/alfacgiapi/index.php 2 -
+/erros_run.php 2 -
+/wp-admin/css/colors/blue/cloud.php 5 www.google.com
+/remove.php 2 www.google.com
+/laymu.php 2 www.google.com
+/tinymce/kcfinder-3.12/upload.php 1 -
+/scn.php 2 www.google.com
+/wp-video.php 1 -
+/login/website/wp-includes/wlwmanifest.xml 56 -
+/assets/global/plugins/server/php 1 -
+/assets/uploads/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/jetpack.php 1 -
+/wp-content/45.php 1 www.google.com
+/new/alfacgiapi/bash.alfa 4 -
+/fatal.php 2 www.google.com
+/y.php 5 www.google.com
+/scripts/js/kcfinder/upload.php 1 -
+/assets/alfacgiapi/index.php 2 -
+/ot.php 1 -
+/uploads/ALFA_DATA/alfacgiapi/index.php 2 -
+/yxr6m.php 1 -
+/mail.php 12 www.google.com
+/config.php 7 www.google.com
+/wp-includes/pomo/class.api.php 1 -
+/pages 2 www.google.com
+/wp-admin/includes/checkbox.php 1 www.google.com
+/wp-admin/includes/am.php 1 www.google.com
+/components/ALFA_DATA/alfacgiapi/404.php 2 -
+/resources/assets/kcfinder/upload.php 1 -
+/k7.php 1 www.google.com
+/backend/ckeditor/kcfinder/upload.php 1 -
+/forums.tpl-1.php 1 www.google.com
+/secrets 1 -
+/minimo.php 4 www.google.com
+/.well-known/acme-challenge/023ws.php 1 -
+/wp-admin/css/colors/coffee/xmrlpc.php 5 -
+/inc_admin/plugins/kcfinder-3.12/upload.php 1 -
+/images/mari.php 1 www.google.com
+/.well-known/ 10 binance.com
+/filesss.php 3 -
+/zk.php 2 www.google.com
+/wikiindex.php 1 www.google.com
+/db.php 6 www.google.com
+/xm.php 2 www.google.com
+/images/x.php 1 www.google.com
+/feed.php 1 www.google.com
+/Laboratorium8 1 www.google.com
+/file/pomo.php 1 -
+/wp-includes/SimplePie 3 www.google.com
+/wp-admin/includes/about.php 15 www.google.com
+/content.php 19 www.google.com
+/my_cms/public/assets/plugins/ckeditor/kcfinder-3.12/upload.php 1 -
+/batm.php 4 www.google.com
+/alfaaneh.php 2 www.google.com
+/wp-content/themes/jobart/db.php 2 www.google.com
+/adminfuns.php7 5 www.google.com
+/wp-includes/index.php 3 www.google.com
+/assets/js/ckeditor/kcfinder/upload.php 1 -
+/wp-content/plugins/alfacgiapi/perl.alfa 4 -
+/r57.php 3 www.google.com
+/wp-includes/repeater.php 5 www.google.com
+/laboratorium.poltekkesbanten.ac.id.7z 4 -
+/.well-known/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/alexus.php 2 www.google.com
+/45.php 3 www.google.com
+/ym.php 1 www.google.com
+/wp-admin/css/colors/coffee/wso.php 1 www.google.com
+/wp-l0gin.php 1 www.google.com
+/plugins/server/php 1 -
+/filemanager.php 7 www.google.com
+/pfblockerng/www/index.php 1 -
+/wordpress-bak 1 www.google.com
+/backup/.env 2 -
+/FoxWSO-full.php 2 www.google.com
+/images/vuln.php 1 www.google.com
+/foxwsov2.php 1 www.google.com
+/cgi-bin/alfacgiapi/radio.php 2 -
+/wpc.php 1 -
+/laboratoriumpoltekkesbantenpoltekkesbanten.rar 4 -
+/wso2.8.php 1 www.google.com
+/.well-known/acme-challenge/alfacgiapi/perl.alfa 4 -
+/shop 1 www.google.com
+/wp-admin/msleaf.php7 1 -
+/anone.php 4 www.google.com
+/laboratorium5 1 www.google.com
+/laboratorium.poltekkesbanten.ac.id.tar.bz2 4 -
+/laboratorium.poltekkesbanten.rar 4 -
+/.netbeans/remote-sync.json 1 -
+/wordpress 3 -
+/LEAF.php 1 www.google.com
+/wp-content/themes/cakiltheme/up.php 2 www.google.com
+/.well-known/acme-challenge/class.api.php 1 -
+/.well-known/shell.php 1 www.google.com
+/google.php 1 www.google.com
+/ahax.php 4 -
+/includes.php 2 www.google.com
+/galeri 1 www.google.com
+/administrator.php 1 -
+/wp-content/plugins/ubh/con.php 1 www.google.com
+/plss3.php 3 -
+/cgi-bin/ALFA_DATA/alfacgiapi/404.php 2 -
+/x.php 11 www.google.com
+/wp-singupp.php 2 www.google.com
+/2s90o.php 1 www.google.com
+/wp-pluging.php 3 www.google.com
+/login/2018/wp-includes/wlwmanifest.xml 6 -
+/wp/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/wp-includes/l10n.php 1 -
+/wp-24.php 1 -
+/wp-content/406.php 2 www.google.com
+/wp-admin/includes/nice.php 1 -
+/plugin/server/php 1 -
+/wp-content/languages/index.php 1 -
+/.wp-back.phP 1 -
+/include/libs/kcfinder-2.54/upload.php 1 -
+/mega.php 1 www.google.com
+/wp/ALFA_DATA/alfacgiapi/radio.php 2 -
+/css/class.api.php 1 -
+/images/alfacgiapi/perl.alfa 4 -
+/wp-admin/maint/maro.php 1 www.google.com
+/exec.php 1 -
+/ikeh.php 2 www.google.com
+/wp-includes/js/jcrop/Jcrop.php 2 www.google.com
+/images/alfacgiapi/py.alfa 4 -
+/wp-content/f0x.ph 1 www.google.com
+/wp-includes/css/upl.php 1 www.google.com
+/black.php 4 www.google.com
+/frontend/.env 2 -
+/lock.php 5 www.google.com
+/wp-includes/harga.php 1 www.google.com
+/wp-blog-post.php 1 www.google.com
+/sam.php 1 www.google.com
+/1975Team.php 2 www.google.com
+/wp-admin/css/colors/cloud.php 5 www.google.com
+/pvt.php 2 -
+/alfacgiapi/404.php 2 -
+/poltekkesbanten.rar 4 -
+/u.php 5 www.google.com
+/cgi-bin/cloud.php 6 www.google.com
+/gank.php.PhP 4 www.google.com
+/1p.php 1 www.google.com
+/public/ckeditor/kcfinder/upload.php 1 -
+/wp-includes/theme-compat/zmFM.php 1 -
+/asset/adminer.php 1 -
+/tinyfilemanager.php 6 www.google.com
+/wp-admin/leafmailer.php 1 www.google.com
+/Laboratorium6 1 www.google.com
+/wp-content/xxl.php 1 -
+/goods.php 4 www.google.com
+/init.php 5 www.google.com
+/wp-content/plugins/alfacgiapi/404.php 2 -
+/.tmb 1 www.google.com
+/Priv.php 2 www.google.com
+/packages/ckeditor/kcfinder-3.12/upload.php 1 -
+/shell4.php 2 www.google.com
+/assets 2 www.google.com
+/securimage/adminer.php 1 -
+/xl.php 5 www.google.com
+/wp-includes/rest-api 2 www.google.com
+/alfashell.php 2 www.google.com
+/dosya.php 2 www.google.com
+/wp-content/plugins/html404/index.html 1 www.google.com
+/usb.php 2 www.google.com
+/wp-admin/css/up.php 1 www.google.com
+/wp-content/plugins/cache-wordpress/wp-activates.php 2 www.google.com
+/Alfawso.php 1 www.google.com
+/about/function.php 3 www.google.com
+/login/2019/wp-includes/wlwmanifest.xml 82 -
+/wp-includes/images/css.php 1 www.google.com
+/.well-known/acme-challenge/atomlib.php 3 www.google.com
+/login/wp/wp-includes/wlwmanifest.xml 85 -
+/wp-admin/js/class.api.php 1 -
+/28.php 1 -
+/fast.php 2 www.google.com
+/bantuan 1 www.google.com
+/wp-admin/mari.php 1 www.google.com
+/yy.php 1 -
+/wawe.php 3 www.google.com
+/xleetmailer.php 1 www.google.com
+/worm0.PhP7 8 www.google.com
+/files/mailer.php 1 -
+/wp-content/themes/skatepark/db.php 2 www.google.com
+/wp-incleudes/haxorsecv2.php 1 -
+/map.php 1 -
+/wp-admin/css/colors/coffee/symlink.php 1 www.google.com
+/wp-json/wp/v2/tags 5 -
+/mark.php 3 -
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/index.php 2 -
+/wp-admin/js/widgets/cloud.php 4 -
+/wp-content/plugins/seoo/wsoyanz.php 5 www.google.com
+/.well-known/ALFA_DATA/alfacgiapi/index.php 2 -
+/0x0.php 2 www.google.com
+/images/maro.php 1 www.google.com
+/wp/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/.well-known/1mages.php 3 -
+/406.php 3 www.google.com
+/wp-content/plugins/css-ready/file.php 2 www.google.com
+/wp-admin/hax.php 1 www.google.com
+/wp-admin/css/colors/coffee/Bulle.php 1 www.google.com
+/wso1.php 4 www.google.com
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/404.php 2 -
+/admin/fileman/index.html 2 -
+/alf42.php 1 www.google.com
+/hehe.php 6 www.google.com
+/wp-admin/images.php 2 www.google.com
+/app.zip 4 -
+/wp-content/ice.php 1 -
+/wp-includes/images/smilies 1 www.google.com
+/sendmail.php 4 www.google.com
+/deploy 1 -
+/rex.php 3 www.google.com
+/wp-includes/certificates/pomo.php 1 -
+/resources/kcfinder-3.12/upload.php 1 -
+/go.php 4 www.google.com
+/alfateslav4.php 2 www.google.com
+/kn.php 5 www.google.com
+/akc.php 1 -
+/wp-admin/images/nice.php 1 -
+/luuuf.php/lufix 1 www.google.com
+/wp-content/plugins/instabuilder2/cache/up.php 3 www.google.com
+/images/alfashell.php 1 www.google.com
+/wp-admin/meta 1 www.google.com
+/login/media/wp-includes/wlwmanifest.xml 6 -
+/wp-content/languages/e-preview.php 1 -
+/wp-admin/d65ve.php 1 www.google.com
+/admin/asset/server/php 1 -
+/wp-includes/certificates/index.php 2 www.google.com
+/.vscode/sftp.json 4 -
+/ovshell.php 1 www.google.com
+/editor/kcfinder/upload.php 1 -
+/shellx.php 1 www.google.com
+/wp-menu.php 2 www.google.com
+/wp-content/uploads/wp-blockdown.php 1 www.google.com
+/wordpress/alfacgiapi/py.alfa 4 -
+/wp-admin/includes/atomlib.php 1 -
+/wp-admin/includes/nav.php/admin@123 1 www.google.com
+/wp-admin/css/colors/coffee/index.php 9 www.google.com
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/404.php 2 -
+/ws.php7 5 www.google.com
+/wp-content/uploads/ALFA_DATA/alfacgiapi/404.php 2 -
+/rx.php 1 -
+/WORDPRESS 1 www.google.com
+/dokumen 1 www.google.com
+/wp-content/themes/workart/db.php 2 www.google.com
+/7root.php 1 www.google.com
+/wp-admin/wso112233.php 3 -
+/wp-includes/Text 2 www.google.com
+/wp-content/plugins/dummyyummy/wp-signup.php 3 www.google.com
+/download 1 www.google.com
+/components/alfacgiapi/index.php 2 -
+/ajax.php 1 -
+/wp-admin/js/wp-conflg.php 1 -
+/login/xmlrpc.php 91 -
+/asset/kcfinder/upload.php 1 -
+/wp-content/uploads/inputs.php 1 -
+/wp-includes/css/themes.php 2 -
+/wp-includes/block-patterns 1 www.google.com
+/NewFile.php 4 -
+/wp/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/as/function 2 www.google.com
+/file18.php 3 -
+/Laboratorium2022 1 www.google.com
+/wp-admin/maint/404.php 1 www.google.com
+/wp-json/wp/v2/categories 5 -
+/zero.php 2 www.google.com
+/assets/upload/ALFA_DATA/alfacgiapi/index.php 2 -
+/backup3 1 www.google.com
+/wp-includes/wp-head.php 1 -
+/wp-admin/alfacgiapi/404.php 2 -
+/wp-includes/css/wp-abupee.php 1 -
+/mi.php 2 www.google.com
+/wp-content/themes/digital-download/new.php 1 www.google.com
+/7index.php 1 www.google.com
+/images/sell.php7 1 -
+/public/javascript/filemanager/dialog.php 1 -
+/wp-content/languages/about.php 8 www.google.com
+/v2.php 3 www.google.com
+/wp-admin/langar.php 1 www.google.com
+/blvck.php 2 www.google.com
+/wp/ALFA_DATA/alfacgiapi/index.php 2 -
+/405.php 2 www.google.com
+/.tmb/alfacgiapi/radio.php 2 -
+/rss.php 4 www.google.com
+/wp-we.php 2 www.google.com
+/asset/kcfinder-3.12/upload.php 1 -
+/wp-admin/includes/404.php 1 www.google.com
+/wordpress/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/.git/HEAD 1 -
+/alfa.php 10 www.google.com
+/wp-content/uploads/wpr-addons/forms/b1ack.php 5 www.google.com
+/Laboratorium3 1 www.google.com
+/site 2 -
+/1111.php 2 www.google.com
+/.well-known/gelay.php 2 www.google.com
+/user_guide 1 www.google.com
+/wpls.php 2 -
+/wp-admin/maint/chosen.php 1 -
+/wp-content/themes/themes/Cyb3r.php 1 www.google.com
+/modules/autoupgrade/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/wp-content 8 www.google.com
+/wp-system.php 3 www.google.com
+/PHP_Shell.php 1 www.google.com
+/wp-admin/css/colors/coffee/am.php 1 www.google.com
+/index.php/function.php 1 www.google.com
+/images/alfacgiapi/404.php 2 -
+/wp-includes/leaf.php 2 www.google.com
+/wp/wp-includes/fonts/dev.php 3 www.google.com
+/revision.php 1 www.google.com
+/wp-includes/random_compat 1 www.google.com
+/usep.php 3 -
+/.ftpconfig 2 -
+/vendor/index.php 1 www.google.com
+/wp-includes/wp-abupee.php 1 -
+/25.php 2 www.google.com
+/aab.php 2 www.google.com
+/sys32.php 1 www.google.com
+/wp-admin/user/langsung-pointer.php 3 -
+/toko 1 www.google.com
+/wp-includes/wp-apxupx.php 1 -
+/admin/js/jquery-file-upload/server/php 1 -
+/4x4.php 2 www.google.com
+/po-content/uploads/adminer.php 1 -
+/wp-admin/includes/index.php 2 www.google.com
+/assets/vendors/js/kcfinder-3.12/upload.php 1 -
+/vv.php 3 www.google.com
+/wp-admin/network/cloud.php 12 www.google.com
+/billy.php 1 -
+/wp-includes/BDKR28_asq3dm1u.php 3 -
+/ak.php 1 www.google.com
+/wp-content/plugins/upspy/up.php 2 www.google.com
+/deployment-config.json 1 -
+/public/ckeditor/kcfinder-3.12/upload.php 1 -
+/sym403.php 6 www.google.com
+/images/leaf.php 1 www.google.com
+/checker.php 1 -
+/.well-known.7z 4 -
+/upgrades 1 -
+/f0x.php 3 www.google.com
+/about/chosen.php 1 -
+/WSO.php 3 www.google.com
+/.well-known/pki-validation/alfacgiapi/perl.alfa 4 -
+/.tmb/ALFA_DATA/alfacgiapi/index.php 2 -
+/images/ALFA_DATA/alfacgiapi/radio.php 2 -
+/.tmb/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/js/server/php 1 -
+/.well-known/acme-challenge/admin.php 2 www.google.com
+/wp-content/themes/config.bak.php 1 www.google.com
+/hk.php 3 -
+/wp-admin/codeboy1877_up.php 3 -
+/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/admin/asset/plugins/js/jquery-file-upload/server/php 1 -
+/backup/alfacgiapi/404.php 2 -
+/bowotod.php 1 www.google.com
+/fwe.php 1 -
+/berlin.php 4 -
+/laboratorium.poltekkesbanten.ac.id.tar 4 -
+/client/.env 2 -
+/wp-content/cloud.php 1 -
+/wp-includes/fonts/wp-login.php 1 www.google.com
+/vendor/phpunit/phpunit/build.xml 1 -
+/assets/plugins/jQuery-File-Upload/server/php/index.php 1 www.google.com
+/wp-content/plugins/seoplugins/mar.php 13 www.google.com
+/sh.php 2 www.google.com
+/wp-admin/js/widgets/class.api.php 1 -
+/wp-includes/html-api 2 www.google.com
+/wsoyanzorng.php 3 www.google.com
+/wp-content/function.php 2 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/.well-known/a.php 1 www.google.com
+/wp-site.php 2 www.google.com
+/wp-includes/css/wp-config.php 1 www.google.com
+/assets/js/scripts/kcfinder-3.12/upload.php 1 -
+/sites/all/libraries/mailchimp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/con7.php 3 www.google.com
+/rxr.php 1 www.google.com
+/wp-content/batm.php 1 -
+/cloud.php 6 www.google.com
+/wp-includes/fonts 2 www.google.com
+/errorfile.php 3 -
+/laboratoriumpoltekkesbanten.tar.gz 4 -
+/packages/ckeditor/kcfinder/upload.php 1 -
+/pelatihan 1 www.google.com
+/mano.php 2 www.google.com
+/backup/sftp.json 1 -
+/img/about.php 8 www.google.com
+/gif.php 1 www.google.com
+/wp-admin/maint/ff2.php 3 -
+/wp-content/plugins/not/includes/about.php 4 -
+/alfa123.php 5 www.google.com
+/file88.php 3 -
+/wp-content/plugins/wp-head.php 1 -
+/wp-content/languages/wp-conflg.php 1 -
+/assets/uploads/alfacgiapi/radio.php 2 -
+/wp-content/themes/tflow/up.php 1 -
+/wp-includes/SimplePie/Cache 1 www.google.com
+/resource/kcfinder-3.12/upload.php 1 -
+/wp-includes/shadowx.php 1 www.google.com
+/wp-content/v2geb.php 1 www.google.com
+/old.php 1 www.google.com
+/date.php 3 www.google.com
+/.quarantine/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/fx.php 4 www.google.com
+/.quarantine/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/wp-includes/sitemaps 1 www.google.com
+/wp-content/mu-plugins 1 www.google.com
+/alfav4-1.tesla.php 1 www.google.com
+/resources 1 www.google.com
+/burjuva.aspx 2 -
+/ccx/index.php 10 -
+/images/mar.php 1 www.google.com
+/wp-includes/images/wlw 1 www.google.com
+/alfa1.php 1 www.google.com
+/wp-uploads-config.php 1 -
+/app.rar 4 -
+/wp-content/languages/wp-login.php 1 -
+/assets/editor/fileman/index.html 2 -
+/wp-content/repeater.php 5 www.google.com
+/tcp.php 1 -
+/73.php 2 www.google.com
+/cw.php 1 -
+/rad.php 2 www.google.com
+/01.php 5 www.google.com
+/check.php 1 -
+/ThirdParty/kcfinder/upload.php 1 -
+/wp-one.php 5 www.google.com
+/ap.php 1 www.google.com
+/alfalonte.php 1 www.google.com
+/wp-includes/dropdown.php 1 -
+/wp-content/themes/skatepark/img_screen.php 2 www.google.com
+/search.php 1 www.google.com
+/seminar 1 www.google.com
+/shl.php 5 www.google.com
+/images/sfm.php 1 -
+/mah.php 11 www.google.com
+/assets/admin/plugins/kcfinder/upload.php 1 -
+/images/c99.php 1 www.google.com
+/login.phtml 1 www.google.com
+/wp-admin/js/widgets/pomo.php 1 -
+/wp-admin/js/widgets/moon.php 2 www.google.com
+/application.rar 4 -
+/adminer-4.8.1.php 1 -
+/mm.php 2 www.google.com
+/wp-content/alfacgiapi/radio.php 2 -
+/wp-content/plugins/column/miin.php 1 -
+/laboratorium2021 1 www.google.com
+/upload/index.php 1 www.google.com
+/wp-admin/css/colors/wp-abupee.php 1 -
+/wp-includes/fonts/iq.php 3 www.google.com
+/wp-content/ALFA_DATA/alfacgiapi 2 www.google.com
+/backend/plugins/kcfinder/upload.php 1 -
+/ak47shell.php 1 www.google.com
+/vee.php 3 -
+/ftp.json 2 -
+/simple-shell.php 1 www.google.com
+/wp-includes/am.php 1 www.google.com
+/wp-editor.php 2 www.google.com
+/upload/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/.env.old 1 -
+/foto 1 www.google.com
+/mini.php 10 www.google.com
+/backup.gz 4 -
+/app.tar 4 -
+/wp-content/uploads/msleaf.php7 1 -
+/wp-admin/css/colors/blue/about.php 7 www.google.com
+/wp-content/plugins/inputs.php 1 -
+/wp-content/themes/cepair/doc.php 2 www.google.com
+/app/.env 2 -
+/wp-admin/setup-config.php 1 www.google.com
+/admin/asset/global/plugins/jquery-file-upload/server/php 1 -
+/0xx.php 1 -
+/index8.php 1 www.google.com
+/ffile.php 4 -
+/cincinnus.php 1 -
+/wp-content/plugins/simple/simple.php 4 -
+/500.php 1 -
+/wp-includes/wp-old.pHP 1 www.google.com
+/tgh.php 1 www.google.com
+/ev.php 1 -
+/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/wp-content/plugins/ndak/marijuana.php 2 www.google.com
+/gfile.php 4 -
+/function.php 4 www.google.com
+/7.php 5 www.google.com
+/alfanew.PhP7 1 -
+/cp/server/php 1 -
+/wp-functions.php 2 www.google.com
+/wp-content/upgrade/alfacgiapi/py.alfa 4 -
+/alfacgiapi/index.php 2 -
+/wp-files.php 3 www.google.com
+/kepo.php 2 www.google.com
+/wp-includes/pomo/autoload_classmap.php 2 www.google.com
+/core.php 3 www.google.com
+/laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+/themes/adminer.php 1 -
+/js/jquery-file-upload/server/php 3 -
+/laravel-filemanager 1 -
+/var 1 -
+/idk.php 2 www.google.com
+/upload/kcfinder-3.12/upload.php 1 -
+/authorize.php 1 www.google.com
+/wp-content/plugins/wp-freeform/black2llleaf.php 1 www.google.com
+/wp-content/c99.php 1 www.google.com
+/libraries/phpmailer/updates.php 5 www.google.com
+/ajaxfilemanager/class.api.php 1 -
+/assets/app-assets/data/jquery-file-upload/server/php 1 -
+/libraries 1 www.google.com
+/old/alfacgiapi/index.php 2 -
+/generic/adminer.php 1 -
+/ALFA_DATA/alfacgiapi/index.php 2 -
+/wp-includes/rest-api/023ws.php 1 -
+/rafa.php 1 -
+/wp-admin/css/colors/coffee/c99.php 1 www.google.com
+/contacts.php 1 www.google.com
+/wp-includes/widgets/about.php 15 www.google.com
+/wp-admin/user/class.api.php 1 -
+/wp-content/plugins/html404/cry.php.pjpeg 1 www.google.com
+/wsoyanz.php 5 www.google.com
+/assets/vendor/kcfinder-3.12/upload.php 1 -
+/rx.php/lufix 1 www.google.com
+/packages/ckeditor/plugins/kcfinder/upload.php 1 -
+/images/cloud.php 11 www.google.com
+/wp-admin/maint/023ws.php 1 -
+/wp-admin/css/colors/coffee/marijuana.php 2 www.google.com
+/contact.php 1 -
+/wp-admin/c99.php 1 www.google.com
+/qa.php 1 -
+/index4.php 1 www.google.com
+/wp-admin/ex.php 1 -
+/wp-content/plugins/widget-logic/mini.php 1 www.google.com
+/wp-includes/Text/Diff/Engine/Engine 1 www.google.com
+/assets/images 1 www.google.com
+/assets/plugins/js/server/php 1 -
+/wp-content/plugins/alfacgiapi/radio.php 2 -
+/file9.php 3 -
+/doc/function.php 3 www.google.com
+/wp-includes/assets 1 www.google.com
+/Alfashell.php 1 www.google.com
+/wp-includes/js/themes.php 1 -
+/templates 1 www.google.com
+/alfanew2.php7 5 www.google.com
+/kao.php 1 -
+/assets/vendors/kcfinder/3.12/upload.php 1 -
+/wp-file.php 4 www.google.com
+/upx.php 1 www.google.com
+/wp-admin/images/xmrlpc.php 12 www.google.com
+/swm.php 1 www.google.com
+/sec.php 3 -
+/wordpress/fw.php 1 www.google.com
+/snd.php 2 www.google.com
+/compat.php 1 -
+/efile.php 3 -
+/public_html_old 1 www.google.com
+/findes.php 3 www.google.com
+/.quarantine/alfacgiapi/py.alfa 4 -
+/00.php 1 -
+/wp-includes/SimplePie/class.api.php 1 -
+/foxwsov1.php 1 www.google.com
+/simple_php_backdoor_by_dk.php 1 www.google.com
+/wp-includes/library.php 1 -
+/wp-includes/css/mailer.php.php 1 www.google.com
+/135.php 1 -
+/system/.env 2 -
+/gg.php 3 www.google.com
+/.well-known/wso112233.php 6 -
+/wp-content/plugins/k7.php 1 www.google.com
+/wp-includes/css/modules.php 4 www.google.com
+/unknown.php 4 www.google.com
+/wp-includes/fw.php 3 www.google.com
+/cgi-bin/wp-2019.php 2 -
+/wp-content/plugins/upspy/index.php 1 www.google.com
+/wp-confirm.php 2 www.google.com
+/wp-content/leaf.php 1 www.google.com
+/upload/alfacgiapi/bash.alfa 4 -
+/.well-known/acme-challenge/about.php 5 www.google.com
+/wp-includes/rest-api/fields 1 www.google.com
+/wp-admin/wp.php 1 www.google.com
+/theme/assets/plugins/fancybox/lib/plugins/class/plugins/adminer/adminer/index.php 1 -
+/wp-includes/images/smilies/techl.php 3 -
+/.well-known/class.api.php 1 -
+/wp-admin/css/wp-is.php 1 -
+/ard/assets/js/kcfinder/upload.php 1 -
+/wp-includes/Requests/Text/admin.php 11 www.google.com
+/wp-content/updraft/alfacgiapi/index.php 2 -
+/admin/plugins/kcfinder-3.12/upload.php 1 -
+/js/tinymce/kcfinder/upload.php 1 -
+/ok.php 6 www.google.com
+/assets/admin/js/kcfinder-3.12/upload.php 1 -
+/wp-admin/css/colors/coffee/tesla.php 1 www.google.com
+/forums.php 1 www.google.com
+/assets/plugins/kcfinder/upload.php 1 -
+/bps.php 2 www.google.com
+/assets/alfacgiapi/perl.alfa 4 -
+/images/shell.php 1 www.google.com
+/libraries/vendor/updates.php 5 www.google.com
+/wp-includes/lf.php 1 -
+/wp-content/alfacgiapi/py.alfa 4 -
+/avaa.php 5 -
+/assets/upload/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/cool.php 5 www.google.com
+/edit-form.php 4 www.google.com
+/ALFA_DATA/alfacgiapi/alfa.php 1 -
+/assets/upload/ALFA_DATA/alfacgiapi/404.php 2 -
+/wp-includes/wp-login.php 2 -
+/wp-admin/css/colors 3 www.google.com
+/ckeditor/kcfinder/upload.php 1 -
+/wp-content/wp-apxupx.php 1 -
+/harga.php 1 www.google.com
+/wp-includes/sitemaps/providers/index.php 2 www.google.com
+/i.php 5 www.google.com
+/admin/core/kcfinder/upload.php 1 -
+/.well-known/acme-challenge/zmFM.php 1 -
+/wp-includes/ALFA_DATA/alfacgiapi/perl.alfa 6 www.google.com
+/123.php 4 www.google.com
+/wpvitamins.php 1 www.google.com
+/moderation.php 1 www.google.com
+/wp-admin/f0x.php 1 www.google.com
+/wp-admin/maint/about.php 2 www.google.com
+/sang3.php 2 www.google.com
+/blog/alfacgiapi/py.alfa 4 -
+/upgrade.php 3 www.google.com
+/templates/beez5/mar.php 2 -
+/wp-admin/upload.php 1 -
+/wp-includes/images/wp-login.php 2 www.google.com
+/m.php 8 www.google.com
+/wp-content/plugins/alfacgiapi/bash.alfa 4 -
+/ar.php 2 www.google.com
+/wp-content/plugins/shell/about.php 2 -
+/app/webroot/js/kcfinder-3.12/upload.php 1 -
+/ex0shell.php 1 www.google.com
+/resources/js/kcfinder-3.12/upload.php 1 -
+/wp-content/plugins/content-management/content.php 1 -
+/asset/server/php 1 -
+/wp-admin/406.php 2 www.google.com
+/wp-content/moon.php 1 -
+/wp-content/themes/rishi/doc.php 2 www.google.com
+/root.php 6 www.google.com
+/index/chosen.php 1 -
+/wp-content/themes.php 2 -
+/wpbackup1 1 www.google.com
+/upload/alfacgiapi/py.alfa 4 -
+/js/kcfinder/upload.php 1 -
+/main_file 1 www.google.com
+/png.php 1 -
+/wsopriv.php 1 www.google.com
+/1313.php 2 www.google.com
+/wp-content/leafmailer.php 1 www.google.com
+/logoUTP8.php 1 www.google.com
+/ALFA_DATA/alfacgiapi/mini.php 1 -
+/archives.php 2 -
+/wp-head.php 10 www.google.com
+/upel.php 3 www.google.com
+/laboratoriumpoltekkesbanten.gz 4 -
+/wp-content/fox.php 1 www.google.com
+/i3wfj.php 3 -
+/shv3n0m.php 1 www.google.com
+/kndw1.php 2 www.google.com
+/config.json 1 -
+/blog/ALFA_DATA/alfacgiapi/index.php 2 -
+/abby.php 1 www.google.com
+/wp-content/am.php 1 www.google.com
+/wp-includes/sitemaps/providers 1 www.google.com
+/wp-admin/maint/gelay.php 1 www.google.com
+/class-wp-widget-archives.php 1 -
+/fg.php 1 -
+/wp-includes/f0x.php 1 www.google.com
+/.fk.php 2 www.google.com
+/wp-admin/vy2m7.php 1 www.google.com
+/wmsyb.php 1 www.google.com
+/wordpress/alfacgiapi/bash.alfa 4 -
+/libraries/legacy/updates.php 5 www.google.com
+/laboratorium.tar.bz2 4 -
+/wander.php 1 -
+/admin/asset/plugins/server/php 1 -
+/wp-about.php 1 -
+/f5.php 1 -
+/alfanibos.php 1 www.google.com
+/wp-content/themes/seotheme/mar.php 16 www.google.com
+/wp-admin/checkbox.php 1 www.google.com
+/wp-content/uploads/simple-file-list/alfa.php 1 www.google.com
+/fffff.php 3 -
+/3index.php 6 www.google.com
+/wp-content/plugins/root-file-manager/wp-file.php 2 -
+/wp-json.php 1 www.google.com
+/ilusi.php 1 www.google.com
+/rzx.php 1 www.google.com
+/bootstrap 1 www.google.com
+/assets/js/mylibs/kcfinder/upload.php 1 -
+/do.php 1 -
+/wp-includes/ALFA_DATA/alfacgiapi/404.php 2 -
+/resource/assets/kcfinder/upload.php 1 -
+/cgi-bin.gz 4 -
+/makeasmtp.php 12 -
+/vast.php 2 -
+/wp-admin/js 1 www.google.com
+/backup_old 1 www.google.com
+/langar.php 1 www.google.com
+/j.php 5 www.google.com
+/wp-includes/alfacgiapi/py.alfa 4 -
+/wp-includes/SimplePie/wp-login.php 1 www.google.com
+/bypas.php 3 www.google.com
+/BDKR28_jblnamqu.php 3 -
+/asset/global/plugins/jquery-file-upload/server/php 1 -
+/wp-content/themes/noriumportfolio/doc.php 3 www.google.com
+/wp-content/themes 6 www.google.com
+/gold.php 3 -
+/wp-admin/wmsyb.php 1 www.google.com
+/templates/beez_20/error.php 1 www.google.com
+/well-known.tar.gz 4 -
+/wp-admin/css/colors/ectoplasm/users.php 1 -
+/assets/vendors/kcfinder-3.12/upload.php 1 -
+/wp-admin/admin.php 15 www.google.com
+/wp-content/themes/twentyfifteen/mini.php 1 -
+/laboratorium2025 1 www.google.com
+/en.php 2 www.google.com
+/w3d.php 1 www.google.com
+/alfa-rex2.php7 5 www.google.com
+/wp-includes/customize/index.php 2 www.google.com
+/wp-includes/sitemaps/providers/zmFM.php 1 -
+/alfa-ioxi.php 3 www.google.com
+/ftp_sync.json 1 -
+/wordpress-backup 1 www.google.com
+/wp-admin/css/colors/coffee/mari.php 1 www.google.com
+/core/.env 2 -
+/ftpsync.settings 1 -
+/wp-content/plugins/wp-theme-editor/include.php 4 -
+/wp-includes/pomo/newup.php 2 www.google.com
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/py.alfa 4 -
+/Laboratorium 1 www.google.com
+/images/bypass.php 1 www.google.com
+/backup/ALFA_DATA/alfacgiapi/radio.php 2 -
+/red.php 1 www.google.com
+/wp-content/blogs.dir/about.php 6 www.google.com
+/templates/beez5/index.php 1 www.google.com
+/wp-includes/pomo/treame.php 2 www.google.com
+/wp-admin/images/class.api.php 1 -
+/wp-content/style-css.php 2 www.google.com
+/jquery-file-upload/server/php 1 -
+/kct.php 1 www.google.com
+/upload/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/images.php 2 www.google.com
+/images/qfjnelot.php 1 -
+/uploads/alfacgiapi/bash.alfa 4 -
+/wp-includes/leafmailer.php 2 www.google.com
+/templates/beez_20/index.php 1 www.google.com
+/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 17 -
+/wp-content/inputs.php 1 -
+/.well-known/404.php 1 www.google.com
+/wp-includes/ID3 3 www.google.com
+/.quarantine/alfacgiapi/perl.alfa 4 -
+/admin1.php 2 www.google.com
+/wp-content/languages/themes/class.api.php 1 -
+/v1/.env 2 -
+/adm1n_panel.php 1 -
+/cgi-bin/moon.php 2 www.google.com
+/administrator/language/en-GB/install.xml 1 -
+/main.php 3 www.google.com
+/config/credentials.json 1 -
+/wp-includes/Text/Diff/Renderer 1 www.google.com
+/upfile.php 9 www.google.com
+/resource/assets/kcfinder-3.12/upload.php 1 -
+/blog/ALFA_DATA/alfacgiapi/radio.php 2 -
+/wp-class.php 8 www.google.com
+/n1.php 1 -
+/mclash.php 2 www.google.com
+/hq.php 1 -
+/wp-content/plugins/hellopress/wp_mna.php 1 -
+/twins.php 1 www.google.com
+/.tmb/ALFA_DATA/alfacgiapi/404.php 2 -
+/admin/js/kcfinder-3.12/upload.php 1 -
+/wp-content/harga.php 1 www.google.com
+/assets/server/php 1 -
+/wp-content/alf.php 1 www.google.com
+/images/Sym.php 1 www.google.com
+/assets/alfacgiapi/bash.alfa 4 -
+/temp-export 1 -
+/assets/uploads/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/bash.alfa 4 -
+/wp-includes/js/index.php 3 www.google.com
+/cd.php 3 www.google.com
+/anonym.php 2 www.google.com
+/index/class.api.php 1 -
+/galekjaya.php 2 www.google.com
+/wp-includes/block-patterns/autoload_classmap.php 2 www.google.com
+/include/index.php 1 www.google.com
+/wp-admin/z.php 1 www.google.com
+/rootshell.php 2 www.google.com
+/adriv.php 3 www.google.com
+/wp-content/ex.php 1 -
+/Sendemail.php 2 www.google.com
+/assets/ALFA_DATA/alfacgiapi/radio.php 2 -
+/public/ckeditor/plugins/kcfinder-3.12/upload.php 1 -
+/aci.php 1 www.google.com
+/wp1.php 3 -
+/wp-admin/alfacgiapi/py.alfa 4 -
+/upload 1 www.google.com
+/wp-admin/css/colors/coffee/mailer.php 1 www.google.com
+/wp-info.php 16 www.google.com
+/wp-admin/css/index.php 14 www.google.com
+/f6.php 1 -
+/wp-admin/js/023ws.php 1 -
+/minik.php 2 www.google.com
+/wp-admin/b374k.php 1 www.google.com
+/cccc.php 4 -
+/images/leafmailer.php 1 www.google.com
+/dashboard 1 www.google.com
+/wp-blog-header.php 3 www.google.com
+/upload/ALFA_DATA/alfacgiapi/index.php 2 -
+/xindex.php 4 www.google.com
+/33.php 3 -
+/blog/alfacgiapi/bash.alfa 4 -
+/doc.php 17 www.google.com
+/fdgfdgdsfd.php 2 www.google.com
+/haxorsecv2.php 1 -
+/admin/fckeditor/editor/filemanager 1 www.google.com
+/wso2.php 4 www.google.com
+/images/priv8.php 1 www.google.com
+/laboratorium.rar 4 -
+/downloads 1 -
+/wp-content/plugins/upspy/con.php 2 www.google.com
+/wp-includes/Requests/Proxy 1 www.google.com
+/wp-includes/js/crop/index.php 3 www.google.com
+/enclas.php 1 -
+/wp-json/wp/v2/taxonomies 5 -
+/indexx.php 1 www.google.com
+/index404.php 2 www.google.com
+/wp-includes/network.php 1 -
+/sub.php 1 www.google.com
+/skippershell.php 1 www.google.com
+/assets/uploads/ALFA_DATA/alfacgiapi/index.php 2 -
+/vanta.php 1 -
+/shoha.php 1 -
+/.well-known/pki-validation/wp-signup.php 4 www.google.com
+/admin/controller/extension/extension/up.php 1 -
+/dev 1 www.google.com
+/ajax-actions.php 5 www.google.com
+/.tmb/alfacgiapi/index.php 2 -
+/eauu.php 1 -
+/index/function.php 4 www.google.com
+/wp-includes/sodium_compat/src/Core32/Curve25519/Ge/index.php 2 www.google.com
+/cgi-bin/alfacgiapi/404.php 2 -
+/wp-admin/images/themes.php 1 -
+/special.php 1 www.google.com
+/backup/ALFA_DATA/alfacgiapi/index.php 2 -
+/wp-includes/maro.php 1 www.google.com
+/minishell.php 4 www.google.com
+/geju.php 4 www.google.com
+/css/ 2 www.google.com
+/blog/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/wp-includes/plugins.php 8 www.google.com
+/303.php 2 www.google.com
+/%40.php 3 -
+/wp-content/languages/chosen.php 1 -
+/wp-content/plugins/db/mar.php 2 www.google.com
+/wp-admin/css/colors/coffee/black.php 1 www.google.com
+/new/alfacgiapi/perl.alfa 4 -
+/blacksec.php 1 www.google.com
+/packages/scripts/kcfinder/upload.php 1 -
+/uploads/k69834253_index.php 2 -
+/wp-content/plugins/wordpresss3cll/wp-login.php 1 -
+/admin/ckeditor/plugins/kcfinder-3.12/upload.php 1 -
+/oai 1 -
+/templates/protostar/error.php 1 www.google.com
+/wp-admin/maint/upl.php 1 www.google.com
+/admin/uploads/images 1 www.google.com
+/laboratorium2019 1 www.google.com
+/image 1 www.google.com
+/xinfo.php 1 www.google.com
+/.quarantine/ALFA_DATA/alfacgiapi/404.php 2 -
+/.well-known/acme-challenge/alfacgiapi/bash.alfa 4 -
+/blog/wp-includes/fonts/dev.php 3 www.google.com
+/wp-mails.php 3 www.google.com
+/wp-includes/certificates/class.api.php 1 -
+/mailer1.php 1 www.google.com
+/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/wp-includes/wp-class.php 7 www.google.com
+/license.txt 5 -
+/vendor/laravel-filemanager 1 -
+/wp-includes/css/shadowx.php 1 www.google.com
+/input.php 1 www.google.com
+/wp-admin/network/index.php 5 www.google.com
+/components/kcfinder/upload.php 1 -
+/xlt.php 1 -
+/wp-content/updraft/alfacgiapi/py.alfa 4 -
+/libraries/joomla/css.php 1 www.google.com
+/zaco.php 2 www.google.com
+/acxx.php 1 -
+/wp4.php 2 -
+/wp-mail.php 9 www.google.com
+/backup/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/css/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/sodium_compat/src/Core32/Curve25519/Ge/Core32.php/admin@123 1 www.google.com
+/mah/function.php 3 www.google.com
+/stylec.php 2 www.google.com
+/Alfa.php 1 www.google.com
+/wp-includes/Requests/Transport 1 www.google.com
+/wp-admin/css/colors/ectoplasm 1 www.google.com
+/backup2 1 www.google.com
+/uploads/alfacgiapi/404.php 2 -
+/includes 2 www.google.com
+/backup/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/new/alfacgiapi/index.php 2 -
+/poltekkesbanten.gz 4 -
+/api/.env 2 -
+/wp-includes/css/dashicons.min.css 5 -
+/mt/pekok.php 2 www.google.com
+/erin1.PhP7 1 -
+/alfa-rex.php7 11 www.google.com
+/ninja.php 3 www.google.com
+/2clas.php 3 -
+/sites/default/files/index.php 1 www.google.com
+/.config/ftp.json 1 -
+/backend/js/kcfinder/upload.php 1 -
+/bypass404.php 2 www.google.com
+/.well-known/pki-validation/alfacgiapi/radio.php 2 -
+/10.php 5 www.google.com
+/mbt.php 1 www.google.com
+/.well-known/acme-challenge/cloud.php 20 -
+/wp-content/IXR/index.php 1 -
+/wp-includes/php-compat 1 www.google.com
+/assets/js/frontend/jquery-file-upload/server/php 1 -
+/wp-includes/Requests/Cookie 1 www.google.com
+/cgi-bin/wp-login.php 2 www.google.com
+/xmlrpc.php 9 www.google.com
+/wp-content/leafmailer2.8.php 2 www.google.com
+/class-wp-http-requests-hooks.php 1 -
+/wp-includes/sodium_compat/src 1 www.google.com
+/uploads/owlmailer.php 1 -
+/111.php 2 -
+/gallery 1 www.google.com
+/.well-known/pki-validation/nice.php 1 -
+/gifclass4.php 3 -
+/green.php 3 www.google.com
+/backup/alfacgiapi/index.php 2 -
+/byp.php 5 www.google.com
+/wp-includes/rest-api/about.php 15 www.google.com
+/sphaeristeria.php 1 -
+/666.php 1 -
+/133.php 2 -
+/wp-content/pomo.php 1 -
+/wwr.php 1 -
+/wp-ahsera.php 1 -
+/RsR.php 1 -
+/con7ext.php 4 www.google.com
+/wp-content/plugins/vir/v.php 1 www.google.com
+/wp-admin/adminer.php 1 -
+/classes 1 -
+/repeater.php 11 -
+/plugins/js/jquery-file-upload/server/php 1 -
+/mad.php 1 -
+/staging 3 www.google.com
+/file-manager.php 1 -
+/cpanel.php 1 www.google.com
+/assets/uploads/alfacgiapi/bash.alfa 4 -
+/php.php 1 -
+/ALFA_DATA/alfacgiapi/uploader.php 1 -
+/wp-content/packed.php 1 www.google.com
+/wp-admin/css/colors/coffee/fw.php 1 www.google.com
+/alfav4.1.php 1 www.google.com
+/wp-signup.php 2 www.google.com
+/wp-content/plugins/ioptimization/IOptimize.php 2 www.google.com
+/wp-admin/includes/leaf.php 1 www.google.com
+/v.php 8 www.google.com
+/ioxi-o.php 1 -
+/wp-content/themes/workart/doc.php 2 www.google.com
+/wp-includes/Text/about.php 16 www.google.com
+/.well-known/adminer.php 1 -
+/user/index.html 1 http://laboratorium.poltekkesbanten.ac.id/user/kunjungan
+/wp-content/plugins/pomo.php 1 -
+/icomsium.php 1 -
+/wp-content/plugins/alfacgiapi/py.alfa 4 -
+/old/alfacgiapi/radio.php 2 -
+/msleaf.php7 1 -
+/wp-admin/images/moon.php 2 www.google.com
+/login/wp-includes/wlwmanifest.xml 56 -
+/wp-includes/images/crystal 1 www.google.com
+/.well-known/pki-validation/index.php 2 www.google.com
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/assets/global/plugins/jquery-file-upload/server/php 1 -
+/unduh 1 www.google.com
+/wlex.php 3 -
+/kesa.php 1 -
+/wp-admin/css/mari.php 1 www.google.com
+/.well-known/acme-challenge 2 www.google.com
+/build.php 3 -
+/4.php 6 www.google.com
+/index3.php 1 www.google.com
+/resource/js/kcfinder-3.12/upload.php 1 -
+/wp-includes/css/404.php 1 www.google.com
+/gray.php 1 www.google.com
+/wp-content/plugins/html404/xccc.php 2 www.google.com
+/wp-content/themes/panama/json.php 1 -
+/wp-admin/includes/langar.php 1 www.google.com
+/wp-includes/45.php 1 www.google.com
+/defau1t.php 6 www.google.com
+/clen.php 2 www.google.com
+/5index.php 4 www.google.com
+/wordpress/ALFA_DATA/alfacgiapi/404.php 2 -
+/new/alfacgiapi/py.alfa 4 -
+/un.php 7 www.google.com
+/.well-known/admin.php 7 www.google.com
+/flame.php 6 www.google.com
+/upload/alfacgiapi/index.php 2 -
+/gelap.php 2 -
+/wp-includes/blocks/about.php 8 www.google.com
+/FoxWSO.php 5 www.google.com
+/lufix.php 8 www.google.com
+/wp-abupee.php 1 -
+/ayk.php 2 www.google.com
+/alfa-v3.php 1 -
+/wp-content/cache.php 1 www.google.com
+/admin/ckeditor/kcfinder-3.12/upload.php 1 -
+/wp-includes/js/codemirror 1 www.google.com
+/wp-content/themes/wp-abupee.php 1 -
+/cgi.php 3 www.google.com
+/wp-includes/certificates/function.php 1 -
+/wp-includes/customize/class.api.php 1 -
+/wp-admin/shell.php 1 www.google.com
+/wp-includes/IXR/about.php 14 www.google.com
+/wp-content/plugins/alfacgiapi/index.php 2 -
+/aa.php 4 www.google.com
+/.env 17 -
+/wso.php 10 www.google.com
+/wp-admin/xl2023.php 3 -
+/wp-content/languages/themes/pomo.php 1 -
+/login/wp-includes/ID3/license.txt 29 -
+/new/ALFA_DATA/alfacgiapi/radio.php 2 -
+/images/editor/separator.gif 1 -
+/backup/alfacgiapi/perl.alfa 4 -
+/030.php 3 -
+/blog/fw.php 1 www.google.com
+/wp-beckup.php 1 www.google.com
+/uploads/ALFA_DATA/alfacgiapi/radio.php 2 -
+/w3llstore.php 3 www.google.com
+/fm1.php 8 -
+/wp-json/wp/v2/comments 5 -
+/wp-json/wp/v2/post-types 5 -
+/assets/kcfinder/upload.php 1 -
+/.well-known/mari.php 1 www.google.com
+/anon.php 4 www.google.com
+/wp-admin/about.php 6 www.google.com
+/vendor/kcfinder/upload.php 1 -
+/cache/moon.php 1 -
+/mari.php 4 www.google.com
+/css/sgd.php 1 www.google.com
+/admin.php 24 www.google.com
+/wp-includes/atom.php 2 www.google.com
+/tinymce/kcfinder/upload.php 1 -
+/groupon.php 1 www.google.com
+/wpbackup2 1 www.google.com
+/wp-admin/up.php 1 www.google.com
+/wp-content/plugins/upspy/sllolx.php 2 www.google.com
+/laboratorium1 1 www.google.com
+/sts.php 1 www.google.com
+/options.php 1 www.google.com
+/wp-content/codeboy1877_up.php 3 -
+/wp-content/d65ve.php 1 www.google.com
+/wp-backup 1 www.google.com
+/xsec1.php 1 -
+/ton.php 2 -
+/assets/frontend/js/kcfinder/upload.php 1 -
+/Simple_PHP_backdoor.php 1 www.google.com
+/we.php 3 -
+/wp-content/updates.php 6 www.google.com
+/sql.php 3 www.google.com
+/ghostsec.php 3 www.google.com
+/.well-known/x.php 1 www.google.com
+/wp-includes/css/maro.php 1 www.google.com
+/apple-touch-icon-120x120-precomposed.png 1 -
+/assets/css/403.php 6 -
+/wp-content/themes/skatepark/alpha.php 3 www.google.com
+/administrator/templates/isis/index.php 1 www.google.com
+/wp-content/plugins/awesome-coming-soon/come.php 4 -
+/wp-admin/css/colors/coffee/wp-abupee.php 1 -
+/ri.php 2 www.google.com
+/wp-admin/js/index.php 1 -
+/mampus.php 1 -
+/wp-includes/class-wp-other.php 3 www.google.com
+/asset_admin/assets/plugins/jquery-file-upload/server/php 1 -
+/adm.php 3 www.google.com
+/wp-includes/sodium_compat/src/Core/Curve25519/Ge/wp_blog.php 1 -
+/.remote-sync.json 1 -
+/sftp.json 3 -
+/.well-known.rar 4 -
+/wp-json/wp/v2/themes 5 -
+/wp-includes/pomo/023ws.php 1 -
+/app/webroot/js/kcfinder/upload.php 1 -
+/layanan 1 www.google.com
+/ws.php.php 1 -
+/w0.php 3 -
+/server/php 1 -
+/wp-content/banners/about.php 15 www.google.com
+/wp-includes/pomo/themes.php 1 -
+/costome/fhhgjg.php 1 www.google.com
+/wp-content/atomlib.php 1 -
+/wp-content/languages/function.php 1 -
+/wp-admin/upl.php 1 www.google.com
+/themes.php 16 www.google.com
+/777.php 5 www.google.com
+/laboratorium.7z 4 -
+/login/web/wp-includes/wlwmanifest.xml 85 -
+/ww.php 4 www.google.com
+/admin/editor 1 www.google.com
+/packages/ckeditor/plugins/kcfinder-3.12/upload.php 1 -
+/wp-includes/cron.php 1 -
+/wp-content/themes/wp-classic/inc/index.php 1 www.google.com
+/orange.php 2 www.google.com
+/tmp.php 1 -
+/wp-content/admin.php 4 www.google.com
+/wp-content/shell20211028.php 8 -
+/wp-includes/fonts/dev.php 3 www.google.com
+/old/images/Summer2010/-/gif.php 1 www.google.com
+/wp-content/uploads/ALFA_DATA/alfacgiapi/index.php 2 -
+/new/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/old/ALFA_DATA/alfacgiapi/404.php 2 -
+/wp-includes/embed-wp.php 2 www.google.com
+/cache.php 3 www.google.com
+/wp-content/plugins/xt/index.php 1 -
+/crypted.php 2 -
+/wp-admin/includes/class-wp-media-list-data.php 2 www.google.com
+/alexus-mailer.php 2 www.google.com
+/app.tar.bz2 4 -
+/Laboratorium10 1 www.google.com
+/config/ftp.json 2 -
+/num.php 1 -
+/wp-includes/js/jquery/jquery.js 1 -
+/wp-content/uploads 8 www.google.com
+/ALFA_DATA/alfacgiapi/perl.alfa 7 www.google.com
+/backup/ALFA_DATA/alfacgiapi/404.php 2 -
+/wp-content/languages/023ws.php 1 -
+/sunda.php 1 www.google.com
+/login/wp2/wp-includes/wlwmanifest.xml 56 -
+/wp-includes/certificates/chosen.php 1 -
+/wp-admin/maint/fw.php 1 www.google.com
+/shlo.php 1 -
+/core 2 www.google.com
+/nasgor.php 4 www.google.com
+/.well-known/alfacgiapi/perl.alfa 4 -
+/apple-touch-icon-120x120.png 1 -
+/third_party/kcfinder/upload.php 1 -
+/1@.pHtml 1 www.google.com
+/minipriv.php 1 www.google.com
+/wp-content/uploads/simple-file-list/shell.php 1 www.google.com
+/omest.php 1 www.google.com
+/te.php 2 -
+/images/a.php 1 www.google.com
+/js/tinymce/kcfinder-3.12/upload.php 1 -
+/asset/webadmin/js/kcfinder-3.12/upload.php 1 -
+/lib 1 www.google.com
+/pirja.php 2 www.google.com
+/assets/filemanager/dialog.php 1 -
+/wp-content/themes/noriumportfolio/img_screen.php 3 www.google.com
+/wp-content/wso.php 12 www.google.com
+/user.php 5 www.google.com
+/b4ckd00r.php 1 -
+/app/webroot/global/plugins/jquery-file-upload/server/php 1 http://laboratorium.poltekkesbanten.ac.id/app/webroot/global/plugins/jquery-file-upload/server/php/
+/m4r1ju4n4.php 2 www.google.com
+/wp-ver.php 1 www.google.com
+/item.php 1 www.google.com
+/wp-content/plugins/rsquaaj/index4.php 2 -
+/wp-content/themes/inputs.php 1 -
+/wp-admin/ALFA_DATA/alfacgiapi/perl.alfa 6 -
+/file_uploads 1 www.google.com
+/wp-includes/adm.php 1 -
+/snd21.php 1 www.google.com
+/yuuki2.php 2 www.google.com
+/login/site/wp-includes/wlwmanifest.xml 85 -
+/wp-admin/maint/wp-readindex.php 1 www.google.com
+/macibay.php 2 www.google.com
+/wp-includes/alfacgiapi/bash.alfa 4 -
+/wp-commentin.php 3 www.google.com
+/wp-content/themes/too.php 1 www.google.com
+/wp-content/plugins/cekidot/readme.txt 2 www.google.com
+/simple-upload.php 1 www.google.com
+/antek.php 1 www.google.com
+/wp-admin/network/xmrlpc.php 12 www.google.com
+/wp/alfacgiapi/404.php 2 -
+/jx.php 1 -
+/Dz.php 3 www.google.com
+/component/kcfinder-3.12/upload.php 1 -
+/wp-includes/customize/zmFM.php 1 -
+/wp_backup 1 www.google.com
+/wp-content/plugins/core-stab/index.php 2 www.google.com
+/systems/.env 2 -
+/wp-content/plugins/linkpreview 1 www.google.com
+/bb5.php 1 -
+/cp.php 2 www.google.com
+/xxl.php 1 -
+/library 1 -
+/wp-includes/IXR/index 1 -
+/Laboratorium4 1 www.google.com
+/wp-content/languages/class.api.php 1 -
+/wp-admin/alfacgiapi/radio.php 2 -
+/whmcs.php 2 www.google.com
+/symlink403.php 1 www.google.com
+/info.php 10 www.google.com
+/assets/uploads/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/new/alfacgiapi/404.php 2 -
+/kcfinder 1 www.google.com
+/admin/plugins/js/server/php 1 -
+/wp-admin/css/colors/blue/CasperExV1.php 1 www.google.com
+/index.php/index/oai 2 -
+/js/fileman/dev.html 2 -
+/home.php 1 www.google.com
+/zz.php 2 www.google.com
+/wp-content/wp.php 2 www.google.com
+/wp-admin/css/404.php 1 www.google.com
+/wp-includes/blocks/post-excerpt/index.php 1 -
+/wp-admin/index.php 8 www.google.com
+/xc.php 2 -
+/wp-admin/options-general.php 5 -
+/system 1 www.google.com
+/admin/.env 2 -
+/xforce.php 1 www.google.com
+/new/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/vendors/kcfinder/upload.php 1 -
+/components/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/a1.php 1 -
+/cok.php 2 www.google.com
+/2.php 11 www.google.com
+/fckeditor/editor/filemanager/connectors/php/upload.php 1 -
+/catalog 1 www.google.com
+/wsd.php 2 -
+/wp-content/plugins/envato-market/inc/class-envato-market-api.php 1 -
+/amaxx.php 1 www.google.com
+/admin/fileman/dev.html 2 -
+/hello.php 5 www.google.com
+/text.php 3 www.google.com
+/wp-includes/ALFA_DATA/alfacgiapi/radio.php 2 -
+/wp-content/mode.php 2 -
+/wp-includes/test.php 1 -
+/laboratorium7 1 www.google.com
+/blex.php 2 -
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/radio.php 2 -
+/revisi.php 2 www.google.com
+/wp-includes/js/thickbox/thickbox.php 1 www.google.com
+/profil 1 www.google.com
+/wp-includes/autoload_classmap.php 3 www.google.com
+/utchiha.phP 2 www.google.com
+/.tmb/alfacgiapi/404.php 2 -
+/laboratoriumpoltekkesbantenpoltekkesbanten.gz 4 -
+/login/sito/wp-includes/wlwmanifest.xml 56 -
+/laboratoriumpoltekkesbanten.tar.xz 4 -
+/plugins.php 9 www.google.com
+/defaul1.php 9 www.google.com
+/MARIJUANA.php 2 -
+/images/fw.php 1 www.google.com
+/xxa.php 1 -
+/assets/uploads/alfacgiapi/404.php 2 -
+/files/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/sh3ll.phtml 1 -
+/xs.php 1 -
+/poltekkesbanten.zip 4 -
+/ftp-config.json 1 -
+/.well-known/pki-validation/about.php 13 -
+/wp-content/class.api.php 2 -
+/laboratorium2 1 www.google.com
+/x7.php 1 -
+/cmd.php 5 www.google.com
+/.Wp-back.phP 2 www.google.com
+/assets/plugins/jquery-file-upload/server/php 2 -
+/uploads/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/wp-smail.php 2 www.google.com
+/wp-admin/includes/xmrlpc.php 6 www.google.com
+/index7.php 1 www.google.com
+/wp-content/themes/moog/config.php 1 -
+/wp-admin/gvy6f.php 1 www.google.com
+/form.php 1 www.google.com
+/wp-admin/wp-abupee.php 1 -
+/oxse.php 1 -
+/wp-admin/inputs.php 1 -
+/5fesj.php 3 -
+/wp-admin/css/colors/blue 2 www.google.com
+/lib/fileman/dev.html 2 -
+/indoxploit.php 9 www.google.com
+/wp-aaa.php 3 -
+/slider 1 www.google.com
+/old/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/admin/adminer.php 1 -
+/shell_lock.php 2 www.google.com
+/wp-content/plugins 8 www.google.com
+/XxX.php 7 www.google.com
+/upload/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/d.php 5 www.google.com
+/wp-content/uploads/index.php 5 www.google.com
+/class.php 3 www.google.com
+/ccaef.php 3 www.google.com
+/wp-load.php 5 www.google.com
+/wp-admin/css/sidebarh.php 1 -
+/modules/modules/modules.php 1 www.google.com
+/wp-content/themes/wp-pridmag/status.php 2 www.google.com
+/wp-includes/Text/Diff/index.php 3 www.google.com
+/wp-configer.php 4 www.google.com
+/yan.php 1 www.google.com
+/simple.php 23 www.google.com
+/kil.php 1 www.google.com
+/wp-content/upgrade/alfacgiapi/perl.alfa 4 -
+/k.php 7 www.google.com
+/aspera/faspex 1 www.google.com
+/assets/alfacgiapi/radio.php 2 -
+/wp/index.php 1 www.google.com
+/old/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/.well-known/pki-validation/atomlib.php 1 -
+/alfanew.php 17 www.google.com
+/wp-content/plugins/seotheme 1 www.google.com
+/.env.save 1 -
+/wp-content/vuln.php 1 www.google.com
+/images/sym403.php 1 www.google.com
+/well-known.rar 4 -
+/images/upload.php 1 www.google.com
+/cgi-bin.tar 4 -
+/wp-content/plugins/fix/up.php 16 www.google.com
+/wp/v2geb.php 1 www.google.com
+/curme.php 2 www.google.com
+/wp-includes/mini.php 1 www.google.com
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/404.php 2 -
+/.well-known/acme-challenge/license.php 6 -
+/bk 2 www.google.com
+/forbiden.php 2 www.google.com
+/wp-content/plugins/ALFA_DATA/alfacgiapi/404.php 2 -
+/wp-content/plugins/admin.php 3 www.google.com
+/wp-json/wp/v2/types/post 5 -
+/byp7.php 1 -
+/uploads.php 2 www.google.com
+/blog/alfacgiapi/index.php 2 -
+/modules 1 www.google.com
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/ioxi-o2.php 2 -
+/la.php 2 www.google.com
+/laboratorium.tar.gz 4 -
+/images/adminer.php 1 -
+/sk.php 1 -
+/.well-known/content.php 2 www.google.com
+/wp-includes/style-engine 1 www.google.com
+/pi.php 4 www.google.com
+/14.php 1 www.google.com
+/wp-includes/images/include.php 2 www.google.com
+/laboratorium2024 1 www.google.com
+/file/function.php 3 www.google.com
+/main 2 www.google.com
+/thesmartestx.php 2 -
+/admin/asset/plugins/jquery-file-upload/server/php 1 -
+/usr.php 3 www.google.com
+/wp-content/themes/noriumportfolio/db.php 3 www.google.com
+/app/webroot/kcfinder-3.12/upload.php 1 -
+/wp-content/fonts/themes.php 1 -
+/wp-admin/MuPlugin.php 1 -
+/1337.php 6 www.google.com
+/wp-header.php 2 www.google.com
+/resources/assets/kcfinder-3.12/upload.php 1 -
+/wp-includes/images/about.php 14 www.google.com
+/wp-admin/wp-optimization.php 1 www.google.com
+/yup.php 1 www.google.com
+/wp-rss.php 3 www.google.com
+/assets/frontend/js/ckeditor/kcfinder/upload.php 1 -
+/sample-config-options.php 2 www.google.com
+/ah.php 2 www.google.com
+/wp-content/themes/travelscape/json.php 7 -
+/memek.php 2 www.google.com
+/tshop.php 2 www.google.com
+/max.php 1 -
+/.well-known/acme-challenge/Alfa.php 2 www.google.com
+/wp-admin/user/index.php 2 www.google.com
+/maites.php 1 www.google.com
+/wp-includes/Requests 2 www.google.com
+/laboratorium2023 1 www.google.com
+/security/KodExplorer-master/plugins/adminer/adminer/index.php 1 -
+/wp-admin/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/.quarantine/ALFA_DATA/alfacgiapi/index.php 2 -
+/wp-admin/r57.php 1 www.google.com
+/ioxi.php 2 www.google.com
+/nice.php 2 -
+/wp-admin/css/colors/coffee/shell.php 1 www.google.com
+/plugins/system/debug/debug.xml 1 -
+/webassist/kcfinder-3.12/upload.php 1 -
+/wp-admin/images/023ws.php 1 -
+/rafa.php/lufix 1 www.google.com
+/settings.json 1 -
+/thxt.php 3 -
+/wp-includes/pomo/about.php 14 www.google.com
+/priv8.php 8 www.google.com
+/cyber.php 1 -
+/wp-admin/css/colors/blue/blue.php 4 www.google.com
+/loader/ff.php 3 www.google.com
+/wso1337.php 5 www.google.com
+/wp-incleude.php 1 www.google.com
+/postfs.php 2 www.google.com
+/apps/js/kcfinder/upload.php 1 -
+/assets/libs/kcfinder-3.12/upload.php 1 -
+/priv.php 5 www.google.com
+/deployment.json 1 -
+/wp-includes/theme-compat 2 www.google.com
+/wp-includes/Requests/atomlib.php 1 -
+/idx.php 4 www.google.com
+/uploads/index.php 1 www.google.com
+/wp-content/plugins/core/include.php 8 -
+/wp-admin/wp-head.php 2 -
+/uploads/alfacgiapi/py.alfa 4 -
+/admin/plugin/kcfinder/upload.php 1 -
+/iov.php 1 -
+/.tmb/wso.php 1 -
+/wp-includes/rest-api/endpoints 1 www.google.com
+/wp-includes/xl2023.php 3 -
+/shop.php 1 www.google.com
+/cgi-bin.7z 4 -
+/robot.php 1 www.google.com
+/wp-includes/SimplePie/Content/index.php 1 www.google.com
+/v2 1 -
+/xD.php 1 -
+/wp-pano.php/repeater.php 1 -
+/pler.php 2 www.google.com
+/wp-content/ccx/index.php 6 -
+/media-admin.php 2 www.google.com
+/skipper.php 1 www.google.com
+/aa17.php 1 -
+/wp-content/plugins/hellopress/wp_filemanager.php 15 -
+/templates/beez3/error.php 1 www.google.com
+/data.php 6 www.google.com
+/uct.php 1 www.google.com
+/gecko.php 6 www.google.com
+/wp-admin/css/langar.php 1 www.google.com
+/529.php 2 www.google.com
+/owl.php 4 www.google.com
+/wp-admin/css/colors/coffee/haxor.php 1 www.google.com
+/thema/assets/css/ 1 -
+/yuuki.php 3 www.google.com
+/wp-atom.php 11 www.google.com
+/Laboratorium2020 1 www.google.com
+/clay.php 2 www.google.com
+/wp-content/iu.php 3 -
+/wp-admin/js/chosen.php 1 -
+/wp-foter.php 1 www.google.com
+/upload/alfacgiapi/perl.alfa 4 -
+/blox.php 1 -
+/wp-content/upgrade/alfacgiapi/radio.php 2 -
+/su.php 2 www.google.com
+/wp-content/plugins/yyobang/mar.php 2 -
+/lib/jquery-file-upload/server/php 2 http://laboratorium.poltekkesbanten.ac.id/lib/jquery-file-upload/server/php/
+/teamadmin.php 2 www.google.com
+/wp-content/chosen.php 1 -
+/class-wp-settings.php 1 www.google.com
+/images/upl.php 1 www.google.com
+/alex.php 3 www.google.com
+/wp-admin/js/widgets/chosen.php 1 -
+/assets/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/indosec.php 3 www.google.com
+/fx-mini.php 2 www.google.com
+/wp-content/uploads/chosen.php 1 -
+/wp-content/uploads/pomo.php 1 -
+/.tmb/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/dxb.php 1 -
+/assets/plugins/adminer.php 1 -
+/wa.php 3 -
+/p.php 5 www.google.com
+/wp-admin/cloud.php 6 www.google.com
+/xinder.php 1 www.google.com
+/inc_admin/plugins/kcfinder/upload.php 1 -
+/eviltwin.php 3 www.google.com
+/wp-content/themes/twentytwenty/404.php 1 www.google.com
+/god4m.php 3 www.google.com
+/uploads/alfacgiapi/radio.php 2 -
+/wp-admin/cache.php 1 www.google.com
+/.env.backup 1 -
+/admin/assets/plugins/jquery-file-upload/server/php 1 -
+/mwmek.php 1 www.google.com
+//administrator/index.php 1 -
+/2index.php 7 www.google.com
+/syd.php 2 www.google.com
+/assets/plugins/server/php 1 -
+/WordPress 1 www.google.com
+/wp-includes/ID3/wp-conflg.php 1 -
+/wp-content/themes/agwin/config.php 1 -
+/p0wny-shell.php 1 www.google.com
+/ALFA_DATA/alfacgiapi/c99.php 1 -
+/xx.php 6 www.google.com
+/cybershell.php 1 www.google.com
+/wp-includes/assets/index.php 3 www.google.com
+/sites 1 www.google.com
+/wp-admin/user/cloud.php 6 www.google.com
+/cylul.php 2 www.google.com
+/he.php 3 -
+/admin/assets/global/plugins/server/php 1 -
+/kindex.php 2 www.google.com
+/wp-admin/css/colors/coffee/fox.phpfox.php 1 www.google.com
+/wp-content/updraft/about.php 8 www.google.com
+/alfa3.php 2 www.google.com
+/assets/js/scripts/kcfinder/upload.php 1 -
+/.remote-ftp.json 1 -
+/blue.php 2 www.google.com
+/.tmb/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/wp-admin/repeater.php 5 www.google.com
+/xzd.php 2 www.google.com
+/acara 1 www.google.com
+/assets/libs/jquery-file-upload/server/php 2 http://laboratorium.poltekkesbanten.ac.id/assets/libs/jquery-file-upload/server/php/
+/plugins/index.php 1 www.google.com
+/wpbackup3 1 www.google.com
+/wp-contentt.php 3 -
+/o2ll13.php 1 -
+/wp-admin/css/colors/coffee/x.php 1 www.google.com
+/wp-content/uploads/F0x.php 1 -
+/wp-content/plugins/css-ready-sel/file.php 2 www.google.com
+/tes.php 5 www.google.com
+/1a.php 1 -
+/wordpress/32.php 1 www.google.com
+/uploader.php 8 www.google.com
+/lf.php 6 www.google.com
+/pm.php 2 -
+/wp-content/themes/wp-pridmag/22x.php 2 www.google.com
+/.quarantine/alfacgiapi/404.php 2 -
+/spawn.php 2 www.google.com
+/xex.php 1 -
+/libraries/fof/database/iterator/xmrlpc.php 1 -
+/.well-known/acme-challenge/inputs.php 1 -
+/wp-content/uploads/autoload_classmap.php 2 www.google.com
+/wp-admin/z7.php 1 www.google.com
+/laboratoriumpoltekkesbanten.zip 4 -
+/wp-content.php 5 www.google.com
+/site/.env 2 -
+/ae.php 8 www.google.com
+/font 1 www.google.com
+/wp-admin/maro.php 1 www.google.com
+/wp-admin/includes/class.api.php 2 -
+/static/lib/jquery-file-upload/server/php 1 -
+/simattacker.php 1 www.google.com
+/backend/js/plugins/ckeditor/kcfinder-3.12/upload.php 1 -
+/codeboy1877x.php 2 www.google.com
+/wp-admin/css/colors/blue/chosen.php 1 -
+/wp-admin/css/colors/ocean/Module.php 2 -
+/poltekkesbanten.tar 4 -
+/wp-admin/wso.php 7 www.google.com
+/wp-includes/widgets/class-wp-widget-index.php 2 www.google.com
+/..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\windows\\win.ini 1 -
+/laboratorium.zip 4 -
+/4mosan.php 3 www.google.com
+/upload/system/storage/upload 1 www.google.com
+/media.php 1 www.google.com
+/cms 2 -
+/licenses.php 2 www.google.com
+/wp-admin/wp-minify.php 1 www.google.com
+/ms-site.php 1 www.google.com
+/wp-defaul.php 4 www.google.com
+/login/test/wp-includes/wlwmanifest.xml 84 -
+/wp-includes/css/dist/block-library/style.min.css 5 -
+/wp-includes/sodium_compat 1 www.google.com
+/geck.php 3 -
+/wp-admin/css/colors/coffee/leaf.php 1 www.google.com
+/well-known.tar.xz 4 -
+/delete3.php 1 -
+/byps.php 3 www.google.com
+/module.php 2 www.google.com
+/view.php 1 -
+/files/home.php 1 www.google.com
+/plugins/gateways 1 -
+/wp-admin/images/about.php 16 www.google.com
+/js.php 10 www.google.com
+/pomo.php 1 -
+/sitemap 1 -
+/fileman/dev.html 2 -
+/wp-admin/maint/shadowx.php 1 www.google.com
+/lolzk.php 2 www.google.com
+/raw.php 2 www.google.com
+/defaults.php 12 www.google.com
+/on-settingssl.php 2 www.google.com
+/images/wso.php 1 www.google.com
+/laboratoriumpoltekkesbantenpoltekkesbanten.tar 4 -
+/wp-content/plugins/chosen.php 1 -
+/wp-admin/maint/wp-login.php 2 -
+/sambernyawa.php 2 www.google.com
+/dev/.env 2 -
+/wp-admin/css/about.php 15 www.google.com
+/wordpress/alfacgiapi/radio.php 2 -
+/laboratorium.poltekkesbanten.ac.id.zip 4 -
+/.well-known/pki-validation/install.php 1 -
+/default.php 3 www.google.com
+/cgialfa 1 www.google.com
+/wp-content/uploads/sell.php7 1 -
+/assets/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/index9.php 1 www.google.com
+/.well-known/acme-challenge/alfacgiapi/index.php 2 -
+/about 1 www.google.com
+/wp-admin/css/colors/blue/xmrlpc.php 6 www.google.com
+/zf.php 3 www.google.com
+/adminweb 1 www.google.com
+/23.php 2 www.google.com
+/tersembunyi.php 1 www.google.com
+/bowo.php 1 www.google.com
+/webassist/kcfinder/upload.php 1 -
+/wp-content/plugins/wp-diambar/includes/loadme.php 3 www.google.com
+/inc.php 3 www.google.com
+/bolt.php 1 -
+/backup-04 1 www.google.com
+/xdoor.php 2 www.google.com
+/application/themes/admin/assets/js/kcfinder/upload.php 1 -
+/network.php 2 www.google.com
+/ALFA_DATA/alfacgiapi/ups.php 1 -
+/demos.php 2 www.google.com
+/images/alfacgiapi/radio.php 2 -
+/wp-content/fm.php 1 www.google.com
+/wp-includes/rest-api/fields/cache 2 www.google.com
+/license.php 4 www.google.com
+/yo.php 1 www.google.com
+/wp-content/uploads/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/wp-admin/options.php 2 www.google.com
+/wp-includes/widgets/ff2.php 3 -
+/wp-admin/user/users.php 1 -
+/wp-content/plugins/cache-wordpress/payment.php 2 www.google.com
+/assets/ALFA_DATA/alfacgiapi/404.php 2 -
+/blog/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/.well-known/akp.php 3 -
+/alexuse.php 2 www.google.com
+/.quarantine/ALFA_DATA/alfacgiapi/radio.php 2 -
+/r.php 6 www.google.com
+/script 1 -
+/wp-content/haxorsecv2.php 1 -
+/files.php 3 www.google.com
+/xcv.php 2 www.google.com
+/images/daes.php 1 www.google.com
+/images/sendme.php 1 -
+/wp-includes/alf.php 1 www.google.com
+/azdare.php 2 www.google.com
+/adminer.php 6 www.google.com
+/.well-known/acme-challenge/index.php 2 www.google.com
+/backup-05 1 www.google.com
+/wp-content/wmsyb.php 1 www.google.com
+/.well-known/alfacgiapi/py.alfa 4 -
+/bj.php 2 www.google.com
+/cgi-bin/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/about3.php 3 -
+/assets/ckeditor/plugins/kcfinder-3.12/upload.php 1 -
+/wp-uploads.php 2 www.google.com
+/fm.php 2 www.google.com
+/wp-posts.php 3 www.google.com
+/wp-hoard.php 3 www.google.com
+/wp-includes/block-patterns/about.php 14 www.google.com
+/ms.php 2 www.google.com
+/backup.7z 4 -
+/xzdd.php 2 www.google.com
+/file4.php 3 -
+/class-envato-market-api.php 1 -
+/wp-includes 7 www.google.com
+/wso2.7.php 1 www.google.com
+/M1.php 2 www.google.com
+/wp-content/plugins/wp-file-upload/ROOBOTS.php 1 -
+/wp-includes/class-json-ajax-session.php 1 -
+/wp-includes/pomo/zmFM.php 1 -
+/event 1 www.google.com
+/ey.php 2 www.google.com
+/wp-content/mailer.php 1 www.google.com
+/wp-admin/network/function.php 1 -
+/assets/ckeditor/plugins/kcfinder/upload.php 1 -
+/wp-content/hax.php 1 www.google.com
+/tentang 1 www.google.com
+/wp-includes/SimplePie/pomo.php 1 -
+/wp-content/updraft/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/login/2021/wp-includes/wlwmanifest.xml 29 -
+/components/alfacgiapi/bash.alfa 4 -
+/uploads/ALFA_DATA/alfacgiapi/404.php 2 -
+/wp-content/themes/twenty/twenty.php 2 www.google.com
+/wp-content/lx.php 1 -
+/shell.aspx 1 www.google.com
+/assets/libs/kcfinder/upload.php 1 -
+/assets/kcfinder-3.12/upload.php 1 -
+/yyyy.php 1 www.google.com
+/wp-content/themes/ccx/index.php 2 www.google.com
+/alfakun.php 2 www.google.com
+/Fdbxhriw.php 2 www.google.com
+/wp-content/languages/atomlib.php 1 www.google.com
+/informasi 1 www.google.com
+/st.php 2 www.google.com
+/wp-content/uploads/ac_assets/IndoSec.php 2 www.google.com
+/app 1 www.google.com
+/components 2 www.google.com
+/backup 1 www.google.com
+/new4.php 1 -
+/laboratoriumpoltekkesbanten.tar.bz2 4 -
+/wp-content/radio.php 3 www.google.com
+/wp-content/plugins/zedd/1.php 1 www.google.com
+/common 1 www.google.com
+/asd.php 2 www.google.com
+/.quarantine/alfacgiapi/index.php 2 -
+/server/.env 2 -
+/wp-admin/maint/mari.php 1 www.google.com
+/.alf.php 1 www.google.com
+/alfi.php 1 www.google.com
+/wp-admin/xleet-shell.php 1 -
+/cgi-bin/index.php 2 www.google.com
+/wp 3 -
+/.well-known/wp-signup.php 5 www.google.com
+/wp-content/themes/fitnessbase/dev.php 3 www.google.com
+/wp-content/uploads/about.php 3 www.google.com
+/components/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/wp-content/x/index.php 2 www.google.com
+/kyami.php 3 www.google.com
+/wp-admin/js/widgets/xmrlpc.php 6 www.google.com
+/xl2023.php 9 -
+/classwithtostring.php 6 www.google.com
+/nbproject/private/private.properties 1 -
+/wp-includes/alfacgiapi/perl.alfa 5 -
+/beence.php 3 www.google.com
+/public/adminer.php 1 -
+/wp-content/uploads/023ws.php 1 -
+/wp-admin/maint/wp-abupee.php 1 -
+/classsmtps.php 1 www.google.com
+/kiss.php 2 www.google.com
+/wp-content/plugins/wp-file-manager/lib/php/connector.minimal.php 2 www.google.com
+/gm.php 3 -
+/xleetshell.php 1 -
+/poltekkesbanten.7z 4 -
+/wp-admin/includes/class-wp-privacy-policy-content-https.php 3 -
+/assets/editor/fileman/dev.html 2 -
+/wp-includes/wmsyb.php 1 www.google.com
+/wp-admin/maint/leaf.php 1 www.google.com
+/tools 1 www.google.com
+/application.7z 4 -
+/well-known.gz 4 -
+/4index.php 4 www.google.com
+/wp-includes/Text/index.php 3 www.google.com
+/wp-content/mini.php 1 www.google.com
+/wp-contact.php 2 www.google.com
+/wp-includes/js/tinymce/skins/lightgray/img/index.php 8 www.google.com
+/local.php 3 www.google.com
+/wp-content/themes/twentyfive/include.php 14 www.google.com
+/lolz.php 1 -
+/wp-content/languages/themes/023ws.php 1 -
+/panel/kcfinder/upload.php 1 -
+/5.php 5 www.google.com
+/data-user.php 2 www.google.com
+/wp-content/plugins/hellopress/023ws.php 1 -
+/attachments 1 -
+/class/phpformbuilder/plugins/filemanager/dialog.php 1 -
+/wp-content/kk.php 1 www.google.com
+/wp-content/themes/fitnessbase/yup.php 1 www.google.com
+/wp-plain.php 1 www.google.com
+/wxo.php 4 -
+/cpanel_backup 1 www.google.com
+/admin/assets/server/php 1 -
+/v3.php 3 www.google.com
+/well.php 3 www.google.com
+/.tmb/class_api.php 6 -
+/11.php 1 www.google.com
+/libs/kcfinder-3.12/upload.php 1 -
+/wp-admin/images/chosen.php 1 -
+/racing.php 1 www.google.com
+/aaa.php 5 www.google.com
+/wp-admin/includes/edit-tag-menu.php 1 www.google.com
+/access.php 1 www.google.com
+/public/adm.php 1 -
+/alfacgiapi/bash.alfa 4 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/index.php 2 -
+/resources/js/kcfinder/upload.php 1 -
+/cgi-bin.tar.gz 4 -
+/e.php 5 www.google.com
+/devil.php 2 www.google.com
+/wp-content/plugins/wp-help/mini.php 1 -
+/wp-admin/classwithtostring.php 1 www.google.com
+/wp-includes/upl.php 1 www.google.com
+/.well-known/about.php 15 www.google.com
+/admin/server/php 1 -
+/wp-includes/rest-api/class.api.php 1 -
+/ckeditor/kcfinder-3.12/upload.php 1 -
+/wp-content/plugins/zaen/includes/loadme.php 1 www.google.com
+/wp-admin/includes/wso.php 1 www.google.com
+/admin/filemanager/dialog.php 1 -
+/wp-includes/rest-api/themes.phps 1 -
+/kontoru.php 2 www.google.com
+/.well-known/ALFA_DATA/alfacgiapi/perl.alfa 5 -
+/wp-content/themes/twentyseventeen/page/index.php 6 -
+/rak.php 1 -
+/comfunctions.php 1 www.google.com
+/wp-includes/SimplePie/function.php 1 -
+/g.php 7 www.google.com
+/shells.php 3 www.google.com
+/laboratorium.poltekkesbanten.zip 4 -
+/slo.php 1 -
+/wp-content/themes/ALFA_DATA/alfacgiapi/radio.php 2 -
+/mcc.php 1 www.google.com
+/webadmin.php 2 www.google.com
+/php/index.php 1 www.google.com
+/rexx.php 2 www.google.com
+/haa.php 2 -
+/wp-content/uploads/adminer.php 1 -
+/wp-admin/css/colors/coffee/cloud.php 6 www.google.com
+/pHpINJ.php 1 www.google.com
+/inde.php 3 -
+/sendgrid/.env 2 -
+/alf4.php 3 www.google.com
+/new-index.php 8 www.google.com
+/cgi-bin/nice.php 1 -
+/403.php 18 www.google.com
+/packages/assets/js/kcfinder/upload.php 1 -
+/wp-includes/default.php 1 -
+/img/xmrlpc.php 5 www.google.com
+/as/pomo.php 1 -
+/alwso.php 5 www.google.com
+/stats.php 2 www.google.com
+/f.php 7 www.google.com
+/B3KP/wordpress 1 www.google.com
+/wp-blog.php 13 www.google.com
+/.tmb/alfacgiapi/bash.alfa 4 -
+/tuco.php 4 www.google.com
+/assets/uploads/alfacgiapi/index.php 2 -
+/zec.php 2 www.google.com
+/security.php 1 www.google.com
+/demon.php 2 www.google.com
+/darkshell.php 1 www.google.com
+/78.php 1 www.google.com
+/css/cloud.php 6 www.google.com
+/xidcm.php 2 www.google.com
+/wp-content/plugins/seoo/alfa-ioxi.php 1 -
+/wp-admin/css/colors/blue/class.api.php 1 -
+/assets/vendor/kcfinder/upload.php 1 -
+/wp-content/plugins/library/alfacgiapi/index.php 2 -
+/obfbyte.php 2 www.google.com
+/components/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/wp-includes/Requests/Response 1 www.google.com
+/templates/protostar/index.php 1 www.google.com
+/updates.php 14 www.google.com
+/xleet.php 8 www.google.com
+/docs 1 www.google.com
+/wp-includes/Requests/network.php 1 www.google.com
+/new 1 www.google.com
+/wp-admin/admin-ajax.php 6 -
+/workshop 1 www.google.com
+/wp-content/mu-plugins-old 1 www.google.com
+/akpc.php 2 -
+/wp-content/updraft/ALFA_DATA/alfacgiapi/index.php 2 -
+/posting 1 www.google.com
+/g3l4y.php 1 www.google.com
+/kontol.php 2 www.google.com
+/wp-content/wso112233.php 3 -
+/leafmailer.php 4 www.google.com
+/images 9 binance.com
+/ioxi-rex.php 1 -
+/wp-content/plugins/ph-file-manager/wp-file.php 2 -
+/old/alfacgiapi/perl.alfa 4 -
+/admnin 1 www.google.com
+/cgi-bin.rar 4 -
+/wp-content/plugins/wp-freeform/style.php 2 www.google.com
+/wp-includes/images/media 2 www.google.com
+/al.php 5 www.google.com
+/laboratoriumpoltekkesbanten.tar 4 -
+/settings 1 www.google.com
+/shelss.php 2 www.google.com
+/wp-includes/gelay.php 1 www.google.com
+/psFile-2016-12-17104245.png 1 www.google.com
+/wp-content/fx.php 1 www.google.com
+/ebs.php7 5 www.google.com
+/wp-content/plugins/cakil/up.php 2 www.google.com
+/wp-includes.php 1 -
+/555.php 3 -
+/c999shell.php 1 www.google.com
+/wp-content/themes/wp-pridmag/init.php 3 www.google.com
+/checkbox.php 1 www.google.com
+/wp-includes/customize/pomo.php 1 -
+/wp-includes/css/index.php 2 www.google.com
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/radio.php 2 -
+/upload/kcfinder/upload.php 1 -
+/resources/global/plugins/jquery-file-upload/server/php 1 http://laboratorium.poltekkesbanten.ac.id/resources/global/plugins/jquery-file-upload/server/php/
+/modules/index.php 1 www.google.com
+/wp-content/upgrade/alfacgiapi/bash.alfa 4 -
+/wp-includes/js/tinymce/plugins/compat3x/css/index.php 1 www.google.com
+/application/themes/admin/assets/js/kcfinder-3.12/upload.php 1 -
+/kii.php 2 www.google.com
+/wp-2018.php 2 www.google.com
+/autoload_classmap.php 5 www.google.com
+/.idea/dataSources.xml 1 -
+/ALFA_DATA/alfacgiapi/r57.php 1 -
+/laboratorium4 1 www.google.com
+/packages/upload/kcfinder-3.12/upload.php 1 -
+/wp-content/flame.php 4 www.google.com
+/wp-includes/fox.php 1 www.google.com
+/sh3ll.php 1 www.google.com
+/theme-single.php 2 www.google.com
+/wp-content/plugins/wp-conflg.php 4 -
+/backup.tar.xz 4 -
+/wp-content/uploads/class.api.php 1 -
+/wp-signin.php 1 www.google.com
+/wp-content/plugins/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/f1zr.php 1 www.google.com
+/r57shell.php 1 www.google.com
+/assets/fonts/adminer.php 1 -
+/c0derz_shell.php 1 www.google.com
+/wp-admin/css/colors/coffee/upl.php 1 www.google.com
+/wp-admin/css/colors/blue/file.php 1 -
+/phpmyadmin 2 -
+/wp-content/updraft/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/wp/alfacgiapi/bash.alfa 4 -
+/images/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/assets/uploads/ALFA_DATA/alfacgiapi/404.php 2 -
+/admin/assets/jquery-file-upload/server/php 1 -
+/wp-admin/css/colors/ectoplasm/zmFM.php 1 -
+/wp-content/upgrade/index.php 1 -
+/vendors 1 www.google.com
+/images/nice.php 1 -
+/nc4.php 2 -
+/wp-content/themes/include.php 1 www.google.com
+/class-ftp-pures.php 2 www.google.com
+/lib/kcfinder/upload.php 1 -
+/wp-admin/user/wp-login.php 1 www.google.com
+/administrator/templates/isis/error.php 1 www.google.com
+/assets/plugins/js/jquery-file-upload/server/php 1 -
+/Laboratorium7 1 www.google.com
+/wp-content/uploads/wp-stream.php 1 www.google.com
+/teslaxx.php 1 www.google.com
+/wp-content/mu-plugins-old/index.php 2 www.google.com
+/ini.php 8 www.google.com
+/assets/admin/js/kcfinder/upload.php 1 -
+/nee.php 4 www.google.com
+/xltavrat.php 1 -
+/dragonforce.php 3 www.google.com
+/panel/kcfinder-3.12/upload.php 1 -
+/wp-admin/includes/023ws.php 1 -
+/Uploading.php 1 www.google.com
+/wp-includes/certificates 1 www.google.com
+/wikindex.php 7 www.google.com
+/.well-known/acme-challenge/nice.php 1 -
+/wp-admin/maint/themes.php 1 -
+/wp-admin/45.php 1 www.google.com
+/components/com_b2jcontact/izoc.php 1 www.google.com
+/wp/alfacgiapi/index.php 2 -
+/wp/alfacgiapi/radio.php 2 -
+/a.php 12 www.google.com
+/.well-known/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/21.php 1 www.google.com
+/wp-pano.php 6 -
+/wp-admin/includes 1 www.google.com
+/assets/lib/jquery-file-upload/server/php 1 http://laboratorium.poltekkesbanten.ac.id/assets/lib/jquery-file-upload/server/php/
+/admin404.php 1 www.google.com
+/.well-known/pki-validation/alfacgiapi/index.php 2 -
+/DC.php 1 www.google.com
+/wp-content/uploads/small.php 1 www.google.com
+/asset/plugins/jquery-file-upload/server/php 1 -
+/omest403.php 1 www.google.com
+/wp-content/plugins/library/alfacgiapi/py.alfa 4 -
+/Laboratorium2 1 www.google.com
+/wp-content/plugins/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/h.php 5 www.google.com
+/kcfinder-3.12/upload.php 1 -
+/FoxWSOv1.php 4 www.google.com
+/riming.php 1 -
+/artikel 1 www.google.com
+/Chitoge.php 1 www.google.com
+/kanghoax.php 1 www.google.com
+/laboratorium.poltekkesbanten.tar.gz 4 -
+/backend/plugins/kcfinder-3.12/upload.php 1 -
+/admin/function.php 3 www.google.com
+/alivos.php 1 www.google.com
+/wp-content/patior 2 www.google.com
+//admin/login.php 1 -
+/wp-0.php 1 www.google.com
+/plugin.php 1 www.google.com
+/wp-admin/v2geb.php 1 www.google.com
+/wp-includes/images 1 www.google.com
+/laboratorium.tar.xz 4 -
+/wp-admin/images/pomo.php 1 -
+/ioxi002.PhP7 1 -
+/cgi-bin/ffAA531.php 3 -
+/bala.php 1 -
+/prevlaravel/sftp-config.json 2 -
+/wp-admin/wp/0z.php 1 www.google.com
+/wp/ALFA_DATA/alfacgiapi/404.php 2 -
+/wp-admin/includes/fw.php 1 www.google.com
+/anonsec.php 3 www.google.com
+/ff.php 2 -
+/assets/ALFA_DATA/alfacgiapi/index.php 2 -
+/wp-content/themes/alfacgiapi/perl.alfa 4 -
+/dbx.php 3 www.google.com
+/wp-admin/user/023ws.php 1 -
+/wp-admin/maint/am.php 1 www.google.com
+/wp-content/plugins/hax.php 1 www.google.com
+/wp-content/plugins/db/uploader.php 2 www.google.com
+/predator.php 2 www.google.com
+/img/ 1 -
+/wp-backup-sql-302.php 2 www.google.com
+/wp-json/wp/v2/media 5 -
+/6index.php 4 www.google.com
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/wp-admin/css/colors/blue/admin.php 1 www.google.com
+/wp-admin/user/about.php 9 www.google.com
+/wp-admin/ccx/index.php 6 -
+/index1.php 3 www.google.com
+/cord.php 1 -
+/wp-content/plugins/seoplugins/db.php 12 www.google.com
+/application 1 www.google.com
+/fileupload/server/php 1 -
+/wp-admin/ALFA_DATA/alfacgiapi/404.php 2 -
+/laboratorium.poltekkesbanten.tar 4 -
+/wsr2.php 1 -
+/wp-content/plugins/ninja-forms 1 www.google.com
+/wp-admin/css/colors/coffee/xxxx.php 1 www.google.com
+/FX.php 2 www.google.com
+/am.php 2 www.google.com
+/wp-plugins.php 3 www.google.com
+/apps/kcfinder/upload.php 1 -
+/wp-content/themes/wp-logout.php 1 -
+/ssss.php 4 -
+/min.php 3 www.google.com
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/radio.php 2 -
+/abcde.php 1 www.google.com
+/public/laravel-filemanager 1 -
+/wp-admin/7root.php 1 www.google.com
+/wp-admin/css/colors/coffee/maro.php 1 www.google.com
+/alfav4.1-tesla.php 1 www.google.com
+/wp-easy.php 1 -
+/wp-content/themes/seotheme 1 www.google.com
+/wp-includes/IXR/index.php 2 www.google.com
+/cgi-bin/ALFA_DATA/alfacgiapi/radio.php 2 -
+/.tmb/alfacgiapi/py.alfa 4 -
+/wp-content/themes/astra/inc/ki1k.php 1 www.google.com
+/test 2 www.google.com
+/degesaciihaxor.php 2 www.google.com
+/backup/ftp.json 1 -
+/packages/assets/js/kcfinder-3.12/upload.php 1 -
+/start.php 1 -
+/shellbypass.php 1 www.google.com
+/wp-includes/ALFA_DATA/alfacgiapi/index.php 2 -
+/modules/mod_simplefileuploadv1.3/elements 1 www.google.com
+/wp-includes/css/css.php 1 www.google.com
+/old/alfacgiapi/py.alfa 4 -
+/upload/alfacgiapi/radio.php 2 -
+/block.php 1 www.google.com
+/sites/default/files 7 binance.com
+/wp-includes/js/autoload_classmap.php 2 www.google.com
+/as/class.api.php 1 -
+/1234.php 2 www.google.com
+/public/ckeditor/plugins/kcfinder/upload.php 1 -
+/templates/atomic/error.php 1 www.google.com
+/yoi.php 3 -
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/404.php 2 -
+/upload.php 12 www.google.com
+/admin/blueimp-jQuery-File-Upload/server/php 1 -
+/wp-thesex.php 1 www.google.com
+/wp-includes/codeboy1877_up.php 3 -
+/hexx.php 3 -
+/twin.php 3 www.google.com
+/0byte.php 5 www.google.com
+/wp-admin/includes/xleet-shell.php 1 -
+/blueimp-jQuery-File-Upload/server/php 1 -
+/.well-known/alfacgiapi/radio.php 2 -
+/assets/admin/plugins/kcfinder-3.12/upload.php 1 -
+/app/laravel-filemanager 1 -
+/wp-admin/0z.php 1 www.google.com
+/classgoto24.php 3 -
+/cjfuns.php 7 -
+/atomlib.php 16 www.google.com
+/wp-content/plugins/ioxi/alfa-ioxi.php 1 www.google.com
+/joy.php 2 www.google.com
+/Backup 1 www.google.com
+/wp-content/plugins/seoo/wsoyanz1.php 5 www.google.com
+/filemanager/dialog.php 1 -
+/thema/assets/libs/bootstrap/dist/js/ 1 -
+/var.php 2 www.google.com
+/.well-known/leaf.php 1 www.google.com
+/sftp-config.json 4 -
+/wp-content/plugins/ccx/index.php 3 www.google.com
+/locales.php 2 www.google.com
+/wp-includes/Requests/Exception/HTTP 1 www.google.com
+/des.php 3 -
+/wpx.php 1 www.google.com
+/assets/plugins/filemanager/dialog.php 1 -
+/docfunction.php 2 www.google.com
+/ALFA_DATA/alfacgiapi 2 www.google.com
+/a.aspx 1 www.google.com
+/gecko-litespeed.php 3 -
+/csv.php 1 www.google.com
+/assets/vendors/js/kcfinder/upload.php 1 -
+/.well-known/alfacgiapi/index.php 2 -
+/back.php 2 www.google.com
+/wp-admin/images/function.php 1 -
+/Laboratorium2024 1 www.google.com
+/am4n.php 1 www.google.com
+/aman.php 1 www.google.com
+/wordpress/ALFA_DATA/alfacgiapi/index.php 2 -
+/scripts/kcfinder/upload.php 1 -
+/luuf.php/lufix 1 www.google.com
+/maro.php 1 www.google.com
+/1100.php 2 www.google.com
+/wp-includes/SimplePie/chosen.php 1 -
+/wp-includes/wso.php 5 www.google.com
+/cgi-bin/users.php 1 -
+/laboratorium.poltekkesbanten.ac.id.gz 4 -
+/444.php 4 -
+/wp-includes/Requests/Utility 1 www.google.com
+/deploy.json 2 -
+/Mshell.php 1 -
+/sad/about.php 2 www.google.com
+/rahma.php 4 www.google.com
+/components/ALFA_DATA/alfacgiapi/radio.php 2 -
+/system_log.php 5 www.google.com
+/.well-known/acme-challenge/alfacgiapi/404.php 2 -
+/wp-help.php 3 www.google.com
+/seo.php 1 -
+/filei.php 1 -
+/wp-admin/css/colors/coffee/leafmailer2.8.php 1 www.google.com
+/css.php 16 www.google.com
+/database.php 3 www.google.com
+/wp-admin/includes/a.php 1 www.google.com
+/images/alfacgiapi/index.php 2 -
+/dev.php 4 www.google.com
+/webadmin/about.php 2 www.google.com
+/assets/js/kcfinder/upload.php 1 -
+/wp_old 1 www.google.com
+/wp-content/plugins/ALFA_DATA/alfacgiapi/radio.php 2 -
+/wp-content/Admin-ajax.php 1 www.google.com
+/wp-content/themes/alera/alpha.php 6 www.google.com
+/laboratoriumpoltekkesbantenpoltekkesbanten.7z 4 -
+/tmp_images/alfacgiapi/perl.alfa 1 -
+/.quarantine/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/bre.php 3 www.google.com
+/public/js/kcfinder-3.12/upload.php 1 -
+/Js.php 1 -
+/ups.php 5 www.google.com
+/com.php 1 -
+/images/gelay.php 1 www.google.com
+/doc/ 1 www.google.com
+/news 1 www.google.com
+/www.php 4 www.google.com
+/css/nice.php 1 -
+/404.php 16 www.google.com
+/wp-includes/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/wp-includes/IXR 2 www.google.com
+/wp-admin/ALFA_DATA/alfacgiapi/index.php 2 -
+/libraries/joomla/jmail.php 1 www.google.com
+/upl.php 1 www.google.com
+/hhh.php 2 www.google.com
+/wp-content/themes/alfacgiapi/py.alfa 2 -
+/public/server/php 1 -
+/image.php 1 -
+/13.php 5 www.google.com
+/wp-admin/js/widgets/023ws.php 1 -
+/eifjp.php 1 -
+/wp-includes/css 2 www.google.com
+/shadowx.php 1 www.google.com
+/07.php 1 www.google.com
+/admin/jquery-file-upload/server/php 1 -
+/images/4pride.php 1 www.google.com
+/click.php 3 www.google.com
+/401.php 2 www.google.com
+/admin/uploads/server/php 1 -
+/administrator/templates/bluestork/error.php 1 www.google.com
+/ge.php 1 -
+/documents 1 www.google.com
+/www_old 1 www.google.com
+/wordpress/alfacgiapi/perl.alfa 4 -
+/fw.php 18 www.google.com
+/wp-admin/css/gelay.php 1 www.google.com
+/class-snoopye_wso.php 1 -
+/upload/ALFA_DATA/alfacgiapi/radio.php 2 -
+/files/galeria.php 1 -
+/file_upload 1 www.google.com
+/backup4 1 www.google.com
+/BDKR28_pnbi8jhp.php 3 -
+/chosen/class.api.php 1 -
+/shx.php 6 www.google.com
+/wp-content/plugins/aryabot/upx.php 1 www.google.com
+/thema/assets/libs/jquery/dist/ 1 -
+/jp.php 3 www.google.com
+/.well-known/pki-validation/cloud.php 11 -
+/wp-admin/includes/cloud.php 5 www.google.com
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/help.php 3 www.google.com
+/wp-content/themes/cakiltheme/idx.php 2 www.google.com
+/wp-key.php 3 www.google.com
+/blog/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/well-known.7z 4 -
+/class_appfun.php 2 www.google.com
+/gecko-new.php 3 www.google.com
+/wp-includes/sys.php 1 www.google.com
+/41.php 1 -
+/.well-known/pki-validation/ 1 www.google.com
+/assets/js/ckeditor12/kcfinder/upload.php 1 -
+/wp-content/themes/alfacgiapi/index.php 1 -
+/wp-admin/css/colors/blue/az.php 3 -
+/alfacgiapi/py.alfa 4 -
+/admin/plugin/kcfinder-3.12/upload.php 1 -
+/resource/js/kcfinder/upload.php 1 -
+/images/1.php 1 www.google.com
+/wp-includes/css/F0x.php 1 -
+/bypass.php 17 www.google.com
+/wp-activate.php 10 www.google.com
+/css/chosen.php 1 -
+/cmnk.php 1 -
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/index.php 2 -
+/million.php 1 -
+/wp-admin 7 www.google.com
+/1945.php 1 www.google.com
+/vesiw.php 1 -
+/wp-content/plugins/ndak/1.php 2 www.google.com
+/assets/upload/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/ee.php 3 www.google.com
+/alfadheat.php 2 -
+/login/shop/wp-includes/wlwmanifest.xml 81 -
+/wp-content/plugins/app-calendar/config.php 1 -
+/lowpr.php 2 www.google.com
+/msleaf.php 1 -
+/wp-content/ssa.php 1 www.google.com
+/gvy6f.php 1 www.google.com
+/alfacgiapi/radio.php 2 -
+/kuda.php 2 www.google.com
+/Bulle.php 1 www.google.com
+/pda.php 2 www.google.com
+/wp-includes/css/wp-login.php 1 -
+/agenda 1 www.google.com
+/descargas.php 1 www.google.com
+/Laboratorium1 1 www.google.com
+/wp-content/plugins/cekidot/alf.php 1 www.google.com
+/images/index.php 2 www.google.com
+/wp-config-sample.php 10 www.google.com
+/js/fileman/index.html 2 -
+/laboratorium.poltekkesbanten.tar.bz2 4 -
+/inputs.php 4 www.google.com
+/backup.tar 4 -
+/jadow.php 1 www.google.com
+/chosen/chosen.php 1 -
+/w4k.php 1 www.google.com
+/verify.php 1 -
+/fox.php 5 www.google.com
+/Xzd.php 2 www.google.com
+/wp-admin/css/colors/index.php 13 www.google.com
+/backup9 1 www.google.com
+/libraries/joomla/jmails.php 1 www.google.com
+/wp-admin/a.php 1 www.google.com
+/login/blog/wp-includes/wlwmanifest.xml 84 -
+/registry 1 -
+/1index.php 7 www.google.com
+/upload/alfacgiapi/404.php 2 -
+/rsyev.php 1 www.google.com
+/profile.php 2 www.google.com
+/wp-admin/plugins.php 1 -
+/4lin.php 1 www.google.com
+/wp-content/themes/hello_dolly_v2.php 1 www.google.com
+/rename.php 2 www.google.com
+/wp-content/themes/classic/inc/index.php 2 www.google.com
+/wp-1.php 1 www.google.com
+/BACKUP 1 www.google.com
+/wp-content/themes/welfare-charity/www.php 1 -
+/wp-admin/css/colors/coffee/langar.php 1 www.google.com
+/wp-admin/sell.php7 1 -
+/wp-includes/upload.php 2 www.google.com
+/02.php 1 www.google.com
+/wordpress/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/z.php 6 www.google.com
+/wp-includes/wp-optimization.php 1 www.google.com
+/B3KP 1 www.google.com
+/wso403.php 2 www.google.com
+//wp-content/plugins/fix/up.php 1 -
+/2024 1 www.google.com
+/wp-content/z.php 1 www.google.com
+/wp-includes/certificates/moon.php 1 -
+/core/scripts/kcfinder-3.12/upload.php 1 -
+/wso112233.php 13 www.google.com
+/ngtd.php 1 www.google.com
+/wp-includes/alfacgiapi/404.php 2 -
+/delpaths.php 1 www.google.com
+/wp-admin/includes/leafmailer.php.php 1 www.google.com
+/wp-includes/SimplePie/autoload_classmap.php 2 www.google.com
+/blog/ALFA_DATA/alfacgiapi/404.php 2 -
+/wp-includes/shell.php 1 www.google.com
+/wordpress/ALFA_DATA/alfacgiapi/radio.php 2 -
+/iq.php 3 www.google.com
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/wp-admin/js/themes.php 1 -
+/wp-content/dropdown.php 2 www.google.com
+/ss.php 1 -
+/wp-json/wp/v2/plugins 5 -
+/templates/atomic/index.php 1 www.google.com
+/media/kcfinder-3.12/upload.php 1 -
+/henla-68-APT-66x66.php 3 -
+/flex.php 3 -
+/byp403.php 1 -
+/header.php 1 www.google.com
+/.well-known/pki-validation/alfacgiapi/py.alfa 4 -
+/1975.php 7 www.google.com
+/wp-admin/js/pomo.php 1 -
+/wp-content/plugins/index.php 11 www.google.com
+/admin/js/server/php 1 -
+/wp-content/plugins/vwcleanerplugin/bump.php 2 www.google.com
+/class19.php 3 -
+/old/alfacgiapi/404.php 2 -
+/it.php 2 www.google.com
+/file/chosen.php 1 -
+/wiki-index.php 1 www.google.com
+/alfax.php 2 www.google.com
+/webshell.php 1 www.google.com
+/.well-known/index.php 3 www.google.com
+/fso.php 1 -
+/backup.tar.bz2 4 -
+/520.php 3 -
+/wp-content/plugins/include.php 1 www.google.com
+/name.php 1 www.google.com
+/admin403.php 1 www.google.com
+/l.php 6 www.google.com
+/uploadfile 1 www.google.com
+/wp-includes/assets/wp-login.php 1 -
+/backup7 1 www.google.com
+/wp-includes/Requests/about.php 16 www.google.com
+/bless2.php 1 -
+/wp-content/mu-plugins/db-safe-mode.php 1 www.google.com
+/wi.php 5 www.google.com
+/.tmb/alfacgiapi/perl.alfa 4 -
+/core/scripts/wysiwyg/kcfinder-3.12/upload.php 1 -
+/indexof.php 1 www.google.com
+/laboratorium10 1 www.google.com
+/ubh.php 1 www.google.com
+/wp-admin/includes/mailer.php.php 1 www.google.com
+/assets/upload/alfacgiapi/py.alfa 4 -
+/504.php 1 -
+/file 1 www.google.com
+/wp-content/themes/pridmag/db.php 16 www.google.com
+/wp-includes/css/leafmailer.php.php 1 www.google.com
+/third_party/kcfinder-3.12/upload.php 1 -
+/yu.php 1 -
+/Anonsec.php 1 www.google.com
+/wp-includes/wso112233.php 3 -
+/assets/uploads/alfacgiapi/py.alfa 4 -
+/wp-user.php 2 www.google.com
+//admin/index.php 1 -
+/24.php 1 www.google.com
+/product.php 2 www.google.com
+/gh.php 4 www.google.com
+/87.php 3 www.google.com
+/backup8 1 www.google.com
+/wp-content/small.php 3 -
+/wp-minify.php 1 www.google.com
+/templates/beez3/index.php 1 www.google.com
+/bitwise.php 1 www.google.com
+/wp-includes/404.php 1 www.google.com
+/wp-includes/wlwmanifest.xml 2 -
+/wp-includes/ID3/license.txt 2 www.google.com
+/wp-includes/sitemaps/autoload_classmap.php 2 www.google.com
+/ckk.php 2 -
+/joomla 1 www.google.com
+/dove.php 2 -
+/wp-admin.php 5 www.google.com
+/admin/tools/assets/jquery-file-upload/server/php 1 -
+/wp-includes/Requests/Text 2 www.google.com
+/hook.php 2 -
+/sx.php 3 www.google.com
+/wp-admin/msleaf.php 1 -
+/components/alfacgiapi/404.php 2 -
+/wp-admin/network/wp-footer.php 1 www.google.com
+/wp-admin/includes/users.php 1 www.google.com
+/puki.php 2 www.google.com
+/1.aspx 1 www.google.com
+/wp-users.php 2 www.google.com
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/index.php 2 -
+/wp-config-samsples.php 2 www.google.com
+/meki.php 2 www.google.com
+/images/stories 1 www.google.com
+/wp-includes/sodium_compat/src/Core/Curve25519-items.php 1 -
+/wp-optimization.php 1 www.google.com
+/wp-admin/wp-logout.php 1 -
+/application.tar.gz 4 -
+/159.php 1 www.google.com
+/images/ALFA_DATA/alfacgiapi/404.php 2 -
+/wp-includes/rest-api/index.php 2 www.google.com
+/kses.php 1 www.google.com
+/goat.php 5 www.google.com
+/cgi-bin.tar.xz 4 -
+/0o.php 4 www.google.com
+/wp-content/upgrade/alfacgiapi/404.php 2 -
+/admin/plugins/kcfinder/upload.php 1 -
+/wp-admin/maint/wso.php 1 www.google.com
+/plugins/js/server/php 1 -
+/jmfi2.php 1 -
+/l28.php 1 www.google.com
+/w.php 10 www.google.com
+/wp-content/languages/pomo.php 1 -
+/jjhf.php 1 -
+/.well-known/leafmailer2.8.php 1 www.google.com
+/indo.php 5 -
+/wp-includes/widgets 2 www.google.com
+/wp-includes/blocks/post-excerpt/alfa-rex.PHP 1 -
+/wp-content/uploads/wp-logout.php 3 www.google.com
+/wp-includes/Text/Diff 1 www.google.com
+/wp-content/msleaf.php 1 -
+/wp-content/uploads/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/backup-01 1 www.google.com
+/admin/images/slider 1 www.google.com
+/old_site 1 www.google.com
+/wp-admin/includes/shadowx.php 1 www.google.com
+/laboratorium-cadangan 1 www.google.com
+/88.php 2 www.google.com
+/wp-admin/css/colors/coffee/ups.php 1 www.google.com
+/images/wp-abupee.php 1 -
+/wp-bak 1 www.google.com
+/file2.php 4 -
+/assets/js/ckeditor/plugins/kcfinder/upload.php 1 -
+/wp-comments-post.php 2 www.google.com
+/wp-content/uploads/simple-file-list/DC.php 1 www.google.com
+/wp-includes/d65ve.php 1 www.google.com
+/images/alfa.php 1 www.google.com
+/wp-includes/blocks-other.php 1 -
+/.well-known/pki-validation/class.api.php 1 -
+/wp-content/plugins/wso.php 1 -
+/wp-content/upgrade 1 www.google.com
+/wp-includes/customize 1 www.google.com
+/images/lux.php 1 www.google.com
+/matamu.php 1 www.google.com
+/wp-admin/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/reviewer 1 -
+/wp-content/xl2023.php 3 -
+/wp-includes/SimplePie/Content 1 www.google.com
+/wp-admin/dropdown.php 14 www.google.com
+/wp-includes/class.api.php 1 -
+/wp-admin/includes/class_api.php 6 -
+/backup.zip 4 -
+/wp-admin/maint/langar.php 1 www.google.com
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/404.php 2 -
+/gool.php 2 -
+/wp-admin/css/colors/coffee/a.php 1 www.google.com
+/wp-content/alfacgiapi/perl.alfa 5 -
+/wp-admin/x.php 15 www.google.com
+/amigo.php 3 -
+/bkv74.php 1 www.google.com
+/1.php 13 www.google.com
+/upload/system/storage/download 1 www.google.com
+/up.php 8 www.google.com
+/send.php 5 www.google.com
+/wp-content/plugins/library/alfacgiapi/radio.php 2 -
+/wp-content/updraft/ALFA_DATA/alfacgiapi/404.php 2 -
+/old/ALFA_DATA/alfacgiapi/radio.php 2 -
+/plugins/generic 1 -
+/laboratoriumpoltekkesbanten.rar 4 -
+/cfile.php 2 -
+/.well-known.tar 4 -
+/blog/alfacgiapi/radio.php 2 -
+/wp-admin/maint/users.php 1 -
+/FoxWSOv2.php 1 www.google.com
+/wp-admin/gelay.php 1 www.google.com
+/css/index.php 4 www.google.com
+/class-wp.php 5 www.google.com
+/blog 2 -
+/delete5.php 1 -
+/foo.php 1 -
+/1975.phP 3 www.google.com
+/wp-content/themes/alfacgiapi/bash.alfa 2 -
+/services 1 www.google.com
+/wp-content/plugins/plugins/Cyb3r.php 1 www.google.com
+/d65ve.php 1 www.google.com
+/backend/js/kcfinder-3.12/upload.php 1 -
+/wp-content/uploads/simple-file-list/fw.php 1 www.google.com
+/wp-content/plugins/aryabot/byps.php 1 www.google.com
+/wp-content/shadowx.php 1 www.google.com
+/bless.php 2 -
+/wp-content/maro.php 1 www.google.com
+/wp_wrong_datlib.php 5 www.google.com
+/.well-known/security.txt 1 -
+/assets/frontend/js/ckeditor/kcfinder-3.12/upload.php 1 -
+/alfav4-1-0.php 1 www.google.com
+/wp-content/themes/alfacgiapi/404.php 1 -
+/fierza.php 6 www.google.com
+/gel4y.php 7 www.google.com
+/shell_new.php 1 -
+/.well-known/acme-challenge/moon.php 2 www.google.com
+/wp-admin/wp-login.php 2 -
+/2xmpz0.php 1 www.google.com
+/wp-admin/css/wso.php 1 www.google.com
+/creates.php 2 www.google.com
+/un2.php 3 www.google.com
+/wp-includes/SimplePie/plugins.php 1 -
+/thh.php 3 -
+/images/about.php 15 www.google.com
+/8890.php 1 www.google.com
+/wp-admin/includes/themes.php 1 -
+/browse.php 1 www.google.com
+/public 1 www.google.com
+/apple-touch-icon-precomposed.png 1 -
+/wp-content/sell.php7 1 -
+/wp-includes/customize/about.php 8 www.google.com
+/uploads/up.php 1 www.google.com
+/cgi-bin 2 www.google.com
+/djfksr4.php 3 -
+/wp-admin/js/about.php 24 www.google.com
+/ucp.php 1 www.google.com
+/jscript/tiny_mce/plugins/ajaxfilemanager/class.api.php 1 -
+/0x.php 3 www.google.com
+/goat1.php 2 www.google.com
+/wp-admin/maint/moon.php 2 www.google.com
+/app/webroot/kcfinder/upload.php 1 -
+/application.gz 4 -
+/wp-json/wp/v2/statuses 5 -
+/routes 1 www.google.com
+/profiles 1 www.google.com
+/wp-includes/up.php 2 www.google.com
+/filedokumen 1 www.google.com
+/wp-conflg.php 11 www.google.com
+/lala.php 1 -
+/wp-admin/am.php 1 www.google.com
+/login/wp1/wp-includes/wlwmanifest.xml 85 -
+/store 1 www.google.com
+/produk 1 www.google.com
+/.well-known/maro.php 1 www.google.com
+/wp-content/plugins/z7.php 1 www.google.com
+/kon.php 1 www.google.com
+/.tmb/leaf.php 1 -
+/assets/css/about.php 1 -
+/images/mini.php 1 www.google.com
+/cms/tiny_mce/plugins/ajaxfilemanager/class.api.php 1 -
+/wp-includes/PHPMailer 2 www.google.com
+/wp-incleudes/MuPlugin.php 1 -
+/allahnaber.php 1 -
+/cot.php 3 www.google.com
+/assets/grocery_crud/texteditor/ckeditor/kcfinder/upload.php 1 -
+/assets/bo/plugin/kcfinder-3.12/upload.php 1 -
+/assets/upload/ALFA_DATA/alfacgiapi/radio.php 2 -
+/nn.php 1 -
+/wp-admin/css/colors/coffee/tesla1.php 1 www.google.com
+/wp-content/plugins/owfsmac/mar.php 1 www.google.com
+/fse.php 2 www.google.com
+/siapa.php 1 www.google.com
+/wp-links-opml.php 1 www.google.com
+/r00t.php 4 www.google.com
+/wp-admin/mailer.php 1 www.google.com
+/wp-admin/js/widgets/users.php 1 -
+/update.php 4 www.google.com
+/metronic/assets/global/plugins/jquery-file-upload/server/php 1 http://laboratorium.poltekkesbanten.ac.id/metronic/assets/global/plugins/jquery-file-upload/server/php/
+/assets/upload/alfacgiapi/bash.alfa 4 -
+/jdimzmtaas.php 3 -
+/wp-admin/css/colors/maro.php 1 www.google.com
+/wp-content/install.php 5 www.google.com
+/sct.php 2 www.google.com
+/backup/alfacgiapi/py.alfa 4 -
+/assets/alfacgiapi/py.alfa 4 -
+/alfacgiapi/perl.alfa 7 -
+/shellsiapa.php 1 www.google.com
+/jlex3.php 3 -
+/v2/.env 2 -
+/wp-admin/css/colors/midnight/zsihhopn.php 1 -
+/gac.php 2 www.google.com
+/wp-json/wp/v2/pages 5 -
+/wp-admin/network 3 www.google.com
+/wp-admin/includes/adminer.php 1 -
+/wp-content/plugins/library/alfacgiapi/404.php 2 -
+/wp-content/gallery/about.php 14 www.google.com
+/antiheker.php 2 www.google.com
+/11index.php 2 www.google.com
+/old/alfacgiapi/bash.alfa 4 -
+/assets/scripts/kcfinder-3.12/upload.php 1 -
+/core/scripts/wysiwyg/kcfinder/upload.php 1 -
+/assets/text_editor/kcfinder/upload.php 1 -
+/wp-admin/images/cloud.php 5 www.google.com
+/.wp-cache.php 7 www.google.com
+/assets/vendors/kcfinder/upload.php 1 -
+/menu.php 1 -
+/Laboratorium2023 1 www.google.com
+/templates/beez/index.php 1 www.google.com
+/assets/upload/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/ckeditor/plugins/kcfinder/upload.php 1 -
+/config 1 www.google.com
+/wp-admin/css/bhx1.php 1 www.google.com
+/wordpress/alfacgiapi/404.php 2 -
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/wp-content/plugins/html404/cry.php 1 -
+/h0110w4y.php 2 -
+/wp-admin/includes/upl.php 1 www.google.com
+/monaloku.php 1 www.google.com
+/cocot.php 3 www.google.com
+/library.php 2 www.google.com
+/wp-logout.php 1 -
+/wp-admin/js/about.php7 3 www.google.com
+/tesla1.php 1 www.google.com
+/images/byps.php 1 www.google.com
+/wp-content/fw.php 5 www.google.com
+/asset 1 www.google.com
+/images/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/wp-wso.php 4 www.google.com
+/.well-known/ALFA_DATA/alfacgiapi/404.php 2 -
+/7yn.php 2 www.google.com
+/V5.php 6 www.google.com
+/wp-admin/network/ayk.php 1 -
+/wp-content/themes/classic/inc 1 www.google.com
+/xl6.php 1 -
+/wp-content/plugins/WordPressCore/include.php 1 www.google.com
+/wp-content/wp-head.php 2 -
+/domain.php 2 www.google.com
+/wp-includes/rest-api/about.ph 1 -
+/wp-admin/style.php 1 www.google.com
+/ol.php 1 -
+/new/ALFA_DATA/alfacgiapi/index.php 2 -
+/wp-content/plugins/cekidot/mr.php 1 www.google.com
+/admin/controller/extension/extension 8 binance.com
+/p/u/doAuthentication.do 1 -
+/wp-admin/profile.php 5 -
+/admin/view/javascript/common.js 1 -
+/.well-known/am.php 1 www.google.com
+/vendor/kcfinder-3.12/upload.php 1 -
+/assets/js/plugins/ckeditor/plugins/kcfinder-3.12/upload.php 1 -
+/wp-admin/alf.php 1 www.google.com
+/application.zip 4 -
+/lux.php 2 www.google.com
+/alpa.php 5 www.google.com
+/assets/js/plugins/ckeditor/plugins/kcfinder/upload.php 1 -
+/wp-content/plugins/wp-daft/miin.php 1 -
+/wp-content/plugins/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/pws.php 1 -
+/wp-inlcudes.php 5 www.google.com
+/63ck0.php 2 www.google.com
+/Marvins.php 4 www.google.com
+/wp-content/themes/jobart/doc.php 2 www.google.com
+/settings.php 1 www.google.com
+/admin/core/kcfinder-3.12/upload.php 1 -
+/vendor/phpunit/phpunit/src/Util/PHP/index.php 1 www.google.com
+/old 2 -
+/456.php 1 -
+/ty.php 1 www.google.com
+/upload/ALFA_DATA/alfacgiapi/404.php 2 -
+/laboratorium2020 1 www.google.com
+/shell20211028.php 14 www.google.com
+/wp-content/updraft/ALFA_DATA/alfacgiapi/radio.php 2 -
+/b.php 7 www.google.com
+/wp-admin/shell20211028.php 3 -
+/wp-includes/Requests/themes.php 1 -
+/v4.php 4 www.google.com
+/v2geb.php 1 www.google.com
+/asu.php 2 www.google.com
+/wp-admin/user/chosen.php 1 -
+/old-index.php 10 www.google.com
+/deploy/config.json 1 -
+/wp-content/themes/skatepark/doc.php 2 www.google.com
+/simple_backdoor.php 1 www.google.com
+/wp-includes/widgets/index.php 2 www.google.com
+/wp-includes/blocks 1 www.google.com
+/plugins 2 www.google.com
+/o.php 7 www.google.com
+/wp-admin/css/autoload_classmap.php 2 www.google.com
+/olux.php 9 www.google.com
+/wp-includes/Requests/chosen.php 1 www.google.com
+/wp-content/themes/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/wp-admin/images/index.php 13 www.google.com
+/storage 1 www.google.com
+/wp-content/plugins/backup_index.php 1 www.google.com
+/images/wp-init.php 1 www.google.com
+/rt 1 -
+/.well-known/alfacgiapi/404.php 2 -
+/LV.php 1 www.google.com
+/aset 1 www.google.com
+/hehehehe.php 2 www.google.com
+/bless5.php 3 -
+/wp-content/themes/freeyanz/config.php 1 -
+/wp-includes/ID3/wp-login.php 2 -
+/bbb.php 2 www.google.com
+/phpinfo.php 7 www.google.com
+/app.tar.gz 4 -
+/asset/js_ckeditor/kcfinder-3.12/upload.php 1 -
+/asset/plugins/js/jquery-file-upload/server/php 1 -
+/radio.php 20 www.google.com
+/wp-includes/mailer.php 1 www.google.com
+/wp-admin/wp-apxupx.php 1 -
+/wp-content/z7.php 1 www.google.com
+/bin 1 www.google.com
+/backup.rar 4 -
+/wp-content/plugins/Cache/Cache.php/wp-content/plugins/core/include.php 1 -
+/adminpanel/kcfinder/upload.php 1 -
+/wp-ad.php 4 www.google.com
+/vendors/js/kcfinder/upload.php 1 -
+/ipt.php 2 www.google.com
+/wp-admin/css/colors/coffee/mini.local.php 1 www.google.com
+/ns.php 1 -
+/wp/alfacgiapi/py.alfa 4 -
+/haikh.php 2 -
+/wp-aespa.php 2 www.google.com
+/assets/jquery-file-upload/server/php 2 -
+/wp5.php 2 -
+/6.php 5 www.google.com
+/litespeed.php 1 www.google.com
+/wp-2019.php 11 www.google.com
+/read.php 1 www.google.com
+/dist 1 www.google.com
+/b374k-m.php 1 -
+/components/alfacgiapi/radio.php 2 -
+/assets/upload/alfacgiapi/radio.php 2 -
+/Idx.php 2 www.google.com
+/klex.php 3 -
+/zfox.php 3 www.google.com
+/wawja.php 1 -
+/wp-admin/css/colors/coffee/shells.php 1 www.google.com
+/wp-json/wp/v2/block-types 5 -
+/components/ALFA_DATA/alfacgiapi/index.php 2 -
+/wp-.myluv.php 2 www.google.com
+/laboratorium.poltekkesbanten.7z 4 -
+/administrator/help/en-GB/toc.json 1 -
+/Byp.php 2 www.google.com
+/assets/frontend/js/kcfinder-3.12/upload.php 1 -
+/stindex.php 2 www.google.com
+/cgi-bin/alfacgiapi/perl.alfa 4 -
+/wp-includes/atomlib.php 1 -
+/wp-admin/css/colors/xmrlpc.php 7 www.google.com
+/small.php 3 www.google.com
+/wp-content/msleaf.php7 1 -
+/admin/ckeditor/plugins/kcfinder/upload.php 1 -
+/.well-known.tar.bz2 4 -
+/images/leafmailer2.8.php 1 www.google.com
+/hack.php 1 -
+/feeds.php 1 www.google.com
+/Admin-ajax.php 1 www.google.com
+/wp-admin/includes/logs.php 3 www.google.com
+/wp-2017.php 2 www.google.com
+/wp-includes/xmlrpc.php 1 -
+/post.php 1 www.google.com
+/nshell%20(1).php 1 www.google.com
+/wacking.php 1 www.google.com
+/app.7z 4 -
+/uploads 8 binance.com
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/perl.alfa 4 -
+/wp-content/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-admin/radio.php 2 www.google.com
+/server.php 2 www.google.com
+/ffAA531.php 3 www.google.com
+/dav.php 1 www.google.com
+/20.php 3 www.google.com
+/hi.php 4 www.google.com
+/wp-content/plugins/023ws.php 1 -
+/upload/image/index.php 1 www.google.com
+/wp-content/themes/mero-magazine/ws.php 3 www.google.com
+/.well-known/fw.php 1 www.google.com
+/wp-admin/css/colors/coffee/gelay.php 1 www.google.com
+/wp-includes/js/wp-embed.min.js 5 -
+/defaul.php 2 www.google.com
+/t.php 5 www.google.com
+/wp-content/mari.php 1 www.google.com
+/.tmb/ALFA_DATA/alfacgiapi/radio.php 2 -
+/application.tar.xz 4 -
+/by.php 4 www.google.com
+/images/fox.php 1 www.google.com
+/web 3 -
+/admin/assets/plugins/server/php 1 -
+/blog/wp-login.php 1 www.google.com
+/images/am.php 1 www.google.com
+/demo 2 www.google.com
+/wp-includes/images/media/newfl.php 3 -
+/2023 1 www.google.com
+/email_v2/js/tiny_mce/plugins/ajaxfilemanager/class.api.php 1 -
+/moduless.php 1 www.google.com
+/leafmailer2.8.php 5 www.google.com
+/ut.php 3 -
+/shelp.php 1 -
+/wp_backup.php 2 www.google.com
+/admin/js/kcfinder/upload.php 1 -
+/bak.php 9 www.google.com
+/baindex.php 2 www.google.com
+/wzy.php 1 -
+/.well-known/pki-validation/xmrlpc.php 12 -
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/moon.php 12 www.google.com
+/wp-admin/xxl.php 1 -
+/resource/kcfinder/upload.php 1 -
+/wp-content/themes/gaukingo/db.php 3 www.google.com
+/backup.php 1 www.google.com
+/packed.php 1 www.google.com
+/wp-SEo.php 1 www.google.com
+/Mo2AaAaAaPrivateShell.php 3 www.google.com
+/cms.php 2 www.google.com
+/wp-admin/css/colors/coffee/up.php 1 www.google.com
+/wp-admin/includes/gelay.php 1 www.google.com
+/wp-admin/includes/media-site.php 1 www.google.com
+/plugins/jQuery-File-Upload/server/php 1 -
+/yuki.php 2 www.google.com
+/wp-admin/js/widgets/nice.php 1 -
+/about.php 30 www.google.com
+/wp-admin/css/colors/coffee/alfashell.php 1 www.google.com
+/backup-02 1 www.google.com
+/lc.php 1 -
+/wp-content/vy2m7.php 1 www.google.com
+/fileas.php 3 -
+/misc/ajax.js 1 -
+/madmailer.php 1 www.google.com
+/who.php 1 www.google.com
+/wp-del.php 2 www.google.com
+/login/2020/wp-includes/wlwmanifest.xml 75 -
+/wp_fma.php 2 www.google.com
+/modules/mod_simplefileuploadv1.3/elements/udd.php 1 www.google.com
+/gelay.php 5 www.google.com
+/stfu.php 1 www.google.com
+/wp-content/uploads/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/wp-content/themes/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/wp-includes/Text/Diff/Engine 1 www.google.com
+/s.php 7 www.google.com
+/message.php 1 www.google.com
+/.well-known.gz 4 -
+/Gel.php 2 www.google.com
+/wp-root.php 2 www.google.com
+/wp-admin/css/colors/coffee/mini.php 1 www.google.com
+/uploads/kcfinder/upload.php 1 -
+/wp-includes/fonts/iqb.php 3 www.google.com
+/wp-apxupx.php 8 -
+/wp-db.php 1 -
+/blog.php 9 www.google.com
+/pu.php 1 -
+/wp-admin/harga.php 1 www.google.com
+/config_backup.php 1 -
+/wp-admin/class.api.php 1 -
+/wp-content/plugins/html404/wso25.php 1 www.google.com
+/Site/index.php 1 www.google.com
+/cgi-bin/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/wp-content/uploads/2024/05 1 www.google.com
+/wp-content/upgrade/alfacgiapi/index.php 2 -
+/wp-content/themes/wp-pridmag/up.php 3 www.google.com
+/wp-includes/css/about.php 2 www.google.com
+/file1.php 3 -
+/layouts 1 www.google.com
+/index2.php 2 www.google.com
+/assets/backend/plugins/jquery-file-upload/server/php 1 http://laboratorium.poltekkesbanten.ac.id/assets/backend/plugins/jquery-file-upload/server/php/
+/wp-content/plugins/aryabot/wawe.php 1 www.google.com
+/wp-email.php 4 www.google.com
+/post-data.php 3 -
+/pp.php 3 -
+/BDKR28_shell.php 3 -
+/uploads/alfacgiapi/perl.alfa 4 -
+/iqb.php 2 www.google.com
+/wp-admin/fox.php 1 www.google.com
+/robots.php 2 www.google.com
+/wp-includes/SimplePie/Content/Type 1 www.google.com
+/backup.tar.gz 4 -
+/wp-content/plugins/wp-logout.php 1 -
+/wp-content/plugins/xt 1 www.google.com
+/error.php 10 www.google.com
+/laboratorium2022 1 www.google.com
+/Public 1 www.google.com
+/media 2 www.google.com
+/wp-content/plugins/HelloDollyV2/hello_dolly_v2.php 1 www.google.com
+/wp-admin/css/colors/coffee/404.php 1 www.google.com
+/wp-includes/block-supports 1 www.google.com
+/wp-admin/images/autoload_classmap.php 2 www.google.com
+/xz.php 2 www.google.com
+/wp-content/themes/finley/min.php 1 -
+/fosil.php 1 -
+/WP 1 www.google.com
+/wp-content/plugins/cache.php 1 www.google.com
+/jquery.php 1 www.google.com
+/wp-includes/fonts/about.php 3 www.google.com
+/ccx/th3_err0r.php 3 -
+/V3.php 5 www.google.com
+/wso-latest.php 1 www.google.com
+/admin-filters-part.php 3 -
+/wp-content/themes/jaida/lang.php 2 -
+/sym.php 6 www.google.com
+/buy.php 1 www.google.com
+/lv.php 7 www.google.com
+/application.tar 4 -
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/index.php 2 -
+/wp-includes/qfjnelot.php 1 -
+/.well-known/pki-validation/alfacgiapi/404.php 2 -
+/19.php 1 www.google.com
+/wp-admin/Admin-ajax.php 1 www.google.com
+/wp-content/themes/404.php 1 www.google.com
+/wp-phpinfo.php 1 www.google.com
+/assets/js/mylibs/kcfinder-3.12/upload.php 1 -
+/wp-content/themes/twentytwentythree/patterns/index.php 2 www.google.com
+/laboratorium3 1 www.google.com
+/cyl.php 2 www.google.com
+/wp-admin/alfa.php 5 www.google.com
+/.well-known/acme-challenge/xmrlpc.php 12 -
+/assets/upload/alfacgiapi/404.php 2 -
+/components/alfacgiapi/py.alfa 4 -
+/adminfuns.php 1 www.google.com
+/backup/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/.well-known/acme-challenge/alfacgiapi/radio.php 2 -
+/danci.php 2 www.google.com
+/wp-admin/maint/index.php 4 www.google.com
+/wp-includes/Requests/Auth 1 www.google.com
+/wp-content/updraft/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/cgi-bin.tar.bz2 4 -
+/portal 1 www.google.com
+/backup/alfacgiapi/bash.alfa 4 -
+/kk.php 6 www.google.com
+/wp-content/updraft/alfacgiapi/perl.alfa 4 -
+/.well-known/adm.php 1 -
+/media/kcfinder/upload.php 1 -
+/wp-content/plugins/contact-form-7/includes/js/jquery-ui/themes/smoothness/admin.php 6 -
+/alfa-v4.php 1 www.google.com
+/dxshell.php 2 www.google.com
+/wp-content/upl.php 1 www.google.com
+/404webshell.php 1 www.google.com
+/z7.php 1 www.google.com
+/wp-content/uploads/msleaf.php 1 -
+/js/kcfinder-3.12/upload.php 1 -
+/new/alfacgiapi/radio.php 2 -
+/legion.php 1 www.google.com
+/wp-update.php 4 www.google.com
+/resources/vendor/kcfinder-3.12/upload.php 1 -
+/wp-content/index.php 12 www.google.com
+/888.php 1 www.google.com
+/backend/ckeditor/kcfinder-3.12/upload.php 1 -
+/killbot.php 1 www.google.com
+/assets/lib/kcfinder/upload.php 1 -
+/my_cms/public/assets/plugins/ckeditor/kcfinder/upload.php 1 -
+/wp-content/plugins/wordpresss3cll/up.php 1 -
+/backup1 1 www.google.com
+/link.php 1 www.google.com
+/wp-cron.php 3 www.google.com
+/sell.php7 1 -
+/wp-admin/images/wp-logout.php 1 -
+/vy2m7.php 1 www.google.com
+/uploads/alfacgiapi/index.php 2 -
+/template/index.php 1 www.google.com
+/wp-includes/ID3/vp.php 2 www.google.com
+/lnedx.php 2 www.google.com
+/templates/beez5/error.php 1 www.google.com
+/index.php/oai 1 -
+/uploads/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/wp-content/languages/themes/function.php 1 -
+/gmo.php 5 -
+/wp-admin/shadowx.php 1 www.google.com
+/wp-mails.ph 2 www.google.com
+/wp-content/plugins/adminer.php 1 -
+/.vscode/settings.json 1 -
+/wp-includes/js/jcrop 1 www.google.com
+/.well-knownold/index.php 4 www.google.com
+/jmfi.php 1 -
+/assets/js/kcfinder-3.12/upload.php 1 -
+/p7m94.php 3 -
+/wp-admin/css/maro.php 1 www.google.com
+/wpindex.php 4 www.google.com
+/evil.php 5 www.google.com
+/admin/plugins/js/jquery-file-upload/server/php 1 -
+/backend/js/plugins/ckeditor/kcfinder/upload.php 1 -
+/xd.php 3 www.google.com
+/wp-admin/.LuFix-983426.php 1 -
+/002.php 1 -
+/l10n.php 1 www.google.com
+/wp-includes/certificates/023ws.php 1 -
+/wp-includes/leafmailer2.8.php 2 www.google.com
+/laboratorium.gz 4 -
+/admin/plugins/server/php 1 -
+/asas.php 2 -
+/wp-admin/includes/pomo.php 1 -
+/wp-includes/content.php 2 www.google.com
+/wp-admin/css 9 binance.com
+/file.php 14 www.google.com
+/wp-content/adm.php 1 -
+/wp-admin/maint/a.php 1 www.google.com
+/wp-login.php 39 -
+/administrator/templates/hathor/index.php 1 www.google.com
+/abcd.php 3 -
+/wp-content/plugins/ppus/up.php 1 www.google.com
+/beta 1 -
+/wp-confiig.php 1 -
+/hax.php 1 www.google.com
+/asset/webadmin/js/kcfinder/upload.php 1 -
+/images/inputs.php 1 -
+/ilex.php 3 -
+/cong.php 15 www.google.com
+/install.php 15 www.google.com
+/wp-23.php 2 -
+/assets/scripts/kcfinder/upload.php 1 -
+/wp-admin/user/function.php 1 -
+/wp-.php 1 -
+/alfatesla.php 2 www.google.com
+/packages/js/kcfinder/upload.php 1 -
+/wp-admin/cylul.php 1 www.google.com
+/wp-includes/widgets/autoload_classmap.php 2 www.google.com
+/wp-content/plugins/virr/v.php 2 www.google.com
+/wsoshell.php 2 www.google.com
+/098.php 3 www.google.com
+/assets/webadmin/js/kcfinder-3.12/upload.php 1 -
+/wp-admin/css/mailer.php.php 1 www.google.com
+/wp-admin/maint 1 www.google.com
+/031.php 3 -
+/imagesvuln.php 1 -
+/wp-admin/css/colors/ectoplasm/12.php 3 -
+/mlex.php 3 -
+/exploit.php 1 -
+/wp-admin/includes/maro.php 1 www.google.com
+/wp-adminincludesclass-wp-media-list-data.php 1 -
+/s46v1.php 3 -
+/ico.php 1 -
+/img/cloud.php 6 www.google.com
+/wp-content/plugins/wpputty/wpputty.php 1 -
+/wp-includes/certificates/zmFM.php 1 -
+/testwp.php 3 www.google.com
+/filefuns.php 1 www.google.com
+/8index.php 1 www.google.com
+/wp-content/themes/twentytwentytwo/index.php 3 www.google.com
+/chosen/function.php 1 -
+/admin/asset/global/plugins/server/php 1 -
+/asset/js_ckeditor/kcfinder/upload.php 1 -
+/backdoor.php 1 -
+/wp_mna.php 2 www.google.com
+/tesla.php 3 www.google.com
+/wp-includes/js 2 www.google.com
+/wp-content/plugins/virr/uploader.php 2 www.google.com
+/wp-admin/css/colors/blue/nice.php 1 -
+/bypass403.php 3 www.google.com
+/css/xmrlpc.php 5 -
+/an.php 3 -
+/.well-known.tar.gz 4 -
+/wp-content/plugins/library/alfacgiapi/perl.alfa 4 -
+/ynz.PhP7 1 -
+/files/ban.php 1 -
+/lol.php 5 www.google.com
+/wp-admin/css/leafmailer.php.php 1 www.google.com
+/fox1.php 1 www.google.com
+/konten 1 www.google.com
+/0.php 6 www.google.com
+/wp-admin/css/fw.php 2 www.google.com
+/cgi-bin/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/wo.php 1 -
+/unix.php 1 www.google.com
+/wp-content/themes/twentyfifteen/404.php 1 -
+/wp3.php 2 -
+/load.php 7 www.google.com
+/a2.php 3 -
+/.well-known/wp-abupee.php 1 -
+/backup5 1 www.google.com
+/wp-admin/users.php 6 www.google.com
+/well-known.zip 4 -
+/laboratoriumpoltekkesbantenpoltekkesbanten.zip 4 -
+/abc.php 4 www.google.com
+/Laboratorium9 1 www.google.com
+/alfa1337.php 1 www.google.com
+/wp-links.php 1 www.google.com
+/edit.php 2 www.google.com
+/leaf.php 6 www.google.com
+/wp-content/plugins/hellopress/0xlufix2023.php 1 -
+/wp-includes/alfacgiapi/index.php 2 -
+/AK-74.php 2 www.google.com
+/laboratoriumpoltekkesbantenpoltekkesbanten.tar.gz 4 -
+/wp-json 6 www.google.com
+/haxor.php 6 www.google.com
+/application.tar.bz2 4 -
+/wp-admin/wp-conflg.php 1 -
+/readme.html 5 -
+/jlex.php 1 -
+/yhr.php 1 www.google.com
+/priv01.php 2 www.google.com
+/m4m4nkmud4.php 1 www.google.com
+/wp-content/uploads/2024/04 1 www.google.com
+/er.php 1 -
+/wp-admin/css/colors/coffee/sym403.php 1 www.google.com
+/pow.php 1 -
+/.well-known/ALFA_DATA/alfacgiapi/radio.php 2 -
+/backend/.env 2 -
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/radio.php 2 -
+/packages/upload/kcfinder/upload.php 1 -
+/assets/lib/adminer.php 1 -
+/wp-includes/adminer.php 1 -
+/scripts/js/kcfinder-3.12/upload.php 1 -
+/wp-includes/style-engine/about.php 14 www.google.com
+/wp-admin/maint/mailer.php.php 1 www.google.com
+/wp-includes/js/tinymce/plugins/compat3x/css 1 www.google.com
+/wp-content/plugins/ubh/up.php 1 www.google.com
+/3301.php 4 www.google.com
+/wp-content/themes/index.php 2 www.google.com
+/makesmtp.php 2 www.google.com
+/js/tiny_mce/plugins/ajaxfilemanager/class.api.php 1 -
+/public/js/kcfinder/upload.php 1 -
+/components/alfacgiapi/perl.alfa 4 -
+/wp_cron.php 1 -
+/assets/adminer.php 1 -
+/assets/upload/alfacgiapi/perl.alfa 4 -
+/wp-admin/network/nice.php 1 -
+/301.php 2 www.google.com
+/wp-admin/css/shadowx.php 1 www.google.com
+/wp-god.php 2 www.google.com
+/.well-known.tar.xz 4 -
+/new.php 5 www.google.com
+/wp-content/plugins/class.api.php 1 -
+/wp-content/themes/erapress/config.php 1 -
+/gank.php 3 www.google.com
+/chatypro.php 1 -
+/wp-admin/css/colors/nice.php 1 -
+/wp-admin/images/feeds.php 1 -
+/as/chosen.php 1 -
+/mailer.php 4 www.google.com
+/wp-content/alfacgiapi/bash.alfa 4 -
+/wp-content/plugins/about.php 1 www.google.com
+/wp-admin/css/colors/coffee/about.php 2 www.google.com
+/wp-admin/maint/leafmailer.php.php 1 www.google.com
+/plugins/ajaxfilemanager/class.api.php 1 -
+/dropdown.php 25 www.google.com
+/fr.php 2 www.google.com
+/wp-mna.php 1 www.google.com
+/wp-admin/alfacgiapi/perl.alfa 5 -
+/xleet-shell.php 6 www.google.com
+/.idea/deployment.xml 2 -
+/alfav4-1.php 1 www.google.com
+/mas.php 3 www.google.com
+/wp-content/plugins/wordpresss3cll/includes.php 1 -
+/wp-content/plugins/ALFA_DATA/alfacgiapi/index.php 2 -
+/wp-content/plugins/wp-freeform/includes/loadme.php 2 www.google.com
+/well-known.tar.bz2 4 -
+/laboratorium8 1 www.google.com
+/wp-content/languages/ru_RU.php 1 -
+/wp-admin/network/023ws.php 1 -
+/teslav.php 2 www.google.com
+/wp-admin/ajax-actions.php 5 www.google.com
+/wp-admin/css/colors/coffee/1.php 1 www.google.com
+/images/wp.php 1 www.google.com
+/mpxct.php 1 -
+/packages/js/kcfinder-3.12/upload.php 1 -
+/wp-includes/ID3/about.php 12 www.google.com
+/po-content/adminer.php 1 -
+/Init.php 1 www.google.com
+/wp-admin/alfacgiapi/bash.alfa 4 -
+/s_ne.php 1 www.google.com
+/qindex.php 5 www.google.com
+/ids.php 3 www.google.com
+/nf_tracking.php 7 -
+/sincap.php 1 www.google.com
+/9.php 5 www.google.com
+/wp-content/plugins/wp-freeform/wawe.php 2 www.google.com
+/lwbeeshell.php 1 www.google.com
+/old/ALFA_DATA/alfacgiapi/index.php 2 -
+/wp-content/plugins/instabuilder2/cache/plugins/moon.php 3 www.google.com
+/wefile.php 1 -
+/nshell.php 2 www.google.com
+/environment 1 -
+/config/sftp.json 1 -
+/wp-content/wp-abupee.php 1 -
+/wp-includes/SimplePie/023ws.php 1 -
+/wp-admin/network/class.api.php 1 -
+/Laboratorium5 1 www.google.com
+/wp-js.php 3 www.google.com
+/hoot.php 1 www.google.com
+/wp-content/think.php 2 www.google.com
+/ab.php 3 www.google.com
+/gawean.PhP7 7 -
+/alexusmailer%202.0.php 1 -
+/admin/galerie/server/php 1 -
+/libs/kcfinder/upload.php 1 -
+/wp-content/plugins/doyanz/config.php 1 -
+/apple-touch-icon.png 1 -
+/as.php 8 www.google.com
+/backup6 1 www.google.com
+/wp-content/uploads/ALFA_DATA/alfacgiapi/radio.php 2 -
+/if.php 6 www.google.com
+/alfanew.php7 6 www.google.com
+/cgi-bin/alfacgiapi/bash.alfa 4 -
+/wp-admin/leaf.php 2 www.google.com
+/.well-known.zip 4 -
+/wp-admin/includes/wp-conflg.php 1 -
+/new/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/wp-includes/pomo/index.php 2 www.google.com
+/file21.php 3 -
+/symlink.php 6 www.google.com
+/wp-content/themes/theme/gr.php 2 www.google.com
+/wp-content/uploads/2023 2 www.google.com
+/templates/rhuk_milkyway/index.php 1 www.google.com
+/wp-content/adminer.php 1 -
+/wp-includes/widgets/themes.php 1 www.google.com
+/wp-config.php 4 www.google.com
+/wp-includes/blocks/table/int/tmpl/index.php 6 -
+/htaccess.php 1 -
+/tor.php 2 -
+/wp-admin/images/wp-login.php 2 www.google.com
+/zone.php 4 www.google.com
+/wp-raze.php 2 www.google.com
+/backup10 1 www.google.com
+/1877.php 2 www.google.com
+/poltekkesbanten.tar.bz2 4 -
+/admin/assets/plugins/js/jquery-file-upload/server/php 1 -
+/cgi-bin/991176.php 3 -
+/afile.php 3 -
+/wp-content/MuPlugin.php 1 -
+/we1y8.php 3 -
+/wp-admin/js/widgets/function.php 1 -
+/wp-includes/Requests/Text/index.php 1 -
+/wp-content/themes/sketch/404.php 3 www.google.com
+/wp-content/plugins/wp-help 2 www.google.com
+/wp-content/plugins/function.php 1 -
+/wp-admin/includes/mar.php 1 www.google.com
+/about/pomo.php 1 -
+/admin/assets/global/plugins/jquery-file-upload/server/php 1 -
+/word.php 1 www.google.com
+/wp-content/plugins/xichang/x.php 2 www.google.com
+/ac.php 1 -
+/wp-content/plugins/dos2unix/dos2unix.php 1 -
+/plugins/reports 1 -
+/old/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/wp-sigunq.php 7 -
+/vendor/adminer.php 1 -
+/alf.php 9 www.google.com
+/db-config.php 2 www.google.com
+/4price.php 2 www.google.com
+/style-js.php 2 www.google.com
+/wp-includes/x.php 2 www.google.com
+/sure.php 1 www.google.com
+/login/wordpress/wp-includes/wlwmanifest.xml 85 -
+/laboratorium6 1 www.google.com
+/gec212.php 1 www.google.com
+/leaf-mailer.php 1 -
+/olu.php 3 www.google.com
+/images/sym.php 2 www.google.com
+/wp-content/plugins/Cache/Cache.php 12 www.google.com
+/wp-admin/themes.php 2 -
+/wso-x569.php 1 -
+/russian.php 1 www.google.com
+/file15.php 3 -
+/laboratoriumpoltekkesbantenpoltekkesbanten.tar.xz 4 -
+/ouh.php 1 -
+/c99.php 6 www.google.com
+/oo.php 1 -
+/shell.php 18 www.google.com
+/images/ALFA_DATA/alfacgiapi/perl.alfa 5 -
+/CLA.php 4 -
+/wp-includes/customize/function.php 1 -
+/wp-admin/alfacgiapi/index.php 2 -
+/wp-includes/z.php 1 www.google.com
+/asset/global/plugins/server/php 1 -
+/wp-content/themes/alfacgiapi/radio.php 1 -
+/wp-content/themes/mero-megazines/ws.php 1 -
+/sundaxploit.php 1 www.google.com
+/wp-admin/includes/mari.php 1 www.google.com
+/wp-includes/mari.php 1 www.google.com
+/wp-includes/css/dist/niil.php 2 www.google.com
+/poltekkesbanten.tar.xz 4 -
+/use.php 2 www.google.com
+/pref.php 2 www.google.com
+/wp-p.php7 5 www.google.com
+/wp-22.php 2 www.google.com
+/av.php 1 www.google.com
+/reader 1 -
+/cgi-bin/ALFA_DATA/alfacgiapi/index.php 2 -
+/templates/ja_purity/index.php 1 www.google.com
+/wp-content/themes/aahana/json.php 5 www.google.com
+/images/ALFA_DATA/alfacgiapi/index.php 2 -
+/assets/js/ckeditor/plugins/kcfinder-3.12/upload.php 1 -
+/wp-includes/themes.php 9 www.google.com
+/files 8 binance.com
+/mar.php 6 www.google.com
+/ava.php 2 -
+/cgi-bin/alfacgiapi/py.alfa 4 -
+/xdmah.php 1 www.google.com
+/mailer3.php 1 www.google.com
+/wp-includes/customize/chosen.php 1 -
+/wp-xxx.php 1 www.google.com
+/wp-init.php 2 www.google.com
+/1@.php 1 www.google.com
+/wp-content/alfa.php 3 www.google.com
+/class-wp-ms-themes-list-table-other.php 3 -
+/test.php 5 www.google.com
+/wp-admin/css/colors/coffee/alfawso.php 1 www.google.com
+/wp-content/qfjnelot.php 1 -
+/packages/scripts/kcfinder-3.12/upload.php 1 -
+/wp-admin/css/colors/coffee/xxx.php 1 www.google.com
+/wp-admin/css/wp-login.php 1 -
+/cgi-bin.zip 4 -
+/wp-admin/css/upl.php 1 www.google.com
+/anjay.php 2 www.google.com
+/asset/plugins/js/server/php 1 -
+/cache 2 www.google.com
+/wp-admin/css/colors/ectoplasm/uwer.php 1 www.google.com
+/zcanp.php 2 -
+/backup-03 1 www.google.com
+/alpha.php 5 www.google.com
+/.well-known/alfacgiapi/bash.alfa 4 -
+/wp-admin/css/colors/coffee/nice.php 1 -
+/laboratorium 1 www.google.com
+/yanz.php 11 www.google.com
+/wp-admin/css/a.php 1 www.google.com
+/ticket.php 2 www.google.com
+/wordpress/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/1nt3pqdk.php 1 www.google.com
+/lib/kcfinder-3.12/upload.php 1 -
+/cgi-bin/alfacgiapi/index.php 2 -
+/old/.env 2 -
+/chosen.php 15 www.google.com
+/assets/webadmin/js/kcfinder/upload.php 1 -
+/ALFA_DATA/alfacgiapi/radio.php 2 -
+/wp-includes/customize/023ws.php 1 -
+/Laboratorium2025 1 www.google.com
+/wp-content/11.php 1 -
+/x0.php 1 -
+/IndoXploit.php 1 www.google.com
+/po8sa.php 2 -
+/MyShell.php 1 www.google.com
+/wp-content/alfacgiapi/index.php 2 -
+/xt/index.php 1 -
+/gifclass.php 3 -
+/assets/backdrop/adminer.php 1 -
+/wp-admin/images/searchl.php 1 -
+/wp-content/themes/seotheme/db.php 18 www.google.com
+/wp-content/plugins/wp-apxupx.php 6 -
+/room.php 3 www.google.com
+/assets/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/wp-content/plugins/sid/sidwso.php 2 www.google.com
+/wp-content/themes/pridmag 1 www.google.com
+/wp-content/plugins/real/v.php 1 www.google.com
+/laboratorium.tar 4 -
+/wp-admin/maint/atomlib.php 4 www.google.com
+/wp-content/0z.php 1 www.google.com
+/wp-includes/Requests/Auth/index.php 1 -
+/wp-content/plugins/theme-configurator/mini.php 1 www.google.com
+/.quarantine/alfacgiapi/radio.php 2 -
+/shankar.php 1 www.google.com
+/q.php 6 www.google.com
+/wp-includes/PHPMailer/zmFM.php 1 -
+/hunter.php 1 www.google.com
+/cgi-bin/about.php 14 www.google.com
+/newsite 1 www.google.com
+/wp-mailcek.php 2 www.google.com
+/wp-content/xleet.php 2 -
+/n.php 6 www.google.com
+/apps/.env 2 -
+/wp-includes/IXR/bnet.php 1 www.google.com
+/exp.php 1 www.google.com
+/9index.php 1 www.google.com
+/991176.php 6 www.google.com
+/laboratorium-backup 1 www.google.com
+/vuln.php 5 www.google.com
+/wp-content/a.php 1 www.google.com
+/15.php 1 www.google.com
+/srx.php 3 www.google.com
+/tmp 1 www.google.com
+/wp-content/shell.php 2 www.google.com
+/anons79.php 3 www.google.com
+/content 1 www.google.com
+/admin 6 www.google.com
+/file7.php 3 -
+/as/function.php 1 -
+/block-patwp.php 3 www.google.com
+/wp-title.php 3 www.google.com
+/wp-content/plugins/wp-db-ajax-made/wp-ajax.php 2 www.google.com
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/zwlj.php 1 -
+/wpbackup4 1 www.google.com
+/wp-content/plugins/cekidot/mar.php 2 www.google.com
+/xxx.php 4 www.google.com
+/wp-admin/includes/function.php 1 -
+/wp-includes/c99.php 1 www.google.com
+/wordpress.php 1 www.google.com
+/.well-known/acme-challenge/alfacgiapi/py.alfa 4 -
+/owlmailer.php 1 -
+/laravel/.env 2 -
+/foxwso.php 3 www.google.com
+/wp-includes/css/gelay.php 2 www.google.com
+/wp-includes/js/tinymce/skins/wordpress/images/index.php 1 www.google.com
+/index6.php 1 www.google.com
+/php 1 www.google.com
+/laboratorium.poltekkesbanten.tar.xz 4 -
+/kct403.php 1 www.google.com
+/wp-json/wp/v2/settings 5 -
+/333.php 4 -
+/epinyins.php 2 www.google.com
+/marijuana.php 6 www.google.com
+/bb.php 5 www.google.com
+/wp-content/themes/quext/config.php 1 -
+/wp-admin/wp-admin.php 1 www.google.com
+/wp-admin/maint/pomo.php 1 -
+/fpebr.php 1 www.google.com
+/caches.php 2 www.google.com
+/wp-admin/user/pomo.php 1 -
+/wp-admin/network/pomo.php 1 -
+/.idea/webServers.xml 2 -
+/racs3.php 2 -
+/readme.php 7 www.google.com
+/wp-content/plugins/aryabot/mari.php 1 www.google.com
+/haduh.php 1 www.google.com
+/wp-content/themes/fitnessbase/crp.php 3 www.google.com
+/web/.env 2 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/wp-content/plugins/alfa-rex.php 1 -
+/wp-admin/css/colors/blue/atomlib.php 2 -
+/users.php 8 www.google.com
+/wordpress/alfacgiapi/index.php 2 -
+/ye.php 2 www.google.com
+/laboratoriumpoltekkesbanten.7z 4 -
+/wp-edit.php 2 www.google.com
+/wp-admin/images/admin.php 8 www.google.com
+/wp-includes/cylul.php 1 www.google.com
+/wp-admin/user/xmrlpc.php 11 www.google.com
+/wp-admin/install.php 20 www.google.com
+/wp-content/db-cache.php 1 www.google.com
+/local/index.php 1 www.google.com
+/wp-includes/IXR/themes.php 1 -
+/login/blog/robots.txt 6 images.websiteplanet.com/blog//wp-login.php
+/ioxi-rex4.php7 1 -
+/index5.php 1 www.google.com
+/wp-access.php 1 -
+/bless.php/888xyz999 1 www.google.com
+/docindex.php 4 www.google.com
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/wp-booking.php 3 www.google.com
+/images/alfacgiapi/bash.alfa 4 -
+/Sym.php 1 -
+/wp-content/plugins/zwso.php 1 -
+/app.gz 4 -
+/wp/wp-includes/fonts/iqb.php 3 www.google.com
+/wp-includes/Requests/Exception 1 www.google.com
+/wp/alfacgiapi/perl.alfa 4 -
+/wp-content/themes/travel/issue.php 6 -
+/lock360.php 13 www.google.com
+/assets/themes/metronic/global/jquery-file-upload/server/php 1 http://laboratorium.poltekkesbanten.ac.id/assets/themes/metronic/global/jquery-file-upload/server/php/
+/wp-conctent.php 4 www.google.com
+/wp-content/themes/ALFA_DATA/alfacgiapi/404.php 2 -
+/wp-content/uploads/simple-file-list/fox.php 1 www.google.com
+/wp-content/plugins/classic-editor/wp-login.php 1 -
+/files/index.php 1 www.google.com
+/wsanon.php 6 www.google.com
+/wp-content/wp/plugins/mbt.php 1 www.google.com
+/wp2.php 4 www.google.com
+/media/filemanager/dialog.php 1 -
+/about.php7 6 www.google.com
+/wp-admin/css/colors/coffee/minishell.php 1 www.google.com
+/assets/bo/plugin/kcfinder/upload.php 1 -
+/backup_site 1 www.google.com
+/id.php 5 www.google.com
+/wp-content/plugins/three-column-screen-layout/db.php 1 -
+/wp-content/plugins/anttt/simple.php 1 -
+/wp-includes/xxl.php 1 -
+/class.api.php 9 www.google.com
+/plugins/function.php 3 www.google.com
+/16.php 2 www.google.com
+/wp-admin/atomlib.php 2 www.google.com
+/Laboratorium2019 1 www.google.com
+/size.php 1 -
+/222.php 5 -
+/delete4.php 1 -
+/new_license.php 1 www.google.com
+/kcfinder/upload.php 1 -
+/rendixd.php 1 www.google.com
+/wp-trackback.php 4 www.google.com
+/H.php 2 -
+/admin/assets/plugins/js/server/php 1 -
+/wp-admin/maint/function.php 1 -
+/wp-admin/leafmailer2.8.php 2 www.google.com
+/assets/upload/alfacgiapi/index.php 2 -
+/iR7SzrsOUEP.php 1 www.google.com
+/wp-includes/991176.php 1 www.google.com
+/xox.php 4 www.google.com
+/wp-includes/images/crystal/filed.php 3 -
+/wp-includes/lx.php 1 -
+/assets/ckeditor/kcfinder/upload.php 1 -
+/infos.php 1 -
+/wp-admin/css/colors/coffee/sh3ll.php 1 www.google.com
+/alfaindex.php 2 www.google.com
+/wp/gvy6f.php 1 www.google.com
+/wp-includes/about.php 17 www.google.com
+/wp-includes/vy2m7.php 1 www.google.com
+/wp-content/checkbox.php 1 www.google.com
+/login/cms/wp-includes/wlwmanifest.xml 85 -
+/.well-known/upl.php 1 www.google.com
+/wp-content/uploads/function.php 1 -
+/index/pomo.php 1 -
+/admin/plugin/server/php 1 -
+/wp-content/x.php 2 www.google.com
+/class20.php 3 -
+/style.php 3 www.google.com
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/poltekkesbanten.tar.gz 4 -
+/wp-admin/images/users.php 1 -
+/ALFA_DATA 3 www.google.com
+/eagle.php 4 www.google.com
+/sys.php 3 www.google.com
+/Laboratorium2021 1 www.google.com
+/worksec.php 1 www.google.com
+/madleets.php 1 -
+/wp-admin/fw.php 5 www.google.com
+/xl2023x.php 1 www.google.com
+/wp-content/themes/pridmag/init.php 2 www.google.com
+/wp-content/languages/themes/chosen.php 1 -
+/wp-admin/css/colors/coffee/upload.php 1 www.google.com
+/upload/server/php/files 1 -
+/js/header-rollup-554.js 1 -
+/assets/lib/kcfinder-3.12/upload.php 1 -
+/yellow.php 3 -
+/files/setting.php 1 -
+/goblok.php 1 -
+/blog/alfacgiapi/404.php 2 -
+/tiny_mce/plugins/ajaxfilemanager/class.api.php 1 -
+/18.php 1 www.google.com
+/wp-admin/network/chosen.php 1 -
+/chitoge.php 2 www.google.com
+/assets/uploads/ALFA_DATA/alfacgiapi/radio.php 2 -
+/indeex.php 1 www.google.com
+/wp-content/plugins/linkpreview/db.php 14 www.google.com
+/wp-admin/images/adminer.php 1 -
+/assets/js/ckeditor/kcfinder-3.12/upload.php 1 -
+/wp-includes/pomo/so.php 1 www.google.com
+/kaza.php 1 -
+/wp-content/upgrade-temp-backup/about.php 8 www.google.com
+/pop.php 1 www.google.com
+/dr.php 2 www.google.com
+/lyda.php 2 www.google.com
+/wp-content/alfacgiapi/404.php 2 -
+/support 1 www.google.com
+/simple_cmd.php 1 www.google.com
+/shop/index.php 1 www.google.com
+/wp-includes/alfacgiapi/radio.php 2 -
+/assets/uploads/alfacgiapi/perl.alfa 4 -
+/wp-content/plugins/zgdsfagck/rk2.php 2 -
+/wp-content/023ws.php 1 -
+/xmrlpc.php 18 www.google.com
+/wp-content/gvy6f.php 1 www.google.com
+/sindex.php 2 www.google.com
+/foxx.php 7 www.google.com
+/blog/alfacgiapi/perl.alfa 4 -
+/wp-includes.bak/html-api/about.php 8 www.google.com
+/gambar 1 www.google.com
+/ohayo.php 4 www.google.com
+/wp-admin/user 2 www.google.com
+/tests 1 -
+/laboratoriumpoltekkesbantenpoltekkesbanten.tar.bz2 4 -
+/laboratorium.poltekkesbanten.gz 4 -
+/ans.php 1 www.google.com
+/Ninja.php 1 www.google.com
+/.well-known/leafmailer.php 1 www.google.com
+/chosen/pomo.php 1 -
+/degeselih.php 2 www.google.com
+/alfacgiapi 1 www.google.com
+/17.php 2 www.google.com
+/laboratorium.poltekkesbanten.ac.id.rar 4 -
+/zzz.php 3 www.google.com
+/4pric.php 1 -
+/wp-admin/maint/class.api.php 1 -
+/weo.php 1 -
+/login.php 3 www.google.com
+/backup/alfacgiapi/radio.php 2 -
+/wp-content/gelay.php 1 www.google.com
+/wp-content/plugins/revslider/includes/external/page/index.php 7 www.google.com
+/alfaajapet.php 3 -
+/wp-admin/shapes.php 4 www.google.com
+/alfa-shell-v4.php 2 www.google.com
+/sim.php 1 -
+/clan.php 2 www.google.com
+/wp-admin/qfjnelot.php 1 -
+/c.php 9 www.google.com
+/wg.php 2 www.google.com
+/administrator 4 www.google.com
+/admin-post.php 6 www.google.com
+/wp-content/xxx/xxx-xxx/xxxx-xx-xx/pages/xxxxxx.php 2 www.google.com
+/libraries/jsupload/server/php 1 -
+/.well-known/pki-validation/alfacgiapi/bash.alfa 4 -
+/wp-content/pm.php 1 -
+/aa18.php 1 -
+/wp-admin/mini.php 1 www.google.com
+/tonant.php 4 www.google.com
+/wp-admin/k7.php 1 www.google.com
+/wp-admin/plugins/mbt.php 1 www.google.com
+/cgi-bin/xmrlpc.php 12 www.google.com
+/wp-includes/rest-api/search 1 www.google.com
+/12r4jd.php 1 www.google.com
+/asset/plugins/server/php 1 -
+/wp-admin/network/admin.php 5 www.google.com
+/log.php 11 www.google.com
+/wp-admin/includes/chosen.php 1 -
+/wso2023.php 2 www.google.com
+/wp-admin/includes/wp-abupee.php 1 -
+/public/scripts/filemanager/dialog.php 1 -
+/alfa-rex.php 7 www.google.com
+/wp-content/masshp.php 1 -
+/zx.php 2 www.google.com
+/ws.php 16 www.google.com
+/mass.php 4 www.google.com
+/user-edit.php 2 www.google.com
+/resources/js/tinymce/plugins/filemanager/dialog.php 1 -
+/admin/ckeditor/kcfinder/upload.php 1 -
+/wp-admin/ALFA_DATA/alfacgiapi/radio.php 2 -
+/uploads/upload_example.php 1 -
+/admin/asset/plugins/js/server/php 1 -
+/resources/vendor/kcfinder/upload.php 1 -
+/themes 1 www.google.com
+/core/scripts/kcfinder/upload.php 1 -
+/wp-admin/css/colors/coffee/out.php 1 www.google.com
+/ALFA_DATA/alfacgiapi/404.php 2 -
+/wpbackup5 1 www.google.com
+/legal.php 2 www.google.com
+/scripts/kcfinder-3.12/upload.php 1 -
+/new/ALFA_DATA/alfacgiapi/404.php 2 -
+/ckeditor/plugins/kcfinder-3.12/upload.php 1 -
+/moo.php 2 -
+/fileman/index.html 2 -
+/wb.php 3 -
+/wp-content/plugins/hellopress/class.api.php 1 -
+/wp-content/plugins/wordpress-three/miin.php 1 -
+/wp-admin/css/colors/coffee/image.php 1 www.google.com
+/wp-admin/css/leaf.php 1 www.google.com
+/wfile.php 3 -
+/images/xmrlpc.php 6 www.google.com
+/wp-includes/alfa.php 1 www.google.com
+/wp-content/cong.php 2 www.google.com
+/base.php 3 www.google.com
+/wp-content/plugins/wordpress-seo/rk1.php 2 -
+/mokad.php 1 www.google.com
+/wp-content/k7.php 1 www.google.com
+/.well-known/setting.php 1 -
+/uploads/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/filemanager 1 www.google.com
+/wp-content/themes/about.php 15 www.google.com
+/images/404.php 1 www.google.com
+/wp-configs.php 2 www.google.com
+/wp-content/themes/blogai/issue.php 1 -
+/wp-content/plugins/ubh/index.php 2 www.google.com
+/wp-includes/SimplePie/Content/Type/index.php 1 -
+/xhouf.php 1 -
+/wp-conetnt/leaf.php 1 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/radio.php 2 -
+/aa21.php 2 -
+/laboratorium.poltekkesbanten.ac.id.tar.xz 4 -
+/lx.php 5 www.google.com
+/laboratorium-bak 1 www.google.com
+/8.php 4 www.google.com
+/blog/wp-includes/fonts/iqb.php 3 www.google.com
+/Uploader.php 1 www.google.com
+/wp-admin/images 1 www.google.com
+/assets/plugins/jQuery-File-Upload/server/php 1 -
+/100.php 5 www.google.com
+/i1.php 1 -
+/wp-content/themes/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/wp-admin/xmrlpc.php 5 www.google.com
+/styles 1 -
+/wp/wp-login.php 1 www.google.com
+/cy.php 2 www.google.com
+/manager.php 6 www.google.com
+/wp-clon.php 2 www.google.com
+/well-known.tar 4 -
+/ice.php 1 www.google.com
+/file/class.api.php 1 -
+/mrjn.php 5 www.google.com
+/wp-content/updraft/alfacgiapi/bash.alfa 4 -
+/wp-includes/pomo 1 www.google.com
+/images/up.php 1 www.google.com
+/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/12.php 2 www.google.com
+/f35.php 2 -
+/wp-content/plugins/library/alfacgiapi/bash.alfa 4 -
+/wp-content/themes/noriumportfolio/alpha.php 3 www.google.com
+/hexor.php 1 www.google.com
+/wp-includes/install.php 9 www.google.com
+/wp-admin/haxorsecv2.php 1 -
+/ant.php 1 -
+/company 1 www.google.com
+/mailer2.8.php 1 -
+/wp-includes/SimplePie/about.php 13 www.google.com
+/D7.%20php 1 www.google.com
+/wp-seo.php 2 -
+/resources/kcfinder/upload.php 1 -
+/wp-admin/maint/poster.php 1 www.google.com
+/wp-admin/js/widgets/about.php7 5 www.google.com
+/wp-admin/includes/1975.php 2 www.google.com
+/help 1 www.google.com
+/qfjnelot.php 1 -
+/admin/kcfinder/upload.php 1 -
+/ALFA_DATA/alfacgiapi/fw.php 1 -
+/app.tar.xz 4 -
+/wp-admin/css/wp-abupee.php 1 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 138
+103.177.177.129 302 528 133065604 20251030044423
+103.167.170.226 28 45 8602617 20251021043126
+146.75.160.27 12 42 16047674 20251029042432
+172.225.72.28 11 27 14727587 20251015211135
+146.75.160.26 10 27 8346160 20251015041318
+147.93.157.182 8 8 29888 20251031081357
+89.21.85.26 8 8 29918 20251031094724
+159.223.87.96 6 6 22416 20251010061231
+159.223.37.127 6 6 22416 20251026022320
+182.6.9.81 6 20 8151004 20251006232426
+114.8.234.102 5 19 14138108 20251013040723
+182.6.3.115 5 5 117384 20251013041444
+182.6.6.192 5 19 8154308 20251029035505
+182.6.0.77 5 5 97312 20251016002027
+182.2.177.125 5 5 136704 20251030024839
+182.253.59.132 5 19 8151123 20251010044208
+114.10.113.82 5 20 14198684 20251009040524
+114.10.113.205 5 19 8154148 20251029041506
+172.225.72.46 5 20 8162817 20251013042351
+180.243.10.53 4 4 79389 20251015024605
+128.199.215.225 4 4 14944 20251012072325
+93.185.162.131 4 4 14944 20251022060905
+134.209.109.151 4 4 14944 20251029010538
+182.2.181.186 4 4 84558 20251010055847
+157.245.156.60 4 4 14944 20251014143734
+159.223.32.40 2 2 7472 20251019185057
+209.97.158.138 2 2 7472 20251028210023
+152.42.231.234 1 1 3766 20251030101647
+137.184.161.60 2 2 7472 20251020062357
+114.10.68.147 1 8 756450 20251002225913
+104.28.118.64 1 5 286996 20251006230622
+140.213.14.174 1 3 7102019 20251007000301
+114.4.213.65 2 3 891795 20251006230155
+104.28.118.67 0 2 237753 
+182.6.8.8 1 6 3736 20251022143752
+140.213.21.147 3 3 57647 20251013230808
+159.223.94.156 2 2 3736 20251029082443
+112.215.152.8 1 5 578588 20251013104901
+104.28.118.70 0 1 80599 
+152.42.206.221 2 2 7472 20251011091500
+68.183.227.40 2 2 7472 20251023070059
+104.28.118.66 1 1 3736 20251006230039
+188.166.184.19 2 2 7532 20251012054522
+124.150.139.36 2 2 7472 20251027075834
+103.253.27.238 1 1 3736 20251020140022
+180.243.1.155 2 8 753780 20251009031010
+157.66.54.6 1 1 3736 20251027175249
+140.213.6.22 0 1 503168 
+157.20.32.164 2 2 7472 20251011075939
+112.215.45.53 0 1 90857 
+174.138.26.55 2 2 7472 20251031220450
+185.213.155.231 2 2 7472 20251029202432
+146.190.104.42 2 2 7472 20251012055348
+167.172.43.50 1 2 10142 20251028072818
+143.198.80.245 2 2 7472 20251016023000
+172.188.91.197 1 1 3736 20251006235518
+96.0.0.119 2 2 7472 20251027083309
+112.215.45.49 1 1 20029 20251007000304
+188.166.145.35 1 2 10142 20251014070106
+140.213.31.43 1 1 3736 20251030031214
+165.232.165.39 2 2 7472 20251001025852
+103.192.205.59 2 2 7472 20251010045559
+162.142.125.46 1 1 3736 20251021130809
+140.213.33.25 0 3 318352 
+103.192.205.55 2 2 7472 20251014005709
+150.129.59.4 1 8 756450 20251027223605
+3.140.182.19 1 1 3736 20251016220647
+140.213.14.97 0 1 30514 
+180.243.6.228 3 19 14632858 20251015013544
+104.28.118.68 3 4 912553 20251006230154
+128.199.72.248 2 2 7472 20251022144220
+140.213.6.81 1 1 27185 20251013105014
+64.227.183.177 2 2 3736 20251029123227
+146.190.105.77 2 2 7472 20251010095525
+140.213.130.173 1 4 511107 20251009025957
+92.43.29.102 1 1 3736 20251030015945
+196.251.86.68 2 2 7472 20251021185052
+182.253.48.133 3 3 11208 20251027170101
+152.42.222.90 2 2 7472 20251009035547
+88.170.43.205 1 1 3736 20251001020340
+112.215.45.183 0 1 1846 
+140.213.6.213 0 1 1263 
+157.20.32.133 2 2 7472 20251012061309
+167.172.81.189 2 2 7472 20251016002801
+159.223.42.192 2 2 7472 20251010024301
+146.190.103.22 2 2 3736 20251025031713
+165.232.167.26 2 2 3736 20251010090146
+178.128.217.131 2 2 7472 20251016024351
+196.251.118.193 1 1 3736 20251024212610
+178.128.52.158 2 2 7472 20251029010454
+104.28.118.65 1 3 31619 20251006230344
+140.213.140.12 0 1 88151 
+185.247.137.252 1 1 3736 20251013001555
+157.15.40.62 2 2 7472 20251021142747
+128.199.115.76 2 2 7472 20251029084948
+152.42.212.4 2 2 3736 20251001082824
+114.10.115.237 1 7 750044 20251011091924
+114.10.45.143 1 1 3736 20251017172838
+185.247.137.192 0 1 6406 
+112.215.152.129 0 1 3840 
+103.69.106.170 2 9 773805 20251017000838
+140.213.31.139 2 2 42798 20251013230916
+202.73.26.78 1 1 3736 20251013225046
+143.198.206.9 2 2 3736 20251013053930
+159.65.6.187 2 2 7472 20251023074523
+140.213.14.225 0 1 1263 
+104.28.121.63 1 6 577442 20251006225425
+104.28.118.71 0 2 181714 
+139.59.117.56 2 2 7472 20251029130227
+140.213.6.145 0 1 80599 
+104.28.118.72 0 1 88151 
+157.66.54.162 2 2 7472 20251020070547
+206.189.32.115 3 3 11208 20251017131556
+143.198.194.227 2 2 7472 20251025224903
+128.199.79.15 2 2 7472 20251021231440
+104.28.118.69 0 5 6503133 
+112.215.45.119 0 1 171895 
+165.22.105.2 3 3 7577 20251010022827
+185.241.208.221 1 1 3736 20251015143636
+178.128.118.131 2 2 7472 20251023043428
+140.213.14.38 3 5 6819219 20251013104925
+112.215.45.115 0 2 10246 
+68.183.239.135 2 2 7472 20251026201305
+45.149.3.21 2 2 7472 20251017091625
+92.5.33.241 2 2 7472 20251024070021
+182.253.59.182 2 8 767718 20251014002548
+140.213.6.83 1 1 20689 20251007000351
+134.209.108.144 2 2 7472 20251023094234
+62.146.238.71 4 4 7472 20251025102655
+5.189.141.59 1 1 3736 20251016064136
+103.167.171.147 1 5 581294 20251015075945
+167.172.75.146 2 2 7472 20251022064801
+180.243.6.98 4 4 80171 20251016004130
+140.213.5.144 1 5 438098 20251007000236
+104.28.118.73 2 6 868273 20251029042203
+146.190.90.226 2 2 3736 20251020224734
+140.213.14.46 1 2 46081 20251007000252
+140.213.14.107 0 1 1846 
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 26
+20251001 36 36 1704005 6
+20251002 16 36 3142321 2
+20251006 67 158 52596736 11
+20251007 13 27 9194369 6
+20251009 94 122 21311679 8
+20251010 37 70 23067030 11
+20251011 5 11 764988 3
+20251012 14 14 130103 5
+20251013 51 144 61541743 15
+20251014 32 94 32789735 8
+20251015 28 67 30840185 6
+20251016 38 75 17802418 9
+20251017 16 24 895386 7
+20251019 4 4 14944 2
+20251020 13 13 129152 6
+20251021 18 24 213078 6
+20251022 15 26 84845 7
+20251023 23 23 211535 7
+20251024 3 3 11208 2
+20251025 6 6 14944 3
+20251026 4 4 14944 2
+20251027 15 28 885814 7
+20251028 21 23 1076136 4
+20251029 42 112 39787143 14
+20251030 12 12 243009 5
+20251031 8 8 29888 4
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+2mn-5mn 18
+30s-2mn 15
+5mn-15mn 7
+0s-30s 114
+30mn-1h 4
+15mn-30mn 5
+1h+ 3
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 49
+/login 255 919228 147 106
+/user/kunjungan 117 3352628 6 41
+/profile 62 1195561 6 5
+/petugas/request 36 1224651 0 0
+/thema/assets/css/icons/tabler-icons/fonts/tabler-icons.woff2 30 16012176 2 4
+/user/peminjaman 13 279021 0 2
+/home 12 248075 1 0
+/petugas/pengembalian 10 4155815 0 0
+/petugas/pengembalian_detail2/807 8 333353 0 0
+/petugas/pengembalian_detail2/826 8 319958 0 0
+/petugas/request_jadwal 8 310854 0 1
+/user/req_peminjaman 6 714131 0 0
+/petugas/pengembalian_detail2/827 6 210560 0 1
+/petugas/laporan/pinjaman_alat_medis 5 881955 0 0
+/index.php/login 5 18830 3 2
+/petugas/pengembalian_detail2/809 4 126915 0 0
+/petugas/pengembalian_detail2/830 3 83410 0 0
+/petugas/pengembalian_detail2/832 3 89693 0 0
+/petugas/pengembalian_detail2/808 3 94239 0 1
+/user/jadwal_praktikum 2 66970 0 1
+/petugas/laporan/kunjungan_lab 2 286450 0 0
+/petugas/laporan/penggunaan_lab 2 96250 0 0
+/petugas/request_detail/834 2 79336 0 0
+/petugas/pengembalian_detail2/833 2 55690 0 0
+/petugas/request_detail/839 2 65636 0 0
+/petugas/request_detail/833 1 27183 0 0
+/petugas/request_detail/826 1 33226 0 0
+/user/peminjaman_detail/803 1 17659 0 1
+/petugas/request_detail/835 1 32931 0 0
+/petugas/request_detail/830 1 26292 0 0
+/petugas/request_detail/818 1 26042 0 0
+/petugas/request_detail/808 1 29822 0 0
+/petugas/barang 1 194834 0 0
+/petugas/laporan 1 32208 0 0
+/petugas/request_detail/819 1 28339 0 0
+/petugas/request_detail/820 1 27047 0 0
+/petugas/request_detail/816 1 28530 0 0
+/petugas/barangmedis 1 1615837 0 0
+/register 1 75 1 0
+/petugas/request_detail/829 1 27579 0 0
+/user/req_jadwal 1 51100 0 0
+/petugas/request_detail/817 1 26051 0 0
+/petugas/request_detail/828 1 27476 0 0
+/petugas/request_detail/832 1 27941 0 0
+/petugas/request_detail/837 1 33919 0 0
+/petugas/request_detail/827 1 29745 0 0
+/petugas/request_detail/836 1 32925 0 0
+/petugas/request_detail/840 1 32916 0 0
+/user/peminjaman_detail/760 2 22786 0 1
+END_SIDER

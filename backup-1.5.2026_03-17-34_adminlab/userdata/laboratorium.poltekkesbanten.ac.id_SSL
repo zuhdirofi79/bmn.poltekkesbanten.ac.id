@@ -1,0 +1,18 @@
+--- 
+documentroot: /home/adminlab/public_html
+group: adminlab
+hascgi: 1
+homedir: /home/adminlab
+ip: 202.10.35.243
+ipv6: ~
+owner: root
+phpopenbasedirprotect: ~
+port: 443
+secruleengineoff: ~
+serveradmin: webmaster@laboratorium.poltekkesbanten.ac.id
+serveralias: mail.laboratorium.poltekkesbanten.ac.id www.laboratorium.poltekkesbanten.ac.id
+servername: laboratorium.poltekkesbanten.ac.id
+ssl: 1
+usecanonicalname: 'Off'
+user: adminlab
+userdirprotect: ''

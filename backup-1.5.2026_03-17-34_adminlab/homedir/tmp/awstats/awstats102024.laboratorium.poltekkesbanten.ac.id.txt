@@ -1,0 +1,3047 @@
+AWSTATS DATA FILE 7.8 (build 20200416)
+# If you remove this file, all statistics for date 202410 will be lost/reset.
+# Last config file used to build this data file was /home/adminlab/tmp/awstats/awstats.laboratorium.poltekkesbanten.ac.id.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2031                
+POS_TIME 2709                
+POS_VISITOR 74536               
+POS_DAY 76148               
+POS_DOMAIN 3457                
+POS_LOGIN 3800                
+POS_ROBOT 3955                
+POS_WORMS 4305                
+POS_EMAILSENDER 4436                
+POS_EMAILRECEIVER 4579                
+POS_SESSION 76690               
+POS_SIDER 76847               
+POS_FILETYPES 4714                
+POS_DOWNLOADS 4869                
+POS_OS 5999                
+POS_BROWSER 6148                
+POS_SCREENSIZE 6666                
+POS_UNKNOWNREFERER 6740                
+POS_UNKNOWNREFERERBROWSER 7317                
+POS_ORIGIN 7803                
+POS_SEREFERRALS 7937                
+POS_PAGEREFS 8081                
+POS_SEARCHWORDS 8229                
+POS_KEYWORDS 8381                
+POS_MISC 2373                
+POS_ERRORS 8440                
+POS_CLUSTER 3656                
+POS_SIDER_404 8574                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20241101030025 52 11231 4705906107783
+FirstTime 20241001024353
+LastTime 20241031131001
+LastUpdate 20241101085119 52 0 51 0 0
+TotalVisits 39                  
+TotalUnique 36                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 42                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+TotalMisc 0 0 0
+AddToFavourites 0 1 0
+DirectorSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+RealPlayerSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+QuickTimeSupport 0 0 0
+PDFSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 4 20 16024 463 464 713286
+1 5 19 1680046 170 170 254778
+2 6 7 28822 38 38 55622
+3 5 14 1037559 858 858 1297738
+4 2 2 7472 119 123 183054
+5 1 2 10142 20 23 30902
+6 0 0 0 2 2 3104
+7 1 1 3736 236 237 1498156
+8 1 1 3736 196 196 302604
+9 2 3 94677 85 87 131260
+10 5 5 18680 46 47 1202340
+11 2 2 7472 28 28 38557
+12 0 0 0 78 78 1251533
+13 2 4 178928 236 716 1104588
+14 2 4 20284 10 738 1138287
+15 11 12 47502 97 1297 2006056
+16 2 3 13878 274 275 1549632
+17 0 0 0 10 658 1021216
+18 0 0 0 147 700 1082928
+19 0 0 0 1 1 1552
+20 2 3 13908 121 768 1188188
+21 1 2 10142 246 856 2461260
+22 0 0 0 446 446 690656
+23 0 0 0 1 304 471808
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 10
+us 29 59 2903972
+jp 6 6 22476
+gb 5 7 109614
+ca 5 6 25086
+au 3 4 17614
+id 2 2 7472
+nl 2 2 7472
+fr 1 2 94593
+gr 1 1 3736
+in 0 15 973
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 6
+no_user_agent 4 15034 20241026083408 0
+bot[\s_+:,\.\;\/\\-] 2 3760 20241007135938 1
+bingbot/ 2 48 20241016102212 2
+unknown 1 24 20241020090511 1
+survey 1 3736 20241007155749 0
+Go\-http\-client/ 1 3766 20241002030202 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 5
+css 9 1460103 0 0
+js 10 843750 0 0
+Unknown 54 200858 0 0
+txt 16 1050 0 0
+png 15 687247 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 15
+/.well-known/pki-validation/CFA3EEFC8ACBB6EC20AD4382C1A70AF2.txt 2 0 154
+/.well-known/pki-validation/A955CCF0B320A067FD6EEEB17CD477F8.txt 1 0 64
+/.well-known/pki-validation/2F4D7F339487648B7D70AF51213F393F.txt 1 0 64
+/.well-known/pki-validation/BE787A4F92FF0C86627690387728316E.txt 1 0 64
+/.well-known/pki-validation/22E60309A09BE1262A5313ECC57BF5CB.txt 1 0 64
+/.well-known/pki-validation/92548C2DB24902521242A72248AB3B82.txt 1 0 64
+/.well-known/pki-validation/00A2BB9913C0A98293986367E042F802.txt 1 0 64
+/.well-known/pki-validation/FB1B1CF925A057FB9D1E391C4D0C9AB5.txt 1 0 64
+/.well-known/pki-validation/265EB22C6D15CC9A82D377C51988925A.txt 1 0 64
+/.well-known/pki-validation/930931C20A5B99BD6D5531462E97E9BD.txt 1 0 64
+/.well-known/pki-validation/91372946C8F1BA435372A734A0A5C131.txt 1 0 64
+/.well-known/pki-validation/BE46E4F270C4B283922CF39551009335.txt 1 0 64
+/.well-known/pki-validation/B823090CDCDFE1F971EDEB6ADDF4A88B.txt 1 0 64
+/.well-known/pki-validation/66F750FCBC6222A3BF0725F2711E36F7.txt 1 0 64
+/.well-known/pki-validation/938B7D245D6B2A21874089AA68362505.txt 1 0 64
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 7
+win7 3 1
+android 1 1
+linux 7 1
+ios_iphone 2 1
+Unknown 23 6
+win10 64 41
+macosx15 4 3
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 22
+chrome126.0.0.0 14 7
+chrome89.0.4389.114 6 6
+chrome91.0.4472.124 2 2
+chrome88.0.4240.193 12 12
+firefox125.0 2 1
+chrome78.0.3904.108 2 2
+safari17.2 2 1
+chrome120.0.0.0 2 1
+chrome83.0.4103.61 3 1
+Unknown 21 5
+chrome92.0.4515.159 7 1
+chrome118.0.5993.80 1 1
+chrome106.0.0.0 3 1
+chrome124.0.0.0 3 2
+chrome100.0.4896.60 2 2
+chrome80.0.3987.149 2 2
+chrome76.0.3809.132 2 2
+chrome117.0.5938.132 7 1
+chrome85.0.4183.102 1 1
+chrome79.0.3945.79 7 1
+mozilla 2 1
+firefox77.0 1 1
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 6
+python-requests/2.32.3 20241004101256
+wp_is_mobile 20241017204216
+Mozilla/5.0_(compatible;_CensysInspect/1.1;__https://about.censys.io/) 20241012200012
+Sectigo_DCV 20241014000301
+Expanse,_a_Palo_Alto_Networks_company,_searches_across_the_global_IPv4_space_multiple_times_per_day_to_identify_customers&#39;_presences_on_the_Internet._If_you_would_like_to_be_excluded_from_our_scans,_please_send_IP_addresses/domains_to:_scaninfo@paloaltonetworks.com 20241031004316
+COMODO_DCV 20241014000254
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 5
+wp_is_mobile 20241017204216
+Expanse,_a_Palo_Alto_Networks_company,_searches_across_the_global_IPv4_space_multiple_times_per_day_to_identify_customers&#39;_presences_on_the_Internet._If_you_would_like_to_be_excluded_from_our_scans,_please_send_IP_addresses/domains_to:_scaninfo@paloaltonetworks.com 20241031004316
+COMODO_DCV 20241014000254
+Sectigo_DCV 20241014000301
+python-requests/2.32.3 20241004101256
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 40 60
+From1 1 1
+From2 0 0
+From3 0 0
+From4 13 43
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 4
+301 27 7553
+405 10 5692512
+404 9005 13928128
+302 56 24544
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 2679
+/files/css/cmd.php 2 -
+/mariju.php 1 -
+/wp-content/themes/plugins.php 1 -
+/peraturan.zip 4 -
+/wordpress/wp-content/plugins/wxtjrci/index.php 1 -
+/e-journal.tar.gz 5 -
+/wp-content/batm.php 1 -
+/wp-content/updates.php 3 -
+/moduless.php 1 www.bing.com
+/backupan.tar.gz 4 -
+/v3.zip 5 -
+/tppk.tar 4 -
+/wordpress.tar 5 -
+/laboratoriumpoltekkesbanten.tar 5 -
+/.tmb.zip 5 -
+/wp-includes/ID3/index.php 1 -
+/jurnallaboratorium.rar 4 -
+/Wordpress/wp-content 1 http://laboratorium.poltekkesbanten.ac.id/Wordpress/wp-content/
+/bala.php 1 -
+/storage.zip 4 -
+/wp-includes/item.php 1 -
+/jdih.tar 4 -
+/bbb.php 1 -
+/modules/drupal_rce/drupal_rce/shell.php 1 -
+/ujian.tar.gz 4 -
+/admin/images/radio.php 1 -
+/dispuprkim.tar 4 -
+/autoload_classmap.php 10 -
+/goods.php 2 -
+/dispenda.rar 4 -
+/sang3.php 1 -
+/wp-includes/toolsbase-ws.php 1 -
+/documentation.tar.gz 4 -
+/wp-content/plugins/plugin/allez.php 1 -
+/perkimnah.tar 4 -
+/8.rar 4 -
+/po-admin.tar.gz 4 -
+/10.tar 4 -
+/sh.php 5 www.google.com
+/avaa.php 2 -
+/wp-content/banners/about.php 5 -
+/journals.tar.gz 5 -
+/license.php 3 -
+/wp-config-samsples.php 1 -
+/catalog/view/javascript/facebook_business/test.php 1 -
+/dropdown.php 13 -
+/sql.php 3 www.google.com
+/archives.tar.gz 5 -
+/ajax-actions.php 2 -
+/clen.php 1 -
+/wp-includes/shell20211028.php 1 -
+/pref.php 2 www.google.com
+/backup-jurnal.rar 4 -
+/alfa-rex2.php7 2 -
+/lyda.php 1 -
+/dcktrp.tar 4 -
+/public.tar 4 -
+/wp-admin/js/about.php7 3 -
+/laboratorium_old.zip 5 -
+/0byt3m1n1.php 1 www.google.com
+/wp-includes/images/media/about.php 1 -
+/.well-known(3).tar 1 -
+/cpanel.zip 4 -
+/ee.php 1 -
+/kabupaten.zip 4 -
+/release.tar 4 -
+/bappeda.rar 4 -
+/files/index.php 1 -
+/wp-p.php7 2 -
+/2018.rar 4 -
+/wp-content/plugins/Core-Econ/upH.php 1 -
+/blocks/rce/lang/en/block_rce.php 1 -
+/yanz.php 6 -
+/repository.tar 4 -
+/sid.rar 4 -
+/wp-admin/css/colors/blue/about.php 3 -
+/mahasiswa.tar 4 -
+/wp-content/themes/mtaza/mobile.php 1 -
+/po-content.rar 1 -
+/ebs.php7 2 -
+/system.rar 4 -
+/zx.php 2 www.google.com
+/wp-includes/Requests/Text/admin.php 5 -
+/ids.php 3 www.google.com
+/applications.rar 5 -
+/wp-key.php 2 www.google.com
+/wp-admin/admin.php 4 -
+/crack.php 1 -
+/.well-known/pki-validation/admin.php 1 -
+/dp3a.tar.gz 4 -
+/organisasi.zip 4 -
+/Apps.tar.gz 5 -
+/2021.zip 4 -
+/log.php 5 -
+/pmb.zip 5 -
+/bypass.php 10 -
+/po.tar.gz 4 -
+/wp-content/file.php 1 -
+/html.zip 5 -
+/api.zip 5 -
+/moon.php 5 -
+/setwan.tar.gz 4 -
+/wsanon.php 2 www.google.com
+/mhs.tar.gz 4 -
+/wp-content/plugins/shell/about.php 3 -
+/ejournall.tar.gz 5 -
+/7.zip 4 -
+/.env.zip 5 -
+/prkp.rar 4 -
+/.well-known/acme-challenge/atomlib.php 1 -
+/laboratoriumold.tar 5 -
+/pmblaboratorium.tar.gz 4 -
+/documents.rar 4 -
+/desa_laboratorium.poltekkesbanten.ac.id.zip 4 -
+/cgi-bin/xmrlpc.php 6 -
+/l-content.zip 4 -
+/p3ap2kb.tar.gz 4 -
+/lms.tar 4 -
+/kominfo.tar 1 -
+/po-includes.tar.gz 1 -
+/wp-content/plugins/cp-pro/js.php 1 -
+/wp-foter.php 1 www.google.com
+/kominfo.zip 1 -
+/database.tar 5 -
+/su.php 1 -
+/.tmb/cloud.php 1 -
+/wp-help.php 6 www.google.com
+/desa.tar.gz 4 -
+/stylec.php 1 -
+/mar.php 8 -
+/well-known.rar 5 -
+/wp-content/uploads/typehub/custom/css_3427512575/alogs.php 1 -
+/po-includes.rar 1 -
+/password.tar 4 -
+/assets.zip 5 -
+/.well-known/pki-validation/wp-login.php 1 -
+/defaul.php 1 -
+/disnaker.rar 4 -
+/wp-content/plugins/about.php 1 -
+/yan.php 2 www.google.com
+/webadmin.rar 4 -
+/images/about.php 7 -
+/about.php 21 -
+/revisi.php 1 -
+/sdabk.tar 4 -
+/login.tar 8 -
+/lib/jquery-file-upload/server/php 1 http://laboratorium.poltekkesbanten.ac.id/lib/jquery-file-upload/server/php/
+/wp-content/uploads/typehub/custom/css_1358799097/alogs.php 1 -
+/bem.rar 4 -
+/jindex.php 7 -
+/web_laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+/poltekkesbanten_2024.tar 1 -
+/6.tar.gz 4 -
+/yuki.php 1 -
+/humas.rar 4 -
+/users.php 3 -
+/14.php 5 www.google.com
+/cool.php 1 -
+/release.zip 4 -
+/2013.zip 4 -
+/405.php 1 -
+/wordpress/wp-login.php 1 -
+/wp-includes/widgets/about.php 6 -
+/disparbudpar.zip 4 -
+/sambernyawa.php 1 -
+/wp-includes/rest-api/about.php 6 -
+/cache.zip 4 -
+/LABORATORIUM.tar 4 -
+/login/shop/wp-includes/wlwmanifest.xml 18 -
+/wp-we.php 1 -
+/disperakim.zip 4 -
+/upload/foto/cmd.php 2 -
+/wp-content/plugins/tunnelform/img_screen.php 1 -
+/15.php 5 www.google.com
+/dinsos.tar.gz 4 -
+/laboratorium-old.zip 5 -
+/gh.php 2 www.google.com
+/ova.php 1 -
+/manajemen.tar.gz 5 -
+/media-admin.php 1 www.bing.com
+/wp-admin/network/radio.php 1 -
+/jurnalbackup.zip 4 -
+/lol.php 2 www.google.com
+/gmc.tar 5 -
+/jurnal.tar 5 -
+/ccx/index.php 4 -
+/new/wp-admin/install.php 1 -
+/alfa-rex.php8 1 -
+/wp-admin/user/about.php 4 -
+/yuuki2.php 1 -
+/laboratorium_poltekkesbanten.tar.gz 4 -
+/wp-admin/images/index.php 6 -
+/word.php 2 www.google.com
+/clay.php 1 -
+/wp-set.php 1 -
+/classwithtostring.phpv 1 -
+/storage.tar 4 -
+/ojs3.tar.gz 4 -
+/web.rar 5 -
+/hinfofuns.php 1 -
+/room.php 2 www.google.com
+/wp-content/languages/about.php 2 -
+/blog/index.php 1 -
+/jurnallaboratorium.tar.gz 4 -
+/87.php 2 -
+/asset.rar 5 -
+/wp-comments-post.php 4 www.google.com
+/satpolpp.tar.gz 4 -
+/document.rar 4 -
+/pasca.tar 4 -
+/wp-admin/js/widgets/xmrlpc.php 3 -
+/alfateslav4.php 2 www.google.com
+/403.php 11 -
+/rad.php 1 -
+/wp-includes/ID3/about.php 6 -
+/class-IXR-server.php 1 -
+/website_laboratorium.zip 4 -
+/wp-content/mah.php 4 -
+/LABORATORIUM.POLTEKKESBANTEN.AC.ID.tar 4 -
+/lppm/wp-admin/install.php 1 -
+/xm.php 2 www.google.com
+/olux.php 2 www.bing.com
+/security.zip 4 -
+/wp-includes/function.php 1 -
+/2014.zip 4 -
+/wp-content/alogs.php 1 -
+/2012.zip 4 -
+/login.php 2 www.google.com
+/gizi.tar 4 -
+/kcfinder.zip 4 -
+/index/function.php 1 -
+/wp-includes/customize/file.php 1 -
+/wp-admin/user/xmrlpc.php 6 -
+/ey.php 1 -
+/dinperkpp.tar 4 -
+/sisdjatansdabm.tar 4 -
+/wp.rar 5 -
+/ind.rar 4 -
+/siakad.zip 4 -
+/wp-admin/fEv4uaixSnI.php 1 -
+/.well-known(2).zip 1 -
+/dpkp.zip 4 -
+/options-reading.php 1 -
+/elearning.tar 4 -
+/storage.rar 4 -
+/website_laboratorium.rar 4 -
+/Priv.php 1 -
+/dbmsda.tar 4 -
+/wp-admin/js/widgets/about.php 1 -
+/vv.php 1 -
+/siapa.php 2 www.google.com
+/cadangan.rar 4 -
+/epinyins.php 4 -
+/con7.php 6 www.google.com
+/wp-pluging.php 1 -
+/cgi-bin/iR7SzrsOUEP.php 1 -
+/bepass.php 1 www.google.com
+/alumni.tar.gz 4 -
+/demo.tar.gz 4 -
+/usb.php 2 www.google.com
+/dpapmk.tar 4 -
+/wp-admin/wso.php 1 -
+/nf_tracking.php 4 -
+/7.tar.gz 4 -
+/01.php 6 www.google.com
+/ojs2.tar.gz 4 -
+/bak.tar 5 -
+/ojs4.tar.gz 4 -
+/wp-includes/IXR/ws.php 1 -
+/fx.php 1 -
+/conferences.rar 4 -
+/wp-content/themes/finley/min.php 1 -
+/sippn.tar.gz 4 -
+/xdoor.php 1 -
+/wp-content.tar.gz 5 -
+/s.php 7 -
+/spmi.rar 4 -
+/application.tar 5 -
+/laboratorium_poltekkesbanten.zip 4 -
+/shell4.php 1 -
+/images/cloud.php 6 -
+/gelyta.php 1 -
+/poltekkesbanten_lama.zip 1 -
+/smarttaxx.tar 4 -
+/defaults.php 4 -
+/beyaz.php 1 www.google.com
+/lp3m.tar 4 -
+/ticket/vendor/htmlawed/htmlawed/gel4y.php 1 -
+/www.php 3 www.google.com
+/.well-known(1).zip 1 -
+/wp-mailcek.php 1 -
+/21.php 2 www.google.com
+/web_laboratorium.tar.gz 4 -
+/shelss.php 1 -
+/disperkimtan.tar 4 -
+/inc.php 2 -
+/3m/wp-admin/css/colors/blue 1 http://laboratorium.poltekkesbanten.ac.id/3m/wp-admin/css/colors/blue/
+/App.zip 5 -
+/bappeda.zip 4 -
+/desa_laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+/bappeda.tar 4 -
+/release.rar 4 -
+/wp-content/plugins/contact-form-7/includes/js/jquery-ui/themes/smoothness/admin.php 3 -
+/web_laboratorium.poltekkesbanten.ac.id.tar 4 -
+/c99.php 2 www.google.com
+/u.php 6 www.google.com
+/kelurahan.tar.gz 4 -
+/libraries/vendor/updates.php 2 -
+/wp-admin/e4f3ZMyal1w.php 1 -
+/test/wp-login.php 1 -
+/kabupaten.rar 4 -
+/cache-compat.php 2 -
+/sitemap.xml 2 -
+/cbt.tar 4 -
+/wp-admin/css/colors/cloud.php 2 -
+/wp-content/plugins/phpadmin/as.php 1 -
+/dpmptspd.tar 4 -
+/404.php 11 -
+/6.zip 4 -
+/pascasarjana.tar.gz 4 -
+/cgi-bin/file.php 1 -
+/ojs.zip 4 -
+/small.php 2 -
+/wp-includes/PHPMailer/load.php 3 -
+/conferences.tar.gz 4 -
+/wp-admin/network/back.php 1 -
+/wp-content/uploads/json.php 1 -
+/wp-admin/css/colors/blue/index.php 1 -
+/wp-content/themes/sky-pro/js.php 1 -
+/wp-content/themes/suntech/css_blocks.php 1 -
+/kominfo.rar 1 -
+/wp-aespa.php 1 -
+/wso1337.php 1 -
+/webadmin.php 1 www.google.com
+/g.php 4 www.google.com
+/l-content.rar 4 -
+/wp-content/uploads/2023 1 http://laboratorium.poltekkesbanten.ac.id/wp-content/uploads/2023/
+/v2.php 1 -
+/wp-HbJxZ2.php 1 -
+/documents.zip 4 -
+/lpm.tar 4 -
+/findes.php 1 www.google.com
+/wp-includes/customize/plugins.php 1 -
+/peraturan.rar 4 -
+/wp-admin/css/about.php 6 -
+/alfanew.%20php 1 -
+/journalslaboratorium.zip 4 -
+/.well-known/pki-validation/cloud.php 5 -
+/oldlaboratorium.tar.gz 5 -
+/stikes.tar 4 -
+/wp_wrong_datlib.php 7 www.google.com
+/wp-admin/js/index.php 1 -
+/webdesa_laboratorium.tar 4 -
+/9.tar 4 -
+/.git.tar 5 -
+/click.php 3 -
+/laboratorium_lama.tar.gz 1 -
+/New_Folder.rar 4 -
+/e-journals.tar 5 -
+/laboratorium.poltekkesbanten.zip 5 -
+/wp-admin/network/MdFvb.php 1 -
+/zk.php 2 www.google.com
+/xleet.php 8 -
+/2index.php 7 -
+/pemeliharaan.tar.gz 4 -
+/info.zip 4 -
+/old.zip 5 -
+/ejournals.tar 5 -
+/wp-content/themes/alera/alpha.php 6 www.google.com
+/ups.php 7 www.google.com
+/manager.php 6 www.google.com
+/www.zip 9 -
+/legion.php 1 www.bing.com
+/journal.tar.gz 5 -
+/backup.zip 5 -
+/wp-content/plugins/seooo/alfanew.php7 1 -
+/wp-content/wp/plugins/mbt.php 2 -
+/wp-2019.php/wp-2019.php 1 -
+/rpd.zip 4 -
+/.well-known/plugins.php 1 -
+/v1.tar.gz 5 -
+/aman.php 2 www.google.com
+/danci.php 1 -
+/lpm/wp-admin/install.php 1 -
+/wp-admin/ajax-actions.php 2 -
+/archive.tar.gz 9 -
+/elearning.rar 4 -
+/webdesa.zip 4 -
+/wp-content/themes/classic/inc/fmanager.php 1 -
+/.well-known/acme-challenge/license.php 3 -
+/ppdb.rar 5 -
+/sid.tar 4 -
+/defau1t.php 6 www.google.com
+/tes.php 6 www.google.com
+/wp-admin/js/network.php 1 -
+/New_Folder.zip 4 -
+/wp-admin/install.php 5 -
+/wp-mails.ph 1 -
+/documentation.zip 4 -
+/wp-content/uploads/2023/index.php 1 -
+/wp-consar.php 3 -
+/ri.php 1 -
+/l.php 3 www.google.com
+/lppm.zip 4 -
+/desa.tar 4 -
+/app_openSID.tar 4 -
+/name.php 2 www.google.com
+/aulavirtual/local/moodle_webshell/webshell.php 1 -
+/menu.php 1 -
+/dpppappkb.tar.gz 5 -
+/45.php 6 www.google.com
+/bypass404.php 1 -
+/oldlaboratorium.zip 5 -
+/lms.rar 4 -
+/kcfinder.tar.gz 4 -
+/fse.php 1 -
+/laboratorium_poltekkesbanten.tar 4 -
+/2022.rar 4 -
+/2024.rar 4 -
+/pda.php 1 -
+/security.tar.gz 4 -
+/jurnallaboratorium.zip 4 -
+/laboratorium-poltekkesbanten-laboratorium.poltekkesbanten.ac.id.tar 4 -
+/.well-known/pki-validation/class.api.php 1 -
+/dinperkpp.rar 4 -
+/local/moodle_webshell/webshell.php 1 -
+/2019.rar 4 -
+/web_laboratorium.tar 4 -
+/wp-content/themes/include.php 1 -
+/xml.php 1 -
+/.well-known/wp-2019.php 1 -
+/adminer.rar 4 -
+/config.tar 4 -
+/7.tar 4 -
+/upload.rar 4 -
+/wp-content/repeater.php 2 -
+/mcc.php 1 www.google.com
+/alpa.php 1 -
+/wp-signin.php 1 www.bing.com
+/kota.rar 4 -
+/.git/HEAD 1 -
+/.well-known/pki-validation/xmrlpc.php 6 -
+/wp-admin/css/colors/blue 1 http://laboratorium.poltekkesbanten.ac.id/wp-admin/css/colors/blue/
+/wp-admin/flvBPt84Gm3.php 1 -
+/3.php 6 www.google.com
+/smarttaxx.rar 4 -
+/dinaspariwisata.rar 4 -
+/opp.php 1 -
+/data.zip 4 -
+/index.tar.gz 5 -
+/wp-admin.tar 5 -
+/wp-includes/404.php 1 -
+/backend.rar 4 -
+/wp-admin/css/colors/blue/cloud.php 2 -
+/dpmptsp.rar 4 -
+/webdesalaboratorium.tar.gz 4 -
+/curme.php 1 -
+/wp-content/themes/worship/block-css.php 1 -
+/sipenmaru.tar.gz 4 -
+/anonsec.php 1 -
+/wp-admin/maint/wp-login.php 1 -
+/templates/beez3/cgialfa 1 www.bing.com
+/backuplaboratorium.tar 4 -
+/11.php 5 www.google.com
+/siakad.tar.gz 4 -
+/0x.php 1 -
+/idx.php 3 www.google.com
+/silakop.zip 1 -
+/laboratorium-poltekkesbanten-laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+/superadmin.tar.gz 5 -
+/js/cmd.php 2 -
+/ejournal.rar 5 -
+/user-edit.php 2 -
+/alumni.zip 4 -
+/backup-ejournal.tar 4 -
+/wp-header.php 1 -
+/sisdjatansdabm.rar 4 -
+/wp-content/themes/classic/inc/alogs.php 1 -
+/ojs3.tar 4 -
+/e-learning.tar.gz 4 -
+/priv.php 2 www.google.com
+/wp-includes/js/tinymce/plugins/compat3x/css/index.php 1 -
+/jdih.tar.gz 4 -
+/geco.php 1 -
+/wp-content/plugins/zedd/1.php 2 -
+/tes.zip 4 -
+/10.zip 4 -
+/gmc.rar 5 -
+/rootshell.php 1 -
+/wp-admin/alfa.php 2 -
+/default.php 1 -
+/backup/wp-admin/install.php 1 -
+/login/xmlrpc.php 18 -
+/l-content.tar 4 -
+/silakop.tar 1 -
+/apps.zip 4 -
+/tppk.tar.gz 4 -
+/img/files/cmd.php 2 -
+/504.php 1 -
+/wp-includes/fonts/about.php 1 -
+/gac.php 1 -
+/dispar.tar 4 -
+/kabupaten.tar 4 -
+/wp-includes/style-engine/about.php 6 -
+/backup.tar.gz 5 -
+/v3.tar 5 -
+/wp-content/wso.php 5 -
+/po-includes.zip 1 -
+/wp-content/uploads/ALFA_DATA 1 www.bing.com
+/laboratorium.poltekkesbanten.tar.gz 5 -
+/wp-content/themes/fremo/mobile.php 1 -
+/mahasiswa.zip 4 -
+/web.tar 5 -
+/wp-includes/images/about.php 6 -
+/wp-includes/js/tinymce/skins/lightgray/img/index.php 4 -
+/wp-includes/js/index.php 1 -
+/lowpr.php 1 -
+/wp-admin/network/about.php 1 -
+/function.php 3 -
+/zaco.php 1 -
+/1index.php 8 -
+/POLTEKKESBANTEN.rar 4 -
+/perkimnah.zip 4 -
+/jurnall.tar.gz 5 -
+/ppid.rar 4 -
+/var.php 6 www.google.com
+/wp-admin/cmd.php 2 -
+/ynz.PhP7 1 -
+/bypas.php 5 www.google.com
+/9.tar.gz 4 -
+/wordpress/wp-admin/install.php 1 -
+/images/xmrlpc.php 3 -
+/perpustakaan.zip 4 -
+/username.rar 4 -
+/zec.php 1 -
+/web_laboratorium.rar 4 -
+/Dz.php 1 -
+/configuration.rar 4 -
+/hi.php 2 www.google.com
+/wp-content/themes/jaida/lang.php 3 -
+/okaoka.php 1 -
+/LABORATORIUM.POLTEKKESBANTEN.rar 4 -
+/dsdabmbk.tar 4 -
+/green.php 1 -
+/peraturan.tar 4 -
+/desa_laboratorium.poltekkesbanten.ac.id.rar 4 -
+/sundaxploit.php 2 www.google.com
+/laravel.tar.gz 4 -
+/wp-content/plugins/pwnd/pwnd.php 4 -
+/disbimacipta.tar.gz 4 -
+/wp-content/plugins/WordPressCore/include.php 1 -
+/Idx.php 1 -
+/ejournals.rar 5 -
+/r00t.php 3 www.google.com
+/registrasi.tar.gz 4 -
+/bem.tar 4 -
+/.well-known%20(1).tar 5 -
+/wordpress.zip 5 -
+/Apps.tar 5 -
+/dp3a.tar 4 -
+/webdesa.tar 4 -
+/wp-includes/blocks/table/int/tmpl/index.php 3 -
+/perkimnah.rar 4 -
+/disperakim.rar 4 -
+/cpanel.tar.gz 4 -
+/gecko-new.php 1 -
+/shl.php 3 www.google.com
+/db.rar 4 -
+/laboratorium.zip 8 -
+/archives.zip 5 -
+/adminer.zip 4 -
+/wp-content/plugins/dummyyummy/wp-signup.php 1 -
+/xleet-shell.php 6 www.google.com
+/makeasmtp.php 4 -
+/po-admin.zip 4 -
+/journals.zip 5 -
+/surat.tar.gz 4 -
+/puki.php 1 -
+/defaul1.php 7 -
+/doc.php 11 -
+/bak.rar 5 -
+/x.php 10 -
+/about/epgofmes.php 1 -
+/asset.tar 5 -
+/pasca.rar 4 -
+/old/wp-login.php 1 -
+/.well-known/pki-validation/ 1 -
+/learning.rar 4 -
+/gg.php 3 www.google.com
+/wp-includes/wp-atom.php 1 www.bing.com
+/wp-content/plugins/hello.php 1 -
+/.well-known(3).rar 1 -
+/wp-content/cmd.php 2 -
+/login/web/wp-includes/wlwmanifest.xml 18 -
+/wp-admin/css/ws.php 1 -
+/webdesa.rar 4 -
+/ejournals.zip 5 -
+/__MACOSX.tar 5 -
+/gtkvvkvq.php 1 -
+/backupan.zip 4 -
+/ioxi2.php 1 -
+/siamik.tar 5 -
+/laboratorium-poltekkesbanten-laboratorium.poltekkesbanten.ac.id.rar 4 -
+/wordpress.rar 5 -
+/wp-content/plugins/linkpreview/db.php 6 -
+/login/news/wp-includes/wlwmanifest.xml 13 -
+/setwan.zip 4 -
+/.well-known/acme-challenge/about.php 1 -
+/plugin.php 1 -
+/export.php 1 www.bing.com
+/wp-content/themes/pridmag/db.php 7 -
+/libraries/legacy/updates.php 2 -
+/wp-content/updraft/about.php 2 -
+/lisensi.php 1 www.google.com
+/files/cmd.php 2 -
+/mail.php 3 -
+/well-known.zip 5 -
+/.well-known%20(2).tar 5 -
+/dpuair.rar 4 -
+/.git.tar.gz 5 -
+/documents.tar 4 -
+/libraries/phpmailer/updates.php 2 -
+/wp-includes/assets/alfanew.php 1 -
+/wp-admin/images/plugins.php 1 -
+/journalslaboratorium.rar 4 -
+/worksec.php 1 -
+/backup_laboratorium.zip 5 -
+/anone.php 1 www.google.com
+/wp-content/ws.php 1 -
+/silakop.rar 1 -
+/hhh.php 1 -
+/vbn.php 1 -
+/.tmb/termps.php 1 -
+/backend.zip 4 -
+/pi.php 2 www.google.com
+/wp-content/themes/twentytwenty/404.php 1 -
+/dpmptsp.zip 4 -
+/alfacgiapi 1 www.bing.com
+/wp-includes/IXR/plugins.php 1 -
+/4lin.php 2 www.google.com
+/wp-content/plugins/pejubqd/index.php 1 -
+/updates.php 6 -
+/metronic/assets/global/plugins/jquery-file-upload/server/php 1 http://laboratorium.poltekkesbanten.ac.id/metronic/assets/global/plugins/jquery-file-upload/server/php/
+/conferences.zip 4 -
+/wp-content/themes/philia/lndex.php 1 -
+/mahasiswa.rar 4 -
+/wp-2017.php 1 -
+/22xcmini.php 1 www.google.com
+/wp-includes/js/crop/uword.php 3 -
+/humas.tar 4 -
+/wp-content/uploads/wpr-addons/forms/b1ack.php 2 -
+/login.rar 8 -
+/sdabk.rar 4 -
+/weblaboratorium.rar 4 -
+/ind.tar 4 -
+/omest.php 1 www.google.com
+/gizi.tar.gz 4 -
+/desa_laboratorium.zip 4 -
+/ptr.php 1 -
+/wp-content/themes/newsreach/sett.php 1 -
+/dinsos.zip 4 -
+/portal.rar 4 -
+/dpu.zip 4 -
+/smarttaxx.zip 4 -
+/mano.php 1 -
+/laboratorium_lama.zip 1 -
+/wp-content/themes/twenty/twenty.php 1 -
+/2023.rar 4 -
+/mwmek.php 1 www.google.com
+/core.php 1 -
+/lama.rar 4 -
+/defau11.php 1 www.bing.com
+/pmblaboratorium.zip 4 -
+/wp-content/themes/intense/block-css.php 1 -
+/alfa.php 12 -
+/wp-content/themes/astra/inc/wso.php 1 -
+/xmrlpc.php 7 -
+/dpmptsp.tar 4 -
+/po-content.zip 1 -
+/laboratorium_poltekkesbanten.laboratorium.poltekkesbanten.ac.id.rar 4 -
+/backend.tar 4 -
+/lpm.rar 4 -
+/organisasi.rar 4 -
+/htdocs.rar 5 -
+/wp-content/uploads/cgialfa 1 www.bing.com
+/wp-content/themes/ollie/doc.php 1 -
+/24.php 2 www.google.com
+/demo.tar 4 -
+/6.tar 4 -
+/.well-known/pki-validation/index.php 1 -
+/wp-update.php 1 -
+/wp-content/plugins/wp-help/mini.php 3 -
+/wp-includes/ws.php 1 -
+/sosial.rar 4 -
+/pub.zip 4 -
+/ilusi.php 2 www.google.com
+/website_laboratorium.tar 4 -
+/abc.php 7 www.google.com
+/install.php 9 -
+/copypaths.php 1 -
+/satpolpp.zip 4 -
+/elearning.zip 4 -
+/lu.php 1 -
+/licenses.php 1 -
+/wp-content/themes/ollie/doc.php. 1 -
+/cbt.rar 4 -
+/pariwisata.tar.gz 4 -
+/25.php 2 www.google.com
+/wp-admin/setup-config.php 2 -
+/login/media/wp-includes/wlwmanifest.xml 4 -
+/s_e.php 1 www.bing.com
+/wp-ver.php 1 -
+/en.php 1 -
+/ojs2.tar 4 -
+/.well-known%20(3).rar 5 -
+/dinasrumkimtan.tar.gz 4 -
+/assets.tar.gz 5 -
+/ojs4.tar 4 -
+/wp-admin/maint/index.php 3 -
+/test/wp-admin/setup-config.php 1 -
+/dishub.tar 4 -
+/wp-configs.php 5 -
+/wp-hoard.php 1 www.google.com
+/jurutani.tar 4 -
+/forbiden.php 1 -
+/pro.tar.gz 4 -
+/production.tar 5 -
+/login/test/wp-includes/wlwmanifest.xml 18 -
+/about.php7 2 -
+/.well-known/ 1 -
+/Public.tar 4 -
+/credits.php 1 -
+/adminer.tar 4 -
+/dinperkpp.zip 4 -
+/cok.php 1 -
+/laboratorium.poltekkesbanten.ac.id.tar 5 -
+/wp-one.php 3 www.google.com
+/vendor/htmlawed/htmlawed/gel4y.php 1 -
+/uploads/cmd.php 3 -
+/pindu.tar.gz 4 -
+/lp3m.tar.gz 4 -
+/9.zip 4 -
+/wp-content/plugins/Cache/Cache.php 6 -
+/puskesmas.tar.gz 4 -
+/vendor/bin/loader.php 1 -
+/rc.php 1 -
+/foxx.php 6 www.google.com
+/ww.php 2 www.google.com
+/wp-content.php 6 www.google.com
+/surat.tar 4 -
+/FoxWSO.php 1 -
+/mhs.tar 4 -
+/file.php 10 -
+/alpha.php 6 www.google.com
+/lms.tar.gz 4 -
+/webdesa_laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+/wp-content/themes/appetizo/400.php 1 -
+/admin/controller/extension/extension/ALFA_DATA 1 www.bing.com
+/wp-content/plugins/index.php 6 -
+/bs.php7 1 www.google.com
+/wp-content/plugins/seoojub/nice.php 1 -
+/uploader.php 6 -
+/wp-includes/Requests/network.php 1 -
+/ok.php 6 www.google.com
+/lppm//wp-login.php 1 -
+/wp-users.php 1 -
+/wp-admin/network/wp-login.php 1 -
+/wp-content/cgialfa 1 www.bing.com
+/rsud.rar 4 -
+/2016.rar 4 -
+/wp-content/uploads/2017-------/09/wp-console.php 3 -
+/wp-content/themes/index.php 1 -
+/info.tar 4 -
+/dinaspupr.tar.gz 4 -
+/wp-content/themes/classic/inc/H3ll.php 1 -
+/belajar.tar 4 -
+/dispen.tar 4 -
+/laboratoriumpoltekkesbanten.rar 5 -
+/po.rar 4 -
+/xcv.php 2 www.google.com
+/asset.tar.gz 5 -
+/xxx.php 6 -
+/updates.rar 4 -
+/pariwisata.zip 4 -
+/.git.zip 5 -
+/backup.rar 5 -
+/ipt.php 2 www.google.com
+/wp-content/plugins/wpconfig.bak.php 1 www.bing.com
+/wp/indeks.php 1 -
+/sisdjatansdabm.tar.gz 4 -
+/wwwroot.tar.gz 5 -
+/wp-content/plugins/book-form/lndex.php 1 -
+/cms.zip 5 -
+/update/403.php 1 -
+/alfa-shell-v4.php 6 www.google.com
+/wp-admin/wp-info.php 1 -
+/chibay.php 1 www.google.com
+/uploads/foto/cmd.php 2 -
+/wp-content/plugins/core-stab/H3ll.php 1 -
+/kebakaran.zip 4 -
+/wp-content/plugins/core/include.php 4 -
+/login/2020/wp-includes/wlwmanifest.xml 14 -
+/login/wordpress/wp-includes/wlwmanifest.xml 18 -
+/ojs1.rar 4 -
+/Archive.tar.gz 4 -
+/humas.tar.gz 4 -
+/wp-blog-header.php 5 -
+/__MACOSX.tar.gz 5 -
+/.well-known/acme-challenge/index.php 1 -
+/lv.php 2 -
+/wp-content/plugins/ph-file-manager/wp-file.php 3 -
+/po-content.tar.gz 1 -
+/kk.php 5 www.google.com
+/application.zip 5 -
+/class.php 2 -
+/wp-includes/wso.php 2 -
+/demon.php 1 -
+/.well-known/acme-challenge/install.php 1 -
+/wp-content/uploads/alfacgiapi 1 www.bing.com
+/LABORATORIUM.zip 4 -
+/wp-includes.bak/html-api/about.php 2 -
+/kii.php 1 -
+/wp-raze.php 1 -
+/admin/controller/extension/extension/alfacgiapi 1 www.bing.com
+/dprkp.zip 4 -
+/putr.rar 4 -
+/root.php 8 -
+/jurnalbackup.tar 4 -
+/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/lp3m.zip 4 -
+/wp_fma.php 1 -
+/2.rar 4 -
+/wp-admin/images/file.php 1 -
+/beence.php 1 www.bing.com
+/cgi-bin.tar.gz 5 -
+/wp-lite.php 1 -
+/wp-content/_2399747318_.php 1 -
+/poltekkesbanten_lama.tar.gz 1 -
+/xmlrpc.php 2 -
+/well-known.tar.gz 5 -
+/marijuana.php 8 -
+/upfile.php 3 -
+/wp-configer.php 1 www.google.com
+/wp-content/plugins/wp-diambar/includes/loadme.php 2 -
+/gmc.tar.gz 5 -
+/idk.php 1 -
+/529.php 1 -
+/jurutani.tar.gz 4 -
+/radio.php 14 -
+/wp-content/plugins/wp-file-manager/wsoi.php 1 -
+/goat.php 1 -
+/update/batm.php 1 -
+/wp-ad.php 1 www.google.com
+/rs.tar 4 -
+/6.php 5 www.google.com
+/belajar.zip 4 -
+/dpkp.tar 4 -
+/wp-includes/SimplePie/wp-login.php 1 -
+/anggota.tar.gz 4 -
+/20.php 5 www.google.com
+/upload.tar.gz 4 -
+/iqb.php 2 www.google.com
+/app.zip 4 -
+/2014.tar 4 -
+/admin403.php 3 www.google.com
+/pindu.tar 4 -
+/2012.tar 4 -
+/database.zip 5 -
+/ujian.rar 4 -
+/wp-seo.php 1 -
+/e.php 6 www.google.com
+/wp-includes/fonts/plugins.php 1 -
+/gizi.zip 4 -
+/wp-admin/network/cloud.php 5 -
+/wp-includes/js/jquery/jquery.js 1 -
+/install.rar 4 -
+/siakad.rar 4 -
+/wp-login.php 36 -
+/wp-content/outcms.php 1 www.bing.com
+/password.zip 4 -
+/pmblaboratorium.tar 4 -
+/laboratoriumold.tar.gz 5 -
+/.rxr.php 1 -
+/dpubinmarcipka.zip 4 -
+/website_laboratorium.poltekkesbanten.ac.id.zip 4 -
+/disparbudpar.tar 4 -
+/mega.php 1 -
+/v2.zip 5 -
+/load.php 6 www.google.com
+/wp-title.php 3 www.google.com
+/wp-content/themes/twentyfive/include.php 5 -
+/wp-includes/alfacgiapi 1 www.bing.com
+/xzd.php 1 -
+/update.tar 4 -
+/app_openSID.rar 4 -
+/anons79.php 6 www.google.com
+/m.php 7 -
+/wordpress/wp-admin/setup-config.php 2 -
+/wp-admin/js/widgets/cloud.php 2 -
+/wp-admin.tar.gz 5 -
+/updates.zip 4 -
+/desalaboratorium.tar 4 -
+/backup-ejournal.zip 4 -
+/.well-known(3).tar.gz 1 -
+/gec212.php 1 -
+/registrasi.zip 4 -
+/admin/upload/css.php 1 -
+/wp-admin/user/index.php 1 -
+/portal.tar.gz 4 -
+/dpupr2kp.rar 4 -
+/symlink403.php 5 www.google.com
+/install.tar 4 -
+/data.tar.gz 4 -
+/3.tar 4 -
+/bak.tar.gz 5 -
+/website_laboratorium.poltekkesbanten.ac.id.tar 4 -
+/.tmb/class_api.php 3 -
+/mas.php 2 www.google.com
+/wp-includes/widgets 1 -
+/.env 10 -
+/7.php 5 www.google.com
+/sosial.tar.gz 4 -
+/disbimacipta.rar 4 -
+/disperkimtan.zip 4 -
+/binamarga.tar.gz 4 -
+/wp-admin/options.php 1 -
+/wp-content/plugins/simple/simple.php 1 -
+/htdocs.tar.gz 5 -
+/poltekkesbanten_2024.rar 1 -
+/login/sito/wp-includes/wlwmanifest.xml 13 -
+/backup/wp-admin/setup-config.php 1 -
+/2013.tar 4 -
+/wp-includes 2 www.google.com
+/oldlaboratorium.tar 5 -
+/assets.rar 5 -
+/wp.tar.gz 5 -
+/baru.rar 4 -
+/e-journalstikes.rar 4 -
+/v3.php 3 www.google.com
+/assets/lib/jquery-file-upload/server/php 1 http://laboratorium.poltekkesbanten.ac.id/assets/lib/jquery-file-upload/server/php/
+/LABORATORIUM.POLTEKKESBANTEN.tar 4 -
+/index.tar 5 -
+/about.PHP/function.php 1 -
+/alf.php 8 -
+/pucktr.tar 4 -
+/4.rar 4 -
+/configuration.tar.gz 4 -
+/wp-admin/network/wp-term.php 1 -
+/tonant.php 6 www.google.com
+/js.php 7 www.google.com
+/rapemda.tar.gz 4 -
+/rexx.php 1 -
+/qindex.php 5 www.google.com
+/js/jquery-file-upload/server/php 1 http://laboratorium.poltekkesbanten.ac.id/js/jquery-file-upload/server/php/
+/style.php 2 -
+/test/wp-admin/install.php 1 -
+/wp-admin/maint/file.php 1 -
+/adminer.php 1 -
+/files.zip 5 -
+/macibay.php 1 -
+/about/function.php 1 -
+/e-learning.zip 4 -
+/wp-content/install.php 3 -
+/wp-content/plugins/yyobang/mar.php 1 -
+/wp-includes/admin.php 1 -
+/db-config.php 1 -
+/pler.php 1 -
+/security.tar 4 -
+/wp-content.rar 5 -
+/wp-22.php 3 -
+/plugins.tar.gz 4 -
+/kcfinder.tar 4 -
+/lppm.tar.gz 4 -
+/.env.tar 5 -
+/wp-content/plugins/linkpreview/load.php 1 -
+/superadmin.zip 5 -
+/leaf.php 1 -
+/.wp-cli.tar.gz 5 -
+/gzak2w.php 1 -
+/system.zip 4 -
+/sippn.rar 4 -
+/.well-known%20(3).zip 5 -
+/wp-content/cong.php 1 -
+/2021.tar 4 -
+/.well-known/ALFA_DATA 1 www.bing.com
+/adriv.php 2 www.google.com
+/inputs.php 1 -
+/kebakaran.rar 4 -
+/html.tar 5 -
+/cpanel.rar 4 -
+/.well-known/radio.php 1 -
+/laboratorium.poltekkesbanten.ac.id.tar.gz 5 -
+/wp-content/languages/plugins.php 1 -
+/w.php 8 -
+/lpm.tar.gz 4 -
+/info.php 7 www.google.com
+/alfanew.php 7 -
+/v1.rar 5 -
+/wp-include.tar 5 -
+/administrator.tar 5 -
+/poltekkesbanten.rar 5 -
+/devil.php 1 -
+/wp-admin/ws.php 1 -
+/wp-content/upgrade-temp-backup/about.php 3 -
+/kct.php 2 www.google.com
+/dsdabmbk.tar.gz 4 -
+/sia.zip 5 -
+/as.php 5 -
+/syd.php 1 -
+/wp-admin/wp-signup.php 1 -
+/wp-includes/class-wp-other.php 6 www.google.com
+/s_ne.php 1 www.bing.com
+/desa_laboratorium.rar 4 -
+/pro.rar 4 -
+/dpuair.tar.gz 4 -
+/laboratorium_lama.rar 1 -
+/wp-content/mu-plugins/db-safe-mode.php 1 www.bing.com
+/install.zip 4 -
+/website_laboratorium.poltekkesbanten.ac.id.rar 4 -
+/dbx.php 3 www.google.com
+/desalaboratorium.rar 4 -
+/.tmb.tar 5 -
+/New_Folder.tar.gz 4 -
+/chosen.php 7 -
+/blog.php 3 -
+/dinasrumkimtan.rar 4 -
+/app_openSID.tar.gz 4 -
+/poltekkesbanten_lama.tar 1 -
+/jdih.zip 4 -
+/backup-jurnal.zip 4 -
+/user-new.php 1 -
+/images/admin.php 1 -
+/updates.tar 4 -
+/wp-content/uploads/wp-login.php 2 -
+/cbt.tar.gz 4 -
+/shellbypass.php 4 www.google.com
+/wp_backup.php 1 -
+/tppk.zip 4 -
+/belajar.rar 4 -
+/hello.php 5 www.google.com
+/dpmptspd.zip 4 -
+/sites/all/modules/views-7.x-3.24/views/shell.php 1 -
+/css/index.php 1 -
+/apps.tar.gz 4 -
+/opac.rar 4 -
+/setdako.tar.gz 1 -
+/wp-content/plugins/mmk/ava.php 1 -
+/pemeliharaan.rar 4 -
+/wp-admin/xmrlpc.php 3 -
+/wp-includes/css/wp-config.php 1 www.bing.com
+/bads.php 1 -
+/al.php 2 www.google.com
+/wp-content/themes/hideo/network.php 1 -
+/obfbyte.php 1 -
+/dinaspkp.rar 4 -
+/wordpress/update/wpup.php 1 -
+/wp-content/uploads/about.php 1 -
+/index404.php 1 -
+/new/wp-admin/setup-config.php 1 -
+/wp-admin/images/wp-login.php 1 -
+/alfa123.php 3 www.google.com
+/3.tar.gz 4 -
+/kecamatan.tar.gz 4 -
+/perkim.tar 4 -
+/dragonforce.php 1 www.google.com
+/ojs2.zip 4 -
+/disperadankpp.tar 4 -
+/wp-clon.php 1 -
+/dinas.zip 4 -
+/ojs4.zip 4 -
+/FX.php 1 -
+/wp-content/plugins/wp-freeform/black2llleaf.php 2 -
+/kontol.php 2 -
+/data.php 2 -
+/wso-x569.php 1 -
+/laboratorium1.tar 4 -
+/wsoyanzf.php 1 -
+/wp-admin.zip 5 -
+/groupon.php 1 www.google.com
+/onixnews/plugins/jquery.filer/uploads/mfs.p.php 1 -
+/wp-includes/IXR/wp-login.php 1 -
+/dev.php 6 www.google.com
+/img/xmrlpc.php 2 -
+/wp-admin/images/admin.php 3 -
+/2015.rar 4 -
+/website.zip 4 -
+/.well-known/acme-challenge/file.php 1 -
+/layanan.tar 4 -
+/pascasarjana.rar 4 -
+/superadmin.rar 5 -
+/desalaboratorium.tar.gz 4 -
+/tesla.php 1 -
+/dpkp.tar.gz 4 -
+/mhs.rar 4 -
+/application.rar 5 -
+/wso403.php 1 www.google.com
+/ar/indeks.php 1 -
+/dinsos.rar 4 -
+/sippn.tar 4 -
+/portal.zip 4 -
+/wp-content/plugins/seox/wsoyanzf.php 1 -
+/indoxploit.php 6 www.google.com
+/demo.zip 4 -
+/templates/beez3/jsstrings.php 1 -
+/zzz.php 1 -
+/wp-includes/repeater.php 2 -
+/1337.php 2 -
+/5.rar 4 -
+/v2.tar 5 -
+/jp.php 1 -
+/goat1.php 1 -
+/conferences.tar 4 -
+/l-app.zip 4 -
+/sid.tar.gz 4 -
+/rs.zip 4 -
+/sosial.zip 4 -
+/teamadmin.php 1 -
+/wp-apxupx.php 3 -
+/.well-known/acme-challenge/cloud.php 11 -
+/htdocs.zip 5 -
+/aulavirtual/blocks/rce/lang/en/block_rce.php 1 -
+/2014.tar.gz 4 -
+/laboratorium2.tar 4 -
+/wp-includes/ID3/plugins.php 1 -
+/2012.tar.gz 4 -
+/wp-content/plugins/seox/randkeyword.php 1 -
+/memek.php 2 -
+/wp-admin/maint/plugins.php 1 -
+/cloud.php 3 -
+/dinasrumkimtan.tar 4 -
+/aa.php 1 -
+/vote.php 1 -
+/dsdabmbk.zip 4 -
+/cyto.php 1 www.google.com
+/index.rar 5 -
+/perpustakaan.tar 4 -
+/fast.php 1 -
+/wp-del.php 1 -
+/2017.rar 4 -
+/wp-content/plugins/rxr/index.php 1 -
+/dpuair.zip 4 -
+/NewFile.php 1 -
+/openSID.tar.gz 4 -
+/bem.tar.gz 4 -
+/wp-content/tmpls.php 1 -
+/application.tar.gz 5 -
+/diskominfo.tar 4 -
+/campus/local/moodle_webshell/webshell.php 1 -
+/cgi-bin/index.php 1 -
+/9.php 6 www.google.com
+/.well-known/about.php 8 -
+/e-learning.rar 4 -
+/init.php 7 -
+/korpri.tar 4 -
+/un.php 6 www.google.com
+/kebakaran.tar 4 -
+/server/cmd.php 2 -
+/info.tar.gz 4 -
+/wso112233.php 4 -
+/racing.php 1 www.google.com
+/cgi-bin/license.php 1 -
+/wp-content/uploads/typehub/custom/css_1793409540/alogs.php 1 -
+/layanan.zip 4 -
+/website.tar 4 -
+/wp-content.zip 5 -
+/blue.php 1 -
+/wp-content/themes/home/vod.php 1 -
+/wp-content/plugins/seooo/alfa-rex.php 1 -
+/system.tar.gz 4 -
+/dpmptspd.tar.gz 4 -
+/wp-content/style-css.php 1 -
+/backuplaboratorium.tar.gz 4 -
+/.well-known/pki-validation/moon.php 1 -
+/vuln.php 5 www.google.com
+/admin.zip 5 -
+/registrasi.rar 4 -
+/web.tar.gz 5 -
+/smartcity.tar.gz 4 -
+/LABORATORIUMPOLTEKKESBANTEN.tar 4 -
+/randkeyword.PhP7 1 -
+/444.php 1 -
+/wp-includes/js/jcrop/Jcrop.php 1 -
+/wp-content/uploads/2018/12/wso.php 1 -
+/cocot.php 2 www.google.com
+/wp-admin/js/widgets/about.php7 2 -
+/priv01.php 1 -
+/sites/default/files/ALFA_DATA 1 www.bing.com
+/setwan.rar 4 -
+/node_modules/angular-base64-upload 1 -
+/phpinfo.php 7 www.google.com
+/rex.php 6 www.google.com
+/8890.php 2 www.google.com
+/pkm.zip 4 -
+/dpmp.rar 4 -
+/wp-content/plugins/Cache/dropdown.php 1 -
+/backup-ejournal.tar.gz 4 -
+/407.php 1 -
+/wp-head.php 8 -
+/class-ftp-pures.php 1 -
+/login/cms/wp-includes/wlwmanifest.xml 18 -
+/wp-content/content.php 1 -
+/damkar.tar 4 -
+/wp-includes/install.php 4 -
+/laboratorium-poltekkesbanten.laboratorium.poltekkesbanten.ac.id.tar 4 -
+/wp-content/radio.php 1 -
+/wp-admin/includes/cloud.php 2 -
+/ap.php 1 www.google.com
+/wp-trackback.php 5 -
+/fatal.php 1 -
+/html.tar.gz 5 -
+/mm.php 1 -
+/wp-includes/ID3/license.txt 1 -
+/wp-admin/f0x.php 2 -
+/Apps.zip 5 -
+/2021.tar.gz 4 -
+/.inc/403.php 1 -
+/dp3a.zip 4 -
+/wp-content/themes/arvana/400.php 1 -
+/wp-content/shell20211028.php 4 -
+/wp-content/plugins/x/index.php 1 -
+/laboratoriumold.zip 5 -
+/.well-known/cgialfa 1 www.bing.com
+/wp-includes/index.php 1 -
+/3.zip 4 -
+/.env.tar.gz 5 -
+/alfa-rex.php56 1 -
+/ind.tar.gz 4 -
+/wp-admin/maint/atomlib.php 3 -
+/wp-admin/includes/file.php 1 -
+/locale.php 1 -
+/wp-includes/upload.php 2 -
+/disperakim.tar.gz 4 -
+/73.php 6 www.google.com
+/moodle/local/moodle_webshell/webshell.php 1 -
+/help.php 2 -
+/wp-admin/1.php 1 -
+/wp-content/item.php 4 -
+/poltekkesbanten_2024.tar.gz 1 -
+/pupr.rar 4 -
+/pindu.rar 4 -
+/upload.php 7 -
+/app_openSID.zip 4 -
+/wg.php 1 -
+/ujian.tar 4 -
+/website_laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+/gitlab.tar 5 -
+/usr.php 2 www.google.com
+/wp-admin/images/install.php 1 -
+/wp-content/themes/travelscape/json.phpv 1 -
+/css/xmrlpc.php 3 -
+/wp-content/plugins/press/wp-class.php 1 -
+/laboratorium.tar 5 -
+/indexof.php 1 -
+/sym.php 3 www.google.com
+/v.php 7 www.google.com
+/.well-known%20(1).tar.gz 5 -
+/legal.php 1 -
+/backupan.tar 4 -
+/laboratoriumpoltekkesbanten.tar.gz 5 -
+/__MACOSX.zip 5 -
+/17.php 5 www.google.com
+/db.tar.gz 4 -
+/fx-mini.php 1 -
+/wp-content/admin.php 1 -
+/wp-includes/images/css.php 1 www.bing.com
+/wp-config.php 5 www.google.com
+/old/wp-admin/setup-config.php 1 -
+/apps.tar 4 -
+/wp-content/agls.php 1 -
+/archives.tar 5 -
+/profile.php 2 www.google.com
+/asu.php 1 -
+/wp-signup.php 5 -
+/configuration.zip 4 -
+/journals.tar 5 -
+/website.rar 4 -
+/po-admin.tar 4 -
+/wp-admin/network/index.php 3 -
+/vendor.tar 1 -
+/wpup.php 1 -
+/laboratorium_poltekkesbanten.laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+/wp-admin/about.php 3 -
+/.tmb.tar.gz 5 -
+/wp-content/plugins/psieqdm/index.php 1 -
+/jurutani.zip 4 -
+/fox.php 6 -
+/1.rar 4 -
+/back.rar 5 -
+/po-includes.tar 1 -
+/ayk.php 1 -
+/lock360.php 9 -
+/organisasi.tar.gz 4 -
+/ojs3.zip 4 -
+/layanan.rar 4 -
+/pro.tar 4 -
+/upload.zip 4 -
+/wp-admin/css/colors/light/about.php 1 -
+/ioxi-rex3.php7 1 -
+/wp-content/plugins/core-engine/H3ll.php 1 -
+/pirja.php 1 -
+/wp-includes/css/css.php 1 www.bing.com
+/alumni.rar 4 -
+/fdgfdgdsfd.php 1 -
+/sunda.php 2 www.google.com
+/cgi-bin/about.php 6 -
+/wp-content/uploads/typehub/custom/css_1729859063/alogs.php 1 -
+/documentation.rar 4 -
+/satpolpp.tar 4 -
+/mari.php 6 www.google.com
+/.well-known/content.php 1 -
+/hehe.php 2 www.google.com
+/old-index.php 2 www.google.com
+/css/wp-signup.php 1 -
+/mah.php 6 -
+/M1.php 1 -
+/data.tar 4 -
+/applications.tar.gz 5 -
+/login.tar.gz 8 -
+/alfa-v4.php 1 www.google.com
+/sdabk.tar.gz 4 -
+/backup-jurnal.tar.gz 4 -
+/poltekkesbanten_lama.rar 1 -
+/webdesalaboratorium.rar 4 -
+/disdamkar.tar.gz 4 -
+/web-school/indeks.php 1 -
+/password.tar.gz 4 -
+/10.php 5 www.google.com
+/wp-user.php 1 -
+/.well-known/pki-validation/iR7SzrsOUEP.php 1 -
+/surat.rar 4 -
+/assets/backend/plugins/jquery-file-upload/server/php 2 http://laboratorium.poltekkesbanten.ac.id/assets/backend/plugins/jquery-file-upload/server/php/
+/insoamv.php 1 -
+/2020.rar 4 -
+/database.tar.gz 5 -
+/2013.tar.gz 4 -
+/backup_laboratorium.tar 5 -
+/pasca.tar.gz 4 -
+/network.php 2 -
+/dp3ap2kb.rar 4 -
+/wpindex.php 6 www.google.com
+/laboratorium_2024.tar 1 -
+/401.php 2 www.google.com
+/desa.zip 4 -
+/lppm.tar 4 -
+/disnakertrans.tar 9 -
+/wp-includes/IXR/about.php 6 -
+/wp-includes/Text/alfapas.php 1 -
+/wp-l0gin.php 7 -
+/wordpress/update/bibil.php 1 -
+/eperda.tar 4 -
+/22xc.php 1 www.google.com
+/pariwisata.rar 4 -
+/login/2021/wp-includes/wlwmanifest.xml 5 -
+/resources.tar.gz 5 -
+/desa_laboratorium.poltekkesbanten.ac.id.tar 4 -
+/siamik.tar.gz 5 -
+/sad/about.php 1 -
+/r.php 6 www.google.com
+/xt/index.php 1 -
+/configuration.tar 4 -
+/twenty.php 1 -
+/main.php 1 -
+/shellsiapa.php 1 www.google.com
+/baru.tar 4 -
+/lppm/wp-admin/setup-config.php 1 -
+/dinas.tar 4 -
+/wp-content/uploads/typehub/custom/css_2371056119/alogs.php 1 -
+/repository.rar 4 -
+/2020.tar.gz 4 -
+/wp-admin/css/colors/midnight/index.php 3 -
+/LABORATORIUMPOLTEKKESBANTEN.rar 4 -
+/2013.rar 4 -
+/shell_lock.php 1 -
+/setdako.tar 1 -
+/wp-content/about.php 8 -
+/desa_laboratorium.tar.gz 4 -
+/po-content.tar 1 -
+/wp-content/json.php 1 -
+/ova-tools.php 1 -
+/wp-admin/maint/about.php 1 -
+/wp-includes/sodium_compat/src/Core/Curve25519/Ge/network.php 1 -
+/id.php 6 www.google.com
+/disnaker.zip 4 -
+/adm.php 6 www.google.com
+/app.tar.gz 4 -
+/laboratorium.tar.gz 5 -
+/WSOEnigma.php 1 -
+/disparekraf.zip 4 -
+/webadmin.zip 4 -
+/cpanel.tar 4 -
+/ikeh.php 1 -
+/wp-content/1233.php 1 -
+/dcktrp.zip 4 -
+/public.zip 4 -
+/worm0.PhP7 3 -
+/back.tar.gz 5 -
+/cgi-bin/cloud.php 3 -
+/poltekkesbanten.tar 5 -
+/document.zip 4 -
+/blog/wp-admin/install.php 1 -
+/public_lama.zip 1 -
+/1.tar.gz 4 -
+/18.php 5 www.google.com
+/db.tar 4 -
+/administrator/logo_img.php 1 -
+/POLTEKKESBANTEN.zip 4 -
+/.well-known%20(3).tar 5 -
+/cyl.php 1 -
+/mail/wp-admin/install.php 1 -
+/binamarga.rar 4 -
+/wp-content/themes.php 1 -
+/l-app.tar 4 -
+/wp-functions.php 1 -
+/2.tar 4 -
+/layanan.tar.gz 4 -
+/wp-admin/css/index.php 9 -
+/by.php 6 www.google.com
+/disperkimta.rar 4 -
+/journalslaboratorium.tar.gz 4 -
+/sendgrid/.env 5 -
+/dispuprkim.rar 4 -
+/wp-content/plugins/revslider/includes/external/page/up.php 1 -
+/laboratorium.poltekkesbanten.ac.id.zip 5 -
+/kecamatan.tar 4 -
+/V3.php 1 www.google.com
+/thoms.php 1 -
+/sippn.zip 4 -
+/sites/default/files/cgialfa 1 www.bing.com
+/shell20211028.php 7 -
+/production.zip 5 -
+/byps.php 5 www.google.com
+/wp-admin/Xl2023.php 1 -
+/wp-admin/css/colors/coffee/about.php 1 -
+/ads.txt 1 -
+/wp-includes/Requests/about.php 6 -
+/sym403.php 7 -
+/LABORATORIUM.rar 4 -
+/openSID.zip 4 -
+/0z.php 6 www.google.com
+/gmc.zip 5 -
+/tes.rar 4 -
+/dinaspupr.zip 4 -
+/cms.tar.gz 5 -
+/0byte.php 6 www.google.com
+/openSID.tar 4 -
+/wp-includes/pomo/about.php 6 -
+/16.php 5 www.google.com
+/slt.php 1 -
+/files.rar 5 -
+/disperkimta.tar.gz 4 -
+/wp-admin/maint/upfile.php 1 -
+/repeater.php 6 -
+/security.php 2 www.google.com
+/rxr.php 1 -
+/disnakertrans.zip 9 -
+/n.php 7 -
+/dr.php 1 -
+/test.php 7 -
+/version.php 1 -
+/wp-content/boy.php 1 -
+/wp-content/update/zerotwo.php 1 -
+/dispenda.zip 4 -
+/k.php 6 www.google.com
+/xdmah.php 1 www.google.com
+/indosec.php 7 -
+/wp-includes/block-patterns/about.php 6 -
+/smartcity.tar 4 -
+/sample-config-options.php 1 -
+/wp-content/themes/sketch/404.php 1 -
+/wp-class.php 9 -
+/5.zip 4 -
+/website.tar.gz 4 -
+/learning.tar.gz 4 -
+/wp-content 1 http://laboratorium.poltekkesbanten.ac.id/wp-content/
+/tuco.php 2 www.google.com
+/update.rar 4 -
+/jurnal.zip 5 -
+/ext.php 3 -
+/wp-content/wp.php 2 -
+/puskesmas.zip 4 -
+/oldlaboratorium.rar 5 -
+/error.php 7 www.google.com
+/wp-content/alfacgiapi 1 www.bing.com
+/wp-includes/js/jquery/jquery-migrate.min.js 1 -
+/e-journalstikes.tar 4 -
+/classwithtostring.php 3 -
+/.tmb.rar 5 -
+/D4H73W.php 1 -
+/xox.php 1 www.google.com
+/html.rar 5 -
+/o.php 7 www.google.com
+/.well-known%20(2).rar 5 -
+/pmb.tar 5 -
+/2021.rar 4 -
+/.well-known(3).zip 1 -
+/h.php 5 -
+/LABORATORIUM.POLTEKKESBANTEN.AC.ID.rar 4 -
+/well-known.tar 5 -
+/wp-admin/classwithtostring.php 1 -
+/.well-known/pki-validation/wp-signup.php 6 www.google.com
+/lms.zip 4 -
+/g3l4y.php 1 -
+/dishub.tar.gz 4 -
+/folders/cmd.php 2 -
+/Public.tar.gz 4 -
+/applications.tar 5 -
+/.env.rar 5 -
+/prkp.zip 4 -
+/api.tar 5 -
+/dinaspariwisata.zip 4 -
+/exec.php 1 -
+/wp-content/plugins/wp-sec/ab.php 1 -
+/administrator.tar.gz 5 -
+/setdako.zip 1 -
+/cgi-bin/admin.cgi 1 -
+/if.php 1 www.google.com
+/wp-admin/css 1 http://laboratorium.poltekkesbanten.ac.id/wp-admin/css/
+/wp-content/plugins/seoo/wsoyanz.php 3 -
+/assets.tar 5 -
+/WSO.php 4 www.google.com
+/fierza.php 7 www.google.com
+/admin.tar 5 -
+/.well-known/acme-challenge/xmrlpc.php 6 -
+/kebakaran.tar.gz 4 -
+/admin/controller/extension/extension/cgialfa 1 www.bing.com
+/wp-admin/images/about.php 6 -
+/laboratorium_poltekkesbanten.laboratorium.poltekkesbanten.ac.id.zip 4 -
+/wp-info.php 10 -
+/themes.php 8 -
+/hehehehe.php 1 -
+/pupr.tar.gz 4 -
+/aaa.php 1 -
+/pucktr.rar 4 -
+/ab.php 1 -
+/wp-includes/css/buttons.css 1 -
+/wp-content/plugins/dzs-zoomsounds/agls.php 1 -
+/wp-pano.php 3 -
+/2018.zip 4 -
+/wp.zip 5 -
+/laboratorium_poltekkesbanten.laboratorium.poltekkesbanten.ac.id.tar 4 -
+/inspektorat.tar 4 -
+/pmblaboratorium.rar 4 -
+/laboratorium2.zip 4 -
+/spon.PhP8 1 -
+/backup_laboratorium.poltekkesbanten.ac.id.zip 5 -
+/ujian.zip 4 -
+/wp-content/plugins/TOPXOH/wDR.php 1 -
+/wp-rss.php 3 www.google.com
+/wp-includes/css/dist/niil.php 1 -
+/usermanual/indeks.php 1 -
+/campus/blocks/rce/lang/en/block_rce.php 1 -
+/wp-admin/cgialfa 1 www.bing.com
+/login/wp/wp-includes/wlwmanifest.xml 18 -
+/wp-includes/ALFA_DATA 1 www.bing.com
+/wp-includes/themes.php 4 -
+/lufix.php 4 -
+/randkeyword.PhP8 1 -
+/wp-content/themes/travelscape/json.php 7 -
+/webdesalaboratorium.zip 4 -
+/dpubinmarcipka.tar.gz 4 -
+/eagle.php 5 www.google.com
+/cjfuns.php 4 -
+/wp-content/plugins/phpad/acp.php 1 -
+/wp-includes/js/imgareaselect/index.php 3 -
+/wp-admin/images/Mhbgf.php 1 -
+/laboratorium-old.tar 5 -
+/gecko.php 8 -
+/wp-root.php 1 -
+/bower_components/angular-base64-upload 1 -
+/wp-init.php 1 -
+/.well-known.rar 5 -
+/.well-known/acme-challenge/upfile.php 1 -
+/dpmp.tar.gz 4 -
+/ojs.tar 4 -
+/wp-admin/wp-login.php 1 -
+/1111.php 1 -
+/wp-content/index.php 4 -
+/ojs1.tar 4 -
+/LABORATORIUM.POLTEKKESBANTEN.tar.gz 4 -
+/cbt.zip 4 -
+/pub.rar 4 -
+/journalslaboratorium.tar 4 -
+/wp-content/f0x.php 2 -
+/dpapmk.zip 4 -
+/revision.php 1 -
+/dinaspupr.rar 4 -
+/admin-post.php 2 -
+/www.tar 9 -
+/dxshell.php 1 -
+/dbmsda.zip 4 -
+/openSID.rar 4 -
+/laboratorium1.zip 4 -
+/wp-content/plugins/root-file-manager/wp-file.php 3 -
+/wp-admin/6lsqYXQbrSB.php 1 -
+/lpm/wp-admin/setup-config.php 1 -
+/laboratorium_old.rar 5 -
+/v2.tar.gz 5 -
+/disperadankpp.zip 4 -
+/backuplaboratorium.rar 4 -
+/m4r1ju4n4.php 1 -
+/docindex.php 6 www.google.com
+/2017.tar.gz 4 -
+/admin.php 13 -
+/term.php 1 -
+/new.php 4 -
+/wp-content/themes/about.php 6 -
+/username.tar.gz 4 -
+/modules/mod_webshell/mod_webshell.php 1 -
+/wp-config-sample.php 10 -
+/buy.php 1 -
+/rpd.tar 4 -
+/siakad.tar 4 -
+/ioxi-rex4.php7 1 -
+/wp-includes/shell.phpp 2 -
+/wp-admin/images/cloud.php 2 -
+/.well-known/pki-validation/file.php 1 -
+/pegi.php 1 -
+/bak.php 3 -
+/wp_mna.php 1 -
+/pb14/indeks.php 1 -
+/wikindex.php 7 -
+/puskesmas.rar 4 -
+/dprkp.rar 4 -
+/lpm.zip 4 -
+/file/css/cmd.php 2 -
+/2016.tar 4 -
+/rsud.tar 4 -
+/p.php 5 www.google.com
+/old.tar 5 -
+/sia.tar.gz 5 -
+/.well-known%20(1).rar 5 -
+/dpu.rar 4 -
+/config.tar.gz 4 -
+/wso.php 9 -
+/wp-content/plugins/wp-apxupx.php 3 -
+/wp-mails.php 5 www.google.com
+/info.rar 4 -
+/jadow.php 1 www.google.com
+/1.zip 4 -
+/.well-known/alfacgiapi 1 www.bing.com
+/disdamkar.tar 4 -
+/wp-admin/js/widgets/file.php 1 -
+/2015.tar.gz 4 -
+/shell.php 12 -
+/cadangan.zip 4 -
+/wp-content/wsoi.php 1 -
+/dpkp.rar 4 -
+/minipriv.php 4 www.google.com
+/wp-admin/images/wp-signup.php 1 -
+/e-journals.rar 5 -
+/New_Folder.tar 4 -
+/you.php 3 -
+/lux.php 1 -
+/wp-includes/Text/wp-login.php 1 -
+/backup.tar 5 -
+/4.tar 4 -
+/test/wp-content/plugins/etwtayp/index.php 1 -
+/5.tar.gz 4 -
+/simple.php 15 -
+/dispar.tar.gz 4 -
+/wp-content/themes/bltm/wp-login.php 3 -
+/dispen.rar 4 -
+/up.php 10 -
+/wp-content/export.php 1 www.bing.com
+/wsoshell.php 1 -
+/sisdjatansdabm.zip 4 -
+/binamarga.zip 4 -
+/wp/wp-admin/setup-config.php 1 -
+/security.rar 4 -
+/laboratorium_old.tar 5 -
+/.well-known(2).tar 1 -
+/ninja.php 5 www.google.com
+/mrjn.php 5 www.google.com
+/admin-heade.php 1 -
+/kcfinder.rar 4 -
+/login/2019/wp-includes/wlwmanifest.xml 18 -
+/wp-admin/x.php 3 -
+/2012.rar 4 -
+/foto/cmd.php 2 -
+/2014.rar 4 -
+/wp-admin/images/xmrlpc.php 6 -
+/d.php 5 www.google.com
+/nshell.php 1 -
+/resources.tar 5 -
+/stikes.zip 4 -
+/wp-content/plugins/erin/randkeyword.php 1 -
+/opac.tar.gz 4 -
+/wp-content/themes/extol/settings.php 1 -
+/laboratorium-old.rar 5 -
+/22.php 3 www.google.com
+/xinder.php 1 www.google.com
+/disperkimtan.rar 4 -
+/dpupr2kp.tar 4 -
+/putr.tar 4 -
+/setdako.rar 1 -
+/App.tar 5 -
+/disbimacipta.zip 4 -
+/backup_laboratorium.tar.gz 5 -
+/creates.php/fr.php 1 -
+/wp-include.tar.gz 5 -
+/wp-admin/includes/class_api.php 3 -
+/wp-includes/fonts/index.php 1 -
+/.well-known.tar.gz 5 -
+/old/wp-admin/install.php 1 -
+/cache.tar.gz 4 -
+/bak.zip 5 -
+/3.rar 4 -
+/.well-known(1).tar 1 -
+/weblaboratorium.zip 4 -
+/v3.rar 5 -
+/perpustakaan.tar.gz 4 -
+/.well-known/admin.php 4 -
+/wp-content/ALFA_DATA 1 www.bing.com
+/63ck0.php 1 -
+/spmi.zip 4 -
+/wp-add.php 1 -
+/style-js.php 1 -
+/ejournal.tar.gz 5 -
+/webdesa_laboratorium.rar 4 -
+/login/blog/wp-includes/wlwmanifest.xml 18 -
+/dbmsda.tar.gz 4 -
+/laboratorium-poltekkesbanten-laboratorium.poltekkesbanten.ac.id.zip 4 -
+/mini.php 8 -
+/dpapmk.tar.gz 4 -
+/weblaboratorium.tar.gz 4 -
+/well.php 1 -
+/alumni.tar 4 -
+/wp-contact.php 1 -
+/cgi.php 1 -
+/web.zip 5 -
+/wp-2019.php 10 -
+/wp-includes/customize/about.php 3 -
+/disparekraf.rar 4 -
+/meki.php 1 -
+/wp-includes/css/about.php 1 -
+/wp-admin/css/colors/coffee/index.php 4 -
+/tes.tar 4 -
+/templates/beez3/index.php 2 -
+/wp-content/themes/classic/inc/_1004950078_.php 1 -
+/belajar.tar.gz 4 -
+/twin.php 6 www.google.com
+/batm.php 7 -
+/wp-includes/about.php 6 -
+/cong.php 11 -
+/.well-known/acme-challenge/admin.php 1 -
+/hunter.php 1 www.google.com
+/wp-admin/css/colors/coffee/xmrlpc.php 2 -
+/surat.zip 4 -
+/wp-includes/SimplePie/index.php 1 -
+/srx.php 2 www.google.com
+/wp-content/themes/universal-news/www.php 1 -
+/wso2.php 2 www.google.com
+/pkm.tar.gz 4 -
+/yuuki.php 1 -
+/config.zip 4 -
+/laboratorium_2024.zip 1 -
+/anggota.zip 4 -
+/apps.rar 4 -
+/web_laboratorium.poltekkesbanten.ac.id.zip 4 -
+/puskesmas.tar 4 -
+/ae.php 3 -
+/owl.php 1 -
+/flame.php 6 www.google.com
+/zz.php 2 -
+/e-journals.zip 5 -
+/wp-content/themes/twentyseventeen/page/index.php 3 -
+/wp-content/plugins/seooo/alfanew.php 1 -
+/mail/wp-login.php 1 -
+/editor.php 1 -
+/bem.zip 4 -
+/.wp-cli.rar 5 -
+/wwwroot.tar 5 -
+/wp-includes/SimplePie/plugins.php 1 -
+/wp.tar 5 -
+/disperkimta.zip 4 -
+/.well-known/acme-challenge 1 http://laboratorium.poltekkesbanten.ac.id/.well-known/acme-challenge/
+/LABORATORIUM.POLTEKKESBANTEN.AC.ID.zip 4 -
+/eperda.rar 4 -
+/username.zip 4 -
+/wp-activate.php 8 -
+/shx.php 2 www.google.com
+/domain.php 1 -
+/ppid.zip 4 -
+/2.zip 4 -
+/pupr.tar 4 -
+/laboratorium-old.tar.gz 5 -
+/dinaspupr.tar 4 -
+/god4m.php 2 www.google.com
+/smartcity.zip 4 -
+/wp-content/plugins/ccx/index.php 1 -
+/haxor.php 3 www.google.com
+/public_lama.rar 1 -
+/la.php 2 www.google.com
+/Archive.tar 4 -
+/cgi-bin.zip 5 -
+/wp-content/themes/classic/inc/agls.php 1 -
+/wp-content/plugins/cakil/up.php 2 -
+/cgi-bin.tar 5 -
+/api.rar 5 -
+/priv8.php 7 www.google.com
+/2024.zip 4 -
+/Archive.zip 4 -
+/2022.zip 4 -
+/kct403.php 4 www.google.com
+/baru.tar.gz 4 -
+/antiheker.php 1 -
+/wp-admin/network/plugins.php 1 -
+/kecamatan.zip 4 -
+/.well-known(1).rar 1 -
+/2020.tar 4 -
+/config.php 9 www.google.com
+/license.txt 1 -
+/all/modules/views-7.x-3.24/views/shell.php 1 -
+/backup-jurnal.tar 4 -
+/5.tar 4 -
+/wp-admin/user/file.php 1 -
+/4.tar.gz 4 -
+/archives.php 1 www.bing.com
+/resources.rar 5 -
+/pmb.rar 5 -
+/public_lama.tar.gz 1 -
+/text.php 2 -
+/2019.zip 4 -
+/wp-mail.php 8 -
+/web.php 1 -
+/curl.php 1 -
+/app/webroot/global/plugins/jquery-file-upload/server/php 1 http://laboratorium.poltekkesbanten.ac.id/app/webroot/global/plugins/jquery-file-upload/server/php/
+/wwwroot.zip 5 -
+/black.php 6 www.google.com
+/sid.zip 4 -
+/disdamkar.rar 4 -
+/ppdb.zip 5 -
+/plugins.rar 4 -
+/dprkp.tar 4 -
+/joy.php 1 -
+/rapemda.rar 4 -
+/content.php 13 -
+/wp-booking.php 1 www.bing.com
+/wp-admin/maint/maint/ajax-actions.php 2 -
+/writeable.php 1 -
+/wp-content/themes/mero-magazine/ws.php 1 -
+/disnakertrans.tar.gz 9 -
+/pascasarjana.zip 4 -
+/images.php 4 www.google.com
+/lppm.rar 4 -
+/cadangan.tar.gz 4 -
+/laboratorium_2024.tar.gz 1 -
+/public_html.tar 5 -
+/anggota.tar 4 -
+/ejournal.zip 5 -
+/wp-includes/f0x.php 2 -
+/.well-known(2).rar 1 -
+/y.php 6 www.google.com
+/administrator.zip 5 -
+/wp-editor.php 1 -
+/diskominfo.tar.gz 4 -
+/dinaspkp.tar 4 -
+/12.php 5 www.google.com
+/dispar.zip 4 -
+/back.tar 5 -
+/vendor.rar 1 -
+/pindu.zip 4 -
+/local.php 6 www.google.com
+/sam.php 1 -
+/wp-content/plugins/ioxi/alfa-ioxi.php 1 -
+/laboratorium-poltekkesbanten.laboratorium.poltekkesbanten.ac.id.zip 4 -
+/data.rar 4 -
+/laboratorium_old.tar.gz 5 -
+/libraries/phpmailer/ws.php 1 -
+/wp-content/themes/seotheme/mar.php 6 -
+/kota.zip 4 -
+/wp-admin/cloud.php 2 -
+/gitlab.rar 5 -
+/db.zip 4 -
+/ioxi002.PhP7 1 -
+/pemeliharaan.zip 4 -
+/wp-content/plugins/mar.php 2 -
+/remove.php 1 -
+/wp-content/upgrade/index.php 1 -
+/stikes.tar.gz 4 -
+/byp.php 7 -
+/laboratorium.poltekkesbanten.tar 5 -
+/disparekraf.tar.gz 4 -
+/b374k.php 1 -
+/am4n.php 2 www.google.com
+/rpd.rar 4 -
+/anonym.php 1 -
+/korpri.rar 4 -
+/wp-content/plugins/seoo/wsoyanz1.php 2 -
+/wp-admin/alfacgiapi 1 www.bing.com
+/LABORATORIUM.POLTEKKESBANTEN.AC.ID.tar.gz 4 -
+/anggota.rar 4 -
+/.well-known.zip 5 -
+/wp-content/plugins/523453244/ninja.php 3 -
+/assets/images/ws.php 1 -
+/wp-content/plugins/seoplugins/db.php 6 -
+/zxc.php 1 -
+/wp-admin/css/colors/coffee/cloud.php 2 -
+/webadmin.tar.gz 4 -
+/www.rar 9 -
+/2015.tar 4 -
+/pub.tar 4 -
+/disnaker.tar.gz 4 -
+/new/wp-login.php 1 -
+/lama.zip 4 -
+/2023.zip 4 -
+/shells.php 3 www.google.com
+/jurnallaboratorium.tar 4 -
+/search.php 1 www.google.com
+/laboratorium2.tar.gz 4 -
+/old.rar 5 -
+/wp-includes/content.php 1 -
+/dpu.tar 4 -
+/wpkey.php 1 -
+/randkeyword.php 1 -
+/dp3ap2kb.tar 4 -
+/xforce.php 1 www.google.com
+/data-user.php 1 -
+/spawn.php 1 -
+/wp-includes/blocks/about.php 3 -
+/admin.rar 5 -
+/dinaspariwisata.tar.gz 4 -
+/install.tar.gz 4 -
+/disperakim.tar 4 -
+/wp-admin/css/colors 1 http://laboratorium.poltekkesbanten.ac.id/wp-admin/css/colors/
+/wsoyanz.php 2 -
+/wp-includes/class-wp-upgrade.php 1 -
+/setwan.tar 4 -
+/putr.tar.gz 4 -
+/1.tar 4 -
+/siamik.zip 5 -
+/cgi-bin.rar 5 -
+/kecamatan.rar 4 -
+/back.php 2 -
+/resources.zip 5 -
+/wp-admin/index.php 1 -
+/files.tar 5 -
+/301.php 1 -
+/damkar.rar 4 -
+/elraton.php 2 www.google.com
+/opac.tar 4 -
+/2.tar.gz 4 -
+/wp-includes/js/themes.php 1 -
+/wp-includes/product.php 1 -
+/laboratorium1.tar.gz 4 -
+/account.php 1 -
+/plugins.tar 4 -
+/.wp-cli.zip 5 -
+/index.zip 5 -
+/xl2023.php 4 -
+/disdamkar.zip 4 -
+/ojs.rar 4 -
+/clan.php 1 -
+/10.rar 4 -
+/binamarga.tar 4 -
+/document.tar.gz 4 -
+/backuplaboratorium.zip 4 -
+/public.tar.gz 4 -
+/wordpress/update/gely.php 1 -
+/dcktrp.tar.gz 4 -
+/satpolpp.rar 4 -
+/disperadankpp.tar.gz 4 -
+/wp-admin/css/colors/xmrlpc.php 3 -
+/rapemda.tar 4 -
+/cy.php 1 -
+/q.php 5 www.google.com
+/l-app.rar 4 -
+/bb.php 2 -
+/media.php 1 -
+/backupan.rar 4 -
+/rapemda.zip 4 -
+/as/function.php 1 -
+/wp-admin/ALFA_DATA 1 www.bing.com
+/wp-admin/dropdown.php 9 -
+/wp-content/uploads/2020/wp-couldent.php.suspected 3 -
+/perkim.rar 4 -
+/wp-content/blogs.dir/about.php 2 -
+/App.rar 5 -
+/options.php 1 -
+/8.php 5 www.google.com
+/Geco.php 1 -
+/wp-content/plugins/fix/up.php 8 -
+/Public.zip 4 -
+/.well-known/index.php 1 -
+/LABORATORIUMPOLTEKKESBANTEN.tar.gz 4 -
+/wp-includes/cgialfa 1 www.bing.com
+/wwwroot.rar 5 -
+/.wp-cli.tar 5 -
+/plugins.zip 4 -
+/disparbudpar.tar.gz 4 -
+/learning.zip 4 -
+/dishub.zip 4 -
+/templates/beez3/alfacgiapi 1 www.bing.com
+/admin404.php 6 www.google.com
+/wp-.myluv.php 1 -
+/wp-sigunq.php 3 -
+/journals.rar 5 -
+/ojs1.tar.gz 4 -
+/dispuprkim.zip 4 -
+/po-admin.rar 4 -
+/cd.php 1 -
+/4.zip 4 -
+/production.rar 5 -
+/dpmp.tar 4 -
+/dispenda.tar.gz 4 -
+/wp-includes/makeasmtp.php 1 -
+/smartcity.rar 4 -
+/Archive.rar 4 -
+/POLTEKKESBANTEN.tar.gz 4 -
+/hshs.php 1 -
+/archives.rar 5 -
+/blog/wp-admin/setup-config.php 1 -
+/abby.php 6 www.google.com
+/wp-content/uploads/2000/01/alogs.php 1 -
+/home.php 1 -
+/filemanager.php 7 www.google.com
+/wsopriv.php 1 www.google.com
+/wp-content/themes/config.bak.php 1 www.bing.com
+/dinas.rar 4 -
+/2017.tar 4 -
+/glpi/vendor/network.php 1 -
+/ind.zip 4 -
+/rs.tar.gz 4 -
+/repository.zip 4 -
+/wp-admin/wp-opmls.php 1 -
+/web_laboratorium.zip 4 -
+/wp-admin/404.php 1 -
+/wp-content/languages/index.php 1 -
+/asset/kcfinder/browse.php 1 -
+/v4.php 2 www.google.com
+/organisasi.tar 4 -
+/lpm//wp-login.php 1 -
+/adminfuns.php7 2 -
+/login/wp2/wp-includes/wlwmanifest.xml 13 -
+/theme-single.php 1 -
+/jurnal.tar.gz 5 -
+/jurnalbackup.tar.gz 4 -
+/2016.tar.gz 4 -
+/rsud.tar.gz 4 -
+/sites/default/files/alfacgiapi 1 www.bing.com
+/update/gely.php 1 -
+/updates.tar.gz 4 -
+/wp-blog.php 9 -
+/xl.php 2 www.google.com
+/gelay.php 5 www.google.com
+/wpcontent/plugins/WordPressCore/include.php 1 -
+/atomlib.php 4 -
+/disdukcapil.tar 4 -
+/coloradmin/assets/plugins/jquery-file-upload/server/php 1 http://laboratorium.poltekkesbanten.ac.id/coloradmin/assets/plugins/jquery-file-upload/server/php/
+/wp-content/themes/admin.php 1 -
+/sitemap.txt 2 -
+/dinsos.tar 4 -
+/minishell.php 6 www.google.com
+/bj.php 2 www.google.com
+/pkm.rar 4 -
+/wp-content/themes/seotheme/db.php 6 -
+/ioxi-rex5.php7 1 -
+/wp-includes/customize/index.php 1 -
+/spmi.tar 4 -
+/disdukcapil.tar.gz 4 -
+/edit-form.php 1 -
+/laravel.zip 4 -
+/wp-backup-sql-302.php 1 www.bing.com
+/templates/beez3/ALFA_DATA 1 www.bing.com
+/upgrade.php 2 -
+/sipenmaru.tar 4 -
+/login/2018/wp-includes/wlwmanifest.xml 4 -
+/modules/ctools-8.x-3.4/ctools/shell.php 1 -
+/f.php 4 www.google.com
+/putr.zip 4 -
+/1.php 11 -
+/wp-content/themes/zcool-like/uploadify.php 1 -
+/predator.php 2 www.google.com
+/jurnall.zip 5 -
+/ws.php7 2 -
+/document.tar 4 -
+/jurnalbackup.rar 4 -
+/themes/include.php 1 -
+/sx.php 1 -
+/e-journalstikes.tar.gz 4 -
+/ini.php 4 -
+/lp3m.rar 4 -
+/repository.tar.gz 4 -
+/antek.php 1 www.google.com
+/wp-admin/images/license.php 1 -
+/password.rar 4 -
+/vendor.tar.gz 1 -
+/gizi.rar 4 -
+/disnaker.tar 4 -
+/disparbudpar.rar 4 -
+/.well-known/wp-signup.php 6 www.google.com
+/wp-file.php 2 -
+/100.php 1 www.google.com
+/.well-known/pki-validation/about.php 6 -
+/webadmin.tar 4 -
+/dispuprkim.tar.gz 4 -
+/2023.tar.gz 4 -
+/files.tar.gz 5 -
+/dispen.zip 4 -
+/app.tar 4 -
+/v1.zip 5 -
+/wp-content/shell.php 1 -
+/lama.tar.gz 4 -
+/wp-god.php 1 -
+/class_appfun.php 1 -
+/database.rar 5 -
+/wp-includes/rest-api/index.php 1 -
+/stats.php 1 -
+/dpppappkb.tar 5 -
+/product.php 2 www.google.com
+/print/bkindex.php 1 -
+/wp-includes/wp-login.php 1 -
+/wp-content/themes/newsreach/ws.php 1 -
+/wp-content/plugins/pref-lang/bert.php 1 -
+/manajemen.zip 5 -
+/laboratorium_2024.rar 1 -
+/includes.php 7 www.google.com
+/stikes.rar 4 -
+/dp3ap2kb.tar.gz 4 -
+/gitlab.tar.gz 5 -
+/xzdd.php 1 -
+/402.php 1 www.google.com
+/sct.php 1 -
+/laboratorium_poltekkesbanten.rar 4 -
+/dpubinmarcipka.tar 4 -
+/wp-admin/css/colors/blue/xmrlpc.php 3 -
+/customize.php 1 -
+/2016.zip 4 -
+/rsud.zip 4 -
+/class-wp.php 1 -
+/wp-content/plugins/cmd.php 2 -
+/website_laboratorium.tar.gz 4 -
+/ticket.php 1 -
+/wp-content/themes/greyd_suite/inc/css_3557991909/costum_font_3557991909/alogs.php 1 -
+/silakop.tar.gz 1 -
+/ghostsec.php 2 www.google.com
+/dpapmk.rar 4 -
+/con7ext.php 5 www.google.com
+/ioxi-rex.php 1 -
+/.git.rar 5 -
+/wp-content/themes/twentytwentythree/patterns/index.php 3 -
+/.well-known/acme-challenge/makeasmtp.php 1 -
+/wp-inlcudes.php 6 www.google.com
+/css/cmd.php 2 -
+/applications.zip 5 -
+/dbmsda.rar 4 -
+/system_log.php 2 -
+/19.php 5 www.google.com
+/wp-email.php 6 www.google.com
+/pmb.tar.gz 5 -
+/admin1.php 1 -
+/wp-content/themes/geum/_activ.php 1 -
+/e-journal.zip 5 -
+/gank.php.PhP 1 www.bing.com
+/laboratorium2.rar 4 -
+/3index.php 6 www.google.com
+/peraturan.tar.gz 4 -
+/uct.php 5 www.google.com
+/cgialfa 1 www.bing.com
+/wp-content/themes/travel/issue.php 9 -
+/evil.php 5 www.google.com
+/wp-includes/sitemaps/providers/wp-signup.php 1 -
+/backup/wp-login.php 1 -
+/2020/indeks.php 1 -
+/wp-content/plugins/not/includes/about.php 1 -
+/.well-known(1).tar.gz 1 -
+/mhs.zip 4 -
+/b374priv.php 1 www.google.com
+/erin1.PhP7 1 -
+/api.tar.gz 5 -
+/base.php 6 www.google.com
+/wp-content/bak.php 1 -
+/LABORATORIUMPOLTEKKESBANTEN.zip 4 -
+/login/site/wp-includes/wlwmanifest.xml 18 -
+/poltekkesbanten.tar.gz 5 -
+/eperda.tar.gz 4 -
+/img/about.php 2 -
+/ojs1.zip 4 -
+/wp-admin/css/colors/index.php 6 -
+/wp-admin/ccx/index.php 3 -
+/demos.php 1 -
+/update/wpup.php 1 -
+/modules/mod_simplefileuploadv1.3/elements/wcg9LbOHD14.php 1 -
+/l-content.tar.gz 4 -
+/wp-plugins.php 7 www.google.com
+/bkv74.php 4 www.google.com
+/wp-wso.php 4 -
+/bypass403.php 2 www.google.com
+/jurnall.tar 5 -
+/ejournall.zip 5 -
+/poltekkesbanten_2024.zip 1 -
+/fm1.php 4 -
+/webdesa.tar.gz 4 -
+/8.tar 4 -
+/laboratorium1.rar 4 -
+/disdukcapil.rar 4 -
+/alfa-rex.php7 6 -
+/config.bak.php 1 www.bing.com
+/sys.php 6 www.google.com
+/kelurahan.rar 4 -
+/cms.tar 5 -
+/kabupaten.tar.gz 4 -
+/Njima.php 1 -
+/wp-content/x/index.php 1 -
+/wp/wp-admin/install.php 1 -
+/laymu.php 1 -
+/laravel.tar 4 -
+/desalaboratorium.zip 4 -
+/dispenda.tar 4 -
+/wp-admin/js/about.php 11 -
+/disperadankpp.rar 4 -
+/wso2023.php 1 -
+/blog/wp-login.php 1 -
+/.well-known(2).tar.gz 1 -
+/wp-includes/SimplePie/about.php 6 -
+/wp-atom.php 10 -
+/9.rar 4 -
+/disparekraf.tar 4 -
+/wp-system.php 6 www.google.com
+/wp-content/themes/sonoran/mobile.php 1 -
+/assets/library.php 1 -
+/i.php 6 www.google.com
+/wp-content/classwithtostring.php 1 -
+/ppid.tar.gz 4 -
+/2018.tar 4 -
+/documents.tar.gz 4 -
+/perkim.tar.gz 4 -
+/sia.tar 5 -
+/old.tar.gz 5 -
+/wp-content/plugins/mmk/alfanew.php 1 -
+/testwp.php 2 www.google.com
+/jurnall.rar 5 -
+/ejournall.rar 5 -
+/v2.rar 5 -
+/aab.php 1 -
+/wp-content/plugins/seoox/alfa-rex.php 1 -
+/asset.zip 5 -
+/sidwsi.PhP7 1 -
+/laravel.rar 4 -
+/pucktr.zip 4 -
+/352XMT.php 1 -
+/diskominfo.zip 4 -
+/wp-posts.php 2 www.google.com
+/cache.rar 4 -
+/min.php 5 www.google.com
+/wp-content/plugins/core-stab/fmanager.php 1 -
+/kelurahan.zip 4 -
+/wp-content/uploads/typehub/custom/css_3668493893/alogs.php 1 -
+/moodle/blocks/rce/lang/en/block_rce.php 1 -
+/alfax.php 1 -
+/www.tar.gz 9 -
+/prkp.tar 4 -
+/23.php 2 www.google.com
+/wp-admin/repeater.php 3 -
+/z.php 7 www.google.com
+/public_html.tar.gz 5 -
+/indeks.php 1 -
+/wp-content.tar 5 -
+/disnakertrans.rar 9 -
+/wp-content/403.php 1 -
+/rpd.tar.gz 4 -
+/wp-content/ccx/index.php 3 -
+/wp-includes/mah.php 1 -
+/jdih.rar 4 -
+/wp-admin/css/colors/coffee 1 http://laboratorium.poltekkesbanten.ac.id/wp-admin/css/colors/coffee/
+/anon.php 8 www.google.com
+/dpmptspd.rar 4 -
+/webdesa_laboratorium.zip 4 -
+/humas.zip 4 -
+/orange.php 1 -
+/wp-admin/css/colors/blue/atomlib.php 1 -
+/edit.php 1 -
+/Fdbxhriw.php 1 -
+/assets/css/403.php 3 -
+/tppk.rar 4 -
+/ojs.tar.gz 4 -
+/wp-admin/css/colors/blue/uploader.php 1 -
+/con.php 6 www.google.com
+/lock.php 2 -
+/module.php 1 -
+/wp-admin/css/classwithtostring.php 1 -
+/xxl.php 1 -
+/e-journal.rar 5 -
+/public_lama.tar 1 -
+/wp-includes/SimplePie 1 http://laboratorium.poltekkesbanten.ac.id/wp-includes/SimplePie/
+/x/index.php 1 -
+/wp-content/themes/aahana/json.php 1 -
+/wp-includes/Text/about.php 8 -
+/wp-links-opml.php 4 www.google.com
+/kontoru.php 1 -
+/webdesa_laboratorium.tar.gz 4 -
+/cylul.php 2 www.google.com
+/wp-includes/plugins.php 4 -
+/wp-includes/assets/index.php 1 -
+/documentation.tar 4 -
+/wp-content/themes/blueboxed/bert.php 1 -
+/webdesa_laboratorium.poltekkesbanten.ac.id.tar 4 -
+/database.php 1 -
+/jurnal.rar 5 -
+/update.zip 4 -
+/laboratoriumold.rar 5 -
+/backend.tar.gz 4 -
+/wp-includes/pomo/wp-login.php 1 -
+/kota.tar.gz 4 -
+/backup_laboratorium.rar 5 -
+/1234.php 1 -
+/blacksec.php 2 www.google.com
+/dpmptsp.tar.gz 4 -
+/fw.php 11 -
+/wp-content/plugins/phpadmin/acp.php 1 -
+/ALFA_DATA 1 www.bing.com
+/wp-content/plugins/core-stab/alogs.php 1 -
+/dinaspkp.tar.gz 4 -
+/special.php 1 www.google.com
+/b.php 8 -
+/disbimacipta.tar 4 -
+/laboratoriumpoltekkesbanten.zip 5 -
+/wp-admin/network/xmrlpc.php 6 -
+/webdesalaboratorium.tar 4 -
+/degesaciihaxor.php 1 -
+/korpri.tar.gz 4 -
+/manajemen.rar 5 -
+/e-journals.tar.gz 5 -
+/dpupr2kp.zip 4 -
+/.well-known/wso112233.php 3 -
+/wp-content/plugins/core-plugin/include.php 1 -
+/dprkp.tar.gz 4 -
+/303.php 1 -
+/App.tar.gz 5 -
+/fj.php 1 -
+/rename.php 1 -
+/whmcs.php 1 -
+/777.php 1 www.google.com
+/pegi.PhP8 1 -
+/wp/wp-content/plugins/seoojub/nice.php 1 -
+/v3.tar.gz 5 -
+/wp.php 12 -
+/wp-content/dropdown.php 1 -
+/assets/jquery-file-upload/server/php 2 http://laboratorium.poltekkesbanten.ac.id/assets/jquery-file-upload/server/php/
+/ppdb.tar.gz 5 -
+/bps.php 1 -
+/wp-content/db-cache.php 1 www.bing.com
+/damkar.tar.gz 4 -
+/inspektorat.zip 4 -
+/library.php 1 -
+/class/cmd.php 2 -
+/wp-admin/css/color/blue/maintenence.php 1 -
+/update.php 1 -
+/public_html.rar 5 -
+/wp-admin/style.php 1 www.bing.com
+/po.zip 4 -
+/wp-content/themes/upamana/mobile.php 1 -
+/gali.php 1 -
+/cadangan.tar 4 -
+/cmd.php 7 -
+/caches.php 1 -
+/baru.zip 4 -
+/wp-crom.php 1 -
+/wp-content/plugins/admin.php 1 -
+/Byp.php 1 -
+/2024.tar.gz 4 -
+/.tmb/cmd.php 2 -
+/2022.tar.gz 4 -
+/wp-conflg.php 6 -
+/dcktrp.rar 4 -
+/public.rar 4 -
+/img/cmd.php 3 -
+/adminer.tar.gz 4 -
+/css.php 11 -
+/wp-include.rar 5 -
+/gawean.PhP7 3 -
+/system.tar 4 -
+/2019.tar.gz 4 -
+/plugins.php 4 -
+/xindex.php 5 www.google.com
+/5.php 6 www.google.com
+/fr/priv8.php 1 -
+/alfa-rex.php7' 1 -
+/on-settingssl.php 1 -
+/backup_laboratorium.poltekkesbanten.ac.id.rar 5 -
+/username.tar 4 -
+/wp-admin/includes/xmrlpc.php 3 -
+/sts.php 1 -
+/dinasrumkimtan.zip 4 -
+/wp-content/uploads/index.php 3 -
+/superadmin.tar 5 -
+/htdocs.tar 5 -
+/app.rar 4 -
+/disperkimtan.tar.gz 4 -
+/wp-admin/maint/wp-mail.php 1 -
+/wso.PHP 1 -
+/mahasiswa.tar.gz 4 -
+/tiny.php 2 -
+/wp-admin/user/wp-login.php 1 -
+/sosial.tar 4 -
+/wp-admin/network/admin.php 3 -
+/.well-known.tar 5 -
+/13.php 5 www.google.com
+/wp-aa.php 3 -
+/portal.tar 4 -
+/wp-includes/css/index.php 1 -
+/perpustakaan.rar 4 -
+/fm.php 1 -
+/archive.rar 9 -
+/.wp-cache.php 3 www.google.com
+/awd.php 1 www.google.com
+/wp-content/plugins/seoplugins/mar.php 6 -
+/ejournall.tar 5 -
+/wp-includes/fonts/wp-login.php 1 -
+/dsdabmbk.rar 4 -
+/update.tar.gz 4 -
+/wp-content/uploads/2000/01/agls.php 1 -
+/1313.php 1 -
+/journal.rar 5 -
+/wp-include.zip 5 -
+/wp-content/plugins/seooo/alfa-rex.php7 1 -
+/2017.zip 4 -
+/wp-site.php 3 www.google.com
+/wp-includes/images/wp-login.php 1 -
+/wp-admin/includes/index.php 1 -
+/Public.rar 4 -
+/j.php 5 -
+/css/cloud.php 2 -
+/tes.tar.gz 4 -
+/laboratorium-poltekkesbanten.laboratorium.poltekkesbanten.ac.id.rar 4 -
+/wp-admin/network/gzak2w.php 1 -
+/cot.php 1 www.google.com
+/e-journal.tar 5 -
+/wp-defaul.php 3 www.google.com
+/dishub.rar 4 -
+/readme.php 7 www.google.com
+/wp-content/upgrade/plugins.php 1 -
+/wordpress.tar.gz 5 -
+/release.tar.gz 4 -
+/user.php 8 -
+/laboratorium_lama.tar 1 -
+/pkm.tar 4 -
+/dpmp.zip 4 -
+/laboratorium-poltekkesbanten.laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+/command.php 2 -
+/desa_laboratorium.tar 4 -
+/perkim.zip 4 -
+/plugins/jquery-file-upload/server/php 1 http://laboratorium.poltekkesbanten.ac.id/plugins/jquery-file-upload/server/php/
+/kominfo.tar.gz 1 -
+/p3ap2kb.tar 4 -
+/ye.php 1 -
+/wp-includes/widgets/include.php 1 -
+/perkimnah.tar.gz 4 -
+/pucktr.tar.gz 4 -
+/wp-content/ice.php 1 -
+/gel4y.php 6 www.google.com
+/xx.php 6 -
+/class.api.php 4 -
+/tinyfilemanager.php 6 www.google.com
+/wp-admin.rar 5 -
+/wp/wp-login.php 1 -
+/ws.php 7 -
+/damkar.zip 4 -
+/.well-known%20(3).tar.gz 5 -
+/ojs4.rar 4 -
+/ojs2.rar 4 -
+/weblaboratorium.tar 4 -
+/manajemen.tar 5 -
+/c.php 7 -
+/wp-content/plugins/hellopress/wp_filemanager.php 4 -
+/login/website/wp-includes/wlwmanifest.xml 13 -
+/7.rar 4 -
+/wp-content/plugins/revslider/includes/external/page/index.php 4 -
+/alfa-rex.php 4 -
+/web_laboratorium.poltekkesbanten.ac.id.rar 4 -
+/dpupr2kp.tar.gz 4 -
+/wp-includes/IXR/index.php 1 -
+/wp-content/upload/cmd.php 2 -
+/.well-known%20(2).zip 5 -
+/spmi.tar.gz 4 -
+/siamik.rar 5 -
+/sdabk.zip 4 -
+/login.zip 8 -
+/p3ap2kb.zip 4 -
+/400.php 1 www.google.com
+/wp-admin/css/up.php 2 -
+/registrasi.tar 4 -
+/wp-content/gallery/about.php 5 -
+/ejournal.tar 5 -
+/dinaspkp.zip 4 -
+/wp-menu.php 1 -
+/wp-includes/wp-class.php 12 -
+/opac.zip 4 -
+/wp-load.php 8 -
+/pemeliharaan.tar 4 -
+/dpppappkb.zip 5 -
+/wp-content/uploads/booking_calendar/agls.php 1 -
+/alfanew.PhP7 1 -
+/send.php 3 www.google.com
+/wp-content/plugins/google-seo-rank/module.php 1 -
+/cms.rar 5 -
+/wp-content/flame.php 6 www.google.com
+/FoxWSOv1.php 1 -
+/123.php 2 -
+/upload/cmd.php 2 -
+/pasca.zip 4 -
+/omest403.php 1 www.google.com
+/wp-commentin.php 1 -
+/wp-cron.php 5 -
+/2023.tar 4 -
+/korpri.zip 4 -
+/wp-content/plugins/backup_index.php 1 www.bing.com
+/wp-cXjq2.php 1 -
+/lama.tar 4 -
+/8.zip 4 -
+/disdukcapil.zip 4 -
+/wp-admin/includes/wso.php 2 -
+/t.php 7 -
+/a.php 9 -
+/dpuair.tar 4 -
+/eviltwin.php 6 www.google.com
+/diskominfo.rar 4 -
+/webdesa_laboratorium.poltekkesbanten.ac.id.rar 4 -
+/kuda.php 1 -
+/laboratorium.poltekkesbanten.rar 5 -
+/gely.php 1 -
+/v1.tar 5 -
+/0o.php 2 www.google.com
+/e-learning.tar 4 -
+/2015.zip 4 -
+/sipenmaru.zip 4 -
+/cache.tar 4 -
+/demo.rar 4 -
+/pascasarjana.tar 4 -
+/wp-content/plugins/elementor-pro/modules/slides/alfa-rex.php 1 -
+/storage.tar.gz 4 -
+/update/bibil.php 1 -
+/4.php 6 www.google.com
+/dispen.tar.gz 4 -
+/wp-content/themes/digital-download/new.php 4 -
+/tmp/cmd.php 2 -
+/wp-content/uploads/cmd.php 2 -
+/0.php 7 www.google.com
+/makesmtp.php 1 -
+/inspektorat.tar.gz 4 -
+/journal.zip 5 -
+/wp-includes/wp-load.php 1 -
+/wp-admin/includes/about.php 6 -
+/backup_laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+/wp-js.php 6 www.google.com
+/dinas.tar.gz 4 -
+/dispar.rar 4 -
+/vendor.zip 1 -
+/wp-admin/maint/iR7SzrsOUEP.php 1 -
+/wp-content/uploads/typehub/custom/css_2302151877/alogs.php 1 -
+/ucp.php 2 www.google.com
+/wp-smail.php 1 -
+/ptr.PhP8 1 -
+/dpubinmarcipka.rar 4 -
+/wp-content/plugins/ubh/up.php 2 -
+/mi.php 2 www.google.com
+/kota.tar 4 -
+/archive.zip 9 -
+/alfanew2.php7 2 -
+/pro.zip 4 -
+/poltekkesbanten.zip 5 -
+/.well-known%20(1).zip 5 -
+/ojs3.rar 4 -
+/smarttaxx.tar.gz 4 -
+/xl2023x.php 1 www.google.com
+/alfaaneh.php 1 -
+/webdesa_laboratorium.poltekkesbanten.ac.id.zip 4 -
+/login/wp1/wp-includes/wlwmanifest.xml 18 -
+/back.zip 5 -
+/wp-admin/css/colors/blue/uploader.phps 1 -
+/sipenmaru.rar 4 -
+/wp-admin/css/wp-login.php 1 -
+/2.php 6 www.google.com
+/b374.php 1 www.google.com
+/jurutani.rar 4 -
+/POLTEKKESBANTEN.tar 4 -
+/10.tar.gz 4 -
+/gitlab.zip 5 -
+/img/cloud.php 2 -
+/unknown.php 2 www.google.com
+/iq.php 2 www.google.com
+/123asu.php 1 -
+/LABORATORIUM.POLTEKKESBANTEN.zip 4 -
+/l-app.tar.gz 4 -
+/desa.rar 4 -
+/dpu.tar.gz 4 -
+/sia.rar 5 -
+/wp-content/plugins/innozilla-woo/block-css.php 1 -
+/1100.php 1 www.google.com
+/wp-cached.php 1 -
+/dp3ap2kb.zip 4 -
+/wp-content/themes/panama/json.php 1 -
+/.thumb35363/index.php 1 -
+/wp-admin/user/cloud.php 2 -
+/wp-content/themes/hello-element/footer.php 1 -
+/ppdb.tar 5 -
+/dinperkpp.tar.gz 4 -
+/administrator.rar 5 -
+/wp-content/plugins/zaen/includes/loadme.php 2 -
+/assets/dropdown.php 1 -
+/6.rar 4 -
+/wp-admin/css/QUYcH.php 1 -
+/wp-admin/defaults.php 1 -
+/scn.php 1 -
+/elearning.tar.gz 4 -
+/2019.tar 4 -
+/2024.tar 4 -
+/2022.tar 4 -
+/wp-includes/SimplePie/Content/about.php 1 -
+/disperkimta.tar 4 -
+/dpppappkb.rar 5 -
+/login/wp-includes/wlwmanifest.xml 13 -
+/pub.tar.gz 4 -
+/lx.php 2 www.google.com
+/2020.zip 4 -
+/po.tar 4 -
+/backup-ejournal.rar 4 -
+/wp-content/uploads/2014/07/olx.php 3 -
+/use.php 2 www.google.com
+/production.tar.gz 5 -
+/rs.rar 4 -
+/eperda.zip 4 -
+/azdare.php 1 -
+/sitemap.xml.gz 2 -
+/.well-known%20(2).tar.gz 5 -
+/ppid.tar 4 -
+/login/wp-includes/ID3/license.txt 5 -
+/2018.tar.gz 4 -
+/wp-includes/sodium_compat/src/Core/Curve25519/Ge/wp_blog.php 1 -
+/pupr.zip 4 -
+/bappeda.tar.gz 4 -
+/ah.php 1 -
+/lala.php 1 -
+/ejournals.tar.gz 5 -
+/Apps.rar 5 -
+/wp-2018.php 2 -
+/dp3a.rar 4 -
+/LABORATORIUM.tar.gz 4 -
+/baindex.php 1 -
+/db.php 2 -
+/wp-admin.php 7 -
+/p3ap2kb.rar 4 -
+/wp-files.php 1 -
+/new-index.php 5 www.google.com
+/wi.php 1 www.google.com
+/prkp.tar.gz 4 -
+/dinaspariwisata.tar 4 -
+/pariwisata.tar 4 -
+/cgi-bin/wp-login.php 1 -
+/kelurahan.tar 4 -
+/laboratorium.poltekkesbanten.ac.id.rar 5 -
+/litespeed.php 6 www.google.com
+/ar.php 1 -
+/symlink.php 6 www.google.com
+/un2.php 2 www.google.com
+/wp-edit.php 1 -
+/link.php 1 -
+/en/index.php 1 -
+/wp-content/themes/seotheme/ws.php 1 -
+/e-journalstikes.zip 4 -
+/foxwso.php 6 www.google.com
+/assets/color_admin/plugins/jquery-file-upload/server/php 1 http://laboratorium.poltekkesbanten.ac.id/assets/color_admin/plugins/jquery-file-upload/server/php/
+/__MACOSX.rar 5 -
+/archive.tar 9 -
+/88.php 1 -
+/8.tar.gz 4 -
+/upload.tar 4 -
+/inspektorat.rar 4 -
+/public_html.zip 5 -
+/zone.php 5 www.google.com
+/config.rar 4 -
+/admin.tar.gz 5 -
+/wp-links.php 4 -
+/laboratorium.rar 5 -
+/blvck.php 1 -
+/backup_laboratorium.poltekkesbanten.ac.id.tar 5 -
+/learning.tar 4 -
+/journal.tar 5 -
+/alfanew.php7 3 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 42
+152.42.213.93 6 6 22416 20241011153237
+157.66.55.118 3 3 11238 20241031025308
+141.98.10.26 2 2 7472 20241014152658
+35.207.241.196 2 3 94677 20241020090512
+54.88.179.33 2 2 7472 20241018161527
+205.169.39.238 2 10 922530 20241014013614
+38.110.1.195 2 2 7472 20241018100638
+139.59.110.250 2 2 7472 20241029040848
+157.66.55.198 2 2 7472 20241021153813
+188.166.225.166 2 2 7472 20241029114256
+152.42.167.97 2 2 7472 20241008022719
+45.8.25.69 2 2 7472 20241005012025
+36.85.217.3 2 2 7472 20241017103218
+205.210.31.24 1 1 3736 20241022031324
+165.227.235.117 1 2 10142 20241015150614
+144.126.227.79 1 2 10142 20241015055218
+159.65.197.27 1 2 10142 20241017141646
+149.50.212.216 1 2 94593 20241014030555
+198.235.24.44 1 1 3736 20241026024103
+159.223.238.130 1 2 10142 20241028210800
+205.210.31.27 1 1 3736 20241031004316
+51.75.141.254 1 2 94593 20241014030554
+47.128.230.181 1 1 3736 20241004101256
+157.66.54.26 1 1 3766 20241017204216
+159.223.16.233 1 2 10142 20241005145054
+205.169.39.48 0 1 90857 
+104.197.69.115 0 1 90857 
+205.169.39.1 0 1 80599 
+34.72.176.129 0 1 80599 
+91.199.212.132 0 1 77 
+103.84.206.119 0 15 973 
+142.93.39.141 1 2 10142 20241001024353
+88.99.26.177 1 1 3736 20241014001418
+3.17.152.230 1 1 3736 20241031084849
+167.94.146.55 1 2 10142 20241012200011
+178.128.22.66 1 1 3736 20241031131001
+82.64.198.149 1 2 94593 20241014030603
+205.169.39.11 1 7 750044 20241014033901
+167.172.92.9 1 1 3736 20241031104035
+139.59.34.150 1 2 10142 20241007163505
+34.122.147.229 1 5 578588 20241014013557
+205.169.39.17 1 1 3736 20241020135144
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 24
+20241001 1 3 10206 1
+20241002 0 1 64 0
+20241003 0 1 64 0
+20241004 1 2 3800 1
+20241005 4 6 21414 3
+20241006 0 1 64 0
+20241007 1 3 10206 1
+20241008 2 3 7536 1
+20241009 0 1 64 0
+20241010 0 1 64 0
+20241011 6 7 22480 1
+20241012 1 3 10206 1
+20241013 0 1 64 0
+20241014 10 36 2717823 8
+20241015 2 4 20284 2
+20241017 5 6 25116 4
+20241018 2 2 7472 2
+20241020 3 6 269869 2
+20241021 2 2 7472 1
+20241022 2 2 7502 2
+20241026 1 1 3736 1
+20241028 1 2 10142 1
+20241029 4 4 14944 2
+20241031 6 6 22416 5
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 2
+30s-2mn 1
+0s-30s 38
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 3
+/login 51 190536 37 36
+/index.php/login 2 7532 2 2
+/password/reset 1 2790 0 1
+END_SIDER

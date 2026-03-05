@@ -1,0 +1,37 @@
+[2026-01-27T04:39:45+00:00][20260127_043945_c141d7b0] START create.php
+[2026-01-27T04:39:45+00:00][20260127_043945_c141d7b0] LOGDIR=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/request/../../../_logs | writable=yes
+[2026-01-27T04:39:45+00:00][20260127_043945_c141d7b0] LOGFILE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/request/../../../_logs/create_request_error.log
+[2026-01-27T04:39:45+00:00][20260127_043945_c141d7b0] API_BASE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api
+[2026-01-27T04:39:45+00:00][20260127_043945_c141d7b0] __DIR__=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/request
+[2026-01-27T04:39:45+00:00][20260127_043945_c141d7b0] BEFORE require config/database.php | path=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/config/database.php
+[2026-01-27T04:39:45+00:00][20260127_043945_c141d7b0] FILE_EXISTS=yes
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] AFTER require config/database.php | OK
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] BEFORE require config/response.php | path=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/config/response.php
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] FILE_EXISTS=yes
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] AFTER require config/response.php | OK
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] BEFORE require middleware/auth.php | path=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/middleware/auth.php
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] FILE_EXISTS=yes
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] AFTER require middleware/auth.php | OK
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] BEFORE AuthMiddleware::validateToken()
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] TOKEN_HASH_SHORT=0cb55ab9
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] AFTER AuthMiddleware::validateToken() | user_id=3233 | user_name=Qowiy Muhammad Rofi Zuhdi
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] BEFORE json_decode input
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] AFTER json_decode input | input_keys=jenis,ruangan,penanggung_jawab,tingkat,waktu_mulai,waktu_selesai,tujuan,tgl_pinjaman,items
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] VALIDATION OK | items_count=1
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] BEFORE Database::getInstance()
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] AFTER Database::getInstance() | DB connected ok
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] DB_INFO: database=u708283844_sisenes | hostname=id-dci-web1863.main-hosting.eu | port=3306
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] BEFORE beginTransaction
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] AFTER beginTransaction
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] BEFORE INSERT peminjaman
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] AFTER INSERT peminjaman | id=1412 | user_id=3233 | token_hash=0cb55ab9
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] VERIFY_INSERT: found=yes | verify_user_id=3233 | verify_created_at=2026-01-27 04:39:45
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] BEFORE INSERT peminjaman_detail | barang_id=323 | stok_pinjam=1
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] AFTER INSERT peminjaman_detail | items_count=1
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] AFTER INSERT all peminjaman_detail | total_items=1
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] BEFORE commit transaction
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] AFTER commit transaction | OK
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] BEFORE SELECT created request | id=1412
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] AFTER SELECT created request | found=yes
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] BEFORE ResponseHelper::success
+[2026-01-27T11:39:45+07:00][20260127_043945_c141d7b0] AFTER ResponseHelper::success | DONE | request_id=1412

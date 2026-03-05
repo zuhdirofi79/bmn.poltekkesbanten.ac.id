@@ -1,0 +1,2707 @@
+AWSTATS DATA FILE 7.8 (build 20200416)
+# If you remove this file, all statistics for date 202512 will be lost/reset.
+# Last config file used to build this data file was /home/adminlab/tmp/awstats/ssl/awstats.laboratorium.poltekkesbanten.ac.id.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2035                
+POS_TIME 2717                
+POS_VISITOR 65679               
+POS_DAY 69658               
+POS_DOMAIN 3555                
+POS_LOGIN 3960                
+POS_ROBOT 4115                
+POS_WORMS 4785                
+POS_EMAILSENDER 4916                
+POS_EMAILRECEIVER 5059                
+POS_SESSION 70135               
+POS_SIDER 70341               
+POS_FILETYPES 5194                
+POS_DOWNLOADS 5383                
+POS_OS 5451                
+POS_BROWSER 5723                
+POS_SCREENSIZE 6457                
+POS_UNKNOWNREFERER 6531                
+POS_UNKNOWNREFERERBROWSER 7003                
+POS_ORIGIN 7628                
+POS_SEREFERRALS 7766                
+POS_PAGEREFS 7937                
+POS_SEARCHWORDS 8085                
+POS_KEYWORDS 8237                
+POS_MISC 2380                
+POS_ERRORS 8296                
+POS_CLUSTER 3816                
+POS_SIDER_404 8491                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20251218124920 164 36679 7577663616513
+FirstTime 20251201024126
+LastTime 20251218113008
+LastUpdate 20260104220646 164 0 164 0 0
+TotalVisits 115                 
+TotalUnique 86                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 106                 
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+AddToFavourites 0 27 0
+TotalMisc 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+FlashSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+RealPlayerSupport 0 0 0
+DirectorSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 28 81 7804841 75 79 418352
+1 27 56 4431728 475 493 2094919
+2 30 69 5851613 115 126 1935740
+3 6 12 774773 403 1446 3719662
+4 14 30 2074284 121 130 603489
+5 3 17 2276336 96 104 814094
+6 5 23 1549772 115 139 613687
+7 12 36 2896936 141 150 1399851
+8 5 19 2050235 132 141 1038625
+9 26 40 1515745 175 183 2517769
+10 4 5 21382 87 98 2837079
+11 5 9 603010 54 56 643742
+12 3 16 1506510 52 53 3064187
+13 14 15 55078 77 81 1129570
+14 1 1 3744 61 68 1819224
+15 7 10 512909 50 54 639280
+16 8 22 2195840 42 50 633149
+17 1 9 762864 32 33 616254
+18 2 2 7536 18 23 27762
+19 6 7 133917 10 15 1801904
+20 89 110 6446899 67 82 1900520
+21 81 146 15984806 49 57 633215
+22 99 145 56187930 64 72 856295
+23 12 37 7672232 40 49 2415580
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 13
+in 320 562 96092759
+id 82 204 18524837
+us 45 86 5615985
+gr 11 11 41184
+au 7 18 1386559
+ru 6 14 774246
+jp 4 6 353553
+gb 4 6 165762
+de 3 3 11232
+lt 2 2 3744
+dk 2 2 7488
+sg 1 1 3744
+kr 1 2 339659
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 14
+Googlebot/ 81 4708752 20251218074857 11
+bingbot/ 33 2022585 20251218111551 3
+bot[\s_+:,\.\;\/\\-] 23 26592 20251218102239 16
+facebookexternalhit/ 22 56328 20251218052633 7
+unknown 9 192 20251218043840 9
+Applebot/ 7 659219 20251206032624 1
+MixrankBot 3 6616 20251206150737 0
+(firefox/)([0-9]\.|[0-1][0]\.) 3 11232 20251215175136 0
+robot 2 48 20251213060023 2
+Googlebot\-Image/ 2 6406 20251213145303 0
+no_user_agent 1 3744 20251213115756 0
+proximic 1 3744 20251201025736 0
+Dalvik/ 1 6406 20251217020600 0
+CFNetwork 1 6406 20251206060809 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 6
+png 119 5249922 0 0
+Unknown 469 66739931 0 0
+map 3 1001922 0 0
+js 168 18094792 0 0
+woff2 16 8834304 0 0
+css 142 23399881 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 1
+/robots.txt 0 7 168
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 14
+android10 283 108
+androidoreo 16 2
+macosx10 3 3
+ios_iphone 97 31
+linuxcentos 1 1
+linux 54 23
+os/2 4 0
+androidnougat 1 1
+android 11 6
+win10 417 293
+win7 1 1
+Unknown 23 13
+androidmarshmallow 1 1
+macosx15 5 5
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 36
+chrome42.0.5800.1997 4 1
+chrome127.0.0.0 5 5
+safari17.1 8 1
+chrome103.0.0.0 8 3
+chrome141.0.7390.122 1 1
+safari15.6.7 8 1
+chrome136.0.0.0 25 12
+chrome125.0.6422.72 3 3
+iphone 20 4
+safari18.7 8 1
+chrome142.0.0.0 376 225
+msie11.0 1 1
+chrome125.0.0.0 14 2
+netscape5.0 6 6
+chrome120.0.0.0 15 15
+chrome141.0.0.0 23 10
+safari18.5 3 2
+chrome91.0.4472.124 8 8
+chrome126.0.0.0 1 1
+chrome99.0.4859.172 2 2
+chrome140.0.0.0 15 2
+chrome60.0.3112.107 1 1
+Unknown 27 13
+safari18.3 1 1
+safari18.1.1 25 18
+safari 8 1
+safari17.1.2 13 2
+safari18.4 1 1
+chrome131.0.0.0 1 1
+firefox139.0 2 1
+chrome143.0.0.0 275 134
+safari8.0 3 3
+firefox107.0 1 1
+firefox58.0.1 1 1
+chrome134.0.0.0 2 2
+chrome111.0.0.0 2 2
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 7
+NetworkingExtension/8619.2.8.10.9_Network/4277.42.2_iOS/18.1.1 20251202092940
+python-requests/2.25.1 20251207030723
+python-requests/2.32.5 20251217130654
+python-requests/2.31.0 20251209114231
+NetworkingExtension/8621.3.11.10.3_Network/4277.140.33_iOS/18.6.2 20251216014904
+WhatsApp/2.23.20.0 20251204224047
+NetworkingExtension/8621.2.5.10.10_Network/4277.122.6_iOS/18.5 20251213233411
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 9
+NetworkingExtension/8619.2.8.10.9_Network/4277.42.2_iOS/18.1.1 20251202092940
+python-requests/2.31.0 20251209114231
+python-requests/2.25.1 20251207030723
+python-requests/2.32.5 20251217130654
+NetworkingExtension/8622.1.22.10.9_Network/5569.2.3_iOS/26.0 20251214062705
+NetworkingExtension/8621.2.5.10.10_Network/4277.122.6_iOS/18.5 20251213233411
+NetworkingExtension/8623.1.14.10.9_Network/5569.60.39.0.3_iOS/26.2 20251218052634
+WhatsApp/2.23.20.0 20251204224047
+NetworkingExtension/8621.3.11.10.3_Network/4277.140.33_iOS/18.6.2 20251216014904
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 126 142
+From1 2 2
+From2 3 3
+From3 0 0
+From4 357 770
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 2
+www_google_com 2 2
+msn 1 1
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 9
+301 52 13468
+405 40 20303745
+206 3 9165
+500 2 1240439
+421 1 322
+403 2 3382
+404 3114 4928552
+419 7 10906
+302 344 145700
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 2207
+/test.sql.bz2 1 -
+/bak.db 1 -
+/conf/conf.sql.7z 1 -
+/dump.sql.z 1 -
+/wp-content/themes/twentytwentytwo/index.php 1 www.google.com
+/poltekkesbanten.ac.id.rar 1 -
+/ROOT.jar 1 -
+/assets/filemanager/dialog.php 1 -
+/old.sql.z 1 -
+/test.sql.7z 1 -
+/app.lz 1 -
+/alwso.php 1 www.google.com
+/backup_1.tar.gz 1 -
+/bak.sql.rar 1 -
+/integration/saveGangster.action 1 -
+/communication 4 https://www.bing.com/
+/admin 7 -
+/laboratorium.poltekkesbanten.ac.id.gz 1 -
+/backups.sql.xz 1 -
+/ftp.sqlitedb 1 -
+/tinymce/js/filemanager/filemanager/dialog.php 1 -
+/wp-content/themes/theme/gr.php 1 www.google.com
+/en/php/usb_sync.php 1 -
+/api.db 1 -
+/appenv 1 -
+/8.php 1 www.google.com
+/j.php 1 www.google.com
+/jindex.php 1 www.google.com
+/backup.sql.lz 1 -
+/old.tar.z 1 -
+/app/Models 3 https://yandex.com/
+/user_guide 4 https://www.google.com/
+/api.sql.rar 1 -
+/js/tinymce/filemanager/filemanager/dialog.php 1 -
+/app.sql.zip 1 -
+/webapps.lz 1 -
+/objects/getSpiritsFromVideo.php 2 -
+/wwwroot.sql.z 1 -
+/utchiha.phP 1 www.google.com
+/rex.php 1 www.google.com
+/mini.php 1 www.google.com
+/wp-pluging.php 1 www.google.com
+/html.7z 1 -
+/evil.php 1 www.google.com
+/poltekkesbanten.sql.z 1 -
+/database.xz 1 -
+/temp.war 1 -
+/public.sql.xz 1 -
+/iplookup 3 https://www.google.com/
+/poltekkesbanten.sql.bz2 1 -
+/website.sql.tar.z 1 -
+/ftp.sql.zip 1 -
+/wp-json/wp/v2/users 1 -
+/uploads.xz 1 -
+/boardDataWW.php 2 -
+/.well-known/ 2 https://www.google.com/
+/phpserver 4 https://www.google.com/
+/dump.gz 1 -
+/application/libraries 3 https://yandex.com/
+/web.db 1 -
+/tmp.war 1 -
+/ftp.lz 1 -
+/general/index/UploadFile.php 1 -
+/website.bz2 1 -
+/tesla.php 1 www.google.com
+/wwwroot.tar.z 1 -
+/app.sqlitedb 1 -
+/alf4.php 1 www.google.com
+/temp.bz2 1 -
+/htdocs.sql.tar.gz 1 -
+/rating 4 https://www.google.com/
+/web.sql.rar 1 -
+/codeboy1877x.php 1 www.google.com
+/classes 7 https://yandex.com/
+/api.gz 1 -
+/backup_4.sql.rar 1 -
+/htdocs.z 1 -
+/backup_3.sql.tar.gz 1 -
+/degeselih.php 1 www.google.com
+/tinymce/filemanager/dialog.php 2 -
+/www.sql.lz 1 -
+/application/cache 3 https://www.bing.com/
+/database.tar.bz2 1 -
+/wp-content/themes/skatepark/doc.php 1 www.google.com
+/laboratorium.poltekkesbanten.ac.id.sql.tar.z 1 -
+/database/migrations 4 https://www.bing.com/
+/_search 1 -
+/backups.sql.tar.gz 1 -
+/backup_1.sql.tar.z 1 -
+/wp-content/plugins/cekidot/mar.php 1 www.google.com
+/bak.xz 1 -
+/backup_4.tar.z 1 -
+/html.sql.zip 1 -
+/bak.bz2 1 -
+/404.php 1 www.google.com
+/dump.sql.bz2 1 -
+/2025.Z 1 -
+/bak.gz 1 -
+/test.sql.z 1 -
+/upload.sql.xz 1 -
+/backup_3.sql.rar 1 -
+/backup_4.sql.tar.gz 1 -
+/o.php 1 www.google.com
+/wp-content/mu-plugins 2 https://yandex.com/
+/temp.sql.lz 1 -
+/dump.sql.7z 1 -
+/radio.php 1 www.google.com
+/extensions 1 https://search.yahoo.com/
+/lib/pkp/lib 2 https://duckduckgo.com/
+/resources 3 https://www.google.com/
+/alfateslav4.php 1 www.google.com
+/backups.sql.7z 1 -
+/api.xz 1 -
+/backup_3.tar.z 1 -
+/haxor.php 1 www.google.com
+/ftp.tar 1 -
+/api.bz2 1 -
+/poltekkesbanten.jar 1 -
+/test.gz 1 -
+/app/i18n 3 https://www.bing.com/
+/bin.tar.z 1 -
+/admin.tar 1 -
+/web.gz 1 -
+/adriv.php 1 www.google.com
+/wp-content/themes/skatepark/img_screen.php 1 www.google.com
+/laboratorium.poltekkesbanten.ac.id.tgz 1 -
+/htdocs.sql.7z 1 -
+/database.Z 1 -
+/html.sqlitedb 1 -
+/backups.z 1 -
+/fm/dialog.php 1 -
+/laboratorium.jar 1 -
+/wwwroot.db 1 -
+/app.tar 1 -
+/laboratorium.Z 1 -
+/bin.sql.z 1 -
+/backup.rar 1 -
+/catalog/language 2 https://duckduckgo.com/
+/marijuana.php 1 www.google.com
+/vqmod 3 https://search.yahoo.com/
+/data.sqlite 1 -
+/db.sql.tar.z 2 -
+/user.action 2 -
+/esp/cms_changeDeviceContext.esp 1 -
+/wp/wp-login.php 3 -
+/.vscode/sftp.json 1 -
+/web.xz 1 -
+/web.bz2 1 -
+/data.xz 1 -
+/inetpub.gz 1 -
+/sql.sql.tar.z 1 -
+/wp-content/plugins/cache-wordpress/payment.php 1 www.google.com
+/laboratorium.bz2 1 -
+/temp.tar 1 -
+/filemanager/dialog.php 1 -
+/admin.tar.bz2 1 -
+/wso2.php 1 www.google.com
+/composer 1 https://www.bing.com/
+/plugins/3rdPartyServers/ox3rdPartyServers/max.class.php 1 -
+/web/core 3 https://duckduckgo.com/
+/laboratorium.poltekkesbanten.ac.id.sql.tar.gz 1 -
+/if.php 1 www.google.com
+/wp-help.php 1 www.google.com
+/bin.lz 1 -
+/wp-content/plugins/wp-payeezy-pay/donate.php 1 -
+/backups.zip 1 -
+/poltekkesbanten.ac.id.sql.tar.z 1 -
+/about.php 2 -
+/tests 5 https://www.google.com/
+/minishell.php 1 www.google.com
+/servlet/~ic/bsh.servlet.BshServlet 2 -
+/wp-admin/network/security-post.php 1 -
+/bin.sql.zip 1 -
+/old.tar 1 -
+/backup.z 1 -
+/public.xz 1 -
+/webapps.xz 1 -
+/laboratorium.xz 1 -
+/upload.lz 1 -
+/5.php 1 www.google.com
+/storage/framework 4 https://www.google.com/
+/reportbuilder 5 https://www.bing.com/
+/upload.sql.bz2 1 -
+/upload.7z 1 -
+/mails 3 https://duckduckgo.com/
+/poltekkesbanten.Z 1 -
+/backup_2.sqlitedb 1 -
+/backups.tgz 1 -
+/lf.php 1 www.google.com
+/output.sql.gz 1 -
+/laboratorium.lz 1 -
+/laboratorium.poltekkesbanten.ac.id.bz2 1 -
+/htdocs.rar 1 -
+/catalog 2 https://www.google.com/
+/uploads.lz 1 -
+/website.sqlitedb 1 -
+/laboratorium.poltekkesbanten.ac.id.rar 1 -
+/.gitlab-ci 4 https://www.bing.com/
+/wp-content/plugins/ndak/marijuana.php 1 www.google.com
+/plugins/filemanager/dialog.php 1 -
+/admin.sql.lz 1 -
+/wp-json/trx_addons/v2/get/sc_layout 2 -
+/update 5 https://www.google.com/
+/output.sqlitedb 1 -
+/2025.sql.bz2 1 -
+/dump.Z 1 -
+/info.php 1 www.google.com
+/sql.Z 1 -
+/bin.sqlitedb 1 -
+/olux.php 1 www.google.com
+/crowd/plugins/servlet/exp 1 -
+/wp-mails.php 1 www.google.com
+/2025.sql.7z 1 -
+/tmp.tgz 1 -
+/admin.lz 1 -
+/inetpub.Z 1 -
+/poltekkesbanten.ac.id.sql.z 1 -
+/wp-content/plugins/wpdirectorykit/public/css/animation.css 1 -
+/dsrdelete.json 2 https://laboratorium.poltekkesbanten.ac.id/login
+/backup.sql.7z 1 -
+/var/view_preprocessed 3 https://duckduckgo.com/
+/wp-content/plugins/showbizpro/temp/update_extract/7nFfl.php 1 -
+/htdocs.sql.lz 1 -
+/db.tar.z 2 -
+/public_html.sql.gz 1 -
+/poltekkesbanten.ac.id.tgz 1 -
+/cms/wp-login.php 3 -
+/ROOT.sql.tar.z 1 -
+/fw.php 1 www.google.com
+/tmp.sql.7z 1 -
+/application 7 https://www.bing.com/
+/old.sqlitedb 1 -
+/web/themes 2 https://www.bing.com/
+/web.z 1 -
+/qsr_server/device/getThumbnail 1 -
+/backup_2.tar 1 -
+/www.sql.xz 1 -
+/web.sql.tar.gz 1 -
+/wp-content/themes/pridmag/init.php 1 www.google.com
+/database.gz 1 -
+/temp.z 1 -
+/ftp.sql.z 1 -
+/poltekkesbanten.ac.id.sql.7z 1 -
+/sql.php 1 www.google.com
+/lib/watermark/images/readme.txt 1 -
+/js/javascript/fm/dialog.php 1 -
+/website.tar.bz2 1 -
+/2025.gz 1 -
+/website.sqlite 1 -
+/xx.php 1 www.google.com
+/backup_1.war 1 -
+/backup_2.lz 1 -
+/laboratorium.poltekkesbanten.ac.id.tar 1 -
+/database.tgz 1 -
+/service/~iufo/com.ufida.web.action.ActionServlet 2 -
+/ftp.tar.z 1 -
+/www.rar 1 -
+/2025.sql.z 1 -
+/bin.tar 1 -
+/test.Z 1 -
+/old.sql.zip 1 -
+/inetpub.tar 1 -
+/data.tar.gz 1 -
+/mailingupgrade.php 1 -
+/public.lz 1 -
+/upload.xz 1 -
+/js/filemanager/dialog.php 2 -
+/backup.sql.tar.gz 1 -
+/website.sql.bz2 1 -
+/wp-content/themes/fitnessbase/dev.php 1 www.google.com
+/public.7z 1 -
+/admin.bz2 1 -
+/wp-content/uploads/user_uploads/36bpa12dkktti9eitwkv2wpl95h.php 1 -
+/javax.faces.resource/dynamiccontent.properties.xhtml 2 -
+/public.sql.bz2 1 -
+/api.z 1 -
+/app.tar.z 1 -
+/laboratorium.sql.xz 1 -
+/maintenance 4 https://yandex.com/
+/api.sql.tar.gz 1 -
+/gelay.php 1 www.google.com
+/doc.php 1 www.google.com
+/system/config 1 https://www.bing.com/
+/backupmgt/localJob.php 1 -
+/database.sql.zip 1 -
+/env 1 -
+/admin/assets/tinymce/filemanager/dialog.php 1 -
+/admin.Z 1 -
+/gank.php 1 www.google.com
+/wp-defaul.php 1 www.google.com
+/r57.php 1 www.google.com
+/public/scripts/filemanager/dialog.php 1 -
+/blocks 3 https://www.google.com/
+/old.lz 1 -
+/backups.sql.rar 1 -
+/bak.z 1 -
+/styles 3 https://duckduckgo.com/
+/app.sql.z 1 -
+/bak.sql.tar.gz 1 -
+/sendmail.php 1 www.google.com
+/wp-admin/includes/themes.php 1 -
+/admin.sql.gz 1 -
+/public/javascript/filemanager/dialog.php 1 -
+/flame.php 1 www.google.com
+/public_html.zip 1 -
+/package.tgz 1 -
+/website.sql.gz 1 -
+/webapps.tar.z 1 -
+/wp-admin/js/mr_skk/data.php 1 -
+/conf/conf.tar.z 1 -
+/ROOT.sql.zip 1 -
+/static 2 https://www.bing.com/
+/Release.sql.tar.gz 1 -
+/bb.php 1 www.google.com
+/language 2 https://duckduckgo.com/
+/layout 1 https://duckduckgo.com/
+/bak.jar 1 -
+/zone.php 1 www.google.com
+/p.php 1 www.google.com
+/var/generation 3 https://www.bing.com/
+/conf/conf.z 1 -
+/0.php 1 www.google.com
+/wp-content/plugins/ndak/1.php 1 www.google.com
+/pi.php 1 www.google.com
+/administrator/language 3 https://www.google.com/
+/vendor/file-manager/js/file-manager.js 1 -
+/wso.php 1 www.google.com
+/.well-known/security.txt 2 https://laboratorium.poltekkesbanten.ac.id/login
+/Release.sql.7z 1 -
+/db.sql.rar 2 -
+/api.jar 1 -
+/testwp.php 1 www.google.com
+/backup.tar.z 1 -
+/core/modules 3 https://www.google.com/
+/up.php 1 www.google.com
+/dump.tar.gz 1 -
+/laboratorium.poltekkesbanten.ac.id.tar.z 1 -
+/package.zip 1 -
+/wp-content/plugins/wp-freeform/style.php 1 www.google.com
+/conf/conf.sql.gz 1 -
+/ccaef.php 1 www.google.com
+/wp-content/plugins/sexy-contact-form/includes/fileupload/index.php 2 -
+/Release.z 1 -
+/dev.php 1 www.google.com
+/ROOT.sqlitedb 1 -
+/webapps.sql.z 1 -
+/website.tar.gz 1 -
+/wwwroot.lz 1 -
+/laboratorium.7z 1 -
+/laboratorium.tgz 1 -
+/tmp.7z 1 -
+/tmp.sqlite 1 -
+/01.php 1 www.google.com
+/group 4 https://search.yahoo.com/
+/db.7z 2 -
+/sites/default 1 https://www.bing.com/
+/wp-json 4 https://yandex.com/
+/mdm/client/v1/mdmLogUploader 1 -
+/output.sql.xz 1 -
+/override/controllers 4 https://www.bing.com/
+/web.jar 1 -
+/poltekkesbanten.ac.id.z 1 -
+/autodiscover 1 -
+/admin.7z 1 -
+/html.jar 1 -
+/teslav.php 1 www.google.com
+/pages 5 https://search.yahoo.com/
+/conf/conf.db 1 -
+/poltekkesbanten.ac.id.war 1 -
+/templates 7 https://www.google.com/
+/Release.sql.xz 1 -
+/backup_2.sqlite 1 -
+/conf/conf.sqlitedb 1 -
+/backup_1.gz 1 -
+/poltekkesbanten.ac.id.tar 1 -
+/wp-one.php 1 www.google.com
+/conf/conf.xz 1 -
+/2025.sqlite 1 -
+/mobile/plugin/browser.jsp 2 -
+/package.sql.rar 1 -
+/www.sql.tar.z 1 -
+/database.war 1 -
+/setup 6 https://yandex.com/
+/2025.xz 1 -
+/webservice 3 https://www.google.com/
+/routes 2 https://www.bing.com/
+/webapps.db 1 -
+/backup_1.tgz 1 -
+/cli 3 https://search.yahoo.com/
+/laboratorium.tar.bz2 1 -
+/ROOT.7z 1 -
+/include/plugin/payment/alipay/pay.php 2 -
+/alfa-ioxi.php 1 www.google.com
+/Xzd.php 1 www.google.com
+/src.sql.z 1 -
+/js/javascript/fm/filemanager/dialog.php 1 -
+/system/library 1 https://www.google.com/
+/lol.php 1 www.google.com
+/sql.sql.lz 1 -
+/website.sql.lz 1 -
+/wp-admin/admin-ajax.php 6 -
+/test.tar.gz 1 -
+/data.Z 1 -
+/13.php 1 www.google.com
+/backup_1.sql.zip 1 -
+/src.tar.z 1 -
+/system/helpers 4 https://www.google.com/
+/backup_2.jar 1 -
+/anon.php 1 www.google.com
+/temp.sql.rar 1 -
+/l10n 3 https://duckduckgo.com/
+/admin.rar 1 -
+/inetpub.7z 1 -
+/wp-content/themes/jobart/db.php 1 www.google.com
+/wpindex.php 1 www.google.com
+/content.php 1 www.google.com
+/y.php 1 www.google.com
+/administrator 3 https://duckduckgo.com/
+/vendor 9 https://www.google.com/
+/api/actuator 2 -
+/anjay.php 1 www.google.com
+/backup_4.zip 1 -
+/html.sql.tar.z 1 -
+/node/1 1 -
+/database.tar.gz 1 -
+/db.db 2 -
+/.%0d./.%0d./.%0d./.%0d./bin/sh 1 -
+/assets/js/vendor/ckeditor/filemanager/dialog.php 1 -
+/index.php/User/doLogin 2 -
+/output.xz 1 -
+/src.sql.zip 1 -
+/inetpub.war 1 -
+/data.sql.bz2 1 -
+/uploads.sql.z 1 -
+/src.lz 1 -
+/data.sql.7z 1 -
+/backup_3.zip 1 -
+/libs 1 https://search.yahoo.com/
+/application/config 4 https://duckduckgo.com/
+/resources/js 4 https://www.google.com/
+/ads.txt 2 https://laboratorium.poltekkesbanten.ac.id/login
+/v.php 1 www.google.com
+/admin.sqlitedb 1 -
+/poltekkesbanten.ac.id.sqlitedb 1 -
+/wp-content/plugins/virr/v.php 1 www.google.com
+/backup_2.sql.z 1 -
+/www.Z 1 -
+/laboratorium.poltekkesbanten.ac.id.sqlite 1 -
+/laboratorium.poltekkesbanten.ac.id.sql.bz2 1 -
+/course 3 https://search.yahoo.com/
+/override/classes 4 https://search.yahoo.com/
+/backup_1.xz 1 -
+/logi 1 -
+/wwwroot.xz 1 -
+/laboratorium.poltekkesbanten.ac.id.jar 1 -
+/package.sql.xz 1 -
+/shx.php 1 www.google.com
+/public_html.sql.zip 1 -
+/991176.php 1 www.google.com
+/src.sqlitedb 1 -
+/inetpub.jar 1 -
+/public.sqlitedb 1 -
+/upload.php 1 www.google.com
+/po 3 https://yandex.com/
+/87.php 1 www.google.com
+/backup_2.db 1 -
+/6.php 1 www.google.com
+/poltekkesbanten.ac.id.sql.xz 1 -
+/dump.sqlite 1 -
+/availability 3 https://www.google.com/
+/laboratorium.gz 1 -
+/build 1 https://search.yahoo.com/
+/uploads.tar.z 1 -
+/kepo.php 1 www.google.com
+/public.sql.gz 1 -
+/dump.xz 1 -
+/gecko.php 1 www.google.com
+/alfatesla.php 1 www.google.com
+/include 1 https://www.bing.com/
+/Release.sql.rar 1 -
+/FoxWSO.php 1 www.google.com
+/wp-conflg.php 1 www.google.com
+/iqb.php 1 www.google.com
+/2025.tar.gz 1 -
+/tmp.zip 1 -
+/web.tar.bz2 1 -
+/data.sql.z 1 -
+/db.lz 2 -
+/l.php 1 www.google.com
+/package.z 1 -
+/backup_1.tar.bz2 1 -
+/tmp.sql.gz 1 -
+/new.php 1 www.google.com
+/htdocs.tar.z 1 -
+/responsive_filemanager/filemanager/dialog.php 1 -
+/upload.sql.gz 1 -
+/sql.rar 1 -
+/old-index.php 1 www.google.com
+/Release.zip 1 -
+/database.sql.tar.z 1 -
+/js/filemanager/filemanager/dialog.php 2 -
+/web.sql.bz2 1 -
+/user/file/filemanager/dialog.php 1 -
+/tmp.tar.gz 1 -
+/foxx.php 1 www.google.com
+/website.rar 1 -
+/upload.sqlitedb 1 -
+/cobbler_api 1 -
+/themes 6 https://duckduckgo.com/
+/cgi-bin/file_transfer.cgi 1 -
+/seeyon/htmlofficeservlet 1 -
+/phpinfo.php 1 www.google.com
+/objects/wnikj.txt 1 -
+/test.sqlite 1 -
+/public_html.sqlitedb 1 -
+/i.php 1 www.google.com
+/sql.sql.xz 1 -
+/sites/default/settings 3 https://www.bing.com/
+/con7.php 1 www.google.com
+/tuco.php 1 www.google.com
+/package.sql.tar.gz 1 -
+/api.tar.bz2 1 -
+/contents/filemanager/dialog.php 1 -
+/img/p 3 https://search.yahoo.com/
+/Release.tgz 1 -
+/uploads.db 1 -
+/www.php 1 www.google.com
+/bak.sql.bz2 1 -
+/mclash.php 1 www.google.com
+/inetpub.sql.zip 1 -
+/test.xz 1 -
+/components/com_* 2 https://search.yahoo.com/
+/dataformat 3 https://search.yahoo.com/
+/backup_1.Z 1 -
+/mysite 4 https://www.bing.com/
+/Collector/appliancesettings/applianceSettingsFileTransfer 1 -
+/output.7z 1 -
+/data.gz 1 -
+/output.sql.bz2 1 -
+/777.php 1 www.google.com
+/xleet.php 1 www.google.com
+/classes/module 3 https://search.yahoo.com/
+/package.sql.7z 1 -
+/error.php 1 www.google.com
+/bak.tar.bz2 1 -
+/backup_2.rar 1 -
+/files/editor/plugins/filemanager/dialog.php 1 -
+/wp-content/plugins/linkpreview/db.php 1 www.google.com
+/api.sql.bz2 1 -
+/db.sql.z 2 -
+/wp-content/plugins/waves/style.css 1 -
+/src.tar 1 -
+/output.lz 1 -
+/admin/assets/tinymce/filemanager/filemanager/dialog.php 1 -
+/0byte.php 1 www.google.com
+/wp-content/themes/rishi/doc.php 1 www.google.com
+/bak.tar.z 1 -
+/sql.sql.7z 1 -
+/Release.sql.bz2 1 -
+/api.sql.z 1 -
+/administrator/logs 2 https://yandex.com/
+/WSO.php 1 www.google.com
+/ROOT.tar.gz 1 -
+/admin.db 1 -
+/id.php 1 www.google.com
+/temp.sql.xz 1 -
+/app/etc 3 https://search.yahoo.com/
+/hello.php 1 www.google.com
+/dump.sqlitedb 1 -
+/backup.tar.gz 1 -
+/enhancecp 1 -
+/admin/language 1 https://www.bing.com/
+/uploads.Z 1 -
+/test.7z 1 -
+/inetpub.lz 1 -
+/app.z 1 -
+/api.tar.z 1 -
+/root.php 1 www.google.com
+/bak.sql.z 1 -
+/labkey/home/project-begin.view 1 -
+/app.sql.tar.gz 1 -
+/htdocs.Z 1 -
+/storage/logs 4 https://www.bing.com/
+/public_html.jar 1 -
+/output.sql.tar.z 1 -
+/old.db 1 -
+/laboratorium.poltekkesbanten.ac.id.sql.zip 1 -
+/plugins/blocks 4 https://www.google.com/
+/laboratorium.poltekkesbanten.ac.id.Z 1 -
+/system/core 4 https://yandex.com/
+/old.sql.rar 1 -
+/tonant.php 1 www.google.com
+/wp-content/themes/wp-pridmag/init.php 1 www.google.com
+/poltekkesbanten.ac.id.tar.bz2 1 -
+/sym403.php 1 www.google.com
+/plugins/editors/jckeditor/plugins/jtreelink/dialogs/links.php 1 https://laboratorium.poltekkesbanten.ac.id
+/ftp.sql.tar.gz 1 -
+/backup.zip 1 -
+/package.sql.tar.z 1 -
+/ftp.z 1 -
+/Release.tar.bz2 1 -
+/log 3 https://www.bing.com/
+/web.sql.z 1 -
+/wp-content/themes/wp-pridmag/22x.php 1 www.google.com
+/data.sql.tar.z 1 -
+/poltekkesbanten.ac.id.bz2 1 -
+/output.sql.rar 1 -
+/ciis.php 1 www.google.com
+/www.sql.gz 1 -
+/public_html.sql.bz2 1 -
+/www.zip 1 -
+/bin.bz2 1 -
+/dump.sql.zip 1 -
+/bin.xz 1 -
+/html.sql.bz2 1 -
+/bin.gz 1 -
+/package.bz2 1 -
+/crowd/admin/uploadplugin.action 1 -
+/web.tar.z 1 -
+/html.sql.7z 1 -
+/alfa123.php 1 www.google.com
+/oai 1 -
+/z.php 1 www.google.com
+/www.tar.gz 1 -
+/db.tar.bz2 2 -
+/system/sharedir.php 1 -
+/layouts 3 https://yandex.com/
+/www 1 https://yandex.com/
+/database.sqlitedb 1 -
+/poltekkesbanten.ac.id.sql.tar.gz 1 -
+/app/Mail 4 https://www.bing.com/
+/includes 1 https://search.yahoo.com/
+/Release.sqlite 1 -
+/dump.7z 1 -
+/wwwroot.7z 1 -
+/Release.sqlitedb 1 -
+/wp-info.php 1 www.google.com
+/tool 4 https://search.yahoo.com/
+/profiles/* 3 https://www.google.com/
+/content/36VMEtnWo58cpinveuYp5L8F4rs.af.internalsubmit.json 1 https://laboratorium.poltekkesbanten.ac.id
+/old.gz 1 -
+/public/assets/filemanager/dialog.php 1 -
+/init.php 1 www.google.com
+/db.sql.gz 2 -
+/tes.php 1 www.google.com
+/.git 1 https://laboratorium.poltekkesbanten.ac.id/.git/
+/conf/conf.tar.bz2 1 -
+/grade 4 https://www.google.com/
+/shl.php 1 www.google.com
+/contentbank 3 https://yandex.com/
+/laboratorium.poltekkesbanten.ac.id.tar.gz 1 -
+/temp.tgz 1 -
+/system/modification 2 https://duckduckgo.com/
+/apple-touch-icon-precomposed.png 15 -
+/backup_2.sql.zip 1 -
+/html.gz 1 -
+/symlink.php 1 www.google.com
+/cgi-bin/DownloadCfg/RouterCfm.cfg 1 -
+/version 4 https://duckduckgo.com/
+/laboratorium.poltekkesbanten.ac.id.tar.bz2 1 -
+/uploads.tar 1 -
+/kyami.php 1 www.google.com
+/xidcm.php 1 www.google.com
+/assets/bower_components/responsivefilemanager/filemanager/dialog.php 1 -
+/old.bz2 1 -
+/asset/filemanager/dialog.php 1 -
+/old.xz 1 -
+/test.sqlitedb 1 -
+/backup_1.jar 1 -
+/html.sql.z 1 -
+/htdocs.db 1 -
+/bin.db 1 -
+/poltekkesbanten.xz 1 -
+/backup_3.sql.7z 1 -
+/backup_2.gz 1 -
+/addons 1 https://www.google.com/
+/controllers 3 https://www.bing.com/
+/bin.sql.rar 1 -
+/backup.bz2 1 -
+/shell20211028.php 1 www.google.com
+/backup_1.sqlite 1 -
+/database.tar 1 -
+/registry 8 https://yandex.com/
+/wp-content/themes/cakiltheme/up.php 1 www.google.com
+/tmp.Z 1 -
+/webapps.gz 1 -
+/backups.rar 1 -
+/src.jar 1 -
+/Autodiscover/Autodiscover.xml 2 -
+/backup_4.sql.7z 1 -
+/wp-includes/fonts/iqb.php 1 www.google.com
+/blog/wp-login.php 3 -
+/apps 1 https://yandex.com/
+/database.lz 1 -
+/test.sql.zip 1 -
+/backup_2.tgz 1 -
+/sql.tgz 1 -
+/appenvr 1 -
+/bak.tar 1 -
+/backups.tar.gz 1 -
+/backup_2.xz 1 -
+/output.tar 1 -
+/xml 4 https://www.google.com/
+/conf/conf.lz 1 -
+/backup_1.db 1 -
+/.well-known/pki-validation/wp-signup.php 1 www.google.com
+/admin.gz 1 -
+/src.tar.bz2 1 -
+/lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/conf/conf.sql.rar 1 -
+/export/classroom-course-statistics 2 -
+/ftp.gz 1 -
+/lang 3 https://www.google.com/
+/ftp.bz2 1 -
+/403.php 1 www.google.com
+/api.tar 1 -
+/ftp.xz 1 -
+/con.php 1 www.google.com
+/assets/data/tinymce/plugins/filemanager/dialog.php 1 -
+/dbscripts 6 https://www.bing.com/
+/.well-known/apple-app-site-association 4 https://laboratorium.poltekkesbanten.ac.id/login
+/wwwroot.jar 1 -
+/poltekkesbanten.sqlite 1 -
+/ROOT.sqlite 1 -
+/g.php 1 www.google.com
+/password_change.cgi 1 https://laboratorium.poltekkesbanten.ac.id
+/schedule 5 https://search.yahoo.com/
+/inetpub.xz 1 -
+/bin.sql.tar.gz 1 -
+/ROOT.xz 1 -
+/src.sql.bz2 1 -
+/bin.z 1 -
+/system 5 https://duckduckgo.com/
+/2025.7z 1 -
+/profiles 3 https://www.bing.com/
+/app.xz 1 -
+/file/filemanager/dialog.php 1 -
+/img/m 3 https://search.yahoo.com/
+/app.bz2 1 -
+/backups.sql.gz 1 -
+/r00t.php 1 www.google.com
+/wp-title.php 1 www.google.com
+/public.sql.z 1 -
+/wp-content/backup 2 https://duckduckgo.com/
+/package.sqlitedb 1 -
+/fierza.php 1 www.google.com
+/wwwroot.war 1 -
+/kk.php 1 www.google.com
+/download 2 https://duckduckgo.com/
+/webapps.Z 1 -
+/modules 8 https://search.yahoo.com/
+/backup.db 1 -
+/web.tar 1 -
+/login.php 1 -
+/tmp.sql.tar.z 1 -
+/htdocs.bz2 1 -
+/app.gz 1 -
+/backup_1.sql.z 1 -
+/wp-content/themes/alera/alpha.php 1 www.google.com
+/system/helper 2 https://yandex.com/
+/cgi-bin/supportInstaller 2 -
+/packages 1 https://www.bing.com/
+/api.sqlitedb 1 -
+/4x4.php 1 www.google.com
+/web.sql.zip 1 -
+/question 4 https://www.bing.com/
+/backups.sql.lz 1 -
+/backup.Z 1 -
+/ajax/render/widget_tabbedcontainer_tab_panel 1 -
+/admin/js/filemanager/filemanager/dialog.php 1 -
+/backup_2.Z 1 -
+/package.tar.bz2 1 -
+/w.php 1 www.google.com
+/uploads.gz 1 -
+/output.sql.zip 1 -
+/wi.php 1 www.google.com
+/black.php 1 www.google.com
+/2025.sql.zip 1 -
+/Release.sql.tar.z 1 -
+/laboratorium.poltekkesbanten.ac.id.sql.z 1 -
+/package.sqlite 1 -
+/bak.sqlitedb 1 -
+/html.Z 1 -
+/backup_1.rar 1 -
+/ftp.sql.rar 1 -
+/wwwroot.sql.zip 1 -
+/upload.sql.z 1 -
+/0x0.php 1 www.google.com
+/tinyfilemanager.php 1 www.google.com
+/sym.php 1 www.google.com
+/htdocs.tar.gz 1 -
+/error 4 https://yandex.com/
+/Release.bz2 1 -
+/laboratorium.poltekkesbanten.ac.id.xz 1 -
+/laboratorium.sql.7z 1 -
+/poltekkesbanten.ac.id.Z 1 -
+/ftp.db 1 -
+/www.sqlite 1 -
+/www.7z 1 -
+/web.lz 1 -
+/wordpress/wp-login.php 3 -
+/wp-class.php 1 www.google.com
+/loader/ff.php 1 www.google.com
+/backup_2.tar.bz2 1 -
+/web.sqlitedb 1 -
+/temp.sql.gz 1 -
+/app/Events 4 https://yandex.com/
+/poltekkesbanten.ac.id.tar.gz 1 -
+/data.jar 1 -
+/app.sql.rar 1 -
+/api.sql.zip 1 -
+/old.sql.tar.gz 1 -
+/conf/conf.jar 1 -
+/webapps.tar 1 -
+/backup_3.sql.gz 1 -
+/wp-email.php 1 www.google.com
+/old.z 1 -
+/application/hooks 3 https://search.yahoo.com/
+/bak.lz 1 -
+/app.db 1 -
+/package.sql.bz2 1 -
+/2025.sqlitedb 1 -
+/index.action 7 -
+/app/Jobs 3 https://duckduckgo.com/
+/sql.war 1 -
+/bak.sql.zip 1 -
+/dev 4 https://www.bing.com/
+/output.tgz 1 -
+/htdocs.zip 1 -
+/backup_4.sql.gz 1 -
+/public/vendor/filemanager/dialog.php 1 -
+/api.lz 1 -
+/conf/conf.sql.zip 1 -
+/wp-content/themes/cakiltheme/idx.php 1 www.google.com
+/.well-known/wp-signup.php 1 www.google.com
+/asset/plugins/filemanager/dialog.php 1 -
+/public_html.sql.z 1 -
+/db.sql.bz2 2 -
+/backup.jar 1 -
+/sql.sql.gz 1 -
+/inetpub.tar.z 1 -
+/2025.sql.tar.z 1 -
+/backups.sqlitedb 1 -
+/laboratorium.sql.z 1 -
+/sql.zip 1 -
+/alfa.php 1 www.google.com
+/database.db 1 -
+/laboratorium.sql.tar.gz 1 -
+/laboratorium.rar 1 -
+/app.sql.bz2 1 -
+/package.sql.gz 1 -
+/website.tgz 1 -
+/tmp.rar 1 -
+/galekjaya.php 1 www.google.com
+/public.sql.tar.z 1 -
+/wp-content/themes/noriumportfolio/img_screen.php 1 www.google.com
+/sites/all 2 https://duckduckgo.com/
+/sql.tar.gz 1 -
+/wp-content/cache 3 https://search.yahoo.com/
+/docindex.php 1 www.google.com
+/ROOT.gz 1 -
+/wsanon.php 1 www.google.com
+/node_modules 1 https://www.bing.com/
+/old.jar 1 -
+/app.tar.bz2 1 -
+/laboratorium.tar.gz 1 -
+/guest_auth/guestIsUp.php 4 -
+/uploads.jar 1 -
+/.well-known/webauthn 2 https://laboratorium.poltekkesbanten.ac.id/login
+/.well-known/change-password 2 https://laboratorium.poltekkesbanten.ac.id/login
+/admin.php 2 -
+/laboratorium.sql.rar 1 -
+/dump.jar 1 -
+/admin/javascripts/tinymce/filemanager/dialog.php 1 -
+/conf/conf.gz 1 -
+/inetpub.sql.z 1 -
+/backup.gz 1 -
+/ROOT.sql.z 1 -
+/website.zip 1 -
+/uploads.war 1 -
+/tmp.sql.xz 1 -
+/db.sqlite 2 -
+/backup_3.sql.bz2 1 -
+/public_html.sql.tar.z 1 -
+/e.php 1 www.google.com
+/src.gz 1 -
+/ftp.tar.bz2 1 -
+/www.sql.7z 1 -
+/package.tar.gz 1 -
+/backup_2.tar.gz 1 -
+/index.php/wp-json/wp/v2/users 1 -
+/wp-booking.php 1 www.google.com
+/poltekkesbanten.ac.id.7z 1 -
+/admin.sql.tar.z 1 -
+/Release.rar 1 -
+/public_html.sql.rar 1 -
+/public.sql.rar 1 -
+/modules/* 2 https://duckduckgo.com/
+/upload/filemanager/dialog.php 1 -
+/admin.sql.z 1 -
+/src.xz 1 -
+/temp.lz 1 -
+/password/index.html 1 -
+/localization 3 https://www.bing.com/
+/src.bz2 1 -
+/backup_4.sql.bz2 1 -
+/Packages 1 https://duckduckgo.com/
+/ftp.sql.bz2 1 -
+/scripts/setup.php 1 -
+/vendor/laravel-filemanager/img/folder.png 1 -
+/database.sql.z 1 -
+/bYXCvyfsqV.txt 1 -
+/html.tar.gz 1 -
+/foxwso.php 1 www.google.com
+/wwwroot.gz 1 -
+/poltekkesbanten.sqlitedb 1 -
+/upload.sql.rar 1 -
+/wp/wp-includes/fonts/dev.php 1 www.google.com
+/wp-content/plugins/cekidot/readme.txt 1 www.google.com
+/backups.sql.bz2 1 -
+/htdocs.sqlite 1 -
+/backup.war 1 -
+/web/sites 3 https://www.google.com/
+/wp-load.php 1 www.google.com
+/zfox.php 1 www.google.com
+/db.sql.zip 2 -
+/laboratorium.sql.lz 1 -
+/temp.db 1 -
+/cong.php 1 www.google.com
+/inetpub.db 1 -
+/website.sql.rar 1 -
+/database.rar 1 -
+/pdf 3 https://yandex.com/
+/zf.php 1 www.google.com
+/dosya.php 1 www.google.com
+/www.tgz 1 -
+/schemas 5 https://www.google.com/
+/login.action 3 -
+/wp-admin/edit.php 1 -
+/autoload_classmap.php 1 www.google.com
+/anons79.php 1 www.google.com
+/poltekkesbanten.ac.id.jar 1 -
+/backup.tar.bz2 1 -
+/uploads.sql.zip 1 -
+/db.sql.tar.gz 2 -
+/backups.tar.bz2 1 -
+/wp-content/themes/pridmag/db.php 1 www.google.com
+/wp-usr.php 1 -
+/temp.rar 1 -
+/app/code 4 https://search.yahoo.com/
+/wp-content/themes/wp-pridmag/status.php 1 www.google.com
+/admin.sql.xz 1 -
+/wp-content/themes/seotheme/mar.php 1 www.google.com
+/conf/conf.Z 1 -
+/backup_2.sql.tar.z 1 -
+/priv8.php 1 www.google.com
+/temp.zip 1 -
+/package.sql.lz 1 -
+/bin.jar 1 -
+/override 3 https://yandex.com/
+/type.php 1 -
+/poltekkesbanten.sql.xz 1 -
+/ROOT.sql.7z 1 -
+/db.tar.gz 2 -
+/public_html.sql.7z 1 -
+/src.sql.rar 1 -
+/test.jar 1 -
+/wp-content/plugins 3 https://www.google.com/
+/poltekkesbanten.tar.gz 1 -
+/application/controllers 4 https://search.yahoo.com/
+/fileserver/36Bpa1xVekdaDz3kcOTAbcuxOnR.txt 2 -
+/webapps.7z 1 -
+/ROOT.sql.bz2 1 -
+/backups.sqlite 1 -
+/AdminPrestaShop 3 https://search.yahoo.com/
+/src.db 1 -
+/upload.sql.tar.z 1 -
+/var 3 https://www.google.com/
+/Dz.php 1 www.google.com
+/tools 7 https://www.bing.com/
+/Collector/diagnostics/trace_route 1 -
+/laboratorium.poltekkesbanten.ac.id.sql.7z 1 -
+/data.7z 1 -
+/Release.sql.lz 1 -
+/img/c 3 https://www.bing.com/
+/src.z 1 -
+/bin.sql.bz2 1 -
+/wwwroot.Z 1 -
+/src.sql.tar.gz 1 -
+/sys.php 1 www.google.com
+/load.php 1 www.google.com
+/htdocs.tar.bz2 1 -
+/comment 4 https://duckduckgo.com/
+/poltekkesbanten.sql.tar.gz 1 -
+/backups.sql.tar.z 1 -
+/themes/default 4 https://duckduckgo.com/
+/public_html.sql.lz 1 -
+/resources/views 3 https://www.bing.com/
+/con7ext.php 1 www.google.com
+/db.tar 2 -
+/backup.sqlite 1 -
+/dev-api/actuator 2 -
+/defau1t.php 1 www.google.com
+/temp.tar.bz2 1 -
+/ROOT.Z 1 -
+/bin.tar.bz2 1 -
+/fuel 4 https://www.google.com/
+/cgi-bin/status/status.cgi 1 ()%20{%20ignored
+/webapps.war 1 -
+/backups.bz2 1 -
+/db.gz 2 -
+/assets/thirdparty/filemanager/filemanager/dialog.php 1 -
+/application/core 3 https://www.bing.com/
+/wso1.php 1 www.google.com
+/upload.tgz 1 -
+/public.tar 1 -
+/htdocs.war 1 -
+/temp.sql.tar.gz 1 -
+/website.sql.xz 1 -
+/upload.sql.zip 1 -
+/conf/conf.tgz 1 -
+/webapps.jar 1 -
+/lcms/index.php 1 -
+/backup_4.z 1 -
+/solr/admin/cores 2 -
+/tmp.sql.lz 1 -
+/weaver/org.apache.xmlrpc.webserver.XmlRpcServlet 2 -
+/database/factories 4 https://duckduckgo.com/
+/base.php 1 www.google.com
+/output.sql.z 1 -
+/plugin/filemanager/dialog.php 1 -
+/system/engine 1 https://www.google.com/
+/test.sql.tar.z 1 -
+/d.php 1 www.google.com
+/config 7 https://www.google.com/
+/backup_3.z 1 -
+/backup_1.sqlitedb 1 -
+/7.php 1 www.google.com
+/wp-content/themes/jobart/doc.php 1 www.google.com
+/framework 1 https://www.bing.com/
+/dbx.php 1 www.google.com
+/45.php 1 www.google.com
+/website.z 1 -
+/Release.tar.gz 1 -
+/temp.tar.z 1 -
+/2025.jar 1 -
+/servlet/codesettree 3 -
+/public_html.war 1 -
+/plugins/reports 4 https://yandex.com/
+/admin/controller 1 https://yandex.com/
+/public_html.z 1 -
+/uploads.7z 1 -
+/webroot 1 https://www.bing.com/
+/data.sqlitedb 1 -
+/backup_3.sql.xz 1 -
+/conf/conf.sql.lz 1 -
+/wan.htm 1 -
+/html.sqlite 1 -
+/ftp.jar 1 -
+/public.sql.zip 1 -
+/gel4y.php 1 www.google.com
+/htdocs.jar 1 -
+/smile/filemanager/dialog.php 1 -
+/www.war 1 -
+/html.xz 1 -
+/wwwroot.tar 1 -
+/database.jar 1 -
+/package.rar 1 -
+/backup_4.sql.xz 1 -
+/templates/* 2 https://search.yahoo.com/
+/calendar 8 https://search.yahoo.com/
+/webapps.sql.zip 1 -
+/old.tar.bz2 1 -
+/Release.sql.gz 1 -
+/app.jar 1 -
+/dump.sql.tar.z 1 -
+/adminlab 2 -
+/website.sql.tar.gz 1 -
+/backup_3.bz2 1 -
+/backup_4.sql.lz 1 -
+/c99.php 1 www.google.com
+/wp-content/themes/rishi/db.php 1 www.google.com
+/upload.tar 1 -
+/public.tgz 1 -
+/filemanager 2 -
+/database.sqlite 1 -
+/backup_1.tar 1 -
+/data.sql.zip 1 -
+/backup_3.7z 1 -
+/htdocs.gz 1 -
+/old.sql.bz2 1 -
+/wp-content/themes/workart/db.php 1 www.google.com
+/website.sql.7z 1 -
+/backup_2.war 1 -
+/sql.7z 1 -
+/sql.sqlite 1 -
+/by.php 1 www.google.com
+/backup_4.bz2 1 -
+/poltekkesbanten.ac.id.sql.lz 1 -
+/10.php 1 www.google.com
+/s.php 1 www.google.com
+/invoker/readonly 1 -
+/backup_3.sql.lz 1 -
+/images/logo/logo-eoffice.php 1 -
+/.well-known/gpc.json 2 https://laboratorium.poltekkesbanten.ac.id/login
+/backup_1.lz 1 -
+/backup_4.7z 1 -
+/wp-content/languages 2 https://www.bing.com/
+/minimo.php 1 www.google.com
+/data.tar.z 1 -
+/bin.sql.gz 1 -
+/plugins/*/* 3 https://yandex.com/
+/2025.sql.gz 1 -
+/conf/conf.sql.bz2 1 -
+/bin.zip 1 -
+/www.bz2 1 -
+/www.xz 1 -
+/core/themes 2 https://www.bing.com/
+/umotion/modules/reporting/track_import_export.php 1 -
+/poltekkesbanten.sql.gz 1 -
+/var/cache 3 https://yandex.com/
+/user/files/filemanager/dialog.php 1 -
+/temp.sqlitedb 1 -
+/dump.sql.xz 1 -
+/bj.php 1 www.google.com
+/bak.sql.lz 1 -
+/prod-api/actuator 2 -
+/database/seeds 4 https://duckduckgo.com/
+/backup.sql.z 1 -
+/inetpub.z 1 -
+/pub/media/customer 4 https://www.google.com/
+/bin.tar.gz 1 -
+/public.db 1 -
+/bin 4 https://duckduckgo.com/
+/wp-configer.php 1 www.google.com
+/upload.Z 1 -
+/sys/ui/extend/varkind/custom.jsp 2 -
+/uploads.sql.lz 1 -
+/html.tar 1 -
+/src.sql.7z 1 -
+/app/design/frontend 3 https://yandex.com/
+/test.tgz 1 -
+/plugins/citationFormats 3 https://www.google.com/
+/wwwroot.sql.bz2 1 -
+/Mo2AaAaAaPrivateShell.php 1 www.google.com
+/db.z 2 -
+/www.gz 1 -
+/laboratorium.db 1 -
+/backups.gz 1 -
+/controllers/front 3 https://search.yahoo.com/
+/XxX.php 1 www.google.com
+/api.sql.lz 1 -
+/webapps.rar 1 -
+/.well-known/resource-that-should-not-exist-whose-status-code-should-not-be-200 2 https://laboratorium.poltekkesbanten.ac.id/login
+/package.sql.zip 1 -
+/laboratorium.poltekkesbanten.ac.id.7z 1 -
+/storage/filemanager/dialog.php 1 -
+/donjo-app 4 https://search.yahoo.com/
+/catalog/model 2 https://duckduckgo.com/
+/wwwroot.sqlite 1 -
+/tinymce/js/filemanager/dialog.php 1 -
+/inetpub.sql.tar.gz 1 -
+/temp.sql.zip 1 -
+/ffAA531.php 1 www.google.com
+/output.sqlite 1 -
+/backupsettings.dat 1 -
+/wp-content/themes/seotheme/db.php 1 www.google.com
+/database.z 1 -
+/vuln.php 1 www.google.com
+/cgi-bin/test.cgi 1 ()%20{%20ignored
+/generated 3 https://search.yahoo.com/
+/html.sql.lz 1 -
+/.vscode 2 https://www.bing.com/
+/repository 5 https://yandex.com/
+/xmlrpc.php 12 -
+/wp-content/themes/noriumportfolio/doc.php 1 www.google.com
+/web.sql.lz 1 -
+/byps.php 1 www.google.com
+/admin/js/filemanager/dialog.php 1 -
+/laboratorium.zip 1 -
+/wp-content/plugins/db/mar.php 1 www.google.com
+/3index.php 1 www.google.com
+/room.php 1 www.google.com
+/inetpub.sql.7z 1 -
+/wwwroot.tar.bz2 1 -
+/3.php 1 www.google.com
+/wp/wp-includes/fonts/iqb.php 1 www.google.com
+/www.sql.rar 1 -
+/html.war 1 -
+/temp.7z 1 -
+/1877.php 1 www.google.com
+/dump.tgz 1 -
+/backup_3.jar 1 -
+/m.php 1 www.google.com
+/ftp.sqlite 1 -
+/www.db 1 -
+/ftp.7z 1 -
+/mi.php 1 www.google.com
+/filemanager.php 1 www.google.com
+/data.tar.bz2 1 -
+/admin.sql.bz2 1 -
+/sdwan/nitro/v1/config/get_package_file 1 -
+/wp-singupp.php 1 www.google.com
+/uploads.tar.gz 1 -
+/plugins/importexport 2 https://duckduckgo.com/
+/package.war 1 -
+/database.sql.xz 1 -
+/backup_4.jar 1 -
+/Release.7z 1 -
+/wwwroot.sqlitedb 1 -
+/privacy 4 https://www.google.com/
+/BSW_cxttongr.htm 1 -
+/html.bz2 1 -
+/ROOT.sql.rar 1 -
+/wp-js.php 1 www.google.com
+/test.sql.xz 1 -
+/webadmin/script 1 -
+/wp-content.php 1 www.google.com
+/h5p 3 https://yandex.com/
+/9.php 1 www.google.com
+/users 4 https://yandex.com/
+/package.jar 1 -
+/public.Z 1 -
+/upload.db 1 -
+/data.sql.tar.gz 1 -
+/old.tar.gz 1 -
+/minik.php 1 www.google.com
+/wp-content/plugins/woocommerce-abandoned-cart/readme.txt 1 -
+/src.tgz 1 -
+/backup_4.sqlite 1 -
+/mod 4 https://www.google.com/
+/inetpub.sql.xz 1 -
+/database.sql.lz 1 -
+/sql.jar 1 -
+/public_html.rar 1 -
+/old.zip 1 -
+/uploads.sql.gz 1 -
+/xd.php 1 www.google.com
+/old.sql.gz 1 -
+/laboratorium.poltekkesbanten.ac.id.zip 1 -
+/database.7z 1 -
+/app.sqlite 1 -
+/backup_3.sqlite 1 -
+/app.7z 1 -
+/application/language 3 https://duckduckgo.com/
+/filemanager/filemanager/dialog.php 1 -
+/vendor/plugins/ckeditor/filemanager/dialog.php 1 -
+/card_scan.php 1 -
+/database.bz2 1 -
+/backup_1.sql.7z 1 -
+/app/Http 4 https://www.google.com/
+/backupmgt/pre_connect_check.php 1 -
+/bak.sql.xz 1 -
+/public_html.xz 1 -
+/backups.tar 1 -
+/old.7z 1 -
+/CMSPages/Staging/SyncServer.asmx/ProcessSynchronizationTaskData 1 -
+/old.sqlite 1 -
+/themes/contrib 2 https://www.bing.com/
+/admin/model 1 https://duckduckgo.com/
+/public.zip 1 -
+/sql.sql.bz2 1 -
+/bsh.servlet.BshServlet 3 -
+/app.zip 1 -
+/data.db 1 -
+/app.sql.gz 1 -
+/talari/app/files/36BpZI9RNvATLQ4Lxvf9mUFEEPZ 1 -
+/graphql 2 -
+/Release.jar 1 -
+/backup_4.db 1 -
+/pub/media 3 https://www.google.com/
+/FoxWSOv1.php 1 www.google.com
+/api.sql.xz 1 -
+/axis2/axis2-admin/login 2 -
+/sql.tar.bz2 1 -
+/wp-includes/fonts/dev.php 1 www.google.com
+/js.php 1 www.google.com
+/laboratorium.poltekkesbanten.ac.id.lz 1 -
+/translations 2 https://yandex.com/
+/output.gz 1 -
+/website.db 1 -
+/laboratorium.sqlitedb 1 -
+/inetpub.sql.rar 1 -
+/1975.php 3 www.google.com
+/web.rar 1 -
+/backup_3.db 1 -
+/app.tar.gz 1 -
+/app 8 https://yandex.com/
+/uploads.rar 1 -
+/un2.php 1 www.google.com
+/data.rar 1 -
+/laboratorium.poltekkesbanten.ac.id.z 1 -
+/backup_2.zip 1 -
+/2025.tgz 1 -
+/public.tar.gz 1 -
+/webapps.sql.lz 1 -
+/backup_3.sql.z 1 -
+/bak.rar 1 -
+/html.z 1 -
+/ftp.tar.gz 1 -
+/data.zip 1 -
+/database.sql.bz2 1 -
+/test.sql.gz 1 -
+/pub/media/downloadable 4 https://search.yahoo.com/
+/web.sql.xz 1 -
+/chitoge.php 1 www.google.com
+/package.7z 1 -
+/www.sql.tar.gz 1 -
+/poltekkesbanten.gz 1 -
+/Release.war 1 -
+/www.z 1 -
+/ftp.zip 1 -
+/asset/uploader/assets/js/jquery.fileupload.js 2 -
+/backup_4.sql.z 1 -
+/api.rar 1 -
+/upload.bz2 1 -
+/wp-content/uploads 3 https://www.bing.com/
+/output.jar 1 -
+/ftp.sql.gz 1 -
+/db.Z 2 -
+/inetpub.tgz 1 -
+/public_html.Z 1 -
+/db.zip 2 -
+/wwwroot.bz2 1 -
+/backup_3.rar 1 -
+/local 3 https://www.bing.com/
+/blog-verify 4 -
+/public_html.tar.gz 1 -
+/admin.zip 1 -
+/public.bz2 1 -
+/tag 4 https://duckduckgo.com/
+/web/modules 2 https://search.yahoo.com/
+/checkValid 1 -
+/wp-admin/includes/1975.php 1 www.google.com
+/readme.php 1 www.google.com
+/webapps.sql.gz 1 -
+/public_html.sqlite 1 -
+/website.tar.z 1 -
+/Release.sql.zip 1 -
+/batm.php 1 www.google.com
+/public_html.7z 1 -
+/iq.php 1 www.google.com
+/plugins/generic 3 https://www.google.com/
+/shells.php 1 www.google.com
+/debug.cgi 1 ()%20{%20ignored
+/wp-content/plugins/wp-freeform/includes/loadme.php 1 www.google.com
+/backup_4.rar 1 -
+/wp-key.php 1 www.google.com
+/wwwroot.sql.tar.z 1 -
+/wawe.php 1 www.google.com
+/conf/conf.sqlite 1 -
+/backups.Z 1 -
+/htdocs.sql.z 1 -
+/upload.tar.gz 1 -
+/wp-ad.php 1 www.google.com
+/FoxWSO-full.php 1 www.google.com
+/xox.php 1 www.google.com
+/extension 2 https://www.bing.com/
+/dump.sql.gz 1 -
+/output.tar.bz2 1 -
+/wp-content/themes/noriumportfolio/alpha.php 1 www.google.com
+/.well-known/related-website-set.json 2 https://laboratorium.poltekkesbanten.ac.id/login
+/vpn/user/download/client 2 -
+/b.php 1 www.google.com
+/admin.sql.7z 1 -
+/website.sql.z 1 -
+/webapps.tar.gz 1 -
+/src.war 1 -
+/inetpub.zip 1 -
+/laboratorium.poltekkesbanten.ac.id.sql.xz 1 -
+/2025.sql.xz 1 -
+/objects/LXLc.txt 1 -
+/data.lz 1 -
+/73.php 1 www.google.com
+/public_html.db 1 -
+/core/profiles 1 https://www.bing.com/
+/output.war 1 -
+/1975Team.php 1 www.google.com
+/sellers.json 2 https://laboratorium.poltekkesbanten.ac.id/login
+/upload.zip 1 -
+/bin.sqlite 1 -
+/bin.7z 1 -
+/css.php 1 www.google.com
+/poltekkesbanten.ac.id.xz 1 -
+/backup_1.sql.gz 1 -
+/db.xz 2 -
+/laboratorium.tar.z 1 -
+/ROOT.war 1 -
+/lolzk.php 1 www.google.com
+/bin.sql.7z 1 -
+/poltekkesbanten.ac.id.sql.zip 1 -
+/laboratorium.poltekkesbanten.ac.id.sqlitedb 1 -
+/catalog/controller 2 https://search.yahoo.com/
+/poltekkesbanten.tgz 1 -
+/old.tgz 1 -
+/modules/attributewizardpro/file_upload.php 1 -
+/webapps.tar.bz2 1 -
+/0z.php 1 www.google.com
+/output.db 1 -
+/src.tar.gz 1 -
+/src 1 https://yandex.com/
+/upload 3 https://www.bing.com/
+/js/tinymce/plugins/filemanager/dialog.php 1 -
+/api.sql.tar.z 1 -
+/wp-content/plugins/seo-by-rank-math/readme.txt 1 -
+/webapps.sqlite 1 -
+/admin/filemanager/filemanager/dialog.php 1 -
+/soap.cgi 1 -
+/index.html 13 https://laboratorium.poltekkesbanten.ac.id/profile
+/poltekkesbanten.ac.id.sql.rar 1 -
+/laboratorium.sql.gz 1 -
+/src.sql.gz 1 -
+/postfs.php 1 www.google.com
+/test.db 1 -
+/indoxploit.php 1 www.google.com
+/html.sql.rar 1 -
+/ROOT.bz2 1 -
+/backups.7z 1 -
+/src.zip 1 -
+/bak.sql.tar.z 1 -
+/data.sql.gz 1 -
+/app/Rules 2 https://yandex.com/
+/xl.php 1 www.google.com
+/temp.jar 1 -
+/2025.tar.z 1 -
+/public/index.php 2 -
+/wp-content/plugins/wsecure/wsecure-config.php 2 -
+/tmp.tar 1 -
+/wp-rss.php 1 www.google.com
+/pref.php 1 www.google.com
+/public_html.tar 1 -
+/wwwroot.rar 1 -
+/gh.php 1 www.google.com
+/package.tar 1 -
+/web.sql.tar.z 1 -
+/usr.php 1 www.google.com
+/sql.xz 1 -
+/sql.bz2 1 -
+/laboratorium.sql.tar.z 1 -
+/webapps.sql.bz2 1 -
+/backup_1.sql.bz2 1 -
+/test.rar 1 -
+/sql.gz 1 -
+/completion 4 https://www.bing.com/
+/wp-admin 16 -
+/dump.lz 1 -
+/cache 11 https://duckduckgo.com/
+/public.sqlite 1 -
+/lib/pkp/templates 3 https://search.yahoo.com/
+/xxx.php 1 www.google.com
+/sites/default/files 3 https://www.bing.com/
+/PMAStandard 4 https://www.bing.com/
+/backup.tar 1 -
+/wp-wso.php 1 www.google.com
+/test.zip 1 -
+/lib/pkp/classes 3 https://duckduckgo.com/
+/.wp-cache.php 1 www.google.com
+/htdocs.sql.rar 1 -
+/js/ 6 https://www.bing.com/
+/hw-sys.htm 1 -
+/zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/my 4 https://www.bing.com/
+/www.jar 1 -
+/2025.sql.tar.gz 1 -
+/upload.sqlite 1 -
+/admin.sql.tar.gz 1 -
+/dump.db 1 -
+/backup.tgz 1 -
+/uploads.bz2 1 -
+/tmp.lz 1 -
+/ftp.war 1 -
+/manage/webshell/u 2 -
+/wp-posts.php 1 www.google.com
+/website.xz 1 -
+/tmp.sql.zip 1 -
+/locale 4 https://search.yahoo.com/
+/filter 4 https://search.yahoo.com/
+/zk.php 1 www.google.com
+/storage 2 https://yandex.com/
+/Release.gz 1 -
+/bootstrap 4 https://search.yahoo.com/
+/uploads.sql.tar.z 1 -
+/conf/conf.zip 1 -
+/wp-atom.php 1 www.google.com
+/ROOT.tar 1 -
+/backup_2.sql.rar 1 -
+/dump.rar 1 -
+/resources/sass 4 https://www.google.com/
+/sql.db 1 -
+/mrjn.php 1 www.google.com
+/test.lz 1 -
+/img/ 3 https://yandex.com/
+/wso1337.php 1 www.google.com
+/ids.php 1 www.google.com
+/.well-known/assetlinks.json 15 -
+/sql.sql.rar 1 -
+/file.php 1 www.google.com
+/public/storage 4 https://search.yahoo.com/
+/dump.zip 1 -
+/backup_2.tar.z 1 -
+/cgi-bin/protected/main.cgi 1 -
+/webapps.sqlitedb 1 -
+/package.Z 1 -
+/wp-content/plugins/acf-frontend-form-element/assets/js/admin.js 1 -
+/wp-content/plugins/definite-unique/license.txt 1 -
+/kn.php 1 www.google.com
+/wp-2019.php 1 www.google.com
+/2025.tar.bz2 1 -
+/ROOT.sql.lz 1 -
+/3301.php 1 www.google.com
+/wp-content/themes/fitnessbase/crp.php 1 www.google.com
+/old.sql.7z 1 -
+/wp-includes/class-wp-other.php 1 www.google.com
+/backup.sql.zip 1 -
+/tmp.sqlitedb 1 -
+/backup_2.sql.tar.gz 1 -
+/output.Z 1 -
+/contribute 3 https://www.google.com/
+/modules/mod_* 2 https://search.yahoo.com/
+/favourites 4 https://www.bing.com/
+/alf.php 1 www.google.com
+/service/extdirect 1 -
+/zx.php 1 www.google.com
+/adxmlrpc.php 1 -
+/bin.tgz 1 -
+/htdocs.sql.tar.z 1 -
+/mar.php 1 www.google.com
+/public 6 https://www.bing.com/
+/database.sql.gz 1 -
+/app.war 1 -
+/rahma.php 1 www.google.com
+/2025.rar 1 -
+/public.gz 1 -
+/old.war 1 -
+/upload.tar.bz2 1 -
+/backups.sql.zip 1 -
+/application/helpers 3 https://www.bing.com/
+/modules/contrib 3 https://www.google.com/
+/nee.php 1 www.google.com
+/data.tgz 1 -
+/4mosan.php 1 www.google.com
+/2025.zip 1 -
+/app.sql.7z 1 -
+/wp-plugins.php 1 www.google.com
+/mnet 4 https://www.google.com/
+/bypas.php 1 www.google.com
+/test.tar.z 1 -
+/uploads.sql.bz2 1 -
+/dump.tar.bz2 1 -
+/backup.sql.rar 1 -
+/administrator/modules 3 https://www.bing.com/
+/output.zip 1 -
+/wwwroot.sql.lz 1 -
+/htdocs.tgz 1 -
+/sql.z 1 -
+/sql.sql.tar.gz 1 -
+/Release.Z 1 -
+/editor 3 https://search.yahoo.com/
+/upload.war 1 -
+/htdocs.sql.zip 1 -
+/user 4 https://duckduckgo.com/
+/wp-content/upgrade 4 https://search.yahoo.com/
+/public.jar 1 -
+/dump.sql.tar.gz 1 -
+/tmp.tar.z 1 -
+/2025.db 1 -
+/laravel52/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/backup.sql.tar.z 1 -
+/www.sql.bz2 1 -
+/backup_3.sqlitedb 1 -
+/app/design 3 https://www.google.com/
+/backup_1.z 1 -
+/uploads.sqlite 1 -
+/cohort 4 https://yandex.com/
+/output.tar.gz 1 -
+/nacos/actuator 2 -
+/data/cache_template/rss.tpl.php 1 -
+/package.gz 1 -
+/uploads.tar.bz2 1 -
+/a.php 1 www.google.com
+/api/json 3 -
+/tmp.sql.z 1 -
+/actuator 2 -
+/abc.php 1 www.google.com
+/mas.php 1 www.google.com
+/send.php 1 www.google.com
+/objects/getImageMP4.php 2 -
+/backup_4.sqlitedb 1 -
+/ftp.sql.7z 1 -
+/www.tar.bz2 1 -
+/.well-known/web-identity 2 https://laboratorium.poltekkesbanten.ac.id/login
+/2.php 1 www.google.com
+/ftp.tgz 1 -
+/api.Z 1 -
+/hehe.php 1 www.google.com
+/dump.tar.z 1 -
+/test.tar.bz2 1 -
+/Release.tar 1 -
+/2index.php 1 www.google.com
+/wp-config 2 https://www.bing.com/
+/backups.jar 1 -
+/docs 6 https://yandex.com/
+/n.php 1 www.google.com
+/wp-login 3 -
+/data.sql.xz 1 -
+/admin.sqlite 1 -
+/CDGServer3/ClientAjax 1 -
+/admin.tar.gz 1 -
+/k.php 1 www.google.com
+/laboratorium.poltekkesbanten.ac.id.sql.lz 1 -
+/poltekkesbanten.zip 1 -
+/output.bz2 1 -
+/settings 1 https://duckduckgo.com/
+/ioxi.php 1 www.google.com
+/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 6 -
+/db.rar 2 -
+/admin.sql.rar 1 -
+/uploads.sqlitedb 1 -
+/php/connector.minimal.php 1 -
+/trash 4 https://yandex.com/
+/bak.Z 1 -
+/2025.lz 1 -
+/upload.jar 1 -
+/asset/thirdparty/filemanager/filemanager/dialog.php 1 -
+/admin.jar 1 -
+/backup_1.sql.xz 1 -
+/f.php 1 www.google.com
+/wwwroot.tar.gz 1 -
+/website.lz 1 -
+/webapps.sql.tar.z 1 -
+/classes/controller 2 https://duckduckgo.com/
+/axis2-admin/login 2 -
+/temp.sql.tar.z 1 -
+/wp.php 1 www.google.com
+/web.Z 1 -
+/backup_4.tar 1 -
+/cgi-bin/status 1 ()%20{%20ignored
+/backup_3.lz 1 -
+/backup_1.sql.lz 1 -
+/src.sqlite 1 -
+/ROOT.z 1 -
+/htdocs.tar 1 -
+/public.war 1 -
+/v4.php 1 www.google.com
+/src.7z 1 -
+/V5.php 1 www.google.com
+/backups.war 1 -
+/webapps.bz2 1 -
+/upload.gz 1 -
+/bin.war 1 -
+/app.tgz 1 -
+/wp-content 2 https://yandex.com/
+/lnedx.php 1 www.google.com
+/test.sql.tar.gz 1 -
+/poltekkesbanten.ac.id.sql.gz 1 -
+/backup_1.7z 1 -
+/backup_3.tar 1 -
+/app/Listeners 4 https://www.bing.com/
+/Collector/diagnostics/ping 1 -
+/public.tar.bz2 1 -
+/wwwroot.sql.gz 1 -
+/backup_4.lz 1 -
+/db.sqlitedb 2 -
+/backup_1.bz2 1 -
+/database.sql.7z 1 -
+/file-manager/ckeditor 2 -
+/test.sql.lz 1 -
+/Release.sql.z 1 -
+/database.zip 1 -
+/webapps.z 1 -
+/app/Console 5 https://search.yahoo.com/
+/temp.sql.z 1 -
+/u.php 1 www.google.com
+/laboratorium.poltekkesbanten.ac.id.sql.gz 1 -
+/wp-includes 2 https://www.google.com/
+/asset/responsive_filemanager/filemanager/dialog.php 1 -
+/backup_4.tar.gz 1 -
+/backup_2.sql.bz2 1 -
+/wp-content/themes 4 https://www.bing.com/
+/public_html.sql.xz 1 -
+/ROOT.lz 1 -
+/inetpub.rar 1 -
+/adminpanel/filemanager/dialog.php 1 -
+/twin.php 1 www.google.com
+/poltekkesbanten.tar 1 -
+/admin.z 1 -
+/public.sql.7z 1 -
+/user/register 1 laboratorium.poltekkesbanten.ac.id/user/register
+/gank.php.PhP 1 www.google.com
+/old.sql.lz 1 -
+/KaseyaCwWebService/ManagedIT.asmx 1 -
+/pub/static 3 https://search.yahoo.com/
+/wp-content/themes/cepair/doc.php 1 www.google.com
+/backup_3.tar.gz 1 -
+/css/ 3 https://duckduckgo.com/
+/conf/conf.sql.tar.z 1 -
+/webapps.sql.tar.gz 1 -
+/wp-includes/fonts/iq.php 1 www.google.com
+/contrib 3 https://search.yahoo.com/
+/Release.tar.z 1 -
+/app/code/Magento 3 https://www.bing.com/
+/website.sql.zip 1 -
+/wp-content/plugins/virr/uploader.php 1 www.google.com
+/storage/app 4 https://www.bing.com/
+/dump.war 1 -
+/test.tar 1 -
+/public_html.gz 1 -
+/html.tgz 1 -
+/2025.z 1 -
+/assets 1 https://yandex.com/
+/byp.php 1 www.google.com
+/uploads.sql.rar 1 -
+/photo/p/api/album.php 3 -
+/public_html.tar.bz2 1 -
+/install 3 https://www.bing.com/
+/index.php/Index/index 1 -
+/backup.xz 1 -
+/public.z 1 -
+/laboratorium.poltekkesbanten.ac.id.db 1 -
+/plugins/themes 3 https://www.bing.com/
+/webapps.sql.7z 1 -
+/temp.gz 1 -
+/1index.php 1 www.google.com
+/dump.bz2 1 -
+/administrator/components 4 https://www.google.com/
+/wp-content/plugins/cakil/up.php 1 www.google.com
+/system/database 4 https://duckduckgo.com/
+/1.php 1 www.google.com
+/upload.sql.tar.gz 1 -
+/backup.lz 1 -
+/ws.php 1 www.google.com
+/tmp.sql.bz2 1 -
+/upload.z 1 -
+/conf/conf.war 1 -
+/plugins/paymethod 3 https://www.google.com/
+/backup_1.sql.rar 1 -
+/poltekkesbanten.sql.zip 1 -
+/app.rar 1 -
+/web.tar.gz 1 -
+/ROOT.rar 1 -
+/web/google_analytics.php 1 -
+/web 1 https://www.google.com/
+/www.tar.z 1 -
+/backup_4.sql.tar.z 1 -
+/ROOT.zip 1 -
+/backup_1.tar.z 1 -
+/ups.php 1 www.google.com
+/db.bz2 2 -
+/public.sql.tar.gz 1 -
+/poltekkesbanten.ac.id.db 1 -
+/backup.7z 1 -
+/Collector/nms/addModifyZTDProxy 1 -
+/wp-conctent.php 1 www.google.com
+/public_html.lz 1 -
+/backup.sql.bz2 1 -
+/poltekkesbanten.db 1 -
+/wp-inlcudes.php 1 www.google.com
+/objects/getImage.php 1 -
+/htdocs.sql.xz 1 -
+/temp.sql.7z 1 -
+/application/third_party 3 https://yandex.com/
+/backup_1.sql.tar.gz 1 -
+/dump.sql.lz 1 -
+/web.zip 1 -
+/cgi-bin/stats 1 ()%20{%20ignored
+/tmp.tar.bz2 1 -
+/web.sql.gz 1 -
+/cgi-bin/test-cgi 1 ()%20{%20ignored
+/temp.sql.bz2 1 -
+/bre.php 1 www.google.com
+/www.sql.z 1 -
+/wp-admin.php 1 www.google.com
+/backup_3.sql.tar.z 1 -
+/laboratorium.poltekkesbanten.ac.id.war 1 -
+/scripts 2 https://duckduckgo.com/
+/website.war 1 -
+/poltekkesbanten.bz2 1 -
+/uploads.zip 1 -
+/ftp.sql.xz 1 -
+/api/timelion/run 2 -
+/bak.sql.gz 1 -
+/installer-backup.php 2 -
+/upgrade/detail.jsp/login/LoginSSO.jsp 2 -
+/test.php 1 www.google.com
+/vendor/ckeditor/filemanager/dialog.php 1 -
+/api.tar.gz 1 -
+/website.jar 1 -
+/V3.php 1 www.google.com
+/bak.zip 1 -
+/apply_sec.cgi 3 https://laboratorium.poltekkesbanten.ac.id/login_pic.asp
+/webapps.sql.xz 1 -
+/src.sql.tar.z 1 -
+/poltekkesbanten.war 1 -
+/upload.sql.7z 1 -
+/test.bz2 1 -
+/pub/media/catalog 3 https://www.bing.com/
+/html.sql.xz 1 -
+/ninja.php 1 www.google.com
+/app.sql.xz 1 -
+/ROOT.db 1 -
+/bin.sql.lz 1 -
+/poltekkesbanten.ac.id.sql.bz2 1 -
+/wp-includes/wp-class.php 1 www.google.com
+/backups.lz 1 -
+/api.sql.gz 1 -
+/bak.tar.gz 1 -
+/blog/wp-includes/fonts/iqb.php 1 www.google.com
+/ftp.rar 1 -
+/envr 1 -
+/test.war 1 -
+/uploads.tgz 1 -
+/Release.db 1 -
+/conf/conf.bz2 1 -
+/api.zip 1 -
+/dump.tar 1 -
+/wp-content/plugins/delightful-downloads/assets/vendor/jqueryFileTree/connectors/jqueryFileTree.php 2 -
+/poltekkesbanten.sql.7z 1 -
+/ROOT.sql.tar.gz 1 -
+/html.sql.gz 1 -
+/objects/eNGn.txt 1 -
+/api.7z 1 -
+/api.sqlite 1 -
+/backup.sql.xz 1 -
+/alpha.php 1 www.google.com
+/media 3 https://duckduckgo.com/
+/wp-content/plugins/db/uploader.php 1 www.google.com
+/uploads.sql.7z 1 -
+/backup_2.z 1 -
+/class/phpformbuilder/plugins/filemanager/dialog.php 1 -
+/lx.php 1 www.google.com
+/poltekkesbanten.sql.tar.z 1 -
+/bak.sqlite 1 -
+/bak.7z 1 -
+/htdocs.lz 1 -
+/webapps.sql.rar 1 -
+/old.sql.xz 1 -
+/htdocs.sql.bz2 1 -
+/package.db 1 -
+/wp-content/plugins/bj-lazy-load/thumb.php 2 -
+/2025.tar 1 -
+/www.sqlitedb 1 -
+/test.z 1 -
+/hi.php 1 www.google.com
+/htdocs.7z 1 -
+/uploads.sql.tar.gz 1 -
+/h.php 1 www.google.com
+/fox.php 1 www.google.com
+/web.sqlite 1 -
+/blog/wp-includes/fonts/dev.php 1 www.google.com
+/shell.php 1 www.google.com
+/www.lz 1 -
+/web.7z 1 -
+/inetpub.sql.lz 1 -
+/output.tar.z 1 -
+/anone.php 1 www.google.com
+/upload.rar 1 -
+/wp-login.php 16 -
+/un.php 2 www.google.com
+/administrator/index.php 4 -
+/tmp.jar 1 -
+/block-patwp.php 1 www.google.com
+/xleet-shell.php 1 www.google.com
+/src.Z 1 -
+/var/log 4 https://search.yahoo.com/
+/docSQL 1 https://search.yahoo.com/
+/website.7z 1 -
+/wp-content/uploads/post_files/36bpa12dkktti9eitwkv2wpl95h.php 1 -
+/public.sql.lz 1 -
+/wp-content/plugins/cache-wordpress/wp-activates.php 1 www.google.com
+/competency 5 https://www.bing.com/
+/2025.sql.lz 1 -
+/test.cgi 1 ()%20{%20ignored
+/ROOT.tar.bz2 1 -
+/temp.Z 1 -
+/assets/plugins/filemanager/dialog.php 1 -
+/uploads.z 1 -
+/wp-content/mu-plugins-old/index.php 1 www.google.com
+/www.sql.zip 1 -
+/old.rar 1 -
+/catalog/view 2 https://search.yahoo.com/
+/data.sql.rar 1 -
+/wp-admin/xadm-log.php 1 -
+/conf/conf.sql.xz 1 -
+/upload.sql.lz 1 -
+/_users/org.couchdb.user:poc 1 -
+/site 4 https://yandex.com/
+/backup_3.war 1 -
+/db.tgz 2 -
+/webadmin/auth/verification.php 2 https://laboratorium.poltekkesbanten.ac.id/webadmin/start/
+/wp-content/plugins/cidaas-pro-master/composer.json 4 -
+/2025.war 1 -
+/parse 2 -
+/app/Notifications 4 https://yandex.com/
+/inetpub.sql.gz 1 -
+/bin.rar 1 -
+/www.tar 1 -
+/backup_2.sql.lz 1 -
+/kndw1.php 1 www.google.com
+/alfa-shell-v4.php 1 www.google.com
+/Make 4 https://search.yahoo.com/
+/webapps.tgz 1 -
+/dump.z 1 -
+/package.tar.z 1 -
+/tplus/ajaxpro/Ufida.T.CodeBehind._PriorityLevel,App_Code.ashx 3 -
+/wp-content/plugins/total-donations/readme.txt 2 -
+/conf/conf.7z 1 -
+/backup_4.war 1 -
+/ftp.sql.lz 1 -
+/srx.php 1 www.google.com
+/public.rar 1 -
+/portfolio 3 https://duckduckgo.com/
+/backup_2.bz2 1 -
+/uploads.sql.xz 1 -
+/2025.bz2 1 -
+/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/backup_2.7z 1 -
+/v3.php 1 www.google.com
+/admin.tgz 1 -
+/wp-content/themes/skatepark/alpha.php 1 www.google.com
+/db.jar 2 -
+/app.sql.lz 1 -
+/webapps.zip 1 -
+/inetpub.tar.gz 1 -
+/bin.sql.xz 1 -
+/ROOT.tar.z 1 -
+/htdocs.xz 1 -
+/notification 4 https://duckduckgo.com/
+/jobs 3 https://yandex.com/
+/public_html.tgz 1 -
+/laboratorium.war 1 -
+/package.sql.z 1 -
+/app/Policies 3 https://www.bing.com/
+/laboratorium.sql.zip 1 -
+/poltekkesbanten.sql.rar 1 -
+/wp-content/flame.php 1 www.google.com
+/.well-known/passkey-endpoints 2 https://laboratorium.poltekkesbanten.ac.id/login
+/wikindex.php 1 www.google.com
+/laboratorium.tar 1 -
+/search 4 https://www.bing.com/
+/.github 3 https://duckduckgo.com/
+/laboratorium.sqlite 1 -
+/controllers/admin 3 https://www.google.com/
+/backups.xz 1 -
+/backup_2.sql.xz 1 -
+/output.sql.7z 1 -
+/html.rar 1 -
+/4.php 1 www.google.com
+/public_html.sql.tar.gz 1 -
+/wp-system.php 1 www.google.com
+/wwwroot.sql.7z 1 -
+/inetpub.tar.bz2 1 -
+/users/sign_in 1 -
+/wp-site.php 1 www.google.com
+/sites 3 https://www.bing.com/
+/poltekkesbanten.7z 1 -
+/var/tmp 3 https://duckduckgo.com/
+/wp-we.php 1 www.google.com
+/public_html.tar.z 1 -
+/old.sql.tar.z 1 -
+/data.z 1 -
+/alfakun.php 1 www.google.com
+/poltekkesbanten.ac.id.zip 1 -
+/al.php 1 www.google.com
+/html.zip 1 -
+/wp-content/plugins/fancy-elementor-gallery-box/assets/js/fancy-elementor-flipbox.js 1 -
+/backup.sqlitedb 1 -
+/ftp.Z 1 -
+/api.tgz 1 -
+/app/Broadcasting 3 https://www.bing.com/
+/nasgor.php 1 www.google.com
+/config.php 1 www.google.com
+/wwwroot.sql.tar.gz 1 -
+/poltekkesbanten.ac.id.lz 1 -
+/t.php 1 www.google.com
+/inetpub.sqlite 1 -
+/backup.sql.gz 1 -
+/tinymce/js/tinymce/plugins/filemanager/dialog.php 1 -
+/lib/pkp 3 https://www.bing.com/
+/c.php 1 www.google.com
+/bak.tgz 1 -
+/wp-admin/options-general.php 1 -
+/wp-content/themes/workart/doc.php 1 www.google.com
+/db.sql.7z 2 -
+/deserialize 2 -
+/inetpub.sql.bz2 1 -
+/temp.tar.gz 1 -
+/sites/*/files 3 https://search.yahoo.com/
+/plugins 6 https://duckduckgo.com/
+/output.z 1 -
+/application/views 3 https://www.bing.com/
+/admin/filemanager/dialog.php 1 -
+/html.db 1 -
+/images/images/cache.php 2 -
+/web.tgz 1 -
+/ROOT.sql.xz 1 -
+/_async/AsyncResponseService 1 -
+/test.sql.rar 1 -
+/db.sql.lz 2 -
+/resources/lang 4 https://search.yahoo.com/
+/zentao/user-login.html 3 https://laboratorium.poltekkesbanten.ac.id/zentao/user-login.html
+/resources/js/tinymce/plugins/filemanager/dialog.php 1 -
+/website.tar 1 -
+/backups.db 1 -
+/wwwroot.z 1 -
+/wp-content/plugins/w3-total-cache/pub/sns.php 2 -
+/ok.php 1 www.google.com
+/manager.php 1 www.google.com
+/tinymce/js/tinymce/plugins/filemanager/filemanager/dialog.php 1 -
+/pub 4 https://search.yahoo.com/
+/laboratorium.poltekkesbanten.ac.id.sql.rar 1 -
+/Release.lz 1 -
+/sitecore/shell/Applications/Security/CreateNewUser/CreateNewUser.aspx 2 -
+/wp-content/plugins/chopslider/get_script/index.php 1 -
+/app.Z 1 -
+/conf/conf.sql.z 1 -
+/poltekkesbanten.sql.lz 1 -
+/poltekkesbanten.ac.id.sqlite 1 -
+/backups.sql.z 1 -
+/lock360.php 1 www.google.com
+/assets/plugins/filemanager/filemanager/dialog.php 1 -
+/tshop.php 1 www.google.com
+/poltekkesbanten.rar 1 -
+/uploads/filemanager/dialog.php 1 -
+/assets/responsive_filemanager/filemanager/dialog.php 1 -
+/apple-touch-icon.png 15 -
+/backup_4.gz 1 -
+/backup_3.tgz 1 -
+/vendor/filemanager/filemanager/dialog.php 1 -
+/pmd 3 https://duckduckgo.com/
+/wwwroot.sql.xz 1 -
+/html.lz 1 -
+/xm.php 1 www.google.com
+/package.xz 1 -
+/admin.war 1 -
+/.well-known/privacy-sandbox-attestations.json 2 https://laboratorium.poltekkesbanten.ac.id/login
+/output.sql.tar.gz 1 -
+/misc 3 https://duckduckgo.com/
+/web.sql.7z 1 -
+/tmp.sql.tar.gz 1 -
+/la.php 1 www.google.com
+/poltekkesbanten.tar.bz2 1 -
+/tmp.z 1 -
+/backup_3.gz 1 -
+/backup_2.sql.7z 1 -
+/conf/conf.tar 1 -
+/customfield 3 https://duckduckgo.com/
+/db.sql.xz 2 -
+/backup_4.tgz 1 -
+/GponForm/diag_Form 2 -
+/poltekkesbanten.tar.z 1 -
+/bak.sql.7z 1 -
+/sql.tar.z 1 -
+/backup_3.sql.zip 1 -
+/backups.tar.z 1 -
+/inetpub.sqlitedb 1 -
+/wp-content/themes/noriumportfolio/db.php 1 www.google.com
+/laboratorium.sql.bz2 1 -
+/wp_wrong_datlib.php 1 www.google.com
+/min.php 1 www.google.com
+/ROOT.tgz 1 -
+/outgoing 4 https://duckduckgo.com/
+/conf/conf.tar.gz 1 -
+/var/session 4 https://www.bing.com/
+/ss.php 1 -
+/api.sql.7z 1 -
+/lib 5 https://duckduckgo.com/
+/app/design/adminhtml 2 https://search.yahoo.com/
+/sql.sql.z 1 -
+/backup_4.sql.zip 1 -
+/src.sql.lz 1 -
+/website.Z 1 -
+/inc 1 https://www.bing.com/
+/poltekkesbanten.z 1 -
+/admin.sql.zip 1 -
+/modules/custom 1 https://www.bing.com/
+/dump.sql.rar 1 -
+/bin.sql.tar.z 1 -
+/100.php 1 www.google.com
+/laravel-filemanager 2 -
+/qindex.php 1 www.google.com
+/backup_1.zip 1 -
+/api.war 1 -
+/core 3 https://duckduckgo.com/
+/index.php/index/oai 1 -
+/q.php 1 www.google.com
+/sql.lz 1 -
+/unknown.php 1 www.google.com
+/components 2 https://duckduckgo.com/
+/application/logs 3 https://yandex.com/
+/data.sql.lz 1 -
+/bak.war 1 -
+/app/Providers 3 https://yandex.com/
+/database 2 https://www.bing.com/
+/configuration 1 https://www.bing.com/
+/system/libraries 4 https://www.bing.com/
+/conf/conf.sql.tar.gz 1 -
+/sql.sql.zip 1 -
+/xcv.php 1 www.google.com
+/notes 4 https://www.google.com/
+/assets/javascript/fm/filemanager/dialog.php 1 -
+/db.war 2 -
+/enrol 3 https://www.bing.com/
+/priv.php 1 www.google.com
+/xindex.php 1 www.google.com
+/cgi-bin/test 1 ()%20{%20ignored
+/2025.sql.rar 1 -
+/var/page_cache 3 https://www.google.com/
+/x.php 1 www.google.com
+/tools/ajax/ConsoleResult.html 2 -
+/wp-content/plugins/wp-diambar/includes/loadme.php 1 www.google.com
+/themes/custom 2 https://search.yahoo.com/
+/html.tar.z 1 -
+/wwwroot.sql.rar 1 -
+/wp-backup-sql-302.php 1 www.google.com
+/backup_4.xz 1 -
+/app-ads.txt 2 https://laboratorium.poltekkesbanten.ac.id/login
+/tmp.db 1 -
+/web.war 1 -
+/admin.xz 1 -
+/cgibin/webproc 1 -
+/mass.php 1 www.google.com
+/output.sql.lz 1 -
+/tmp.sql.rar 1 -
+/ohayo.php 1 www.google.com
+/application/models 4 https://yandex.com/
+/new-index.php 1 www.google.com
+/website.gz 1 -
+/sql.sqlitedb 1 -
+/bin.Z 1 -
+/wp-content/themes/skatepark/db.php 1 www.google.com
+/content/36VMEtnWo58cpinveuYp5L8F4rs 1 https://laboratorium.poltekkesbanten.ac.id
+/backup_3.xz 1 -
+/yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/temp.sqlite 1 -
+/artifactory/ui/auth/login 2 https://laboratorium.poltekkesbanten.ac.id/artifactory/webapp/
+/0o.php 1 www.google.com
+/uploader.php 1 www.google.com
+/data.tar 1 -
+/public.tar.z 1 -
+/Release.xz 1 -
+/temp.xz 1 -
+/index.php/oai 1 -
+/backup_4.tar.bz2 1 -
+/ftp.sql.tar.z 1 -
+/old.Z 1 -
+/poltekkesbanten.ac.id.gz 1 -
+/database.sql.rar 1 -
+/media/upload/filemanager/dialog.php 1 -
+/ROOT.sql.gz 1 -
+/html.sql.tar.gz 1 -
+/public_html.bz2 1 -
+/libraries 6 https://duckduckgo.com/
+/upload.tar.z 1 -
+/htdocs.sql.gz 1 -
+/database.tar.z 1 -
+/output.rar 1 -
+/r.php 1 www.google.com
+/w3llstore.php 1 www.google.com
+/backup_3.tar.bz2 1 -
+/poltekkesbanten.ac.id.tar.z 1 -
+/ww.php 1 www.google.com
+/src.rar 1 -
+/sitemap.xml 1 -
+/database.sql.tar.gz 1 -
+/admin/view 1 https://www.bing.com/
+/wwwroot.zip 1 -
+/package.lz 1 -
+/backup_2.sql.gz 1 -
+/htdocs.sqlitedb 1 -
+/json 4 -
+/dist 1 https://duckduckgo.com/
+/1975.phP 1 www.google.com
+/wp-content/plugins/wp-freeform/wawe.php 1 www.google.com
+/admin.tar.z 1 -
+/wls-wsat/CoordinatorPortType 3 -
+/sql.tar 1 -
+/bypass.php 1 www.google.com
+/god4m.php 1 www.google.com
+/idx.php 1 www.google.com
+/administrator/cache 3 https://www.bing.com/
+/data.war 1 -
+/local.php 1 www.google.com
+/tmp.bz2 1 -
+/tmp.xz 1 -
+/inetpub.sql.tar.z 1 -
+/backup_4.Z 1 -
+/usb.php 1 www.google.com
+/vendor/filemanager/dialog.php 1 -
+/administrator/templates 2 https://duckduckgo.com/
+/laboratorium.z 1 -
+/application/errors 3 https://www.google.com/
+/html.tar.bz2 1 -
+/app.sql.tar.z 1 -
+/conf/conf.rar 1 -
+/seeyon/test123456.jsp 1 -
+/wp-content/themes/wp-pridmag/up.php 1 www.google.com
+/tmp.gz 1 -
+/message 4 https://yandex.com/
+/badges 3 https://yandex.com/
+/src.sql.xz 1 -
+/data.bz2 1 -
+/poltekkesbanten.lz 1 -
+/inetpub.bz2 1 -
+/backup_3.Z 1 -
+/llms.txt 2 https://laboratorium.poltekkesbanten.ac.id/login
+/installation 1 https://duckduckgo.com/
+/wwwroot.tgz 1 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 106
+103.206.72.5 217 317 37808354 20251216200539
+103.164.12.13 36 75 44456669 20251218042721
+103.177.177.209 35 68 5852128 20251210011237
+114.4.213.194 18 27 1861502 20251201221437
+140.213.137.102 13 19 572745 20251202092916
+178.128.220.72 11 11 41184 20251212133600
+114.10.113.202 10 10 327943 20251201222859
+103.81.110.245 7 20 2098266 20251201091148
+206.189.163.168 6 6 22464 20251209152052
+159.223.61.128 6 6 11457 20251207004931
+103.184.67.85 6 13 776090 20251213042115
+221.120.162.214 5 16 1366956 20251201072614
+140.213.129.215 5 8 260173 20251202092933
+182.2.182.242 5 5 3032146 20251204224047
+34.125.206.218 4 18 2180864 20251209161128
+111.94.134.172 4 17 2038345 20251207030004
+103.184.66.143 3 3 51714 20251201214423
+125.160.230.235 3 3 0 20251216071130
+182.2.176.25 3 8 620902 20251203094200
+34.106.222.36 3 17 1846890 20251213203911
+51.68.186.52 3 3 11232 20251213055509
+185.169.4.152 3 3 11232 20251202131030
+194.233.84.10 3 3 11232 20251210161851
+182.2.183.18 2 8 753796 20251209062544
+103.177.177.129 2 13 793968 20251214231709
+118.137.75.158 1 8 756458 20251207172421
+146.190.91.73 1 1 0 20251217130654
+103.3.221.238 1 1 3744 20251210022927
+86.48.11.102 1 1 3744 20251212182337
+162.43.233.118 1 3 486555 20251210022938
+114.10.42.66 1 1 0 20251207034808
+114.8.196.74 0 2 12812 
+202.65.229.227 1 1 3744 20251210022928
+202.157.184.38 1 1 3744 20251213085151
+103.177.92.110 0 2 168750 
+180.243.14.231 0 1 6406 
+165.22.59.238 1 1 0 20251215093119
+86.48.11.129 1 1 3744 20251213063619
+103.172.0.201 1 1 3744 20251210022927
+103.125.18.72 1 8 756458 20251213215019
+103.70.115.14 2 2 7488 20251217130050
+140.213.250.205 0 12 1374383 
+103.135.224.6 1 8 756458 20251205005144
+111.94.124.111 1 7 750052 20251212034321
+112.215.66.228 1 1 12871 20251201191658
+91.224.92.26 2 2 3744 20251211013526
+112.215.66.237 1 1 3744 20251201191634
+210.87.87.114 2 2 19603 20251205070917
+103.125.51.148 2 2 7488 20251209162439
+111.94.72.113 1 7 750052 20251202122615
+160.19.178.109 2 3 343403 20251214060433
+34.60.131.171 2 2 3744 20251210022926
+3.146.111.124 1 1 3744 20251206105620
+103.165.133.150 1 1 3744 20251207102224
+83.229.114.38 0 2 150786 
+103.183.8.59 0 1 6406 
+103.169.41.177 1 1 3744 20251210022927
+136.119.129.236 2 2 2797 20251210022930
+157.20.32.133 1 1 3744 20251218014925
+110.136.11.172 0 1 6406 
+159.223.91.105 1 1 0 20251215114100
+180.243.14.252 1 8 756458 20251213001311
+93.185.162.144 2 9 756533 20251213012616
+206.204.11.231 0 2 92041 
+182.3.50.78 1 8 756458 20251209222126
+152.42.247.181 1 1 0 20251212024230
+159.223.16.28 1 2 10150 20251209100602
+159.65.135.101 2 2 3819 20251203203211
+103.177.92.182 0 2 339805 
+36.77.231.33 0 1 6406 
+185.213.83.126 1 1 75 20251207030723
+112.215.66.235 1 1 15213 20251201191653
+66.249.66.44 1 1 3744 20251203151247
+114.8.211.142 0 1 6406 
+180.243.8.164 0 1 6406 
+180.253.31.30 1 1 3744 20251210022927
+111.94.49.216 0 1 6406 
+103.177.93.46 1 4 247903 20251209062811
+157.20.32.173 1 1 0 20251209114231
+34.44.196.215 1 7 750052 20251210022928
+103.69.106.170 2 13 1355724 20251218113008
+136.119.87.31 2 2 3744 20251210022924
+152.42.169.226 1 1 3744 20251213024120
+114.10.24.223 0 1 6406 
+146.190.94.148 1 1 0 20251211013244
+51.38.96.239 1 1 3744 20251202182213
+103.167.170.226 1 5 581302 20251209212822
+45.82.78.110 1 1 3744 20251210040639
+160.25.35.219 0 1 6406 
+152.39.250.35 0 2 171456 
+114.8.234.170 0 1 6406 
+165.232.168.21 1 1 0 20251217045414
+140.213.30.100 1 1 552144 20251205051900
+152.42.183.102 2 2 3744 20251205110718
+54.254.214.141 2 2 7488 20251214043021
+103.255.163.103 0 1 6406 
+202.10.62.51 2 10 1162604 20251203041421
+103.180.126.106 0 1 6406 
+15.235.59.82 1 1 3744 20251202003814
+36.77.230.68 1 1 3744 20251217020558
+36.93.156.82 1 8 756458 20251205071223
+178.171.116.192 0 1 6406 
+180.254.77.254 1 7 750052 20251204074128
+161.123.127.207 1 2 339659 20251206151329
+103.87.68.142 1 1 3744 20251215212416
+110.136.10.172 1 5 581302 20251202211004
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 17
+20251201 49 82 5775680 10
+20251202 30 62 4240285 11
+20251203 9 22 1794861 5
+20251204 33 66 46032656 6
+20251205 21 74 7760192 7
+20251206 6 10 511926 5
+20251207 13 35 2826509 7
+20251209 139 205 14843678 11
+20251210 58 130 10945026 16
+20251211 3 3 3744 2
+20251212 14 20 794980 4
+20251213 18 62 4923961 10
+20251214 17 43 3487093 4
+20251215 60 74 18342069 6
+20251216 9 11 274060 3
+20251217 5 8 30450 5
+20251218 4 10 733750 3
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+30s-2mn 6
+0s-30s 93
+15mn-30mn 5
+1h+ 2
+30mn-1h 1
+2mn-5mn 2
+5mn-15mn 6
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 42
+/login 173 592636 107 83
+/user/kunjungan 90 2583139 1 8
+/profile 26 580189 1 5
+/user/peminjaman 25 2480685 1 3
+/user/jadwal_praktikum 21 1074726 0 0
+/petugas/request 19 488674 0 0
+/thema/assets/css/icons/tabler-icons/fonts/tabler-icons.woff2 16 8834304 2 2
+/admin/users 12 34593532 0 2
+/petugas/laporan/kunjungan_lab 12 325966 0 0
+/user/req_peminjaman 12 1394446 0 0
+/petugas/laporan/penggunaan_lab 11 293920 0 0
+/user/req_jadwal 9 340971 0 1
+/petugas/barang 7 9907325 1 1
+/register 6 450 1 6
+/petugas/laporan 5 128270 0 0
+/petugas/barangbhp 5 716417 0 0
+/admin/user_manage 4 6204537 0 0
+/thema/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js.map 3 1001922 0 2
+/admin/master_data 2 1117142 0 0
+/password/reset 2 2797 1 1
+/petugas/laporan/pinjaman_bahan_bhp 2 57928 0 0
+/petugas/request_detail/1310 2 52218 0 0
+/petugas/ruang 2 425414 0 0
+/petugas/request_jadwal 2 72730 0 0
+/user/peminjaman_detail/1392 2 50064 0 0
+/petugas/request_detail/1392 1 27233 0 0
+/home 1 15221 0 0
+/petugas/request_detail/1402 1 26002 0 0
+/petugas/request_detail/1390 1 26104 0 0
+/user/peminjaman_detail/1401 1 27190 0 0
+/admin/user/42 1 31312 0 0
+/petugas/belum_dikembalikan 1 28457 0 0
+/petugas/request_detail/1401 1 33873 0 0
+/petugas/request_detail/1311 1 26099 0 0
+/petugas/request_detail/1399 1 25999 0 0
+/changePassword 1 12369 0 1
+/petugas/barangmedis 1 2394185 0 0
+/petugas/edit_bhp/777 1 25857 0 0
+/petugas/pengembalian 2 479110 0 0
+/user/peminjaman_detail/1323 1 24659 0 0
+/petugas/request_detail/1400 1 25982 0 0
+/petugas/request_detail/1391 1 26103 0 0
+END_SIDER

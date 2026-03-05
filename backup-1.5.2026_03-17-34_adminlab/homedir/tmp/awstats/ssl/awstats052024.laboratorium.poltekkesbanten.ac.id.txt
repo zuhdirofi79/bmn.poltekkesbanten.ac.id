@@ -1,0 +1,2642 @@
+AWSTATS DATA FILE 7.8 (build 20200416)
+# If you remove this file, all statistics for date 202405 will be lost/reset.
+# Last config file used to build this data file was /home/adminlab/tmp/awstats/ssl/awstats.laboratorium.poltekkesbanten.ac.id.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2035                
+POS_TIME 2706                
+POS_VISITOR 113895              
+POS_DAY 118489              
+POS_DOMAIN 3529                
+POS_LOGIN 3847                
+POS_ROBOT 4002                
+POS_WORMS 4420                
+POS_EMAILSENDER 4551                
+POS_EMAILRECEIVER 4694                
+POS_SESSION 119290              
+POS_SIDER 119502              
+POS_FILETYPES 4829                
+POS_DOWNLOADS 5024                
+POS_OS 5072                
+POS_BROWSER 5331                
+POS_SCREENSIZE 5985                
+POS_UNKNOWNREFERER 6059                
+POS_UNKNOWNREFERERBROWSER 6441                
+POS_ORIGIN 6631                
+POS_SEREFERRALS 6771                
+POS_PAGEREFS 6934                
+POS_SEARCHWORDS 7082                
+POS_KEYWORDS 7234                
+POS_MISC 2369                
+POS_ERRORS 7293                
+POS_CLUSTER 3703                
+POS_SIDER_404 7470                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20240601012916 361 100963 10683006121005
+FirstTime 0
+LastTime 20240531225836
+LastUpdate 20240601083049 361 0 360 0 0
+TotalVisits 158                 
+TotalUnique 108                 
+MonthHostsKnown 0                   
+MonthHostsUnknown 112                 
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+JavaEnabled 0 0 0
+PDFSupport 0 0 0
+DirectorSupport 0 0 0
+TotalMisc 0 0 0
+JavascriptDisabled 0 0 0
+RealPlayerSupport 0 0 0
+FlashSupport 0 0 0
+AddToFavourites 0 36 0
+QuickTimeSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 318 458 85005866 234 241 7385541
+1 61 86 16122147 57 71 15317595
+2 206 353 106397291 413 417 12955760
+3 329 388 135246350 178 183 1948061
+4 167 207 69279141 80 81 50312
+5 56 135 18305352 33 41 370652
+6 14 41 9647004 16 17 13748
+7 3 11 854803 5 5 3304
+8 83 103 6329609 50 50 29294
+9 39 46 2364418 21 21 12242
+10 66 72 3358098 33 35 22522
+11 2 2 7488 5 5 3980
+12 9 22 1907219 8 8 10196
+13 20 28 1293878 15 20 109683
+14 1 2 10150 99 101 151006
+15 1 1 3744 6 6 7084
+16 2 2 7488 3 5 5532
+17 1 1 3744 310 310 480006
+18 4 10 757615 1721 1725 3230517
+19 2 8 753796 5 5 5532
+20 1 1 3744 6 11 20812
+21 161 357 43884169 90 92 52408
+22 432 542 105925319 247 258 147942
+23 338 431 125912315 179 181 3217902
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 6
+in 1383 1773 473340960
+id 872 1398 243377937
+cn 41 91 13754940
+us 17 35 2142965
+au 2 8 753796
+be 1 2 10150
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 8
+Dalvik/ 4 25624 20240531221739 0
+Googlebot\-Image/ 4 110075 20240530221336 0
+CFNetwork 4 25624 20240529013556 0
+Googlebot/ 3 72 20240530221318 3
+bot[\s_+:,\.\;\/\\-] 1 24 20240523130323 1
+AhrefsBot/ 1 24 20240515145203 1
+Barkrowler 1 24 20240519222806 1
+scanner 1 3744 20240515015615 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 6
+Unknown 2268 510642159 0 0
+svg 15 90700605 0 0
+js 431 48503373 0 0
+css 285 46297501 0 0
+png 260 10734198 0 0
+woff2 48 26502912 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 13
+Unknown 13 11
+macosx13 3 3
+androidnougat 12 4
+androidoreo 5 1
+linux 37 9
+win10 1765 1552
+android 104 51
+winxp 2 0
+ios_iphone 660 330
+androidpie 152 112
+winnt 1 1
+macosx15 5 5
+android10 548 237
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 30
+chrome117.0.0.0 102 41
+firefox125.0 39 19
+chrome60.0.3112.107 2 2
+safari15.6.1 27 13
+chrome110.0.0.0 1 1
+chrome91.0.4472.88 231 152
+chrome124.0.0.0 1703 1480
+safari16.6 8 1
+chrome103.0.5060.114 1 1
+Unknown 9 9
+chrome77.0.3865.116 22 9
+chrome91.0.4472.120 8 1
+safari 82 32
+safari16.4 233 126
+safari16.0 121 101
+chrome59.0.3071.125 10 2
+chrome112.0.5615.136 18 5
+firefox11.0 2 0
+mozilla 4 2
+chrome122.0.0.0 45 17
+chrome91.0.4472.124 2 2
+firefox99.0 1 1
+safari17.4.1 104 29
+safari17.3.1 42 13
+edge91 1 1
+chrome125.0.0.0 314 156
+safari17.2 21 7
+chrome61.0.3163.79 3 3
+safari17.4 22 8
+chrome121.0.0.0 129 82
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 5
+Mozilla/5.0_(compatible;_InternetMeasurement/1.0;__https://internet-measurement.com/) 20240514045044
+Mozilla/5.0_(compatible;_CensysInspect/1.1;__https://about.censys.io/) 20240505144913
+WhatsApp/2.24.8.85_i 20240516034959
+python-requests/2.31.0 20240501175834
+WhatsApp/2.23.20.0 20240529032946
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 3
+python-requests/2.31.0 20240501175834
+WhatsApp/2.24.8.85_i 20240516034959
+WhatsApp/2.23.20.0 20240529032946
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 189 196
+From1 5 5
+From2 4 4
+From3 0 0
+From4 2118 3102
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+www_google_com 4 4
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 7
+404 2506 3891222
+206 6 355162
+419 7 10906
+500 56 34822756
+302 1239 598100
+301 10 2867
+405 10 5705407
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 2091
+/administrator/index.php 1 -
+//site/alfacgiapi/py.alfa 1 -
+/begrand/downtown_reforma/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webvarejo-api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/enventa/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/tps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/tinymce/rfm/filemanager/dialog.php 1 -
+/adminkota/index.php 1 -
+/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/haxor.php 1 www.google.com
+/a.php 3 www.google.com
+/scripts/fmanager/dialog.php 1 -
+/wp-ad.php 1 www.google.com
+/lib/fileman/dev.html 2 -
+/Selfit/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/system/plugin/fmanager/dialog.php 1 -
+/wp-content/plugins/dzs-videogallery/class_parts/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/support/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/admin/assets/tinymce/filemanager/dialog.php 2 -
+/clinicasoftware/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//admin/controller/extension/ALFA_DATA/alfacgiapi/bash.alfa 1 -
+/api5/vendor/phpunit/phpunit/src/Util/PHP/Template/eval-stdin.php 1 -
+/public/js/tinymce/plugins/rfm/filemanager/dialog.php 1 -
+/admin/js/filemanager/dialog.php 2 -
+/public/javascripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/include/fmanager/dialog.php 1 -
+/yiicarwx/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-content/plugins/sid/sidwso.php 2 www.google.com
+/minishell.php 1 www.google.com
+/lib/scripts/tinymce/rfm/dialog.php 1 -
+/vendor/tinymce/rfm/filemanager/dialog.php 1 -
+/testing/vendor/phpunit/Util/PHP/eval-stdin.php 1 -
+/scratchwin-backend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/js/includes/plugins/tiny_mce/file_manager/dialog.php 4 -
+/client_billing/authorizenet/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/v.php 1 www.google.com
+/sveopodulaz/file_manager/dialog.php 3 -
+/backend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/include/plugins/file_manager/dialog.php 4 -
+/admin/fmanager/fmanager/dialog.php 1 -
+/storage/fmanager/fmanager/dialog.php 1 -
+/wp/wp-content/plugins/mm-plugin/inc/vendors/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/global/plugins/fmanager/fmanager/dialog.php 1 -
+/siswas/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/administrator/fmanager/fmanager/dialog.php 1 -
+/wp-includes/ID3/vp.php 2 www.google.com
+/scripts/phpThumb/phpThumb.php 1 -
+/site/js/fmanager/dialog.php 1 -
+/admin/js/responsive_fmanager/fmanager/dialog.php 1 -
+/assets/backend/js/plugins/filemanager/filemanager/dialog.php 1 -
+/phpmailer/PHPMailer/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/adm/assets/tinymce/fmanager/fmanager/dialog.php 1 -
+/intranet.dara.games/yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/backend/js/plugins/filemanager/dialog.php 1 -
+/app/laravel/vendor/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/epayco/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vendors/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/crea2019/app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/www/js/tinymce/plugins/rfm/dialog.php 1 -
+/scripts/plugins/tinymce/filemanager/dialog.php 1 -
+/pegasus/poo/app/Library/file_manager/dialog.php 6 -
+/lib/javascripts/fmanager/dialog.php 1 -
+/eagle.php 1 www.google.com
+/scripts/tinymce/filemanager/dialog.php 1 -
+/webroot/assets/tinymce/filemanager/filemanager/dialog.php 2 -
+/assets/global/plugins/rfm/filemanager/dialog.php 1 -
+/fileman/dev.html 1 -
+/adm/tinymce/filemanager/dialog.php 1 -
+/assets/tinymce/plugins/responsivefilemanager/dialog.php 3 -
+/administrator/assets/tinymce/fmanager/dialog.php 1 -
+/pid/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/e_detector/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/api_source/webservice/firebase/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/pegasus/poo/app/Library/tinymce/js/fmanager/dialog.php 1 -
+/storage/js/filemanager/filemanager/dialog.php 1 -
+/adm/fmanager/dialog.php 1 -
+/www/assets/tinymce/rfm/dialog.php 1 -
+/wp-wso.php 1 www.google.com
+/min.php 1 www.google.com
+/wf/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/server-status 1 -
+/public/js/filemanager/dialog.php 1 -
+/admin/js/responsive_file_manager/file_manager/dialog.php 4 -
+/js/fileman/dev.html 1 -
+/site/javascripts/rfm/dialog.php 1 -
+/storage/scripts/tinymce/filemanager/dialog.php 1 -
+/ktkszsz/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/storage/scripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/gdpr/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/scripts/plugins/filemanager/dialog.php 1 -
+/fmanager/filemanager/dialog.php 1 -
+/public/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/vestibular/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/registration/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/0x0.php 1 www.google.com
+/tinymce/js/tinymce/plugins/rfm/dialog.php 1 -
+/rfm/dialog.php 1 -
+/scripts/rfm/dialog.php 1 -
+/global/plugins/responsive_filemanager/filemanager/dialog.php 2 -
+/wp-class.php 3 www.google.com
+/scripts/plugins/rfm/filemanager/dialog.php 1 -
+/assets/file_manager/fmanager/dialog.php 1 -
+/www/javascripts/tinymce/rfm/dialog.php 1 -
+/sitemaps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/sym.php 1 www.google.com
+/simple.php 1 www.google.com
+/vendor/javascripts/tinymce/fmanager/dialog.php 1 -
+/wp-content/plugins/turtle-ad-network/base58php/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/html2pdf-master/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/404.php 3 www.google.com
+/pegasus/poo/app/tinymce/js/file_manager/dialog.php 3 -
+/adm/filemanager/dialog.php 1 -
+/site/javascripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/css.php 3 www.google.com
+/7.php 1 www.google.com
+//admin/controller/alfacgiapi/bash.alfa 1 -
+/admin/js/responsive_rfm/rfm/dialog.php 1 -
+/market_place/mpbackoffice/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/revisao/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vendor/js/tinymce/plugins/filemanager/dialog.php 1 -
+/storage/assets/tinymce/filemanager/dialog.php 1 -
+/hehe.php 1 www.google.com
+/test.php 1 www.google.com
+/new.php 1 www.google.com
+/vendor/fileman/dev.html 1 -
+/tmp.php 1 -
+/cms/index.php 1 -
+/sftp-config.json 1 -
+/media/upload/rfm/filemanager/dialog.php 1 -
+//wordpress/wp-includes/ALFA_DATA/alfacgiapi/bash.alfa 1 -
+/adv2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/.DS_Store 1 -
+/wp-content/uploads/wp-logout.php 2 www.google.com
+/wp-content/plugins/dsp_dating/wpdating-gallery/lib/server/php 1 -
+/wso112233.php 2 www.google.com
+/vendor/js/tinymce/plugins/fmanager/dialog.php 1 -
+/pegasus/poo/app/Library/tiny_mce/js/rfm/dialog.php 1 -
+/webroot/javascripts/tinymce/filemanager/dialog.php 1 -
+/tinymce/filemanager/filemanager/dialog.php 1 -
+/panel/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/0.php 1 www.google.com
+/sql.php 1 www.google.com
+//site/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/sistema/dompdf-master/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/storage/assets/tinymce/rfm/filemanager/dialog.php 1 -
+/portal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/_staff/php/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/esurat/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/tshop.php 1 www.google.com
+/0z.php 1 www.google.com
+/wp-content/plugins/ccx/index.php 2 www.google.com
+/wp-content/plugins/instabuilder2/cache/plugins/moon.php 2 www.google.com
+/adm/js/fmanager/dialog.php 1 -
+/stockapi/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/autoupgrade/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/shx.php 1 www.google.com
+/public/scripts/tinymce/filemanager/dialog.php 1 -
+/storage/uploads/library/rfm/dialog.php 1 -
+/webroot/tinymce/file_manager/file_manager/dialog.php 3 -
+/adm/js/rfm/filemanager/dialog.php 1 -
+/administrator/javascripts/tinymce/fmanager/dialog.php 1 -
+/experts-api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/exapi/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/sym403.php 1 www.google.com
+/administrator/tinymce/rfm/filemanager/dialog.php 1 -
+/fx.php 1 -
+/webroot/javascripts/fmanager/dialog.php 1 -
+/XxX.php 1 www.google.com
+/tests/avastar/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webroot/rfm/dialog.php 1 -
+/all/spotbills/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/adriv.php 1 www.google.com
+/public/fmanager/dialog.php 1 -
+/assets/js/plugins/rfm/dialog.php 1 -
+/scripts/fmanager/fmanager/dialog.php 1 -
+/system/js/plugins/tinymce/filemanager/dialog.php 1 -
+/assets/js/tinymce/file_manager/rfm/dialog.php 1 -
+/adm/filemanager/filemanager/dialog.php 1 -
+/wp-content/uploads/2018/01/abc/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//wp-includes/ALFA_DATA/alfacgiapi/bash.alfa 1 -
+/3index.php 3 www.google.com
+//wp-content/ALFA_DATA/alfacgiapi/py.alfa 1 -
+/assets/file_manager/rfm/dialog.php 1 -
+/wp-content/plugins/waves-ad-network/base58php/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/js/tinymce/filemanager/dialog.php 1 -
+/my/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/lib/tinymce/rfm/filemanager/dialog.php 1 -
+/.well-known/acme-challenge/atomlib.php 2 www.google.com
+/administrator/javascripts/tinymce/rfm/dialog.php 1 -
+/views/default_template/rfm/dialog.php 1 -
+/odata/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wechatplat/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/portfolio/karyabersama_old/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/rfm/dialog.php 1 -
+//wp/wp-includes/ALFA_DATA/alfacgiapi/py.alfa 1 -
+/proyecto_alerta/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/micampo.perlo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/includess/filemanager/dialog.php 1 -
+/adm/rfm/filemanager/dialog.php 1 -
+/modules/gamification/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/www/tinymce/fmanager/dialog.php 1 -
+/wp-content/themes/howto_wp/metabox/tests/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/includes/tiny_mce/file_manager/dialog.php 4 -
+/adm/javascripts/rfm/dialog.php 1 -
+/webroot/fmanager/fmanager/dialog.php 1 -
+/backend/assets/global/plugins/filemanager/filemanager/dialog.php 2 -
+/zk.php 1 www.google.com
+/vendor/assets/tinymce/filemanager/filemanager/dialog.php 1 -
+/lnedx.php 1 www.google.com
+/curso-styde/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/public/fmanager/fmanager/dialog.php 1 -
+/assets/javascripts/tinymce/fmanager/dialog.php 1 -
+/sveopodulaz/filemanager/dialog.php 1 -
+/cyl.php 1 -
+/storage/javascripts/rfm/filemanager/dialog.php 1 -
+/site/tinymce/rfm/dialog.php 1 -
+/administrator/javascripts/tinymce/filemanager/dialog.php 1 -
+/help/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//wp/wp-includes/alfacgiapi/perl.alfa 1 -
+/adm/js/tinymce/plugins/fmanager/fmanager/dialog.php 1 -
+/lib/javascripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/if.php 1 www.google.com
+/develop/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/concrete/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/backup/vendor/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/mrjn.php 1 www.google.com
+/system/js/plugin/rfm/dialog.php 1 -
+/jistadx-x/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/javascripts/filemanager/filemanager/dialog.php 1 -
+/includes/tinymce/rfm/dialog.php 1 -
+/p.php 1 www.google.com
+/vendor/js/fmanager/fmanager/dialog.php 1 -
+/OLD%20site/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/file.php 1 www.google.com
+/olesistemas/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/newsite/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-site.php 1 www.google.com
+/assets/fmanager/dialog.php 1 -
+/6index.php 2 www.google.com
+/js/includes/plugins/tiny_mce/fmanager/dialog.php 1 -
+/scratchwin-backend/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/un2.php 1 www.google.com
+/b2bapi/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/html/website-backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/z.php 1 www.google.com
+/gst_system/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/test/med-decision/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admcl/php/file_manager/fmanager/dialog.php 1 -
+/shell.php 3 www.google.com
+/site/js/tinymce/plugins/filemanager/filemanager/dialog.php 1 -
+/administrator/js/fmanager/dialog.php 1 -
+//blog/alfacgiapi/py.alfa 1 -
+/tinymce/fmanager/fmanager/dialog.php 1 -
+/wp-includes/wp-class.php 3 www.google.com
+/phpmailer/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/site/filemanager/filemanager/dialog.php 1 -
+/views/default_template/fmanager/dialog.php 1 -
+/wp-info.php 3 www.google.com
+/id/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/jindex.php 1 www.google.com
+//wp/wp-includes/ALFA_DATA/alfacgiapi/bash.alfa 1 -
+/site/filemanager/dialog.php 1 -
+/taspenku/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/9.php 1 www.google.com
+/mbdlms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/api.goover.city/release/composer/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/n.php 1 www.google.com
+/blog/wp-content/plugins/mm-plugin/inc/vendors/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/betak.php 1 -
+/socios/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/gecko.php 1 www.google.com
+/s/931313e2630323e24383e2330313/_/ 1 -
+/includes/plugin/tinymce/filemanager/dialog.php 1 -
+/sys.php 1 www.google.com
+/workspace/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/storage/js/fmanager/dialog.php 1 -
+/sftp.json 1 -
+/www/javascripts/rfm/filemanager/dialog.php 1 -
+/core/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/web.public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/includes/tiny_mce/rfm/dialog.php 1 -
+/webroot/scripts/tinymce/rfm/filemanager/dialog.php 1 -
+/backend/global/plugins/fmanager/fmanager/dialog.php 1 -
+/js/global/plugins/rfm/filemanager/dialog.php 1 -
+/mantis/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/portfolio/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/about 1 -
+/2018/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/lib/js/tinymce/plugins/fmanager/fmanager/dialog.php 1 -
+/unitedisposal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/production/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/testing/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/beta/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-content/plugins/aspose-pdf-importer/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/pegasus/poo/app/Library/tiny_mce/js/file_manager/dialog.php 4 -
+/10.php 1 www.google.com
+/cag/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/include/plugins/tinymce/filemanager/dialog.php 1 -
+/soporte/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/3.php 1 www.google.com
+/myadmin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webroot/assets/tinymce/file_manager/file_manager/dialog.php 3 -
+/init.php 1 www.google.com
+/storage/tinymce/fmanager/dialog.php 1 -
+/batm.php 1 www.google.com
+/npteOld/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/c.php 3 www.google.com
+/assets/tiny_mce/plugins/responsivefilemanager/dialog.php 2 -
+/webroot/js/filemanager/filemanager/dialog.php 1 -
+/include/tiny_mce/file_manager/dialog.php 4 -
+/js/include/plugins/tinymce/fmanager/dialog.php 1 -
+/c2c/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/scripts/filemanager/dialog.php 2 -
+/vendor/js/tinymce/plugins/rfm/dialog.php 1 -
+/pegasus/poo/app/tiny_mce/js/filemanager/dialog.php 1 -
+/wp-content/plugins/shortcode-tumblr-gallery/includes/lib/Guzzle/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/testing/laravel/vendor/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/tinymce/plugins/plugins/responsive_filemanager/filemanager/dialog.php 2 -
+/wp-content/plugins/cloudflare/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/xl.php 1 www.google.com
+/reports/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/about.php 3 www.google.com
+/www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/www/js/tinymce/plugins/fmanager/fmanager/dialog.php 1 -
+/webroot/assets/tinymce/rfm/filemanager/dialog.php 1 -
+/webroot/assets/tinymce/rfm/dialog.php 1 -
+/adv3/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-content/themes/pridmag/db.php 2 www.google.com
+/web/javascripts/tinymce/fmanager/dialog.php 1 -
+/pegasus/poo/app/plugins/tiny_mce/js/fmanager/dialog.php 1 -
+/defau1t.php 1 www.google.com
+/Khvorost/blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/fmanager/dialog.php 1 -
+/locales.php 4 www.google.com
+/web/tinymce/rfm/filemanager/dialog.php 1 -
+/public/javascripts/rfm/dialog.php 1 -
+/alf.php 1 www.google.com
+/adm/rfm/dialog.php 1 -
+/panel/index.php 1 -
+/adm/js/tinymce/plugins/filemanager/dialog.php 1 -
+/ids.php 1 www.google.com
+/admin/js/fmanager/dialog.php 1 -
+/test/vendor/phpunit/Util/PHP/eval-stdin.php 1 -
+/admin/assets/global/plugins/file_manager/dialog.php 4 -
+/assets/javascripts/tinymce/rfm/dialog.php 1 -
+/c2b/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/backup/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/wp-content/themes/mero-magazine/ws.php 2 www.google.com
+/admin/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/error.php 1 www.google.com
+//wordpress/alfacgiapi/py.alfa 1 -
+/testwp.php 1 www.google.com
+/www/rfm/filemanager/dialog.php 2 -
+/login/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/bdi.talenta/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webroot/js/tinymce/plugins/fmanager/dialog.php 1 -
+/blog/wp-content/plugins/cloudflare/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/stripe/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/public/javascripts/tinymce/filemanager/dialog.php 1 -
+/vendor/filemanager/dialog.php 1 -
+/anone.php 1 www.google.com
+/assets/js/plugins/fmanager/fmanager/dialog.php 1 -
+/WSO.php 1 www.google.com
+/adm/javascripts/tinymce/rfm/dialog.php 1 -
+/passtastic/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-content/plugins/product-lister-walmart/marketplaces/walmart/lib/walmart-signature/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/japanese_school_website/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/rfm/filemanager/dialog.php 1 -
+/storage/js/tinymce/plugins/rfm/filemanager/dialog.php 1 -
+/assets/file_manager/filemanager/dialog.php 1 -
+/composer-master/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/lab/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/js/tinymce/file_manager/fmanager/dialog.php 1 -
+/vendor/filemanager/filemanager/dialog.php 1 -
+/u.php 1 www.google.com
+/apple-touch-icon.png 4 -
+/cy.php 1 -
+/includes/plugins/tiny_mce/fmanager/dialog.php 1 -
+/public/filemanager/dialog.php 1 -
+/wp-includes/pomo/treame.php 2 www.google.com
+/j.php 1 www.google.com
+/storage/js/fmanager/fmanager/dialog.php 1 -
+/admin/javascripts/tinymce/fmanager/dialog.php 1 -
+/wpindex.php 1 www.google.com
+/2020/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/dbx.php 1 www.google.com
+/verify/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/plugins/tinymce/plugins/rfm/dialog.php 1 -
+/public/javascripts/filemanager/filemanager/dialog.php 1 -
+/public/.env 1 -
+/lock360.php 3 www.google.com
+/rfm/filemanager/rfm/dialog.php 1 -
+/nvagencies/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/6.php 1 www.google.com
+/includes/plugins/tiny_mce/filemanager/dialog.php 1 -
+//wordpress/wp-includes/alfacgiapi/py.alfa 1 -
+/administrator/assets/tinymce/filemanager/dialog.php 1 -
+/bj.php 1 www.google.com
+/administrator/scripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/wp-includes/wso112233.php 2 www.google.com
+/med-decision/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/site/js/filemanager/dialog.php 1 -
+/backend/assets/global/plugins/rfm/filemanager/dialog.php 1 -
+/wordpress/wp-content/plugins/cloudflare/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webshop_admin/app/webroot/fmanager/dialog.php 1 -
+/sirim/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/ktkszsz/oauth/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/site/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/assets/global/plugins/responsive_rfm/rfm/dialog.php 1 -
+/function.php 1 www.google.com
+/www/javascripts/tinymce/rfm/filemanager/dialog.php 1 -
+/vendor/javascripts/tinymce/rfm/dialog.php 1 -
+/admin/assets/global/plugins/fmanager/dialog.php 1 -
+/demo/laravel/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/pegasus/poo/app/tinymce/js/rfm/dialog.php 1 -
+/web/javascripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/u/gevorg.hakobyan/blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/public/javascripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/lib/js/filemanager/dialog.php 1 -
+/assets/js/tinymce/file_manager/filemanager/dialog.php 1 -
+/xx.php 1 www.google.com
+/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/2019/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/info.php 1 www.google.com
+/pgnim/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/javascripts/tinymce/rfm/filemanager/dialog.php 1 -
+/wszool/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/scripts/tinymce/filemanager/dialog.php 1 -
+/includes/rfm/dialog.php 1 -
+/public/tinymce/rfm/dialog.php 1 -
+//wp-includes/alfacgiapi/bash.alfa 1 -
+/rrhh/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/d.php 1 www.google.com
+/site/js/rfm/dialog.php 1 -
+/wp-content/themes/alera/alpha.php 1 www.google.com
+/site/js/filemanager/filemanager/dialog.php 1 -
+/epillTemporaryHolder/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/codeframe/external/media/rfm/dialog.php 1 -
+/tinymce/js/rfm/filemanager/dialog.php 1 -
+/git/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/js/tinymce/fmanager/fmanager/dialog.php 1 -
+/assets/editor/fileman/dev.html 1 -
+/tesla.php 3 -
+/pegasus/poo/app/tinymce/js/filemanager/dialog.php 2 -
+/old/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/node_modules/rfm/dialog.php 1 -
+/public/scripts/tinymce/rfm/filemanager/dialog.php 1 -
+/pouya.php 1 -
+/relvadossinteticos.com/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/backend/js/plugins/fmanager/dialog.php 1 -
+/web/tinymce/fmanager/dialog.php 1 -
+/litespeed.php 1 www.google.com
+/storage/js/tinymce/plugins/fmanager/dialog.php 1 -
+/admcl/php/file_manager/rfm/dialog.php 1 -
+/vendor/js/filemanager/dialog.php 1 -
+/tinymce/js/filemanager/filemanager/dialog.php 1 -
+/www/js/rfm/dialog.php 1 -
+/uwp/fakultas/fh/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/storage/javascripts/fmanager/dialog.php 1 -
+/my/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vendor/javascripts/filemanager/dialog.php 1 -
+/web/js/fmanager/fmanager/dialog.php 1 -
+/pegasus/poo/app/plugins/tiny_mce/js/file_manager/dialog.php 3 -
+/argotractorsrmi.net/publichtml/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/js/include/plugins/tiny_mce/file_manager/dialog.php 4 -
+//wordpress/wp-includes/alfacgiapi/perl.alfa 1 -
+/messages/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/storage/scripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/blog/wp-content/plugins/dzs-videogallery/class_parts/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/system/js/plugin/tinymce/fmanager/dialog.php 1 -
+/system/js/plugins/filemanager/dialog.php 1 -
+/vendor/tinymce/filemanager/filemanager/dialog.php 1 -
+/zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/dev/laravel/vendor/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/site/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/ecc/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/tonant.php 1 www.google.com
+/js/fmanager/dialog.php 1 -
+/lolzk.php 1 www.google.com
+/wp-blog.php 3 www.google.com
+/pegasus/poo/app/Library/tinymce/file_manager/dialog.php 4 -
+/includes/plugins/rfm/dialog.php 1 -
+/pgd/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/cms/tinymce/file_manager/file_manager/dialog.php 3 -
+/vestibulares/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/kemenhub/app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/tes.php 1 www.google.com
+/admin/assets/tinymce/rfm/filemanager/dialog.php 1 -
+/www/assets/tinymce/filemanager/filemanager/dialog.php 1 -
+/lib/fmanager/fmanager/dialog.php 1 -
+/admin/js/rfm/dialog.php 1 -
+/www/assets/tinymce/rfm/filemanager/dialog.php 1 -
+/modules/pscartabandonmentpro/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/adm/js/tinymce/plugins/fmanager/dialog.php 1 -
+/portalmejora/backend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/fmanager/fmanager/dialog.php 1 -
+/editor_new/rfm/dialog.php 1 -
+/administrator/javascripts/rfm/dialog.php 1 -
+/modules/ps_facetedsearch/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/ads_qu_merge/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/js/responsive_filemanager/filemanager/dialog.php 1 -
+/wp-one.php 1 www.google.com
+/web/assets/tinymce/filemanager/dialog.php 1 -
+/admcl/php/responsive_filemanager/filemanager/dialog.php 1 -
+/assets/js/tinymce/rfm/filemanager/dialog.php 1 -
+/tinymce/plugins/plugins/rfm/filemanager/dialog.php 1 -
+//admin/controller/ALFA_DATA/alfacgiapi/py.alfa 1 -
+/administrator/rfm/filemanager/dialog.php 1 -
+/js/include/plugins/tiny_mce/fmanager/dialog.php 1 -
+/admin/javascripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/www/javascripts/tinymce/filemanager/dialog.php 1 -
+/byp.php 2 -
+/pegasus/poo/app/plugins/tinymce/js/fmanager/dialog.php 1 -
+/webroot/tinymce/fmanager/dialog.php 1 -
+/webservice/firebase/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/cms/tiny_mce/rfm/filemanager/dialog.php 1 -
+/webroot/assets/tinymce/filemanager/dialog.php 1 -
+/ticket/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/demo/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/webshop_admin/app/webroot/filemanager/dialog.php 1 -
+/wp/wp-content/plugins/cloudflare/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/imadguennouni/all/spotbills/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/cms/tinymce/rfm/filemanager/dialog.php 1 -
+/acellemail/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/public/assets/tinymce/filemanager/filemanager/dialog.php 1 -
+/storage/javascripts/tinymce/fmanager/dialog.php 1 -
+/local.php 1 www.google.com
+/web/javascripts/fmanager/dialog.php 1 -
+/fs.php 1 -
+/admindesa/index.php 1 -
+//admin/alfacgiapi/perl.alfa 1 -
+/lib/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/school/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/fundacaodorim.oefb.com.br/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/storage/js/rfm/dialog.php 1 -
+/www/js/tinymce/plugins/rfm/filemanager/dialog.php 1 -
+/modules/autoupgrade/vendor/phpunit/phpunit/src/util/php/eval-stdin.php 1 -
+/ws/geral/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/revisao/cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/tinymce/file_manager/dialog.php 3 -
+/js/includes/plugins/tiny_mce/filemanager/dialog.php 1 -
+/g.php 1 www.google.com
+/backend/assets/global/plugins/responsive_fmanager/fmanager/dialog.php 1 -
+/xindex.php 1 www.google.com
+/administrator/scripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/js/tinymce/plugins/rfm/filemanager/dialog.php 1 -
+/assets/backend/js/plugins/rfm/filemanager/dialog.php 1 -
+/app/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/hi.php 1 www.google.com
+/pegasus/poo/app/tiny_mce/js/file_manager/dialog.php 3 -
+/wp-conctent.php 1 www.google.com
+/runtime/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//admin/controller/extension/alfacgiapi/perl.alfa 1 -
+/numwattana.com/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/batin24/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/uploads/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/shell20211028.php 3 www.google.com
+/wp-22.php 2 www.google.com
+/fer.php 1 -
+/js/global/plugins/filemanager/filemanager/dialog.php 2 -
+/testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/tinymce/filemanager/dialog.php 1 -
+/2index.php 3 www.google.com
+/apitotsurvey/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/php/rfm/dialog.php 1 -
+/storage/js/rfm/filemanager/dialog.php 1 -
+/editor/plugins/ibrowser/scripts/phpThumb/phpThumb.php 1 -
+/js/filemanager/dialog.php 1 -
+/lib/js/fmanager/fmanager/dialog.php 1 -
+//blog/alfacgiapi/perl.alfa 1 -
+/zx.php 1 www.google.com
+/admin/assets/global/plugins/rfm/filemanager/dialog.php 1 -
+/public/plugins/tinymce/js/tinymce/plugins/responsive_filemanager/filemanager/dialog.php 1 -
+//wp-includes/ALFA_DATA/alfacgiapi/py.alfa 1 -
+/assets/tinymce/rfm/filemanager/dialog.php 1 -
+/topbrand/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/6p6/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/assets/global/plugins/tiny_mce/rfm/dialog.php 1 -
+/back/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/codeframe/external/media/file_manager/dialog.php 4 -
+/js/tinymce/plugins/filemanager/filemanager/dialog.php 1 -
+/.vscode/sftp.json 2 -
+/administrator/javascripts/filemanager/dialog.php 1 -
+/pub/plugin/filemanager/dialog.php 1 -
+/wp-rss.php 1 www.google.com
+/simpeg-code-dinkes/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/afasio/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/backend/global/plugins/responsive_filemanager/filemanager/dialog.php 1 -
+/gelay.php 2 -
+/old/wp-content/plugins/cloudflare/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/js/rfm/filemanager/dialog.php 1 -
+/pegasus/poo/app/Library/plugins/tinymce/js/rfm/dialog.php 1 -
+/storage/javascripts/tinymce/rfm/dialog.php 1 -
+/support/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/administrator/scripts/tinymce/fmanager/dialog.php 1 -
+/system/js/plugins/fmanager/dialog.php 1 -
+/simasanjesh.ir/public_html/runtime/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/site/scripts/tinymce/rfm/dialog.php 1 -
+/releases/ef1eac65f8c91c27435f01d32076f7c450a2a0ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/api/vendor/phpunit/Util/PHP/eval-stdin.php 1 -
+/ih2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vendor/js/fmanager/dialog.php 1 -
+/2020/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webroot/javascripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/inf513/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/user.php 1 www.google.com
+/include/tinymce/fmanager/dialog.php 1 -
+/public/scripts/tinymce/fmanager/dialog.php 1 -
+/wp-admin.php 1 www.google.com
+/adm/assets/tinymce/fmanager/dialog.php 1 -
+/assets/js/tinymce/plugins/file_manager/filemanager/dialog.php 1 -
+/lib/fmanager/dialog.php 1 -
+/avastar/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wsanon.php 1 www.google.com
+/spreadsheet/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/snippets/html2pdf-master/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/lib/assets/tinymce/rfm/filemanager/dialog.php 1 -
+/Cloudflare-CPanel-7.0.1/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin404.php 1 www.google.com
+/demo/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webroot/tinymce/filemanager/dialog.php 2 -
+/wsviamatica/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/fierza.php 1 www.google.com
+/vendor/scripts/tinymce/fmanager/dialog.php 1 -
+/store/laravel/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+//wp-content/ALFA_DATA/alfacgiapi/bash.alfa 1 -
+/adm/scripts/tinymce/filemanager/dialog.php 1 -
+/phpexcel/spreadsheet/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/laetv-laravel-respaldo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/storage/uploads/library/filemanager/dialog.php 1 -
+/lib/filemanager/dialog.php 1 -
+/system/plugin/rfm/dialog.php 1 -
+/www/file_manager/dialog.php 3 -
+/vendor/nesbot/carbon/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/uploader.php 1 www.google.com
+/adm/assets/tinymce/filemanager/dialog.php 1 -
+/testing/laravel/vendor/phpunit/Util/PHP/eval-stdin.php 1 -
+/adm/assets/tinymce/filemanager/filemanager/dialog.php 1 -
+/administrator/assets/tinymce/rfm/dialog.php 1 -
+/wp-content/plugins/wp-heyloyalty/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/include/plugins/fmanager/dialog.php 1 -
+/beatricce/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webroot/javascripts/fmanager/fmanager/dialog.php 1 -
+/f.php 1 www.google.com
+/assets/js/tinymce/rfm/dialog.php 1 -
+/lib/assets/tinymce/fmanager/dialog.php 1 -
+/assets/js/file_manager/filemanager/dialog.php 1 -
+/includes/plugins/tinymce/filemanager/dialog.php 1 -
+/bowenpayments/bowenpay/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/public/assets/tinymce/fmanager/dialog.php 1 -
+/login/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/Selfit/V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/s.php 1 www.google.com
+/tinymce/fmanager/dialog.php 1 -
+/admin/js/fmanager/fmanager/dialog.php 1 -
+/adm/javascripts/fmanager/dialog.php 1 -
+//wp-includes/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/includes/plugin/tinymce/file_manager/dialog.php 4 -
+/wp-content/plugins/rollbar/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/backend/global/plugins/rfm/filemanager/dialog.php 1 -
+/scripts/plugins/fmanager/dialog.php 1 -
+/admcl/php/filemanager/filemanager/dialog.php 1 -
+/pegasus/poo/app/Library/tiny_mce/js/fmanager/dialog.php 1 -
+/epos/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/includes/tinymce/fmanager/dialog.php 1 -
+/market_place/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/system/filemanager/dialog.php 1 -
+/include/plugins/tinymce/rfm/dialog.php 1 -
+/teacher/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/.vscode/sftp-config.json 1 -
+/www/scripts/tinymce/rfm/dialog.php 1 -
+/mantisbt/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/include/plugin/tinymce/fmanager/dialog.php 1 -
+/2019/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/js/includes/plugins/tinymce/file_manager/dialog.php 4 -
+/fcma/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/tinymce/js/rfm/dialog.php 1 -
+/send.php 1 www.google.com
+/scripts/rfm/filemanager/dialog.php 1 -
+/mahara/auth/saml/extlib/simplesamlphp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/assets/global/plugins/fmanager/fmanager/dialog.php 1 -
+//blog/alfacgiapi/bash.alfa 1 -
+/assets/javascripts/plugins/fmanager/dialog.php 1 -
+/webroot/javascripts/tinymce/fmanager/dialog.php 1 -
+/muh1/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/scholarship/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-content/fw.php 2 www.google.com
+/jendelaku.new/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/global/plugins/filemanager/filemanager/dialog.php 1 -
+/metano-api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/js/plugins/fmanager/dialog.php 1 -
+/include/plugin/tinymce/rfm/dialog.php 1 -
+/wp-2019.php 1 www.google.com
+/site/assets/tinymce/filemanager/filemanager/dialog.php 1 -
+/demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/teacher/yiicarwx/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/tinymce/fmanager/fmanager/dialog.php 1 -
+/assets/js/tinymce/plugins/file_manager/fmanager/dialog.php 1 -
+/www/tinymce/file_manager/dialog.php 3 -
+/radio.php 3 www.google.com
+/include/tinymce/rfm/dialog.php 1 -
+/base.php 1 www.google.com
+/webroot/scripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/web/javascripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/b374k.php 1 -
+/scripts/plugins/filemanager/filemanager/dialog.php 1 -
+/release/composer/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/adm/javascripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/wi.php 1 www.google.com
+/gank.php.PhP 2 www.google.com
+/webroot/js/tinymce/plugins/rfm/filemanager/dialog.php 1 -
+/wp-content/themes/Divi-child/inc/meta/tests/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/epayco/epayco-php/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-content/themes/sketch/404.php 2 www.google.com
+/atasem/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/javascripts/tinymce/filemanager/dialog.php 1 -
+/r00t.php 1 www.google.com
+/pegasus/poo/app/tiny_mce/js/fmanager/dialog.php 1 -
+/xcv.php 1 www.google.com
+/panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/all/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/bugtracker/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/al.php 1 www.google.com
+/extlib/simplesamlphp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/api/vendor/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/rfm/dialog.php 1 -
+/assets/tiny_mce/plugins/responsivefile_manager/dialog.php 4 -
+/js/tinymce/filemanager/filemanager/dialog.php 1 -
+/webroot/scripts/tinymce/fmanager/dialog.php 1 -
+/cylul.php 1 -
+/plugins/tinymce/plugins/filemanager/dialog.php 1 -
+/www/file_manager/file_manager/dialog.php 3 -
+/assets/tiny_mce/plugins/responsivefmanager/dialog.php 1 -
+/public/js/tinymce/plugins/filemanager/dialog.php 1 -
+/admin/assets/tinymce/fmanager/dialog.php 1 -
+/www/js/rfm/filemanager/dialog.php 1 -
+/apimotor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/sacv/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-content/plugins/affinipay-payment-gateway/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/adm/scripts/tinymce/rfm/filemanager/dialog.php 1 -
+/campuslag/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/site/javascripts/filemanager/dialog.php 1 -
+/fblearn.com/usuario/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-admin/406.php 2 www.google.com
+/xleet.php 1 www.google.com
+/helpdesk/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/include/tiny_mce/filemanager/dialog.php 1 -
+/dev.php 1 www.google.com
+//wp/wp-includes/alfacgiapi/py.alfa 1 -
+/admcl/php/rfm/filemanager/dialog.php 1 -
+/ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application 1 -
+/plugins/fmanager/dialog.php 1 -
+/filemanager.php 1 www.google.com
+/login.action 1 -
+/wp-content/plugins/mir-ad-network/base58php/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-admin/wso112233.php 2 www.google.com
+/pos/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/storage/tinymce/filemanager/filemanager/dialog.php 1 -
+/www/js/filemanager/dialog.php 1 -
+/web/js/tinymce/plugins/filemanager/dialog.php 1 -
+/wp-includes/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/includes/plugin/tiny_mce/file_manager/dialog.php 4 -
+/konkurs/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/scripts/tinymce/rfm/filemanager/dialog.php 1 -
+/b2c/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/js/filemanager/filemanager/dialog.php 2 -
+/file_manager/dialog.php 3 -
+/config.json 1 -
+/old/wp-content/plugins/dzs-videogallery/class_parts/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vendor/js/tinymce/plugins/filemanager/filemanager/dialog.php 1 -
+/wso2.php 1 www.google.com
+/backend/index.php 1 -
+/webroot/js/tinymce/plugins/filemanager/filemanager/dialog.php 1 -
+//admin/controller/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+//admin/index.php 1 -
+/assets/node_modules/file_manager/dialog.php 4 -
+/scripts/plugins/tinymce/filemanager/filemanager/dialog.php 1 -
+/quotation/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/site/js/fmanager/fmanager/dialog.php 1 -
+/site/tinymce/filemanager/dialog.php 1 -
+/2018/scholarship/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/hello.php 1 www.google.com
+/adm/javascripts/filemanager/dialog.php 1 -
+/task_api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/js/plugins/filemanager/filemanager/dialog.php 1 -
+/public/scripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/includes/tinymce/file_manager/dialog.php 4 -
+/includes/plugins/tiny_mce/file_manager/dialog.php 4 -
+/wp-content/plugins/instabuilder2/cache/up.php 2 www.google.com
+/wp-content/themes/ccx/index.php 2 www.google.com
+/lib/javascripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/agc_app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/core/laravel/vendor/phpunit/Util/PHP/eval-stdin.php 1 -
+/vensdor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/js.php 1 www.google.com
+/www/tinymce/rfm/filemanager/dialog.php 1 -
+/greenshaded/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/petugas/index.html 1 https://laboratorium.poltekkesbanten.ac.id/petugas/request
+/js/rfm/filemanager/dialog.php 1 -
+/jenkins/jobs/htaccess/workspace/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-includes/shell20211028.php 2 www.google.com
+/tinymce/js/fmanager/dialog.php 1 -
+/storage/assets/tinymce/filemanager/filemanager/dialog.php 1 -
+/adv/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/facturacion/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/docindex.php 1 www.google.com
+/js/fmanager/fmanager/dialog.php 1 -
+/langar.php 1 -
+/js/global/plugins/responsive_rfm/rfm/dialog.php 1 -
+/site/scripts/tinymce/fmanager/dialog.php 1 -
+/admin/assets/global/plugins/tiny_mce/fmanager/dialog.php 1 -
+/foxx.php 1 www.google.com
+/pegasus/poo/app/Library/fmanager/dialog.php 2 -
+/public/rfm/dialog.php 1 -
+/larabus/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/user/index.html 5 https://laboratorium.poltekkesbanten.ac.id/user/jadwal_praktikum
+/ibrowser/scripts/phpThumb/phpThumb.php 1 -
+/public/js/fmanager/dialog.php 1 -
+/webroot/scripts/tinymce/fmanager/fmanager/dialog.php 1 -
+//site/alfacgiapi/perl.alfa 1 -
+/site/javascripts/filemanager/filemanager/dialog.php 1 -
+/housingbook/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/system/js/plugin/tinymce/filemanager/dialog.php 1 -
+//wp-includes/alfacgiapi/py.alfa 1 -
+/public/js/tinymce/plugins/fmanager/dialog.php 1 -
+/assets/javascripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/storage/js/filemanager/dialog.php 1 -
+/include/plugins/tinymce/fmanager/dialog.php 1 -
+/vendor/rfm/dialog.php 1 -
+/www/javascripts/tinymce/file_manager/file_manager/dialog.php 3 -
+/test1/project/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/database/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webroot/js/tinymce/plugins/filemanager/dialog.php 1 -
+/core/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/newsop/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/lib/rfm/dialog.php 1 -
+/vendor/scripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/symlink.php 1 www.google.com
+/webroot/tinymce/rfm/filemanager/dialog.php 1 -
+/www/javascripts/rfm/dialog.php 1 -
+//site/ALFA_DATA/alfacgiapi/py.alfa 1 -
+/store/laravel/vendor/phpunit/Util/PHP/eval-stdin.php 1 -
+/wp-content/index.php 2 www.google.com
+/100.php 1 www.google.com
+/crm/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/assets/js/tinymce/filemanager/filemanager/dialog.php 1 -
+/game/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-content/plugins/badgeup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/cms/tiny_mce/filemanager/filemanager/dialog.php 2 -
+/wp-includes/alfacgiapi/perl.alfa 1 -
+/laravel52/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/scripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/shell=Dead 1 www.google.com
+/clientes/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/editor/fileman/index.html 1 -
+/vendor/assets/tinymce/fmanager/dialog.php 1 -
+/alpha.php 1 www.google.com
+/joshadmincom/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/include/plugins/tiny_mce/fmanager/dialog.php 1 -
+/include/tiny_mce/fmanager/dialog.php 1 -
+/adm/javascripts/filemanager/filemanager/dialog.php 1 -
+/scripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/wp-content/plugins/mm-plugin/inc/vendors/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/responsive_fmanager/fmanager/dialog.php 1 -
+//wordpress/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/site/javascripts/rfm/filemanager/dialog.php 1 -
+/vendor/javascripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/p4/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/adm/scripts/tinymce/fmanager/dialog.php 1 -
+/scripts/plugins/fmanager/fmanager/dialog.php 1 -
+/web/js/tinymce/plugins/rfm/dialog.php 1 -
+/storage/js/tinymce/plugins/filemanager/dialog.php 1 -
+/admin/assets/global/plugins/responsive_rfm/rfm/dialog.php 1 -
+/system/rfm/dialog.php 1 -
+/assets/tinymce/plugins/responsivefmanager/dialog.php 2 -
+/m.php 1 www.google.com
+//ALFA_DATA/alfacgiapi/py.alfa 1 -
+/wp.php 3 www.google.com
+/assets/js/plugins/filemanager/dialog.php 1 -
+/local/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-load.php 1 www.google.com
+/adm/scripts/tinymce/rfm/dialog.php 1 -
+/con7ext.php 1 www.google.com
+/public/scripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/fw.php 3 www.google.com
+/site/scripts/tinymce/rfm/filemanager/dialog.php 1 -
+/assets/tinymce/fmanager/fmanager/dialog.php 1 -
+/abby.php 1 www.google.com
+/adm/assets/tinymce/rfm/dialog.php 1 -
+/www.php 1 www.google.com
+/p/laravelcrud/svn/2/tree/app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/www/javascripts/fmanager/dialog.php 1 -
+/storage/scripts/tinymce/fmanager/dialog.php 1 -
+/ets/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/gerenciador_dev/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/api2/vendor/phpunit/phpunit/src/Util/PHP/Template/eval-stdin.php 1 -
+/administrator/js/tinymce/plugins/rfm/filemanager/dialog.php 1 -
+/406.php 2 www.google.com
+/js/tinymce/plugins/fmanager/dialog.php 1 -
+/anons79.php 1 www.google.com
+/www/js/tinymce/plugins/file_manager/dialog.php 3 -
+/backend/assets/global/plugins/fmanager/fmanager/dialog.php 1 -
+/site/javascripts/tinymce/rfm/dialog.php 1 -
+/adm/javascripts/tinymce/fmanager/dialog.php 1 -
+/laetv-laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/api/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/editor_new/filemanager/dialog.php 2 -
+/lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/includes/plugins/file_manager/dialog.php 4 -
+/releases/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//ALFA_DATA/alfacgiapi/bash.alfa 1 -
+//wordpress/ALFA_DATA/alfacgiapi/py.alfa 1 -
+/administrator/javascripts/fmanager/dialog.php 1 -
+/e.php 1 www.google.com
+/server/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/includes/plugin/tiny_mce/fmanager/dialog.php 1 -
+/v1/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/b2b/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/includes/plugins/filemanager/dialog.php 1 -
+/kontak/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/pegasus/poo/app/tiny_mce/js/rfm/dialog.php 1 -
+/wp-content/plugins/core-stab/index.php 2 www.google.com
+/freelandadm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//wp-content/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/media/upload/fmanager/fmanager/dialog.php 1 -
+/adm/js/tinymce/plugins/rfm/filemanager/dialog.php 1 -
+/js/include/plugins/tinymce/file_manager/dialog.php 3 -
+/web/javascripts/filemanager/dialog.php 1 -
+/site/js/rfm/filemanager/dialog.php 1 -
+/p0wny.php 1 -
+/deportes/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-content/plugins/message-business/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/zone.php 1 www.google.com
+/trash-DELETE-IT/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/_all_dbs 1 -
+/production/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-booking.php 1 www.google.com
+/mmdi/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/administrator/scripts/tinymce/filemanager/dialog.php 1 -
+/indoxploit.php 1 www.google.com
+/spotbills/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/priv.php 1 www.google.com
+/doc.php 3 www.google.com
+/site/scripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/cms/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/protected/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/javascripts/tinymce/rfm/dialog.php 1 -
+/scripts/plugins/tinymce/rfm/filemanager/dialog.php 1 -
+/backend/global/plugins/responsive_rfm/rfm/dialog.php 1 -
+/store/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/includes/fmanager/dialog.php 1 -
+/73.php 1 www.google.com
+/nour/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/eviltwin.php 1 www.google.com
+/adm/js/filemanager/dialog.php 1 -
+/pegasus/poo/app/Library/plugins/tiny_mce/js/fmanager/dialog.php 1 -
+/wp-content/plugins/wp-file-manager/lib/php/connector.minimal.php 2 www.google.com
+/plugins/filemanager/dialog.php 1 -
+/igtny.com/igt/app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/mt/pekok.php 2 www.google.com
+/media/upload/fmanager/dialog.php 1 -
+/www/javascripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/admin.php 2 -
+/assets/javascripts/tinymce/filemanager/dialog.php 1 -
+/scripts/tinymce/fmanager/dialog.php 1 -
+/tinymce/js/fmanager/fmanager/dialog.php 1 -
+/www/js/tinymce/plugins/filemanager/filemanager/dialog.php 1 -
+/backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/alfacgiapi/perl.alfa 1 -
+/iqb.php 1 www.google.com
+/scripts/tinymce/rfm/filemanager/dialog.php 1 -
+/Berg/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/la.php 1 www.google.com
+/cms/tiny_mce/file_manager/file_manager/dialog.php 4 -
+/lib/tinymce/rfm/dialog.php 1 -
+/public/javascripts/fmanager/dialog.php 1 -
+//alfacgiapi/py.alfa 1 -
+/www/js/filemanager/filemanager/dialog.php 1 -
+/system/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/b.php 1 www.google.com
+/libweb/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/lrp-backend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/2.php 1 www.google.com
+/pegasus/poo/app/Library/tinymce/filemanager/dialog.php 1 -
+/includes/tiny_mce/filemanager/dialog.php 1 -
+/datagen/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/rfm/dialog.php 1 -
+/client/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/mar.php 2 -
+/rfm/filemanager/dialog.php 2 -
+/eventos-deportivos/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/x.php 3 www.google.com
+/webroot/scripts/tinymce/rfm/dialog.php 1 -
+/js/fileman/index.html 1 -
+/public/javascripts/tinymce/fmanager/dialog.php 1 -
+/evil.php 2 -
+/test/laravel/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/adm/tinymce/fmanager/fmanager/dialog.php 1 -
+/0o.php 1 www.google.com
+/wp-content/plugins/js_composer_theme/vendor/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/pegasus/poo/app/Library/plugins/tinymce/js/fmanager/dialog.php 1 -
+/futbol_sys/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/fxshell.php 1 -
+/bank/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webroot/javascripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/web/fmanager/dialog.php 1 -
+/sistema/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/fmanager/filemanager/filemanager/dialog.php 1 -
+/vuln.php 1 www.google.com
+/admin/ckeditor/plugins/ajaxplorer/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/js/includes/plugins/tinymce/rfm/dialog.php 1 -
+/pegasus/poo/app/Library/tinymce/fmanager/dialog.php 1 -
+/storage/js/tinymce/plugins/filemanager/filemanager/dialog.php 1 -
+/sub_hannah_back/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/pegasus/poo/app/Library/tiny_mce/rfm/dialog.php 1 -
+/webroot/js/tinymce/plugins/rfm/dialog.php 1 -
+//wp/wp-includes/alfacgiapi/bash.alfa 1 -
+/tinymce/js/tinymce/plugins/rfm/filemanager/dialog.php 1 -
+/storage/javascripts/tinymce/filemanager/dialog.php 1 -
+/www/scripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/backup/vendor/phpunit/Util/PHP/eval-stdin.php 1 -
+/include/tinymce/filemanager/dialog.php 1 -
+/vendor/js/filemanager/filemanager/dialog.php 1 -
+/vendor/javascripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/bypas.php 1 www.google.com
+/lib/assets/tinymce/filemanager/filemanager/dialog.php 1 -
+/webroot/javascripts/rfm/filemanager/dialog.php 1 -
+/wp-includes/class-wp-other.php 1 www.google.com
+/v3.php 1 www.google.com
+/afasio/backend_Julia/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/site/javascripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/casadosvidros/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/testing/laravel/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/tinymce/plugins/plugins/responsive_rfm/rfm/dialog.php 1 -
+/by.php 1 www.google.com
+/plugins/tinymce/plugins/fmanager/dialog.php 1 -
+/pcc/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/filemanager/filemanager/dialog.php 1 -
+//blog/ALFA_DATA/alfacgiapi/bash.alfa 1 -
+/storage/assets/tinymce/fmanager/dialog.php 1 -
+/academy2019/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//blog/ALFA_DATA/alfacgiapi/py.alfa 1 -
+/albraj/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/lib/scripts/tinymce/filemanager/dialog.php 1 -
+/elso1000nap-foto/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/new-index.php 3 www.google.com
+/includess/file_manager/dialog.php 4 -
+/uRTime-Support/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/lib/scripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/lordhand.ru/www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vendor/scripts/tinymce/rfm/dialog.php 1 -
+/vendor/javascripts/tinymce/rfm/filemanager/dialog.php 1 -
+/admin/scripts/fmanager/fmanager/dialog.php 1 -
+/system/js/plugins/tinymce/fmanager/dialog.php 1 -
+/assets/javascripts/tinymce/rfm/filemanager/dialog.php 1 -
+/oauth/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/assets/tinymce/fmanager/fmanager/dialog.php 1 -
+/public/javascripts/fmanager/fmanager/dialog.php 1 -
+/app/laravel/vendor/phpunit/Util/PHP/eval-stdin.php 1 -
+/id.php 1 www.google.com
+/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/epillTemporaryHolder/authenticate/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/w.php 1 www.google.com
+/wp-content/alfacgiapi/perl.alfa 1 -
+/studybreak/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-includes/wso.php 2 www.google.com
+/idx.php 2 -
+/lib/fileman/index.html 1 -
+/vendor/tinymce/fmanager/dialog.php 1 -
+/lib/tinymce/fmanager/fmanager/dialog.php 1 -
+/admin/fileman/index.html 1 -
+/include/plugin/tiny_mce/filemanager/dialog.php 1 -
+/laravel/.env 1 -
+/assets/backend/js/plugins/fmanager/fmanager/dialog.php 1 -
+/lib/assets/tinymce/fmanager/fmanager/dialog.php 1 -
+/system/js/plugins/tinymce/rfm/dialog.php 1 -
+/vendor/js/rfm/dialog.php 1 -
+/tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//site/alfacgiapi/bash.alfa 1 -
+/summatest/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/xm.php 1 www.google.com
+/root.php 1 www.google.com
+/pegasus/poo/app/Library/tiny_mce/fmanager/dialog.php 1 -
+/adm/tinymce/filemanager/filemanager/dialog.php 1 -
+/www/tinymce/filemanager/dialog.php 1 -
+/cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/_inc/vendor/stripe/stripe-php/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/storage/assets/tinymce/fmanager/fmanager/dialog.php 1 -
+/editor_new/file_manager/dialog.php 3 -
+/wp-content/plugins/jekyll-exporter/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/public/tinymce/fmanager/dialog.php 1 -
+/digitalscience/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/storage/javascripts/filemanager/dialog.php 1 -
+/pegasus/poo/app/Library/tinymce/js/rfm/dialog.php 1 -
+/scripts/filemanager/dialog.php 1 -
+/web/js/fmanager/dialog.php 1 -
+/admin/assets/tinymce/fmanager/fmanager/dialog.php 1 -
+//wordpress/wp-includes/alfacgiapi/bash.alfa 1 -
+/buddha/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/fmanager/fmanager/fmanager/dialog.php 1 -
+/krisda/stockapi/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/indosec.php 1 www.google.com
+/mantis/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/wp-admin/xl2023.php 2 www.google.com
+/kratikal-academy/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/global/plugins/responsive_fmanager/fmanager/dialog.php 1 -
+/lib/js/tinymce/plugins/rfm/filemanager/dialog.php 1 -
+/test/laravel/vendor/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/laravel-sites/dev_grupo_total/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webroot/filemanager/dialog.php 1 -
+/emr/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/test_laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/administrator/js/fmanager/fmanager/dialog.php 1 -
+/storage/js/tinymce/plugins/fmanager/fmanager/dialog.php 1 -
+/wp-admin/includes/logs.php 2 www.google.com
+/includes/file_manager/dialog.php 4 -
+/admin/assets/global/rfm/dialog.php 1 -
+/go2growApi/payment/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/403.php 4 -
+/datagen/emrDataGenerator/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/public/js/tinymce/plugins/fmanager/fmanager/dialog.php 1 -
+/php-u2flib-server-1.0.1/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vendor/phpunit/phpunit/LICENSE/eval-stdin.php 1 -
+/releases/20170811125232/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vendor/fmanager/dialog.php 1 -
+/4.php 1 www.google.com
+/webroot/tinymce/filemanager/filemanager/dialog.php 1 -
+/www/js/fmanager/dialog.php 1 -
+/ecc/fashion_club/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/global/plugins/responsive_rfm/rfm/dialog.php 1 -
+/tickets/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/srx.php 1 www.google.com
+/lib/scripts/tinymce/fmanager/dialog.php 1 -
+/include/tinymce/file_manager/dialog.php 4 -
+/lib/js/tinymce/plugins/filemanager/dialog.php 1 -
+/.well-known/wp-signup.php 1 www.google.com
+/wp-content/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/olux.php 1 www.google.com
+/www/scripts/tinymce/filemanager/dialog.php 1 -
+/wordpress/wp-content/plugins/dzs-videogallery/class_parts/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/tinymce/filemanager/dialog.php 1 -
+/aliceapi/authorizenet/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/backend/js/plugins/rfm/dialog.php 1 -
+/www/js/tinymce/plugins/file_manager/file_manager/dialog.php 3 -
+/moodalmahdi/nbdsye/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//admin/controller/alfacgiapi/perl.alfa 1 -
+/iq.php 1 www.google.com
+/site/js/tinymce/plugins/rfm/dialog.php 1 -
+/storage/tinymce/fmanager/fmanager/dialog.php 1 -
+/admin/rfm/filemanager/dialog.php 1 -
+/pref.php 1 www.google.com
+/vendor/javascripts/tinymce/filemanager/dialog.php 1 -
+/adm/javascripts/tinymce/filemanager/dialog.php 1 -
+/yan.php 1 www.google.com
+/include/filemanager/dialog.php 1 -
+/public/tinymce/filemanager/dialog.php 1 -
+/webadmin/index.php 1 -
+/downtown_reforma/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/site/javascripts/fmanager/fmanager/dialog.php 1 -
+//admin/controller/extension/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/web/scripts/tinymce/fmanager/dialog.php 1 -
+/system/js/plugin/fmanager/fmanager/dialog.php 1 -
+/5index.php 2 www.google.com
+/www/filemanager/dialog.php 2 -
+/see/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/includes/tinymce/filemanager/dialog.php 1 -
+//wordpress/alfacgiapi/perl.alfa 1 -
+/yiiold/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/adm/js/rfm/dialog.php 1 -
+/adminpanel/index.php 1 -
+/web/scripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/vendor/javascripts/filemanager/filemanager/dialog.php 1 -
+/admin/fileman/dev.html 1 -
+/opensupports/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/pegasus/poo/app/Library/plugins/tinymce/js/file_manager/dialog.php 3 -
+/runapi/app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/html/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/alpha/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/splurbAPI/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/unail-server/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/usr.php 1 www.google.com
+/emrDataGenerator/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/demo/laravel/vendor/phpunit/Util/PHP/eval-stdin.php 1 -
+/dompdf-master/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//wp/wp-includes/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/careers/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/mailchimp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/pegasus/poo/app/Library/tinymce/js/filemanager/dialog.php 2 -
+/site/scripts/tinymce/filemanager/dialog.php 1 -
+/crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/pegasus/poo/app/Library/tinymce/rfm/dialog.php 1 -
+/marjan.php 1 -
+/storage/rfm/filemanager/dialog.php 1 -
+/wp-content/plugins/wptimetoread/vendor/kdaviesnz/timetoread/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vestibular/vestibulares/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/master/index.php 1 -
+/ticket/laravel/vendor/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/1board/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/administrator/tinymce/filemanager/filemanager/dialog.php 1 -
+/apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-content/xxx/xxx-xxx/xxxx-xx-xx/pages/xxxxxx.php 2 www.google.com
+/include/plugins/tiny_mce/filemanager/dialog.php 1 -
+/test/laravel/vendor/phpunit/Util/PHP/eval-stdin.php 1 -
+/pegasus/poo/app/Library/plugins/tinymce/js/filemanager/dialog.php 2 -
+/cong.php 1 www.google.com
+//wp-content/alfacgiapi/py.alfa 1 -
+/batin24/back/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/js/tinymce/fmanager/fmanager/dialog.php 1 -
+/site/assets/tinymce/filemanager/dialog.php 1 -
+/phpunit/Util/PHP/eval-stdin.php 1 -
+/h.php 1 www.google.com
+/public/js/filemanager/filemanager/dialog.php 1 -
+/public/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/www/javascripts/tinymce/file_manager/dialog.php 3 -
+/core/app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-admin/alfa.php 2 www.google.com
+/jQuery-File-Upload-9.22.0/server/php 1 -
+/supermind/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-help.php 1 www.google.com
+/www/scripts/tinymce/file_manager/dialog.php 3 -
+/alfa.php 2 -
+/alfateslav4.php 1 www.google.com
+//wordpress/alfacgiapi/bash.alfa 1 -
+/Dz.php 1 www.google.com
+/test/wp-content/plugins/mm-plugin/inc/vendors/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/apple-touch-icon-120x120.png 2 -
+/administrator/js/filemanager/filemanager/dialog.php 1 -
+/storage/javascripts/rfm/dialog.php 1 -
+/public/js/tinymce/plugins/rfm/dialog.php 1 -
+/web/javascripts/fmanager/fmanager/dialog.php 1 -
+/www/scripts/tinymce/rfm/filemanager/dialog.php 1 -
+/geral/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/administrator/javascripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/admin/assets/global/plugins/tiny_mce/filemanager/dialog.php 2 -
+/admin/scripts/filemanager/filemanager/dialog.php 2 -
+/include/plugins/tinymce/file_manager/dialog.php 4 -
+/system/fmanager/dialog.php 1 -
+/support/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/site/fmanager/fmanager/dialog.php 1 -
+/ecc/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/streetview/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/server/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/includes/plugins/tinymce/rfm/dialog.php 1 -
+/45.php 1 www.google.com
+/vendor/assets/tinymce/fmanager/fmanager/dialog.php 1 -
+/lib/rfm/filemanager/dialog.php 1 -
+/sistema/sistema/dompdf-master/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/apde.edu.gt/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vendor/assets/tinymce/filemanager/dialog.php 1 -
+/atoms/raphaelfonseca/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/priv8.php 1 www.google.com
+/www/assets/tinymce/fmanager/fmanager/dialog.php 1 -
+/tinymce/js/filemanager/dialog.php 1 -
+/admin/assets/global/plugins/tinymce/rfm/dialog.php 1 -
+/www/javascripts/file_manager/dialog.php 3 -
+/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/vendor/assets/tinymce/rfm/filemanager/dialog.php 1 -
+/apple-touch-icon-120x120-precomposed.png 2 -
+/public/js/rfm/dialog.php 1 -
+/pub/plugin/fmanager/dialog.php 1 -
+/index1.php 1 -
+/admcl/php/responsivefilemanager/filemanager/dialog.php 1 -
+/storage/javascripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/webroot/javascripts/filemanager/dialog.php 1 -
+/framework/plugins/fb-page-feed/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/javascripts/rfm/filemanager/dialog.php 1 -
+/wp-email.php 1 www.google.com
+/plugins/tinymce/js/tinymce/plugins/filemanager/dialog.php 1 -
+/www/js/file_manager/file_manager/dialog.php 3 -
+/core/laravel/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/wp-includes/pomo/newup.php 2 www.google.com
+/wp-admin/images.php 2 www.google.com
+/MyCityVision_Backend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/scripts/tinymce/rfm/dialog.php 1 -
+//admin/controller/extension/ALFA_DATA/alfacgiapi/py.alfa 1 -
+/js/tinymce/plugins/filemanager/dialog.php 2 -
+/wp-content/themes/seotheme/mar.php 2 www.google.com
+/admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/phpexcel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//admin/controller/ALFA_DATA/alfacgiapi/bash.alfa 1 -
+/ups.php 1 www.google.com
+/anon.php 1 www.google.com
+/officelara/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/denuncias/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/includess/fmanager/dialog.php 1 -
+/web/javascripts/rfm/dialog.php 1 -
+/administrator/js/rfm/dialog.php 1 -
+/pos/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/payment/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/V5.php 1 www.google.com
+/wp_wrong_datlib.php 1 www.google.com
+/assets/tinymce/filemanager/filemanager/dialog.php 1 -
+/vendor/js/tinymce/plugins/fmanager/fmanager/dialog.php 1 -
+/pro/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/psnlink/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/payment/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-content/wso.php 2 www.google.com
+/bugtracker/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/www/javascripts/filemanager/filemanager/dialog.php 2 -
+/test/wp-content/plugins/cloudflare/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/postfs.php 1 www.google.com
+/professionaltuning/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/sonvuhong/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/assets/tinymce/rfm/dialog.php 1 -
+/www/rfm/dialog.php 2 -
+/lib/javascripts/tinymce/rfm/filemanager/dialog.php 1 -
+/bmwstory/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/bots/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/public/js/fmanager/fmanager/dialog.php 1 -
+/js/include/plugins/tiny_mce/rfm/dialog.php 1 -
+/public/javascripts/tinymce/rfm/filemanager/dialog.php 1 -
+/.git/config 2 -
+/system/js/plugin/rfm/filemanager/dialog.php 1 -
+/spartacus/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/simplesamlphp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vendor/scripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/wp-admin/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/store/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/admin/scripts/rfm/dialog.php 1 -
+/www/javascripts/fmanager/fmanager/dialog.php 1 -
+/vendor/rfm/filemanager/dialog.php 1 -
+/storage/tinymce/filemanager/dialog.php 1 -
+/jquery_fileupload/server/php 1 -
+/store/laravel/vendor/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/js/tinymce/plugins/rfm/dialog.php 1 -
+/lib/tinymce/fmanager/dialog.php 1 -
+/espanadigital/sitio/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/content.php 1 www.google.com
+/live/compareip/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/v2/_catalog 1 -
+/vendor/js/tinymce/plugins/rfm/filemanager/dialog.php 1 -
+/authenticate/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-singupp.php 1 www.google.com
+/manager.php 1 www.google.com
+/ww.php 1 www.google.com
+/web/filemanager/filemanager/dialog.php 1 -
+/system/js/plugin/tinymce/rfm/dialog.php 1 -
+/storage/uploads/library/fmanager/dialog.php 1 -
+/demos/dev_grupo_total/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/redaktur/index.php 1 -
+/deportes/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/scripts/fmanager/dialog.php 1 -
+/globals/e_detector/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/empresasbrasil/production/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/pegasus/poo/app/plugins/tinymce/js/file_manager/dialog.php 3 -
+//ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/ticket/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/www/tinymce/file_manager/file_manager/dialog.php 3 -
+/administrator/js/tinymce/plugins/filemanager/filemanager/dialog.php 1 -
+/go2growApi/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-admin/alfacgiapi/perl.alfa 1 -
+/client/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/usb.php 1 www.google.com
+/storage/filemanager/filemanager/dialog.php 1 -
+/js/include/plugins/tinymce/filemanager/dialog.php 1 -
+/adm/javascripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/public/plugins/tinymce/js/tinymce/plugins/filemanager/dialog.php 1 -
+/media/upload/rfm/dialog.php 1 -
+/Laravel%20E2N%20test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/js/global/plugins/fmanager/fmanager/dialog.php 1 -
+/ctevt/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/ticket/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web-files/phpexcel/spreadsheet/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp/wp-content/plugins/dzs-videogallery/class_parts/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/saml/extlib/simplesamlphp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/live/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/platform/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/hammad/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/fmanager/dialog.php 1 -
+/8.php 1 www.google.com
+//wp-content/alfacgiapi/bash.alfa 1 -
+/kyami.php 1 www.google.com
+/shells.php 1 www.google.com
+/black.php 1 www.google.com
+/0byt3m1n1.php 1 -
+/assets/plugins/rfm/dialog.php 1 -
+/wp-content/plugins/wp-user-frontend-pro/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/debug/default/view 1 -
+/dev/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/assets/node_modules/filemanager/dialog.php 1 -
+/site/js/tinymce/plugins/fmanager/dialog.php 1 -
+/wp-content/plugins/jannes-mannes-social-media-auto-publisher/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/gg.php 1 www.google.com
+/skck_sidoarjo_code/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/public/javascripts/rfm/filemanager/dialog.php 1 -
+/pos/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/bepas.php 1 -
+/RoomBookingR1D/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/soporte_18/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webservice_lebong_201901/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/scripts/plugins/rfm/dialog.php 1 -
+/pegasus/poo/app/plugins/tiny_mce/js/rfm/dialog.php 1 -
+/orion/greensignal/sistemas/demandador/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/js/global/plugins/responsive_fmanager/fmanager/dialog.php 1 -
+/https:/laboratorium.poltekkesbanten.ac.id 8 -
+/wso1.php 1 -
+//site/ALFA_DATA/alfacgiapi/bash.alfa 1 -
+/assets/js/tinymce/fmanager/dialog.php 1 -
+/tinymce/plugins/plugins/filemanager/filemanager/dialog.php 2 -
+/api2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/iscent/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/libraries/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/javascripts/plugins/fmanager/fmanager/dialog.php 1 -
+/adm/javascripts/fmanager/fmanager/dialog.php 1 -
+/demo/laravel/vendor/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/777.php 1 www.google.com
+/nvagencies/gst/gst_system/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/un.php 2 www.google.com
+/Sistema-Clinico--com-Laravel-master/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/aptapi/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/.wp-cache.php 1 www.google.com
+/wp-content/uploads/ac_assets/IndoSec.php 2 www.google.com
+/administrator/js/tinymce/plugins/filemanager/dialog.php 1 -
+/web/js/rfm/filemanager/dialog.php 1 -
+/includes/plugin/tiny_mce/rfm/dialog.php 1 -
+/beta/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/atoms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/tbg/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/global/plugins/responsive_filemanager/filemanager/dialog.php 2 -
+/app.rideforhopebahamas.com/main-app/app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/public/tinymce/filemanager/filemanager/dialog.php 1 -
+/flame.php 1 www.google.com
+/pegasus/poo/app/Library/tiny_mce/js/filemanager/dialog.php 2 -
+/adm/scripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/public/assets/tinymce/rfm/filemanager/dialog.php 1 -
+/adm/js/filemanager/filemanager/dialog.php 1 -
+/data.php 2 www.google.com
+/pegasus/poo/app/tinymce/js/fmanager/dialog.php 1 -
+/sveopodulaz/rfm/dialog.php 1 -
+/testing/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/site/javascripts/tinymce/rfm/filemanager/dialog.php 1 -
+/pegasus/poo/app/plugins/tinymce/js/filemanager/dialog.php 2 -
+/vrscop/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//admin/controller/extension/alfacgiapi/py.alfa 1 -
+/js/tinymce/rfm/filemanager/dialog.php 1 -
+/public/rfm/filemanager/dialog.php 1 -
+/2018/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/dev_grupo_total/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/www/tinymce/fmanager/fmanager/dialog.php 1 -
+/www/fmanager/dialog.php 2 -
+/reports/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/begrand/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/javascripts/plugins/rfm/dialog.php 1 -
+/assets/tiny_mce/plugins/responsiverfm/dialog.php 1 -
+/admin/php/file_manager/dialog.php 7 -
+/assets/js/tinymce/plugins/file_manager/dialog.php 3 -
+/telescope/requests 1 -
+/assets/responsive_rfm/rfm/dialog.php 1 -
+/.Wp-back.phP 2 www.google.com
+/semcoal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/xipada/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/spd/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/storage/javascripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/storage/javascripts/tinymce/rfm/filemanager/dialog.php 1 -
+/ioxi.php 1 www.google.com
+/dev/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webshop_admin/app/webroot/rfm/dialog.php 1 -
+/marketing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/js/tinymce/fmanager/dialog.php 1 -
+/test/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/includes/plugin/tinymce/fmanager/dialog.php 1 -
+/darm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/pegasus/poo/app/Library/tiny_mce/filemanager/dialog.php 2 -
+/webroot/js/tinymce/plugins/fmanager/fmanager/dialog.php 1 -
+/include/plugin/tinymce/file_manager/dialog.php 4 -
+/tuto_laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/www/js/tinymce/plugins/filemanager/dialog.php 1 -
+//admin/ALFA_DATA/alfacgiapi/py.alfa 1 -
+/public/laravel/.env 1 -
+/klaster-topik/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webroot/javascripts/tinymce/rfm/filemanager/dialog.php 1 -
+/includes/plugins/tinymce/file_manager/dialog.php 4 -
+/emulsao/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/administrator/scripts/tinymce/rfm/dialog.php 1 -
+/wp-admin/x.php 6 www.google.com
+/test/wp-content/plugins/dzs-videogallery/class_parts/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//wp-content/alfacgiapi/perl.alfa 1 -
+/administrator/javascripts/tinymce/rfm/filemanager/dialog.php 1 -
+/mari.php 1 www.google.com
+/system/js/plugins/rfm/filemanager/%20dialog.php 1 -
+/admin/assets/global/plugins/filemanager/filemanager/dialog.php 2 -
+/saas/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/storage/assets/tinymce/rfm/dialog.php 1 -
+/readme.php 1 www.google.com
+/assets/javascripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/wp-content/themes/seotheme/db.php 2 www.google.com
+/site/tinymce/filemanager/filemanager/dialog.php 1 -
+/87.php 1 www.google.com
+/l.php 1 www.google.com
+/admin/assets/global/plugins/tinymce/file_manager/dialog.php 3 -
+/ticket/laravel/vendor/phpunit/Util/PHP/eval-stdin.php 1 -
+/backend/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/betanew/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/lib/phpunit/Util/PHP/eval-stdin.php 1 -
+/streamhub/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/jobs/workspace/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/api_muvin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/new/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/editor_new/fmanager/dialog.php 1 -
+/wsviamatica/wszool/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/adm/assets/tinymce/rfm/filemanager/dialog.php 1 -
+/wp-content/themes/classic/inc/index.php 2 www.google.com
+/contact/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/apple-touch-icon-precomposed.png 4 -
+/5.php 1 www.google.com
+/lib/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/inf513/curso-styde/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/t.php 1 www.google.com
+/v4.php 1 www.google.com
+/wikindex.php 3 www.google.com
+/site/assets/tinymce/fmanager/fmanager/dialog.php 1 -
+/mi.php 1 www.google.com
+/assets/plugins/filemanager/filemanager/dialog.php 1 -
+/include/plugin/tiny_mce/file_manager/dialog.php 4 -
+/administrator/tinymce/fmanager/dialog.php 1 -
+/df2communitywebsite/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/lib/javascripts/rfm/filemanager/dialog.php 1 -
+/lib/assets/tinymce/rfm/dialog.php 1 -
+/webroot/assets/tinymce/fmanager/fmanager/dialog.php 1 -
+/webroot/fmanager/dialog.php 1 -
+/admin/scripts/rfm/filemanager/dialog.php 1 -
+/webadmin/about.php 2 www.google.com
+/storage/javascripts/filemanager/filemanager/dialog.php 1 -
+/sai/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/administrator/assets/tinymce/rfm/filemanager/dialog.php 1 -
+/payments/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/pegasus/poo/app/plugins/tinymce/js/rfm/dialog.php 1 -
+/admin/assets/tinymce/filemanager/filemanager/dialog.php 2 -
+/dev/iscent/releases/20170811125232/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/pvra/web/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 6 -
+/cron/php/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/filemanager/filemanager/dialog.php 2 -
+/espanadigital/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/site/assets/tinymce/fmanager/dialog.php 1 -
+/www/assets/tinymce/fmanager/dialog.php 1 -
+/laravel_api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webroot/js/rfm/dialog.php 1 -
+/wp-defaul.php 1 www.google.com
+/administrator/assets/tinymce/fmanager/fmanager/dialog.php 1 -
+/webroot/tinymce/rfm/dialog.php 1 -
+/v2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/assets/global/plugins/responsive_filemanager/filemanager/dialog.php 2 -
+/lib/scripts/tinymce/rfm/filemanager/dialog.php 1 -
+/include/plugins/rfm/dialog.php 1 -
+/4index.php 2 www.google.com
+/system/js/plugins/filemanager/filemanager/%20dialog.php 1 -
+/sbp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/site/tinymce/fmanager/dialog.php 1 -
+/webroot/javascripts/tinymce/rfm/dialog.php 1 -
+//admin/ALFA_DATA/alfacgiapi/bash.alfa 1 -
+/bypass.php 2 -
+/wp-key.php 1 www.google.com
+/js/tinymce/rfm/dialog.php 1 -
+/ccx/index.php 2 www.google.com
+/scripts/tinymce/rfm/dialog.php 1 -
+/assets/js/tinymce/plugins/file_manager/rfm/dialog.php 1 -
+/up.php 3 www.google.com
+/includes/tiny_mce/fmanager/dialog.php 1 -
+/public/scripts/tinymce/rfm/dialog.php 1 -
+/tinymce/js/tinymce/plugins/filemanager/filemanager/dialog.php 1 -
+/web/tinymce/rfm/dialog.php 1 -
+/.env 2 -
+/assets/javascripts/plugins/rfm/filemanager/dialog.php 1 -
+/assets/node_modules/fmanager/dialog.php 1 -
+/storage/javascripts/fmanager/fmanager/dialog.php 1 -
+/ifrc-laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/0byte.php 1 www.google.com
+/storage/tinymce/rfm/dialog.php 1 -
+/tinymce/plugins/plugins/responsive_fmanager/fmanager/dialog.php 1 -
+/api1/vendor/phpunit/phpunit/src/Util/PHP/Template/eval-stdin.php 1 -
+/vendor/javascripts/rfm/dialog.php 1 -
+/backend/global/plugins/responsive_fmanager/fmanager/dialog.php 1 -
+/lib/scripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/advDesenvolvimento-1003/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webroot/javascripts/rfm/dialog.php 1 -
+/ppid/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/site/js/tinymce/plugins/filemanager/dialog.php 1 -
+/site/rfm/filemanager/dialog.php 1 -
+/ok.php 1 www.google.com
+/lib/js/tinymce/plugins/fmanager/dialog.php 1 -
+/static/admin/javascript/hetong.js 1 -
+/app/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/site/assets/tinymce/rfm/filemanager/dialog.php 1 -
+/administrator/tinymce/fmanager/fmanager/dialog.php 1 -
+/tvm/fd45jn0f5Gd/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/assets/global/plugins/responsive_fmanager/fmanager/dialog.php 1 -
+/www/assets/tinymce/file_manager/file_manager/dialog.php 3 -
+/vendor/javascripts/fmanager/fmanager/dialog.php 1 -
+/iscent/releases/20170811125232/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/www/tinymce/filemanager/filemanager/dialog.php 1 -
+/tinymce/js/tinymce/plugins/fmanager/fmanager/dialog.php 1 -
+/app/laravel/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/media/upload/filemanager/dialog.php 1 -
+/app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-js.php 1 www.google.com
+/tinymce/plugins/plugins/fmanager/fmanager/dialog.php 1 -
+/royalerumble/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//wordpress/wp-includes/ALFA_DATA/alfacgiapi/py.alfa 1 -
+/admin/php/filemanager/dialog.php 1 -
+/consulation/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/index.html 2 https://laboratorium.poltekkesbanten.ac.id/profile
+/1index.php 3 www.google.com
+/wordpress/wp-content/plugins/mm-plugin/inc/vendors/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/administrator/javascripts/fmanager/fmanager/dialog.php 1 -
+/straighttalk/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/adm/js/fmanager/fmanager/dialog.php 1 -
+/.well-known/pki-validation/wp-signup.php 1 www.google.com
+/assets/tinymce/plugins/file_manager/dialog.php 3 -
+/mini.php 4 -
+/web/assets/tinymce/rfm/filemanager/dialog.php 1 -
+/wp-content/themes/twentyfive/include.php 2 www.google.com
+/wsoyanzorng.php 2 www.google.com
+/shop/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/xleet-shell.php 1 www.google.com
+/js/includes/plugins/tiny_mce/rfm/dialog.php 1 -
+/media/upload/filemanager/filemanager/dialog.php 1 -
+/god4m.php 1 www.google.com
+/pi.php 1 www.google.com
+/v2/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/includes/plugins/tinymce/fmanager/dialog.php 1 -
+/web/javascripts/tinymce/rfm/dialog.php 1 -
+/cmd.php 1 www.google.com
+/xl2023.php 2 www.google.com
+/site/scripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/pegasus/poo/app/Library/plugins/tiny_mce/js/rfm/dialog.php 1 -
+/publichtml/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/tinymce/filemanager/filemanager/dialog.php 1 -
+/assets/global/plugins/responsive_fmanager/fmanager/dialog.php 1 -
+/admcl/php/responsiverfm/rfm/dialog.php 1 -
+/site/js/tinymce/plugins/rfm/filemanager/dialog.php 1 -
+/public/javascripts/filemanager/dialog.php 1 -
+/objectif-750/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/dev/laravel/vendor/phpunit/Util/PHP/eval-stdin.php 1 -
+/safmanagement.it/publichtml/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webroot/tinymce/file_manager/dialog.php 3 -
+/web/js/tinymce/plugins/fmanager/dialog.php 1 -
+/abc.php 1 www.google.com
+/lib/js/rfm/dialog.php 1 -
+/include/file_manager/dialog.php 3 -
+/scripts/plugins/tinymce/fmanager/fmanager/dialog.php 1 -
+/lib/javascripts/tinymce/filemanager/dialog.php 1 -
+/public/tinymce/fmanager/fmanager/dialog.php 1 -
+/octuput/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-conflg.php 1 www.google.com
+/system/js/plugin/filemanager/filemanager/dialog.php 1 -
+/www/assets/tinymce/filemanager/dialog.php 2 -
+/sic-laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/storage/scripts/tinymce/rfm/dialog.php 1 -
+/assets/javascripts/plugins/filemanager/filemanager/dialog.php 1 -
+/vendor/scripts/tinymce/filemanager/dialog.php 1 -
+/logistics/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/room.php 1 www.google.com
+/wp-content/plugins/seoplugins/mar.php 2 www.google.com
+/compareip/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/administrator/js/tinymce/plugins/fmanager/fmanager/dialog.php 1 -
+/imadguennouni/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webroot/js/fmanager/dialog.php 1 -
+/sitio/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/administrator/tinymce/filemanager/dialog.php 1 -
+/wp-content/plugins/realia/libraries/PayPal-PHP-SDK/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vendor/javascripts/fmanager/dialog.php 1 -
+/notweb/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/tinymce/fmanager/dialog.php 1 -
+/laravel_web/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/tinymce/rfm/dialog.php 1 -
+/admin/assets/global/file_manager/dialog.php 3 -
+/system/js/plugins/rfm/dialog.php 1 -
+/lib/filemanager/filemanager/dialog.php 1 -
+/lib/tinymce/filemanager/dialog.php 1 -
+/portalmejora/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/blog/www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/o.php 1 www.google.com
+/con7.php 1 www.google.com
+/tuco.php 1 www.google.com
+/administrator/javascripts/rfm/filemanager/dialog.php 1 -
+/adm/javascripts/rfm/filemanager/dialog.php 1 -
+/epayco-php/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/js/plugins/rfm/filemanager/dialog.php 1 -
+/administrator/js/rfm/filemanager/dialog.php 1 -
+/load.php 1 www.google.com
+/js/include/plugins/tinymce/rfm/dialog.php 1 -
+/sandbox/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/demos/laravel-sites/dev_grupo_total/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/ibfv1/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-content/plugins/mm-plugin/inc/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/modules/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/xxx.php 1 www.google.com
+//admin/controller/extension/alfacgiapi/bash.alfa 1 -
+/pms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-admin/shell20211028.php 2 www.google.com
+/elections/app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/mtosapp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/api_source/firebase/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-content/wso112233.php 2 www.google.com
+/testing/vendor/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/172410101040/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/sites/all/libraries/mailchimp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/administrator/fmanager/dialog.php 1 -
+/includes/plugin/tiny_mce/filemanager/dialog.php 1 -
+/Code/snippets/html2pdf-master/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/lib/tinymce/filemanager/filemanager/dialog.php 1 -
+/store/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/lib/js/fmanager/dialog.php 1 -
+/mantisbt/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/administrator/scripts/tinymce/rfm/filemanager/dialog.php 1 -
+/fileman/index.html 1 -
+/adm.php 1 www.google.com
+/20170811125232/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/www/assets/tinymce/file_manager/dialog.php 3 -
+/ninja.php 1 www.google.com
+/js/include/plugins/tiny_mce/filemanager/dialog.php 1 -
+/lib/javascripts/rfm/dialog.php 1 -
+/advanced/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/assets/global/plugins/tinymce/filemanager/dialog.php 1 -
+/wp-title.php 1 www.google.com
+/wp-content/plugins/ioptimization/IOptimize.php 2 www.google.com
+/lib/assets/tinymce/filemanager/dialog.php 1 -
+/upload.php 3 www.google.com
+/assets/js/file_manager/rfm/dialog.php 1 -
+/afasio/afasio/backend_Julia/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/js/global/plugins/responsive_filemanager/filemanager/dialog.php 2 -
+/transejecutivos/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/backend/assets/global/plugins/responsive_rfm/rfm/dialog.php 1 -
+/site/javascripts/fmanager/dialog.php 1 -
+/filemanager/dialog.php 4 -
+/administrator/js/tinymce/plugins/fmanager/dialog.php 1 -
+/sveopodulaz/fmanager/dialog.php 1 -
+/rex.php 1 www.google.com
+/foxwso.php 1 www.google.com
+/core/laravel/vendor/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admcl/php/fmanager/fmanager/dialog.php 1 -
+/vendor/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/pub/plugin/rfm/dialog.php 1 -
+/wp-content/plugins/contact-form-7-to-database-extension/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/assets/js/file_manager/fmanager/dialog.php 1 -
+/ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/storage/filemanager/dialog.php 1 -
+/test/vendor/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/ferramentas/redemaisbrasil/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/scripts/plugins/tinymce/rfm/dialog.php 1 -
+/wp-content/plugins/user-export-with-their-meta-data/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/q.php 1 www.google.com
+/adm/scripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/js/includes/plugins/tinymce/filemanager/dialog.php 1 -
+/alpha.u2start.com/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-content/shell20211028.php 2 www.google.com
+/api4/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/wso.php 2 -
+/admin403.php 1 www.google.com
+/webroot/js/fmanager/fmanager/dialog.php 1 -
+/shopify/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/lib/javascripts/filemanager/dialog.php 1 -
+/wp-atom.php 1 www.google.com
+/wp-configer.php 1 www.google.com
+/web/js/tinymce/plugins/fmanager/fmanager/dialog.php 1 -
+/tinymce/rfm/dialog.php 1 -
+/vendor/js/rfm/filemanager/dialog.php 1 -
+/web/filemanager/dialog.php 1 -
+/include/plugin/tinymce/filemanager/dialog.php 1 -
+/texteditor/mfm.php 1 -
+/webroot/javascripts/filemanager/filemanager/dialog.php 1 -
+/wp-content/plugins/prh-api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/www/scripts/tinymce/fmanager/dialog.php 1 -
+/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/dev/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/api1/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//admin/alfacgiapi/bash.alfa 1 -
+/stripe-php/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/www/javascripts/file_manager/file_manager/dialog.php 3 -
+/include/plugins/filemanager/dialog.php 1 -
+/public/tinymce/rfm/filemanager/dialog.php 1 -
+/onefolder/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/cms/tiny_mce/fmanager/fmanager/dialog.php 1 -
+/Matrimony/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/adm/tinymce/rfm/dialog.php 1 -
+/modules/autoupgrade/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/system/js/plugin/filemanager/dialog.php 1 -
+/gst/gst_system/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/tinyfilemanager.php 1 www.google.com
+/wp-settings.php 1 -
+/tinymce/js/tinymce/plugins/fmanager/dialog.php 1 -
+/fox.php 2 -
+/config/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/administrator/js/filemanager/dialog.php 1 -
+/admcl/php/responsive_rfm/rfm/dialog.php 1 -
+/webroot/assets/tinymce/fmanager/dialog.php 1 -
+/patronus.sfiec.org.br/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/public/javascripts/tinymce/rfm/dialog.php 1 -
+/admin/assets/global/plugins/rfm/dialog.php 1 -
+/texteditor 1 -
+/lib/js/tinymce/plugins/rfm/dialog.php 1 -
+//admin/controller/alfacgiapi/py.alfa 1 -
+/include/plugins/tiny_mce/rfm/dialog.php 1 -
+/plugins/rfm/dialog.php 1 -
+/pkm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/filemanager/dialog.php 1 -
+/ign-project-backend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/twin.php 1 www.google.com
+/backend/assets/global/plugins/responsive_filemanager/filemanager/dialog.php 1 -
+/web/assets/tinymce/rfm/dialog.php 1 -
+/cronlab/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//wp-includes/alfacgiapi/perl.alfa 1 -
+/site/fmanager/dialog.php 1 -
+/gdm/blog/www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/ncufresh15/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webroot/rfm/filemanager/dialog.php 1 -
+/jquery_file_upload/server/php 1 -
+/webshop_admin/app/webroot/file_manager/dialog.php 4 -
+/shl.php 1 www.google.com
+/codeframe/external/media/fmanager/dialog.php 1 -
+/api3/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/includes/plugin/tinymce/rfm/dialog.php 1 -
+/wp-system.php 1 www.google.com
+/emediamarket-be/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/krisda/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/include/plugins/tiny_mce/file_manager/dialog.php 4 -
+/xox.php 1 www.google.com
+/lx.php 1 www.google.com
+/web/js/filemanager/filemanager/dialog.php 1 -
+/secure.dibzat/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/server 1 -
+/lib/javascripts/filemanager/filemanager/dialog.php 1 -
+/autoload_classmap.php 1 www.google.com
+/byps.php 1 www.google.com
+/gh.php 1 www.google.com
+/web/js/filemanager/dialog.php 1 -
+/fashion_club/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admcl/php/responsivefmanager/fmanager/dialog.php 1 -
+/entmain/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/views/default_template/filemanager/dialog.php 1 -
+/assets/js/tinymce/filemanager/dialog.php 1 -
+/adm/tinymce/fmanager/dialog.php 1 -
+/sites/default/libraries/mailchimp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/codeframe/external/media/filemanager/dialog.php 1 -
+/lib/javascripts/tinymce/fmanager/dialog.php 1 -
+/dev/test1/project/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/backend/global/plugins/filemanager/filemanager/dialog.php 1 -
+/lol.php 1 www.google.com
+/dev_zarrel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/lib/js/tinymce/plugins/filemanager/filemanager/dialog.php 1 -
+/storage/rfm/dialog.php 1 -
+/pub/plugin/file_manager/dialog.php 3 -
+/includess/rfm/dialog.php 1 -
+/admin/assets/global/plugins/tinymce/fmanager/dialog.php 1 -
+/adm/javascripts/tinymce/rfm/filemanager/dialog.php 1 -
+/assets/responsive_file_manager/file_manager/dialog.php 3 -
+/www/js/fmanager/fmanager/dialog.php 1 -
+/www/scripts/tinymce/file_manager/file_manager/dialog.php 3 -
+/lib/javascripts/tinymce/rfm/dialog.php 1 -
+/adv/advDesenvolvimento-1003/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-cron.php 1 -
+/vendor/fmanager/fmanager/dialog.php 1 -
+/administrator/tinymce/rfm/dialog.php 1 -
+/includes/plugins/fmanager/dialog.php 1 -
+//admin/alfacgiapi/py.alfa 1 -
+/phpinfo.php 1 www.google.com
+/www/js/tinymce/plugins/fmanager/dialog.php 1 -
+/public/filemanager/filemanager/dialog.php 1 -
+/4walls/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/webroot/scripts/tinymce/filemanager/dialog.php 1 -
+/wp-content/406.php 2 www.google.com
+/pegasus/poo/app/Library/rfm/dialog.php 2 -
+/adm/js/tinymce/plugins/rfm/dialog.php 1 -
+/phpThumb/phpThumb.php 1 -
+/i.php 1 www.google.com
+/public/js/tinymce/plugins/filemanager/filemanager/dialog.php 1 -
+/p/laravelcrud/svn/2/tree//app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/auth/saml/extlib/simplesamlphp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/graph-sdk/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/Public/home/js/check.js 1 -
+/administrator/javascripts/tinymce/filemanager/filemanager/dialog.php 1 -
+/web/assets/tinymce/filemanager/filemanager/dialog.php 1 -
+/alfa123.php 1 www.google.com
+/assets/filemanager/dialog.php 1 -
+/administrator/javascripts/filemanager/filemanager/dialog.php 1 -
+/webroot/js/rfm/filemanager/dialog.php 1 -
+/www/fmanager/fmanager/dialog.php 2 -
+/wp-content/xl2023.php 2 www.google.com
+/admin/php/fmanager/dialog.php 1 -
+/js/includes/plugins/tinymce/fmanager/dialog.php 1 -
+/storage/tinymce/rfm/filemanager/dialog.php 1 -
+/vendor/phpunit/Util/PHP/eval-stdin.php 1 -
+/pegasus/poo/app/Library/filemanager/dialog.php 4 -
+/assets/plugins/fmanager/dialog.php 1 -
+/include/tiny_mce/rfm/dialog.php 1 -
+/includes/plugins/tiny_mce/rfm/dialog.php 1 -
+/.well-known/pki-validation/atomlib.php 2 www.google.com
+/include/rfm/dialog.php 1 -
+/raphaelfonseca/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/site/tinymce/rfm/filemanager/dialog.php 1 -
+/rahasia/index.php 1 -
+/portal/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/admin/assets/global/plugins/responsive_file_manager/file_manager/dialog.php 3 -
+/wp-content/themes/techmatters/mpdf/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/api3/vendor/phpunit/phpunit/src/Util/PHP/Template/eval-stdin.php 1 -
+/texteditor/changelog.txt 1 -
+/system/plugin/filemanager/dialog.php 1 -
+/public/assets/tinymce/filemanager/dialog.php 1 -
+/global/plugins/filemanager/filemanager/dialog.php 1 -
+//wordpress/wp-includes/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/_staff/cron/php/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+//alfacgiapi/perl.alfa 1 -
+/assets/tinymce/plugins/responsiverfm/dialog.php 2 -
+/site/tinymce/fmanager/fmanager/dialog.php 1 -
+/site/javascripts/tinymce/filemanager/dialog.php 1 -
+//blog/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/lib/js/rfm/filemanager/dialog.php 1 -
+/fmanager/fmanager/dialog.php 2 -
+/wp-admin/fw.php 2 www.google.com
+/pgd/pgnim/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/storage/scripts/tinymce/rfm/filemanager/dialog.php 1 -
+/site/assets/tinymce/rfm/dialog.php 1 -
+/uniteddatabasedevelopment/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/administrator/filemanager/dialog.php 1 -
+/apps/shopify/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/js/tinymce/plugins/fmanager/fmanager/dialog.php 1 -
+/proment/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/adm/fmanager/fmanager/dialog.php 1 -
+/www/javascripts/tinymce/fmanager/dialog.php 1 -
+/doae-production/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/byroernne/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-mails.php 1 www.google.com
+/www/javascripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/mpbackoffice/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/scripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/log_visitor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/sh.php 1 www.google.com
+/xd.php 1 www.google.com
+/assets/fmanager/fmanager/dialog.php 1 -
+/teste/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/js/filemanager/filemanager/dialog.php 1 -
+/plataformaead-dev/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/administrator/filemanager/filemanager/dialog.php 1 -
+/public/assets/tinymce/rfm/dialog.php 1 -
+/yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/wp-posts.php 1 www.google.com
+/Jquery_File_Upload/server/php 1 -
+/~champiot/Laravel%20E2N%20test/tuto_laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/clinicasoftware/app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/dev/laravel/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/web/js/tinymce/plugins/rfm/filemanager/dialog.php 1 -
+/subdomains/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/ipt.php 1 -
+/assets/responsive_filemanager/filemanager/dialog.php 1 -
+/web/js/tinymce/plugins/filemanager/filemanager/dialog.php 1 -
+/www/tinymce/rfm/dialog.php 1 -
+/skinning-api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vendor/javascripts/rfm/filemanager/dialog.php 1 -
+/qindex.php 1 www.google.com
+/MARIJUANA.php 1 -
+/htaccess/workspace/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/AlkatreszProject/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/api5/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/javascripts/tinymce/filemanager/dialog.php 2 -
+/gel4y.php 1 www.google.com
+/www/filemanager/filemanager/dialog.php 2 -
+/1.php 3 www.google.com
+/edit-form.php 2 www.google.com
+/uniteddatabasedevelopment/unitedisposal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/alquimialaravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/plugins/filemanager/dialog.php 1 -
+/subdomains/spartacus/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/javascripts/tinymce/filemanager/filemanager/dialog.php 2 -
+/k.php 1 www.google.com
+/assets/plugins/fmanager/fmanager/dialog.php 1 -
+/admin/assets/global/plugins/tiny_mce/file_manager/dialog.php 3 -
+/csbank/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/scripts/plugins/tinymce/fmanager/dialog.php 1 -
+/upl.php 1 -
+/js/rfm/dialog.php 1 -
+/www/scripts/tinymce/fmanager/fmanager/dialog.php 1 -
+/vendor/tinymce/fmanager/fmanager/dialog.php 1 -
+/v1/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/javascripts/tinymce/rfm/filemanager/dialog.php 1 -
+/storage/fmanager/dialog.php 1 -
+/r.php 1 www.google.com
+/webroot/js/filemanager/dialog.php 1 -
+/y.php 1 www.google.com
+/lib/javascripts/fmanager/fmanager/dialog.php 1 -
+/assets/rfm/filemanager/dialog.php 1 -
+/adm/tinymce/rfm/filemanager/dialog.php 1 -
+/bots/globals/e_detector/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/adm/js/tinymce/plugins/filemanager/filemanager/dialog.php 1 -
+/system/js/plugins/fmanager/fmanager/%20dialog.php 1 -
+/site/javascripts/tinymce/fmanager/dialog.php 1 -
+/unknown.php 1 www.google.com
+/jobs/htaccess/workspace/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/enhance 1 -
+/laravelao/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-includes/embed-wp.php 2 www.google.com
+/administrator/rfm/dialog.php 1 -
+/admin/assets/global/filemanager/dialog.php 2 -
+/vendor/assets/tinymce/rfm/dialog.php 1 -
+/include/plugin/tiny_mce/fmanager/dialog.php 1 -
+/ws.php 1 www.google.com
+/config.php 1 www.google.com
+/wp-plugins.php 1 www.google.com
+/adminkec/index.php 1 -
+/webroot/filemanager/filemanager/dialog.php 1 -
+//wordpress/ALFA_DATA/alfacgiapi/bash.alfa 1 -
+/old-index.php 3 www.google.com
+/assets/plugins/rfm/filemanager/dialog.php 1 -
+/tinymce/js/tinymce/plugins/filemanager/dialog.php 1 -
+/public/assets/tinymce/fmanager/fmanager/dialog.php 1 -
+/vendor/scripts/tinymce/rfm/filemanager/dialog.php 1 -
+/sites/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/web/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 -
+/~champiot/tuto_laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-includes/widgets/class-wp-widget-index.php 2 www.google.com
+/web/assets/tinymce/fmanager/dialog.php 1 -
+/core/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/global/plugins/fmanager/fmanager/dialog.php 1 -
+/khabir/app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/cafe50/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-content.php 1 www.google.com
+/core/Datavase/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/cms/tinymce/filemanager/filemanager/dialog.php 2 -
+/api4/vendor/phpunit/phpunit/src/Util/PHP/Template/eval-stdin.php 1 -
+/pegasus/poo/app/Library/plugins/tiny_mce/js/file_manager/dialog.php 4 -
+/administrator/assets/tinymce/filemanager/filemanager/dialog.php 1 -
+/public/js/rfm/filemanager/dialog.php 1 -
+/pegasus/poo/app/plugins/tiny_mce/js/filemanager/dialog.php 1 -
+/wp-inlcudes.php 1 www.google.com
+//alfacgiapi/bash.alfa 1 -
+/admin/assets/global/fmanager/dialog.php 1 -
+/www/js/file_manager/dialog.php 3 -
+/includes/filemanager/dialog.php 1 -
+/filemanager/filemanager/dialog.php 1 -
+/alfa-shell-v4.php 1 www.google.com
+/01.php 1 www.google.com
+/con.php 1 www.google.com
+/vendor/tinymce/filemanager/dialog.php 1 -
+/marijuana.php 1 www.google.com
+/V3.php 1 www.google.com
+/lib/js/filemanager/filemanager/dialog.php 1 -
+/cron/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admcl/php/file_manager/filemanager/dialog.php 1 -
+//admin/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/jistadx/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/wp-admin/wso.php 2 www.google.com
+/site/js/tinymce/plugins/fmanager/fmanager/dialog.php 1 -
+/assets/tinymce/filemanager/dialog.php 1 -
+/assets/javascripts/plugins/filemanager/dialog.php 1 -
+/wp-content/flame.php 1 www.google.com
+/global/plugins/rfm/filemanager/dialog.php 1 -
+/system/js/plugin/fmanager/dialog.php 1 -
+/administrator/js/tinymce/plugins/rfm/dialog.php 1 -
+/storage/uploads/library/file_manager/dialog.php 3 -
+/woodfieldestates/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/cron.phppython 1 -
+/test/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/vendor/tinymce/rfm/dialog.php 1 -
+/include/plugin/tiny_mce/rfm/dialog.php 1 -
+/wp-includes/xl2023.php 2 www.google.com
+/kk.php 1 www.google.com
+/old/wp-content/plugins/mm-plugin/inc/vendors/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/pesquisa/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/c99.php 1 www.google.com
+/web/js/rfm/dialog.php 1 -
+/web.public/admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/file_manager/dialog.php 3 -
+/site/rfm/dialog.php 1 -
+/webroot/tinymce/fmanager/fmanager/dialog.php 1 -
+/admcl/php/responsive_fmanager/fmanager/dialog.php 1 -
+/aliceapi/client_billing/authorizenet/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/dev/intranet-broken/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/www/javascripts/filemanager/dialog.php 2 -
+/cms/tinymce/fmanager/fmanager/dialog.php 1 -
+/storage/js/tinymce/plugins/rfm/dialog.php 1 -
+/admin/assets/global/plugins/filemanager/dialog.php 1 -
+/mas.php 1 www.google.com
+/git/xipada/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/pegasus/poo/app/Library/tiny_mce/file_manager/dialog.php 4 -
+/imuva/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/pegasus/poo/app/Library/plugins/tiny_mce/js/filemanager/dialog.php 1 -
+/jobs/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/scripts/filemanager/filemanager/dialog.php 1 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 112
+103.177.177.209 849 941 272589743 20240529000239
+103.177.177.129 438 666 184370915 20240531225836
+182.2.144.224 128 128 6098571 20240506005138
+182.3.42.127 94 107 6242834 20240514094022
+125.160.216.44 90 90 4255367 20240514202121
+182.2.142.160 76 103 20137204 20240529023642
+182.2.132.161 71 73 14506416 20240508045521
+103.165.195.130 49 60 4149773 20240521035922
+182.2.132.250 41 41 15681992 20240514225902
+182.2.144.252 23 37 6894641 20240517000818
+182.3.46.135 21 22 10417118 20240501235944
+182.2.145.99 19 47 10987887 20240514030355
+182.2.132.195 18 44 4661163 20240529000337
+103.177.177.217 18 31 6459310 20240528002746
+182.2.164.138 18 18 14402804 20240520230205
+182.0.238.33 16 16 285507 20240502003850
+120.188.94.200 16 29 7354195 20240520042345
+116.206.12.57 15 31 8470510 20240531044418
+180.214.233.68 15 37 8954320 20240520221907
+182.2.137.38 13 13 2531493 20240520042256
+103.217.224.63 13 39 3983766 20240513120342
+116.206.12.49 13 19 706699 20240509052733
+114.10.115.2 12 13 518009 20240530135146
+223.255.225.75 12 27 8186963 20240517020452
+182.0.207.113 11 11 1139542 20240502032803
+103.177.92.132 10 24 1018681 20240531025702
+150.129.59.5 1 7 750052 20240509051914
+24.144.83.219 1 1 3744 20240528060655
+182.2.144.114 4 11 765991 20240531211933
+120.188.33.82 4 10 1423779 20240523214756
+182.253.54.169 1 8 756458 20240510092703
+182.2.143.198 4 4 173619 20240506032855
+182.2.167.201 10 25 2189405 20240529025443
+116.206.28.61 4 12 1722064 20240524021355
+87.236.176.198 0 1 6406 
+114.10.25.186 1 4 430516 20240513234411
+182.2.146.66 4 4 117765 20240506032908
+149.113.218.42 1 8 756458 20240529075337
+120.188.94.130 2 9 760202 20240520041858
+139.192.14.179 1 8 756458 20240529085235
+125.165.22.150 7 14 772125 20240518132214
+45.133.5.143 1 1 3744 20240522210256
+45.133.5.52 1 1 3744 20240518072651
+180.242.129.72 1 1 3744 20240502130212
+182.2.140.31 4 11 767690 20240531212948
+114.4.82.78 1 8 756458 20240517004924
+182.2.144.102 3 10 7326944 20240531212014
+116.206.28.11 1 7 750052 20240531214932
+112.215.224.242 3 10 764290 20240509051912
+180.214.232.26 2 8 753796 20240522084235
+180.214.233.86 1 7 750052 20240518003330
+182.2.142.184 5 5 433217 20240529025033
+112.215.231.110 1 8 756458 20240516035009
+103.63.26.252 1 7 750052 20240509053027
+182.2.146.90 5 5 216824 20240506032334
+116.206.28.33 1 1 3744 20240517061601
+146.190.58.208 4 4 11307 20240501180806
+103.177.92.137 1 1 3744 20240517090628
+182.2.164.168 3 17 8083032 20240517003301
+182.3.44.247 6 19 2085935 20240529024539
+180.214.232.30 1 1 3744 20240522030152
+110.50.80.197 1 7 750052 20240528002537
+180.214.232.89 8 34 4091648 20240527225929
+180.214.233.79 7 21 8121430 20240517061836
+114.4.214.56 1 8 756458 20240516024805
+36.69.86.106 1 5 599266 20240509052307
+182.3.42.115 3 4 188420 20240514041323
+104.131.80.4 1 1 3744 20240516165458
+64.227.185.197 2 2 7488 20240526082700
+203.28.66.171 1 1 3744 20240503111517
+182.2.143.65 2 9 760202 20240529032946
+114.10.114.226 7 21 8316709 20240529215822
+114.10.65.113 7 7 304887 20240529234918
+182.2.143.210 2 2 128898 20240506030448
+47.89.193.162 1 1 3744 20240515161929
+182.2.142.172 1 1 14424 20240528232929
+182.2.164.75 5 19 2083832 20240512225433
+64.233.173.1 1 5 323280 20240520215414
+161.35.130.61 1 1 3744 20240514004045
+182.2.142.76 1 8 746162 20240514030244
+120.188.92.37 7 21 7400936 20240509054026
+180.244.69.249 2 2 7832 20240509062820
+182.2.143.43 5 18 2067861 20240531213029
+114.4.213.157 1 1 3744 20240520222446
+182.3.37.225 1 7 750052 20240530000525
+114.124.206.179 1 8 752568 20240513081038
+103.177.92.138 1 1 3744 20240517211444
+64.233.173.18 0 1 90857 
+120.188.64.62 1 8 756458 20240509062638
+182.2.143.222 11 11 636787 20240506032824
+182.2.142.104 4 17 8033376 20240529024052
+182.2.142.116 3 16 8036633 20240529024106
+182.2.146.188 4 11 7350002 20240529024708
+103.189.123.6 1 7 750052 20240516182123
+182.2.146.78 2 2 67714 20240506031335
+87.236.176.217 1 1 3744 20240514045041
+182.2.143.96 1 8 756458 20240528232809
+182.2.140.66 1 1 16004 20240531212134
+199.45.155.37 1 2 10150 20240505144909
+182.2.146.176 2 2 62342 20240529024911
+120.188.32.101 7 21 2102484 20240531212435
+182.2.167.106 1 6 603156 20240502014921
+111.94.133.42 2 14 1500104 20240530064729
+139.195.84.192 1 8 756458 20240528232832
+64.233.173.25 1 3 486555 20240520215414
+116.206.12.45 7 21 2101871 20240517020631
+64.233.173.26 0 2 339805 
+64.23.197.91 1 1 3744 20240518154157
+64.233.173.20 0 1 90857 
+149.113.164.73 1 1 3744 20240512193330
+45.133.5.19 1 1 3744 20240520110524
+192.252.212.3 1 1 3744 20240515000409
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 29
+20240501 25 26 10428425 2
+20240502 34 39 2133994 5
+20240503 1 1 3744 1
+20240504 0 1 90857 0
+20240505 142 156 8193583 4
+20240506 60 61 3315915 8
+20240507 1 2 94601 1
+20240508 71 73 14506416 1
+20240509 29 79 11735585 8
+20240510 1 8 756458 1
+20240511 8 15 783698 1
+20240512 93 119 25783966 4
+20240513 167 224 51014471 7
+20240514 256 313 41099338 11
+20240515 210 230 85853850 5
+20240516 162 213 60297110 8
+20240517 221 343 108286568 14
+20240518 10 23 1529665 4
+20240520 131 215 45170569 11
+20240521 266 270 131458784 4
+20240522 36 42 2609937 5
+20240523 17 30 2656872 3
+20240524 4 12 1722064 1
+20240526 1 1 3744 1
+20240527 8 34 4091648 1
+20240528 52 134 28347317 14
+20240529 125 246 46635663 17
+20240530 14 27 2018113 3
+20240531 171 370 42757793 13
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+0s-30s 73
+30s-2mn 15
+30mn-1h 13
+5mn-15mn 14
+1h+ 17
+15mn-30mn 10
+2mn-5mn 16
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 107
+/petugas/ruang 351 258072434 2 7
+/login 331 1248406 127 79
+/petugas/tambah_jadwal 288 10329290 1 3
+/user/jadwal_praktikum 157 17319840 5 6
+/user/peminjaman 146 2819834 7 11
+/profile 140 2793635 4 2
+/user/req_peminjaman 116 4903335 4 12
+/user/req_jadwal 103 2581030 2 5
+/petugas/barangbhp 76 82939110 0 1
+/password/reset 68 205476 2 2
+/petugas/request_jadwal 63 8744691 0 1
+/petugas/barangmedis 61 47357367 0 0
+/petugas/request 48 1757357 0 2
+/thema/assets/css/icons/tabler-icons/fonts/tabler-icons.woff2 48 26502912 0 4
+/user/kunjungan 48 909202 1 8
+/petugas/barang 46 59495997 0 1
+/petugas/pengembalian 38 2982852 0 1
+/petugas/laporan 14 371512 0 1
+/petugas/pengembalian_detail2/96 14 659002 0 0
+/home 12 256455 2 1
+/petugas/pengembalian_detail2/106 8 293550 0 0
+/petugas/request_detail/139 8 239905 0 0
+/petugas/pengembalian_detail2/67 8 323733 0 0
+/petugas/laporan/kunjungan_lab 6 185496 0 2
+/changePassword 5 61929 0 1
+/petugas/detail_jadwal/411 1 37583 0 0
+/petugas/pengembalian_detail2/105 1 44395 0 0
+/petugas/detail_jadwal/512 1 38009 0 0
+/petugas/pengembalian_detail/75 1 26696 0 0
+/petugas/request_detail/206 2 52320 0 0
+/petugas/pengembalian_detail/138 1 26697 0 0
+/petugas/belum_dikembalikan 2 113834 0 0
+/user/peminjaman_detail/140 1 12353 0 0
+/petugas/detail_jadwal/322 1 37384 0 0
+/petugas/request_detail/133 2 52162 0 0
+/user/peminjaman_detail/206 1 11064 0 0
+/petugas/pengembalian_detail/74 1 26696 0 0
+/petugas/pengembalian_detail/64 1 39412 0 1
+/petugas/request_detail/140 1 29197 0 0
+/petugas/detail_jadwal/412 1 37574 0 0
+/petugas/detail_jadwal/20 2 76466 0 0
+/petugas/laporan/alat_lab 4 316330 0 3
+/petugas/request_detail/134 1 26078 0 0
+/petugas/detail_jadwal/463 1 37617 0 0
+/petugas/request_detail/136 1 26078 0 0
+/petugas/pengembalian_detail/120 1 33153 0 0
+/petugas/request_detail/146 1 29214 0 0
+/petugas/pengembalian_detail2/97 2 53316 0 0
+/petugas/request_detail/135 3 94761 0 0
+/user/peminjaman_detail/189 2 22088 0 0
+/petugas/request_detail/138 1 26078 0 0
+/petugas/pengembalian_detail2/64 1 46149 0 1
+/petugas/detail_jadwal/489 1 37573 0 0
+/petugas/detail_jadwal/407 1 37574 0 0
+/petugas/pengembalian_detail/73 1 26696 0 0
+/petugas/detail_jadwal/513 1 38009 0 0
+/petugas/laporan/pinjaman_bahan_bhp 1 26741 0 0
+/petugas/detail_jadwal/36 2 75252 0 0
+/petugas/request_detail/180 2 78978 0 0
+/petugas/detail_jadwal/16 1 37593 0 0
+/petugas/detail_jadwal/410 1 37574 0 0
+/petugas/pengembalian_detail2/69 2 55016 1 0
+/petugas/detail_jadwal/405 1 37574 0 0
+/register 2 150 0 1
+/user/peminjaman_detail/139 1 11134 0 0
+/petugas/detail_jadwal/491 1 37573 0 0
+/petugas/detail_jadwal/511 1 38009 0 0
+/petugas/detail_jadwal/408 1 37574 0 0
+/petugas/detail_jadwal/406 1 37574 0 0
+/petugas/detail_jadwal/510 2 76018 0 0
+/petugas/detail_jadwal/106 1 37623 0 0
+/petugas/detail_jadwal/509 2 76018 0 0
+/petugas/detail_jadwal/409 1 37574 0 0
+/petugas/detail_jadwal/35 2 75146 0 0
+/petugas/detail_jadwal/109 1 37400 0 0
+/petugas/laporan/alat_medis 1 35396 0 0
+/petugas/request_detail/178 1 34787 0 0
+/petugas/pengembalian_detail2/68 2 97886 0 1
+/petugas/detail_jadwal/468 1 37617 0 0
+/petugas/detail_jadwal/21 1 37596 0 0
+/user/peminjaman_detail/68 1 14677 0 0
+/user/peminjaman_detail/62 1 26570 0 1
+/petugas/detail_jadwal/490 1 37573 0 0
+/petugas/detail_jadwal/105 2 75230 0 0
+/petugas/pengembalian_detail/134 1 26697 0 0
+/petugas/pengembalian_detail/133 1 26697 0 0
+/petugas/pengembalian_detail/97 1 26441 0 0
+/user/peminjaman_detail/158 1 11140 0 0
+/petugas/pengembalian_detail/96 1 43939 0 0
+/petugas/request_detail/179 2 81876 0 0
+/user/peminjaman_detail/185 1 11147 0 0
+/user/peminjaman_detail/107 1 13134 0 0
+/petugas/pengembalian_detail/137 1 26697 0 0
+/petugas/laporan/penggunaan_lab 5 162847 0 0
+/petugas/detail_jadwal/488 1 37573 0 0
+/petugas/detail_jadwal/207 1 38871 0 0
+/user/peminjaman_detail/190 1 11564 0 0
+/petugas/request_detail/137 1 26078 0 0
+/petugas/detail_jadwal/32 1 37371 0 0
+/petugas/detail_jadwal/108 2 75218 0 0
+/petugas/request_detail/90 2 52512 0 0
+/petugas/laporan/pinjaman_alat_medis 1 26329 0 0
+/petugas/detail_jadwal/107 3 112827 0 0
+/petugas/pengembalian_detail/66 1 26446 0 0
+/petugas/pengembalian_detail/136 1 26697 0 0
+/petugas/pengembalian_detail/106 3 114561 0 0
+/user/peminjaman_detail/180 1 13650 0 0
+END_SIDER

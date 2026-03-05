@@ -1,0 +1,51 @@
+--- 
+files: 
+  certificate: 
+    _wildcard__poltekkesbanten_ac_id_c8312_ddce7_1771631999_80608ce2c7098713c0fbeaadef9cb467: 
+      created: '1741654565'
+      domains: 
+        - "*.poltekkesbanten.ac.id"
+        - poltekkesbanten.ac.id
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: "*.poltekkesbanten.ac.id and poltekkesbanten.ac.id"
+      id: _wildcard__poltekkesbanten_ac_id_c8312_ddce7_1771631999_80608ce2c7098713c0fbeaadef9cb467
+      is_self_signed: 0
+      issuer.commonName: Sectigo RSA Domain Validation Secure Server CA
+      issuer.organizationName: Sectigo Limited
+      key_algorithm: rsaEncryption
+      modulus: c8312dd236d11c831f4af7021da030339ce1ec47dff501238a077f52cdeb0af32688188530c1baf2cbca15f1738a96497f21aaaebe2b1b5aeb259c9d72f8ead52449705e0d379c656df97cc478ae791eef64d8c2c8de8ee13f7de34dda1467ff4523b7b9ff5d812b7d2ab85f820d36e91534a5a7eb817e50493f2f7b902e2c18a19d19e1ff61d2bfbc38136b4af052a45edd63ccf215521b5c34b57d3868a2657ddcf662441b3e982e989dcada132d85011b87c705c6ffe116cc7d64ac8c280431efa7e8b8260f9562d3db495b050601f5393e08d77c1f3649eea76cb9b01d9bf4920d136c95cf7721572b7ef0f499dc7363ae1631be3e6575965457fcbddce7
+      modulus_length: 2048
+      not_after: '1771631999'
+      not_before: '1740009600'
+      serial: 0c45695db707b5f9df6ddfa8d4a8dfcc
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: "*.poltekkesbanten.ac.id"
+      validation_type: dv
+  key: 
+    c8312_ddce7_91892acc8748bd1758eb0a663eee39c4: 
+      created: '1741654565'
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: "*.poltekkesbanten.ac.id and poltekkesbanten.ac.id"
+      id: c8312_ddce7_91892acc8748bd1758eb0a663eee39c4
+      key_algorithm: rsaEncryption
+      modulus: c8312dd236d11c831f4af7021da030339ce1ec47dff501238a077f52cdeb0af32688188530c1baf2cbca15f1738a96497f21aaaebe2b1b5aeb259c9d72f8ead52449705e0d379c656df97cc478ae791eef64d8c2c8de8ee13f7de34dda1467ff4523b7b9ff5d812b7d2ab85f820d36e91534a5a7eb817e50493f2f7b902e2c18a19d19e1ff61d2bfbc38136b4af052a45edd63ccf215521b5c34b57d3868a2657ddcf662441b3e982e989dcada132d85011b87c705c6ffe116cc7d64ac8c280431efa7e8b8260f9562d3db495b050601f5393e08d77c1f3649eea76cb9b01d9bf4920d136c95cf7721572b7ef0f499dc7363ae1631be3e6575965457fcbddce7
+      modulus_length: 2048
+indexes: 
+  certificate: 
+    modulus: 
+      c8312dd236d11c831f4af7021da030339ce1ec47dff501238a077f52cdeb0af32688188530c1baf2cbca15f1738a96497f21aaaebe2b1b5aeb259c9d72f8ead52449705e0d379c656df97cc478ae791eef64d8c2c8de8ee13f7de34dda1467ff4523b7b9ff5d812b7d2ab85f820d36e91534a5a7eb817e50493f2f7b902e2c18a19d19e1ff61d2bfbc38136b4af052a45edd63ccf215521b5c34b57d3868a2657ddcf662441b3e982e989dcada132d85011b87c705c6ffe116cc7d64ac8c280431efa7e8b8260f9562d3db495b050601f5393e08d77c1f3649eea76cb9b01d9bf4920d136c95cf7721572b7ef0f499dc7363ae1631be3e6575965457fcbddce7: 
+        _wildcard__poltekkesbanten_ac_id_c8312_ddce7_1771631999_80608ce2c7098713c0fbeaadef9cb467: ~
+    subject.commonName: 
+      "*.poltekkesbanten.ac.id": 
+        _wildcard__poltekkesbanten_ac_id_c8312_ddce7_1771631999_80608ce2c7098713c0fbeaadef9cb467: ~
+uniques: 
+  certificate: 
+    friendly_name: 
+      "*.poltekkesbanten.ac.id and poltekkesbanten.ac.id": _wildcard__poltekkesbanten_ac_id_c8312_ddce7_1771631999_80608ce2c7098713c0fbeaadef9cb467
+  key: 
+    friendly_name: 
+      "*.poltekkesbanten.ac.id and poltekkesbanten.ac.id": c8312_ddce7_91892acc8748bd1758eb0a663eee39c4
+    modulus:ecdsa_curve_name:ecdsa_public: 
+      c8312dd236d11c831f4af7021da030339ce1ec47dff501238a077f52cdeb0af32688188530c1baf2cbca15f1738a96497f21aaaebe2b1b5aeb259c9d72f8ead52449705e0d379c656df97cc478ae791eef64d8c2c8de8ee13f7de34dda1467ff4523b7b9ff5d812b7d2ab85f820d36e91534a5a7eb817e50493f2f7b902e2c18a19d19e1ff61d2bfbc38136b4af052a45edd63ccf215521b5c34b57d3868a2657ddcf662441b3e982e989dcada132d85011b87c705c6ffe116cc7d64ac8c280431efa7e8b8260f9562d3db495b050601f5393e08d77c1f3649eea76cb9b01d9bf4920d136c95cf7721572b7ef0f499dc7363ae1631be3e6575965457fcbddce7: c8312_ddce7_91892acc8748bd1758eb0a663eee39c4

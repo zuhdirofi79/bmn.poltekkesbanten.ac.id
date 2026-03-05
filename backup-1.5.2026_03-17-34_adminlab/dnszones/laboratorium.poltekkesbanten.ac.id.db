@@ -1,0 +1,24 @@
+; cPanel first:110.0.23 (update_time):1744307545 Cpanel::ZoneFile::VERSION:1.3 hostname:cloud.poltekkesbanten.ac.id latest:110.0.50
+; Zone file for laboratorium.poltekkesbanten.ac.id
+$TTL 14400
+laboratorium.poltekkesbanten.ac.id.	86400	IN	SOA	dns1.poltekkesbanten.ac.id.	webmaster.poltekkesbanten.ac.id.	(
+						2025041001 ;Serial Number
+						3600 ;refresh
+						1800 ;retry
+						1209600 ;expire
+						86400	)
+laboratorium.poltekkesbanten.ac.id.	86400	IN	NS	dns1.poltekkesbanten.ac.id.
+laboratorium.poltekkesbanten.ac.id.	86400	IN	NS	dns2.poltekkesbanten.ac.id.
+laboratorium.poltekkesbanten.ac.id.	14400	IN	A	202.10.35.243
+laboratorium.poltekkesbanten.ac.id.	14400	IN	MX	0	laboratorium.poltekkesbanten.ac.id.
+mail	14400	IN	CNAME	laboratorium.poltekkesbanten.ac.id.
+www	14400	IN	CNAME	laboratorium.poltekkesbanten.ac.id.
+ftp	14400	IN	A	202.10.35.243
+laboratorium.poltekkesbanten.ac.id.	14400	IN	TXT	"v=spf1 +a +mx +ip4:202.10.35.243 ~all"
+whm	14400	IN	A	202.10.35.243
+cpanel	14400	IN	A	202.10.35.243
+webmail	14400	IN	A	202.10.35.243
+cpcontacts	14400	IN	A	202.10.35.243
+webdisk	14400	IN	A	202.10.35.243
+cpcalendars	14400	IN	A	202.10.35.243
+default._domainkey	14400	IN	TXT	"v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsjFaAd6ZI0OU2GeFS5NVQPgkiJammXWVtP4ccf3a/SywMOliBxg8OzFxfO4b6PCJGwYdpINUHcyTBQusqmqy4gFtsMDgY92WbPE6Dfo6ywX/3P12z22WRlST7qApaVgc8MEpcbbM8AxKj/lZtOLEEvRrSe1ikm7yNFyPtZAXScuPqhJt8ecWX2UPqjVRSk2hW" vYILXiOkpprutNjUcDCuLqF95dPyJ19McTGKcspeFywJSfw2Rm7nI4rri6dzkaoj1R02NDrwV0LPWBZQxz5ZxKzwiWav1qT3cLrSSSIxn8ncUr1QM4IOS+9Yp/CGh+c0i54fcBru6uiRIs15Kq81wIDAQAB\;

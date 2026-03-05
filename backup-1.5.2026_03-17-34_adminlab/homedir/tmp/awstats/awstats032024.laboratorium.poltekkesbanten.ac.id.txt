@@ -1,0 +1,2228 @@
+AWSTATS DATA FILE 7.8 (build 20200416)
+# If you remove this file, all statistics for date 202403 will be lost/reset.
+# Last config file used to build this data file was /home/adminlab/tmp/awstats/awstats.laboratorium.poltekkesbanten.ac.id.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2031                
+POS_TIME 2691                
+POS_VISITOR 64814               
+POS_DAY 67880               
+POS_DOMAIN 3430                
+POS_LOGIN 3776                
+POS_ROBOT 3931                
+POS_WORMS 4136                
+POS_EMAILSENDER 4267                
+POS_EMAILRECEIVER 4410                
+POS_SESSION 68549               
+POS_SIDER 68750               
+POS_FILETYPES 4545                
+POS_DOWNLOADS 4785                
+POS_OS 6778                
+POS_BROWSER 7035                
+POS_SCREENSIZE 7655                
+POS_UNKNOWNREFERER 7729                
+POS_UNKNOWNREFERERBROWSER 8426                
+POS_ORIGIN 8931                
+POS_SEREFERRALS 9071                
+POS_PAGEREFS 9215                
+POS_SEARCHWORDS 9363                
+POS_KEYWORDS 9515                
+POS_MISC 2354                
+POS_ERRORS 9574                
+POS_CLUSTER 3632                
+POS_SIDER_404 9750                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20240403093434 1 0 12167428117029
+FirstTime 0
+LastTime 20240327125011
+LastUpdate 20240404034942 1 0 0 0 0
+TotalVisits 91                  
+TotalUnique 72                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 75                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+QuickTimeSupport 0 0 0
+FlashSupport 0 0 0
+AddToFavourites 0 11 0
+JavaEnabled 0 0 0
+DirectorSupport 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 13 42 1668545 164 1054 3309784
+1 244 602 112690031 215 230 2513817
+2 45 99 26158546 47 47 31930
+3 27 61 11377232 53 53 59106
+4 12 31 4117616 11 27 815096
+5 29 77 25900576 18 18 9154
+6 4 16 1510076 3 4 1302
+7 8 8 159315 5 5 1816
+8 3 4 17614 4 14 23860
+9 1 1 3736 35 35 50966
+10 4 10 757557 4 4 2854
+11 10 11 703230 38 39 52320
+12 8 14 776196 54 54 75982
+13 1 1 41 1 2 1552
+14 2 2 82 6 6 9312
+15 0 0 0 0 0 0
+16 0 0 0 7 7 10864
+17 2 3 13878 674 675 1014340
+18 0 0 0 2 2 4170
+19 4 10 761282 25 25 34316
+20 4 5 21350 20 21 28804
+21 0 0 0 218 218 337218
+22 42 89 14376597 630 632 921808
+23 39 67 27426239 12 12 5292
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 9
+in 234 550 102791441
+id 216 495 110894576
+us 23 39 8461181
+cn 19 59 6262541
+ca 4 4 14944
+bg 2 2 7472
+ru 2 2 3807
+au 1 1 3736
+be 1 1 41
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 2
+CFNetwork 2 12812 20240326083457 0
+no_user_agent 2 7472 20240316195833 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 9
+js 304 38649981 0 0
+cgi 2 13972 0 0
+woff2 46 25398624 0 0
+css 151 25999065 0 0
+svg 19 114887433 0 0
+png 150 6331933 0 0
+txt 27 1728 0 0
+Unknown 450 17156839 0 0
+html 4 164 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 27
+/.well-known/pki-validation/8647CC6ED4922ED780034647A11B6FE2.txt 1 0 64
+/.well-known/pki-validation/DBBFFCAC0FB5912640C1C911F6415645.txt 1 0 64
+/.well-known/pki-validation/372527B3B043C6DBB37AC058728F3AB2.txt 1 0 64
+/.well-known/pki-validation/5B96BFFBFCB76F698A3F87F364F7B90C.txt 1 0 64
+/.well-known/pki-validation/087214C5D9232E49F3ED64058E5E3D5E.txt 1 0 64
+/.well-known/pki-validation/165C9AF8B1754A7EDD70D2CA75BFF2E1.txt 1 0 64
+/.well-known/pki-validation/85380E20D49BE53EF709D9D24BD044CA.txt 1 0 64
+/.well-known/pki-validation/40AF967ED38C367E79BBE7E347325C99.txt 1 0 64
+/.well-known/pki-validation/755E28FFB0F42D4145F0BFD253ED155A.txt 1 0 64
+/.well-known/pki-validation/E5C82C46E65488D5EED3A26015DA3281.txt 1 0 64
+/.well-known/pki-validation/212E16FFC5B1CC13D715FBC3F68885D4.txt 1 0 64
+/.well-known/pki-validation/3960EBFD06C091884336794455CF509B.txt 1 0 64
+/.well-known/pki-validation/25E65CFBD1A02425B02A5F329D731DB6.txt 1 0 64
+/.well-known/pki-validation/FDC831D0EBF35C26E7510CBDAFEC5A99.txt 1 0 64
+/.well-known/pki-validation/3908593E751881FEE2AD2272FE51F525.txt 1 0 64
+/.well-known/pki-validation/4BFF11767E8B71E1F4BBF500B0A9674F.txt 1 0 64
+/.well-known/pki-validation/ABB2851EE01F8BF227E909E06AF97412.txt 1 0 64
+/.well-known/pki-validation/AFD4D2F93C96579CE529236C2E1569A2.txt 1 0 64
+/.well-known/pki-validation/D7B3D9871CBE32DF4BFA502DC081D9D1.txt 1 0 64
+/.well-known/pki-validation/43A82645820DD7C23FE8F6C026C7FFA1.txt 1 0 64
+/.well-known/pki-validation/72B61370DE15AF41E8A005FD037AF0E9.txt 1 0 64
+/.well-known/pki-validation/3BE52C4F1A48570A59AD2A6770AE33D4.txt 1 0 64
+/.well-known/pki-validation/F4878EF8812B61511BCFEB9A083E6484.txt 1 0 64
+/.well-known/pki-validation/F9AD0169D095E7B46727E9D4178BF411.txt 1 0 64
+/.well-known/pki-validation/9D1C12C11FCB71F468650FBE4EE465D3.txt 1 0 64
+/.well-known/pki-validation/CE4D49E4BBB9B373CBF314D56D0AADEE.txt 1 0 64
+/.well-known/pki-validation/47663270148DBB009FBB36DA7B1C22D9.txt 1 0 64
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 13
+Unknown 44 13
+win7 8 2
+android 113 40
+macosx10 2 2
+ios_iphone 353 140
+androidnougat 2 2
+linux 3 3
+macosx6 1 1
+androidjellybean 4 4
+win10 106 69
+android10 514 223
+linuxubuntu 1 1
+macosx15 2 2
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 29
+safari15.4 36 21
+android 4 4
+chrome89.0.4389.114 8 8
+chrome123.0.0.0 38 25
+chrome120.0.0.0 55 28
+chrome114.0.0.0 76 24
+chrome121.0.0.0 8 2
+safari14.1 1 1
+chrome37.0.2062.94 1 1
+chrome104.0.0.0 1 1
+chrome103.0.0.0 126 71
+chrome115.0.0.0 1 1
+chrome108.0.0.0 116 37
+chrome94.0.4606.61 1 1
+safari8.0 2 2
+safari16.3 24 8
+firefox33.0 8 2
+chrome91.0.4472.88 27 13
+chrome117.0.5938.132 7 1
+mozilla 9 5
+edge91 2 2
+chrome116.0.0.0 32 14
+Unknown 35 8
+chrome122.0.0.0 175 89
+safari16.6 270 102
+chrome109.0.0.0 21 8
+chrome87.0.4280.141 44 12
+chrome60.0.3112.107 2 2
+safari16.0 23 9
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 7
+Mozilla/5.0_(compatible;_CensysInspect/1.1;__https://about.censys.io/) 20240327062328
+Expanse,_a_Palo_Alto_Networks_company,_searches_across_the_global_IPv4_space_multiple_times_per_day_to_identify_customers&#39;_presences_on_the_Internet._If_you_would_like_to_be_excluded_from_our_scans,_please_send_IP_addresses/domains_to:_scaninfo@paloaltonetworks.com 20240314202322
+python-requests/2.25.1 20240321194309
+python-requests/2.31.0 20240327125011
+COMODO_DCV 20240327000209
+Mozilla/5.0_(compatible;_InternetMeasurement/1.0;__https://internet-measurement.com/) 20240301102008
+WhatsApp/2.24.5.73_i 20240314013247
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 5
+COMODO_DCV 20240327000209
+Expanse,_a_Palo_Alto_Networks_company,_searches_across_the_global_IPv4_space_multiple_times_per_day_to_identify_customers&#39;_presences_on_the_Internet._If_you_would_like_to_be_excluded_from_our_scans,_please_send_IP_addresses/domains_to:_scaninfo@paloaltonetworks.com 20240314202322
+WhatsApp/2.24.5.73_i 20240314013247
+python-requests/2.25.1 20240321194309
+python-requests/2.31.0 20240327125011
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 94 125
+From1 18 18
+From2 0 0
+From3 0 0
+From4 390 1010
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 7
+500 2 1238213
+404 2799 4283552
+301 19 4965
+405 3 1712089
+302 290 127550
+206 29 1888502
+419 26 40508
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 1773
+/v1/html.tar 1 -
+/v2/html.zip 1 -
+/web2/js/header-rollup-554.js 1 -
+/sw-admin/thumbs/filemanager/dialog.php 1 -
+/v2/apps.zip 1 -
+/backup.tar 1 -
+/v1/js/header-rollup-554.js 1 -
+/v1/apps.tar 1 -
+/bak.zip 1 -
+/wp-content/plugins/ALFA_DATA/alfacgiapi/index.php 2 -
+/dashboard/back.tar 1 -
+/by.php 1 www.google.com
+/v2/app.tar 1 -
+/wordpress/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/images/alfacgiapi/bash.alfa 4 -
+/wp-content/alfacgiapi/py.alfa 4 -
+/v1/laboratorium.rar 1 -
+/admina/assets/plugins/kcfinder/upload.php 1 -
+/.quarantine/alfacgiapi/bash.alfa 4 -
+/.ftpconfig 1 -
+/themes.php 1 www.google.com
+/cgi-bin/alfacgiapi/404.php 2 -
+/v1/backup.rar 1 -
+/www/apps.rar 1 -
+/assets/admin/plugins/jquery-file-upload/server/php/index.php 1 -
+/.quarantine/alfacgiapi/index.php 2 -
+/defau1t.php 1 www.google.com
+/v2/oldlaboratorium.tar 1 -
+/web1/administrator/help/en-GB/toc.json 1 -
+/wp-defaul.php 1 www.google.com
+/old/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/usb.php 1 www.google.com
+/web/public.tar 1 -
+/wordpress/alfacgiapi/bash.alfa 4 -
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/index.php 2 -
+/v2/public/_ignition/execute-solution 1 -
+/web/public_html.rar 1 -
+/web/admin/includes/general.js 1 -
+/old/alfacgiapi/radio.php 2 -
+/ws.php 1 www.google.com
+/back.tar 1 -
+/web2/administrator 1 -
+/v1/Archive.zip 1 -
+/web1/apps.rar 1 -
+/backup/ALFA_DATA/alfacgiapi/index.php 2 -
+/wp-content/updraft/ALFA_DATA/alfacgiapi/404.php 2 -
+/web2/archives.zip 1 -
+/wp-wso.php 1 www.google.com
+/assets/upload/alfacgiapi/radio.php 2 -
+/base.php 1 www.google.com
+/.quarantine/ALFA_DATA/alfacgiapi/404.php 2 -
+/web1/laboratorium.poltekkesbanten.ac.id/web1.tar 1 -
+/laravel/laboratorium.tar 1 -
+/home/bak.rar 1 -
+/wp/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/v2/applications.tar 1 -
+/v2/assets.zip 1 -
+/laravel/laboratorium.rar 1 -
+/dashboard/app.tar 1 -
+/user/index.html 1 http://laboratorium.poltekkesbanten.ac.id/user/peminjaman
+/wp-content/plugins/alfacgiapi/404.php 2 -
+/dashboard/assets.zip 1 -
+/.quarantine/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/laravel/public.tar 1 -
+/vendor/phpunit/phpunit/build.xml 1 -
+/anone.php 1 www.google.com
+/ids.php 1 www.google.com
+/login/xmlrpc.php 4 -
+/wp-includes/wp-class.php 2 www.google.com
+/dashboard/applications.tar 1 -
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/v2/asset.rar 1 -
+/web1/laboratorium.tar 1 -
+/v1/app.zip 1 -
+/new/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/v1/laboratorium.poltekkesbanten.ac.id/v1.rar 1 -
+/blog/ALFA_DATA/alfacgiapi/index.php 2 -
+/www/.git.tar 1 -
+/images/editor/separator.gif 1 -
+/v1/__MACOSX.tar 1 -
+/web2/html.zip 1 -
+/web/web.rar 1 -
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/cgi-bin/alfacgiapi/radio.php 2 -
+/www/backup.tar 1 -
+/web1/laboratorium_old.zip 1 -
+/backup/ALFA_DATA/alfacgiapi/radio.php 2 -
+/web2/applications.zip 1 -
+/cgi-bin/alfacgiapi/bash.alfa 4 -
+/wp-ad.php 1 www.google.com
+/dashboard/laboratorium.poltekkesbanten.ac.id/dashboard.rar 1 -
+/laravel 3 -
+/web.tar 1 -
+/home/backup.tar 1 -
+/wordpress/ALFA_DATA/alfacgiapi/radio.php 2 -
+/web/Archive.rar 1 -
+/v1/assets.tar 1 -
+/__MACOSX.zip 1 -
+/h.php 1 www.google.com
+/.tmb/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/10.php 1 www.google.com
+/backup/alfacgiapi/py.alfa 4 -
+/plugins/kcfinder/upload.php 1 -
+/editor/kcfinder/upload.php 1 -
+/laravel/html.rar 1 -
+/uploads/alfacgiapi/radio.php 2 -
+/laravel/backup.rar 1 -
+/apple-touch-icon.png 2 -
+/web/oldlaboratorium.tar 1 -
+/public_html.zip 1 -
+/v2/js/header-rollup-554.js 1 -
+/web1/bak.zip 1 -
+/dashboard/www.rar 1 -
+/www/web.rar 1 -
+/laravel/backup.zip 1 -
+/web/.git.tar 1 -
+/v1/app.tar 1 -
+/images/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/laravel/images/editor/separator.gif 1 -
+/Archive.rar 1 -
+/old.tar 1 -
+/v1/apps.zip 1 -
+/v2/apps.tar 1 -
+/tuco.php 2 www.google.com
+/v2/html.tar 1 -
+/img/alfacgiapi/perl.alfa 5 -
+/assets/upload/alfacgiapi/bash.alfa 4 -
+/web2/app.zip 1 -
+/v1/html.zip 1 -
+/home/administrator/language/en-GB/install.xml 1 -
+/web/administrator/help/en-GB/toc.json 1 -
+/v2/backup.rar 1 -
+/wp-posts.php 2 www.google.com
+/v2/laboratorium.rar 1 -
+/files/editor/plugins/filemanager/dialog.php 1 -
+/wordpress/ALFA_DATA/alfacgiapi/404.php 2 -
+/web2/oldlaboratorium.rar 1 -
+/dashboard/__MACOSX.zip 1 -
+/assets/plugins/jquery-file-upload/server/php/index.php 1 -
+/www/oldlaboratorium.tar 1 -
+/wp-content/upgrade/alfacgiapi/index.php 2 -
+/.quarantine/alfacgiapi/404.php 2 -
+/home/app.tar 1 -
+/web1/public.rar 1 -
+/laravel/.well-known.zip 1 -
+/web1/laboratoriumold.zip 1 -
+/v1/oldlaboratorium.tar 1 -
+/dashboard/.well-known.zip 1 -
+/upload/alfacgiapi/py.alfa 4 -
+/www/Archive.rar 1 -
+/web1/applications.rar 1 -
+/laravel/administrator/help/en-GB/toc.json 1 -
+/v2/Archive.zip 1 -
+/www/_ignition/execute-solution 1 -
+/cppid/vendor/jquery-file-upload/server/php/index.php 1 -
+/wp-key.php 2 www.google.com
+/www.tar 1 -
+/home/oldlaboratorium.tar 1 -
+/wp-content/updraft/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/u.php 1 www.google.com
+/wp-js.php 2 www.google.com
+/web/backup.tar 1 -
+/dashboard/archive.zip 1 -
+/wp-includes/assets/ALFA_DATA/alfacgiapi/perl.alfa 5 -
+/web/apps.rar 1 -
+/2.php 1 www.google.com
+/dashboard/administrator 1 -
+/v1/assets.zip 1 -
+/loader/ff.php 2 www.google.com
+/home/www.tar 1 -
+/asset/responsivefilemanager/dialog.php 1 -
+/laravel/asset.zip 1 -
+/v1/applications.tar 1 -
+/web1/cgi-bin.tar 1 -
+/home/html.rar 1 -
+/backup/alfacgiapi/perl.alfa 4 -
+/laravel/laboratorium_old.rar 1 -
+/home/Archive.tar 1 -
+/laravel/administrator/language/en-GB/install.xml 1 -
+/web1 3 -
+/laravel/old.zip 1 -
+/v2/__MACOSX.tar 1 -
+/cgi-bin/alfacgiapi/py.alfa 4 -
+/wordpress/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/blog/alfacgiapi/perl.alfa 4 -
+/v2/app.zip 1 -
+/new/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/laravel/.git.tar 1 -
+/vendor/jquery-file-upload/server/php/index.php 1 -
+/v1/asset.rar 1 -
+/assets/ALFA_DATA/alfacgiapi/index.php 2 -
+/backup.zip 1 -
+/laravel/laboratoriumold.tar 1 -
+/room.php 2 www.google.com
+/dashboard/laboratorium.poltekkesbanten.ac.id/dashboard.tar 1 -
+/dashboard/.git.tar 1 -
+/web2/www.zip 1 -
+/.well-known/acme-challenge/alfacgiapi/py.alfa 4 -
+/v2/assets.tar 1 -
+/dashboard/oldlaboratorium.rar 1 -
+/laravel/public_html.zip 1 -
+/home/archives.rar 1 -
+/wp-2019.php 1 www.google.com
+/www/public_html.rar 1 -
+/web1/.git.rar 1 -
+/wp-content/uploads/alfacgiapi/perl.alfa 5 -
+/web1/cgi-bin.zip 1 -
+/wp-content/updraft/alfacgiapi/index.php 2 -
+/assets/uploads/ALFA_DATA/alfacgiapi/404.php 2 -
+/web2/public_html.zip 1 -
+/home/Archive.zip 1 -
+/web1/assets.zip 1 -
+/www/public.tar 1 -
+/dashboard/laboratorium_old.zip 1 -
+/cgi-bin/alfacgiapi/index.php 2 -
+/login/wp2/wp-includes/wlwmanifest.xml 4 -
+/wp-singupp.php 1 www.google.com
+/web2/html.tar 1 -
+/laravel/.git.zip 1 -
+/wp-content/plugins/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/v2/laboratorium.poltekkesbanten.ac.id/v2.tar 1 -
+/hello.php 1 www.google.com
+/plugins/system/debug/debug.xml 1 -
+/web/js/header-rollup-554.js 1 -
+/iq.php 1 www.google.com
+/alfacgiapi/py.alfa 4 -
+/www/__MACOSX.rar 1 -
+/laravel/public.rar 1 -
+/www/laboratorium-old.tar 1 -
+/www/assets.tar 1 -
+/assets.zip 1 -
+/home/laboratoriumold.zip 1 -
+/www/html.zip 1 -
+/web/archive.rar 1 -
+/wp-includes/alfacgiapi/perl.alfa 9 -
+/web2/applications.rar 1 -
+/home/app.rar 1 -
+/www/.env 1 -
+/foxx.php 2 www.google.com
+/www/misc/ajax.js 1 -
+/dashboard/archives.rar 1 -
+/mini.php 1 www.google.com
+/archive.tar 1 -
+/tes.php 1 www.google.com
+/wp-content/themes/ALFA_DATA/alfacgiapi/radio.php 2 -
+/wordpress/alfacgiapi/404.php 2 -
+/assets/upload/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/home/images/editor/separator.gif 1 -
+/www/bak.zip 1 -
+/batm.php 1 www.google.com
+/web1/laboratorium.poltekkesbanten.ac.id/web1.rar 1 -
+/home/laboratorium_old.tar 1 -
+/web2/public.rar 1 -
+/www/asset.rar 1 -
+/home/apps.zip 1 -
+/web/.well-known.rar 1 -
+/mi.php 1 www.google.com
+/wp/ALFA_DATA/alfacgiapi/404.php 2 -
+/anons79.php 1 www.google.com
+/laravel/.well-known.rar 1 -
+/min.php 1 www.google.com
+/web1/oldlaboratorium.tar 1 -
+/upload/alfacgiapi/404.php 2 -
+/web2/laboratorium-old.zip 1 -
+/home/public/_ignition/execute-solution 1 -
+/home/laboratorium.poltekkesbanten.ac.id/home.zip 1 -
+/laravel/backup.tar 1 -
+/components/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/web/.git.rar 1 -
+/www/archives.rar 1 -
+/wordpress/alfacgiapi/index.php 2 -
+/application.rar 1 -
+/login/wp1/wp-includes/wlwmanifest.xml 4 -
+/laravel/laboratorium.poltekkesbanten.ac.id/laravel.tar 1 -
+/www/administrator/help/en-GB/toc.json 1 -
+/laravel/administrator 1 -
+/wp-conflg.php 2 www.google.com
+/v1/archive.tar 1 -
+/web1/app.zip 1 -
+/vuln.php 1 www.google.com
+/home/admin/view/javascript/common.js 1 -
+/laravel/bak.zip 1 -
+/0x0.php 2 www.google.com
+/assets/plugins/bootstrap-switch/docs/js/lib/server/php/index.php 1 -
+/backup/alfacgiapi/bash.alfa 4 -
+/01.php 2 www.google.com
+/block-patwp.php 2 www.google.com
+/public.zip 1 -
+/1.php 2 www.google.com
+/www/images/editor/separator.gif 1 -
+/web/bak.tar 1 -
+/v1/laboratoriumold.zip 1 -
+/alfateslav4.php 1 www.google.com
+/wp-content/plugins/alfacgiapi/bash.alfa 4 -
+/public/uploadmen/server/php/index.php 1 -
+/web1/html.tar 1 -
+/www/administrator 1 -
+/web2/laboratorium.poltekkesbanten.ac.id/web2.zip 1 -
+/web2/assets.zip 1 -
+/web.rar 1 -
+/assets/uploads/ALFA_DATA/alfacgiapi/index.php 2 -
+/web2/.git.rar 1 -
+/web2/cgi-bin.zip 1 -
+/laboratorium.rar 1 -
+/v1/archives.rar 1 -
+/web1/public_html.zip 1 -
+/wp-admin/alfacgiapi/index.php 2 -
+/laravel/public_html.rar 1 -
+/.well-known.rar 1 -
+/dashboard/public/_ignition/execute-solution 1 -
+/dashboard/back.rar 1 -
+/web1/admin/includes/general.js 1 -
+/web1/www.zip 1 -
+/home/__MACOSX.tar 1 -
+/uploads/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/wp-content/plugins/ALFA_DATA/alfacgiapi/404.php 2 -
+/home/laboratoriumold.tar 1 -
+/web/apps.tar 1 -
+/laravel/js/header-rollup-554.js 1 -
+/web1/oldlaboratorium.zip 1 -
+/home/www.rar 1 -
+/wp-content/updraft/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/0z.php 2 www.google.com
+/wp-content/plugins/alfacgiapi/index.php 2 -
+/.well-known/ALFA_DATA/alfacgiapi/404.php 2 -
+/blog/alfacgiapi/index.php 2 -
+/wp-inlcudes.php 2 www.google.com
+/home/.git.tar 1 -
+/laravel/laboratorium.poltekkesbanten.ac.id/laravel.rar 1 -
+/web2 3 -
+/config.php 2 www.google.com
+/home/laboratorium_old.zip 1 -
+/www/applications.zip 1 -
+/assets/upload/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/home/admin/assets/plugins/jQuery-File-Upload/server/php/index.php 1 -
+/web2/cgi-bin.tar 1 -
+/8.php 1 www.google.com
+/hehe.php 2 www.google.com
+/v1/asset.tar 1 -
+/dashboard/.git.zip 1 -
+/uploads/ALFA_DATA/alfacgiapi/radio.php 2 -
+/v1/Archive.rar 1 -
+/laravel/laboratorium.poltekkesbanten.ac.id/laravel.zip 1 -
+/apps.tar 1 -
+/web1/archives.zip 1 -
+/wp-includes/ALFA_DATA/alfacgiapi/radio.php 2 -
+/archive.zip 1 -
+/home/admin/includes/general.js 1 -
+/wp-content/updraft/alfacgiapi/perl.alfa 4 -
+/dashboard/laboratorium_old.tar 1 -
+/web1/admin/view/javascript/common.js 1 -
+/web1/administrator 1 -
+/iqb.php 1 www.google.com
+/web2/apps.rar 1 -
+/backup/alfacgiapi/404.php 2 -
+/laravel/archive.tar 1 -
+/blog/alfacgiapi/bash.alfa 4 -
+/laravel/app.zip 1 -
+/wp-admin/ALFA_DATA/alfacgiapi/radio.php 2 -
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/index.php 2 -
+/dashboard/.git.rar 1 -
+/dashboard/bak.zip 1 -
+/www.rar 1 -
+/web/administrator 1 -
+/.tmb/ALFA_DATA/alfacgiapi/404.php 2 -
+/www/bak.tar 1 -
+/mrjn.php 1 www.google.com
+/admin/assets/plugins/jQuery-File-Upload/server/php/index.php 1 -
+/wp-admin/ALFA_DATA/alfacgiapi/perl.alfa 9 -
+/web2/_ignition/execute-solution 1 -
+/v2/archive.tar 1 -
+/old.rar 1 -
+/sftp-config.json 2 -
+/web1/laboratorium_old.rar 1 -
+/web2/public/_ignition/execute-solution 1 -
+/home/assets.rar 1 -
+/public/plugins/jQueryFileUpload/server/php/index.php 1 -
+/home/.well-known.zip 1 -
+/laboratoriumold.rar 1 -
+/dashboard/back.zip 1 -
+/slims7_cendana/lib/watermark/phpThumb.php 1 -
+/web/applications.zip 1 -
+/v3.php 1 www.google.com
+/home/archive.rar 1 -
+/wp-title.php 1 www.google.com
+/v1/admin/includes/general.js 1 -
+/login/wp-includes/wlwmanifest.xml 4 -
+/web/vendor/phpunit/phpunit/build.xml 1 -
+/assets/admin/kcfinder/upload.php 1 -
+/laravel/www.tar 1 -
+/home/apps.tar 1 -
+/www/apps.tar 1 -
+/web2/bak.zip 1 -
+/uploadmen/server/php/index.php 1 -
+/dashboard/laboratorium.rar 1 -
+/home/.git.zip 1 -
+/home/js/header-rollup-554.js 1 -
+/po-includes/js/filemanager/dialog.php 1 -
+/www/.well-known.rar 1 -
+/wp-content/plugins/db/mar.php 2 www.google.com
+/web/asset.rar 1 -
+/wp/alfacgiapi/radio.php 2 -
+/v1/admin/view/javascript/common.js 1 -
+/.tmb/alfacgiapi/py.alfa 4 -
+/web/bak.zip 1 -
+/wp-content/plugins/ALFA_DATA/alfacgiapi/radio.php 2 -
+/v2/laboratoriumold.zip 1 -
+/.well-known/alfacgiapi/bash.alfa 4 -
+/w.php 2 www.google.com
+/applications.rar 1 -
+/dashboard/archive.rar 1 -
+/web/misc/ajax.js 1 -
+/images/alfacgiapi/radio.php 2 -
+/web/.env 1 -
+/black.php 1 www.google.com
+/css.php 2 www.google.com
+/www/archive.rar 1 -
+/web/html.zip 1 -
+/wp-includes/images/media/ALFA_DATA/alfacgiapi/perl.alfa 5 -
+/assets.tar 1 -
+/web/assets.tar 1 -
+/home/asset.tar 1 -
+/assets/uploads/alfacgiapi/bash.alfa 4 -
+/web/__MACOSX.rar 1 -
+/v2/archives.rar 1 -
+/web1/applications.zip 1 -
+/web1/html.zip 1 -
+/public.tar 1 -
+/assets/upload/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/cmd.php 1 www.google.com
+/components/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/b.php 2 www.google.com
+/wp-content/plugins/ALFA_DATA/alfacgiapi/perl.alfa 9 -
+/home/bak.tar 1 -
+/shell20211028.php 1 www.google.com
+/assets/cw/alfacgiapi/perl.alfa 5 -
+/home/application.zip 1 -
+/god4m.php 2 www.google.com
+/web2/laboratorium.tar 1 -
+/dashboard/old.rar 1 -
+/laravel/Archive.tar 1 -
+/www/admin/view/javascript/common.js 1 -
+/v2/Archive.rar 1 -
+/slims7_cendana/lib/phpthumb/phpThumb.php 1 -
+/wp-content/updraft/alfacgiapi/404.php 2 -
+/new/ALFA_DATA/alfacgiapi/404.php 2 -
+/v2/asset.tar 1 -
+/html.tar 1 -
+/laravel/public.zip 1 -
+/oldlaboratorium.zip 1 -
+/web/archives.rar 1 -
+/www/.git.rar 1 -
+/777.php 1 www.google.com
+/home/public.zip 1 -
+/wp-admin/alfacgiapi/radio.php 2 -
+/upload.php 1 www.google.com
+/www/laboratorium-old.rar 1 -
+/img/ALFA_DATA/alfacgiapi/perl.alfa 5 -
+/wordpress/alfacgiapi/py.alfa 4 -
+/wp-content/themes/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/wp-content/updraft/alfacgiapi/py.alfa 4 -
+/web2/public_html.rar 1 -
+/.well-known/pki-validation/alfacgiapi/bash.alfa 4 -
+/phpinfo.php 2 www.google.com
+/upload/alfacgiapi/bash.alfa 4 -
+/y.php 1 www.google.com
+/bj.php 1 www.google.com
+/home/laboratorium.rar 1 -
+/wp-content/uploads/ALFA_DATA/alfacgiapi/radio.php 2 -
+/alfacgiapi/404.php 2 -
+/new/alfacgiapi/index.php 2 -
+/xleet.php 1 www.google.com
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/www/archives.tar 1 -
+/lx.php 2 www.google.com
+/robots.txt 1 -
+/assets/uploads/alfacgiapi/404.php 2 -
+/100.php 1 www.google.com
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/radio.php 2 -
+/www/__MACOSX.zip 1 -
+/web/public.rar 1 -
+/con.php 1 www.google.com
+/v1/laboratorium.poltekkesbanten.ac.id/v1.zip 1 -
+/postfs.php 1 www.google.com
+/dashboard/.well-known.rar 1 -
+/.vscode/sftp-config.save 1 -
+/dashboard/Archive.rar 1 -
+/evil.php 1 www.google.com
+/wp-includes/alfacgiapi/index.php 2 -
+/laravel/public_html.tar 1 -
+/.quarantine/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/www/web.zip 1 -
+/uploaded/alfacgiapi/perl.alfa 5 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/assets/filemanager/dialog.php 1 -
+/backup.rar 1 -
+/wp-content/uploads/ALFA_DATA/alfacgiapi/index.php 2 -
+/dashboard/public_html.rar 1 -
+/Archive.zip 1 -
+/www/archives.zip 1 -
+/v1/apps.rar 1 -
+/laravel/admin/includes/general.js 1 -
+/web/cgi-bin.rar 1 -
+/www/__MACOSX.tar 1 -
+/.vscode/sftp-config.json 1 -
+/v2/app.rar 1 -
+/web/.well-known.tar 1 -
+/v1/html.rar 1 -
+/dashboard/application.rar 1 -
+/dashboard/misc/ajax.js 1 -
+/v1/__MACOSX.zip 1 -
+/priv8.php 1 www.google.com
+/web2/laboratorium.poltekkesbanten.ac.id/web2.rar 1 -
+/wso.php 1 www.google.com
+/www/administrator/language/en-GB/install.xml 1 -
+/laravel/web.rar 1 -
+/j.php 1 www.google.com
+/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/assets/upload/alfacgiapi/perl.alfa 4 -
+/laboratorium.zip 1 -
+/web2/cgi-bin.rar 1 -
+/v2/oldlaboratorium.rar 1 -
+/www/backup.rar 1 -
+/web/images/editor/separator.gif 1 -
+/assets/alfacgiapi/404.php 2 -
+/haxor.php 1 www.google.com
+/web2/laboratorium.poltekkesbanten.ac.id/web2.tar 1 -
+/web/laboratorium_old.rar 1 -
+/wp-content/uploads/ALFA_DATA/alfacgiapi/404.php 2 -
+/v1/archive.zip 1 -
+/.git/HEAD 3 -
+/dashboard/laboratorium.poltekkesbanten.ac.id/dashboard.zip 1 -
+/v1/.well-known.tar 1 -
+/litespeed.php 2 www.google.com
+/web/web.tar 1 -
+/laravel/.well-known.tar 1 -
+/.well-known/alfacgiapi/perl.alfa 4 -
+/symlink.php 1 www.google.com
+/wp-blog.php 1 www.google.com
+/login/web/wp-includes/wlwmanifest.xml 4 -
+/public_html.tar 1 -
+/web1/_ignition/execute-solution 1 -
+/laboratorium.tar 1 -
+/www/oldlaboratorium.zip 1 -
+/wp-content/themes/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/wp-content/plugins/library/alfacgiapi/404.php 2 -
+/www/assets.zip 1 -
+/home/__MACOSX.rar 1 -
+/web_ec/kcfinder/upload.php 1 -
+/v2/laboratorium.poltekkesbanten.ac.id/v2.zip 1 -
+/dashboard/assets.tar 1 -
+/home/backup.zip 1 -
+/login/cms/wp-includes/wlwmanifest.xml 4 -
+/shells.php 1 www.google.com
+/.well-known/pki-validation/alfacgiapi/404.php 2 -
+/wp-admin/alfacgiapi/404.php 2 -
+/wp-content/themes/pridmag/init.php 2 www.google.com
+/uploads/pengumuman/alfacgiapi/perl.alfa 5 -
+/con7.php 1 www.google.com
+/shl.php 2 www.google.com
+/laboratoriumold.tar 1 -
+/eviltwin.php 1 www.google.com
+/tinyfilemanager.php 2 www.google.com
+/.well-known/pki-validation/alfacgiapi/radio.php 2 -
+/indosec.php 1 www.google.com
+/web/backup.rar 1 -
+/v2/administrator/language/en-GB/install.xml 1 -
+/ups.php 2 www.google.com
+/assets/alfacgiapi/index.php 2 -
+/assets/plugins/jQuery-File-Upload/server/php/index.php 1 -
+/home/archive.tar 1 -
+/images/alfacgiapi/py.alfa 4 -
+/dashboard/oldlaboratorium.zip 1 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/radio.php 2 -
+/asset/webadmin/js/kcfinder/upload.php 1 -
+/components/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/tonant.php 2 www.google.com
+/web/laboratorium.poltekkesbanten.ac.id/web.tar 1 -
+/0.php 2 www.google.com
+/web1/old.zip 1 -
+/web2/backup.rar 1 -
+/new/ALFA_DATA/alfacgiapi/radio.php 2 -
+/modules/autoupgrade/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/assets/bower_components/kcfinder/upload.php 1 -
+/n.php 1 www.google.com
+/js/tinymce2/plugins/filemanager/dialog.php 1 -
+/anon.php 1 www.google.com
+/x.php 2 www.google.com
+/assets/uploads/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/home/old.rar 1 -
+/wp-admin/alfacgiapi/bash.alfa 4 -
+/dashboard/assets.rar 1 -
+/web2/__MACOSX.zip 1 -
+/web2/web.rar 1 -
+/load.php 2 www.google.com
+/web1/back.rar 1 -
+/file.php 1 www.google.com
+/laravel/archive.rar 1 -
+/components/alfacgiapi/bash.alfa 4 -
+/web/assets.zip 1 -
+/al.php 2 www.google.com
+/home/asset.zip 1 -
+/home/archive.zip 1 -
+/v1/app.rar 1 -
+/web/oldlaboratorium.zip 1 -
+/v2/html.rar 1 -
+/web1/web.tar 1 -
+/v2/apps.rar 1 -
+/Archive.tar 1 -
+/wp-includes/alfacgiapi/bash.alfa 4 -
+/wp-class.php 2 www.google.com
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/radio.php 2 -
+/www/web.tar 1 -
+/images/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/wp-plugins.php 1 www.google.com
+/www/public.rar 1 -
+/web/__MACOSX.zip 1 -
+/dashboard/old.tar 1 -
+/admin404.php 2 www.google.com
+/laravel/Archive.rar 1 -
+/web/archives.tar 1 -
+/apple-touch-icon-120x120-precomposed.png 1 -
+/Mo2AaAaAaPrivateShell.php 2 www.google.com
+/public/include/kcfinder/upload.php 1 -
+/applications.zip 1 -
+/v2/__MACOSX.zip 1 -
+/laravel/old.tar 1 -
+/js/kcfinder/upload.php 1 -
+/wp-content/themes/alfacgiapi/radio.php 2 -
+/v2/.well-known.tar 1 -
+/wp-content/plugins/library/alfacgiapi/py.alfa 4 -
+/assets/comp/RichFilemanager/scripts/jQuery-File-Upload/server/php/index.php 2 -
+/www/laboratorium_old.rar 1 -
+/laravel/assets.tar 1 -
+/web2/public_html.tar 1 -
+/v2/archive.zip 1 -
+/wp-content/updraft/alfacgiapi/bash.alfa 4 -
+/asset.tar 1 -
+/wp-includes/pomo/alfacgiapi/perl.alfa 5 -
+/assets/ALFA_DATA/alfacgiapi/radio.php 2 -
+/v1/oldlaboratorium.rar 1 -
+/backup/.git/HEAD 1 -
+/user.php 2 www.google.com
+/www/.well-known.tar 1 -
+/lib/phpthumb/phpThumb.php 1 -
+/web/__MACOSX.tar 1 -
+/www/laboratorium_old.zip 1 -
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/404.php 2 -
+/qindex.php 1 www.google.com
+/www/cgi-bin.rar 1 -
+/dashboard/asset.zip 1 -
+/web/archives.zip 1 -
+/wp-content/upgrade/alfacgiapi/404.php 2 -
+/home/laboratorium_old.rar 1 -
+/applications.tar 1 -
+/wp-content/themes/wp-pridmag/up.php 2 www.google.com
+/web1/assets.tar 1 -
+/web1/laboratorium_old.tar 1 -
+/87.php 1 www.google.com
+/old/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/home/applications.tar 1 -
+/web/web.zip 1 -
+/c99.php 1 www.google.com
+/uploads/alfacgiapi/perl.alfa 4 -
+/laravel/_ignition/execute-solution 1 -
+/home/oldlaboratorium.rar 1 -
+/wp-content/uploads/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/assets/upload/ALFA_DATA/alfacgiapi/index.php 2 -
+/admin.php 2 www.google.com
+/web1/laboratorium-old.zip 1 -
+/app.zip 1 -
+/web/oldlaboratorium.rar 1 -
+/function.php 1 www.google.com
+/assets/tinymce/filemanager/dialog.php 1 -
+/XxX.php 1 www.google.com
+/upload/ALFA_DATA/alfacgiapi/radio.php 2 -
+/.well-known/acme-challenge/alfacgiapi/perl.alfa 4 -
+/home/old.tar 1 -
+/dashboard/web.zip 1 -
+/web2/web.tar 1 -
+/home/laboratoriumold.rar 1 -
+/v2/administrator 1 -
+/blog/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/home/application.rar 1 -
+/wp-content/plugins/alfacgiapi/py.alfa 4 -
+/v1/.well-known.rar 1 -
+/dashboard/application.zip 1 -
+/zone.php 1 www.google.com
+/web1/web.rar 1 -
+/home/.env 1 -
+/www/backup.zip 1 -
+/web1/__MACOSX.zip 1 -
+/web2/back.rar 1 -
+/web/application.zip 1 -
+/plugins/jQueryFileUpload/server/php/index.php 1 -
+/r00t.php 2 www.google.com
+/t.php 1 www.google.com
+/v1/archive.rar 1 -
+/index.html 1 http://laboratorium.poltekkesbanten.ac.id/profile
+/web/public_html.tar 1 -
+/wp-rss.php 1 www.google.com
+/web2/old.zip 1 -
+/web1/backup.rar 1 -
+/init.php 1 www.google.com
+/.tmb/alfacgiapi/404.php 2 -
+/xox.php 1 www.google.com
+/laravel/bak.tar 1 -
+/home/back.tar 1 -
+/home/web.zip 1 -
+/dashboard/.well-known.tar 1 -
+/archive.rar 1 -
+/home/misc/ajax.js 1 -
+/.tmb/alfacgiapi/perl.alfa 4 -
+/www/assets.rar 1 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/web2/laboratoriumold.rar 1 -
+/v1/laboratorium.tar 1 -
+/laravel/plugins/system/debug/debug.xml 1 -
+/home/.well-known.rar 1 -
+/un.php 4 www.google.com
+/a.php 2 www.google.com
+/dashboard/Archive.zip 1 -
+/home/laboratorium-old.zip 1 -
+/laravel/html.tar 1 -
+/web2/admin/view/javascript/common.js 1 -
+/xl.php 2 www.google.com
+/v2/public.rar 1 -
+/wp-system.php 1 www.google.com
+/minishell.php 1 www.google.com
+/v1/Archive.tar 1 -
+/web2/assets.tar 1 -
+/dashboard/www.tar 1 -
+/doc.php 2 www.google.com
+/images/alfacgiapi/404.php 2 -
+/www/applications.tar 1 -
+/web/applications.rar 1 -
+/web1/laboratorium-old.rar 1 -
+/web/public.zip 1 -
+/v1/public/_ignition/execute-solution 1 -
+/.well-known/acme-challenge/alfacgiapi/bash.alfa 4 -
+/dashboard/cgi-bin.tar 1 -
+/fw.php 2 www.google.com
+/laravel/cgi-bin.zip 1 -
+/web1/laboratoriumold.tar 1 -
+/dashboard/app.rar 1 -
+/v2/vendor/phpunit/phpunit/build.xml 1 -
+/home/laboratorium.zip 1 -
+/1975.phP 2 www.google.com
+/web1/public_html.tar 1 -
+/laravel/html.zip 1 -
+/assets/data/tinymce/plugins/filemanager/dialog.php 1 -
+/xx.php 1 www.google.com
+/www/back.zip 1 -
+/wp-content/mu-plugins-old/index.php 1 www.google.com
+/v2/applications.rar 1 -
+/sw-admin/filemanager/dialog.php 1 -
+/wp/wp-includes/fonts/iqb.php 1 www.google.com
+/laravel/assets.zip 1 -
+/.vscode/sftp-config~ 1 -
+/v2/.well-known.zip 1 -
+/assets/upload/alfacgiapi/py.alfa 4 -
+/dashboard/archives.tar 1 -
+/.git.tar 1 -
+/assets/upload/ALFA_DATA/alfacgiapi/radio.php 2 -
+/web/bak.rar 1 -
+/beta/assets/data/tinymce/plugins/filemanager/dialog.php 1 -
+/unknown.php 2 www.google.com
+/v2 3 -
+/web/admin/media/upload.php 1 -
+/v2/.well-known.rar 1 -
+/laravel/oldlaboratorium.tar 1 -
+/www/public.zip 1 -
+/dashboard/laboratorium-old.zip 1 -
+/v1/administrator 1 -
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/404.php 2 -
+/css/alfacgiapi/perl.alfa 5 -
+/public/_ignition/execute-solution 1 -
+/home/back.zip 1 -
+/laravel/assets.rar 1 -
+/dashboard/laboratorium-old.rar 1 -
+/library/editor/kcfinder/upload.php 1 -
+/wp-conctent.php 2 www.google.com
+/wp-plugins/alfacgiapi/perl.alfa 5 -
+/www/applications.rar 1 -
+/web/applications.tar 1 -
+/components/alfacgiapi/py.alfa 4 -
+/.quarantine/alfacgiapi/py.alfa 4 -
+/resources/plugin/jquery-file-upload/server/php/index.php 1 -
+/assets/uploads/alfacgiapi/perl.alfa 4 -
+/v2/archive.rar 1 -
+/wp-admin/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/laravel/app.tar 1 -
+/upload/alfacgiapi/radio.php 2 -
+/.quarantine/ALFA_DATA/alfacgiapi/index.php 2 -
+/wp-includes/alfacgiapi/py.alfa 4 -
+/home/.well-known.tar 1 -
+/archives.zip 1 -
+/uploads/alfacgiapi/index.php 2 -
+/laravel/www.zip 1 -
+/js.php 2 www.google.com
+/www/bak.rar 1 -
+/sys.php 2 www.google.com
+/assets/alfacgiapi/radio.php 2 -
+/filemanager.php 2 www.google.com
+/home/_ignition/execute-solution 1 -
+/cgi-bin/alfacgiapi/perl.alfa 4 -
+/g.php 1 www.google.com
+/upload/ALFA_DATA/alfacgiapi/404.php 2 -
+/xd.php 2 www.google.com
+/.well-known/pki-validation/wp-signup.php 2 www.google.com
+/v2/laboratorium.tar 1 -
+/web1/public_html.rar 1 -
+/web/back.zip 1 -
+/web1/public/_ignition/execute-solution 1 -
+/assets/ALFA_DATA/alfacgiapi/404.php 2 -
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/alfacgiapi/index.php 2 -
+/wp-includes/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/laravel/laboratoriumold.zip 1 -
+/www/public_html.tar 1 -
+/wp-includes/alfacgiapi/radio.php 2 -
+/v1/public.rar 1 -
+/v2/Archive.tar 1 -
+/assets/uploads/alfacgiapi/radio.php 2 -
+/www/application.zip 1 -
+/9.php 1 www.google.com
+/home/archives.tar 1 -
+/wordpress/alfacgiapi/perl.alfa 4 -
+/old/ALFA_DATA/alfacgiapi/index.php 2 -
+/web/backup.zip 1 -
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/alfa.php 2 www.google.com
+/tinymce/tiny_img_flugin/dialog.php 1 -
+/www/laboratorium-old.zip 1 -
+/home/application.tar 1 -
+/public.rar 1 -
+/error.php 1 www.google.com
+/l.php 2 www.google.com
+/web2/laboratorium_old.zip 1 -
+/73.php 2 www.google.com
+/content/plugins/filemanager/dialog.php 1 -
+/dashboard 3 -
+/blog/ALFA_DATA/alfacgiapi/radio.php 2 -
+/www/oldlaboratorium.rar 1 -
+/opd/tinymce2/plugins/filemanager/dialog.php 1 -
+/v1/applications.rar 1 -
+/backup/alfacgiapi/radio.php 2 -
+/home/public.tar 1 -
+/laravel/.git.rar 1 -
+/shell.php 1 www.google.com
+/web/assets.rar 1 -
+/home/asset.rar 1 -
+/srx.php 1 www.google.com
+/home/Archive.rar 1 -
+/assets.rar 1 -
+/v1/administrator/language/en-GB/install.xml 1 -
+/www/plugins/system/debug/debug.xml 1 -
+/web1/cgi-bin.rar 1 -
+/assets/images/ALFA_DATA/alfacgiapi/perl.alfa 5 -
+/v1 3 -
+/wordpress/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/dashboard/laboratorium_old.rar 1 -
+/old/alfacgiapi/perl.alfa 4 -
+/pi.php 2 www.google.com
+/sql.php 1 www.google.com
+/v1/.well-known.zip 1 -
+/idx.php 1 www.google.com
+/wp-content/themes/wp-pridmag/22x.php 2 www.google.com
+/app.rar 1 -
+/web2/applications.tar 1 -
+/www/back.rar 1 -
+/local.php 2 www.google.com
+/www/laboratorium.zip 1 -
+/v1/web.tar 1 -
+/ALFA_DATA/alfacgiapi/perl.alfa 9 -
+/web/laboratorium-old.rar 1 -
+/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/wp-content/themes/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/assets/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/py.alfa 4 -
+/id.php 1 www.google.com
+/web1/.well-known.rar 1 -
+/web/laboratorium-old.zip 1 -
+/dbx.php 1 www.google.com
+/login/shop/wp-includes/wlwmanifest.xml 4 -
+/Dz.php 1 www.google.com
+/r.php 1 www.google.com
+/.well-known/ALFA_DATA/alfacgiapi/radio.php 2 -
+/wp-content/themes/wp-pridmag/init.php 2 www.google.com
+/fox.php 1 www.google.com
+/assets/uploads/alfacgiapi/py.alfa 4 -
+/txt.php 2 www.google.com
+/assets/images/alfacgiapi/perl.alfa 5 -
+/web/www.tar 1 -
+/root.php 1 www.google.com
+/cgi-bin/ALFA_DATA/alfacgiapi/radio.php 2 -
+/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/uploads/alfacgiapi/py.alfa 4 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/www/old.tar 1 -
+/blog/ALFA_DATA/alfacgiapi/404.php 2 -
+/laravel/misc/ajax.js 1 -
+/assets/alfacgiapi/py.alfa 4 -
+/v2/bak.rar 1 -
+/wp-admin/ALFA_DATA/alfacgiapi/index.php 2 -
+/v1/laboratorium_old.zip 1 -
+/wp-content/themes/alera/alpha.php 2 www.google.com
+/.well-known/pki-validation/alfacgiapi/index.php 2 -
+/xcv.php 1 www.google.com
+/laboratoriumold.zip 1 -
+/www/laboratorium_old.tar 1 -
+/web1/laboratorium.zip 1 -
+/dashboard/backup.tar 1 -
+/.tmb/alfacgiapi/radio.php 2 -
+/laravel/laboratorium-old.rar 1 -
+/assets/adminhome/plugins/file-uploader/server/php/index.php 1 -
+/www/admin/includes/general.js 1 -
+/wp-content/plugins/library/alfacgiapi/radio.php 2 -
+/home/public_html.tar 1 -
+/radio.php 2 www.google.com
+/assets/upload/alfacgiapi/404.php 2 -
+/olux.php 1 www.google.com
+/web/cgi-bin.zip 1 -
+/web/laboratorium.poltekkesbanten.ac.id/web.rar 1 -
+/web2/archive.zip 1 -
+/web2/asset.zip 1 -
+/v2/laboratorium-old.rar 1 -
+/v1/__MACOSX.rar 1 -
+/dashboard/applications.rar 1 -
+/home/__MACOSX.zip 1 -
+/wp/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/web1/.env 1 -
+/home/web.rar 1 -
+/lib/watermark/phpThumb.php 1 -
+/web2/old.rar 1 -
+/components/alfacgiapi/index.php 2 -
+/hi.php 2 www.google.com
+/laravel/apps.tar 1 -
+/wp-content/alfacgiapi/index.php 2 -
+/laravel/web.zip 1 -
+/1975.php 6 www.google.com
+/new/alfacgiapi/perl.alfa 4 -
+/mar.php 1 www.google.com
+/www/www.zip 1 -
+/backup/ALFA_DATA/alfacgiapi/404.php 2 -
+/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/laravel/back.rar 1 -
+/assets/admin/ALFA_DATA/alfacgiapi/perl.alfa 5 -
+/v2/cgi-bin.zip 1 -
+/www/.well-known.zip 1 -
+/dashboard/asset.tar 1 -
+/assetsadm/kcfinder/upload.php 1 -
+/web1/old.tar 1 -
+/v2/web.zip 1 -
+/.tmb/alfacgiapi/index.php 2 -
+/assets/admin/plugins/kcfinder/upload.php 1 -
+/wp-content/themes/ALFA_DATA/alfacgiapi/index.php 2 -
+/mari.php 1 www.google.com
+/wp/ALFA_DATA/alfacgiapi/index.php 2 -
+/www/js/header-rollup-554.js 1 -
+/dashboard/applications.zip 1 -
+/web1/application.rar 1 -
+/login/site/wp-includes/wlwmanifest.xml 4 -
+/web2/archive.tar 1 -
+/web1/misc/ajax.js 1 -
+/old/alfacgiapi/index.php 2 -
+/gg.php 1 www.google.com
+/laravel/.env 1 -
+/alfacgiapi/bash.alfa 4 -
+/twin.php 1 www.google.com
+/.vscode/sftp.json~ 1 -
+/elibrary/visitor_counter/angular/assets/uploads/index.php 1 -
+/wp-content/themes/jobart/db.php 2 www.google.com
+/laravel/apps.zip 1 -
+/oldlaboratorium.rar 1 -
+/web 3 -
+/laboratorium.poltekkesbanten.ac.id.tar 1 -
+/home/backup.rar 1 -
+/login/blog/wp-includes/wlwmanifest.xml 4 -
+/c.php 1 www.google.com
+/web/Archive.tar 1 -
+/v2/public_html.tar 1 -
+/dashboard/__MACOSX.rar 1 -
+/web/old.zip 1 -
+/wp-includes/ALFA_DATA/alfacgiapi/index.php 2 -
+/dashboard/public_html.tar 1 -
+/v2/misc/ajax.js 1 -
+/wp-content/plugins/library/alfacgiapi/bash.alfa 4 -
+/v1/old.rar 1 -
+/gel4y.php 1 www.google.com
+/web1/web.zip 1 -
+/web1/back.tar 1 -
+/home/laboratorium-old.rar 1 -
+/lock360.php 2 www.google.com
+/images/ALFA_DATA/alfacgiapi/radio.php 2 -
+/3.php 1 www.google.com
+/ioxi.php 1 www.google.com
+/wp-content/uploads/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/web1/application.tar 1 -
+/wp-content/themes/ALFA_DATA/alfacgiapi/404.php 2 -
+/web2/laboratorium-old.tar 1 -
+/xxx.php 1 www.google.com
+/administrator/help/en-GB/toc.json 1 -
+/v2/web.tar 1 -
+/dashboard/bak.tar 1 -
+/web/.well-known.zip 1 -
+/tshop.php 1 www.google.com
+/wp-content/themes/alfacgiapi/perl.alfa 4 -
+/web/www.zip 1 -
+/web2/administrator/help/en-GB/toc.json 1 -
+/web1/vendor/phpunit/phpunit/build.xml 1 -
+/web1/laboratorium-old.tar 1 -
+/uploads/alfacgiapi/bash.alfa 4 -
+/gelay.php 1 www.google.com
+/asset/backend/assets/fileupload/index.php 1 -
+/web/laboratorium.poltekkesbanten.ac.id/web.zip 1 -
+/web2/backup.zip 1 -
+/laravel/application.tar 1 -
+/web1/archives.tar 1 -
+/web2/__MACOSX.rar 1 -
+/old/alfacgiapi/404.php 2 -
+/admin/includes/general.js 1 -
+/images/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/.git.zip 1 -
+/v1/bak.rar 1 -
+/v2/laboratorium_old.zip 1 -
+/home/cgi-bin.rar 1 -
+/web/.git/HEAD 1 -
+/assets/plugin/filemanager/dialog.php 1 -
+/web/plugins/system/debug/debug.xml 1 -
+/web/laboratorium_old.tar 1 -
+/www/old.zip 1 -
+/wp-content/flame.php 2 www.google.com
+/www/Archive.tar 1 -
+/wp/alfacgiapi/index.php 2 -
+/.well-known/acme-challenge/alfacgiapi/404.php 2 -
+/wp-includes/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/assets/responsive_filemanager/filemanager/dialog.php 1 -
+/web1/public.tar 1 -
+/www 3 -
+/login/sito/wp-includes/wlwmanifest.xml 4 -
+/laravel/vendor/phpunit/phpunit/build.xml 1 -
+/v1/_ignition/execute-solution 1 -
+/wp-includes/alfacgiapi/404.php 2 -
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/web1/asset.rar 1 -
+/v2/plugins/system/debug/debug.xml 1 -
+/laravel/admin/view/javascript/common.js 1 -
+/web1/Archive.rar 1 -
+/wpindex.php 1 www.google.com
+/www/www.tar 1 -
+/.quarantine/alfacgiapi/radio.php 2 -
+/cgi-bin/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/assets/kcfinder/upload.php 1 -
+/v2/__MACOSX.rar 1 -
+/asset/js_ckeditor/kcfinder/upload.php 1 -
+/.well-known/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/pengaduan/kcfinder/upload.php 1 -
+/aset/plugins/_notes/filemanager/dialog.php 1 -
+/login/2019/wp-includes/wlwmanifest.xml 4 -
+/web1/.well-known.tar 1 -
+/v1/laboratorium-old.rar 1 -
+/.quarantine/alfacgiapi/perl.alfa 4 -
+/send.php 1 www.google.com
+/dashboard/admin/view/javascript/common.js 1 -
+/gecko.php 2 www.google.com
+/web1/back.zip 1 -
+/.vscode/sftp.json 2 -
+/login/wordpress/wp-includes/wlwmanifest.xml 4 -
+/new-index.php 1 www.google.com
+/web/_ignition/execute-solution 1 -
+/dashboard/public_html.zip 1 -
+/v1/web.zip 1 -
+/dashboard/archive.tar 1 -
+/web/laboratorium.zip 1 -
+/apple-touch-icon-120x120.png 1 -
+/web/back.rar 1 -
+/v1/cgi-bin.zip 1 -
+/web/public/_ignition/execute-solution 1 -
+/www/cgi-bin.zip 1 -
+/web2/laboratorium.rar 1 -
+/components/alfacgiapi/404.php 2 -
+/home/public_html.rar 1 -
+/laravel/laboratorium-old.tar 1 -
+/dashboard/backup.rar 1 -
+/wp-content/updraft/ALFA_DATA/alfacgiapi/radio.php 2 -
+/yan.php 1 www.google.com
+/old/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/radio.php 2 -
+/ninja.php 1 www.google.com
+/v2/old.rar 1 -
+/wordpress/ALFA_DATA/alfacgiapi/index.php 2 -
+/archives.rar 1 -
+/new/alfacgiapi/radio.php 2 -
+/v1/misc/ajax.js 1 -
+/wp-load.php 2 www.google.com
+/1975Team.php 2 www.google.com
+/web/old.tar 1 -
+/v1/public_html.tar 1 -
+/0o.php 2 www.google.com
+/web2/Archive.rar 1 -
+/v2/laboratorium.zip 1 -
+/eagle.php 1 www.google.com
+/laboratorium_old.rar 1 -
+/v1/vendor/phpunit/phpunit/build.xml 1 -
+/web2/asset.rar 1 -
+/assets/alfacgiapi/bash.alfa 4 -
+/sym403.php 1 www.google.com
+/web2/public.tar 1 -
+/dashboard/_ignition/execute-solution 1 -
+/wp-admin/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/wp-content/updraft/alfacgiapi/radio.php 2 -
+/v2/laboratorium_old.rar 1 -
+/v2/cgi-bin.rar 1 -
+/v1/public.tar 1 -
+/i.php 1 www.google.com
+/.tmb/ALFA_DATA/alfacgiapi/index.php 2 -
+/home/oldlaboratorium.zip 1 -
+/v1/.git.tar 1 -
+/v2/.git.zip 1 -
+/login/website/wp-includes/wlwmanifest.xml 4 -
+/web/archive.tar 1 -
+/.well-known/pki-validation/alfacgiapi/perl.alfa 4 -
+/v2/laboratoriumold.rar 1 -
+/web1/__MACOSX.rar 1 -
+/v.php 2 www.google.com
+/home/laboratorium-old.tar 1 -
+/cgi-bin.rar 1 -
+/old/alfacgiapi/bash.alfa 4 -
+/v2/public_html.rar 1 -
+/web2/archives.tar 1 -
+/test.php 1 www.google.com
+/web1/backup.zip 1 -
+/.tmb/alfacgiapi/bash.alfa 4 -
+/assets/plugins/kcfinder/upload.php 1 -
+/byps.php 1 www.google.com
+/app.tar 1 -
+/wp-includes/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/dashboard/public.zip 1 -
+/wp-includes/fonts/iqb.php 1 www.google.com
+/assets/upload/alfacgiapi/index.php 2 -
+/v2/back.rar 1 -
+/m.php 1 www.google.com
+/dashboard/web.rar 1 -
+/v2/public.zip 1 -
+/application.tar 1 -
+/v1/www.zip 1 -
+/v1/.env 1 -
+/web/app.tar 1 -
+/www/laboratoriumold.tar 1 -
+/login/news/wp-includes/wlwmanifest.xml 4 -
+/assets/uploads/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/la.php 1 www.google.com
+/assets/upload/ALFA_DATA/alfacgiapi/404.php 2 -
+/info.php 2 www.google.com
+/web2/application.tar 1 -
+/dashboard/application.tar 1 -
+/xleet-shell.php 2 www.google.com
+/wp-content/themes/pridmag/db.php 2 www.google.com
+/laravel/applications.zip 1 -
+/web2/laboratorium-old.rar 1 -
+/dev.php 1 www.google.com
+/web/administrator/language/en-GB/install.xml 1 -
+/v1/archives.tar 1 -
+/jindex.php 2 www.google.com
+/js/header-rollup-554.js 1 -
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/.well-known.tar 1 -
+/dashboard/app.zip 1 -
+/archives.tar 1 -
+/wp-content/upgrade/alfacgiapi/radio.php 2 -
+/home/administrator/help/en-GB/toc.json 1 -
+/web/laboratorium-old.tar 1 -
+/laboratorium-old.zip 1 -
+/v1/public_html.zip 1 -
+/web1/laboratorium.rar 1 -
+/laravel/laboratoriumold.rar 1 -
+/1877.php 2 www.google.com
+/dashboard/laboratorium-old.tar 1 -
+/dashboard/laboratorium.tar 1 -
+/dashboard/administrator/language/en-GB/install.xml 1 -
+/login/test/wp-includes/wlwmanifest.xml 4 -
+/v2/www.tar 1 -
+/dashboard/oldlaboratorium.tar 1 -
+/assets/global/plugins/ckeditor/kcfinder/upload.php 1 -
+/www/app.zip 1 -
+/web2/back.zip 1 -
+/ALFA_DATA/alfacgiapi/radio.php 2 -
+/admin/view/javascript/common.js 1 -
+/assets/uploads/ALFA_DATA/alfacgiapi/radio.php 2 -
+/wp-mails.php 1 www.google.com
+/wp-info.php 1 www.google.com
+/laravel/oldlaboratorium.rar 1 -
+/www/public_html.zip 1 -
+/web2/.well-known.tar 1 -
+/www/application.tar 1 -
+/e.php 1 www.google.com
+/v2/.git/HEAD 1 -
+/wp-content/alfacgiapi/404.php 2 -
+/components/ALFA_DATA/alfacgiapi/index.php 2 -
+/backup/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/v1/laboratorium-old.zip 1 -
+/web/back.tar 1 -
+/wp/alfacgiapi/py.alfa 4 -
+/pref.php 1 www.google.com
+/wp-content.php 2 www.google.com
+/shx.php 2 www.google.com
+/v1/administrator/help/en-GB/toc.json 1 -
+/web2/laboratorium.zip 1 -
+/404.php 2 www.google.com
+/blog/alfacgiapi/py.alfa 4 -
+/alfacgiapi/perl.alfa 9 -
+/wp-site.php 1 www.google.com
+/.vscode/sftp.json.save 1 -
+/manager.php 2 www.google.com
+/v1/laboratorium.zip 1 -
+/abc.php 2 www.google.com
+/content.php 2 www.google.com
+/v2/.git.tar 1 -
+/v2/admin/view/javascript/common.js 1 -
+/v1/.git.zip 1 -
+/wp-one.php 1 www.google.com
+/v1/laboratoriumold.rar 1 -
+/f.php 1 www.google.com
+/sftp.json 1 -
+/v2/public.tar 1 -
+/v1/cgi-bin.rar 1 -
+/assets/uploads/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/laravel/archives.zip 1 -
+/v1/laboratorium_old.rar 1 -
+/v1/back.rar 1 -
+/www/back.tar 1 -
+/xindex.php 1 www.google.com
+/laravel/www.rar 1 -
+/laravel/__MACOSX.zip 1 -
+/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/lol.php 1 www.google.com
+/.git.rar 1 -
+/misc/ajax.js 1 -
+/v1/public_html.rar 1 -
+/web/application.tar 1 -
+/v1/laboratorium.poltekkesbanten.ac.id/v1.tar 1 -
+/web/public_html.zip 1 -
+/rex.php 1 www.google.com
+/web2/.well-known.rar 1 -
+/13.php 2 www.google.com
+/web2/images/editor/separator.gif 1 -
+/v2/.env 1 -
+/web/app.zip 1 -
+/v2/www.zip 1 -
+/dashboard/admin/includes/general.js 1 -
+/web1/applications.tar 1 -
+/v1/public.zip 1 -
+/home/assets.tar 1 -
+/www/archive.tar 1 -
+/web2/web.zip 1 -
+/if.php 1 www.google.com
+/.quarantine/ALFA_DATA/alfacgiapi/radio.php 2 -
+/web2/back.tar 1 -
+/.well-known/wp-signup.php 2 www.google.com
+/laravel/oldlaboratorium.zip 1 -
+/v2/archives.tar 1 -
+/home/vendor/phpunit/phpunit/build.xml 1 -
+/flame.php 2 www.google.com
+/old/alfacgiapi/py.alfa 4 -
+/cgi-bin/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/wp-includes/ALFA_DATA/alfacgiapi/404.php 2 -
+/home/old.zip 1 -
+/laravel/cgi-bin.tar 1 -
+/laravel/asset.tar 1 -
+/v2/public_html.zip 1 -
+/wp-content/updraft/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/components/alfacgiapi/perl.alfa 4 -
+/readme.php 2 www.google.com
+/login/wp/wp-includes/wlwmanifest.xml 4 -
+/laboratorium_old.tar 1 -
+/laravel/public/_ignition/execute-solution 1 -
+/dashboard/archives.zip 1 -
+/web1/archive.tar 1 -
+/web/laboratorium_old.zip 1 -
+/web2/misc/ajax.js 1 -
+/dashboard/laboratoriumold.rar 1 -
+/assets/ckeditor/filemanager/dialog.php 1 -
+/web2/application.rar 1 -
+/6.php 1 www.google.com
+/q.php 1 www.google.com
+/web/laboratoriumold.tar 1 -
+/www/app.tar 1 -
+/home/web.tar 1 -
+/uploads/ALFA_DATA/alfacgiapi/404.php 2 -
+/v1/www.tar 1 -
+/alf.php 2 www.google.com
+/web2/old.tar 1 -
+/v2/laboratorium-old.zip 1 -
+/web1/old.rar 1 -
+/v1/.git/HEAD 1 -
+/wi.php 1 www.google.com
+/new.php 1 www.google.com
+/home/back.rar 1 -
+/web2/.env 1 -
+/wp-content/themes/fitnessbase/dev.php 2 www.google.com
+/.tmb/ALFA_DATA/alfacgiapi/radio.php 2 -
+/web1/archive.zip 1 -
+/dashboard/laboratorium.zip 1 -
+/web1/asset.zip 1 -
+/home/public_html.zip 1 -
+/asset.rar 1 -
+/dashboard/__MACOSX.tar 1 -
+/web2/archives.rar 1 -
+/ALFA_DATA/alfacgiapi/404.php 2 -
+/images/ALFA_DATA/alfacgiapi/404.php 2 -
+/v1/oldlaboratorium.zip 1 -
+/web1/__MACOSX.tar 1 -
+/s.php 1 www.google.com
+/dashboard/backup.zip 1 -
+/home/www.zip 1 -
+/html.zip 1 -
+/upload/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/abby.php 1 www.google.com
+/laravel/laboratorium.zip 1 -
+/www/old.rar 1 -
+/wp-content/alfacgiapi/perl.alfa 4 -
+/v2/bak.tar 1 -
+/home/html.tar 1 -
+/wp-includes/fonts/dev.php 1 www.google.com
+/app-assets/data/jquery-file-upload/server/php/index.php 1 -
+/v2/old.zip 1 -
+/components/alfacgiapi/radio.php 2 -
+/dashboard/apps.rar 1 -
+/dashboard/web.tar 1 -
+/web2/oldlaboratorium.zip 1 -
+/web2/Archive.zip 1 -
+/www.php 1 www.google.com
+/web/www.rar 1 -
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/index.php 2 -
+/administrator/language/en-GB/install.xml 1 -
+/web/cgi-bin.tar 1 -
+/web2/html.rar 1 -
+/dashboard/html.tar 1 -
+/.well-known/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/web2/www.tar 1 -
+/www/vendor/phpunit/phpunit/build.xml 1 -
+/new/alfacgiapi/py.alfa 4 -
+/asset.zip 1 -
+/v1/web.rar 1 -
+/indoxploit.php 1 www.google.com
+/web1/www.rar 1 -
+/v2/assets.rar 1 -
+/web2/admin/includes/general.js 1 -
+/wp/alfacgiapi/perl.alfa 4 -
+/web1/.git.tar 1 -
+/www/laboratorium.tar 1 -
+/home/laboratorium.poltekkesbanten.ac.id/home.tar 1 -
+/web/laboratorium.rar 1 -
+/lib/watermark/phpthumb/phpThumb.php 1 -
+/dashboard/vendor/phpunit/phpunit/build.xml 1 -
+/1index.php 2 www.google.com
+/plugins/jQuery-File-Upload/server/php/index.php 1 -
+/web2/Archive.tar 1 -
+/wp-content/themes/alfacgiapi/bash.alfa 4 -
+/www/laboratoriumold.rar 1 -
+/ftp.json 1 -
+/public/filemanager/dialog.php 1 -
+/v2/backup.tar 1 -
+/components/ALFA_DATA/alfacgiapi/404.php 2 -
+/web1/apps.zip 1 -
+/web2/app.tar 1 -
+/wp-help.php 2 www.google.com
+/v1/old.tar 1 -
+/dashboard/www.zip 1 -
+/v1/bak.zip 1 -
+/web2/vendor/phpunit/phpunit/build.xml 1 -
+/web/.git.zip 1 -
+/laravel/application.zip 1 -
+/laravel/web.tar 1 -
+/wp/alfacgiapi/404.php 2 -
+/new/alfacgiapi/bash.alfa 4 -
+/web1/plugins/system/debug/debug.xml 1 -
+/cgi-bin/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/d.php 1 www.google.com
+/web1/js/header-rollup-554.js 1 -
+/o.php 2 www.google.com
+/web1/app.rar 1 -
+/wp-includes/js/jquery/ui/alfacgiapi/perl.alfa 5 -
+/www/application.rar 1 -
+/visitor_counter/angular/assets/uploads/index.php 1 -
+/403.php 2 www.google.com
+/web2/oldlaboratorium.tar 1 -
+/.well-known/acme-challenge/alfacgiapi/radio.php 2 -
+/V3.php 1 www.google.com
+/home/app.zip 1 -
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/radio.php 2 -
+/wp-content/themes/alfacgiapi/404.php 2 -
+/upload/ALFA_DATA/alfacgiapi/perl.alfa 9 -
+/administrator 1 -
+/v1/application.tar 1 -
+/assets/comp/kcfinder/upload.php 1 -
+/web2/laboratoriumold.zip 1 -
+/v1/backup.zip 1 -
+/web/Archive.zip 1 -
+/v2/laboratorium_old.tar 1 -
+/dashboard/cgi-bin.rar 1 -
+/laravel/applications.rar 1 -
+/www/html.rar 1 -
+/dashboard/administrator/help/en-GB/toc.json 1 -
+/wp-admin/ALFA_DATA/alfacgiapi/404.php 2 -
+/z.php 1 www.google.com
+/.quarantine/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/uploader.php 1 www.google.com
+/foxwso.php 1 www.google.com
+/upload/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/v1/applications.zip 1 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/index.php 2 -
+/wp-content/plugins/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/public_html.rar 1 -
+/v2/oldlaboratorium.zip 1 -
+/.well-known/alfacgiapi/404.php 2 -
+/web/application.rar 1 -
+/cong.php 2 www.google.com
+/web2/administrator/language/en-GB/install.xml 1 -
+/web2/backup.tar 1 -
+/web1/laboratorium.poltekkesbanten.ac.id/web1.zip 1 -
+/web1/asset.tar 1 -
+/byp.php 1 www.google.com
+/laboratorium.poltekkesbanten.ac.id.zip 1 -
+/bypass.php 1 www.google.com
+/home/applications.zip 1 -
+/4.php 1 www.google.com
+/web1/.git.zip 1 -
+/www/laboratorium.poltekkesbanten.ac.id/www.rar 1 -
+/filemanager/dialog.php 1 -
+/www/.git.zip 1 -
+/v1/bak.tar 1 -
+/zk.php 1 www.google.com
+/wp-content/uploads/ALFA_DATA/alfacgiapi/perl.alfa 9 -
+/xm.php 1 www.google.com
+/wp-backup-sql-302.php 2 www.google.com
+/v1/old.zip 1 -
+/.well-known/pki-validation/alfacgiapi/py.alfa 4 -
+/blog/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/apps.zip 1 -
+/webuser/assets/plugins/jQuery-File-Upload/server/php/index.php 1 -
+/web1/images/editor/separator.gif 1 -
+/web/laboratoriumold.rar 1 -
+/apple-touch-icon-precomposed.png 2 -
+/admin403.php 1 www.google.com
+/v1/plugins/system/debug/debug.xml 1 -
+/wp-content/themes/twentytwentytwo/index.php 1 www.google.com
+/wp-admin/alfacgiapi/py.alfa 4 -
+/__MACOSX.tar 1 -
+/assets/plugin_lama/kcfinder/upload.php 1 -
+/web2/bak.rar 1 -
+/uploads/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/web1/public.zip 1 -
+/.tmb/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/web/html.rar 1 -
+/dashboard/laboratoriumold.tar 1 -
+/backup/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/home/html.zip 1 -
+/web1/bak.tar 1 -
+/asset/kcfinder/upload.php 1 -
+/www/Archive.zip 1 -
+/web1/application.zip 1 -
+/login/2020/wp-includes/wlwmanifest.xml 4 -
+/v1/assets.rar 1 -
+/v2/web.rar 1 -
+/ok.php 1 www.google.com
+/upload/alfacgiapi/index.php 2 -
+/0byte.php 2 www.google.com
+/tinymce2/plugins/filemanager/dialog.php 1 -
+/wp-includes/class-wp-other.php 2 www.google.com
+/v2/old.tar 1 -
+/alfa123.php 1 www.google.com
+/usr.php 1 www.google.com
+/new/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/v2/bak.zip 1 -
+/asset/js/plugins/fileupload/server/php/index.php 1 -
+/web/old.rar 1 -
+/uploads/alfacgiapi/404.php 2 -
+/slims7_cendana/phpthumb/phpThumb.php 1 -
+/v1/backup.tar 1 -
+/wordpress/alfacgiapi/radio.php 2 -
+/v2/laboratorium.poltekkesbanten.ac.id/v2.rar 1 -
+/up.php 2 www.google.com
+/home/archives.zip 1 -
+/laravel/old.rar 1 -
+/dashboard/laboratoriumold.zip 1 -
+/home/administrator 1 -
+/dashboard/.env 1 -
+/v2/admin/includes/general.js 1 -
+/uploads/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/laravel/laboratorium-old.zip 1 -
+/www/public/_ignition/execute-solution 1 -
+/web1/archive.rar 1 -
+/wp/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/images/alfacgiapi/perl.alfa 9 -
+/wp-includes/fonts/iq.php 1 www.google.com
+/old/ALFA_DATA/alfacgiapi/radio.php 2 -
+/www/laboratorium.rar 1 -
+/v1/laboratorium_old.tar 1 -
+/web/laboratorium.tar 1 -
+/wp-admin/includes/1975.php 2 www.google.com
+/assets/tinymce/js/tinymce/plugins/table/filemanager/dialog.php 1 -
+/dashboard/apps.zip 1 -
+/v2/application.tar 1 -
+/back.rar 1 -
+/assets/js/kcfinder/upload.php 1 -
+/v2/backup.zip 1 -
+/alfacgiapi/radio.php 2 -
+/web1/apps.tar 1 -
+/web1/oldlaboratorium.rar 1 -
+/web1/.well-known.zip 1 -
+/web1/assets.rar 1 -
+/www/laboratorium.poltekkesbanten.ac.id/www.zip 1 -
+/v2/applications.zip 1 -
+/bak.rar 1 -
+/fierza.php 2 www.google.com
+/laravel/cgi-bin.rar 1 -
+/about.php 2 www.google.com
+/assets/files/ALFA_DATA/alfacgiapi/perl.alfa 5 -
+/www/cgi-bin.tar 1 -
+/wp-content/plugins/dzs-zoomsounds/alfacgiapi/perl.alfa 5 -
+/ftp-config.json 1 -
+/laravel/asset.rar 1 -
+/www/www.rar 1 -
+/wp-configer.php 1 www.google.com
+/dashboard/cgi-bin.zip 1 -
+/web/archive.zip 1 -
+/home/laboratorium.tar 1 -
+/wp-content/plugins/wp-diambar/includes/loadme.php 2 www.google.com
+/web2/application.zip 1 -
+/un2.php 2 www.google.com
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/__MACOSX.rar 1 -
+/web/app.rar 1 -
+/web2/bak.tar 1 -
+/5.php 2 www.google.com
+/wp-content/plugins/library/alfacgiapi/perl.alfa 4 -
+/web2/plugins/system/debug/debug.xml 1 -
+/web/html.tar 1 -
+/dashboard/public.tar 1 -
+/web2/public.zip 1 -
+/v2/back.tar 1 -
+/v1/back.zip 1 -
+/ALFA_DATA/alfacgiapi/index.php 2 -
+/bypas.php 1 www.google.com
+/web1/bak.rar 1 -
+/web/admin/view/javascript/common.js 1 -
+/alfa-shell-v4.php 2 www.google.com
+/assets/ckeditor/plugins/filemanager/filemanager/dialog.php 1 -
+/v1/images/editor/separator.gif 1 -
+/wp-content/plugins/alfacgiapi/radio.php 2 -
+/.well-known/acme-challenge/alfacgiapi/index.php 2 -
+/wp/ALFA_DATA/alfacgiapi/radio.php 2 -
+/cgi-bin.tar 1 -
+/web/asset.tar 1 -
+/dashboard/js/header-rollup-554.js 1 -
+/upload/ALFA_DATA/alfacgiapi/index.php 2 -
+/v1/.git.rar 1 -
+/ww.php 2 www.google.com
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/404.php 2 -
+/dashboard/images/editor/separator.gif 1 -
+/html.rar 1 -
+/wp-we.php 1 www.google.com
+/v2/cgi-bin.tar 1 -
+/web1/administrator/language/en-GB/install.xml 1 -
+/dashboard/Archive.tar 1 -
+/web/laboratoriumold.zip 1 -
+/home/bak.zip 1 -
+/application.zip 1 -
+/web2/.git.zip 1 -
+/old-index.php 1 www.google.com
+/home/plugins/system/debug/debug.xml 1 -
+/wp-admin.php 1 www.google.com
+/laravel/bak.rar 1 -
+/laravel/archive.zip 1 -
+/bre.php 2 www.google.com
+/web2/asset.tar 1 -
+/v1/application.rar 1 -
+/.well-known/alfacgiapi/radio.php 2 -
+/wp-content/themes/alfacgiapi/py.alfa 4 -
+/home/laboratorium.poltekkesbanten.ac.id/home.rar 1 -
+/sites/all/libraries/mailchimp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/v2/laboratorium-old.tar 1 -
+/web1/backup.tar 1 -
+/wp-admin/alfacgiapi/perl.alfa 4 -
+/dashboard/plugins/system/debug/debug.xml 1 -
+/kk.php 1 www.google.com
+/website/filemanager/dialog.php 1 -
+/v2/asset.zip 1 -
+/laravel/__MACOSX.rar 1 -
+/oldlaboratorium.tar 1 -
+/7.php 1 www.google.com
+/web2/.well-known.zip 1 -
+/phpthumb/phpThumb.php 1 -
+/web2/assets.rar 1 -
+/45.php 2 www.google.com
+/wp-content/plugins/wp-file-manager/alfacgiapi/perl.alfa 5 -
+/wp-content/alfacgiapi/radio.php 2 -
+/.env 1 -
+/assets/ALFA_DATA/alfacgiapi/perl.alfa 9 -
+/new/ALFA_DATA/alfacgiapi/index.php 2 -
+/v2/application.zip 1 -
+/laravel/back.zip 1 -
+/dashboard/apps.tar 1 -
+/v2/www.rar 1 -
+/.well-known.zip 1 -
+/blog/wp-includes/fonts/iqb.php 1 www.google.com
+/web2/laboratoriumold.tar 1 -
+/web2/apps.tar 1 -
+/assets/jquery-file-upload/server/php/index.php 1 -
+/.well-known/alfacgiapi/index.php 2 -
+/v1/archives.zip 1 -
+/.tmb/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/assets/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/wikindex.php 2 www.google.com
+/wp-content/plugins/library/alfacgiapi/index.php 2 -
+/marijuana.php 1 www.google.com
+/laravel/Archive.zip 1 -
+/web2/archive.rar 1 -
+/old.zip 1 -
+/blog/alfacgiapi/404.php 2 -
+/wp-content/alfacgiapi/bash.alfa 4 -
+/wso2.php 1 www.google.com
+/autoload_classmap.php 2 www.google.com
+/backup/alfacgiapi/index.php 2 -
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/perl.alfa 4 -
+/laboratorium-old.tar 1 -
+/home/apps.rar 1 -
+/www/asset.zip 1 -
+/laravel/applications.tar 1 -
+/wp_wrong_datlib.php 2 www.google.com
+/.wp-cache.php 1 www.google.com
+/v2/laboratoriumold.tar 1 -
+/www.zip 1 -
+/laravel/back.tar 1 -
+/blog/ALFA_DATA/alfacgiapi/py.alfa 4 -
+/laravel/apps.rar 1 -
+/office/production/kcfinder/upload.php 1 -
+/www/apps.zip 1 -
+/laboratorium.poltekkesbanten.ac.id.rar 1 -
+/dashboard/html.rar 1 -
+/alpha.php 2 www.google.com
+/po-content/filemanager/dialog.php 1 -
+/new/alfacgiapi/404.php 2 -
+/laravel/archives.rar 1 -
+/testwp.php 2 www.google.com
+/dashboard/asset.rar 1 -
+/web2/laboratorium_old.tar 1 -
+/cgi-bin/ALFA_DATA/alfacgiapi/index.php 2 -
+/laravel/laboratorium_old.zip 1 -
+/web1/Archive.tar 1 -
+/dashboard/html.zip 1 -
+/web2/.git.tar 1 -
+/tesla.php 1 www.google.com
+/v2/_ignition/execute-solution 1 -
+/priv.php 1 www.google.com
+/web2/www.rar 1 -
+/com/panel/js/media/upload.php 1 -
+/assets/alfacgiapi/perl.alfa 4 -
+/laravel/app.rar 1 -
+/laravel/laboratorium_old.tar 1 -
+/wp-booking.php 2 www.google.com
+/home/alfacgiapi/perl.alfa 5 -
+/cgi-bin.zip 1 -
+/web1/www.tar 1 -
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/bash.alfa 4 -
+/wp/alfacgiapi/bash.alfa 4 -
+/mas.php 1 www.google.com
+/assets/global/plugins/jquery-file-upload/server/php/index.php 1 -
+/v1/back.tar 1 -
+/v2/back.zip 1 -
+/laravel/__MACOSX.tar 1 -
+/web1/html.rar 1 -
+/home/cgi-bin.tar 1 -
+/wp-content/themes/alfacgiapi/index.php 2 -
+/wp-content/themes/wp-pridmag/status.php 2 www.google.com
+/web1/Archive.zip 1 -
+/home/assets.zip 1 -
+/dashboard/bak.rar 1 -
+/wp.php 1 www.google.com
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/index.php 2 -
+/laravel/archives.tar 1 -
+/.well-known/ALFA_DATA/alfacgiapi/index.php 2 -
+/new/.git/HEAD 1 -
+/blog/alfacgiapi/radio.php 2 -
+/v1/cgi-bin.tar 1 -
+/web/apps.zip 1 -
+/apps.rar 1 -
+/v2/.git.rar 1 -
+/v4.php 1 www.google.com
+/WSO.php 1 www.google.com
+/web.zip 1 -
+/.well-known/alfacgiapi/py.alfa 4 -
+/wp/wp-includes/fonts/dev.php 1 www.google.com
+/web2/__MACOSX.tar 1 -
+/v1/asset.zip 1 -
+/docindex.php 1 www.google.com
+/web1/archives.rar 1 -
+/laravel/ALFA_DATA/alfacgiapi/perl.alfa 5 -
+/wp-content/upgrade/alfacgiapi/py.alfa 4 -
+/v1/laboratorium-old.tar 1 -
+/wp-content/plugins/alfacgiapi/perl.alfa 9 -
+/web/asset.zip 1 -
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/404.php 2 -
+/components/ALFA_DATA/alfacgiapi/radio.php 2 -
+/v2/application.rar 1 -
+/laboratorium-old.rar 1 -
+/.well-known/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/zx.php 1 www.google.com
+/v2/images/editor/separator.gif 1 -
+/home/cgi-bin.zip 1 -
+/home/.git.rar 1 -
+/con7ext.php 1 www.google.com
+/images/ALFA_DATA/alfacgiapi/index.php 2 -
+/www/asset.tar 1 -
+/v1/application.zip 1 -
+/2index.php 2 www.google.com
+/web2/laboratorium_old.rar 1 -
+/old/ALFA_DATA/alfacgiapi/404.php 2 -
+/rc.php 1 www.google.com
+/mobile/assets/js/tinymce/dialog.php 1 -
+/upload/alfacgiapi/perl.alfa 4 -
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/404.php 2 -
+/assets/bower_components/responsivefilemanager/filemanager/dialog.php 1 -
+/gh.php 1 www.google.com
+/images/alfacgiapi/index.php 2 -
+/dashboard/public.rar 1 -
+/www/html.tar 1 -
+/wp-email.php 2 www.google.com
+/sym.php 1 www.google.com
+/blog/wp-includes/fonts/dev.php 1 www.google.com
+/p.php 1 www.google.com
+/.vscode/ftp.json 1 -
+/www/app.rar 1 -
+/assets/uploads/alfacgiapi/index.php 2 -
+/main/assets/jquery-file-upload/server/php/index.php 1 -
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+/cgi-bin/ALFA_DATA/alfacgiapi/404.php 2 -
+/v2/archives.zip 1 -
+/adriv.php 2 www.google.com
+/www/archive.zip 1 -
+/k.php 1 www.google.com
+/v1/www.rar 1 -
+/bak.tar 1 -
+/wp-atom.php 2 www.google.com
+/dashboard/old.zip 1 -
+/include/kcfinder/upload.php 1 -
+/back.zip 1 -
+/v1/laboratoriumold.tar 1 -
+/laboratorium_old.zip 1 -
+/laravel/application.rar 1 -
+/wp-content/upgrade/alfacgiapi/perl.alfa 4 -
+/web2/app.rar 1 -
+/home/applications.rar 1 -
+/kyami.php 2 www.google.com
+/wsanon.php 1 www.google.com
+/assets/tinymce/js/tinymce/plugins/filemanager/dialog.php 1 -
+/wp-content/updraft/ALFA_DATA/alfacgiapi/index.php 2 -
+/wp-content/upgrade/alfacgiapi/bash.alfa 4 -
+/web1/laboratoriumold.rar 1 -
+/wp-login.php 6 -
+/www/laboratoriumold.zip 1 -
+/template/backend/kcfinder/upload.php 1 -
+/hal_dapur/kcfinder/upload.php 1 -
+/uploads/ALFA_DATA/alfacgiapi/index.php 2 -
+/web2/apps.zip 1 -
+/v2/administrator/help/en-GB/toc.json 1 -
+/web1/app.tar 1 -
+/home/public.rar 1 -
+/lnedx.php 1 www.google.com
+/www/laboratorium.poltekkesbanten.ac.id/www.tar 1 -
+/backup/ALFA_DATA/alfacgiapi/bash.alfa 4 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 75
+103.177.177.209 226 497 100520901 20240327020726
+120.188.32.110 22 37 14410575 20240327021329
+114.124.188.231 13 27 2164111 20240314014256
+140.213.26.12 12 26 2236152 20240314015458
+140.213.137.244 12 26 2161627 20240314015211
+180.252.244.5 11 11 224601 20240327071036
+114.79.1.109 10 12 1533066 20240322034119
+114.10.118.93 10 26 15280468 20240315015800
+114.79.4.233 9 17 2130490 20240327052308
+116.206.28.17 9 23 2121300 20240314013518
+114.79.6.91 9 23 2130379 20240314014207
+120.188.34.242 7 21 8678622 20240326052628
+114.79.6.117 7 14 2045268 20240325013056
+114.79.7.107 7 8 692022 20240320111648
+114.79.3.207 7 14 2056554 20240319222246
+180.214.232.74 6 19 2110494 20240322035551
+180.254.64.16 6 14 1530483 20240322035924
+114.79.3.134 6 8 1463128 20240326052445
+114.124.163.102 5 7 1446013 20240325012924
+120.188.5.194 5 19 8125225 20240325014847
+120.188.35.214 5 7 6148406 20240322035932
+140.213.4.107 5 15 1486043 20240314013408
+180.214.233.91 5 18 2076258 20240326052715
+114.10.118.176 5 20 8135838 20240314013457
+182.2.164.182 5 19 2081383 20240314013414
+139.59.101.218 1 1 3736 20240304125238
+87.236.176.86 1 1 41 20240301102008
+184.72.115.35 2 2 13972 20240304025909
+180.254.75.214 2 12 1349302 20240316040139
+120.188.5.94 1 7 750044 20240325195958
+152.42.212.39 1 1 3736 20240318220622
+114.124.163.128 1 6 603148 20240322035152
+114.79.1.158 1 1 18719 20240326071653
+143.110.188.155 1 1 41 20240303145532
+114.124.217.159 1 1 3736 20240318080926
+159.65.9.62 2 2 7472 20240327125011
+65.154.226.167 1 7 750044 20240321101023
+199.45.155.17 1 2 10142 20240313205413
+38.110.1.195 3 3 11208 20240321125204
+138.197.170.20 0 2 81862 
+152.42.208.136 1 1 3736 20240316174942
+36.66.40.249 4 4 14944 20240316003112
+103.220.22.117 1 7 750044 20240314014205
+198.235.24.247 1 1 3736 20240308010301
+174.138.61.61 1 1 41 20240301145138
+103.84.206.119 0 27 1728 
+192.241.137.43 1 2 1055312 20240314013523
+103.177.92.133 1 7 750044 20240318024653
+162.142.125.226 1 2 10142 20240327062327
+167.248.133.49 1 2 10142 20240304174126
+165.22.241.253 1 1 3736 20240308225847
+180.254.67.221 1 6 746154 20240325063556
+89.104.110.197 1 1 41 20240301130047
+120.188.4.50 1 1 3736 20240326123728
+103.147.84.139 1 1 3736 20240326083456
+103.121.144.67 1 7 750044 20240317122548
+120.188.37.106 1 1 3736 20240322101921
+114.10.31.129 5 20 14187392 20240327052856
+103.127.96.140 4 4 14944 20240304200613
+45.55.112.20 0 3 6470773 
+146.190.58.208 2 2 7472 20240306194527
+182.2.146.254 3 3 36733 20240326045359
+104.248.75.7 1 1 3736 20240314013322
+198.235.24.177 1 1 3736 20240313104912
+204.48.31.118 1 1 3736 20240319012059
+205.210.31.196 1 1 3736 20240314202322
+116.206.12.37 5 18 2069767 20240319221920
+185.213.83.174 1 1 3766 20240321194309
+199.45.154.16 1 2 10142 20240307080549
+180.214.232.73 5 18 2079682 20240315020414
+91.92.253.210 2 2 7472 20240327114454
+180.254.66.168 1 7 750044 20240316064756
+54.198.122.160 1 1 3736 20240319091249
+205.210.31.22 1 1 3736 20240304221211
+116.206.12.47 5 18 2071474 20240320042255
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 27
+20240301 4 5 7173 4
+20240302 0 1 64 0
+20240303 6 20 2134721 2
+20240304 8 10 39608 6
+20240305 41 54 13122942 1
+20240306 12 13 414782 3
+20240307 1 3 10206 1
+20240308 2 3 7536 2
+20240309 0 1 64 0
+20240310 0 1 64 0
+20240311 0 1 64 0
+20240312 0 1 64 0
+20240313 2 4 13942 2
+20240314 190 488 81712431 13
+20240315 42 91 20535764 4
+20240316 8 25 2118090 5
+20240317 1 8 750108 1
+20240318 4 11 761316 4
+20240319 21 56 12285491 5
+20240320 24 54 17006347 4
+20240321 3 10 757610 3
+20240322 29 62 12098147 7
+20240323 2 7 669355 1
+20240324 0 1 64 0
+20240325 19 57 13953114 5
+20240326 29 60 12375143 9
+20240327 54 106 37665529 9
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 6
+2mn-5mn 8
+30mn-1h 3
+5mn-15mn 6
+15mn-30mn 4
+30s-2mn 19
+0s-30s 51
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 22
+/login 138 519412 78 46
+/user/kunjungan 88 1780480 0 22
+/profile 84 1385780 2 1
+/thema/assets/css/icons/tabler-icons/fonts/tabler-icons.woff2 46 25398624 1 1
+/user/peminjaman 45 741287 0 5
+/user/jadwal_praktikum 21 464337 1 0
+/user/req_peminjaman 20 589001 0 4
+/changePassword 11 157509 0 1
+/home 9 160124 0 0
+/petugas/barang 8 10451304 0 1
+/user/req_jadwal 8 240450 1 3
+/ 4 164 4 4
+/petugas/pengembalian 4 129184 0 0
+/petugas/request 3 72059 0 0
+/petugas/ruang 2 157984 1 0
+/petugas/pengembalian_detail/63 2 53597 0 0
+/petugas/laporan 2 49692 0 0
+/petugas/laporan/alat_lab 2 161722 0 0
+/cgi-sys/defaultwebpage.cgi 2 13972 2 2
+/petugas/request_detail/63 1 26691 0 0
+/user/peminjaman_detail/75 1 12460 0 0
+/index.php/login 1 3766 1 1
+END_SIDER

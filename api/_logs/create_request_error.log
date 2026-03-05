@@ -1,0 +1,82 @@
+[2026-02-06T07:12:33+00:00][20260206_071233_36e786c3] START create.php
+[2026-02-06T07:12:33+00:00][20260206_071233_36e786c3] LOGDIR=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/request/../../../_logs | writable=yes
+[2026-02-06T07:12:33+00:00][20260206_071233_36e786c3] LOGFILE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/request/../../../_logs/create_request_error.log
+[2026-02-06T07:12:33+00:00][20260206_071233_36e786c3] API_BASE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api
+[2026-02-06T07:12:33+00:00][20260206_071233_36e786c3] __DIR__=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/request
+[2026-02-06T07:12:33+00:00][20260206_071233_36e786c3] BEFORE require config/database.php | path=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/config/database.php
+[2026-02-06T07:12:33+00:00][20260206_071233_36e786c3] FILE_EXISTS=yes
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] AFTER require config/database.php | OK
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] BEFORE require config/response.php | path=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/config/response.php
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] FILE_EXISTS=yes
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] AFTER require config/response.php | OK
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] BEFORE require middleware/auth.php | path=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/middleware/auth.php
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] FILE_EXISTS=yes
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] AFTER require middleware/auth.php | OK
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] BEFORE AuthMiddleware::validateToken()
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] TOKEN_HASH_SHORT=aaafe660
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] AFTER AuthMiddleware::validateToken() | user_id=3233 | user_name=Qowiy Muhammad Rofi Zuhdi
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] BEFORE json_decode input
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] AFTER json_decode input | input_keys=jenis,ruangan,penanggung_jawab,tingkat,waktu_mulai,waktu_selesai,tujuan,tgl_pinjaman,items
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] VALIDATION OK | items_count=1
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] BEFORE Database::getInstance()
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] AFTER Database::getInstance() | DB connected ok
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] DB_INFO: database=u708283844_sisenes | hostname=id-dci-web1863.main-hosting.eu | port=3306
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] BEFORE beginTransaction
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] AFTER beginTransaction
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] BEFORE INSERT peminjaman
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] AFTER INSERT peminjaman | id=1578 | user_id=3233 | token_hash=aaafe660
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] VERIFY_INSERT: found=yes | verify_user_id=3233 | verify_created_at=2026-02-06 07:12:33
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] BEFORE INSERT peminjaman_detail | barang_id=172 | stok_pinjam=1
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] AFTER INSERT peminjaman_detail | items_count=1
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] AFTER INSERT all peminjaman_detail | total_items=1
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] BEFORE commit transaction
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] AFTER commit transaction | OK
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] BEFORE SELECT created request | id=1578
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] AFTER SELECT created request | found=yes
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] BEFORE ResponseHelper::success
+[2026-02-06T14:12:33+07:00][20260206_071233_36e786c3] AFTER ResponseHelper::success | DONE | request_id=1578
+[2026-02-19T03:02:36+00:00][20260219_030236_622c98b3] START create.php
+[2026-02-19T03:02:36+00:00][20260219_030236_622c98b3] LOGDIR=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/request/../../../_logs | writable=yes
+[2026-02-19T03:02:36+00:00][20260219_030236_622c98b3] LOGFILE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/request/../../../_logs/create_request_error.log
+[2026-02-19T03:02:36+00:00][20260219_030236_622c98b3] API_BASE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api
+[2026-02-19T03:02:36+00:00][20260219_030236_622c98b3] __DIR__=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/request
+[2026-02-19T03:02:36+00:00][20260219_030236_622c98b3] BEFORE require config/database.php | path=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/config/database.php
+[2026-02-19T03:02:36+00:00][20260219_030236_622c98b3] FILE_EXISTS=yes
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER require config/database.php | OK
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] BEFORE require config/response.php | path=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/config/response.php
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] FILE_EXISTS=yes
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER require config/response.php | OK
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] BEFORE require middleware/auth.php | path=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/middleware/auth.php
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] FILE_EXISTS=yes
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER require middleware/auth.php | OK
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] BEFORE AuthMiddleware::validateToken()
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] TOKEN_HASH_SHORT=1af75738
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER AuthMiddleware::validateToken() | user_id=3238 | user_name=tester-keperawatan
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] BEFORE json_decode input
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER json_decode input | input_keys=jenis,ruangan,penanggung_jawab,tingkat,waktu_mulai,waktu_selesai,tujuan,tgl_pinjaman,items
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] VALIDATION OK | items_count=5
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] BEFORE Database::getInstance()
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER Database::getInstance() | DB connected ok
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] DB_INFO: database=u708283844_sisenes | hostname=id-dci-web1863.main-hosting.eu | port=3306
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] BEFORE beginTransaction
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER beginTransaction
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] BEFORE INSERT peminjaman
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER INSERT peminjaman | id=1687 | user_id=3238 | token_hash=1af75738
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] VERIFY_INSERT: found=yes | verify_user_id=3238 | verify_created_at=2026-02-19 03:02:36
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] BEFORE INSERT peminjaman_detail | barang_id=262 | stok_pinjam=1
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER INSERT peminjaman_detail | items_count=1
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] BEFORE INSERT peminjaman_detail | barang_id=164 | stok_pinjam=1
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER INSERT peminjaman_detail | items_count=2
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] BEFORE INSERT peminjaman_detail | barang_id=171 | stok_pinjam=1
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER INSERT peminjaman_detail | items_count=3
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] BEFORE INSERT peminjaman_detail | barang_id=241 | stok_pinjam=1
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER INSERT peminjaman_detail | items_count=4
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] BEFORE INSERT peminjaman_detail | barang_id=334 | stok_pinjam=1
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER INSERT peminjaman_detail | items_count=5
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER INSERT all peminjaman_detail | total_items=5
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] BEFORE commit transaction
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER commit transaction | OK
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] BEFORE SELECT created request | id=1687
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER SELECT created request | found=yes
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] BEFORE ResponseHelper::success
+[2026-02-19T10:02:36+07:00][20260219_030236_622c98b3] AFTER ResponseHelper::success | DONE | request_id=1687

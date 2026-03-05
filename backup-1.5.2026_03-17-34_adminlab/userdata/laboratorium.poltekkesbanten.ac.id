@@ -1,0 +1,26 @@
+--- 
+customlog: 
+  - 
+    format: combined
+    target: /etc/apache2/logs/domlogs/laboratorium.poltekkesbanten.ac.id
+  - 
+    format: "\"%{%s}t %I .\\n%{%s}t %O .\""
+    target: /etc/apache2/logs/domlogs/laboratorium.poltekkesbanten.ac.id-bytes_log
+documentroot: /home/adminlab/public_html
+group: adminlab
+hascgi: 1
+homedir: /home/adminlab
+ip: 202.10.35.243
+owner: root
+phpopenbasedirprotect: 1
+phpversion: ea-php74
+port: 80
+scriptalias: 
+  - 
+    path: /home/adminlab/public_html/cgi-bin
+    url: /cgi-bin/
+serveradmin: webmaster@laboratorium.poltekkesbanten.ac.id
+serveralias: mail.laboratorium.poltekkesbanten.ac.id www.laboratorium.poltekkesbanten.ac.id
+servername: laboratorium.poltekkesbanten.ac.id
+usecanonicalname: 'Off'
+user: adminlab

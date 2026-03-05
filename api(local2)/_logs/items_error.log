@@ -1,0 +1,924 @@
+[2026-01-27T03:26:07+00:00][20260127_032607_b4a07feb] START items.php
+[2026-01-27T03:26:07+00:00][20260127_032607_b4a07feb] LOGDIR=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs | writable=yes
+[2026-01-27T03:26:07+00:00][20260127_032607_b4a07feb] LOGFILE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs/items_error.log
+[2026-01-27T03:26:07+00:00][20260127_032607_b4a07feb] BEFORE require config/database.php
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] AFTER require config/database.php
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] BEFORE require config/response.php
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] AFTER require config/response.php
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] BEFORE require middleware/auth.php
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] AFTER require middleware/auth.php
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] BEFORE AuthMiddleware::validateToken()
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] AFTER AuthMiddleware::validateToken() | user_id=3233
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] JURUSAN param=not_provided | final=Keperawatan
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] BEFORE Database::getInstance()
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] AFTER Database::getInstance() | DB connected ok
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] BEFORE prepare SQL | sql_length=2229 | jurusan=Keperawatan
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] SQL_RAW_BEGIN
+
+        SELECT
+            'alat' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            b.kondisi AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barangbhp_alat b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kondisi
+        
+        UNION ALL
+        
+        SELECT
+            'bahan' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            CONCAT(
+                IFNULL(b.kimia, '-'),
+                ' | exp:',
+                IFNULL(DATE_FORMAT(b.tgl_expired, '%Y-%m-%d'), '-')
+            ) AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barangbhp_bahan b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kimia, b.tgl_expired
+        
+        UNION ALL
+        
+        SELECT
+            'inventaris' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            CONCAT(
+                IFNULL(b.kode_barang, '-'),
+                ' | ',
+                IFNULL(b.ruang, '-')
+            ) AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barang_inventaris b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kode_barang, b.ruang
+        
+        ORDER BY (stok_total > 0) DESC, nama ASC
+    
+SQL_RAW_END
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] PLACEHOLDER_COUNT q=0 namedJurusan=3
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] PROBE_OK rows=206
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] BIND_KEYS=["jurusan"]
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] BIND_COUNT=1
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] BIND_VALUE=Keperawatan
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] AFTER prepare SQL
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] BEFORE execute SQL FIX1 | binding jurusan=Keperawatan
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] EXECUTE_FAIL_FIX1: SQLSTATE[HY093]: Invalid parameter number
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] TRYING_FIX2: Using unique placeholders :j1 :j2 :j3
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] SQL_FIX2_BEGIN\n
+            SELECT
+                'alat' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                kondisi AS extra
+            FROM barangbhp_alat
+            WHERE jurusan = :j1
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'bahan' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kimia, '-'),
+                    ' | exp:',
+                    IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+                ) AS extra
+            FROM barangbhp_bahan
+            WHERE jurusan = :j2
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'inventaris' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kode_barang, '-'),
+                    ' | ',
+                    IFNULL(ruang, '-')
+                ) AS extra
+            FROM barang_inventaris
+            WHERE jurusan = :j3
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            ORDER BY (stok > 0) DESC, nama ASC
+        \nSQL_FIX2_END
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] BIND2_KEYS=["j1","j2","j3"]
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] BIND2_COUNT=3
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] ORIGINAL_EMULATE_PREPARES=false
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] AFTER prepare SQL FIX2
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] BEFORE execute SQL FIX2
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] EXECUTE_OK_FIX2
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] AFTER execute SQL | success=true
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] BEFORE fetchAll
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] AFTER fetchAll | rows=206
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] BEFORE calculate stok_tersedia
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] STOCK_CALC_EXAMPLE: id=351, nama=Abocath No. 16, stok_total=7, stok_dipinjam=0, stok_tersedia=7, is_available=true
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] AFTER calculate stok_tersedia | processed_rows=206
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] BEFORE json_encode response
+[2026-01-27T10:26:07+07:00][20260127_032607_b4a07feb] AFTER json_encode response | SUCCESS
+[2026-01-27T04:14:04+00:00][20260127_041404_a0b06b4d] START items.php
+[2026-01-27T04:14:04+00:00][20260127_041404_a0b06b4d] LOGDIR=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs | writable=yes
+[2026-01-27T04:14:04+00:00][20260127_041404_a0b06b4d] LOGFILE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs/items_error.log
+[2026-01-27T04:14:04+00:00][20260127_041404_a0b06b4d] BEFORE require config/database.php
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] AFTER require config/database.php
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] BEFORE require config/response.php
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] AFTER require config/response.php
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] BEFORE require middleware/auth.php
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] AFTER require middleware/auth.php
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] BEFORE AuthMiddleware::validateToken()
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] AFTER AuthMiddleware::validateToken() | user_id=3233
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] JURUSAN param=not_provided | final=Keperawatan
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] BEFORE Database::getInstance()
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] AFTER Database::getInstance() | DB connected ok
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] BEFORE prepare SQL | sql_length=2229 | jurusan=Keperawatan
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] SQL_RAW_BEGIN
+
+        SELECT
+            'alat' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            b.kondisi AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barangbhp_alat b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kondisi
+        
+        UNION ALL
+        
+        SELECT
+            'bahan' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            CONCAT(
+                IFNULL(b.kimia, '-'),
+                ' | exp:',
+                IFNULL(DATE_FORMAT(b.tgl_expired, '%Y-%m-%d'), '-')
+            ) AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barangbhp_bahan b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kimia, b.tgl_expired
+        
+        UNION ALL
+        
+        SELECT
+            'inventaris' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            CONCAT(
+                IFNULL(b.kode_barang, '-'),
+                ' | ',
+                IFNULL(b.ruang, '-')
+            ) AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barang_inventaris b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kode_barang, b.ruang
+        
+        ORDER BY (stok_total > 0) DESC, nama ASC
+    
+SQL_RAW_END
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] PLACEHOLDER_COUNT q=0 namedJurusan=3
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] PROBE_OK rows=206
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] BIND_KEYS=["jurusan"]
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] BIND_COUNT=1
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] BIND_VALUE=Keperawatan
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] AFTER prepare SQL
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] BEFORE execute SQL FIX1 | binding jurusan=Keperawatan
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] EXECUTE_FAIL_FIX1: SQLSTATE[HY093]: Invalid parameter number
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] TRYING_FIX2: Using unique placeholders :j1 :j2 :j3
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] SQL_FIX2_BEGIN\n
+            SELECT
+                'alat' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                kondisi AS extra
+            FROM barangbhp_alat
+            WHERE jurusan = :j1
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'bahan' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kimia, '-'),
+                    ' | exp:',
+                    IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+                ) AS extra
+            FROM barangbhp_bahan
+            WHERE jurusan = :j2
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'inventaris' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kode_barang, '-'),
+                    ' | ',
+                    IFNULL(ruang, '-')
+                ) AS extra
+            FROM barang_inventaris
+            WHERE jurusan = :j3
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            ORDER BY (stok > 0) DESC, nama ASC
+        \nSQL_FIX2_END
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] BIND2_KEYS=["j1","j2","j3"]
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] BIND2_COUNT=3
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] ORIGINAL_EMULATE_PREPARES=false
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] AFTER prepare SQL FIX2
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] BEFORE execute SQL FIX2
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] EXECUTE_OK_FIX2
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] AFTER execute SQL | success=true
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] BEFORE fetchAll
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] AFTER fetchAll | rows=206
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] BEFORE calculate stok_tersedia
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] STOCK_CALC_EXAMPLE: id=351, nama=Abocath No. 16, stok_total=7, stok_dipinjam=0, stok_tersedia=7, is_available=true
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] AFTER calculate stok_tersedia | processed_rows=206
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] BEFORE json_encode response
+[2026-01-27T11:14:04+07:00][20260127_041404_a0b06b4d] AFTER json_encode response | SUCCESS
+[2026-01-27T04:21:16+00:00][20260127_042116_535bdfe4] START items.php
+[2026-01-27T04:21:16+00:00][20260127_042116_535bdfe4] LOGDIR=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs | writable=yes
+[2026-01-27T04:21:16+00:00][20260127_042116_535bdfe4] LOGFILE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs/items_error.log
+[2026-01-27T04:21:16+00:00][20260127_042116_535bdfe4] BEFORE require config/database.php
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] AFTER require config/database.php
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] BEFORE require config/response.php
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] AFTER require config/response.php
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] BEFORE require middleware/auth.php
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] AFTER require middleware/auth.php
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] BEFORE AuthMiddleware::validateToken()
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] AFTER AuthMiddleware::validateToken() | user_id=3233
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] JURUSAN param=not_provided | final=Keperawatan
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] BEFORE Database::getInstance()
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] AFTER Database::getInstance() | DB connected ok
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] BEFORE prepare SQL | sql_length=2229 | jurusan=Keperawatan
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] SQL_RAW_BEGIN
+
+        SELECT
+            'alat' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            b.kondisi AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barangbhp_alat b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kondisi
+        
+        UNION ALL
+        
+        SELECT
+            'bahan' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            CONCAT(
+                IFNULL(b.kimia, '-'),
+                ' | exp:',
+                IFNULL(DATE_FORMAT(b.tgl_expired, '%Y-%m-%d'), '-')
+            ) AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barangbhp_bahan b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kimia, b.tgl_expired
+        
+        UNION ALL
+        
+        SELECT
+            'inventaris' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            CONCAT(
+                IFNULL(b.kode_barang, '-'),
+                ' | ',
+                IFNULL(b.ruang, '-')
+            ) AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barang_inventaris b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kode_barang, b.ruang
+        
+        ORDER BY (stok_total > 0) DESC, nama ASC
+    
+SQL_RAW_END
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] PLACEHOLDER_COUNT q=0 namedJurusan=3
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] PROBE_OK rows=206
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] BIND_KEYS=["jurusan"]
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] BIND_COUNT=1
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] BIND_VALUE=Keperawatan
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] AFTER prepare SQL
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] BEFORE execute SQL FIX1 | binding jurusan=Keperawatan
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] EXECUTE_FAIL_FIX1: SQLSTATE[HY093]: Invalid parameter number
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] TRYING_FIX2: Using unique placeholders :j1 :j2 :j3
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] SQL_FIX2_BEGIN\n
+            SELECT
+                'alat' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                kondisi AS extra
+            FROM barangbhp_alat
+            WHERE jurusan = :j1
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'bahan' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kimia, '-'),
+                    ' | exp:',
+                    IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+                ) AS extra
+            FROM barangbhp_bahan
+            WHERE jurusan = :j2
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'inventaris' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kode_barang, '-'),
+                    ' | ',
+                    IFNULL(ruang, '-')
+                ) AS extra
+            FROM barang_inventaris
+            WHERE jurusan = :j3
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            ORDER BY (stok > 0) DESC, nama ASC
+        \nSQL_FIX2_END
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] BIND2_KEYS=["j1","j2","j3"]
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] BIND2_COUNT=3
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] ORIGINAL_EMULATE_PREPARES=false
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] AFTER prepare SQL FIX2
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] BEFORE execute SQL FIX2
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] EXECUTE_OK_FIX2
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] AFTER execute SQL | success=true
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] BEFORE fetchAll
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] AFTER fetchAll | rows=206
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] BEFORE calculate stok_tersedia
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] STOCK_CALC_EXAMPLE: id=351, nama=Abocath No. 16, stok_total=7, stok_dipinjam=0, stok_tersedia=7, is_available=true
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] AFTER calculate stok_tersedia | processed_rows=206
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] BEFORE json_encode response
+[2026-01-27T11:21:16+07:00][20260127_042116_535bdfe4] AFTER json_encode response | SUCCESS
+[2026-01-27T04:32:04+00:00][20260127_043204_111cd5a6] START items.php
+[2026-01-27T04:32:04+00:00][20260127_043204_111cd5a6] LOGDIR=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs | writable=yes
+[2026-01-27T04:32:04+00:00][20260127_043204_111cd5a6] LOGFILE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs/items_error.log
+[2026-01-27T04:32:04+00:00][20260127_043204_111cd5a6] BEFORE require config/database.php
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] AFTER require config/database.php
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] BEFORE require config/response.php
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] AFTER require config/response.php
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] BEFORE require middleware/auth.php
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] AFTER require middleware/auth.php
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] BEFORE AuthMiddleware::validateToken()
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] AFTER AuthMiddleware::validateToken() | user_id=3233
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] JURUSAN param=not_provided | final=Keperawatan
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] BEFORE Database::getInstance()
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] AFTER Database::getInstance() | DB connected ok
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] BEFORE prepare SQL | sql_length=2229 | jurusan=Keperawatan
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] SQL_RAW_BEGIN
+
+        SELECT
+            'alat' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            b.kondisi AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barangbhp_alat b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kondisi
+        
+        UNION ALL
+        
+        SELECT
+            'bahan' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            CONCAT(
+                IFNULL(b.kimia, '-'),
+                ' | exp:',
+                IFNULL(DATE_FORMAT(b.tgl_expired, '%Y-%m-%d'), '-')
+            ) AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barangbhp_bahan b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kimia, b.tgl_expired
+        
+        UNION ALL
+        
+        SELECT
+            'inventaris' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            CONCAT(
+                IFNULL(b.kode_barang, '-'),
+                ' | ',
+                IFNULL(b.ruang, '-')
+            ) AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barang_inventaris b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kode_barang, b.ruang
+        
+        ORDER BY (stok_total > 0) DESC, nama ASC
+    
+SQL_RAW_END
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] PLACEHOLDER_COUNT q=0 namedJurusan=3
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] PROBE_OK rows=206
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] BIND_KEYS=["jurusan"]
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] BIND_COUNT=1
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] BIND_VALUE=Keperawatan
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] AFTER prepare SQL
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] BEFORE execute SQL FIX1 | binding jurusan=Keperawatan
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] EXECUTE_FAIL_FIX1: SQLSTATE[HY093]: Invalid parameter number
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] TRYING_FIX2: Using unique placeholders :j1 :j2 :j3
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] SQL_FIX2_BEGIN\n
+            SELECT
+                'alat' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                kondisi AS extra
+            FROM barangbhp_alat
+            WHERE jurusan = :j1
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'bahan' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kimia, '-'),
+                    ' | exp:',
+                    IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+                ) AS extra
+            FROM barangbhp_bahan
+            WHERE jurusan = :j2
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'inventaris' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kode_barang, '-'),
+                    ' | ',
+                    IFNULL(ruang, '-')
+                ) AS extra
+            FROM barang_inventaris
+            WHERE jurusan = :j3
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            ORDER BY (stok > 0) DESC, nama ASC
+        \nSQL_FIX2_END
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] BIND2_KEYS=["j1","j2","j3"]
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] BIND2_COUNT=3
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] ORIGINAL_EMULATE_PREPARES=false
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] AFTER prepare SQL FIX2
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] BEFORE execute SQL FIX2
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] EXECUTE_OK_FIX2
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] AFTER execute SQL | success=true
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] BEFORE fetchAll
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] AFTER fetchAll | rows=206
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] BEFORE calculate stok_tersedia
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] STOCK_CALC_EXAMPLE: id=351, nama=Abocath No. 16, stok_total=7, stok_dipinjam=0, stok_tersedia=7, is_available=true
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] AFTER calculate stok_tersedia | processed_rows=206
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] BEFORE json_encode response
+[2026-01-27T11:32:04+07:00][20260127_043204_111cd5a6] AFTER json_encode response | SUCCESS
+[2026-01-27T04:36:07+00:00][20260127_043607_866dd929] START items.php
+[2026-01-27T04:36:07+00:00][20260127_043607_866dd929] LOGDIR=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs | writable=yes
+[2026-01-27T04:36:07+00:00][20260127_043607_866dd929] LOGFILE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs/items_error.log
+[2026-01-27T04:36:07+00:00][20260127_043607_866dd929] BEFORE require config/database.php
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] AFTER require config/database.php
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] BEFORE require config/response.php
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] AFTER require config/response.php
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] BEFORE require middleware/auth.php
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] AFTER require middleware/auth.php
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] BEFORE AuthMiddleware::validateToken()
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] AFTER AuthMiddleware::validateToken() | user_id=3233
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] JURUSAN param=not_provided | final=Keperawatan
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] BEFORE Database::getInstance()
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] AFTER Database::getInstance() | DB connected ok
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] BEFORE prepare SQL | sql_length=2229 | jurusan=Keperawatan
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] SQL_RAW_BEGIN
+
+        SELECT
+            'alat' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            b.kondisi AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barangbhp_alat b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kondisi
+        
+        UNION ALL
+        
+        SELECT
+            'bahan' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            CONCAT(
+                IFNULL(b.kimia, '-'),
+                ' | exp:',
+                IFNULL(DATE_FORMAT(b.tgl_expired, '%Y-%m-%d'), '-')
+            ) AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barangbhp_bahan b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kimia, b.tgl_expired
+        
+        UNION ALL
+        
+        SELECT
+            'inventaris' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            CONCAT(
+                IFNULL(b.kode_barang, '-'),
+                ' | ',
+                IFNULL(b.ruang, '-')
+            ) AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barang_inventaris b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kode_barang, b.ruang
+        
+        ORDER BY (stok_total > 0) DESC, nama ASC
+    
+SQL_RAW_END
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] PLACEHOLDER_COUNT q=0 namedJurusan=3
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] PROBE_OK rows=206
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] BIND_KEYS=["jurusan"]
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] BIND_COUNT=1
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] BIND_VALUE=Keperawatan
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] AFTER prepare SQL
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] BEFORE execute SQL FIX1 | binding jurusan=Keperawatan
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] EXECUTE_FAIL_FIX1: SQLSTATE[HY093]: Invalid parameter number
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] TRYING_FIX2: Using unique placeholders :j1 :j2 :j3
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] SQL_FIX2_BEGIN\n
+            SELECT
+                'alat' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                kondisi AS extra
+            FROM barangbhp_alat
+            WHERE jurusan = :j1
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'bahan' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kimia, '-'),
+                    ' | exp:',
+                    IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+                ) AS extra
+            FROM barangbhp_bahan
+            WHERE jurusan = :j2
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'inventaris' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kode_barang, '-'),
+                    ' | ',
+                    IFNULL(ruang, '-')
+                ) AS extra
+            FROM barang_inventaris
+            WHERE jurusan = :j3
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            ORDER BY (stok > 0) DESC, nama ASC
+        \nSQL_FIX2_END
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] BIND2_KEYS=["j1","j2","j3"]
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] BIND2_COUNT=3
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] ORIGINAL_EMULATE_PREPARES=false
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] AFTER prepare SQL FIX2
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] BEFORE execute SQL FIX2
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] EXECUTE_OK_FIX2
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] AFTER execute SQL | success=true
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] BEFORE fetchAll
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] AFTER fetchAll | rows=206
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] BEFORE calculate stok_tersedia
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] STOCK_CALC_EXAMPLE: id=351, nama=Abocath No. 16, stok_total=7, stok_dipinjam=0, stok_tersedia=7, is_available=true
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] AFTER calculate stok_tersedia | processed_rows=206
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] BEFORE json_encode response
+[2026-01-27T11:36:07+07:00][20260127_043607_866dd929] AFTER json_encode response | SUCCESS
+[2026-01-27T04:40:12+00:00][20260127_044012_e535eeac] START items.php
+[2026-01-27T04:40:12+00:00][20260127_044012_e535eeac] LOGDIR=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs | writable=yes
+[2026-01-27T04:40:12+00:00][20260127_044012_e535eeac] LOGFILE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs/items_error.log
+[2026-01-27T04:40:12+00:00][20260127_044012_e535eeac] BEFORE require config/database.php
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] AFTER require config/database.php
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] BEFORE require config/response.php
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] AFTER require config/response.php
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] BEFORE require middleware/auth.php
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] AFTER require middleware/auth.php
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] BEFORE AuthMiddleware::validateToken()
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] AFTER AuthMiddleware::validateToken() | user_id=3233
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] JURUSAN param=not_provided | final=Keperawatan
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] BEFORE Database::getInstance()
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] AFTER Database::getInstance() | DB connected ok
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] BEFORE prepare SQL | sql_length=2229 | jurusan=Keperawatan
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] SQL_RAW_BEGIN
+
+        SELECT
+            'alat' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            b.kondisi AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barangbhp_alat b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kondisi
+        
+        UNION ALL
+        
+        SELECT
+            'bahan' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            CONCAT(
+                IFNULL(b.kimia, '-'),
+                ' | exp:',
+                IFNULL(DATE_FORMAT(b.tgl_expired, '%Y-%m-%d'), '-')
+            ) AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barangbhp_bahan b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kimia, b.tgl_expired
+        
+        UNION ALL
+        
+        SELECT
+            'inventaris' AS source,
+            b.id,
+            b.jurusan,
+            b.nama,
+            b.stok AS stok_total,
+            b.satuan,
+            CONCAT(
+                IFNULL(b.kode_barang, '-'),
+                ' | ',
+                IFNULL(b.ruang, '-')
+            ) AS extra,
+            COALESCE(SUM(pd.stok_pinjam), 0) AS stok_dipinjam
+        FROM barang_inventaris b
+        LEFT JOIN peminjaman_detail pd ON pd.barang_id = b.id
+            AND pd.status IN ('Menunggu Konfirmasi', 'Dipinjamkan')
+        WHERE b.jurusan = :jurusan
+            AND (b.`delete` IS NULL OR b.`delete` = '-')
+        GROUP BY b.id, b.jurusan, b.nama, b.stok, b.satuan, b.kode_barang, b.ruang
+        
+        ORDER BY (stok_total > 0) DESC, nama ASC
+    
+SQL_RAW_END
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] PLACEHOLDER_COUNT q=0 namedJurusan=3
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] PROBE_OK rows=206
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] BIND_KEYS=["jurusan"]
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] BIND_COUNT=1
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] BIND_VALUE=Keperawatan
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] AFTER prepare SQL
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] BEFORE execute SQL FIX1 | binding jurusan=Keperawatan
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] EXECUTE_FAIL_FIX1: SQLSTATE[HY093]: Invalid parameter number
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] TRYING_FIX2: Using unique placeholders :j1 :j2 :j3
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] SQL_FIX2_BEGIN\n
+            SELECT
+                'alat' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                kondisi AS extra
+            FROM barangbhp_alat
+            WHERE jurusan = :j1
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'bahan' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kimia, '-'),
+                    ' | exp:',
+                    IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+                ) AS extra
+            FROM barangbhp_bahan
+            WHERE jurusan = :j2
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'inventaris' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kode_barang, '-'),
+                    ' | ',
+                    IFNULL(ruang, '-')
+                ) AS extra
+            FROM barang_inventaris
+            WHERE jurusan = :j3
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            ORDER BY (stok > 0) DESC, nama ASC
+        \nSQL_FIX2_END
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] BIND2_KEYS=["j1","j2","j3"]
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] BIND2_COUNT=3
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] ORIGINAL_EMULATE_PREPARES=false
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] AFTER prepare SQL FIX2
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] BEFORE execute SQL FIX2
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] EXECUTE_OK_FIX2
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] AFTER execute SQL | success=true
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] BEFORE fetchAll
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] AFTER fetchAll | rows=206
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] BEFORE calculate stok_tersedia
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] STOCK_CALC_EXAMPLE: id=351, nama=Abocath No. 16, stok_total=7, stok_dipinjam=0, stok_tersedia=7, is_available=true
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] AFTER calculate stok_tersedia | processed_rows=206
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] BEFORE json_encode response
+[2026-01-27T11:40:12+07:00][20260127_044012_e535eeac] AFTER json_encode response | SUCCESS

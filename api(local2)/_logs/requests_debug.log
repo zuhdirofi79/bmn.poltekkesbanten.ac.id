@@ -1,0 +1,260 @@
+[2026-01-27T10:25:53+07:00] === START requests.php ===
+[2026-01-27T10:25:53+07:00] TOKEN_HASH_SHORT=7cbee531
+[2026-01-27T10:25:53+07:00] BEFORE AuthMiddleware::validateToken()
+[2026-01-27T10:25:53+07:00] AFTER AuthMiddleware::validateToken() | user_id=3233 | user_name=Qowiy Muhammad Rofi Zuhdi
+[2026-01-27T10:25:53+07:00] BEFORE Database::getInstance()
+[2026-01-27T10:25:53+07:00] AFTER Database::getInstance() | DB connected ok
+[2026-01-27T10:25:53+07:00] DB_INFO: database=u708283844_sisenes | hostname=id-dci-web1863.main-hosting.eu | port=3306
+[2026-01-27T10:25:53+07:00] SANITY_CHECK: latest_5_rows=[{"id":1411,"user_id":3233,"created_at":"2026-01-26 09:04:50"},{"id":1410,"user_id":3233,"created_at":"2026-01-26 03:58:19"},{"id":1409,"user_id":3233,"created_at":"2026-01-26 03:01:41"},{"id":1408,"user_id":3233,"created_at":"2026-01-26 02:33:16"},{"id":1407,"user_id":3233,"created_at":"2026-01-26 01:49:26"}]
+[2026-01-27T10:25:53+07:00] COUNT_QUERY: user_id=3233 | total=6
+[2026-01-27T10:25:53+07:00] BEFORE prepare SQL | user_id=3233
+[2026-01-27T10:25:53+07:00] SQL=
+        SELECT 
+            id, jurusan, user_id, jenis, ruangan,
+            penanggung_jawab, tingkat, waktu_mulai,
+            waktu_selesai, tujuan, tgl_pinjaman,
+            tgl_pengembalian, status, created_at
+        FROM peminjaman
+        WHERE user_id = :user_id
+        ORDER BY created_at DESC
+    
+[2026-01-27T10:25:53+07:00] BEFORE execute SQL | params={"user_id":3233}
+[2026-01-27T10:25:53+07:00] AFTER execute SQL
+[2026-01-27T10:25:53+07:00] AFTER fetchAll | count=6
+[2026-01-27T10:25:53+07:00] FIRST_FEW_REQUESTS: [{"id":1411,"user_id":3233,"created_at":"2026-01-26 09:04:50"},{"id":1410,"user_id":3233,"created_at":"2026-01-26 03:58:19"},{"id":1409,"user_id":3233,"created_at":"2026-01-26 03:01:41"}]
+[2026-01-27T10:25:53+07:00] FORMATTED_REQUESTS_COUNT=6
+[2026-01-27T10:25:53+07:00] === END requests.php SUCCESS ===
+[2026-01-27T11:12:58+07:00] === START requests.php ===
+[2026-01-27T11:12:58+07:00] TOKEN_HASH_SHORT=67abe184
+[2026-01-27T11:12:58+07:00] BEFORE AuthMiddleware::validateToken()
+[2026-01-27T11:12:58+07:00] AFTER AuthMiddleware::validateToken() | user_id=3233 | user_name=Qowiy Muhammad Rofi Zuhdi
+[2026-01-27T11:12:58+07:00] BEFORE Database::getInstance()
+[2026-01-27T11:12:58+07:00] AFTER Database::getInstance() | DB connected ok
+[2026-01-27T11:12:58+07:00] DB_INFO: database=u708283844_sisenes | hostname=id-dci-web1863.main-hosting.eu | port=3306
+[2026-01-27T11:12:58+07:00] SANITY_CHECK: latest_5_rows=[{"id":1411,"user_id":3233,"created_at":"2026-01-26 09:04:50"},{"id":1410,"user_id":3233,"created_at":"2026-01-26 03:58:19"},{"id":1409,"user_id":3233,"created_at":"2026-01-26 03:01:41"},{"id":1408,"user_id":3233,"created_at":"2026-01-26 02:33:16"},{"id":1407,"user_id":3233,"created_at":"2026-01-26 01:49:26"}]
+[2026-01-27T11:12:58+07:00] COUNT_QUERY: user_id=3233 | total=6
+[2026-01-27T11:12:58+07:00] BEFORE prepare SQL | user_id=3233
+[2026-01-27T11:12:58+07:00] SQL=
+        SELECT 
+            id, jurusan, user_id, jenis, ruangan,
+            penanggung_jawab, tingkat, waktu_mulai,
+            waktu_selesai, tujuan, tgl_pinjaman,
+            tgl_pengembalian, status, created_at
+        FROM peminjaman
+        WHERE user_id = :user_id
+        ORDER BY created_at DESC
+    
+[2026-01-27T11:12:58+07:00] BEFORE execute SQL | params={"user_id":3233}
+[2026-01-27T11:12:58+07:00] AFTER execute SQL
+[2026-01-27T11:12:58+07:00] AFTER fetchAll | count=6
+[2026-01-27T11:12:58+07:00] FIRST_FEW_REQUESTS: [{"id":1411,"user_id":3233,"created_at":"2026-01-26 09:04:50"},{"id":1410,"user_id":3233,"created_at":"2026-01-26 03:58:19"},{"id":1409,"user_id":3233,"created_at":"2026-01-26 03:01:41"}]
+[2026-01-27T11:12:58+07:00] FORMATTED_REQUESTS_COUNT=6
+[2026-01-27T11:12:58+07:00] === END requests.php SUCCESS ===
+[2026-01-27T11:21:09+07:00] === START requests.php ===
+[2026-01-27T11:21:09+07:00] TOKEN_HASH_SHORT=6db05ffc
+[2026-01-27T11:21:09+07:00] BEFORE AuthMiddleware::validateToken()
+[2026-01-27T11:21:09+07:00] AFTER AuthMiddleware::validateToken() | user_id=3233 | user_name=Qowiy Muhammad Rofi Zuhdi
+[2026-01-27T11:21:09+07:00] BEFORE Database::getInstance()
+[2026-01-27T11:21:09+07:00] AFTER Database::getInstance() | DB connected ok
+[2026-01-27T11:21:09+07:00] DB_INFO: database=u708283844_sisenes | hostname=id-dci-web1863.main-hosting.eu | port=3306
+[2026-01-27T11:21:09+07:00] SANITY_CHECK: latest_5_rows=[{"id":1411,"user_id":3233,"created_at":"2026-01-26 09:04:50"},{"id":1410,"user_id":3233,"created_at":"2026-01-26 03:58:19"},{"id":1409,"user_id":3233,"created_at":"2026-01-26 03:01:41"},{"id":1408,"user_id":3233,"created_at":"2026-01-26 02:33:16"},{"id":1407,"user_id":3233,"created_at":"2026-01-26 01:49:26"}]
+[2026-01-27T11:21:09+07:00] COUNT_QUERY: user_id=3233 | total=6
+[2026-01-27T11:21:09+07:00] BEFORE prepare SQL | user_id=3233
+[2026-01-27T11:21:09+07:00] SQL=
+        SELECT 
+            id, jurusan, user_id, jenis, ruangan,
+            penanggung_jawab, tingkat, waktu_mulai,
+            waktu_selesai, tujuan, tgl_pinjaman,
+            tgl_pengembalian, status, created_at
+        FROM peminjaman
+        WHERE user_id = :user_id
+        ORDER BY created_at DESC
+    
+[2026-01-27T11:21:09+07:00] BEFORE execute SQL | params={"user_id":3233}
+[2026-01-27T11:21:09+07:00] AFTER execute SQL
+[2026-01-27T11:21:09+07:00] AFTER fetchAll | count=6
+[2026-01-27T11:21:09+07:00] FIRST_FEW_REQUESTS: [{"id":1411,"user_id":3233,"created_at":"2026-01-26 09:04:50"},{"id":1410,"user_id":3233,"created_at":"2026-01-26 03:58:19"},{"id":1409,"user_id":3233,"created_at":"2026-01-26 03:01:41"}]
+[2026-01-27T11:21:09+07:00] FORMATTED_REQUESTS_COUNT=6
+[2026-01-27T11:21:09+07:00] === END requests.php SUCCESS ===
+[2026-01-27T11:31:57+07:00] === START requests.php ===
+[2026-01-27T11:31:57+07:00] TOKEN_HASH_SHORT=0cb55ab9
+[2026-01-27T11:31:57+07:00] BEFORE AuthMiddleware::validateToken()
+[2026-01-27T11:31:57+07:00] AFTER AuthMiddleware::validateToken() | user_id=3233 | user_name=Qowiy Muhammad Rofi Zuhdi
+[2026-01-27T11:31:57+07:00] BEFORE Database::getInstance()
+[2026-01-27T11:31:57+07:00] AFTER Database::getInstance() | DB connected ok
+[2026-01-27T11:31:57+07:00] DB_INFO: database=u708283844_sisenes | hostname=id-dci-web1863.main-hosting.eu | port=3306
+[2026-01-27T11:31:57+07:00] SANITY_CHECK: latest_5_rows=[{"id":1411,"user_id":3233,"created_at":"2026-01-26 09:04:50"},{"id":1410,"user_id":3233,"created_at":"2026-01-26 03:58:19"},{"id":1409,"user_id":3233,"created_at":"2026-01-26 03:01:41"},{"id":1408,"user_id":3233,"created_at":"2026-01-26 02:33:16"},{"id":1407,"user_id":3233,"created_at":"2026-01-26 01:49:26"}]
+[2026-01-27T11:31:57+07:00] COUNT_QUERY: user_id=3233 | total=6
+[2026-01-27T11:31:57+07:00] BEFORE prepare SQL | user_id=3233
+[2026-01-27T11:31:57+07:00] SQL=
+        SELECT 
+            id, jurusan, user_id, jenis, ruangan,
+            penanggung_jawab, tingkat, waktu_mulai,
+            waktu_selesai, tujuan, tgl_pinjaman,
+            tgl_pengembalian, status, created_at
+        FROM peminjaman
+        WHERE user_id = :user_id
+        ORDER BY created_at DESC
+    
+[2026-01-27T11:31:57+07:00] BEFORE execute SQL | params={"user_id":3233}
+[2026-01-27T11:31:57+07:00] AFTER execute SQL
+[2026-01-27T11:31:57+07:00] AFTER fetchAll | count=6
+[2026-01-27T11:31:57+07:00] FIRST_FEW_REQUESTS: [{"id":1411,"user_id":3233,"created_at":"2026-01-26 09:04:50"},{"id":1410,"user_id":3233,"created_at":"2026-01-26 03:58:19"},{"id":1409,"user_id":3233,"created_at":"2026-01-26 03:01:41"}]
+[2026-01-27T11:31:57+07:00] FORMATTED_REQUESTS_COUNT=6
+[2026-01-27T11:31:57+07:00] === END requests.php SUCCESS ===
+[2026-01-27T11:39:45+07:00] === START requests.php ===
+[2026-01-27T11:39:45+07:00] TOKEN_HASH_SHORT=0cb55ab9
+[2026-01-27T11:39:45+07:00] BEFORE AuthMiddleware::validateToken()
+[2026-01-27T11:39:45+07:00] AFTER AuthMiddleware::validateToken() | user_id=3233 | user_name=Qowiy Muhammad Rofi Zuhdi
+[2026-01-27T11:39:45+07:00] BEFORE Database::getInstance()
+[2026-01-27T11:39:45+07:00] AFTER Database::getInstance() | DB connected ok
+[2026-01-27T11:39:45+07:00] DB_INFO: database=u708283844_sisenes | hostname=id-dci-web1863.main-hosting.eu | port=3306
+[2026-01-27T11:39:45+07:00] SANITY_CHECK: latest_5_rows=[{"id":1412,"user_id":3233,"created_at":"2026-01-27 04:39:45"},{"id":1411,"user_id":3233,"created_at":"2026-01-26 09:04:50"},{"id":1410,"user_id":3233,"created_at":"2026-01-26 03:58:19"},{"id":1409,"user_id":3233,"created_at":"2026-01-26 03:01:41"},{"id":1408,"user_id":3233,"created_at":"2026-01-26 02:33:16"}]
+[2026-01-27T11:39:45+07:00] COUNT_QUERY: user_id=3233 | total=7
+[2026-01-27T11:39:45+07:00] BEFORE prepare SQL | user_id=3233
+[2026-01-27T11:39:45+07:00] SQL=
+        SELECT 
+            id, jurusan, user_id, jenis, ruangan,
+            penanggung_jawab, tingkat, waktu_mulai,
+            waktu_selesai, tujuan, tgl_pinjaman,
+            tgl_pengembalian, status, created_at
+        FROM peminjaman
+        WHERE user_id = :user_id
+        ORDER BY created_at DESC
+    
+[2026-01-27T11:39:45+07:00] BEFORE execute SQL | params={"user_id":3233}
+[2026-01-27T11:39:45+07:00] AFTER execute SQL
+[2026-01-27T11:39:45+07:00] AFTER fetchAll | count=7
+[2026-01-27T11:39:45+07:00] FIRST_FEW_REQUESTS: [{"id":1412,"user_id":3233,"created_at":"2026-01-27 04:39:45"},{"id":1411,"user_id":3233,"created_at":"2026-01-26 09:04:50"},{"id":1410,"user_id":3233,"created_at":"2026-01-26 03:58:19"}]
+[2026-01-27T11:39:45+07:00] FORMATTED_REQUESTS_COUNT=7
+[2026-01-27T11:39:45+07:00] === END requests.php SUCCESS ===
+[2026-01-29T10:19:57+07:00] === START requests.php ===
+[2026-01-29T10:19:57+07:00] TOKEN_HASH_SHORT=2e8b1848
+[2026-01-29T10:19:57+07:00] BEFORE AuthMiddleware::validateToken()
+[2026-01-29T10:19:57+07:00] AFTER AuthMiddleware::validateToken() | user_id=3233 | user_name=Qowiy Muhammad Rofi Zuhdi
+[2026-01-29T10:19:57+07:00] BEFORE Database::getInstance()
+[2026-01-29T10:19:57+07:00] AFTER Database::getInstance() | DB connected ok
+[2026-01-29T10:19:57+07:00] DB_INFO: database=u708283844_sisenes | hostname=id-dci-web1863.main-hosting.eu | port=3306
+[2026-01-29T10:19:57+07:00] SANITY_CHECK: latest_5_rows=[{"id":1432,"user_id":2196,"created_at":"2026-01-29 01:05:11"},{"id":1431,"user_id":2196,"created_at":"2026-01-29 01:03:38"},{"id":1430,"user_id":41,"created_at":"2026-01-29 00:53:25"},{"id":1429,"user_id":2196,"created_at":"2026-01-29 00:53:00"},{"id":1428,"user_id":41,"created_at":"2026-01-29 00:52:19"}]
+[2026-01-29T10:19:57+07:00] COUNT_QUERY: user_id=3233 | total=7
+[2026-01-29T10:19:57+07:00] BEFORE prepare SQL | user_id=3233
+[2026-01-29T10:19:57+07:00] SQL=
+        SELECT 
+            id, jurusan, user_id, jenis, ruangan,
+            penanggung_jawab, tingkat, waktu_mulai,
+            waktu_selesai, tujuan, tgl_pinjaman,
+            tgl_pengembalian, status, created_at
+        FROM peminjaman
+        WHERE user_id = :user_id
+        ORDER BY created_at DESC
+    
+[2026-01-29T10:19:57+07:00] BEFORE execute SQL | params={"user_id":3233}
+[2026-01-29T10:19:57+07:00] AFTER execute SQL
+[2026-01-29T10:19:57+07:00] AFTER fetchAll | count=7
+[2026-01-29T10:19:57+07:00] FIRST_FEW_REQUESTS: [{"id":1412,"user_id":3233,"created_at":"2026-01-27 04:39:45"},{"id":1411,"user_id":3233,"created_at":"2026-01-26 09:04:50"},{"id":1410,"user_id":3233,"created_at":"2026-01-26 03:58:19"}]
+[2026-01-29T10:19:57+07:00] FORMATTED_REQUESTS_COUNT=7
+[2026-01-29T10:19:57+07:00] === END requests.php SUCCESS ===
+[2026-01-29T10:35:29+07:00] === START requests.php ===
+[2026-01-29T10:35:29+07:00] TOKEN_HASH_SHORT=b0fa5c7c
+[2026-01-29T10:35:29+07:00] BEFORE AuthMiddleware::validateToken()
+[2026-01-29T10:35:29+07:00] AFTER AuthMiddleware::validateToken() | user_id=3233 | user_name=Qowiy Muhammad Rofi Zuhdi
+[2026-01-29T10:35:29+07:00] BEFORE Database::getInstance()
+[2026-01-29T10:35:29+07:00] AFTER Database::getInstance() | DB connected ok
+[2026-01-29T10:35:29+07:00] DB_INFO: database=u708283844_sisenes | hostname=id-dci-web1863.main-hosting.eu | port=3306
+[2026-01-29T10:35:29+07:00] SANITY_CHECK: latest_5_rows=[{"id":1432,"user_id":2196,"created_at":"2026-01-29 01:05:11"},{"id":1431,"user_id":2196,"created_at":"2026-01-29 01:03:38"},{"id":1430,"user_id":41,"created_at":"2026-01-29 00:53:25"},{"id":1429,"user_id":2196,"created_at":"2026-01-29 00:53:00"},{"id":1428,"user_id":41,"created_at":"2026-01-29 00:52:19"}]
+[2026-01-29T10:35:29+07:00] COUNT_QUERY: user_id=3233 | total=7
+[2026-01-29T10:35:29+07:00] BEFORE prepare SQL | user_id=3233
+[2026-01-29T10:35:29+07:00] SQL=
+        SELECT 
+            id, jurusan, user_id, jenis, ruangan,
+            penanggung_jawab, tingkat, waktu_mulai,
+            waktu_selesai, tujuan, tgl_pinjaman,
+            tgl_pengembalian, status, created_at
+        FROM peminjaman
+        WHERE user_id = :user_id
+        ORDER BY created_at DESC
+    
+[2026-01-29T10:35:29+07:00] BEFORE execute SQL | params={"user_id":3233}
+[2026-01-29T10:35:29+07:00] AFTER execute SQL
+[2026-01-29T10:35:29+07:00] AFTER fetchAll | count=7
+[2026-01-29T10:35:29+07:00] FIRST_FEW_REQUESTS: [{"id":1412,"user_id":3233,"created_at":"2026-01-27 04:39:45"},{"id":1411,"user_id":3233,"created_at":"2026-01-26 09:04:50"},{"id":1410,"user_id":3233,"created_at":"2026-01-26 03:58:19"}]
+[2026-01-29T10:35:29+07:00] FORMATTED_REQUESTS_COUNT=7
+[2026-01-29T10:35:29+07:00] === END requests.php SUCCESS ===
+[2026-01-29T11:15:19+07:00] === START requests.php ===
+[2026-01-29T11:15:19+07:00] TOKEN_HASH_SHORT=1d83469e
+[2026-01-29T11:15:19+07:00] BEFORE AuthMiddleware::validateToken()
+[2026-01-29T11:15:19+07:00] AFTER AuthMiddleware::validateToken() | user_id=3233 | user_name=Qowiy Muhammad Rofi Zuhdi
+[2026-01-29T11:15:19+07:00] BEFORE Database::getInstance()
+[2026-01-29T11:15:19+07:00] AFTER Database::getInstance() | DB connected ok
+[2026-01-29T11:15:19+07:00] DB_INFO: database=u708283844_sisenes | hostname=id-dci-web1863.main-hosting.eu | port=3306
+[2026-01-29T11:15:19+07:00] SANITY_CHECK: latest_5_rows=[{"id":1434,"user_id":2196,"created_at":"2026-01-29 03:47:02"},{"id":1433,"user_id":2196,"created_at":"2026-01-29 03:44:20"},{"id":1432,"user_id":2196,"created_at":"2026-01-29 01:05:11"},{"id":1431,"user_id":2196,"created_at":"2026-01-29 01:03:38"},{"id":1430,"user_id":41,"created_at":"2026-01-29 00:53:25"}]
+[2026-01-29T11:15:19+07:00] COUNT_QUERY: user_id=3233 | total=7
+[2026-01-29T11:15:19+07:00] BEFORE prepare SQL | user_id=3233
+[2026-01-29T11:15:19+07:00] SQL=
+        SELECT 
+            id, jurusan, user_id, jenis, ruangan,
+            penanggung_jawab, tingkat, waktu_mulai,
+            waktu_selesai, tujuan, tgl_pinjaman,
+            tgl_pengembalian, status, created_at
+        FROM peminjaman
+        WHERE user_id = :user_id
+        ORDER BY created_at DESC
+    
+[2026-01-29T11:15:19+07:00] BEFORE execute SQL | params={"user_id":3233}
+[2026-01-29T11:15:19+07:00] AFTER execute SQL
+[2026-01-29T11:15:19+07:00] AFTER fetchAll | count=7
+[2026-01-29T11:15:19+07:00] FIRST_FEW_REQUESTS: [{"id":1412,"user_id":3233,"created_at":"2026-01-27 04:39:45"},{"id":1411,"user_id":3233,"created_at":"2026-01-26 09:04:50"},{"id":1410,"user_id":3233,"created_at":"2026-01-26 03:58:19"}]
+[2026-01-29T11:15:19+07:00] FORMATTED_REQUESTS_COUNT=7
+[2026-01-29T11:15:19+07:00] === END requests.php SUCCESS ===
+[2026-01-29T17:47:16+07:00] === START requests.php ===
+[2026-01-29T17:47:16+07:00] TOKEN_HASH_SHORT=0b46f2e0
+[2026-01-29T17:47:16+07:00] BEFORE AuthMiddleware::validateToken()
+[2026-01-29T17:47:16+07:00] AFTER AuthMiddleware::validateToken() | user_id=3233 | user_name=Qowiy Muhammad Rofi Zuhdi
+[2026-01-29T17:47:16+07:00] BEFORE Database::getInstance()
+[2026-01-29T17:47:16+07:00] AFTER Database::getInstance() | DB connected ok
+[2026-01-29T17:47:16+07:00] DB_INFO: database=u708283844_sisenes | hostname=id-dci-web1863.main-hosting.eu | port=3306
+[2026-01-29T17:47:16+07:00] SANITY_CHECK: latest_5_rows=[{"id":1436,"user_id":2067,"created_at":"2026-01-29 04:22:34"},{"id":1435,"user_id":2067,"created_at":"2026-01-29 04:22:01"},{"id":1434,"user_id":2196,"created_at":"2026-01-29 03:47:02"},{"id":1433,"user_id":2196,"created_at":"2026-01-29 03:44:20"},{"id":1432,"user_id":2196,"created_at":"2026-01-29 01:05:11"}]
+[2026-01-29T17:47:16+07:00] COUNT_QUERY: user_id=3233 | total=7
+[2026-01-29T17:47:16+07:00] BEFORE prepare SQL | user_id=3233
+[2026-01-29T17:47:16+07:00] SQL=
+        SELECT 
+            id, jurusan, user_id, jenis, ruangan,
+            penanggung_jawab, tingkat, waktu_mulai,
+            waktu_selesai, tujuan, tgl_pinjaman,
+            tgl_pengembalian, status, created_at
+        FROM peminjaman
+        WHERE user_id = :user_id
+        ORDER BY created_at DESC
+    
+[2026-01-29T17:47:16+07:00] BEFORE execute SQL | params={"user_id":3233}
+[2026-01-29T17:47:16+07:00] AFTER execute SQL
+[2026-01-29T17:47:16+07:00] AFTER fetchAll | count=7
+[2026-01-29T17:47:16+07:00] FIRST_FEW_REQUESTS: [{"id":1412,"user_id":3233,"created_at":"2026-01-27 04:39:45"},{"id":1411,"user_id":3233,"created_at":"2026-01-26 09:04:50"},{"id":1410,"user_id":3233,"created_at":"2026-01-26 03:58:19"}]
+[2026-01-29T17:47:16+07:00] FORMATTED_REQUESTS_COUNT=7
+[2026-01-29T17:47:16+07:00] === END requests.php SUCCESS ===
+[2026-01-30T14:14:24+07:00] === START requests.php ===
+[2026-01-30T14:14:24+07:00] TOKEN_HASH_SHORT=7575a634
+[2026-01-30T14:14:24+07:00] BEFORE AuthMiddleware::validateToken()
+[2026-01-30T14:14:24+07:00] AFTER AuthMiddleware::validateToken() | user_id=3233 | user_name=Qowiy Muhammad Rofi Zuhdi
+[2026-01-30T14:14:24+07:00] BEFORE Database::getInstance()
+[2026-01-30T14:14:24+07:00] AFTER Database::getInstance() | DB connected ok
+[2026-01-30T14:14:24+07:00] DB_INFO: database=u708283844_sisenes | hostname=id-dci-web1863.main-hosting.eu | port=3306
+[2026-01-30T14:14:24+07:00] SANITY_CHECK: latest_5_rows=[{"id":1436,"user_id":2067,"created_at":"2026-01-29 04:22:34"},{"id":1435,"user_id":2067,"created_at":"2026-01-29 04:22:01"},{"id":1434,"user_id":2196,"created_at":"2026-01-29 03:47:02"},{"id":1433,"user_id":2196,"created_at":"2026-01-29 03:44:20"},{"id":1432,"user_id":2196,"created_at":"2026-01-29 01:05:11"}]
+[2026-01-30T14:14:24+07:00] COUNT_QUERY: user_id=3233 | total=7
+[2026-01-30T14:14:24+07:00] BEFORE prepare SQL | user_id=3233
+[2026-01-30T14:14:24+07:00] SQL=
+        SELECT 
+            id, jurusan, user_id, jenis, ruangan,
+            penanggung_jawab, tingkat, waktu_mulai,
+            waktu_selesai, tujuan, tgl_pinjaman,
+            tgl_pengembalian, status, created_at
+        FROM peminjaman
+        WHERE user_id = :user_id
+        ORDER BY created_at DESC
+    
+[2026-01-30T14:14:24+07:00] BEFORE execute SQL | params={"user_id":3233}
+[2026-01-30T14:14:24+07:00] AFTER execute SQL
+[2026-01-30T14:14:24+07:00] AFTER fetchAll | count=7
+[2026-01-30T14:14:24+07:00] FIRST_FEW_REQUESTS: [{"id":1412,"user_id":3233,"created_at":"2026-01-27 04:39:45"},{"id":1411,"user_id":3233,"created_at":"2026-01-26 09:04:50"},{"id":1410,"user_id":3233,"created_at":"2026-01-26 03:58:19"}]
+[2026-01-30T14:14:24+07:00] FORMATTED_REQUESTS_COUNT=7
+[2026-01-30T14:14:24+07:00] === END requests.php SUCCESS ===

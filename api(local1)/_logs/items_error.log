@@ -1,0 +1,987 @@
+[2026-01-26T01:48:55+00:00][20260126_014855_97514484] START items.php
+[2026-01-26T01:48:55+00:00][20260126_014855_97514484] LOGDIR=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs | writable=yes
+[2026-01-26T01:48:55+00:00][20260126_014855_97514484] LOGFILE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs/items_error.log
+[2026-01-26T01:48:55+00:00][20260126_014855_97514484] BEFORE require config/database.php
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] AFTER require config/database.php
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] BEFORE require config/response.php
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] AFTER require config/response.php
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] BEFORE require middleware/auth.php
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] AFTER require middleware/auth.php
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] BEFORE AuthMiddleware::validateToken()
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] AFTER AuthMiddleware::validateToken() | user_id=3233
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] JURUSAN param=not_provided | final=Keperawatan
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] BEFORE Database::getInstance()
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] AFTER Database::getInstance() | DB connected ok
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] BEFORE prepare SQL | sql_length=1290 | jurusan=Keperawatan
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] SQL_RAW_BEGIN
+
+        SELECT
+            'alat' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            kondisi AS extra
+        FROM barangbhp_alat
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        UNION ALL
+        
+        SELECT
+            'bahan' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            CONCAT(
+                IFNULL(kimia, '-'),
+                ' | exp:',
+                IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+            ) AS extra
+        FROM barangbhp_bahan
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        UNION ALL
+        
+        SELECT
+            'inventaris' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            CONCAT(
+                IFNULL(kode_barang, '-'),
+                ' | ',
+                IFNULL(ruang, '-')
+            ) AS extra
+        FROM barang_inventaris
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        ORDER BY (stok > 0) DESC, nama ASC
+    
+SQL_RAW_END
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] PLACEHOLDER_COUNT q=0 namedJurusan=3
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] PROBE_OK rows=206
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] BIND_KEYS=["jurusan"]
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] BIND_COUNT=1
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] BIND_VALUE=Keperawatan
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] AFTER prepare SQL
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] BEFORE execute SQL FIX1 | binding jurusan=Keperawatan
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] EXECUTE_FAIL_FIX1: SQLSTATE[HY093]: Invalid parameter number
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] TRYING_FIX2: Using unique placeholders :j1 :j2 :j3
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] SQL_FIX2_BEGIN\n
+            SELECT
+                'alat' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                kondisi AS extra
+            FROM barangbhp_alat
+            WHERE jurusan = :j1
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'bahan' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kimia, '-'),
+                    ' | exp:',
+                    IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+                ) AS extra
+            FROM barangbhp_bahan
+            WHERE jurusan = :j2
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'inventaris' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kode_barang, '-'),
+                    ' | ',
+                    IFNULL(ruang, '-')
+                ) AS extra
+            FROM barang_inventaris
+            WHERE jurusan = :j3
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            ORDER BY (stok > 0) DESC, nama ASC
+        \nSQL_FIX2_END
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] BIND2_KEYS=["j1","j2","j3"]
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] BIND2_COUNT=3
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] ORIGINAL_EMULATE_PREPARES=false
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] AFTER prepare SQL FIX2
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] BEFORE execute SQL FIX2
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] EXECUTE_OK_FIX2
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] AFTER execute SQL | success=true
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] BEFORE fetchAll
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] AFTER fetchAll | rows=206
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] BEFORE add selectable field
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] AFTER add selectable field | processed_rows=206
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] BEFORE json_encode response
+[2026-01-26T08:48:55+07:00][20260126_014855_97514484] AFTER json_encode response | SUCCESS
+[2026-01-26T02:32:49+00:00][20260126_023249_21d71a8d] START items.php
+[2026-01-26T02:32:49+00:00][20260126_023249_21d71a8d] LOGDIR=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs | writable=yes
+[2026-01-26T02:32:49+00:00][20260126_023249_21d71a8d] LOGFILE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs/items_error.log
+[2026-01-26T02:32:49+00:00][20260126_023249_21d71a8d] BEFORE require config/database.php
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] AFTER require config/database.php
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] BEFORE require config/response.php
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] AFTER require config/response.php
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] BEFORE require middleware/auth.php
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] AFTER require middleware/auth.php
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] BEFORE AuthMiddleware::validateToken()
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] AFTER AuthMiddleware::validateToken() | user_id=3233
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] JURUSAN param=not_provided | final=Keperawatan
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] BEFORE Database::getInstance()
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] AFTER Database::getInstance() | DB connected ok
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] BEFORE prepare SQL | sql_length=1290 | jurusan=Keperawatan
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] SQL_RAW_BEGIN
+
+        SELECT
+            'alat' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            kondisi AS extra
+        FROM barangbhp_alat
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        UNION ALL
+        
+        SELECT
+            'bahan' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            CONCAT(
+                IFNULL(kimia, '-'),
+                ' | exp:',
+                IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+            ) AS extra
+        FROM barangbhp_bahan
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        UNION ALL
+        
+        SELECT
+            'inventaris' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            CONCAT(
+                IFNULL(kode_barang, '-'),
+                ' | ',
+                IFNULL(ruang, '-')
+            ) AS extra
+        FROM barang_inventaris
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        ORDER BY (stok > 0) DESC, nama ASC
+    
+SQL_RAW_END
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] PLACEHOLDER_COUNT q=0 namedJurusan=3
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] PROBE_OK rows=206
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] BIND_KEYS=["jurusan"]
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] BIND_COUNT=1
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] BIND_VALUE=Keperawatan
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] AFTER prepare SQL
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] BEFORE execute SQL FIX1 | binding jurusan=Keperawatan
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] EXECUTE_FAIL_FIX1: SQLSTATE[HY093]: Invalid parameter number
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] TRYING_FIX2: Using unique placeholders :j1 :j2 :j3
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] SQL_FIX2_BEGIN\n
+            SELECT
+                'alat' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                kondisi AS extra
+            FROM barangbhp_alat
+            WHERE jurusan = :j1
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'bahan' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kimia, '-'),
+                    ' | exp:',
+                    IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+                ) AS extra
+            FROM barangbhp_bahan
+            WHERE jurusan = :j2
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'inventaris' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kode_barang, '-'),
+                    ' | ',
+                    IFNULL(ruang, '-')
+                ) AS extra
+            FROM barang_inventaris
+            WHERE jurusan = :j3
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            ORDER BY (stok > 0) DESC, nama ASC
+        \nSQL_FIX2_END
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] BIND2_KEYS=["j1","j2","j3"]
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] BIND2_COUNT=3
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] ORIGINAL_EMULATE_PREPARES=false
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] AFTER prepare SQL FIX2
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] BEFORE execute SQL FIX2
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] EXECUTE_OK_FIX2
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] AFTER execute SQL | success=true
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] BEFORE fetchAll
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] AFTER fetchAll | rows=206
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] BEFORE add selectable field
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] AFTER add selectable field | processed_rows=206
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] BEFORE json_encode response
+[2026-01-26T09:32:49+07:00][20260126_023249_21d71a8d] AFTER json_encode response | SUCCESS
+[2026-01-26T03:01:12+00:00][20260126_030112_c5c78316] START items.php
+[2026-01-26T03:01:12+00:00][20260126_030112_c5c78316] LOGDIR=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs | writable=yes
+[2026-01-26T03:01:12+00:00][20260126_030112_c5c78316] LOGFILE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs/items_error.log
+[2026-01-26T03:01:12+00:00][20260126_030112_c5c78316] BEFORE require config/database.php
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] AFTER require config/database.php
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] BEFORE require config/response.php
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] AFTER require config/response.php
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] BEFORE require middleware/auth.php
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] AFTER require middleware/auth.php
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] BEFORE AuthMiddleware::validateToken()
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] AFTER AuthMiddleware::validateToken() | user_id=3233
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] JURUSAN param=not_provided | final=Keperawatan
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] BEFORE Database::getInstance()
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] AFTER Database::getInstance() | DB connected ok
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] BEFORE prepare SQL | sql_length=1290 | jurusan=Keperawatan
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] SQL_RAW_BEGIN
+
+        SELECT
+            'alat' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            kondisi AS extra
+        FROM barangbhp_alat
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        UNION ALL
+        
+        SELECT
+            'bahan' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            CONCAT(
+                IFNULL(kimia, '-'),
+                ' | exp:',
+                IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+            ) AS extra
+        FROM barangbhp_bahan
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        UNION ALL
+        
+        SELECT
+            'inventaris' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            CONCAT(
+                IFNULL(kode_barang, '-'),
+                ' | ',
+                IFNULL(ruang, '-')
+            ) AS extra
+        FROM barang_inventaris
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        ORDER BY (stok > 0) DESC, nama ASC
+    
+SQL_RAW_END
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] PLACEHOLDER_COUNT q=0 namedJurusan=3
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] PROBE_OK rows=206
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] BIND_KEYS=["jurusan"]
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] BIND_COUNT=1
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] BIND_VALUE=Keperawatan
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] AFTER prepare SQL
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] BEFORE execute SQL FIX1 | binding jurusan=Keperawatan
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] EXECUTE_FAIL_FIX1: SQLSTATE[HY093]: Invalid parameter number
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] TRYING_FIX2: Using unique placeholders :j1 :j2 :j3
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] SQL_FIX2_BEGIN\n
+            SELECT
+                'alat' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                kondisi AS extra
+            FROM barangbhp_alat
+            WHERE jurusan = :j1
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'bahan' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kimia, '-'),
+                    ' | exp:',
+                    IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+                ) AS extra
+            FROM barangbhp_bahan
+            WHERE jurusan = :j2
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'inventaris' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kode_barang, '-'),
+                    ' | ',
+                    IFNULL(ruang, '-')
+                ) AS extra
+            FROM barang_inventaris
+            WHERE jurusan = :j3
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            ORDER BY (stok > 0) DESC, nama ASC
+        \nSQL_FIX2_END
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] BIND2_KEYS=["j1","j2","j3"]
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] BIND2_COUNT=3
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] ORIGINAL_EMULATE_PREPARES=false
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] AFTER prepare SQL FIX2
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] BEFORE execute SQL FIX2
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] EXECUTE_OK_FIX2
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] AFTER execute SQL | success=true
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] BEFORE fetchAll
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] AFTER fetchAll | rows=206
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] BEFORE add selectable field
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] AFTER add selectable field | processed_rows=206
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] BEFORE json_encode response
+[2026-01-26T10:01:12+07:00][20260126_030112_c5c78316] AFTER json_encode response | SUCCESS
+[2026-01-26T03:57:52+00:00][20260126_035752_b035f65c] START items.php
+[2026-01-26T03:57:52+00:00][20260126_035752_b035f65c] LOGDIR=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs | writable=yes
+[2026-01-26T03:57:52+00:00][20260126_035752_b035f65c] LOGFILE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs/items_error.log
+[2026-01-26T03:57:52+00:00][20260126_035752_b035f65c] BEFORE require config/database.php
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] AFTER require config/database.php
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] BEFORE require config/response.php
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] AFTER require config/response.php
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] BEFORE require middleware/auth.php
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] AFTER require middleware/auth.php
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] BEFORE AuthMiddleware::validateToken()
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] AFTER AuthMiddleware::validateToken() | user_id=3233
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] JURUSAN param=not_provided | final=Keperawatan
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] BEFORE Database::getInstance()
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] AFTER Database::getInstance() | DB connected ok
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] BEFORE prepare SQL | sql_length=1290 | jurusan=Keperawatan
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] SQL_RAW_BEGIN
+
+        SELECT
+            'alat' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            kondisi AS extra
+        FROM barangbhp_alat
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        UNION ALL
+        
+        SELECT
+            'bahan' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            CONCAT(
+                IFNULL(kimia, '-'),
+                ' | exp:',
+                IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+            ) AS extra
+        FROM barangbhp_bahan
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        UNION ALL
+        
+        SELECT
+            'inventaris' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            CONCAT(
+                IFNULL(kode_barang, '-'),
+                ' | ',
+                IFNULL(ruang, '-')
+            ) AS extra
+        FROM barang_inventaris
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        ORDER BY (stok > 0) DESC, nama ASC
+    
+SQL_RAW_END
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] PLACEHOLDER_COUNT q=0 namedJurusan=3
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] PROBE_OK rows=206
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] BIND_KEYS=["jurusan"]
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] BIND_COUNT=1
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] BIND_VALUE=Keperawatan
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] AFTER prepare SQL
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] BEFORE execute SQL FIX1 | binding jurusan=Keperawatan
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] EXECUTE_FAIL_FIX1: SQLSTATE[HY093]: Invalid parameter number
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] TRYING_FIX2: Using unique placeholders :j1 :j2 :j3
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] SQL_FIX2_BEGIN\n
+            SELECT
+                'alat' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                kondisi AS extra
+            FROM barangbhp_alat
+            WHERE jurusan = :j1
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'bahan' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kimia, '-'),
+                    ' | exp:',
+                    IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+                ) AS extra
+            FROM barangbhp_bahan
+            WHERE jurusan = :j2
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'inventaris' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kode_barang, '-'),
+                    ' | ',
+                    IFNULL(ruang, '-')
+                ) AS extra
+            FROM barang_inventaris
+            WHERE jurusan = :j3
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            ORDER BY (stok > 0) DESC, nama ASC
+        \nSQL_FIX2_END
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] BIND2_KEYS=["j1","j2","j3"]
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] BIND2_COUNT=3
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] ORIGINAL_EMULATE_PREPARES=false
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] AFTER prepare SQL FIX2
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] BEFORE execute SQL FIX2
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] EXECUTE_OK_FIX2
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] AFTER execute SQL | success=true
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] BEFORE fetchAll
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] AFTER fetchAll | rows=206
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] BEFORE add selectable field
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] AFTER add selectable field | processed_rows=206
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] BEFORE json_encode response
+[2026-01-26T10:57:52+07:00][20260126_035752_b035f65c] AFTER json_encode response | SUCCESS
+[2026-01-26T09:02:17+00:00][20260126_090217_afae2227] START items.php
+[2026-01-26T09:02:17+00:00][20260126_090217_afae2227] LOGDIR=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs | writable=yes
+[2026-01-26T09:02:17+00:00][20260126_090217_afae2227] LOGFILE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs/items_error.log
+[2026-01-26T09:02:17+00:00][20260126_090217_afae2227] BEFORE require config/database.php
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] AFTER require config/database.php
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] BEFORE require config/response.php
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] AFTER require config/response.php
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] BEFORE require middleware/auth.php
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] AFTER require middleware/auth.php
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] BEFORE AuthMiddleware::validateToken()
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] AFTER AuthMiddleware::validateToken() | user_id=3233
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] JURUSAN param=not_provided | final=Keperawatan
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] BEFORE Database::getInstance()
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] AFTER Database::getInstance() | DB connected ok
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] BEFORE prepare SQL | sql_length=1290 | jurusan=Keperawatan
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] SQL_RAW_BEGIN
+
+        SELECT
+            'alat' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            kondisi AS extra
+        FROM barangbhp_alat
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        UNION ALL
+        
+        SELECT
+            'bahan' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            CONCAT(
+                IFNULL(kimia, '-'),
+                ' | exp:',
+                IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+            ) AS extra
+        FROM barangbhp_bahan
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        UNION ALL
+        
+        SELECT
+            'inventaris' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            CONCAT(
+                IFNULL(kode_barang, '-'),
+                ' | ',
+                IFNULL(ruang, '-')
+            ) AS extra
+        FROM barang_inventaris
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        ORDER BY (stok > 0) DESC, nama ASC
+    
+SQL_RAW_END
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] PLACEHOLDER_COUNT q=0 namedJurusan=3
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] PROBE_OK rows=206
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] BIND_KEYS=["jurusan"]
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] BIND_COUNT=1
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] BIND_VALUE=Keperawatan
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] AFTER prepare SQL
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] BEFORE execute SQL FIX1 | binding jurusan=Keperawatan
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] EXECUTE_FAIL_FIX1: SQLSTATE[HY093]: Invalid parameter number
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] TRYING_FIX2: Using unique placeholders :j1 :j2 :j3
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] SQL_FIX2_BEGIN\n
+            SELECT
+                'alat' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                kondisi AS extra
+            FROM barangbhp_alat
+            WHERE jurusan = :j1
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'bahan' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kimia, '-'),
+                    ' | exp:',
+                    IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+                ) AS extra
+            FROM barangbhp_bahan
+            WHERE jurusan = :j2
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'inventaris' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kode_barang, '-'),
+                    ' | ',
+                    IFNULL(ruang, '-')
+                ) AS extra
+            FROM barang_inventaris
+            WHERE jurusan = :j3
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            ORDER BY (stok > 0) DESC, nama ASC
+        \nSQL_FIX2_END
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] BIND2_KEYS=["j1","j2","j3"]
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] BIND2_COUNT=3
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] ORIGINAL_EMULATE_PREPARES=false
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] AFTER prepare SQL FIX2
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] BEFORE execute SQL FIX2
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] EXECUTE_OK_FIX2
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] AFTER execute SQL | success=true
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] BEFORE fetchAll
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] AFTER fetchAll | rows=206
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] BEFORE add selectable field
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] AFTER add selectable field | processed_rows=206
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] BEFORE json_encode response
+[2026-01-26T16:02:17+07:00][20260126_090217_afae2227] AFTER json_encode response | SUCCESS
+[2026-01-26T09:03:03+00:00][20260126_090303_0090a81a] START items.php
+[2026-01-26T09:03:03+00:00][20260126_090303_0090a81a] LOGDIR=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs | writable=yes
+[2026-01-26T09:03:03+00:00][20260126_090303_0090a81a] LOGFILE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs/items_error.log
+[2026-01-26T09:03:03+00:00][20260126_090303_0090a81a] BEFORE require config/database.php
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] AFTER require config/database.php
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] BEFORE require config/response.php
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] AFTER require config/response.php
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] BEFORE require middleware/auth.php
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] AFTER require middleware/auth.php
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] BEFORE AuthMiddleware::validateToken()
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] AFTER AuthMiddleware::validateToken() | user_id=3233
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] JURUSAN param=not_provided | final=Keperawatan
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] BEFORE Database::getInstance()
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] AFTER Database::getInstance() | DB connected ok
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] BEFORE prepare SQL | sql_length=1290 | jurusan=Keperawatan
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] SQL_RAW_BEGIN
+
+        SELECT
+            'alat' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            kondisi AS extra
+        FROM barangbhp_alat
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        UNION ALL
+        
+        SELECT
+            'bahan' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            CONCAT(
+                IFNULL(kimia, '-'),
+                ' | exp:',
+                IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+            ) AS extra
+        FROM barangbhp_bahan
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        UNION ALL
+        
+        SELECT
+            'inventaris' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            CONCAT(
+                IFNULL(kode_barang, '-'),
+                ' | ',
+                IFNULL(ruang, '-')
+            ) AS extra
+        FROM barang_inventaris
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        ORDER BY (stok > 0) DESC, nama ASC
+    
+SQL_RAW_END
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] PLACEHOLDER_COUNT q=0 namedJurusan=3
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] PROBE_OK rows=206
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] BIND_KEYS=["jurusan"]
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] BIND_COUNT=1
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] BIND_VALUE=Keperawatan
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] AFTER prepare SQL
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] BEFORE execute SQL FIX1 | binding jurusan=Keperawatan
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] EXECUTE_FAIL_FIX1: SQLSTATE[HY093]: Invalid parameter number
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] TRYING_FIX2: Using unique placeholders :j1 :j2 :j3
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] SQL_FIX2_BEGIN\n
+            SELECT
+                'alat' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                kondisi AS extra
+            FROM barangbhp_alat
+            WHERE jurusan = :j1
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'bahan' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kimia, '-'),
+                    ' | exp:',
+                    IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+                ) AS extra
+            FROM barangbhp_bahan
+            WHERE jurusan = :j2
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'inventaris' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kode_barang, '-'),
+                    ' | ',
+                    IFNULL(ruang, '-')
+                ) AS extra
+            FROM barang_inventaris
+            WHERE jurusan = :j3
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            ORDER BY (stok > 0) DESC, nama ASC
+        \nSQL_FIX2_END
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] BIND2_KEYS=["j1","j2","j3"]
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] BIND2_COUNT=3
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] ORIGINAL_EMULATE_PREPARES=false
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] AFTER prepare SQL FIX2
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] BEFORE execute SQL FIX2
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] EXECUTE_OK_FIX2
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] AFTER execute SQL | success=true
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] BEFORE fetchAll
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] AFTER fetchAll | rows=206
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] BEFORE add selectable field
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] AFTER add selectable field | processed_rows=206
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] BEFORE json_encode response
+[2026-01-26T16:03:03+07:00][20260126_090303_0090a81a] AFTER json_encode response | SUCCESS
+[2026-01-27T02:29:22+00:00][20260127_022922_6e715781] START items.php
+[2026-01-27T02:29:22+00:00][20260127_022922_6e715781] LOGDIR=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs | writable=yes
+[2026-01-27T02:29:22+00:00][20260127_022922_6e715781] LOGFILE=/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/api/user/equipment/../../_logs/items_error.log
+[2026-01-27T02:29:22+00:00][20260127_022922_6e715781] BEFORE require config/database.php
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] AFTER require config/database.php
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] BEFORE require config/response.php
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] AFTER require config/response.php
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] BEFORE require middleware/auth.php
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] AFTER require middleware/auth.php
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] BEFORE AuthMiddleware::validateToken()
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] AFTER AuthMiddleware::validateToken() | user_id=3233
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] JURUSAN param=not_provided | final=Keperawatan
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] BEFORE Database::getInstance()
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] AFTER Database::getInstance() | DB connected ok
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] BEFORE prepare SQL | sql_length=1290 | jurusan=Keperawatan
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] SQL_RAW_BEGIN
+
+        SELECT
+            'alat' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            kondisi AS extra
+        FROM barangbhp_alat
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        UNION ALL
+        
+        SELECT
+            'bahan' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            CONCAT(
+                IFNULL(kimia, '-'),
+                ' | exp:',
+                IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+            ) AS extra
+        FROM barangbhp_bahan
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        UNION ALL
+        
+        SELECT
+            'inventaris' AS source,
+            id,
+            jurusan,
+            nama,
+            stok,
+            satuan,
+            CONCAT(
+                IFNULL(kode_barang, '-'),
+                ' | ',
+                IFNULL(ruang, '-')
+            ) AS extra
+        FROM barang_inventaris
+        WHERE jurusan = :jurusan
+            AND (`delete` IS NULL OR `delete` = '-')
+        
+        ORDER BY (stok > 0) DESC, nama ASC
+    
+SQL_RAW_END
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] PLACEHOLDER_COUNT q=0 namedJurusan=3
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] PROBE_OK rows=206
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] BIND_KEYS=["jurusan"]
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] BIND_COUNT=1
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] BIND_VALUE=Keperawatan
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] AFTER prepare SQL
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] BEFORE execute SQL FIX1 | binding jurusan=Keperawatan
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] EXECUTE_FAIL_FIX1: SQLSTATE[HY093]: Invalid parameter number
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] TRYING_FIX2: Using unique placeholders :j1 :j2 :j3
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] SQL_FIX2_BEGIN\n
+            SELECT
+                'alat' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                kondisi AS extra
+            FROM barangbhp_alat
+            WHERE jurusan = :j1
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'bahan' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kimia, '-'),
+                    ' | exp:',
+                    IFNULL(DATE_FORMAT(tgl_expired, '%Y-%m-%d'), '-')
+                ) AS extra
+            FROM barangbhp_bahan
+            WHERE jurusan = :j2
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            UNION ALL
+            
+            SELECT
+                'inventaris' AS source,
+                id,
+                jurusan,
+                nama,
+                stok,
+                satuan,
+                CONCAT(
+                    IFNULL(kode_barang, '-'),
+                    ' | ',
+                    IFNULL(ruang, '-')
+                ) AS extra
+            FROM barang_inventaris
+            WHERE jurusan = :j3
+                AND (`delete` IS NULL OR `delete` = '-')
+            
+            ORDER BY (stok > 0) DESC, nama ASC
+        \nSQL_FIX2_END
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] BIND2_KEYS=["j1","j2","j3"]
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] BIND2_COUNT=3
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] ORIGINAL_EMULATE_PREPARES=false
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] AFTER prepare SQL FIX2
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] BEFORE execute SQL FIX2
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] EXECUTE_OK_FIX2
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] AFTER execute SQL | success=true
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] BEFORE fetchAll
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] AFTER fetchAll | rows=206
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] BEFORE add selectable field
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] AFTER add selectable field | processed_rows=206
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] BEFORE json_encode response
+[2026-01-27T09:29:22+07:00][20260127_022922_6e715781] AFTER json_encode response | SUCCESS

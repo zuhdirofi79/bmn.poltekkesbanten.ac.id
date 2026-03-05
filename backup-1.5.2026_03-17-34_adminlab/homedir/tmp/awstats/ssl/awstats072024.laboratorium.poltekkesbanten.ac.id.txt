@@ -1,0 +1,992 @@
+AWSTATS DATA FILE 7.8 (build 20200416)
+# If you remove this file, all statistics for date 202407 will be lost/reset.
+# Last config file used to build this data file was /home/adminlab/tmp/awstats/ssl/awstats.laboratorium.poltekkesbanten.ac.id.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2035                
+POS_TIME 2718                
+POS_VISITOR 23868               
+POS_DAY 28783               
+POS_DOMAIN 3536                
+POS_LOGIN 3883                
+POS_ROBOT 4038                
+POS_WORMS 4394                
+POS_EMAILSENDER 4525                
+POS_EMAILRECEIVER 4668                
+POS_SESSION 29450               
+POS_SIDER 29659               
+POS_FILETYPES 4803                
+POS_DOWNLOADS 4998                
+POS_OS 5046                
+POS_BROWSER 5275                
+POS_SCREENSIZE 6114                
+POS_UNKNOWNREFERER 6188                
+POS_UNKNOWNREFERERBROWSER 6534                
+POS_ORIGIN 6688                
+POS_SEREFERRALS 6828                
+POS_PAGEREFS 6991                
+POS_SEARCHWORDS 7139                
+POS_KEYWORDS 7291                
+POS_MISC 2381                
+POS_ERRORS 7350                
+POS_CLUSTER 3739                
+POS_SIDER_404 7536                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20240801000004 143 38891 19956638824754
+FirstTime 20240701031132
+LastTime 20240731234940
+LastUpdate 20240801082503 143 0 142 0 0
+TotalVisits 143                 
+TotalUnique 113                 
+MonthHostsKnown 0                   
+MonthHostsUnknown 122                 
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+PDFSupport 0 0 0
+FlashSupport 0 0 0
+TotalMisc 0 0 0
+RealPlayerSupport 0 0 0
+JavascriptDisabled 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+JavaEnabled 0 0 0
+AddToFavourites 0 12 0
+QuickTimeSupport 0 0 0
+DirectorSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 273 533 146280132 856 872 1988622
+1 567 1148 148102050 350 357 294041
+2 176 455 102498944 570 585 1445525
+3 57 150 26789562 461 469 1337847
+4 18 45 4225872 620 622 955463
+5 22 22 399301 320 325 1132123
+6 32 52 3483845 22 24 17830
+7 18 60 5966158 115 116 171136
+8 9 31 3596296 403 404 624338
+9 8 30 20432435 252 265 904423
+10 20 63 5909401 129 141 851146
+11 1 1 3744 7 7 14134
+12 4 18 1520404 8 15 20833
+13 2 9 760202 5 6 97503
+14 2 3 13894 661 667 1036258
+15 1 2 10150 38 38 57862
+16 2 8 753796 393 395 610812
+17 0 0 0 54 57 86936
+18 0 0 0 280 282 437664
+19 0 0 0 6 6 10390
+20 2 3 98345 6 10 11481
+21 16 37 2551686 10 10 13264
+22 5 26 2275915 7 11 13256
+23 77 158 26079508 393 402 1853778
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 9
+in 810 1602 253010892
+id 470 1174 242763703
+us 27 70 5801133
+ca 1 1 3744
+pl 1 1 3744
+nl 1 1 3744
+tr 1 1 3744
+be 1 2 10150
+gb 0 2 150786
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 6
+bingbot/ 37 2674513 20240731033234 11
+Googlebot/ 16 1324979 20240730022307 2
+CFNetwork 6 38436 20240731092500 0
+Dalvik/ 1 6406 20240729014643 0
+Go\-http\-client/ 1 3744 20240730192904 0
+no_user_agent 1 3744 20240716220442 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 6
+js 701 82776981 0 0
+Unknown 1226 31561802 0 0
+css 420 70769923 0 0
+png 379 15196856 0 0
+woff2 86 47484384 0 0
+svg 42 253961694 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 11
+android 405 174
+macosx15 5 3
+ios_iphone 669 235
+Unknown 11 9
+win10 442 319
+macosx10 1 1
+androidpie 25 10
+android10 1245 549
+winxp 3 0
+androidnougat 47 11
+win7 1 1
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 37
+safari16.6 89 34
+chrome39.0.2171.95 1 1
+chrome100.0.4896.60 2 2
+chrome121.0.0.0 107 46
+chrome103.0.5060.114 1 1
+chrome126.0.0.0 883 389
+chrome122.0.0.0 9 7
+chrome119.0.0.0 18 5
+chrome60.0.3112.107 1 1
+chrome51.0.2704.103 1 1
+chrome99.0.4844.88 8 1
+chrome126.0.6478.186 8 1
+chrome59.0.3071.125 46 10
+mozilla 4 2
+chrome110.0.0.0 11 4
+safari17.4 69 20
+chrome111.0.5563.116 43 29
+firefox11.0 3 0
+safari17.3.1 61 25
+safari14.1 1 1
+chrome125.0.0.0 8 1
+chrome116.0.0.0 9 2
+chrome112.0.5615.136 31 17
+chrome91.0.4472.124 8 8
+opera112.0.0.0 25 11
+chrome127.0.0.0 442 255
+chrome91.0.4472.88 180 79
+chrome89.0.4389.116 60 18
+safari17.5 184 61
+safari17.4.1 39 10
+Unknown 7 7
+safari16.0 58 27
+chrome87.0.4280.141 107 46
+edge91 1 1
+safari15.6.6 169 58
+chrome109.0.0.0 135 121
+chrome79.0.3945.116 25 10
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 4
+Mozilla/5.0_(compatible;_CensysInspect/1.1;__https://about.censys.io/) 20240704144309
+WhatsApp/2.23.20.0 20240731063514
+python-requests/2.27.1 20240721200442
+Mozilla/5.0_(compatible;_InternetMeasurement/1.0;__https://internet-measurement.com/) 20240728075515
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 2
+python-requests/2.27.1 20240721200442
+WhatsApp/2.23.20.0 20240731063514
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 250 255
+From1 8 8
+From2 6 6
+From3 0 0
+From4 1048 2585
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+www_google_com 6 6
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 9
+206 9 284058
+405 1 571192
+301 2 518
+408 1 0
+302 768 345716
+500 1 619383
+404 5208 8082816
+419 20 31160
+400 2 0
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 503
+/sendmail.php 1 www.google.com
+/hehe.php 14 www.google.com
+/dev.php 14 www.google.com
+/xinder.php 11 www.google.com
+/function.php 13 www.google.com
+/alfa.php 16 www.google.com
+/zone.php 14 www.google.com
+/shell=Dead 2 www.google.com
+/wp-comments-post.php 11 www.google.com
+/base.php 16 www.google.com
+/.well-known/wp-signup.php 19 www.google.com
+/10.php 14 www.google.com
+/1975.php 3 www.google.com
+/alfatesla.php 1 www.google.com
+/minishell.php 14 www.google.com
+/FoxWSOv1.php 1 www.google.com
+/WSO.php 14 www.google.com
+/18.php 11 www.google.com
+/teslav.php 1 www.google.com
+/utchiha.phP 1 www.google.com
+/iqb.php 14 www.google.com
+/simple.php 17 www.google.com
+/root.php 14 www.google.com
+/blog/wp-includes/fonts/iqb.php 1 www.google.com
+/wp_wrong_datlib.php 16 www.google.com
+/priv8.php 14 www.google.com
+/un.php 24 www.google.com
+/by.php 14 www.google.com
+/bkv74.php 11 www.google.com
+/w.php 18 www.google.com
+/new.php 14 www.google.com
+/v3.php 14 www.google.com
+/shellbypass.php 11 www.google.com
+/j.php 14 www.google.com
+/defaults.php 11 www.google.com
+/wp-help.php 18 www.google.com
+/wp-content/plugins/db/uploader.php 1 www.google.com
+/codeboy1877x.php 1 www.google.com
+/mcc.php 11 www.google.com
+/24.php 11 www.google.com
+/adm.php 13 www.google.com
+/kn.php 1 www.google.com
+/gg.php 13 www.google.com
+/wp-content/themes/pridmag/init.php 1 www.google.com
+/galekjaya.php 1 www.google.com
+/alfa-ioxi.php 1 www.google.com
+/ccaef.php 1 www.google.com
+/wp-content/themes/workart/doc.php 1 www.google.com
+/shells.php 14 www.google.com
+/3index.php 17 www.google.com
+/2.php 14 www.google.com
+/wp-activate.php 11 www.google.com
+/ninja.php 14 www.google.com
+/ffAA531.php 1 www.google.com
+/srx.php 14 www.google.com
+/minik.php 1 www.google.com
+/init.php 14 www.google.com
+/wp-content/plugins/wp-freeform/style.php 1 www.google.com
+/wp-signup.php 11 www.google.com
+/tes.php 14 www.google.com
+/con.php 14 www.google.com
+/wso.php 14 www.google.com
+/haxor.php 14 www.google.com
+/wp-content/themes/noriumportfolio/doc.php 1 www.google.com
+/wp-content/themes/alera/alpha.php 18 www.google.com
+/wsanon.php 14 www.google.com
+/zx.php 14 www.google.com
+/FoxWSO-full.php 1 www.google.com
+/admin404.php 15 www.google.com
+/wp-content/themes/pridmag/db.php 1 www.google.com
+/usr.php 14 www.google.com
+/n.php 14 www.google.com
+/100.php 14 www.google.com
+/lf.php 1 www.google.com
+/wp-config.php 11 www.google.com
+/alf4.php 1 www.google.com
+/wp-js.php 16 www.google.com
+/wp-2019.php 14 www.google.com
+/h.php 14 www.google.com
+/mass.php 1 www.google.com
+/wp-posts.php 18 www.google.com
+/about.php 17 www.google.com
+/z.php 14 www.google.com
+/wp-content/plugins/cache-wordpress/wp-activates.php 1 www.google.com
+/21.php 11 www.google.com
+/wp-trackback.php 11 www.google.com
+/mini.php 14 www.google.com
+/wp-content/themes/jobart/db.php 1 www.google.com
+/bypas.php 14 www.google.com
+/zk.php 14 www.google.com
+/wp-load.php 16 www.google.com
+/wp-content/plugins/cakil/up.php 1 www.google.com
+/kepo.php 1 www.google.com
+/8890.php 11 www.google.com
+/wp-admin 2 -
+/css.php 17 www.google.com
+/minipriv.php 11 www.google.com
+/lock360.php 19 www.google.com
+/wp-mails.php 14 www.google.com
+/qindex.php 14 www.google.com
+/kct403.php 11 www.google.com
+/wp-includes/fonts/iq.php 1 www.google.com
+/install.php 11 www.google.com
+/you.php 11 www.google.com
+/wp-configer.php 14 www.google.com
+/0byte.php 16 www.google.com
+/uct.php 11 www.google.com
+/403.php 16 www.google.com
+/wp/wp-includes/fonts/dev.php 1 www.google.com
+/groupon.php 11 www.google.com
+/mas.php 14 www.google.com
+/admina/modul/rekapitulasi/get_akm.php 1 -
+/shx.php 18 www.google.com
+/new-index.php 14 www.google.com
+/index.html 2 -
+/wp-content/themes/skatepark/db.php 1 www.google.com
+/73.php 16 www.google.com
+/litespeed.php 15 www.google.com
+/e.php 14 www.google.com
+/1.php 16 www.google.com
+/wp-content/themes/wp-pridmag/22x.php 1 www.google.com
+/01.php 19 www.google.com
+/hello.php 14 www.google.com
+/wi.php 14 www.google.com
+/gel4y.php 14 www.google.com
+/racing.php 11 www.google.com
+/user.php 15 www.google.com
+/8.php 14 www.google.com
+/wp-includes/class-wp-other.php 17 www.google.com
+/14.php 11 www.google.com
+/gank.php.PhP 1 www.google.com
+/wso403.php 11 www.google.com
+/1877.php 1 www.google.com
+/r00t.php 17 www.google.com
+/docindex.php 14 www.google.com
+/wp-content/plugins/wp-diambar/includes/loadme.php 1 www.google.com
+/xxx.php 14 www.google.com
+/apple-touch-icon-precomposed.png 6 -
+/symlink403.php 11 www.google.com
+/wp-content/themes/rishi/doc.php 1 www.google.com
+/.well-known/pki-validation/wp-signup.php 19 www.google.com
+/bre.php 1 www.google.com
+/20.php 11 www.google.com
+/wso1337.php 1 www.google.com
+/findes.php 11 www.google.com
+/ohayo.php 1 www.google.com
+/degeselih.php 1 www.google.com
+/wp-content/plugins/wp-freeform/includes/loadme.php 1 www.google.com
+/filemanager.php 19 www.google.com
+/c.php 14 www.google.com
+/wp-content/themes/workart/db.php 1 www.google.com
+/0x0.php 1 www.google.com
+/shell.php 14 www.google.com
+/kct.php 11 www.google.com
+/wp-content/plugins/cekidot/mar.php 1 www.google.com
+/sitemap_index.xml 12 -
+/wp/wp-includes/fonts/iqb.php 1 www.google.com
+/wp-content/themes/cakiltheme/up.php 1 www.google.com
+/mclash.php 1 www.google.com
+/xidcm.php 1 www.google.com
+/load.php 20 www.google.com
+/config.php 18 www.google.com
+/foxwso.php 14 www.google.com
+/regist%20di 1 -
+/antek.php 11 www.google.com
+/sunda.php 11 www.google.com
+/ids.php 14 www.google.com
+/eagle.php 13 www.google.com
+/0.php 16 www.google.com
+/y.php 14 www.google.com
+/ap.php 11 www.google.com
+/up.php 17 www.google.com
+/wp-mail.php 11 www.google.com
+/images.php 11 www.google.com
+/19.php 11 www.google.com
+//vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/4lin.php 11 www.google.com
+/V5.php 1 www.google.com
+/wp-config-sample.php 15 www.google.com
+/includes.php 15 www.google.com
+/lol.php 14 www.google.com
+/abby.php 15 www.google.com
+/V3.php 14 www.google.com
+/gelay.php 14 www.google.com
+/d.php 14 www.google.com
+/1975Team.php 1 www.google.com
+/wp-content/themes/noriumportfolio/db.php 1 www.google.com
+/wp-atom.php 17 www.google.com
+/anons79.php 16 www.google.com
+/wp-content/themes/skatepark/doc.php 1 www.google.com
+/god4m.php 18 www.google.com
+/zfox.php 1 www.google.com
+/user/index.html 2 https://laboratorium.poltekkesbanten.ac.id/user/jadwal_praktikum
+/wp-we.php 1 www.google.com
+/idx.php 14 www.google.com
+/wp-content/themes/fitnessbase/crp.php 1 www.google.com
+/vuln.php 14 www.google.com
+/ww.php 18 www.google.com
+/Public/home/js/check.js 1 -
+/t.php 14 www.google.com
+/xforce.php 11 www.google.com
+/wp-ad.php 14 www.google.com
+/nee.php 1 www.google.com
+/un2.php 18 www.google.com
+/sitemap.xml 11 -
+/mwmek.php 11 www.google.com
+/tinyfilemanager.php 20 www.google.com
+/11.php 11 www.google.com
+/sundaxploit.php 11 www.google.com
+/tuco.php 18 www.google.com
+/administrator/index.php 3 -
+/wp-inlcudes.php 16 www.google.com
+/block-patwp.php 1 www.google.com
+/bj.php 15 www.google.com
+/bypass.php 14 www.google.com
+/gank.php 1 www.google.com
+/xdmah.php 11 www.google.com
+/min.php 14 www.google.com
+/xindex.php 14 www.google.com
+/lnedx.php 1 www.google.com
+/hi.php 18 www.google.com
+/wp-conflg.php 16 www.google.com
+/wp-pluging.php 1 www.google.com
+/admin/filemanager/dialog.php 3 -
+/shellsiapa.php 11 www.google.com
+/wp-content/plugins/cekidot/readme.txt 1 www.google.com
+/chitoge.php 1 www.google.com
+/6.php 14 www.google.com
+/old-index.php 14 www.google.com
+/sitemaps.xml 10 -
+/sitemap.txt 10 -
+/olux.php 3 www.google.com
+/wp-login.php 16 -
+/mrjn.php 14 www.google.com
+/45.php 16 www.google.com
+/if.php 14 www.google.com
+/lx.php 18 www.google.com
+/sh.php 13 www.google.com
+/local.php 17 www.google.com
+/alf.php 16 www.google.com
+/nasgor.php 1 www.google.com
+/rex.php 14 www.google.com
+/apple-touch-icon-120x120-precomposed.png 6 -
+/blog/wp-includes/fonts/dev.php 1 www.google.com
+/atom.xml 12 -
+/defau1t.php 14 www.google.com
+/anone.php 14 www.google.com
+/wawe.php 1 www.google.com
+/special.php 11 www.google.com
+/f.php 14 www.google.com
+/product.php 11 www.google.com
+/x.php 18 www.google.com
+/symlink.php 14 www.google.com
+/wp-content/mu-plugins-old/index.php 1 www.google.com
+/4.php 14 www.google.com
+/ilusi.php 11 www.google.com
+/r57.php 1 www.google.com
+/content.php 17 www.google.com
+/p.php 14 www.google.com
+/wp-content/themes/skatepark/alpha.php 1 www.google.com
+/wp-content/themes/wp-pridmag/status.php 1 www.google.com
+/sitemap.xml.gz 12 -
+/xleet-shell.php 18 www.google.com
+/apple-touch-icon-120x120.png 6 -
+/unknown.php 18 www.google.com
+/wp-content/plugins/cache-wordpress/payment.php 1 www.google.com
+/admin 2 -
+/FoxWSO.php 1 www.google.com
+/foxx.php 20 www.google.com
+/marijuana.php 14 www.google.com
+/shell20211028.php 14 www.google.com
+/zf.php 1 www.google.com
+/indosec.php 13 www.google.com
+/wp-hoard.php 11 www.google.com
+/wp-content/themes/fitnessbase/dev.php 1 www.google.com
+/wp-content/themes/jobart/doc.php 1 www.google.com
+/wp-one.php 14 www.google.com
+/pref.php 14 www.google.com
+/bb.php 1 www.google.com
+/siapa.php 11 www.google.com
+/XxX.php 1 www.google.com
+/search.php 11 www.google.com
+/mari.php 13 www.google.com
+/xx.php 14 www.google.com
+/security.php 11 www.google.com
+/license.php 11 www.google.com
+/s.php 14 www.google.com
+/wp-system.php 14 www.google.com
+/word.php 11 www.google.com
+/l.php 18 www.google.com
+/wp-content/themes.php 1 www.google.com
+/static/admin/javascript/hetong.js 1 -
+/bs.php7 11 www.google.com
+/upload.php 14 www.google.com
+/jadow.php 11 www.google.com
+/4x4.php 1 www.google.com
+/wp-content/plugins/db/mar.php 1 www.google.com
+/wp-class.php 18 www.google.com
+/al.php 16 www.google.com
+/wp-content.php 19 www.google.com
+/wp-content/themes/skatepark/img_screen.php 1 www.google.com
+/lv.php 11 www.google.com
+/wp-email.php 20 www.google.com
+/name.php 11 www.google.com
+/o.php 18 www.google.com
+/testwp.php 17 www.google.com
+/room.php 18 www.google.com
+/wp-content/plugins/linkpreview/db.php 1 www.google.com
+/tesla.php 3 www.google.com
+/ciis.php 1 www.google.com
+/alwso.php 1 www.google.com
+/wp-head.php 11 www.google.com
+/wp-content/themes/cepair/doc.php 1 www.google.com
+/alpha.php 20 www.google.com
+/wp.php 14 www.google.com
+/wso1.php 1 www.google.com
+/defaul1.php 11 www.google.com
+/wp-content/themes/wp-pridmag/init.php 1 www.google.com
+/priv.php 14 www.google.com
+/wikindex.php 16 www.google.com
+/wpindex.php 14 www.google.com
+/1975.phP 1 www.google.com
+/wp-content/plugins/wp-freeform/wawe.php 1 www.google.com
+/id.php 14 www.google.com
+/ok.php 14 www.google.com
+/ups.php 17 www.google.com
+/black.php 15 www.google.com
+/adriv.php 18 www.google.com
+/wp-content/themes/cakiltheme/idx.php 1 www.google.com
+/lolzk.php 3 www.google.com
+/Mo2AaAaAaPrivateShell.php 1 www.google.com
+/wp-content/themes/seotheme/db.php 2 www.google.com
+/usb.php 14 www.google.com
+/wp-includes/fonts/dev.php 1 www.google.com
+/wp-configs.php 11 www.google.com
+/byp.php 14 www.google.com
+/apple-touch-icon.png 6 -
+/phpinfo.php 19 www.google.com
+/sys.php 16 www.google.com
+/wp-foter.php 11 www.google.com
+/wp-plugins.php 14 www.google.com
+/alfa123.php 14 www.google.com
+/3301.php 1 www.google.com
+/js.php 20 www.google.com
+/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 3 -
+/ws.php 14 www.google.com
+/wso2.php 14 www.google.com
+/wp-content/themes/seotheme/mar.php 1 www.google.com
+/eviltwin.php 13 www.google.com
+/777.php 14 www.google.com
+/eval-stdin.php 1 -
+/use.php 11 www.google.com
+/1index.php 17 www.google.com
+/sym403.php 14 www.google.com
+/doc.php 17 www.google.com
+/wp-title.php 14 www.google.com
+/13.php 12 www.google.com
+/xl2023x.php 11 www.google.com
+/9.php 14 www.google.com
+/7.php 14 www.google.com
+/autoload_classmap.php 15 www.google.com
+/indoxploit.php 14 www.google.com
+/wp-content/flame.php 18 www.google.com
+/minimo.php 1 www.google.com
+/send.php 14 www.google.com
+/loader/ff.php 1 www.google.com
+/mi.php 14 www.google.com
+/kndw1.php 1 www.google.com
+/15.php 11 www.google.com
+/twin.php 14 www.google.com
+/12.php 11 www.google.com
+/wp-content/themes/noriumportfolio/img_screen.php 1 www.google.com
+/i.php 14 www.google.com
+/anjay.php 1 www.google.com
+/info.php 18 www.google.com
+/test.php 14 www.google.com
+/wp-content/plugins/virr/uploader.php 1 www.google.com
+/byps.php 14 www.google.com
+/404.php 16 www.google.com
+/k.php 14 www.google.com
+/r.php 14 www.google.com
+/gecko.php 18 www.google.com
+/wp-wso.php 14 www.google.com
+/omest403.php 11 www.google.com
+/batm.php 16 www.google.com
+/yan.php 13 www.google.com
+/fierza.php 20 www.google.com
+/cong.php 18 www.google.com
+/abc.php 16 www.google.com
+/aman.php 11 www.google.com
+/991176.php 1 www.google.com
+/iq.php 14 www.google.com
+/kk.php 14 www.google.com
+/4mosan.php 1 www.google.com
+/0z.php 16 www.google.com
+/wp-site.php 14 www.google.com
+/error.php 14 www.google.com
+/omest.php 11 www.google.com
+/wp-content/themes/theme/gr.php 1 www.google.com
+/q.php 14 www.google.com
+/hunter.php 11 www.google.com
+/wp-singupp.php 3 www.google.com
+/dosya.php 1 www.google.com
+/wp-backup-sql-302.php 1 www.google.com
+/readme.php 18 www.google.com
+/evil.php 14 www.google.com
+/shl.php 18 www.google.com
+/xl.php 18 www.google.com
+/mar.php 14 www.google.com
+/pi.php 17 www.google.com
+/admin.php 17 www.google.com
+/www.php 14 www.google.com
+/file.php 14 www.google.com
+/rahma.php 1 www.google.com
+/.wp-cache.php 14 www.google.com
+/manager.php 19 www.google.com
+/click.php 11 www.google.com
+/wp-booking.php 1 www.google.com
+/sql.php 14 www.google.com
+/blacksec.php 11 www.google.com
+/alfa-v4.php 11 www.google.com
+/Xzd.php 1 www.google.com
+/con7.php 14 www.google.com
+/wp-content/plugins/ndak/marijuana.php 1 www.google.com
+/a.php 16 www.google.com
+/u.php 14 www.google.com
+/dragonforce.php 11 www.google.com
+/dbx.php 14 www.google.com
+/ghostsec.php 11 www.google.com
+/wp-includes/fonts/iqb.php 1 www.google.com
+/admin403.php 13 www.google.com
+/w3llstore.php 1 www.google.com
+/wp-conctent.php 3 www.google.com
+/wp-rss.php 14 www.google.com
+/16.php 11 www.google.com
+/var.php 17 www.google.com
+/radio.php 16 www.google.com
+/am4n.php 11 www.google.com
+/wp-blog-header.php 11 www.google.com
+/sym.php 14 www.google.com
+/0o.php 18 www.google.com
+/postfs.php 3 www.google.com
+/b.php 18 www.google.com
+/wp-content/plugins/ndak/1.php 1 www.google.com
+/5.php 19 www.google.com
+/wp-content/themes/rishi/db.php 1 www.google.com
+/wp-admin/includes/1975.php 1 www.google.com
+/23.php 11 www.google.com
+/alfateslav4.php 16 www.google.com
+/cocot.php 11 www.google.com
+/wp-key.php 18 www.google.com
+/22.php 11 www.google.com
+/jindex.php 18 www.google.com
+/25.php 11 www.google.com
+/alfa-shell-v4.php 16 www.google.com
+/cmd.php 13 www.google.com
+/wp-content/plugins/virr/v.php 1 www.google.com
+/uploader.php 14 www.google.com
+/xleet.php 14 www.google.com
+/m.php 14 www.google.com
+/wp-links-opml.php 10 www.google.com
+/tshop.php 3 www.google.com
+/v4.php 14 www.google.com
+/alfakun.php 1 www.google.com
+/Dz.php 3 www.google.com
+/gh.php 14 www.google.com
+/anon.php 16 www.google.com
+/wp-content/themes/twentytwentytwo/index.php 1 www.google.com
+/filemanager/dialog.php 4 -
+/cot.php 11 www.google.com
+/3.php 14 www.google.com
+/wp-content/themes/wp-pridmag/up.php 1 www.google.com
+/v.php 17 www.google.com
+/2index.php 17 www.google.com
+/xd.php 3 www.google.com
+/xmlrpc.php 3 -
+/tonant.php 18 www.google.com
+/.well-known/traffic-advice 1 -
+/kyami.php 3 www.google.com
+/xm.php 14 www.google.com
+/wp-cron.php 11 www.google.com
+/xcv.php 14 www.google.com
+/wsopriv.php 11 www.google.com
+/wp-info.php 14 www.google.com
+/wp-defaul.php 14 www.google.com
+/profile.php 11 www.google.com
+/wp-blog.php 13 www.google.com
+/wp-includes/wp-class.php 16 www.google.com
+/con7ext.php 14 www.google.com
+/87.php 14 www.google.com
+/wp-admin.php 14 www.google.com
+/fox.php 14 www.google.com
+/ucp.php 11 www.google.com
+/17.php 11 www.google.com
+/la.php 14 www.google.com
+/wp-content/themes/noriumportfolio/alpha.php 1 www.google.com
+/xox.php 14 www.google.com
+/fw.php 17 www.google.com
+/g.php 14 www.google.com
+/1100.php 11 www.google.com
+/flame.php 18 www.google.com
+/c99.php 14 www.google.com
+/ioxi.php 1 www.google.com
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 122
+103.177.177.129 766 1470 235017943 20240731234940
+120.188.7.103 46 59 3890831 20240703001502
+114.4.213.148 34 47 2236915 20240729014558
+103.165.195.130 21 34 7149510 20240730234335
+140.213.140.164 19 25 1740051 20240729014713
+182.3.43.95 18 31 2229540 20240729013612
+114.10.119.108 15 27 1389039 20240729013826
+140.213.30.69 15 35 44523201 20240730002441
+140.213.128.114 14 35 3003536 20240729012452
+120.188.66.83 14 27 2153376 20240729012555
+182.0.176.44 14 29 8288477 20240730020515
+202.169.231.98 13 27 4303565 20240703235050
+114.4.78.193 12 25 2150893 20240729014350
+120.188.4.211 11 25 2163275 20240729014446
+114.10.29.157 11 24 2122177 20240729014829
+182.0.164.60 10 25 8217731 20240730020535
+182.2.166.43 9 23 2173329 20240729014316
+103.217.224.63 9 22 2275811 20240730075916
+182.0.178.70 9 23 2170774 20240730020238
+111.94.124.243 8 15 783594 20240717101900
+114.4.212.101 7 22 8187247 20240730020459
+114.10.25.93 7 22 8192646 20240730034136
+114.4.215.18 7 20 2093585 20240731065423
+182.2.145.190 7 21 8132691 20240729012632
+112.215.252.123 6 20 2122162 20240730020738
+114.10.115.73 1 7 750052 20240716030921
+140.213.98.149 1 8 756458 20240704003434
+64.233.173.151 4 14 1392175 20240731012638
+182.0.168.188 1 8 756458 20240730212555
+103.167.170.113 1 8 756458 20240723131424
+125.161.200.2 5 5 58949 20240731060412
+182.2.166.158 4 18 8084405 20240730232642
+104.236.69.168 1 1 3744 20240715125148
+114.4.213.29 1 8 756458 20240711040919
+193.186.4.147 1 1 3744 20240729011919
+182.2.167.227 5 19 8131544 20240730020403
+64.233.172.137 2 4 490299 20240710103359
+182.2.165.166 4 4 99130 20240729014821
+182.2.164.182 5 19 8108239 20240729014405
+114.79.1.215 1 6 605672 20240729012039
+156.146.57.184 1 1 3744 20240701163233
+74.125.212.7 0 1 335915 
+110.50.80.196 1 7 750052 20240730034308
+103.177.177.217 6 39 4312884 20240726045129
+140.213.136.231 0 1 6046707 
+114.10.30.116 4 4 55413 20240731060428
+64.233.173.153 0 1 90857 
+64.233.172.135 0 3 504665 
+114.4.212.48 1 7 750052 20240723210908
+47.254.85.182 1 1 3744 20240730120647
+114.10.70.179 2 2 39387 20240729014543
+182.2.166.134 1 1 16997 20240730232745
+114.124.208.47 2 2 33499 20240730002026
+137.184.232.242 1 2 10150 20240723020904
+78.180.184.42 1 1 3744 20240714104432
+87.236.176.212 0 1 6406 
+112.215.252.115 1 8 756458 20240715124648
+114.79.3.241 3 10 764118 20240729014313
+182.2.135.76 1 8 756458 20240703224905
+182.2.164.206 1 1 19874 20240729014809
+114.124.244.223 6 20 2121443 20240730020648
+114.79.0.88 5 11 1326086 20240729014535
+87.236.176.132 1 1 3744 20240728075513
+114.79.2.193 1 2 10150 20240717003909
+114.4.78.98 1 8 756458 20240724074347
+114.10.78.164 0 3 839083 
+112.215.231.71 1 8 756458 20240730073223
+112.215.233.144 4 19 13604991 20240730020458
+74.125.212.6 0 1 3890 
+36.83.133.19 2 10 764092 20240704000237
+206.168.34.61 1 2 10150 20240704144305
+111.94.196.75 3 10 764290 20240717102813
+182.3.46.243 2 2 34984 20240729014131
+112.215.251.94 6 19 2104100 20240730020457
+182.2.165.59 1 7 750052 20240729062340
+35.171.144.152 2 2 7488 20240731200145
+169.150.203.5 1 1 3744 20240730000243
+140.213.130.238 1 1 18079 20240729013607
+114.4.78.188 4 21 2206977 20240730002704
+114.10.115.142 6 20 8119329 20240729023352
+120.188.93.140 1 8 756458 20240730020600
+114.10.112.104 6 21 8166741 20240730020500
+138.197.68.78 1 1 3744 20240706104711
+114.10.113.139 1 10 1451739 20240710103349
+114.79.7.87 1 8 755511 20240731223126
+140.213.140.7 3 10 763946 20240727001255
+188.166.249.0 1 1 3744 20240704110525
+64.233.173.152 2 11 1848508 20240726045135
+182.2.167.116 1 8 756458 20240729004912
+103.26.211.4 1 7 750052 20240729010226
+64.233.172.136 0 2 7780 
+143.198.196.174 4 4 7638 20240710084709
+180.214.232.71 1 8 755511 20240701031132
+163.171.220.104 0 2 150786 
+114.10.25.209 5 19 8114940 20240730020430
+114.79.4.41 1 8 756458 20240729120824
+114.10.66.34 4 4 52603 20240730002040
+64.233.173.150 1 10 894470 20240729004921
+114.4.212.44 1 8 756458 20240730020107
+103.179.87.74 1 1 3744 20240721200442
+114.4.214.64 4 15 1638296 20240729012648
+140.213.30.138 1 1 3744 20240729101159
+114.124.210.8 4 4 52285 20240731012750
+157.245.70.29 1 2 10150 20240708211436
+114.4.83.210 3 3 41964 20240730003728
+140.213.136.235 1 7 750052 20240718044744
+110.50.81.202 1 7 750052 20240717101725
+114.4.78.44 6 18 2071086 20240729032720
+112.215.224.108 4 17 2329151 20240730034909
+140.213.4.252 4 4 53398 20240731015649
+182.2.165.190 2 2 38634 20240729014514
+206.189.29.85 1 2 10150 20240731152131
+140.213.140.67 3 19 13613825 20240729014314
+167.71.164.8 3 3 11232 20240718042926
+74.125.212.5 1 2 150640 20240731012639
+182.0.139.53 4 4 56284 20240730002226
+103.167.170.116 6 28 3494542 20240731071016
+114.79.4.116 1 1 3744 20240730020115
+114.10.70.53 4 4 51909 20240731000038
+140.213.129.188 1 1 3744 20240712144840
+120.188.38.107 1 8 756458 20240721230124
+103.18.34.142 6 19 2170615 20240729081737
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 26
+20240701 2 10 765661 2
+20240702 1 8 756458 1
+20240703 60 93 8944448 4
+20240704 4 14 784392 4
+20240706 1 1 3744 1
+20240708 1 2 10150 1
+20240709 2 2 3819 1
+20240710 5 21 2458302 3
+20240711 1 8 756458 1
+20240712 1 4 842827 1
+20240714 1 1 3744 1
+20240715 2 9 760202 2
+20240716 5 30 3550020 3
+20240717 18 46 3465068 8
+20240718 3 11 939254 3
+20240721 2 9 760202 2
+20240722 2 2 7488 1
+20240723 3 17 1516660 3
+20240724 5 26 2276862 2
+20240725 25 44 6729753 2
+20240726 5 18 1762800 3
+20240727 3 11 854803 1
+20240728 2 3 13894 2
+20240729 567 1253 174892280 38
+20240730 461 1002 257543094 35
+20240731 130 209 31349257 18
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+30mn-1h 6
+2mn-5mn 19
+0s-30s 76
+15mn-30mn 12
+5mn-15mn 7
+30s-2mn 19
+1h+ 4
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 32
+/login 366 1386447 126 72
+/user/kunjungan 324 6137385 8 48
+/profile 236 4211862 4 5
+/thema/assets/css/icons/tabler-icons/fonts/tabler-icons.woff2 86 47484384 1 2
+/user/jadwal_praktikum 66 2873954 0 3
+/home 30 546681 2 1
+/user/peminjaman 28 531648 0 2
+/changePassword 22 306089 0 1
+/password/reset 21 62007 2 2
+/petugas/request_jadwal 13 2057757 0 0
+/user/req_jadwal 12 294757 0 0
+/petugas/laporan/penggunaan_lab 11 323810 0 0
+/petugas/laporan/kunjungan_lab 11 419735 0 2
+/petugas/pengembalian_detail2/64 11 480018 0 0
+/petugas/laporan 10 286275 0 0
+/petugas/pengembalian_detail2/68 10 458894 0 0
+/user/req_peminjaman 9 501174 0 1
+/petugas/ruang 7 5427370 0 0
+/petugas/pengembalian_detail2/104 6 211203 0 0
+/petugas/pengembalian_detail2/105 6 207498 0 0
+/petugas/pengembalian 5 355559 0 0
+/petugas/request 4 155204 0 0
+/petugas/pengembalian_detail2/71 4 129637 0 1
+/register 2 150 0 2
+/petugas/request_detail/207 2 58204 0 0
+/user/peminjaman_detail/135 1 13180 0 0
+/petugas/pengembalian_detail2/223 1 31059 0 1
+/user/peminjaman_detail/62 2 60615 0 0
+/petugas/laporan/bahan_bhp 1 72027 0 0
+/petugas/barang 2 3454881 0 0
+/petugas/pengembalian_detail2/66 2 57284 0 0
+/admin/master_data 1 449438 0 0
+END_SIDER

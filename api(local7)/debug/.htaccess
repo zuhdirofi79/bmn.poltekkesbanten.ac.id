@@ -1,0 +1,29 @@
+# api/debug/.htaccess — Minimal config untuk mobile_log.php (Hostinger)
+#
+# TUJUAN:
+# - Izinkan GET (healthcheck) dan POST ke mobile_log.php
+# - Izinkan header custom X-MOBILE-LOG-KEY untuk CORS preflight
+# - Tidak memblok request yang bisa menyebabkan 403 dari WAF/mod_security
+#
+# Jika masih 403: cek Troubleshooting di dokumentasi endpoint.
+
+<IfModule mod_headers.c>
+    # Izinkan custom header dari mobile app
+    Header set Access-Control-Allow-Headers "Content-Type, X-MOBILE-LOG-KEY"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+
+# Pastikan OPTIONS (preflight) dijawab 200
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} OPTIONS
+    RewriteRule ^ - [R=200,L]
+</IfModule>
+
+# Jangan block dotfiles di sini (config diproteksi di parent)
+<Files "mobile_log_config.php">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</Files>

@@ -1,0 +1,17 @@
+1. 3 jurusan,3 admin,3 tempat gedung
+2. persetujuan untuk pinjaman
+3. pinjam ruang
+4. peminjaman nama MK, dosen
+5. jenis tujuan peminjaman ruang. praktikum reguler, penelitian, pengabdian
+6. nim,nid,nip,nup
+7. import data user
+8. jadwal praktikum
+9. pengelompokan barang permatakuliah
+10. 1 barang untuk beberapa kelas
+11. BHP tgl expired
+12. hilang, rusak, tidak lengkap
+13. notivikasi via email waktu pengembalian
+14. tambah stok. laporan stok opnal
+15. laporan penggunaan lab
+16. barang habis pakai terpisah
+alat, BHP, PONPOM

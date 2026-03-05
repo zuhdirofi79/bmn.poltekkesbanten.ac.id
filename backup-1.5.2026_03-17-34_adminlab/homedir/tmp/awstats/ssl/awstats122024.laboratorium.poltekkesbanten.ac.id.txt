@@ -1,0 +1,832 @@
+AWSTATS DATA FILE 7.8 (build 20200416)
+# If you remove this file, all statistics for date 202412 will be lost/reset.
+# Last config file used to build this data file was /home/adminlab/tmp/awstats/ssl/awstats.laboratorium.poltekkesbanten.ac.id.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2035                
+POS_TIME 2708                
+POS_VISITOR 24396               
+POS_DAY 25610               
+POS_DOMAIN 3418                
+POS_LOGIN 3775                
+POS_ROBOT 3930                
+POS_WORMS 4268                
+POS_EMAILSENDER 4399                
+POS_EMAILRECEIVER 4542                
+POS_SESSION 26143               
+POS_SIDER 26311               
+POS_FILETYPES 4677                
+POS_DOWNLOADS 4841                
+POS_OS 4889                
+POS_BROWSER 5087                
+POS_SCREENSIZE 5534                
+POS_UNKNOWNREFERER 5608                
+POS_UNKNOWNREFERERBROWSER 6000                
+POS_ORIGIN 6160                
+POS_SEREFERRALS 6295                
+POS_PAGEREFS 6458                
+POS_SEARCHWORDS 6606                
+POS_KEYWORDS 6758                
+POS_MISC 2371                
+POS_ERRORS 6817                
+POS_CLUSTER 3631                
+POS_SIDER_404 6967                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20250101031918 1 0 13117265247175
+FirstTime 20241201045520
+LastTime 20241230130049
+LastUpdate 20250102004820 1 0 0 0 0
+TotalVisits 33                  
+TotalUnique 26                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 30                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+AddToFavourites 0 10 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+QuickTimeSupport 0 0 0
+TotalMisc 0 0 0
+JavaEnabled 0 0 0
+RealPlayerSupport 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 4 17 2110576 5 6 7738
+1 4 33 3622253 7 9 579887
+2 2 4 20300 6 8 7341
+3 38 54 4072820 30 37 683771
+4 1 8 756458 283 287 948073
+5 1 2 10150 21 38 1512165
+6 0 1 6406 6 9 13494
+7 1 1 3744 8 8 11302
+8 11 18 794327 14 27 1331524
+9 0 0 0 5 5 7760
+10 1 2 10150 5 5 6646
+11 2 10 848353 9 11 18170
+12 0 0 0 0 0 0
+13 1 1 3744 5 5 5094
+14 11 11 41184 58 61 64759
+15 0 0 0 3 3 1314
+16 1 1 3744 5 5 6646
+17 3 16 1755312 3 3 1314
+18 0 0 0 378 380 670224
+19 2 10 20300 4 10 14572
+20 19 34 2818232 13 19 670233
+21 13 27 2497299 10 16 668283
+22 7 20 1791314 14 52 4447615
+23 0 1 6406 123 126 119398
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 10
+in 82 175 14845306
+id 13 41 3059957
+dk 11 11 41184
+us 10 33 2880255
+fr 1 3 172494
+nl 1 1 3744
+ao 1 3 172494
+pl 1 1 3744
+be 1 2 10150
+gr 1 1 3744
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 5
+Googlebot/ 57 5187363 20241225222538 7
+bingbot/ 47 4050889 20241231222834 6
+no_user_agent 9 517482 20241206054921 0
+Googlebot\-Image/ 4 110075 20241225222540 0
+facebookexternalhit/ 4 14976 20241211192202 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 5
+js 59 5853699 0 0
+Unknown 118 3531710 0 0
+png 40 1437723 0 0
+woff2 4 2208576 0 0
+css 50 8161364 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 10
+win7 2 2
+ios_iphone 18 1
+android10 31 4
+androidnougat 16 4
+linux 4 4
+macosx15 3 3
+macosx 1 1
+win10 183 98
+Unknown 12 4
+macosx11 1 1
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 22
+chrome127.0.0.0 1 1
+mozilla 8 4
+edge18 1 1
+safari17.3 1 1
+firefox79.0 1 1
+firefox98.0 1 1
+netscape5.0 6 2
+chrome100.0.4896.60 1 1
+safari17.2 10 2
+Unknown 4 0
+chrome131.0.0.0 150 69
+chrome129.0.0.0 2 2
+firefox115.0 1 1
+msie11.0 1 1
+chrome130.0.0.0 16 2
+chrome50.0.2661.102 1 1
+safari15.1 9 0
+chrome109.0.0.0 32 25
+chrome128.0.0.0 1 1
+safari17.7.74 1 1
+chrome125.0.0.0 7 1
+chrome59.0.3071.125 16 4
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 4
+Mozilla/5.0_(compatible;_CensysInspect/1.1;__https://about.censys.io/) 20241227021044
+Mozilla/5.0_(compatible;_InternetMeasurement/1.0;__https://internet-measurement.com/) 20241207103455
+Mozilla/5.0_(compatible) 20241224023748
+NetworkingExtension/8619.2.8.10.9_Network/4277.42.2_iOS/18.1.1 20241211192202
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 1
+NetworkingExtension/8619.2.8.10.9_Network/4277.42.2_iOS/18.1.1 20241211192202
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 25 35
+From1 0 0
+From2 2 2
+From3 0 0
+From4 95 234
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+www_google_com 2 2
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 6
+301 72 19405
+500 1 0
+405 1 569485
+419 2 3116
+404 825 1280400
+302 97 44132
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 479
+/c99.php 2 www.google.com
+/room.php 2 www.google.com
+/404.php 2 www.google.com
+/19.php 1 www.google.com
+/k.php 1 www.google.com
+/wp-head.php 2 www.google.com
+/wp-includes/js/codemirror 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/js/codemirror/
+/new.php 2 www.google.com
+/doc.php 2 www.google.com
+/byps.php 2 www.google.com
+/vuln.php 2 www.google.com
+/readme.php 2 www.google.com
+/shellsiapa.php 1 www.google.com
+/seeyon/test123456.jsp 1 -
+/shl.php 2 www.google.com
+/racing.php 2 www.google.com
+/public/javascript/filemanager/dialog.php 1 -
+/abby.php 2 www.google.com
+/fw.php 2 www.google.com
+/twin.php 2 www.google.com
+/dev.php 2 www.google.com
+/q.php 1 www.google.com
+/wp-content/themes 1 https://laboratorium.poltekkesbanten.ac.id/wp-content/themes/
+/o.php 2 www.google.com
+/0z.php 2 www.google.com
+/wp-includes/pomo 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/pomo/
+/wp-includes/images/wlw 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/images/wlw/
+/777.php 1 www.google.com
+/adminer.php 1 -
+/mari.php 2 www.google.com
+/public/scripts/filemanager/dialog.php 1 -
+/8890.php 1 www.google.com
+/tuco.php 2 www.google.com
+/cocot.php 1 www.google.com
+/public/index.php 1 -
+/files 1 https://laboratorium.poltekkesbanten.ac.id/files/
+/WSO.php 2 www.google.com
+/wp-content.php 2 www.google.com
+/mas.php 1 www.google.com
+/0.php 2 www.google.com
+/i.php 1 www.google.com
+/name.php 2 www.google.com
+/user.php 2 www.google.com
+/zentao/user-login.html 1 https://laboratorium.poltekkesbanten.ac.id/zentao/user-login.html
+/4lin.php 2 www.google.com
+/wp-admin.php 2 www.google.com
+/xleet-shell.php 2 www.google.com
+/litespeed.php 2 www.google.com
+/u.php 2 www.google.com
+/wp-hoard.php 2 www.google.com
+/byp.php 2 www.google.com
+/defaul1.php 1 www.google.com
+/tonant.php 2 www.google.com
+/security.php 2 www.google.com
+/media/filemanager/dialog.php 1 -
+/webapps/index.php 1 -
+/w.php 2 www.google.com
+/9.php 2 www.google.com
+/module.php/core/frontpage_welcome.php 1 -
+/al.php 2 www.google.com
+/phpmyadmin 1 -
+/cot.php 2 www.google.com
+/config.php 2 www.google.com
+/res/login.jsf 1 -
+/wp-includes/fonts 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/fonts/
+/wp-includes/IXR 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/IXR/
+/admin403.php 2 www.google.com
+/wp-admin/network 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/network/
+/p.php 1 www.google.com
+/wp-mail.php 2 www.google.com
+/alpha.php 2 www.google.com
+/anons79.php 2 www.google.com
+/1100.php 2 www.google.com
+/wp-includes 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/
+/sh.php 2 www.google.com
+/wp-admin 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/
+/filemanager/dialog.php 1 -
+/omest.php 2 www.google.com
+/r00t.php 2 www.google.com
+/authenticationform/login 1 -
+/.well-known/wp-signup.php 2 www.google.com
+/lx.php 2 www.google.com
+/25.php 1 www.google.com
+/images/logo/logo-eoffice.php 1 -
+/index.php/User/doLogin 1 -
+/gh.php 1 www.google.com
+/whoAmI 1 https://laboratorium.poltekkesbanten.ac.id/whoAmI/
+/wp-load.php 2 www.google.com
+/images.php 2 www.google.com
+/search.php 2 www.google.com
+/n.php 2 www.google.com
+/class/phpformbuilder/plugins/filemanager/dialog.php 1 -
+/wp-atom.php 2 www.google.com
+/ghostsec.php 2 www.google.com
+/admin/tmp 1 https://laboratorium.poltekkesbanten.ac.id/admin/tmp/
+/siapa.php 2 www.google.com
+/0o.php 2 www.google.com
+/fierza.php 2 www.google.com
+/wpindex.php 2 www.google.com
+/12.php 1 www.google.com
+/x.php 2 www.google.com
+/content.php 2 www.google.com
+/adriv.php 2 www.google.com
+/admin/controller/extension/extension 1 https://laboratorium.poltekkesbanten.ac.id/admin/controller/extension/extension/
+/apple-touch-icon.png 4 -
+/hello.php 2 www.google.com
+/ap.php 2 www.google.com
+/fox.php 2 www.google.com
+/wp-includes/sitemaps 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/sitemaps/
+/wp-info.php 2 www.google.com
+/indosec.php 2 www.google.com
+/tmp 1 https://laboratorium.poltekkesbanten.ac.id/tmp/
+/r.php 2 www.google.com
+/3index.php 2 www.google.com
+/file.php 2 www.google.com
+/you.php 2 www.google.com
+/sym403.php 2 www.google.com
+/xdmah.php 2 www.google.com
+/userlogin!doDefault.action 1 -
+/23.php 1 www.google.com
+/wp-admin/js 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/js/
+/groupon.php 1 www.google.com
+/RDWeb 1 https://laboratorium.poltekkesbanten.ac.id/RDWeb/
+/perpus 1 -
+/wp-cron.php 2 www.google.com
+/wp-content 1 https://laboratorium.poltekkesbanten.ac.id/wp-content/
+/flame.php 2 www.google.com
+/m.php 2 www.google.com
+/17.php 1 www.google.com
+/wp-includes/images/smilies 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/images/smilies/
+/wp-includes/css/dist 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/css/dist/
+/inlislite 3 -
+/wp-blog.php 2 www.google.com
+/ucp.php 2 www.google.com
+/wp-admin/css 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/css/
+/wp-content/uploads/2020 1 https://laboratorium.poltekkesbanten.ac.id/wp-content/uploads/2020/
+/function.php 2 www.google.com
+/alfa-shell-v4.php 1 www.google.com
+/special.php 2 www.google.com
+/kct.php 2 www.google.com
+/root.php 2 www.google.com
+/shx.php 2 www.google.com
+/sys/ui/extend/varkind/custom.jsp 2 -
+/assets/filemanager/dialog.php 1 -
+/tmps 1 https://laboratorium.poltekkesbanten.ac.id/tmps/
+/ww.php 2 www.google.com
+/wp-content/uploads/2018 1 https://laboratorium.poltekkesbanten.ac.id/wp-content/uploads/2018/
+/24.php 1 www.google.com
+/upgrade/detail.jsp/login/LoginSSO.jsp 1 -
+/wp-class.php 2 www.google.com
+/wp-defaul.php 1 www.google.com
+/sql.php 2 www.google.com
+/test.php 2 www.google.com
+/z.php 2 www.google.com
+/uct.php 2 www.google.com
+/kct403.php 2 www.google.com
+/product.php 2 www.google.com
+/export/classroom-course-statistics 1 -
+/iqb.php 1 www.google.com
+/con7ext.php 2 www.google.com
+/e.php 2 www.google.com
+/sundaxploit.php 2 www.google.com
+/minipriv.php 2 www.google.com
+/rex.php 2 www.google.com
+/wp-login.php 2 www.google.com
+/login.do 1 -
+/public/index.php/material/Material/_download_imgage 1 -
+/sym.php 2 www.google.com
+/upload.php 2 www.google.com
+/auth 1 -
+/bkv74.php 1 www.google.com
+/css.php 2 www.google.com
+/xforce.php 2 www.google.com
+/abc.php 2 www.google.com
+/haxor.php 2 www.google.com
+/20.php 1 www.google.com
+/2index.php 2 www.google.com
+/administrator 1 https://laboratorium.poltekkesbanten.ac.id/administrator/
+/21.php 1 www.google.com
+/wp-admin/user 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/user/
+/1.php 2 www.google.com
+/j.php 1 www.google.com
+/foxx.php 2 www.google.com
+/d.php 1 www.google.com
+/new-index.php 2 www.google.com
+/cmd.php 2 www.google.com
+/wso.php 2 www.google.com
+/bypas.php 2 www.google.com
+/application/index.html 1 -
+/base.php 2 www.google.com
+/wp-activate.php 2 www.google.com
+/about.php 2 www.google.com
+/wikindex.php 2 www.google.com
+/findes.php 1 www.google.com
+/shell.php 2 www.google.com
+/wp-admin/css/colors 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/css/colors/
+/V3.php 1 www.google.com
+/ninja.php 2 www.google.com
+/v.php 2 www.google.com
+/un.php 2 www.google.com
+/usb.php 1 www.google.com
+/defaults.php 1 www.google.com
+/wp-admin/css/colors/sunrise 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/css/colors/sunrise/
+/foxwso.php 2 www.google.com
+/login.html 1 -
+/evil.php 2 www.google.com
+/wp-site.php 2 www.google.com
+/mobile/plugin/browser.jsp 1 -
+/www.php 2 www.google.com
+/am4n.php 1 www.google.com
+/administrator/index.php 1 -
+/antek.php 1 www.google.com
+/wp-plugins.php 2 www.google.com
+/4.php 2 www.google.com
+/.wp-cache.php 2 www.google.com
+/wp-config-sample.php 2 www.google.com
+/xinder.php 1 www.google.com
+/5.php 2 www.google.com
+/mini.php 2 www.google.com
+/dragonforce.php 2 www.google.com
+/h.php 1 www.google.com
+/wp-admin/css/colors/light 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/css/colors/light/
+/7.php 2 www.google.com
+/servlet/~ic/bsh.servlet.BshServlet 2 -
+/alfa123.php 2 www.google.com
+/pref.php 2 www.google.com
+/ads.txt 2 -
+/wp-admin/css/colors/midnight 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/css/colors/midnight/
+/uploader.php 2 www.google.com
+/inlis3 3 -
+/f.php 1 www.google.com
+/usr.php 1 www.google.com
+/wso403.php 2 www.google.com
+/ad_miner.php 1 -
+/xox.php 1 www.google.com
+/filemanager.php 2 www.google.com
+/gel4y.php 2 www.google.com
+/shellbypass.php 2 www.google.com
+/wp-2019.php 2 www.google.com
+/mcc.php 1 www.google.com
+/wp-admin/css/colors/ectoplasm 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/css/colors/ectoplasm/
+/phpLogin.php 1 -
+/mwmek.php 1 www.google.com
+/symlink403.php 2 www.google.com
+/wp-includes/images 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/images/
+/alfa.php 2 www.google.com
+/hunter.php 2 www.google.com
+/word.php 2 www.google.com
+/wp-help.php 2 www.google.com
+/license.php 2 www.google.com
+/xm.php 1 www.google.com
+/manager.php 2 www.google.com
+/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 25 -
+/wp-foter.php 1 www.google.com
+/bs.php7 2 www.google.com
+/87.php 1 www.google.com
+/eagle.php 2 www.google.com
+/defau1t.php 2 www.google.com
+/wp-links-opml.php 2 www.google.com
+/13.php 1 www.google.com
+/3.php 2 www.google.com
+/tmui/login.jsp 1 -
+/wp-inlcudes.php 2 www.google.com
+/ilusi.php 2 www.google.com
+/wp-conflg.php 2 www.google.com
+/min.php 2 www.google.com
+/lock360.php 2 www.google.com
+/wp-content/languages 1 https://laboratorium.poltekkesbanten.ac.id/wp-content/languages/
+/god4m.php 2 www.google.com
+/2.php 2 www.google.com
+/unknown.php 2 www.google.com
+/index.html 1 -
+/admin/login 1 -
+/11.php 1 www.google.com
+/wp-admin/images 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/images/
+/use.php 2 www.google.com
+/10.php 2 www.google.com
+/jindex.php 2 www.google.com
+/1index.php 2 www.google.com
+/con7.php 2 www.google.com
+/wp-configs.php 2 www.google.com
+/public/index.php/home/file/user_pics 1 -
+/alfateslav4.php 1 www.google.com
+/tinyfilemanager.php 2 www.google.com
+/indoxploit.php 2 www.google.com
+/aman.php 1 www.google.com
+/wp-content/plugins/wp-catcher/index.php 1 www.google.com
+/weaver/org.apache.xmlrpc.webserver.XmlRpcServlet 1 -
+/marijuana.php 2 www.google.com
+/la.php 1 www.google.com
+/includes.php 2 www.google.com
+/lv.php 2 www.google.com
+/wp-includes/PHPMailer 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/PHPMailer/
+/8.php 2 www.google.com
+/wp-ad.php 2 www.google.com
+/14.php 1 www.google.com
+/wp-admin/maint 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/maint/
+/idx.php 1 www.google.com
+/wp-admin/js/widgets 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/js/widgets/
+/zone.php 2 www.google.com
+/wp-email.php 2 www.google.com
+/anon.php 2 www.google.com
+/servlet/codesettree 1 -
+/API/External/GetPrivacy 1 -
+/images 1 https://laboratorium.poltekkesbanten.ac.id/images/
+/73.php 2 www.google.com
+/js.php 2 www.google.com
+/100.php 1 www.google.com
+/wp-admin/includes 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/includes/
+/init.php 2 www.google.com
+/wp-content/uploads/2021 1 https://laboratorium.poltekkesbanten.ac.id/wp-content/uploads/2021/
+/perpustakaan 1 -
+/wp-title.php 2 www.google.com
+/ups.php 1 www.google.com
+/wi.php 1 www.google.com
+/priv.php 2 www.google.com
+/info.php 2 www.google.com
+/alfa-v4.php 2 www.google.com
+/psp/esshrprd 1 https://laboratorium.poltekkesbanten.ac.id/psp/esshrprd/
+/MyDevice/Login 1 -
+/b.php 2 www.google.com
+/v4.php 1 www.google.com
+/g.php 1 www.google.com
+/con.php 2 www.google.com
+/16.php 1 www.google.com
+/bsh.servlet.BshServlet 1 -
+/radio.php 2 www.google.com
+/ids.php 1 www.google.com
+/alf.php 2 www.google.com
+/nps/servlet/portalservice 1 -
+/lol.php 2 www.google.com
+/wp-admin/css/colors/ocean 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/css/colors/ocean/
+/pi.php 2 www.google.com
+/vpn/user/download/client 1 -
+/l.php 2 www.google.com
+/wp-signup.php 2 www.google.com
+/minishell.php 2 www.google.com
+/eviltwin.php 2 www.google.com
+/s.php 2 www.google.com
+/general/index/UploadFile.php 1 -
+/bypass.php 2 www.google.com
+/black.php 2 www.google.com
+/ok.php 2 www.google.com
+/wp-rss.php 2 www.google.com
+/anone.php 2 www.google.com
+/403.php 2 www.google.com
+/sunda.php 2 www.google.com
+/admin.php 2 www.google.com
+/old-index.php 2 www.google.com
+/click.php 2 www.google.com
+/yan.php 2 www.google.com
+/sys.php 2 www.google.com
+/error.php 2 www.google.com
+/wp-includes/Text 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/Text/
+/adm.php 2 www.google.com
+/xx.php 1 www.google.com
+/wp-includes/images/media 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/images/media/
+/omest403.php 2 www.google.com
+/admin/filemanager/dialog.php 1 -
+/shells.php 2 www.google.com
+/wp-content/uploads 1 https://laboratorium.poltekkesbanten.ac.id/wp-content/uploads/
+/gg.php 2 www.google.com
+/tes.php 2 www.google.com
+/sign-in 1 -
+/.well-known/traffic-advice 2 -
+/simple.php 2 www.google.com
+/seeyon/htmlofficeservlet 1 -
+/cong.php 2 www.google.com
+/kk.php 1 www.google.com
+/v3.php 1 www.google.com
+/server_version.xsl 1 -
+/0byte.php 2 www.google.com
+/qindex.php 2 www.google.com
+/wp-blog-header.php 2 www.google.com
+/y.php 2 www.google.com
+/var.php 2 www.google.com
+/autoload_classmap.php 2 www.google.com
+/wp-content/flame.php 2 www.google.com
+/wp-comments-post.php 2 www.google.com
+/wp-includes/images/crystal 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/images/crystal/
+/id.php 1 www.google.com
+/wsopriv.php 2 www.google.com
+/symlink.php 2 www.google.com
+/psp/CT920 1 https://laboratorium.poltekkesbanten.ac.id/psp/CT920/
+/hehe.php 1 www.google.com
+/wp-admin/css/colors/blue 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/css/colors/blue/
+/wp-key.php 2 www.google.com
+/upload 1 https://laboratorium.poltekkesbanten.ac.id/upload/
+/c.php 2 www.google.com
+/by.php 2 www.google.com
+/wp-includes/widgets 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/widgets/
+/up.php 2 www.google.com
+/wp-one.php 2 www.google.com
+/mi.php 1 www.google.com
+/18.php 1 www.google.com
+/cgi-bin/rpc 1 -
+/uploads 1 https://laboratorium.poltekkesbanten.ac.id/uploads/
+/apple-touch-icon-precomposed.png 4 -
+/45.php 2 www.google.com
+/gecko.php 2 www.google.com
+/ServiceCenter/Login.aspx 1 -
+/shell20211028.php 2 www.google.com
+/zx.php 2 www.google.com
+/pre/config.php 1 -
+/profile.php 1 www.google.com
+/wp-includes/Text/Diff 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/Text/Diff/
+/01.php 2 www.google.com
+/load.php 2 www.google.com
+/wp-content/upgrade 1 https://laboratorium.poltekkesbanten.ac.id/wp-content/upgrade/
+/testwp.php 2 www.google.com
+/xmlrpc.php 1 -
+/t.php 2 www.google.com
+/iq.php 1 www.google.com
+/wso2.php 2 www.google.com
+/xcv.php 1 www.google.com
+/srx.php 2 www.google.com
+/wp-includes/wp-class.php 2 www.google.com
+/wp-content/uploads/2019 1 https://laboratorium.poltekkesbanten.ac.id/wp-content/uploads/2019/
+/wp-trackback.php 2 www.google.com
+/ws.php 1 www.google.com
+/wp-admin/css/colors/modern 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/css/colors/modern/
+/xxx.php 1 www.google.com
+/admin404.php 2 www.google.com
+/assets/plugins/filemanager/dialog.php 1 -
+/answer/api/v1/siteinfo 1 -
+/.well-known/assetlinks.json 31 -
+/wp-js.php 2 www.google.com
+/blacksec.php 2 www.google.com
+/mrjn.php 2 www.google.com
+/send.php 2 www.google.com
+/user 1 -
+/xleet.php 2 www.google.com
+/wp-mails.php 2 www.google.com
+/wp-includes/ID3 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/ID3/
+/if.php 2 www.google.com
+/wp-posts.php 2 www.google.com
+/inlis 3 -
+/priv8.php 2 www.google.com
+/wsanon.php 2 www.google.com
+/mar.php 2 www.google.com
+/wp-wso.php 2 www.google.com
+/wp-content/themes/alera/alpha.php 2 www.google.com
+/.well-known/pki-validation/wp-signup.php 2 www.google.com
+/wp-includes/js/plupload 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/js/plupload/
+/guest_auth/guestIsUp.php 1 -
+/phpinfo.php 2 www.google.com
+/admin/upload 1 https://laboratorium.poltekkesbanten.ac.id/admin/upload/
+/a.php 2 www.google.com
+/zk.php 2 www.google.com
+/bj.php 2 www.google.com
+/install.php 2 www.google.com
+/wp-includes/sitemaps/providers 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/sitemaps/providers/
+/dbx.php 1 www.google.com
+/wp.php 2 www.google.com
+/OA_HTML/AppsLogin 1 -
+/xl2023x.php 1 www.google.com
+/batm.php 2 www.google.com
+/xl.php 2 www.google.com
+/wp-content/uploads/2022 1 https://laboratorium.poltekkesbanten.ac.id/wp-content/uploads/2022/
+/wp-includes/css 1 https://laboratorium.poltekkesbanten.ac.id/wp-includes/css/
+/wp-system.php 2 www.google.com
+/resources/js/tinymce/plugins/filemanager/dialog.php 1 -
+/wp-admin/css/colors/coffee 1 https://laboratorium.poltekkesbanten.ac.id/wp-admin/css/colors/coffee/
+/22.php 1 www.google.com
+/xindex.php 2 www.google.com
+/inlislite3 3 -
+/docindex.php 2 www.google.com
+/gelay.php 2 www.google.com
+/un2.php 2 www.google.com
+/wp-configer.php 2 www.google.com
+/6.php 2 www.google.com
+/wp-includes/class-wp-other.php 2 www.google.com
+/wp_wrong_datlib.php 2 www.google.com
+/jadow.php 2 www.google.com
+/hi.php 2 www.google.com
+/wp-config.php 2 www.google.com
+/local.php 2 www.google.com
+/15.php 1 www.google.com
+/wp-content/uploads/2022/10 1 https://laboratorium.poltekkesbanten.ac.id/wp-content/uploads/2022/10/
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 30
+103.177.177.129 61 100 7964313 20241217033614
+103.206.72.5 17 43 4601469 20241220005148
+86.48.10.8 11 11 41184 20241214141208
+101.128.92.51 10 17 790583 20241202080311
+103.177.177.209 2 16 1512916 20241229223914
+64.233.173.3 1 2 150640 20241209171212
+35.171.144.152 1 1 3744 20241209203928
+87.236.176.212 1 1 3744 20241207103453
+114.10.112.229 1 8 756458 20241223015126
+103.160.40.13 1 7 3744 20241225193233
+178.128.48.106 1 1 3744 20241210085144
+154.216.20.3 1 3 172494 20241230130049
+120.188.92.77 1 8 756458 20241201045520
+104.28.245.127 1 9 844609 20241222112351
+164.90.222.222 1 2 10150 20241224023747
+185.41.152.31 1 3 172494 20241225193022
+120.188.37.73 1 8 756458 20241209171205
+165.232.189.96 1 2 10150 20241210050919
+199.45.155.69 1 2 10150 20241227021042
+193.186.4.144 1 1 3744 20241209112713
+64.233.173.5 1 3 172494 20241209171214
+188.166.222.180 1 1 3744 20241205164702
+64.233.172.72 1 4 679464 20241223015135
+64.233.172.71 1 2 84343 20241223015135
+72.14.201.146 1 1 3744 20241202075914
+64.233.172.73 0 2 235047 
+103.120.76.66 0 1 6406 
+64.233.173.4 0 3 675720 
+87.236.176.19 0 1 6406 
+103.177.177.217 1 8 756458 20241201205457
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 21
+20241201 2 16 1512916 2
+20241202 11 18 794327 2
+20241204 1 8 756458 1
+20241205 5 13 771606 3
+20241207 1 11 1120633 1
+20241208 0 1 6406 0
+20241209 17 37 3503641 6
+20241210 2 4 20300 2
+20241211 22 29 2180490 2
+20241212 1 8 756458 1
+20241214 11 11 41184 1
+20241217 35 48 3892666 1
+20241220 4 17 2110576 1
+20241222 1 9 844609 1
+20241223 3 16 1755312 3
+20241224 1 2 10150 1
+20241225 2 8 7488 2
+20241226 0 2 168750 0
+20241227 1 2 10150 1
+20241229 1 8 756458 1
+20241230 1 3 172494 1
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 3
+0s-30s 26
+30s-2mn 3
+5mn-15mn 4
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 18
+/login 55 207468 32 29
+/petugas/request_jadwal 18 1530900 0 1
+/petugas/laporan/penggunaan_lab 10 307920 0 0
+/user/jadwal_praktikum 8 384797 0 0
+/profile 6 170888 1 0
+/petugas/laporan/kunjungan_lab 5 232276 0 0
+/thema/assets/css/icons/tabler-icons/fonts/tabler-icons.woff2 4 2208576 0 0
+/user/req_jadwal 3 108078 0 0
+/petugas/request 3 183924 0 1
+/petugas/laporan 2 51296 0 0
+/user/kunjungan 1 29769 0 1
+/petugas/request_detail/141 1 29261 0 0
+/petugas/request_detail/189 1 25990 0 0
+/password/reset 1 2797 0 0
+/petugas/ruang 1 145151 0 1
+/user/peminjaman 1 32526 0 0
+/home 1 28324 0 0
+/user/req_peminjaman 1 60345 0 0
+END_SIDER

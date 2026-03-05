@@ -1,0 +1,1246 @@
+AWSTATS DATA FILE 7.8 (build 20200416)
+# If you remove this file, all statistics for date 202410 will be lost/reset.
+# Last config file used to build this data file was /home/adminlab/tmp/awstats/ssl/awstats.laboratorium.poltekkesbanten.ac.id.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2035                
+POS_TIME 2717                
+POS_VISITOR 24989               
+POS_DAY 37303               
+POS_DOMAIN 3575                
+POS_LOGIN 3919                
+POS_ROBOT 4074                
+POS_WORMS 4575                
+POS_EMAILSENDER 4706                
+POS_EMAILRECEIVER 4849                
+POS_SESSION 38094               
+POS_SIDER 38307               
+POS_FILETYPES 4984                
+POS_DOWNLOADS 5224                
+POS_OS 5272                
+POS_BROWSER 5567                
+POS_SCREENSIZE 6605                
+POS_UNKNOWNREFERER 6679                
+POS_UNKNOWNREFERERBROWSER 6876                
+POS_ORIGIN 7068                
+POS_SEREFERRALS 7210                
+POS_PAGEREFS 7388                
+POS_SEARCHWORDS 7536                
+POS_KEYWORDS 7688                
+POS_MISC 2380                
+POS_ERRORS 7747                
+POS_CLUSTER 3775                
+POS_SIDER_404 7928                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20241101035924 151 41661 5414469729764
+FirstTime 20241001000358
+LastTime 20241031220726
+LastUpdate 20241101085119 151 0 150 0 0
+TotalVisits 381                 
+TotalUnique 295                 
+MonthHostsKnown 0                   
+MonthHostsUnknown 302                 
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+WindowsMediaPlayerSupport 0 0 0
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+TotalMisc 0 0 0
+PDFSupport 0 0 0
+JavascriptDisabled 0 0 0
+RealPlayerSupport 0 0 0
+FlashSupport 0 0 0
+DirectorSupport 0 0 0
+AddToFavourites 0 52 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 306 859 190492753 193 203 939934
+1 181 437 58488701 110 131 1999607
+2 616 1623 253351467 382 415 3204895
+3 296 657 203468509 225 261 4525881
+4 571 1493 268324184 455 472 2000177
+5 65 164 27822080 39 42 30516
+6 158 458 84151412 75 93 1245511
+7 44 146 38762766 245 247 1460145
+8 22 63 13535504 186 187 276564
+9 66 107 15274177 69 71 825872
+10 36 84 24365347 68 68 3491619
+11 8 36 3963003 10 15 18644
+12 4 10 757540 72 72 107288
+13 0 1 6406 217 223 996643
+14 2 4 20300 2 3 900
+15 1 2 10150 27 28 605260
+16 3 4 17638 10 10 8836
+17 0 0 0 4 5 8838
+18 16 28 2659514 19 27 684375
+19 1 1 26264 7 7 9786
+20 28 67 6291573 27 40 851374
+21 62 203 33854627 251 283 2180293
+22 312 613 75425029 660 679 3238123
+23 87 228 82718113 79 115 2812323
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 8
+in 1647 4156 810913702
+id 1172 2973 547809051
+us 40 112 9907932
+se 15 34 15102196
+ru 6 6 22644
+au 3 4 17638
+ca 1 2 10150
+gb 1 1 3744
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 10
+bingbot/ 58 3576320 20241031225251 12
+Googlebot/ 55 4771796 20241027231416 7
+CFNetwork 8 51248 20241031025741 0
+Googlebot\-Image/ 4 25624 20241027231758 0
+Dalvik/ 4 25624 20241018021919 0
+unknown 3 72 20241016140459 3
+MixrankBot 3 6616 20241021054319 0
+no_user_agent 2 7488 20241026075545 0
+facebookexternalhit/ 1 3744 20241023233826 0
+scanner 1 3744 20241014021815 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 8
+woff2 322 173925360 0 0
+ttf 2 3043520 0 0
+png 973 40523247 0 0
+woff 10 6980544 0 0
+js 2193 273354853 0 0
+css 1126 190634150 0 0
+Unknown 2551 48327734 0 0
+svg 111 646997649 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 15
+linuxdebian 1 1
+win10 323 172
+android10 3669 1479
+ios_ipad 1 1
+androidoreo 16 2
+linux 336 130
+macosx12 1 1
+win7 1 1
+Unknown 17 17
+androidnougat 93 27
+win2003 18 5
+ios_iphone 1907 692
+macosx15 1 1
+androidpie 40 14
+android 864 342
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 48
+safari17.6 356 136
+safari17.5 400 146
+chrome71.0.3578.141 32 10
+Unknown 17 17
+chrome87.0.4280.141 272 96
+chrome127.0.0.0 91 27
+safari17.3.1 97 31
+safari16.3 88 29
+chrome109.0.0.0 54 32
+chrome102.0.0.0 49 23
+safari 39 23
+chrome126.0.0.0 14 7
+safari15.1 16 7
+safari16.6 15 12
+chrome110.0.0.0 1 1
+chrome59.0.3071.125 93 27
+chrome117.0.0.0 21 6
+chrome125.0.0.0 21 8
+chrome124.0.0.0 2 1
+chrome128.0.0.0 307 112
+chrome91.0.4472.88 873 313
+chrome129.0.0.0 1765 696
+chrome122.0.0.0 327 164
+safari18.0.1 54 19
+firefox123.0 1 1
+firefox100.0 1 1
+chrome99.0.4844.88 6 1
+chrome121.0.0.0 63 16
+safari18.1 21 10
+safari16.2 84 27
+chrome123.0.6312.118 110 53
+chrome77.0.3865.116 19 6
+safari17.1 30 15
+firefox102.0 1 1
+firefox127.0 1 1
+safari15.6.1 41 22
+safari16.0 140 41
+safari15.6.6 155 48
+chrome130.0.0.0 1127 509
+chrome51.0.2704.103 1 1
+safari17.4 66 21
+chrome123.0.0.0 13 6
+safari18.0 80 34
+safari17.4.1 173 52
+chrome111.0.5563.116 94 52
+chrome100.0.4896.60 2 2
+safari16.1 54 21
+chrome118.0.0.0 1 1
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 3
+WhatsApp/2.23.20.0 20241031202840
+python-requests/2.32.3 20241009125015
+python-requests/2.31.0 20241006225158
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 3
+python-requests/2.31.0 20241006225158
+python-requests/2.32.3 20241009125015
+WhatsApp/2.23.20.0 20241031202840
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 691 699
+From1 15 15
+From2 5 6
+From3 0 0
+From4 2174 6568
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 2
+google_com 0 1
+www_google_com 5 5
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 8
+400 3 0
+302 1658 743704
+405 13 7417401
+404 1660 2576320
+419 67 104386
+206 96 12207659
+500 3 0
+301 6 1658
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 550
+/2.php 5 www.google.com
+/mrjn.php 5 www.google.com
+/weaver/org.apache.xmlrpc.webserver.XmlRpcServlet 1 -
+/w.php 6 www.google.com
+/axis2-admin/login 1 -
+/root.php 5 www.google.com
+/groupon.php 1 www.google.com
+/dev.php 5 www.google.com
+/siapa.php 2 www.google.com
+/bkv74.php 4 www.google.com
+/node_modules/angular-base64-upload/demo/angular-base64-upload.js 4 -
+/asset/file-manager 1 -
+/22.php 2 www.google.com
+/wp-help.php 6 www.google.com
+/mi.php 2 www.google.com
+/ww.php 2 www.google.com
+/all/modules/views-7.x-3.24/views/shell.php 1 -
+/ipt.php 1 www.google.com
+/marijuana.php 5 www.google.com
+/v4.php 2 www.google.com
+/testwp.php 2 www.google.com
+/sites/all/modules/views-7.x-3.24/views/shell.php 1 -
+/scripts/setup.php 1 -
+/modules/mod_webshell/mod_webshell.php 1 -
+/public/admin/filemanager 1 -
+/doc.php 6 www.google.com
+/y.php 5 www.google.com
+/js/filemanager 1 -
+/wp-includes/class-wp-other.php 6 www.google.com
+/public/asset/file-manager 1 -
+/k.php 5 www.google.com
+/public/file-manager 1 -
+/h.php 3 www.google.com
+/laravelfm 1 -
+/js/file-manager 1 -
+/error.php 5 www.google.com
+/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/x.php 6 www.google.com
+/hunter.php 1 www.google.com
+/profi/profile 1 -
+/87.php 1 www.google.com
+/aman.php 2 www.google.com
+/wp-content/uploads/cmd.php 2 -
+/ilusi.php 2 www.google.com
+/public/laravelfm 1 -
+/n.php 5 www.google.com
+/wp-load.php 6 www.google.com
+/wp-blog.php 3 www.google.com
+/45.php 6 www.google.com
+/rex.php 5 www.google.com
+/media/file-manager 1 -
+/15.php 5 www.google.com
+/yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/r.php 5 www.google.com
+/img/files/cmd.php 2 -
+/mas.php 2 www.google.com
+/xleet-shell.php 6 www.google.com
+/public/js/file-manager 1 -
+/anone.php 1 www.google.com
+/abc.php 6 www.google.com
+/readme.php 6 www.google.com
+/bs.php7 1 www.google.com
+/images/logo/logo-eoffice.php 1 -
+/adriv.php 2 www.google.com
+/tes.php 5 www.google.com
+/uploads/foto/cmd.php 2 -
+/public/js/laravel-filemanager 1 -
+/wp-signup.php 4 www.google.com
+/wp-foter.php 1 www.google.com
+/plugins/file-manager 1 -
+/10.php 5 www.google.com
+/wp-email.php 6 www.google.com
+/moodle/blocks/rce/lang/en/block_rce.php 1 -
+/seeyon/test123456.jsp 1 -
+/lisensi.php 1 www.google.com
+/23.php 2 www.google.com
+/anon.php 7 www.google.com
+/login.action 4 -
+/foxwso.php 5 www.google.com
+/content.php 6 www.google.com
+/wp-inlcudes.php 6 www.google.com
+/eagle.php 5 www.google.com
+/base.php 6 www.google.com
+/admina/modul/rekapitulasi/get_akm.php 2 -
+/.well-known/pki-validation/wp-signup.php 6 www.google.com
+/cgi-bin/admin.cgi 1 -
+/haxor.php 3 www.google.com
+/user.action 1 -
+/apple-touch-icon.png 8 -
+/xl2023x.php 1 www.google.com
+/sitemaps.xml 2 -
+/laravel52/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/laravel-filemanager 1 -
+/.wp-cache.php 3 www.google.com
+/fw.php 6 www.google.com
+/lock360.php 6 www.google.com
+/admin/file-manager 1 -
+/WSO.php 2 www.google.com
+/kct403.php 4 www.google.com
+/public/media/laravel-filemanager 1 -
+/wp-system.php 5 www.google.com
+/un2.php 2 www.google.com
+/sim-epk/daftar_pengajuan/get_daftar 2 -
+/mcc.php 1 www.google.com
+/backend/filemanager 1 -
+/wsopriv.php 1 www.google.com
+/q.php 4 www.google.com
+/mari.php 5 www.google.com
+/findes.php 1 www.google.com
+/kk.php 5 www.google.com
+/unknown.php 2 www.google.com
+/export/classroom-course-statistics 1 -
+/403.php 6 www.google.com
+/exec.php 1 -
+/moodle/local/moodle_webshell/webshell.php 1 -
+/profihttps://laboratorium.poltekkesbanten.ac.id/profile/profile 1 -
+/u.php 5 www.google.com
+/flame.php 6 www.google.com
+/shell.php 5 www.google.com
+/new.php 3 www.google.com
+/public/fm 1 -
+/files/css/cmd.php 2 -
+/f.php 3 www.google.com
+/zentao/user-login.html 1 https://laboratorium.poltekkesbanten.ac.id/zentao/user-login.html
+/d.php 3 www.google.com
+/srx.php 2 www.google.com
+/cgi-bin/rpc 1 -
+/public/asset/laravel-filemanager 1 -
+/sh.php 5 www.google.com
+/.env 1 -
+/con7ext.php 5 www.google.com
+/sym403.php 5 www.google.com
+/s.php 5 www.google.com
+/fmanager 1 -
+/user/index.html 5 https://laboratorium.poltekkesbanten.ac.id/user/kunjungan
+/asset/tinymce4x/tinymce/plugins/filemanager/dialog.php 1 -
+/7.php 5 www.google.com
+/gelay.php 5 www.google.com
+/minishell.php 5 www.google.com
+/foto/cmd.php 2 -
+/wp-mail.php 4 www.google.com
+/feeder_importer/admina/modul/data_wilayah/data_wilayah_data.php 2 -
+/iq.php 2 www.google.com
+/wp-wso.php 3 www.google.com
+/i.php 5 www.google.com
+/wp-content.php 6 www.google.com
+/17.php 5 www.google.com
+/old-index.php 2 www.google.com
+/id.php 5 www.google.com
+/cloud.php 1 www.google.com
+/shellbypass.php 4 www.google.com
+/sitemap.xml.gz 1 -
+/wp-ad.php 1 www.google.com
+/1index.php 6 www.google.com
+/alfa-shell-v4.php 6 www.google.com
+/alfa123.php 3 www.google.com
+/wp-login.php 6 -
+/users/sign_in 1 -
+/campus/local/moodle_webshell/webshell.php 1 -
+/sys/ui/extend/varkind/custom.jsp 2 -
+/plugins/laravel-filemanager 1 -
+/ap.php 1 www.google.com
+/asset/filemanager 1 -
+/wp-content/plugins/age-verification/age-verification.php 1 -
+/admin403.php 3 www.google.com
+/litespeed.php 6 www.google.com
+/minipriv.php 4 www.google.com
+/tmp/cmd.php 2 -
+/blacksec.php 2 www.google.com
+/tinyfilemanager.php 6 www.google.com
+/daftar_pengajuan/get_daftar 2 -
+/media/laravel-filemanager 1 -
+/antek.php 1 www.google.com
+/alfateslav4.php 2 www.google.com
+/lv.php 1 www.google.com
+/radio.php 6 www.google.com
+/twin.php 5 www.google.com
+/apple-touch-icon-precomposed.png 8 -
+/media/filemanager 1 -
+/dbx.php 2 www.google.com
+/search.php 1 www.google.com
+/upload.php 5 www.google.com
+/ups.php 6 www.google.com
+/wp-content/upload/cmd.php 2 -
+/sys.php 6 www.google.com
+/room.php 2 www.google.com
+/wp-key.php 2 www.google.com
+/E-Klaim/themes/login/style/test3.php 1 -
+/bj.php 2 www.google.com
+/folders/cmd.php 2 -
+/b374priv.php 1 www.google.com
+/bypass.php 5 www.google.com
+/shellsiapa.php 1 www.google.com
+/l.php 2 www.google.com
+/wp-class.php 6 www.google.com
+/v3.php 2 www.google.com
+/importer/admina/modul/rekapitulasi/get_akm.php 2 -
+/special.php 1 www.google.com
+//vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/assets/plugins/ckeditor/plugins/fileman 1 https://laboratorium.poltekkesbanten.ac.id/assets/plugins/ckeditor/plugins/fileman//
+/wp-links-opml.php 4 www.google.com
+/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/bsh.servlet.BshServlet 1 -
+/wso.php 5 www.google.com
+/5.php 6 www.google.com
+//register 1 -
+/zx.php 2 www.google.com
+/xdmah.php 1 www.google.com
+/docindex.php 5 www.google.com
+/wp-info.php 5 www.google.com
+/.well-known/assetlinks.json 32 -
+/load.php 6 www.google.com
+/abby.php 6 www.google.com
+/black.php 5 www.google.com
+/t.php 5 www.google.com
+/.tmb/cmd.php 2 -
+/wp-admin.php 5 www.google.com
+/feeder-importer/admina/modul/data_wilayah/data_wilayah_data.php 2 -
+/am4n.php 2 www.google.com
+/uploads/cmd.php 3 -
+/xleet.php 5 www.google.com
+/wsanon.php 2 www.google.com
+/73.php 6 www.google.com
+/gecko.php 6 www.google.com
+/wp-hoard.php 1 www.google.com
+/.well-known/wp-signup.php 6 www.google.com
+/plugins/filemanager 1 -
+/send.php 3 www.google.com
+/server/cmd.php 2 -
+/axis2/axis2-admin/login 1 -
+/xl.php 2 www.google.com
+/b.php 6 www.google.com
+/wp-posts.php 2 www.google.com
+/3index.php 6 www.google.com
+/indosec.php 6 www.google.com
+/about.php 6 www.google.com
+/01.php 6 www.google.com
+/feeder-importer/admina/modul/rekapitulasi/get_akm.php 2 -
+/wp-content/plugins/advanced-text-widget/readme.txt 1 -
+/wp-config.php 4 www.google.com
+/public/laravel-filemanager 1 -
+/index.action 6 -
+/wp-one.php 2 www.google.com
+/wp-conflg.php 2 www.google.com
+/defaults.php 2 www.google.com
+/filemanager.php 6 www.google.com
+/po-content/filemanager/dialog.php 1 -
+/xforce.php 1 www.google.com
+/blocks/rce/lang/en/block_rce.php 1 -
+/hi.php 2 www.google.com
+/bepass.php 1 www.google.com
+/11.php 5 www.google.com
+/pref.php 2 www.google.com
+/wp-blog-header.php 4 www.google.com
+/public/index.php 1 -
+/backend/file-manager 1 -
+/jindex.php 6 www.google.com
+/img/cmd.php 3 -
+/zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/admin/laravel-filemanager 1 -
+/vendor/laravel-filemanager 1 -
+/byp.php 5 www.google.com
+/401.php 1 www.google.com
+/wp-js.php 6 www.google.com
+//administrator/index.php 1 -
+/js.php 6 www.google.com
+/public/media/file-manager 1 -
+/24.php 2 www.google.com
+/predator.php 1 www.google.com
+/public/fmanager 1 -
+/autoload_classmap.php 6 www.google.com
+/omest403.php 1 www.google.com
+/xxx.php 5 www.google.com
+/m.php 5 www.google.com
+/assets/backend/js/plugins/filemanager/filemanager/dialog.php 4 -
+/product.php 1 www.google.com
+/min.php 5 www.google.com
+/admin/filemanager 1 -
+/wp-atom.php 6 www.google.com
+/filemanager 1 -
+/usb.php 2 www.google.com
+/vendor/filemanager 1 -
+/cmd.php 7 -
+/wp-content/plugins/sniplets/readme.txt 1 -
+/chibay.php 1 www.google.com
+/js/laravel-filemanager 1 -
+/wi.php 1 www.google.com
+/wpindex.php 5 www.google.com
+/simepk/daftar_pengajuan/get_daftar 2 -
+/v.php 6 www.google.com
+/priv8.php 6 www.google.com
+/cot.php 1 www.google.com
+/wikindex.php 6 www.google.com
+/cylul.php 1 www.google.com
+/wp-head.php 4 www.google.com
+/campus/blocks/rce/lang/en/block_rce.php 1 -
+/init.php 5 www.google.com
+/16.php 5 www.google.com
+/4.php 5 www.google.com
+/function.php 2 www.google.com
+/uct.php 5 www.google.com
+/css/cmd.php 2 -
+/phpinfo.php 6 www.google.com
+/test.php 5 www.google.com
+/awd.php 1 www.google.com
+/file.php 5 www.google.com
+/un.php 6 www.google.com
+/ids.php 2 www.google.com
+/sundaxploit.php 2 www.google.com
+/r00t.php 2 www.google.com
+/use.php 1 www.google.com
+/wp-site.php 2 www.google.com
+/guest_auth/guestIsUp.php 1 -
+/public/vendor/file-manager 1 -
+/6.php 5 www.google.com
+/gel4y.php 5 www.google.com
+/jadow.php 1 www.google.com
+/public/backend/laravel-filemanager 1 -
+/tiny.php 1 www.google.com
+/wp-cron.php 4 www.google.com
+/beyaz.php 1 www.google.com
+/12.php 5 www.google.com
+/wp-rss.php 2 www.google.com
+/profile.php 1 www.google.com
+/vuln.php 5 www.google.com
+/upload/cmd.php 2 -
+/god4m.php 2 www.google.com
+/1.php 6 www.google.com
+/upgrade/detail.jsp/login/LoginSSO.jsp 1 -
+/tuco.php 2 www.google.com
+/xinder.php 1 www.google.com
+/mobile/plugin/browser.jsp 1 -
+/zk.php 2 www.google.com
+/lol.php 2 www.google.com
+/wp-defaul.php 2 www.google.com
+/fierza.php 6 www.google.com
+/public/plugins/filemanager 1 -
+/wp-includes/wp-class.php 6 www.google.com
+/hello.php 5 www.google.com
+/al.php 2 www.google.com
+/25.php 2 www.google.com
+/command.php 2 -
+/22xc.php 1 www.google.com
+/admin404.php 6 www.google.com
+/up.php 6 www.google.com
+/you.php 2 www.google.com
+/0.php 6 www.google.com
+/public/asset/filemanager 1 -
+/wp-content/flame.php 6 www.google.com
+/eviltwin.php 6 www.google.com
+/omest.php 1 www.google.com
+/webadmin.php 1 www.google.com
+/fox.php 5 www.google.com
+/9.php 5 www.google.com
+/info.php 6 www.google.com
+/upload/foto/cmd.php 2 -
+/hehe.php 2 www.google.com
+/402.php 1 www.google.com
+/uploader.php 5 www.google.com
+/o.php 6 www.google.com
+/wp-trackback.php 4 www.google.com
+/public/plugins/file-manager 1 -
+/.git/config 2 -
+/files/cmd.php 2 -
+/public/admin/file-manager 1 -
+/public/index.php/material/Material/_download_imgage 1 -
+/p.php 4 www.google.com
+/xmlrpc.php 1 -
+/mini.php 5 www.google.com
+/ok.php 5 www.google.com
+/www.php 3 www.google.com
+/simple.php 6 www.google.com
+/20.php 5 www.google.com
+/shells.php 2 www.google.com
+/mwmek.php 1 www.google.com
+/indoxploit.php 5 www.google.com
+/13.php 5 www.google.com
+/lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/E-Klaim/print/klaim.php 1 -
+/sitemap.txt 1 -
+/shell20211028.php 2 www.google.com
+/profile/profile 1 -
+/admin.php 6 www.google.com
+/wp.php 5 www.google.com
+/fm 1 -
+/3.php 5 www.google.com
+/wp-plugins.php 5 www.google.com
+/assets/backend/js/plugins/filemanager/dialog.php 1 -
+/con7.php 5 www.google.com
+/public/filemanager 1 -
+/b374.php 1 www.google.com
+/asset/laravel-filemanager 1 -
+/assets/tinymce4x/tinymce/plugins/filemanager/dialog.php 1 -
+/local.php 6 www.google.com
+/public/backend/filemanager 1 -
+/servlet/~ic/bsh.servlet.BshServlet 2 -
+/22xcmini.php 1 www.google.com
+/dragonforce.php 1 www.google.com
+/lx.php 2 www.google.com
+/1100.php 1 www.google.com
+/xox.php 1 www.google.com
+/alfa-v4.php 1 www.google.com
+/100.php 1 www.google.com
+/aulavirtual/local/moodle_webshell/webshell.php 1 -
+/word.php 2 www.google.com
+/license.php 1 www.google.com
+/symlink.php 5 www.google.com
+/z.php 5 www.google.com
+/gh.php 2 www.google.com
+/public/plugins/laravel-filemanager 1 -
+/name.php 2 www.google.com
+/g.php 3 www.google.com
+/kct.php 2 www.google.com
+/security.php 2 www.google.com
+/0o.php 2 www.google.com
+/j.php 3 www.google.com
+/sim-epk-kepk/daftar_pengajuan/get_daftar 2 -
+/xm.php 2 www.google.com
+/login.php 1 www.google.com
+/alpha.php 6 www.google.com
+/777.php 1 www.google.com
+/apple-touch-icon-120x120-precomposed.png 7 -
+/sym.php 2 www.google.com
+/reports/rwservlet/showenv 1 -
+/admina/modul/data_wilayah/data_wilayah_data.php 2 -
+/e.php 5 www.google.com
+/wp-activate.php 4 www.google.com
+/css.php 6 www.google.com
+/400.php 1 www.google.com
+/shx.php 2 www.google.com
+/c.php 5 www.google.com
+/zone.php 5 www.google.com
+/iqb.php 2 www.google.com
+/general/index/UploadFile.php 1 -
+/foxx.php 6 www.google.com
+/eval-stdin.php 1 -
+/ws.php 2 www.google.com
+/evil.php 5 www.google.com
+/feeder_importer/admina/modul/rekapitulasi/get_akm.php 2 -
+/2index.php 6 www.google.com
+/idx.php 2 www.google.com
+/servlet/codesettree 1 -
+/elraton.php 2 www.google.com
+/public/index.php/home/file/user_pics 1 -
+/seeyon/htmlofficeservlet 1 -
+/print/themes/login/style/test3.php 1 -
+/bypas.php 5 www.google.com
+/wp-admin/cmd.php 2 -
+/adm.php 5 www.google.com
+/importer/admina/modul/data_wilayah/data_wilayah_data.php 2 -
+/wp-content/plugins/advanced-text-widget/advancedtext.php 1 -
+/wp_wrong_datlib.php 6 www.google.com
+/images.php 4 www.google.com
+/usr.php 2 www.google.com
+/racing.php 1 www.google.com
+/public/js/filemanager 1 -
+/wp-2019.php 5 www.google.com
+/19.php 5 www.google.com
+/wp-content/themes/alera/alpha.php 6 www.google.com
+/sitemap.xml 2 -
+/install.php 2 www.google.com
+/by.php 5 www.google.com
+/public/media/filemanager 1 -
+/4lin.php 2 www.google.com
+/batm.php 5 www.google.com
+/user.php 6 www.google.com
+/config.php 6 www.google.com
+/yan.php 2 www.google.com
+/cong.php 6 www.google.com
+/sql.php 2 www.google.com
+/8890.php 2 www.google.com
+/anons79.php 6 www.google.com
+/xindex.php 5 www.google.com
+/18.php 5 www.google.com
+/wp-content/cmd.php 2 -
+/shl.php 2 www.google.com
+/defaul1.php 2 www.google.com
+/class/cmd.php 2 -
+/ghostsec.php 2 www.google.com
+/sunda.php 2 www.google.com
+/backend/laravel-filemanager 1 -
+/8.php 5 www.google.com
+/vpn/user/download/client 1 -
+/ucp.php 2 www.google.com
+/profihttps://laboratorium.poltekkesbanten.ac.id/profilehttps://laboratorium.poltekkesbanten.ac.id/pro/profile 1 -
+/public/vendor/laravel-filemanager 1 -
+/if.php 1 www.google.com
+/wp-mails.php 5 www.google.com
+/login-x.php 1 -
+/wso403.php 1 www.google.com
+/0z.php 6 www.google.com
+/profil 1 -
+/0byte.php 6 www.google.com
+/vendor/file-manager 1 -
+/file-manager 1 -
+/click.php 2 www.google.com
+/wp-configs.php 4 www.google.com
+/pi.php 2 www.google.com
+/symlink403.php 5 www.google.com
+/cocot.php 2 www.google.com
+/con.php 5 www.google.com
+/reports/rwservlet 1 -
+/a.php 6 www.google.com
+/ninja.php 5 www.google.com
+/wp-comments-post.php 4 www.google.com
+/wso2.php 2 www.google.com
+/wp-configer.php 1 www.google.com
+/404.php 6 www.google.com
+/file/css/cmd.php 2 -
+/apple-touch-icon-120x120.png 7 -
+/mar.php 5 www.google.com
+/tonant.php 6 www.google.com
+/bypass403.php 1 www.google.com
+/var.php 6 www.google.com
+/public/vendor/filemanager 1 -
+/wp-content/plugins/cmd.php 2 -
+/includes.php 6 www.google.com
+/manager.php 6 www.google.com
+/V3.php 1 www.google.com
+/wp-title.php 2 www.google.com
+/js/cmd.php 2 -
+/alf.php 6 www.google.com
+/qindex.php 5 www.google.com
+/public/backend/file-manager 1 -
+/gg.php 3 www.google.com
+/sitemap_index.xml 2 -
+/byps.php 5 www.google.com
+//wp-login.php 1 -
+/xcv.php 2 www.google.com
+/public/admin/laravel-filemanager 1 -
+/local/moodle_webshell/webshell.php 1 -
+/priv.php 2 www.google.com
+/cyto.php 1 www.google.com
+/aulavirtual/blocks/rce/lang/en/block_rce.php 1 -
+/profihttps://laboratorium.poltekkesbanten.ac.id/profilehttps://laboratorium.poltekkesbanten.ac.id/profile/profile 1 -
+/wp-config-sample.php 6 www.google.com
+/filemanager/dialog.php 2 -
+/petugas/index.html 1 https://laboratorium.poltekkesbanten.ac.id/petugas/barangbhp
+/c99.php 2 www.google.com
+/14.php 5 www.google.com
+/alfa.php 6 www.google.com
+/xx.php 2 www.google.com
+/0byt3m1n1.php 1 www.google.com
+/new-index.php 5 www.google.com
+/modules/ctools-8.x-3.4/ctools/shell.php 1 -
+/21.php 2 www.google.com
+/print/klaim.php 1 -
+/modules/drupal_rce/drupal_rce/shell.php 1 -
+/defau1t.php 5 www.google.com
+/la.php 2 www.google.com
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 302
+103.177.177.129 1512 3863 762704130 20241031185337
+103.206.72.5 81 156 24011228 20241031220726
+103.120.76.62 24 68 18117493 20241030055900
+114.4.78.110 19 34 14232936 20241006015931
+202.125.100.55 18 43 8952606 20241003045359
+140.213.130.253 16 52 5367855 20241030021804
+146.75.160.28 13 32 15065313 20241002022211
+140.213.138.201 13 29 2566159 20241014064157
+120.188.65.56 12 25 2223587 20241006220445
+110.136.43.223 11 45 10951214 20241014092737
+114.10.15.165 11 24 2187294 20241003050735
+103.177.177.217 11 31 3045310 20241030004322
+114.10.117.229 11 34 3519144 20241002030523
+182.0.246.117 11 12 1242210 20241030010106
+114.10.74.172 11 11 737459 20241001022011
+114.79.6.17 11 24 2180801 20241014092824
+140.213.31.119 10 18 918237 20241002011102
+140.213.130.234 10 22 1767860 20241031203852
+114.79.6.54 10 22 143830 20241018021802
+180.243.1.105 10 39 10530925 20241003044205
+103.120.76.66 10 10 150967 20241015060539
+112.215.246.17 10 10 215653 20241030021443
+114.10.67.116 9 37 5024605 20241030230142
+114.10.64.235 9 32 3553292 20241030022240
+110.136.10.122 9 15 1519042 20241018050219
+114.79.4.188 7 19 2067612 20241001040146
+114.79.6.103 3 6 1410171 20241018020439
+140.213.136.95 5 18 2072752 20241015000936
+182.2.165.110 6 16 2078421 20241014093255
+114.124.247.169 5 17 1735599 20241007045220
+120.188.38.142 1 7 750052 20241007060639
+182.2.133.119 2 2 19016 20241002004929
+114.124.241.65 1 4 179090 20241003000252
+182.3.42.46 5 18 2081281 20241014070134
+159.65.197.27 1 2 10150 20241017141652
+114.10.146.6 3 3 57918 20241031203904
+114.10.68.88 4 6 783580 20241014062100
+120.188.4.25 5 18 2044225 20241030033001
+182.2.141.244 1 1 15219 20241030225551
+182.2.140.149 1 4 1393073 20241016084221
+114.10.30.53 4 8 291878 20241031030501
+146.75.160.29 2 2 36883 20241002022052
+180.243.0.27 2 2 7488 20241019015950
+140.213.30.32 8 12 1556549 20241029072933
+206.237.98.34 1 1 3744 20241004201010
+144.126.227.79 1 2 10150 20241015055224
+64.233.173.152 0 1 80599 
+35.171.144.152 2 2 7488 20241018161525
+114.10.67.169 5 19 8126657 20241003045254
+114.10.112.145 7 20 2101320 20241001021938
+114.124.209.221 4 5 7424246 20241031040020
+74.125.212.6 1 3 427810 20241024015708
+64.233.173.26 3 9 879876 20241029221259
+114.79.3.124 4 5 145051 20241007045145
+182.2.145.80 1 1 16804 20241029221744
+114.4.79.97 6 19 2073443 20241018044822
+120.188.5.241 1 8 756458 20241011070500
+114.79.2.87 8 21 2119724 20241018051945
+112.215.228.89 4 4 62799 20241018043446
+139.59.34.150 1 2 10150 20241007163511
+182.0.241.0 4 17 2053161 20241020112057
+114.10.112.183 6 19 2076887 20241003043623
+114.10.75.118 1 7 750052 20241006041914
+120.188.94.165 7 20 2078482 20241018025750
+64.233.173.151 0 3 238937 
+182.2.147.31 5 18 2074371 20241018021027
+114.10.66.81 6 20 8141317 20241030021952
+120.188.34.122 4 4 69119 20241014092837
+182.2.132.127 1 1 3916 20241002002208
+114.10.27.236 6 6 104668 20241031030515
+120.188.33.185 6 17 1678403 20241030013213
+64.233.172.72 3 8 400955 20241031032443
+180.243.7.155 4 4 71206 20241018102115
+120.188.7.71 5 18 2070641 20241018051716
+114.10.65.56 1 8 756458 20241008004159
+182.2.133.243 2 2 39179 20241002002242
+140.213.252.211 7 20 2096981 20241030022016
+182.2.132.103 1 1 3744 20241002002152
+120.188.32.67 0 1 6046707 
+140.213.137.22 5 13 2059848 20241018042302
+140.213.31.54 7 22 14222023 20241030021424
+114.79.3.131 5 5 77138 20241018021612
+182.2.132.115 1 3 17128 20241002002225
+114.79.2.192 4 5 395616 20241031030214
+182.0.240.39 6 20 8157992 20241030041002
+140.213.138.230 5 12 7375658 20241031030537
+64.233.173.6 0 3 675720 
+114.124.212.115 1 1 21331 20241014071805
+64.233.173.150 3 7 833848 20241003043922
+182.2.140.6 2 2 35709 20241002011010
+114.10.24.223 4 4 39355 20241029221814
+140.213.31.189 6 13 2062016 20241030021836
+114.10.114.196 4 4 52672 20241001015049
+114.10.65.1 6 19 2099307 20241001022158
+139.59.242.236 2 2 7488 20241009125015
+112.215.225.166 6 19 2107611 20241030005841
+114.79.4.251 6 19 2100548 20241030021247
+114.10.29.114 6 19 2083511 20241026234157
+74.125.212.7 0 3 231385 
+103.177.92.58 1 1 12395 20241015045649
+114.4.213.144 2 2 19586 20241015081358
+114.124.205.188 4 4 56887 20241015000013
+140.213.26.211 1 7 750052 20241001104607
+112.215.233.60 5 18 2077087 20241014062250
+114.124.140.189 5 19 8123676 20241014061324
+114.4.213.34 6 19 2102590 20241030021306
+182.2.164.185 2 2 34932 20241018022249
+140.213.128.247 2 2 46231 20241031030606
+140.213.31.148 4 12 13410198 20241007045630
+140.213.250.158 7 21 2454547 20241030005856
+140.213.252.230 6 6 100738 20241014095209
+114.124.240.133 4 17 2053293 20241002001902
+114.10.64.239 3 5 1274139 20241031035350
+120.188.35.91 4 4 60456 20241031030012
+114.10.113.153 1 1 17510 20241030001715
+182.2.132.227 4 4 58353 20241002021934
+182.2.141.232 1 1 17166 20241030225557
+114.10.113.141 4 4 61395 20241031030005
+114.10.31.175 5 18 2060913 20241014060923
+4.196.96.106 1 1 3744 20241016162322
+140.213.136.12 1 8 756458 20241030021258
+180.243.64.58 6 19 2084352 20241002024529
+182.2.145.212 5 8 2327928 20241029221830
+112.215.224.118 5 19 8672463 20241003043821
+114.124.247.180 7 21 8158098 20241031030050
+182.2.145.216 1 1 17164 20241029221637
+112.215.228.235 1 8 756458 20241031002324
+182.2.134.86 5 20 8111639 20241014060612
+114.10.24.136 7 21 8137680 20241002001255
+182.0.101.19 4 4 67430 20241003080208
+140.213.20.156 7 18 2102073 20241030041031
+140.213.129.169 5 18 2072655 20241014060633
+182.0.172.190 2 2 20773 20241018043034
+114.10.71.87 1 1 26264 20241030190018
+36.71.143.185 6 13 768381 20241025183342
+114.10.29.228 6 15 2042888 20241003042756
+114.79.4.173 5 8 1443238 20241030021449
+140.213.251.205 1 8 756458 20241007045542
+114.4.215.58 7 11 1810973 20241018021510
+114.10.64.150 4 9 6969808 20241030034504
+140.213.26.151 5 19 8123449 20241003043743
+140.213.130.104 5 19 8127908 20241001022015
+114.10.31.166 7 20 2129766 20241001022019
+140.213.20.56 1 1 3744 20241030005637
+140.213.130.72 1 2 1055312 20241003094735
+185.213.83.176 6 6 22644 20241001105611
+114.79.4.95 5 5 58090 20241030225832
+64.233.173.25 5 14 595385 20241030225627
+182.2.165.217 1 1 22759 20241014092715
+114.10.64.240 5 5 74024 20241014093103
+36.77.227.117 1 1 3744 20241005001614
+114.79.1.60 1 1 3744 20241024015701
+114.10.75.100 3 16 2023750 20241030005951
+114.10.115.113 2 12 917394 20241019021205
+182.2.144.236 2 2 21418 20241030225700
+165.227.235.117 1 2 10150 20241015150619
+114.10.113.199 5 19 8121843 20241014061958
+36.70.72.219 1 4 430516 20241022043425
+114.4.82.223 4 6 60580 20241002021826
+114.10.118.88 6 26 2826756 20241002003100
+114.10.24.171 1 6 746162 20241020205808
+64.233.172.71 3 11 974777 20241031032443
+112.215.252.130 5 18 2079011 20241003044110
+182.2.142.105 1 1 20405 20241003044627
+120.188.67.116 5 18 2079269 20241007045829
+64.233.172.73 1 9 1590231 20241007045823
+114.10.72.153 1 8 756458 20241002005440
+182.3.43.234 4 6 947353 20241030225718
+114.10.24.17 4 8 6280674 20241030225625
+182.3.53.205 1 7 750052 20241002104030
+140.213.4.212 4 4 58663 20241001015611
+114.10.114.195 5 18 2069214 20241030011307
+182.2.164.212 4 4 616534 20241030011408
+140.213.132.65 7 20 2081514 20241026033202
+180.243.4.61 1 7 750052 20241001201548
+112.215.224.225 4 11 2007843 20241030005750
+182.2.142.234 0 1 6406 
+114.10.114.228 5 18 2078154 20241002022110
+140.213.250.147 1 8 756458 20241014064654
+140.213.30.219 1 1 19291 20241018020443
+182.2.146.165 2 9 7329822 20241003044621
+140.213.250.3 8 20 1785773 20241030020905
+182.0.234.223 5 18 2081723 20241003045222
+140.213.140.218 6 6 68423 20241030225608
+182.0.103.172 8 10 685635 20241030011758
+120.188.93.39 2 2 40848 20241001021938
+140.213.140.200 1 1 3744 20241002032428
+182.2.164.173 2 2 34267 20241018022110
+159.223.238.130 1 2 10150 20241028210807
+38.240.225.80 1 1 3744 20241014011900
+140.213.31.212 4 5 90165 20241031030007
+172.225.181.68 1 1 3744 20241016065311
+74.125.212.5 1 4 490445 20241024015708
+203.78.124.45 1 5 599266 20241006221754
+114.10.71.165 5 5 73896 20241007045732
+114.124.209.97 7 20 2097219 20241031012253
+140.213.20.130 4 4 55299 20241016001819
+140.213.128.196 4 4 55035 20241007045701
+5.62.34.17 1 1 3744 20241006225158
+114.10.68.100 4 4 39710 20241030225548
+114.10.112.130 5 18 2088355 20241030021742
+120.188.38.42 5 12 1309423 20241007045127
+182.2.166.177 4 4 78972 20241031070746
+114.124.246.43 4 4 79031 20241031065453
+114.10.64.206 4 4 76372 20241030032952
+114.10.31.54 6 19 2080881 20241002021942
+120.188.64.62 1 1 21316 20241014073609
+114.10.31.66 5 19 8120435 20241001021821
+140.213.129.206 1 1 0 20241002032501
+120.188.7.115 5 18 2074395 20241030022255
+140.213.21.239 4 12 13417086 20241014064844
+114.124.204.168 7 11 1792117 20241030225738
+120.188.36.211 5 18 2056313 20241002003325
+103.177.93.58 6 19 2104084 20241015045704
+36.70.72.100 1 1 3744 20241031075748
+35.207.241.196 1 2 91895 20241020090516
+140.213.253.73 2 8 896802 20241019013503
+114.4.212.198 7 9 646509 20241002003318
+114.10.112.61 3 17 7540489 20241014100222
+64.233.173.1 5 13 1995977 20241031003721
+120.188.94.10 4 4 56340 20241018020532
+114.124.245.253 1 2 3744 20241001000546
+114.10.64.187 7 21 8168764 20241018043639
+159.223.16.233 1 2 10150 20241005145059
+114.10.65.108 6 19 2093883 20241018022631
+120.188.37.160 5 5 68358 20241030230227
+64.233.173.5 1 3 172494 20241009033920
+114.10.69.99 3 3 35451 20241020212308
+114.10.73.37 1 1 3744 20241018205654
+182.2.145.124 5 13 2049143 20241029221801
+103.177.177.209 1 7 750052 20241022222805
+120.188.65.65 6 19 2065551 20241003043751
+125.161.193.101 6 21 8161790 20241031084230
+120.188.34.131 5 18 2068688 20241020212323
+114.10.149.86 4 4 55725 20241031203322
+182.0.200.194 7 15 1088064 20241030021642
+120.188.65.81 6 20 2113870 20241014073607
+112.215.233.133 1 1 3744 20241019111929
+182.2.142.246 1 8 756458 20241005113318
+140.213.31.168 8 22 8691128 20241030001546
+114.79.5.131 2 2 43116 20241031030551
+182.2.145.72 1 1 3744 20241029221237
+114.10.114.127 5 18 2087275 20241030021343
+114.10.65.66 1 2 6070231 20241014100309
+114.10.29.227 7 20 8162728 20241003051340
+114.10.24.87 4 5 58566 20241014062146
+180.243.9.170 5 19 8139335 20241031070656
+114.10.115.234 5 18 2082396 20241018044627
+114.10.26.201 4 4 60397 20241031030111
+112.215.228.111 4 4 53674 20241030225721
+114.124.209.188 5 18 2071355 20241030001537
+120.188.38.227 4 4 56165 20241007045649
+112.215.225.143 3 3 48041 20241014103124
+182.2.146.177 2 9 777485 20241003044704
+103.177.92.122 1 1 18043 20241015045642
+114.10.119.182 4 4 52453 20241029221808
+114.4.83.250 6 19 2074479 20241030011636
+112.215.228.204 5 12 1331598 20241031030147
+114.5.250.19 5 18 2082200 20241030010545
+114.10.113.235 4 4 62618 20241031025832
+114.10.119.71 8 21 2102317 20241030225852
+114.10.25.194 7 10 1651490 20241018021505
+140.213.252.42 1 7 750052 20241001083102
+114.4.79.154 1 7 750052 20241002125923
+114.124.140.84 5 18 2085347 20241030021146
+114.10.119.62 2 9 760202 20241030100932
+64.233.173.4 1 2 150640 20241009033920
+114.10.25.107 7 20 2092071 20241002022200
+120.188.7.152 2 2 25692 20241014073722
+120.188.93.244 1 8 756458 20241008015424
+114.4.78.190 6 19 2098665 20241030001830
+114.79.0.95 6 20 8671582 20241030003234
+182.3.47.213 7 26 2763373 20241030022007
+114.10.74.105 7 20 2064076 20241003042939
+182.2.165.193 4 4 63429 20241014092758
+114.124.244.83 4 12 1749130 20241014060922
+140.213.31.51 1 1 23909 20241014103219
+182.2.165.124 7 12 1828780 20241030021653
+140.213.250.87 4 10 1333335 20241030021616
+114.10.112.81 5 5 87554 20241031032234
+182.2.141.247 2 4 6593360 20241030004239
+140.213.142.254 0 3 233901 
+182.0.96.230 5 18 2083942 20241018050259
+182.2.165.119 4 4 61824 20241002022222
+114.10.26.0 1 2 339659 20241002080308
+142.93.39.141 1 2 10150 20241001024359
+110.136.8.29 5 14 2033233 20241003050059
+114.10.31.164 5 18 2086316 20241030021019
+114.10.68.25 7 20 2099036 20241014060756
+140.213.138.156 1 7 750052 20241002212912
+140.213.30.134 5 18 2057339 20241020220944
+180.243.7.185 1 7 750052 20241031080526
+140.213.26.23 4 18 8092888 20241007050613
+182.0.228.132 3 3 41539 20241014060426
+140.213.20.105 7 21 8170767 20241030010303
+125.167.0.245 1 2 3744 20241002021647
+120.188.95.183 4 4 64091 20241030010231
+147.139.210.131 1 1 3744 20241005045804
+182.2.165.3 8 22 8177705 20241030021243
+112.215.251.133 1 1 3744 20241003103327
+114.10.66.221 4 4 85376 20241014092154
+140.213.130.200 6 6 78473 20241014095355
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 28
+20241001 267 739 117042238 22
+20241002 266 752 115850731 38
+20241003 213 639 111620904 23
+20241004 1 1 3744 1
+20241005 5 14 784246 5
+20241006 48 104 20784851 9
+20241007 204 528 112427873 18
+20241008 52 104 7014745 6
+20241009 18 33 3256745 6
+20241010 14 45 4936182 3
+20241011 5 12 815207 2
+20241013 10 23 2145544 1
+20241014 251 668 144948125 45
+20241015 42 83 11303233 12
+20241016 45 78 6005015 8
+20241017 10 30 2867702 3
+20241018 205 447 64382554 30
+20241019 7 23 1825428 4
+20241020 35 103 11645812 9
+20241022 6 28 3291644 3
+20241023 31 55 4209929 3
+20241024 18 52 5515538 5
+20241025 9 16 802519 2
+20241026 20 50 5940970 3
+20241028 3 8 190278 2
+20241029 55 125 14644682 13
+20241030 682 1781 393401080 70
+20241031 363 747 216129538 35
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+30mn-1h 10
+0s-30s 141
+1h+ 5
+30s-2mn 125
+15mn-30mn 10
+5mn-15mn 22
+2mn-5mn 68
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 37
+/user/kunjungan 945 18968557 24 224
+/login 743 2790746 325 120
+/profile 507 8770133 13 8
+/thema/assets/css/icons/tabler-icons/fonts/tabler-icons.woff2 322 173925360 2 6
+/user/jadwal_praktikum 87 2225902 1 7
+/home 87 1548017 10 4
+/changePassword 32 482169 0 0
+/user/peminjaman 23 406642 1 4
+/password/reset 21 62656 2 0
+/user/req_jadwal 18 460131 0 1
+/petugas/request 17 1014673 0 2
+/petugas/request_jadwal 11 608681 0 0
+/thema/assets/css/icons/tabler-icons/fonts/tabler-icons.woff 10 6980544 1 0
+/petugas/pengembalian 8 703256 0 0
+/index.php/login 6 22644 1 1
+/petugas/pengembalian_detail2/140 5 161359 0 0
+/petugas/request_detail/141 4 117036 0 0
+/petugas/barang 4 5452784 0 0
+/petugas/barangbhp 4 2841740 0 2
+/petugas/laporan/penggunaan_lab 3 87029 0 0
+/petugas/pengembalian_detail2/223 3 85674 0 0
+/petugas/barangmedis 3 965454 0 0
+/thema/assets/css/icons/tabler-icons/fonts/tabler-icons.ttf 2 3043520 1 0
+/petugas/request_detail/213 2 56436 0 0
+/petugas/pengembalian_detail2/201 2 53335 0 0
+/petugas/request_detail/150 1 29276 0 0
+/petugas/request_detail/205 1 27164 0 1
+/petugas/request_detail/189 1 25998 0 0
+/user/peminjaman_detail/120 1 24638 0 0
+/user/req_peminjaman 1 24382 0 0
+/petugas/laporan 2 51044 0 0
+/petugas/request_detail/201 1 26100 0 0
+/petugas/request_detail/135 1 31169 0 0
+/register 1 75 0 1
+/petugas/pengembalian_detail2/214 2 53335 0 0
+/petugas/pengembalian_detail2/139 2 53313 0 0
+/petugas/laporan/kunjungan_lab 2 96186 0 0
+END_SIDER

@@ -1,0 +1,6146 @@
+AWSTATS DATA FILE 7.8 (build 20200416)
+# If you remove this file, all statistics for date 202508 will be lost/reset.
+# Last config file used to build this data file was /home/adminlab/tmp/awstats/awstats.laboratorium.poltekkesbanten.ac.id.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2031                
+POS_TIME 2713                
+POS_VISITOR 148333              
+POS_DAY 155403              
+POS_DOMAIN 3617                
+POS_LOGIN 4095                
+POS_ROBOT 4250                
+POS_WORMS 4887                
+POS_EMAILSENDER 5018                
+POS_EMAILRECEIVER 5161                
+POS_SESSION 156317              
+POS_SIDER 156529              
+POS_FILETYPES 5296                
+POS_DOWNLOADS 5492                
+POS_OS 5559                
+POS_BROWSER 5839                
+POS_SCREENSIZE 7050                
+POS_UNKNOWNREFERER 7124                
+POS_UNKNOWNREFERERBROWSER 7579                
+POS_ORIGIN 7879                
+POS_SEREFERRALS 8021                
+POS_PAGEREFS 8165                
+POS_SEARCHWORDS 8341                
+POS_KEYWORDS 8493                
+POS_MISC 2376                
+POS_ERRORS 8552                
+POS_CLUSTER 3951                
+POS_SIDER_404 8748                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20250901003444 340 92529 7740985276376
+FirstTime 20250801003416
+LastTime 20250831225121
+LastUpdate 20250901040536 340 0 339 0 0
+TotalVisits 335                 
+TotalUnique 165                 
+MonthHostsKnown 0                   
+MonthHostsUnknown 181                 
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+PDFSupport 0 0 0
+JavaEnabled 0 0 0
+QuickTimeSupport 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+TotalMisc 0 0 0
+JavascriptDisabled 0 0 0
+AddToFavourites 0 15 0
+RealPlayerSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 518 654 97860526 1455 1465 4189330
+1 448 512 65208669 754 757 7934934
+2 674 945 202831699 733 748 2075519
+3 756 945 140322092 813 820 2879568
+4 743 877 117581329 815 819 912250
+5 482 497 40238402 2452 2454 3242504
+6 44 51 3431478 1112 4454 6847976
+7 15 28 2826720 1090 1095 2420242
+8 37 37 925172 521 2931 5290798
+9 7 7 26182 456 1545 2385449
+10 9 9 33624 60 159 81814
+11 24 25 96100 2529 2533 4908393
+12 17 19 76384 2470 2479 4868702
+13 9 9 33624 64 162 91383
+14 2 2 7472 40 206 1860332
+15 2 2 7472 45 46 628901
+16 11 11 41126 1048 1050 1587128
+17 5 5 18680 386 572 579978
+18 3 3 11208 29 30 41696
+19 17 17 387494 552 552 2065686
+20 56 84 17284531 217 225 921664
+21 627 814 114395974 317 334 1447109
+22 661 887 151240087 884 899 4606901
+23 306 465 113608298 889 890 2376578
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 18
+in 4879 5588 666773001
+id 261 774 300152764
+us 199 305 56517500
+gb 39 39 145794
+se 34 137 44674664
+nl 17 17 59776
+de 15 15 56040
+ca 6 6 22416
+be 6 6 22416
+jp 5 5 18680
+zz 3 3 11208
+no 2 2 7472
+au 2 2 7502
+gr 1 1 3736
+cn 1 1 3736
+za 1 1 3736
+fi 1 2 10142
+ru 1 1 3736
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 14
+bingbot/ 38 2024345 20250824122634 8
+no_user_agent 16 60166 20250829233626 0
+Go\-http\-client/ 15 56040 20250831010921 0
+Googlebot/ 12 288 20250827162244 12
+bot[\s_+:,\.\;\/\\-] 3 334022 20250803003359 2
+facebookexternalhit/ 2 3760 20250826024147 1
+bitlybot 2 3760 20250814031130 1
+Applebot/ 2 3760 20250831202838 1
+CFNetwork 2 12812 20250826024147 0
+urllib 1 3736 20250830002430 0
+checker 1 3736 20250810064813 0
+survey 1 3736 20250807213650 0
+curl 1 3736 20250813221656 0
+unknown 1 24 20250809122559 1
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 6
+js 636 72040376 0 0
+css 338 55027666 0 0
+Unknown 5389 344409228 0 0
+woff2 84 44723664 0 0
+svg 89 538156923 0 0
+png 369 14136462 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 1
+/robots.txt 0 1 24
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 15
+androidnougat 55 55
+win7 1455 1361
+macosx11 2 2
+macosx15 42 28
+android10 15 8
+macosx10 1 1
+linux 11 9
+android 1 1
+ios_iphone 1817 612
+win8.1 2 2
+ios_ipad 2 2
+linuxubuntu 3 3
+win10 3470 3363
+winnt 1 1
+Unknown 28 25
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 59
+safari17.1.2 21 6
+safari17.6 392 113
+chrome119.0.0.0 2 2
+chrome99.0.4859.172 1 1
+netscape5.0 3 3
+chrome139.0.0.0 115 76
+chrome123.0.0.0 3 3
+firefox59.0 2 2
+safari18.6 78 27
+chrome60.0.3112.107 55 55
+firefox72.0 1 1
+safari17.4.1 116 34
+safari16.4 13 6
+chrome80.0.3987.149 17 17
+msie11.0 1 1
+firefox126.0 2 2
+Unknown 20 19
+safari18.3.1 19 5
+safari17.1 92 32
+chrome89.0.4389.114 22 22
+chrome120.0.0.0 1 1
+opera70.0.3728.106 1 0
+chrome137.0.0.0 2 1
+safari15.3 49 29
+chrome130.0.0.0 9 2
+chrome117.0.0.0 1 1
+safari17.7 37 9
+safari16.3 192 60
+safari17.5 164 42
+chrome135.0.0.0 1 1
+chrome66.0.3359.170 1 1
+safari18.1.1 200 56
+firefox122.0 5 5
+safari16.1 59 16
+chrome78.0.3904.108 4 4
+chrome85.0.4183.102 7 7
+iphone 10 2
+firefox115.0 1451 1358
+firefox125.0 9 9
+chrome50.0.2661.102 2 2
+safari 124 111
+safari18.5 190 55
+chrome125.0.0.0 13 13
+firefox139.0 2 1
+chrome88.0.4240.193 55 55
+chrome114.0.0.0 4 4
+chrome78.0.3904.62 3 3
+chrome122.0.0.0 3 3
+chrome109.0.0.0 3186 3132
+safari16.6 91 25
+firefox28.0 2 2
+chrome87.0.4280.141 1 1
+chrome124.0.0.0 8 8
+mozilla 5 3
+firefox40.0 2 2
+chrome95.0.4638.69 2 2
+chrome39.0.2171.95 1 1
+chrome138.0.0.0 32 18
+chrome58.0.3029.110 1 1
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 8
+Mozilla/5.0_(compatible;_CensysInspect/1.1;__https://about.censys.io/) 20250809122528
+python-requests/2.31.0 20250829203532
+python-requests/2.32.4 20250823072019
+Mozilla/5.0_zgrab/0.x 20250830100509
+Mozilla/5.0 20250805002436
+Mozila/5.0 20250831010921
+python-requests/2.27.1 20250829113700
+NetworkingExtension/8619.2.8.10.9_Network/4277.42.2_iOS/18.1.1 20250826024148
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 5
+NetworkingExtension/8619.2.8.10.9_Network/4277.42.2_iOS/18.1.1 20250826024148
+Mozila/5.0 20250831010921
+python-requests/2.27.1 20250829113700
+python-requests/2.32.4 20250823072019
+python-requests/2.31.0 20250829203532
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 475 481
+From1 54 54
+From2 0 0
+From3 1 1
+From4 4943 6369
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 1
+http://202.10.35.243:80 1 1
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 8
+404 24105 36100464
+403 6 9468
+206 8 784702
+301 400 109042
+405 22 11625985
+500 19 11763407
+302 2490 1239692
+419 63 98154
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 4815
+/bpkad.zip 4 -
+/shell_lock.php 7 -
+/kecamatan.tar.gz 4 -
+/.well-known/pki-validation/cloud.php 9 -
+//default.php 2 -
+/smarttaxx.tar.gz 5 -
+/.well-known/pki-validation/install.php 1 -
+/.quarantine/ALFA_DATA/alfacgiapi/radio.php 9 -
+/wp-includes/Requests/Text/admin.php 9 -
+/wp-raze.php 5 www.google.com
+/legal.php 11 -
+/backup_jurnal_2022.tar.gz 4 -
+/wp-includes/Text/Diff/Renderer/index.php 1 -
+/application.tar.gz 9 -
+/pascasarjana.tar 4 -
+/dinperkpp.tar 4 -
+/assets/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/wp-includes/Text/Diff/Engine/index.php 1 -
+/uploads/ALFA_DATA/alfacgiapi/radio.php 9 -
+/surat.zip 4 -
+/assets/lib/jquery-file-upload/server/php 1 -
+/laboratorium.poltekkesbanten.7z 6 -
+/2018.tar.gz 4 -
+/lowpr.php 4 www.google.com
+/wp-admin/alfacgiapi/bash.alfa 18 -
+/perkim.zip 4 -
+/install.php 36 -
+/loader/ff.php 4 -
+/js/bas.php 1 -
+/Laboratorium9 13 www.google.com
+/v1.zip 4 -
+/wp-cron.php 3 -
+/siakad.rar 5 -
+/docindex.php 9 www.google.com
+/wp-admin/css 3 binance.com
+//shell.php 2 -
+/poltekkesbanten2023.zip 4 -
+/s46v1.php 3 -
+/modules/kcfinder/upload.php 1 -
+/laboratoriumpoltekkesbanten2024.zip 4 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D2024.rar 4 -
+/wp-admin/css/colors/midnight/admin.php 1 -
+/admin/tinymce/plugins/jquery-file-upload 2 -
+/bem.rar 5 -
+/backup_jurnal_2023.tar 4 -
+/cgi-bin/rpc 2 -
+/cjfuns.php 9 -
+/wp-backup 13 www.google.com
+/wp-content/plugins/index.php 17 www.google.com
+/esakip.tar 4 -
+/uploads/ALFA_DATA/alfacgiapi/index.php 9 -
+/images/alfacgiapi/404.php 9 -
+/wp-db.php 2 -
+/wp-admin/css/about.php 9 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/404.php 8 -
+/.well-known%20%283%29.tar 4 -
+/anon.php 9 www.google.com
+/.trash7309/index.php 1 -
+/wp-admin/css/colors/blue/ahax.php 1 -
+/wp-edit.php 13 -
+/journals.tar.gz 5 -
+/modules/file.php 1 -
+/servlet/~ic/bsh.servlet.BshServlet 2 -
+/old-site.tar.gz 4 -
+/admin/assets/global/plugins/server/php 1 -
+/workshop 13 www.google.com
+/laboratorium_lama.tar 4 -
+/admin/kcfinder/upload.php 4 -
+/shl.php 15 www.google.com
+/upload/ALFA_DATA/alfacgiapi/perl.alfa 19 -
+/login/cms/wp-includes/wlwmanifest.xml 57 -
+/wp-users.php 5 www.google.com
+//wp-includes/sodium_compat/src/Core32/Curve25519/Ge/Core32.php 2 -
+//wp-admin/network/index.php 2 -
+/usr.php 4 -
+/dpmptspd.tar.gz 4 -
+/wp-includes/images/media/index.php 1 -
+//ova.php 2 -
+/wp-includes/certificates/zmFM.php 3 -
+/humas.zip 4 -
+//wp-links.php 2 -
+/wp-admin/codeboy1877_up.php 3 -
+/assets/bo/plugin/kcfinder/upload.php 1 -
+/e-journal.zip 4 -
+/assets/webadmin/js/kcfinder-3.12/upload.php 1 -
+/manajemen.zip 4 -
+/wp-includes/click.php 1 -
+/smartcity.tar.gz 5 -
+/wp-content/themes/hello-element/footer.php 1 -
+/%7Bsub0upper%7D.%7Bsub1upper%7Ddesa.tar 4 -
+/gmc.zip 4 -
+/assets/uploads/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/wp-configer.php 1 www.google.com
+/laboratorium.poltekkesbanten.ac.idv2.zip 4 -
+/install.zip 4 -
+/assets/kcfinder-3.12/upload.php 1 -
+/wp-content/themes/noriumportfolio/alpha.php 1 www.google.com
+/assets/upload/alfacgiapi/radio.php 9 -
+/wp-includes/upl.php 1 www.google.com
+/assets/ALFA_DATA/alfacgiapi/404.php 9 -
+/alfa-ioxi.php 1 www.google.com
+/perpustakaan.rar 4 -
+/wp/ALFA_DATA/alfacgiapi/404.php 9 -
+/wp-admin/upload.php 3 -
+/mail.php 16 -
+/alumni.rar 5 -
+/journal.tar.gz 5 -
+/.well-known.zip 8 -
+/back.tar 4 -
+/Laboratorium2019 13 www.google.com
+/wsoshell.php 7 -
+/backup6 13 www.google.com
+/configuration.zip 4 -
+/wp-admin/maint/cong.php 1 -
+/__MACOSX.zip 4 -
+/public_html_old 13 www.google.com
+/wp-admin/wso112233.php 1 www.google.com
+/4index.php 1 www.google.com
+/sam.php 6 -
+/bem.tar.gz 5 -
+/js/tinymce/kcfinder-3.12/upload.php 1 -
+/wp-admin/js/autoload_classmap.php 1 -
+/disdukcapil.tar.gz 4 -
+/uploads/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/wp-wso.php 5 -
+/dispendukcapil.rar 4 -
+/assets/js/ckeditor/plugins/kcfinder/upload.php 1 -
+/adminpanel/kcfinder/upload.php 1 -
+/wp-includes/class-feed-index.php 1 -
+//autoload_classmap.php 2 -
+/wp-includes/images/about.php 9 -
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/index.php 9 -
+/assets/alfacgiapi/py.alfa 18 -
+/%7Bsiteupper%7D2024.zip 4 -
+/admin/uploads/bn_1_1754420677.phtml 1 -
+/sftp.json 29 -
+/dispenda.tar 4 -
+/satpolpp.rar 4 -
+/wp-admin/1.php 1 -
+//install.php 2 -
+/zya.rar 4 -
+/uploads/data/files/kcfinder/upload.php 1 -
+/uploads/94056-upload.phtml 1 -
+/dinasrumkimtan.zip 4 -
+/service.tar.gz 4 -
+/wp-content/plugins/ccx/index.php 2 www.google.com
+/smartcity.rar 5 -
+/brutecp-3x-NETDRUG.php 1 -
+/%7Bsiteupper%7Dpublic.tar.gz 4 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D2021.zip 4 -
+/backup-ejournal.rar 3 -
+/2013.tar 4 -
+/dinkes.rar 3 -
+/setdako.zip 4 -
+//wp-content/bk/index.php 2 -
+/ppdb.tar.gz 4 -
+/journal.tar.bz2 1 -
+/rahma.php 1 www.google.com
+/wp-includes/SimplePie/about.php 10 -
+/assets/images/admin.php 1 -
+/asset/filemanager/dialog.php 1 -
+/laboratorium.poltekkesbantenv2.rar 4 -
+/FX.php 6 -
+/ejournal.rar 4 -
+/bre.php 1 www.google.com
+/admin/plugins/js/jquery-file-upload/server/php 1 -
+/components/ALFA_DATA/alfacgiapi/404.php 9 -
+/wp-includes/pomo/index.php 5 -
+//wp-includes/class-db.php 2 -
+//wp-admin/maint/wp-damin.php 2 -
+/web.rar 5 -
+/user-edit.php 6 -
+/resource/kcfinder/upload.php 1 -
+/simaset.tar 4 -
+/wp-includes/ALFA_DATA/alfacgiapi/radio.php 9 -
+/.well-known/acme-challenge/alfacgiapi/index.php 9 -
+/simaset.rar 4 -
+/wp-includes/assets/file.php 1 -
+/sid.tar.gz 4 -
+/%7Bsiteupper%7Dv2.zip 4 -
+/wp-admin/themes.php 3 -
+/backup_jurnal_2021.rar 3 -
+/laboratorium.poltekkesbanten2024.rar 4 -
+//defaul.php 2 -
+/dpapmk.tar.gz 4 -
+/sdabk.tar 4 -
+/prkp.rar 4 -
+/.well-known/pki-validation/about.php 9 -
+/wp-content/plugins/ph-file-manager/wp-file.php 1 -
+/wp-includes/class.api.php 1 -
+/hhh.php 7 -
+/kecamatan.rar 4 -
+/web_laboratorium.zip 4 -
+/wp-content/plugins/seoo/about.php 1 -
+//wp-content/plugins/ubh/up.php 2 -
+/smarttaxx.rar 5 -
+/journal.7z 1 -
+//wp-includes/ID3/about.php 2 -
+/wp-atomx.php 1 -
+//data.php 2 -
+//wp-admin/images/index.php 2 -
+/wp-includes/css/chosen.php 1 -
+/components/alfacgiapi/404.php 9 -
+/backup-04 13 www.google.com
+/wp-content/plugins/cekidot/readme.txt 1 www.google.com
+/webdesa_laboratorium.rar 4 -
+//templates/beez3/jsstrings.php 2 -
+/wp-includes/IXR/fix.php7 1 -
+/assets/upload/ALFA_DATA/alfacgiapi/404.php 9 -
+/backup-ejournal.tar.gz 4 -
+/updates.rar 4 -
+/45.php 2 www.google.com
+/backup_laboratorium.zip 4 -
+/updates.tar 4 -
+/wp-content/themes/twentytwentytwo/assets/fonts/index.php 1 -
+/class-wp.php 4 www.google.com
+/system.php 1 -
+/elearning.zip 4 -
+/zya.tar.gz 4 -
+/perkimnah.zip 4 -
+/memek.php 12 -
+/dpkp.rar 4 -
+/backup-02 13 www.google.com
+/dpppappkb.tar 4 -
+/plugins.tar.gz 4 -
+/wp-includes/ID3/license.txt 1 www.google.com
+/web.tar.gz 5 -
+/general/index/UploadFile.php 1 -
+/wp-includes/l10n/class-wp-widddget-pages.php 1 -
+/rs.rar 4 -
+//baxa1.php 2 -
+//wp-includes/IXR/wp-login.php 1 -
+/rapemda.zip 3 -
+/item.php 1 -
+/formcraft/file-upload/server/php 1 -
+/ojs.tar 5 -
+/website_laboratorium.poltekkesbanten.ac.id.rar 4 -
+/%7Bsub0upper%7D.%7Bsub1upper%7Dpublic.tar.gz 4 -
+/smart_taxx.tar 4 -
+/web.tar.bz2 1 -
+/Public.rar 4 -
+/backup_old 13 www.google.com
+/wp-includes.php 3 -
+/poltekkesbanten_2024.rar 4 -
+/public_html.gz 1 -
+/wp-includes/atom.php 1 www.google.com
+/wp-content/themes/travel/issue.php 11 -
+/ico.php 1 -
+/wp-content/plugins/uploader/readme.txt 2 -
+/backup_jurnal_2020.zip 4 -
+/dpupr2kp.tar 4 -
+/9.rar 4 -
+//wp-admin/js/index.php 2 -
+/wordpress-bak 13 www.google.com
+//contact.php 2 -
+/laboratorium-bak 13 www.google.com
+/tesla.php 5 www.google.com
+/sid.rar 4 -
+/dropdown.php 30 -
+//wp-content/plugins/simple/simple.php 2 -
+/4.rar 4 -
+/wbs.tar 4 -
+/wp-includes/widgets/class-wp-widget-index.php 1 www.google.com
+/%7Bsiteupper%7D2024.rar 4 -
+/data-user.php 7 -
+/uploads/kcfinder/upload.php 2 -
+/rpd.zip 4 -
+/journalslaboratorium.tar 4 -
+/%7Bsiteupper%7D2022.tar 4 -
+/xindex.php 2 www.google.com
+/dbmsda.rar 4 -
+/www.rar 6 -
+/css/admin.php 1 -
+//504.php 2 -
+/bak.tar.gz 4 -
+/blog/plugins/jquery.filer/php/upload.php 1 -
+/uploads/images/files/upload/kcfinder/upload.php 1 -
+/opac.rar 4 -
+/cool.php 8 -
+/wp-mail.php 15 -
+/wp-admin/images/wp-conflg.php 1 -
+/jurnal.gz 1 -
+/w.php 22 -
+/laboratorium_lama.zip 4 -
+/eperda.tar.gz 4 -
+/laboratorium1.tar 4 -
+/backup/ALFA_DATA/alfacgiapi/radio.php 9 -
+/images/wp-aespa.php 1 -
+/superadmin.rar 4 -
+/wp-smail.php 8 -
+/help 13 www.google.com
+/ojs4.rar 4 -
+/%7Bsub0upper%7D.%7Bsub1upper%7Dpublic.rar 4 -
+/diskominfo.tar.gz 4 -
+/templates/beez/index.php 1 -
+/.tmb/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/stats.php 11 -
+/Apps.zip 4 -
+/project/plugins/jquery.filer/php/upload.php 1 -
+/wp-includes/rest-api/fields/cache 1 www.google.com
+/%7BSITE%7D.rar 4 -
+/rsud.tar 4 -
+/FoxWSOv1.php 1 www.google.com
+/wp-admin/css/colors/ocean/index.php 1 -
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+//wp-content/upgrade/about.php 2 -
+/wp-content/themes/twentytwentythree/patterns/index.php 7 www.google.com
+/wp-includes/images/smilies/index.php 1 -
+/assets/scripts/kcfinder-3.12/upload.php 1 -
+/laboratoriumpoltekkesbantenv1.tar 4 -
+/superadmin.zip 4 -
+/assets/uploads/alfacgiapi/py.alfa 18 -
+/wp-content/themes/index.php 4 -
+//administrator/templates/hathor/index.php 2 -
+/2014.tar.gz 4 -
+/wp-includes/fonts/iq.php 5 -
+/2019.zip 4 -
+/pub.tar 4 -
+/laravel.tar 4 -
+/%7BSITE%7D.zip 4 -
+/laravel.rar 4 -
+/alfacgiapi/radio.php 9 -
+/disparekraf.zip 4 -
+/laboratorium2023.zip 4 -
+/wp-content/alfacgiapi/radio.php 9 -
+/index.tar 4 -
+/wp/wp-admin/setup-config.php 1 -
+/jurutani.tar 4 -
+/Tmp 1 -
+//wp-content/uploads/about.php 2 -
+/images/index22.php 1 -
+/.quarantine/alfacgiapi/index.php 9 -
+/New.zip 4 -
+/kepegawaian.tar.gz 4 -
+/caches.php 12 -
+/public/ckeditor/plugins/kcfinder-3.12/upload.php 1 -
+/wp-includes/PHPMailer/about.php 1 -
+/cgi-bin/bypass.php 1 -
+/cadangan.rar 4 -
+/%7Bsub0upper%7D.%7Bsub1upper%7Dv2.rar 4 -
+/mahasiswa.rar 5 -
+/blog/wp-admin/about.php 1 -
+//bads.php 2 -
+/wp-includes/PHPMailer/admin.php 1 -
+/sallu.php 1 -
+/laboratoriumpoltekkesbantenpublic.zip 4 -
+//wso.php 2 -
+/xxx.php 5 -
+/wp-includes/shell.phpp 3 www.google.com
+/.quarantine/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/scripts/filemanager/dialog.php 1 -
+//.well-known/pki-validation/index.php 2 -
+/assets/index.php 1 -
+/jurnal.zip 5 -
+/laboratorium.poltekkesbanten2023.rar 4 -
+/xl2023.php 11 -
+/www.tar.bz2 1 -
+/app_openSID.rar 4 -
+/bak.rar 4 -
+/wp-admin/maint/bootstrap.php 1 -
+/laboratorium.poltekkesbantenv1.zip 4 -
+/database.tar 4 -
+/ojs2.rar 4 -
+/login/2018/wp-includes/wlwmanifest.xml 10 -
+/.ftpsimple.json 1 -
+/dev1.tar.gz 4 -
+/wp1/wp-includes/wlwmanifest.xml 1 -
+/wp-includes/leafmailer2.8.php 1 www.google.com
+/www.tar.gz 6 -
+/wp-includes/images/wp-login.php 5 -
+/files 3 binance.com
+//wp-content/item.php 2 -
+/public_lama.tar 4 -
+/assets/uploads/alfacgiapi/perl.alfa 18 -
+//bypass1.php 2 -
+/wp-admin/css/colors/blue/admin.php 1 -
+/production.tar.gz 4 -
+/assets/ALFA_DATA/alfacgiapi/perl.alfa 19 -
+/laboratorium_poltekkesbanten.laboratorium.poltekkesbanten.ac.id.tar 4 -
+//templates/beez5/error.php 2 -
+/organisasi.tar.gz 5 -
+/wp-admin/network/index.php 8 www.google.com
+/old/sftp.json 1 -
+/memberfuns.php 1 -
+/wp-includes/IXR/goto.php 1 -
+/documentation.tar.gz 4 -
+/web_laboratorium.poltekkesbanten.ac.id.rar 4 -
+/.well-known/pki-validation/2index.php 1 -
+/lp3m.zip 4 -
+/backup_laboratorium.rar 4 -
+/.tmb/class_api.php 10 -
+/cpanel_backup 13 www.google.com
+/wp-content/plugins/pwnd/11.php 1 -
+//wp-content/class-db.php 2 -
+/wp-content/plugins/library/alfacgiapi/index.php 9 -
+/shells.php 1 www.google.com
+/wp-includes/assets/wp-login.php 3 -
+//radio.php 2 -
+/assets/cms/kcfinder/upload.php 1 -
+/.git.tar.bz2 1 -
+/dp3ap2kb.zip 3 -
+/wpbackup1 13 www.google.com
+/diknas.tar.gz 4 -
+/core/.env 1 -
+/anjay.php 1 www.google.com
+/8.zip 4 -
+//wp-content/shell.php 2 -
+/sekolahku.tar 4 -
+//wp-content/content.php 2 -
+/jquery.filer/php/readme.txt 1 -
+/bkp 3 www.google.com
+/assets/upload/alfacgiapi/py.alfa 18 -
+/laboratorium2021.rar 4 -
+/class.api.php 12 -
+/setwan.tar 5 -
+/sakip.tar 4 -
+/backup-jurnal.tar.gz 4 -
+/admin/js/server/php 1 -
+/app/webroot/kcfinder/upload.php 1 -
+/adminfuns.php 1 -
+/puskesmas.zip 4 -
+/laboratorium2022.zip 4 -
+/dpmp.tar 4 -
+/bac 1 -
+/pascasarjana.zip 4 -
+/informasi 12 www.google.com
+/Sanskrit.php 1 -
+/assets/plugins/kcfinder/upload.php 4 -
+/phpinfo.php 29 www.google.com
+/laboratorium2.tar 4 -
+/2012.tar.gz 4 -
+/website.zip 5 -
+/laboratoriumpoltekkesbantenpoltekkesbanten.tar.gz 6 -
+/.well-known/wp-signup.php 14 www.google.com
+/3301.php 1 www.google.com
+/wp-content/themes/admin.php 1 -
+/kota.tar 4 -
+/pler.php 5 www.google.com
+/assets/administrator/jquery-file-upload 1 -
+/assets.tar.gz 4 -
+//.tmb/about.php 2 -
+//.tmb/wp-login.php 2 -
+/system.zip 4 -
+/wp-content/themes/rishi/db.php 1 www.google.com
+/wp-content/wp.php 4 www.google.com
+/%7Bsiteupper%7D.zip 4 -
+/disperindag.zip 4 -
+/assets/11.php 1 -
+//dropdown.php 4 -
+/dinaspupr.tar 4 -
+/config-backup.rar 4 -
+//wp-content/plugins/tunnelforms/lib.php 2 -
+/laboratorium9 13 www.google.com
+/.well-known/acme-challenge/cloud.php 20 -
+/assets/js/kcfinder/upload.php 5 -
+/archive.tar.gz 4 -
+/laboratoriumpoltekkesbanten2021.zip 4 -
+//xl2023.php 2 -
+/2022.zip 4 -
+//index/function.php 2 -
+/wp-content/plugins/root-file-manager/wp-file.php 1 -
+/alfaaneh.php 6 -
+/repository.rar 4 -
+/login/2021/wp-includes/wlwmanifest.xml 8 -
+/backup_jurnal_2025.tar.gz 4 -
+/config/sftp.json 1 -
+/uploads/images/files/uploads/kcfinder/upload.php 1 -
+/Xzd.php 1 www.google.com
+/vendor/phpunit/phpunit/src/Util/PHP/uss.php 1 -
+/wp-includes/ALFA_DATA/alfacgiapi/index.php 9 -
+//alfa-rex.php7 2 -
+/ihddhtjk.php 1 www.google.com
+/wp-admin/user/network.php 1 -
+/config/kcfinder/upload.php 1 -
+//termps.php 2 -
+/poltekkesbanten2023.rar 4 -
+/repository.zip 4 -
+/wso2023.php 9 -
+/js/fileman/index.html 9 -
+//link.php 2 -
+/sambernyawa.php 7 -
+/wp-content/themes/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/macibay.php 11 -
+/pindu.tar 4 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/radio.php 8 -
+/pascasarjana.tar.gz 4 -
+/predator.php 4 www.google.com
+/anonse/lock360.php 1 -
+/.well-known/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/admin.tar 4 -
+/wp-includes/js/codemirror/index.php 1 -
+/html.rar 3 -
+/backupan.tar.gz 4 -
+//x/index.php 2 -
+/laboratorium2021.tar 4 -
+/cc.php 1 -
+/%7BSUB0%7D.tar.gz 4 -
+/laboratorium.poltekkesbanten.tar.xz 6 -
+/wp-admin/406.php 1 www.google.com
+/wp-admin/css/colors/index.php 14 -
+/dpu.rar 4 -
+/pasca.zip 4 -
+//cjfuns.php 2 -
+/laboratoriumpoltekkesbantenv1.rar 4 -
+/asset.tar.gz 4 -
+/wp_mna.php 7 -
+/developer.zip 4 -
+/laboratorium.poltekkesbanten.ac.id2022.tar.gz 4 -
+/ppid.tar.gz 4 -
+/assets/uploads/ALFA_DATA/alfacgiapi/404.php 9 -
+/wp-content/plugins/zaen/includes/loadme.php 4 www.google.com
+/lppm.tar 4 -
+/archives.tar.gz 4 -
+/security.tar.gz 4 -
+/makesmtp.php 4 www.google.com
+/wp-2019.php 18 www.google.com
+/local/.env 1 -
+/wp-admin/chosen.php 1 -
+/wp-includes/cron.php 3 -
+/v3.zip 4 -
+/assets/plugin/kcfinder/upload.php 1 -
+/wp.zip 4 -
+/administrator 29 -
+/2024.zip 4 -
+//file/function.php 2 -
+/dispar.tar.gz 4 -
+/packages/upload/kcfinder/upload.php 1 -
+/index.html 3 http://laboratorium.poltekkesbanten.ac.id/profile
+/wp-admin/setup-config.php 2 -
+/wp-content/themes/bltm/wp-login.php 2 -
+/.git/HEAD 5 -
+/wp-content/item.php 1 -
+/laboratorium-poltekkesbanten.laboratorium.poltekkesbanten.ac.id.rar 4 -
+/jurnall.tar.gz 4 -
+//xmrlpc.php 2 -
+/wp-content/updraft/alfacgiapi/radio.php 9 -
+/spmi.rar 4 -
+//wp-includes/certificates/plugins.php 2 -
+/laboratorium2019 13 www.google.com
+/wp-content/plugins/zgdsfagck/rk2.php 9 -
+/wp-content/plugin.php 1 -
+//wp-admin/maint/upfile.php 2 -
+/file5.php 1 -
+//wp-includes/link.php 2 -
+/wp-content/themes/digital-download/new.php 1 -
+/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 10 -
+/kelurahan.zip 4 -
+/wp-content/plugins/hellopress/wp_filemanager.php 13 -
+/laboratorium.poltekkesbanten.gz 6 -
+/nbapgjvd.php 1 www.google.com
+/assets/js/ckeditor/plugins/kcfinder-3.12/upload.php 1 -
+/su.php 6 -
+/backup/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/laboratoriumpoltekkesbanten.zip 10 -
+/sample-config-options.php 4 www.google.com
+/jdih.zip 4 -
+/poltekkesbantenv1.rar 4 -
+/laboratoriumpoltekkesbantenv1.zip 4 -
+/wp-content/plugins/cache-wordpress/wp-activates.php 1 www.google.com
+/dpu.tar.gz 4 -
+/sptpd.zip 4 -
+/lock360.php 19 www.google.com
+//wp-header.php 2 -
+/mahasiswa.tar.gz 5 -
+//class-db.php 2 -
+/%7Bsiteupper%7Dv2.tar 4 -
+/laboratorium.poltekkesbanten.ac.id2023.rar 4 -
+/%7Bsiteupper%7D2021.tar 4 -
+/asset/kcfinder-3.12/upload.php 1 -
+/laboratorium_2024.tar 4 -
+/dinsos.rar 4 -
+/admin/assets/server/php 1 -
+/smart_taxx.rar 4 -
+/document.rar 4 -
+/journals.zip 5 -
+//new.php 2 -
+/.well-known/acme-challenge/xmrlpc.php 13 -
+/poltekkesbantenpublic.rar 4 -
+/images/alfacgiapi/bash.alfa 18 -
+/old-site.zip 4 -
+/pasca.tar 4 -
+/function/function.php 1 -
+/disnakertrans.tar.gz 4 -
+/.tmb/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/poltekkesbanten2022.tar.gz 4 -
+//c.php 2 -
+/ff2.php 1 -
+/srx.php 1 www.google.com
+/admin.zip 4 -
+//m.php 2 -
+//wp-content/bads/index.php 2 -
+/plugins/kcfinder/upload.php 2 -
+/wp-includes/js/jquery/ui/alfacgiapi/perl.alfa 1 -
+//moon.php 2 -
+/un.php 14 www.google.com
+/wp-content/plugins/ubh/up.php 1 -
+/laboratorium1 13 www.google.com
+/assets/jquery-file-upload/server/php 3 -
+//version.php 2 -
+/laboratoriumlama.zip 4 -
+//wp-admin/css/colors/index.php 2 -
+/pindu.zip 4 -
+/lib/fileman/dev.html 9 -
+/cy.php 6 -
+/admin/editor/kcfinder/upload.php 1 -
+/apple-touch-icon-120x120.png 2 -
+/r57.php 2 www.google.com
+/bsh.servlet.BshServlet 2 -
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/radio.php 9 -
+//web.php 2 -
+/wp-includes/upload.php 7 www.google.com
+/laboratorium_2021.rar 3 -
+/byps.php 5 -
+/upload/files/kcfinder/upload.php 1 -
+/desalaboratorium.rar 4 -
+/assets/uploads/ALFA_DATA/alfacgiapi/index.php 9 -
+/byp.php 12 -
+/configuration.rar 4 -
+/old/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/assets/js/mylibs/kcfinder-3.12/upload.php 1 -
+/dsdabmbk.tar 4 -
+/korpri.rar 4 -
+/laboratorium.poltekkesbantenv2.tar 4 -
+/api.rar 5 -
+/wp-.php 3 -
+//wp-mail.php 2 -
+/assets/vendors/js/kcfinder-3.12/upload.php 1 -
+/openSID.zip 4 -
+/blog.php 11 -
+/disnaker.tar 4 -
+/wp-includes/alfacgiapi/radio.php 9 -
+/assets/backend/plugins/jquery-file-upload/server/php 1 -
+/laboratorium_backup.zip 4 -
+/.well-known(1).zip 4 -
+//wp-includes/fonts/index.php 2 -
+/smart_taxx.zip 4 -
+/staging 26 www.google.com
+/cgi-bin/ALFA_DATA/alfacgiapi/404.php 9 -
+/alfacgiapi/bash.alfa 18 -
+/wp-admin/js/instaall.php 1 -
+/barulaboratorium.zip 4 -
+/wp-admin/user/wp-login.php 1 -
+/w0.php 2 -
+/wp-content/plugins/wp-help/mini.php 1 -
+/third_party/kcfinder-3.12/upload.php 1 -
+/.env.zip 4 -
+/2018.tar 4 -
+/wp-content/mah.php 1 -
+/gel4y.php 8 www.google.com
+/wp/ALFA_DATA/alfacgiapi/index.php 9 -
+/__MACOSX.tar.gz 4 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D.tar.gz 4 -
+/wp-admin/maint/themes.php 1 -
+/sang3.php 7 -
+/laboratorium_old.tar 4 -
+/chosen.php 31 -
+/.well-known(2).zip 4 -
+/admin/upload/css.php 1 -
+/images/alfacgiapi/py.alfa 18 -
+/Web%20ejournal.zip 4 -
+/4mosan.php 1 www.google.com
+/sia.zip 4 -
+/Archive.gz 1 -
+/sptpd.tar 4 -
+/wp-includes/alfacgiapi/404.php 9 -
+/defau1t.php 2 www.google.com
+/peraturan.tar.gz 4 -
+/class.php 8 -
+/wp-admin/alfacgiapi/404.php 9 -
+/special.php 1 -
+/perkim.tar 4 -
+/xmrlpc.php 25 www.google.com
+/e.php 14 -
+/wp-admin/css/wp-css.php 1 -
+/wp-admin/theme-editor.php 1 -
+/applications.zip 4 -
+/disdamkar.tar.gz 4 -
+/.git.zip 5 -
+/edit-tags.php 1 -
+/laboratorium.poltekkesbanten.ac.id.tar.gz 10 -
+/zz.php 5 www.google.com
+/back.tar.gz 4 -
+/sim.php 1 -
+/upgrade/detail.jsp/login/LoginSSO.jsp 2 -
+/backup.rar 9 -
+/2023.zip 3 -
+/pmblaboratorium.zip 4 -
+/network.php 6 -
+/elearning.tar 4 -
+/inspektorat.zip 4 -
+/laboratorium.rar 10 -
+/.well-known/install.php 1 -
+/perkimnah.tar 4 -
+/admin/ckeditor/plugins/kcfinder-3.12/upload.php 1 -
+/asset_admin/assets/plugins/jquery-file-upload/server/php 1 -
+/laboratorium-cadangan 13 www.google.com
+/images/editor/separator.gif 2 -
+/xleet-shell.php 14 www.google.com
+/wp-content/themes/classwithtostring.php 1 -
+/dpppappkb.zip 4 -
+/esakip.zip 4 -
+/laboratorium2 12 www.google.com
+/2021.zip 4 -
+//wp-admin/includes/nav.php 2 -
+/wp-content/plugins/pwnd/admin-footer.php 1 -
+/wp-includes/Requests/index.php 1 -
+/O-Simple.php 1 -
+/wp-content/updraft/ALFA_DATA/alfacgiapi/404.php 9 -
+/wp-admin/css/colors/coffee/index.php 10 -
+/files/kcfinder/upload.php 1 -
+/wp-includes/class-wp-dependency-float.php 1 -
+/wp-mails.ph 5 www.google.com
+/system_log.php 1 -
+/.tmb/alfacgiapi/py.alfa 18 -
+/wp-content/plugins/alfacgiapi/py.alfa 18 -
+/laboratorium.poltekkesbanten.ac.id2021.tar.gz 4 -
+/wp-content/uploads/wp-logout.php 1 www.google.com
+/webadmin.tar 4 -
+/wsa.php 1 -
+/api.tar.bz2 1 -
+/wp-content/themes/skatepark/alpha.php 1 www.google.com
+/dpmptspd.zip 4 -
+/if.php 4 -
+/laboratorium.poltekkesbanten.ac.id2021.tar 4 -
+/dcktrp.tar.gz 4 -
+/upload/kcfinder-3.12/upload.php 1 -
+/admin/asset/global/plugins/server/php 1 -
+/cgi-bin.zip 8 -
+/baru.rar 4 -
+/assets/plugins/jquery.filer/php/readme.txt 1 -
+/k.php 14 -
+/wp-content/plugins/sid/sidwso.php 1 www.google.com
+/api.tar.gz 5 -
+/lux.php 7 -
+/poltekkesbanten_2024.tar 4 -
+/.well-known/alfacgiapi/404.php 9 -
+/admin/jquery-file-upload/server/php 1 -
+/login/shop/wp-includes/wlwmanifest.xml 57 -
+/ppdb.tar 4 -
+/data.rar 4 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/bash.alfa 16 -
+/index.zip 4 -
+/cgi-bin/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/alfakun.php 1 www.google.com
+/wp-content/themes/twentytwentyfour/about.php 1 -
+/dispendukcapil.tar.gz 4 -
+/css/alfacgiapi/perl.alfa 1 -
+/konten 12 www.google.com
+/ojs3.rar 4 -
+//GA13.php 2 -
+/new_license.php 4 www.google.com
+/peraturan.rar 4 -
+/wp-content/themes/ALFA_DATA/alfacgiapi/404.php 9 -
+/.well-known/acme-challenge/11.php 1 -
+//wp-content/plugins/index.php 2 -
+/dinperkpp.zip 4 -
+/disdamkar.rar 4 -
+/laboratoriumdesa.zip 4 -
+/website_laboratorium.poltekkesbanten.ac.id.tar 4 -
+/laboratorium.poltekkesbanten.ac.id.tar.bz2 6 -
+/laboratorium_backup.tar.gz 4 -
+/mega.php 6 -
+/applications.tar.gz 4 -
+/images/index.php 1 -
+/wp-content/plugins/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/public/server/php 1 -
+/wp-content/themes/fitnessbase/crp.php 1 www.google.com
+/sftp-config.json.bak 1 -
+/laboratorium_old.rar 4 -
+/vendor/kcfinder/upload.php 2 -
+/well-known%20%282%29.tar 4 -
+/mpp.rar 4 -
+/alfa-rex.php 9 -
+/old/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/403.php 22 www.google.com
+/upload/alfacgiapi/radio.php 9 -
+/blog/wp-includes/wlwmanifest.xml 1 -
+/wp-admin/includes/about.php 10 -
+/htdocs/sftp.json 1 -
+/asset/filemanagers 1 -
+/vuln.php 4 -
+/wp-admin/js/widgets/xmrlpc.php 1 -
+/wp-admin/css/colors/blue/abc.php 1 -
+/wp-includes/mini.php 1 www.google.com
+//templates/atomic/error.php 2 -
+/indoxploit.php 20 -
+/nshell.php 4 www.google.com
+//lv.php 2 -
+/wp-includes/fonts/themes.php 1 -
+/prevlaravel/sftp-config.json 28 -
+/learning.rar 4 -
+/%7Bsiteupper%7D2024.tar.gz 4 -
+/wp-content/uploads/ALFA_DATA/alfacgiapi/perl.alfa 19 -
+/resource/kcfinder-3.12/upload.php 1 -
+/wsanon.php 7 -
+/f.php 13 -
+/wp-content/file.php 1 -
+/2013.tar.gz 4 -
+/ojs1.rar 4 -
+/v2.zip 4 -
+/my_cms/public/assets/plugins/ckeditor/kcfinder/upload.php 1 -
+/webdesa.tar.gz 4 -
+/sito/wp-includes/wlwmanifest.xml 1 -
+/ckeditor/plugins/kcfinder/upload.php 4 -
+/plugin/ckeditor/kcfinder/upload.php 1 -
+/wp-content/alfacgiapi/404.php 9 -
+/Backup 15 www.google.com
+/admin-panel/vendor/kcfinder/upload.php 1 -
+/bpbd.rar 4 -
+/laboratorium.poltekkesbantenv2.zip 4 -
+/laboratorium.poltekkesbanten.ac.id2023.tar 4 -
+/pkm.tar 4 -
+/wp-content/uploads/file.php 1 -
+/6.tar.gz 4 -
+/wawe.php 1 www.google.com
+/sakip.zip 4 -
+/.tmb.rar 4 -
+/mpp.tar.gz 4 -
+/e-journal.tar 4 -
+/administrator.tar 5 -
+/wp-content/themes/wp-pridmag/init.php 1 www.google.com
+/4.php 8 www.google.com
+/manajemen.tar 4 -
+/2016.rar 4 -
+/wp-conflg.php 19 -
+/wp-content/plugins/library/alfacgiapi/py.alfa 18 -
+/.well-known(3).zip 4 -
+/product.php 4 www.google.com
+/ids.php 5 www.google.com
+/wp-admin/css/autoload_classmap.php 1 -
+/packages/assets/js/kcfinder/upload.php 1 -
+/wp-content/style.php 1 -
+/1975.php 3 www.google.com
+/assets/js/frontend/jquery-file-upload/server/php 1 -
+/wp-content/plugins/core-stab/index.php 1 www.google.com
+/%7Bsub0upper%7D.%7Bsub1upper%7D2022.tar.gz 4 -
+/upload.rar 4 -
+//classwithtostring.php 2 -
+/wp-includes/theme-compat/zmFM.php 3 -
+/wp-admin/maint/wp-login.php 9 -
+/login/wp/wp-includes/wlwmanifest.xml 57 -
+//mini.php 2 -
+/config.bak.php 2 -
+/old/alfacgiapi/index.php 8 -
+/wp-admin/js/widgets/cloud.php 1 -
+/wp-sigunq.php 11 -
+/4.tar 4 -
+/wp-content/bypass.php 1 -
+/js/jquery-file-upload/server/php 2 -
+/Old 6 www.google.com
+/wp-admin/css/colors/ocean/about.php 1 -
+/wp-admin/images/about.php 13 -
+/dr.php 4 www.google.com
+/.well-known/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+//defaults.php 2 -
+/wp-content/themes/twentytwentyfour/functions.php 1 -
+/scn.php 4 www.google.com
+/assets/plugins/js/server/php 1 -
+/images/xmrlpc.php 1 -
+//users.php 2 -
+/laboratorium3 13 www.google.com
+/desalaboratorium.tar 4 -
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/backup_jurnal_2025.rar 4 -
+/assets/files/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/content.php 3 -
+/2014.tar 4 -
+/wi.php 1 www.google.com
+/wp-includes/fonts/dev.php 4 -
+/kcfinder/upload.php 5 -
+/sdabk.zip 4 -
+/conferences.tar 4 -
+/sql.php 7 -
+/max.php 1 -
+//templates/beez5/index.php 2 -
+/nation.php 1 -
+/wp-content/plugins/alfacgiapi/radio.php 9 -
+/dinaspupr.zip 4 -
+/ioxi-o.php 1 -
+/profil 13 www.google.com
+/wp-includes/shell.php 1 www.google.com
+/cpanel.rar 4 -
+//wp-content/themes/hideo/network.php 2 -
+/wp-content/plugins/523453244/ninja.php 1 -
+/.git.tar.xz 1 -
+/jurnal.7z 1 -
+/class-ftp-pures.php 6 -
+/9.tar 4 -
+/wp-content/uploads/wp-login.php 15 -
+/laboratorium_poltekkesbanten.laboratorium.poltekkesbanten.ac.id.zip 4 -
+/wp-content/xl2023.php 1 www.google.com
+/jurnal.tar 5 -
+/7.tar.gz 4 -
+/sosial.rar 4 -
+/zx.php 2 www.google.com
+/wp_wlx.php 1 -
+/%7BSUB0%7D.%7BSUB1%7D.tar.gz 4 -
+/wp-content/plugins/library/alfacgiapi/radio.php 9 -
+/lms.tar 4 -
+/www_old 13 www.google.com
+/bypas.php 5 -
+/foo/kcfinder/upload.php 1 -
+/wp-admin/css/colors/ocean/Module.php 9 -
+/dpmptsp.tar.gz 4 -
+/wp-includes/html-api 1 www.google.com
+/wp-includes/item.php 1 -
+/db.zip 4 -
+/wp-update.php 12 -
+/wp-admin/images.php 1 www.google.com
+//jindex.php 2 -
+/wp-includes/ID3/wp-work.php 1 -
+/401.php 4 www.google.com
+/wp-admin/includes/1975.php 1 www.google.com
+/Marvins.php 4 -
+/wp-functions.php 6 -
+/9.php 9 www.google.com
+/b.php 23 -
+/olux.php 11 -
+//mah.php 2 -
+/jurnallaboratorium.zip 4 -
+/administrator/index.php 3 -
+/cgi.php 7 www.google.com
+/wp-includes/xl2023.php 2 www.google.com
+/Backup.tar.gz 4 -
+/wp-content/uploads/autoload_classmap.php 1 -
+/wp-content/plugins/instabuilder2/cache/up.php 1 www.google.com
+/media/filemanager/dialog.php 2 -
+/dinas.tar.gz 4 -
+/applications.tar 4 -
+/uploads/images/kcfinder/upload.php 1 -
+/uploads/alfacgiapi/py.alfa 18 -
+/developer.tar 4 -
+/error.php 11 www.google.com
+/creates.php 12 -
+/css/av.php 1 -
+/setwan.zip 5 -
+/rsud.tar.gz 4 -
+//.well-known/acme-challenge/index.php 2 -
+/usb.php 1 www.google.com
+/assets/alfacgiapi/404.php 9 -
+/rss.php 3 -
+/admin/asset/plugins/jquery-file-upload/server/php 1 -
+/poltekkesbantendesa.tar 4 -
+//heh.php 2 -
+/alfa-rex.php7 9 -
+/ojs.gz 1 -
+/users.php 9 -
+//templates/protostar/index.php 2 -
+/assets/bypass.php 1 -
+/wp-config.rar 4 -
+/bantuan 12 www.google.com
+/dinaspkp.rar 4 -
+/wp-includes/style-engine/worksec.php 1 -
+/laboratorium_2024.zip 4 -
+/evil.php 5 -
+/Laboratorium3 13 www.google.com
+/backup/alfacgiapi/py.alfa 18 -
+/Idx.php 4 www.google.com
+/22.php 7 -
+/wp-blog-header.php 3 -
+/wp-admin/ALFA_DATA/alfacgiapi/bash.alfa 16 -
+/wp-content/themes/rishi/doc.php 1 www.google.com
+/batm.php 5 -
+/assets/libs/kcfinder-3.12/upload.php 1 -
+/dpmp.tar.gz 4 -
+/sftp.config.json 1 -
+/%7Bsiteupper%7Dv2.tar.gz 4 -
+/images 3 binance.com
+/kota.tar.gz 4 -
+/wwwroot.zip 4 -
+/2012.tar 4 -
+//wp-content/themes/digital-download/new.php 2 -
+/wp-blog.php 24 -
+/wp-content/themes/twentytwentyfour/bypass.php 1 -
+/wp-includes/js/crop/admin.php 1 -
+/.sftp-config.json 1 -
+/wp-content/themes/wp-pridmag/22x.php 1 www.google.com
+//wp-content/themes/travelscape/json.php 2 -
+/wp-content/uploads/ALFA_DATA/alfacgiapi/index.php 9 -
+/home/user/public_html/.vscode/sftp.json 1 -
+/upload/alfacgiapi/bash.alfa 18 -
+/laboratorium.poltekkesbantenv2.tar.gz 4 -
+/xidcm.php 2 www.google.com
+/wp-includes/random_compat/chosen.php 1 -
+/wp-includes/certificates/autoload_classmap.php 1 -
+/BACKUP 16 www.google.com
+/laymu.php 11 -
+/dp3ap2kb.tar.gz 4 -
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/bash.alfa 18 -
+/img/xmrlpc.php 1 -
+/lnedx.php 1 www.google.com
+/kelurahan.tar 4 -
+/servlet/codesettree 2 -
+/dev1.tar 4 -
+/.well-known/gelay.php 3 -
+/wp-content/plugins/rsquaaj/index4.php 9 -
+/resources/vendor/kcfinder-3.12/upload.php 1 -
+/wp-admin/plugins.php 3 -
+/download 13 www.google.com
+/wp-fmfile.php 1 -
+/dp3a.rar 4 -
+/2020.zip 4 -
+/laboratorium.tar.bz2 6 -
+/uploads/uploads/uploads/kcfinder/upload.php 1 -
+/public_html.tar.gz 5 -
+/repository.tar 3 -
+/laboratorium_2022.tar.gz 4 -
+/well-known.gz 5 -
+/wp-content/themes/sketch/404.php 1 www.google.com
+/disperkimta.tar 4 -
+/laboratoriumpoltekkesbanten2022.tar.gz 4 -
+/Archive.tar.xz 1 -
+/wp-includes/fox.php 1 www.google.com
+/404.php 21 www.google.com
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/py.alfa 18 -
+/well-known.tar.bz2 5 -
+/assets/frontend/js/ckeditor/kcfinder/upload.php 1 -
+/wp-includes/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/application.gz 5 -
+/wp-includes/class-wp-other.php 8 www.google.com
+/wp-config.tar.gz 4 -
+/backup-ejournal.tar 4 -
+//wp-includes/blocks/post-title/post-title/index.php 2 -
+/defaul.php 6 -
+/images/kcfinder/upload.php 1 -
+/components/kcfinder/upload.php 1 -
+/marijuana.php 16 www.google.com
+/wp-include.tar.gz 4 -
+/alfa.php 20 -
+/uploads 3 binance.com
+/wp-content/themes/alfacgiapi/404.php 9 -
+/wp-includes/shell20211028.php 1 www.google.com
+/wp-admin/css/colors/sunrise/admin.php 1 -
+/.well-known/acme-challenge/about.php 4 -
+/a.php 13 -
+/app/libraries/kcfinder/upload.php 1 -
+/backupan.zip 4 -
+/admin/asset/global/plugins/jquery-file-upload/server/php 1 -
+//about/function.php 2 -
+/wp_old 13 www.google.com
+/xdoor.php 5 www.google.com
+/login.php 8 www.google.com
+//wp-conflg.php 2 -
+/vendor/phpunit/phpunit/build.xml 1 -
+/disparbudpar.rar 4 -
+/laboratorium-old.zip 4 -
+//wp-content/themes/pridmag/contact.php 2 -
+/yhr.php 1 www.google.com
+/lppm.tar.gz 4 -
+/laboratorium.poltekkesbanten2021.tar 4 -
+/info.php 11 www.google.com
+/WORDPRESS 16 www.google.com
+/webdesalaboratorium.tar 4 -
+/wp-content/alfacgiapi/perl.alfa 18 -
+/file2.php 1 -
+/wp-includes/ID3/about.php/wp-content/x/index.php 1 -
+/app.zip 9 -
+/ppid.tar 4 -
+/cgi-bin/autoload_classmap.php 1 -
+/media 13 www.google.com
+/library.php 4 www.google.com
+/shx.php 6 -
+/alfacgiapi/index.php 9 -
+/xzdd.php 8 -
+/%7BSUB0%7D.%7BSUB1%7D.zip 4 -
+/wp-includes/block-patterns/about.php 9 -
+/10.rar 4 -
+/x.php 23 -
+/.well-known/acme-challenge/index.php 4 -
+/laboratorium.poltekkesbanten.ac.idv1.rar 4 -
+/wp-bak 13 www.google.com
+/wp-includes/plugins.php 14 -
+/wp-content/wp/plugins/mbt.php 3 www.google.com
+/surat.tar 4 -
+/wp-links-opml.php 2 www.google.com
+/ffAA531.php 1 www.google.com
+/u.php 13 -
+/mhs.rar 5 -
+/lama.rar 4 -
+/aa.php 7 -
+/images/ALFA_DATA/alfacgiapi/404.php 9 -
+/tppk.rar 4 -
+//info.php 2 -
+//wp-content/plugins/wpcall-button/button-image.php 2 -
+/app/webroot/js/kcfinder/upload.php 1 -
+/wp-content/406.php 1 www.google.com
+/wp-admin/images/admin.php 8 www.google.com
+/secret/kcfinder/upload.php 1 -
+/images/class-config.php 1 -
+/wp-minify.php 1 www.google.com
+//wp-content/plugins/erinyani/baxa1.php 2 -
+/login/blog/robots.txt 3 https://ppg.unusa.ac.id//wp-login.php
+/3.tar.gz 4 -
+/login/website/wp-includes/wlwmanifest.xml 49 -
+/site/plugins/kcfinder/upload.php 1 -
+/alfanew.php 25 -
+/kejari.tar.gz 4 -
+/bpkad.tar 4 -
+/laboratoriumpublic.rar 4 -
+/laboratorium_backup.rar 4 -
+/Laboratorium1 13 www.google.com
+/cbt.rar 4 -
+/pro.rar 4 -
+/laboratorium2024.zip 4 -
+/wp-content/themes/pridmag/waf_defender.php 1 -
+/1.tar.gz 4 -
+/2015.rar 4 -
+/e-journals.tar.gz 4 -
+/newsite 17 www.google.com
+/kn.php 4 -
+/logout.php 2 www.google.com
+/laboratoriumpoltekkesbantenpoltekkesbanten.7z 6 -
+/laboratorium.poltekkesbantendesa.tar 4 -
+/wp-admin/ALFA_DATA/alfacgiapi/radio.php 8 -
+/po-includes.tar.gz 4 -
+/Laboratorium2 13 www.google.com
+/sftp.json.old 1 -
+/packages/ckeditor/plugins/kcfinder-3.12/upload.php 1 -
+/scripts/kcfinder/upload.php 1 -
+/laboratorium.poltekkesbanten2021.zip 4 -
+/ccx/th3_err0r.php 3 -
+/app.tar.xz 5 -
+/well.php 4 www.google.com
+/js/kcfinder-3.12/upload.php 1 -
+/forbiden.php 4 www.google.com
+/webdesa_laboratorium.tar.gz 4 -
+/system.tar 4 -
+/wp-includes/alfacgiapi/py.alfa 18 -
+/wp-content/plugins/seoplugins/index.php 1 -
+/desa_laboratorium.poltekkesbanten.ac.id.rar 4 -
+/cache.rar 5 -
+/firewall.php7 1 -
+//wp-content/plugins/dummyyummy/wp-signup.php 2 -
+/js/wp-login.php 1 -
+/assets/vendors/kcfinder/upload.php 1 -
+/wp-admin/wp-conflg.php 1 -
+/config-backup.zip 4 -
+/class/phpformbuilder/plugins/filemanager/dialog.php 1 -
+/wp-content/themes/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/laboratorium.poltekkesbanten.ac.id2022.rar 4 -
+/.quarantine/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/Web%20test.tar.gz 4 -
+/dlh.tar 4 -
+/.well-known/alfacgiapi/index.php 9 -
+//wp-content/cong.php 2 -
+//wp-content/plugins/WordPressCore/index.php 2 -
+/po8sa.php 2 -
+/mhs.tar.gz 5 -
+//wp-content/plugins/seoxx/asasx.php 2 -
+/wp-content/small.php 2 -
+/wp-includes/wso.php 5 www.google.com
+/fog/management/index.php 1 -
+/assets/ALFA_DATA/alfacgiapi/radio.php 9 -
+//wp-admin/css/index.php 2 -
+/wp-key.php 10 www.google.com
+/sekolahku.zip 4 -
+/wp-includes/js/tinymce/plugins/fullscreen/about.php 1 -
+/l-app.rar 4 -
+/pdam.zip 4 -
+/wp-atom.php 17 -
+/wp-files.php 17 -
+/storage.tar.gz 4 -
+/byp403.php 3 -
+/humas.tar 4 -
+/e-journalstikes.zip 4 -
+/pmb.tar 4 -
+/assets/admin/js/jquery-file-upload 2 -
+/cbt.tar.gz 4 -
+/pro.tar.gz 4 -
+/puskesmas.tar 4 -
+/en.php 5 www.google.com
+/portal/administrator 3 -
+/hkqkzwwc.php 1 www.google.com
+//pwp-admin/network/login.php 2 -
+/wp-content/plugins/wp-apxupx.php 10 -
+/laboratorium_poltekkesbanten.laboratorium.poltekkesbanten.ac.id.rar 4 -
+/upload/alfacgiapi/index.php 9 -
+/yanz.php 9 -
+/%7BSITE%7D.tar 4 -
+/dispendukcapil.tar 4 -
+/assets/vendor_admin/plugins/jquery-file-upload/server/php 1 -
+/security.zip 4 -
+/archives.zip 4 -
+/098.php 4 www.google.com
+/superadmin.tar 4 -
+/public/vendor/laravel-filemanager/js/script.js 1 -
+/plugin/jquery.filer/php/upload.php 1 -
+/wp-includes/embed-wp.php 1 www.google.com
+/edit-form.php 1 www.google.com
+/backup10 13 www.google.com
+/al.php 5 -
+/wp-includes/ID3/wp-conflg.php 1 -
+/wp/wp-includes/fonts/iqb.php 5 -
+/private/kcfinder/upload.php 1 -
+/component/kcfinder-3.12/upload.php 1 -
+/public/js/kcfinder-3.12/upload.php 1 -
+/.deploy/sftp.json 1 -
+/admin/controller/extension/extension 3 binance.com
+/backup_jurnal_2025.zip 4 -
+/app/assets/kcfinder/upload.php 1 -
+/dpu.tar 4 -
+/yyyy.php 1 www.google.com
+/cgi-bin/alfacgiapi/perl.alfa 18 -
+/wp-admin/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/rex.php 7 -
+/config-backup.tar 4 -
+/backup.tar.xz 5 -
+/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/backend/.env 1 -
+/wp-content/uploads/wp-conflg.php 1 -
+/laboratoriumpoltekkesbanten.tar.xz 6 -
+/wp-includes/images/include.php 3 -
+/wp-content/hello.php 1 -
+/adminfuns.php7 1 -
+/assets/upload/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/randkeyword.PhP7 1 -
+/kabupaten.rar 4 -
+/cylul.php 6 -
+//wp-includes/wp-login.php 2 -
+/perizinan.tar 4 -
+/2.zip 4 -
+/journals.tar.xz 1 -
+/wp-includes/theme-compat/about.php 1 -
+/wp-content/plugins/press/wp-class.php 1 www.google.com
+//first.php 2 -
+/uploads/alfacgiapi/radio.php 9 -
+/htdocs.zip 4 -
+/wp-includes/rest-api/autoload_classmap.php 1 -
+/security.tar 4 -
+/archives.tar 4 -
+/laboratorium_poltekkesbanten.laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+/jdimzmtaas.php 3 -
+/asset/js_ckeditor/kcfinder/upload.php 1 -
+/laboratorium.poltekkesbantendesa.zip 4 -
+/wp-content/plugins/virr/uploader.php 1 www.google.com
+//inc.php 2 -
+/api.gz 1 -
+//wp.php 2 -
+/zyacbt.zip 4 -
+/.well-known/index.php 4 -
+/2018.rar 4 -
+/admin.rar 4 -
+//wp-includes/fonts/about.php 2 -
+/poltekkesbantenpublic.tar.gz 4 -
+/MARIJUANA.php 3 -
+/wp-admin/css/colors/blue/gold.php 1 -
+/.well-known/pki-validation/alfacgiapi/bash.alfa 18 -
+/wp-admin/css/colors/blue/xboom.php 1 -
+/eperda.rar 4 -
+/en/kcfinder/upload.php 1 -
+/wp-backup.tar.gz 4 -
+/pindu.rar 4 -
+/resources/vendor/kcfinder/upload.php 1 -
+/minik.php 1 www.google.com
+/disdik.zip 4 -
+/pemeliharaan.tar.gz 5 -
+/301.php 7 -
+/laboratorium.poltekkesbanten2021.tar.gz 4 -
+/dbmsda.tar.gz 4 -
+/Laboratorium2025 13 www.google.com
+/wp/alfacgiapi/py.alfa 16 -
+/wp-content/themes/classic/inc/index.php 1 www.google.com
+/xl.php 8 www.google.com
+/session.php 2 www.google.com
+/cgi-bin/about.php 10 -
+/admin/.env 1 -
+/wp-content/plugins/phpadmin/as.php 1 -
+/kominfo.tar.gz 4 -
+/sftp.json.save 1 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D2024.zip 4 -
+/meki.php 4 www.google.com
+/wordpress/alfacgiapi/404.php 9 -
+/backupan.tar 3 -
+/XxX.php 4 -
+/assets.rar 4 -
+/poltekkesbanten2022.tar 4 -
+/disperindag.tar 4 -
+//wp-content/plugins/seox/up.php 2 -
+//xml.php 2 -
+/wp-class.php 19 -
+/poltekkesbanten2024.rar 4 -
+/old/alfacgiapi/404.php 8 -
+/wp-includes/rest-api/about.php 14 -
+/pupr.zip 4 -
+/Archive.tar.gz 5 -
+/Laboratorium2020 13 www.google.com
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/radio.php 9 -
+/delpaths.php 1 -
+/theme-single.php 6 -
+/reports/rwservlet/showenv 1 -
+/id.php 13 -
+/administrator.tar.xz 1 -
+/cms 17 -
+/wp-admin/css/colors/blue/about.php 10 -
+/wp-admin/network/xmrlpc.php 10 -
+/indo.php 2 -
+/diknas.rar 4 -
+//buy.php 2 -
+/laboratoriumpoltekkesbanten.7z 6 -
+/wp-admin/includes/class-core-upgrader-first.php 1 -
+/dpuair.zip 4 -
+/laboratorium.poltekkesbanten.ac.id2023.zip 4 -
+/logs/kcfinder/upload.php 1 -
+/%7Bsub0upper%7D.%7Bsub1upper%7Dv2.zip 4 -
+/cgi-bin/install.php 1 -
+/wp-includes/Text/wp-conflg.php 1 -
+/kebakaran.zip 3 -
+/o.php 15 -
+/tuco.php 8 www.google.com
+/baru.tar 4 -
+/wp-content/about.php 13 -
+/wp-includes/about.php 9 -
+/wp-includes/Text/Diff/index.php 4 -
+/l-content.tar 4 -
+/wp-admin/alfacgiapi/py.alfa 18 -
+/ejournall.rar 4 -
+/files/docs/kcfinder/upload.php 1 -
+/css/ 2 -
+/zk.php 2 www.google.com
+/dpubinmarcipka.zip 3 -
+/epinyins.php 1 -
+/autoload_classmap.php 7 -
+/load.php 15 www.google.com
+/wp-content/languages/autoload_classmap.php 1 -
+/wp-content/upgrade/alfacgiapi/index.php 9 -
+/cgi-bin/alfacgiapi/index.php 9 -
+/webadmin/about.php 1 www.google.com
+/wp-content/maw.php 1 -
+/site 16 www.google.com
+/wp.tar 4 -
+/aios/firewall-rules/settings.php 1 -
+/admin/plugin/kcfinder-3.12/upload.php 1 -
+/new.php 5 -
+/v3.tar 4 -
+/wp-includes/pomo/treame.php 1 www.google.com
+/app_openSID.tar.gz 4 -
+/wp-includes/certificates/admin.php 1 -
+/journalslaboratorium.rar 4 -
+/public_lama.zip 4 -
+/wp-content/upgrade/index.php 1 -
+/wp-good.php 1 -
+/disperkimtan.rar 4 -
+/dinaspariwisata.tar 4 -
+/wp-plain.php 3 www.google.com
+/wp-admin/css/colors/blue/blue.php 4 -
+/v.php 15 -
+/mari.php 7 www.google.com
+/sid_baru.rar 4 -
+/6.tar 4 -
+//css.php 2 -
+/libraries/phpmailer/updates.php 1 -
+/assets/js/scripts/kcfinder/upload.php 1 -
+/wpx.php 1 www.google.com
+/prkp.tar.gz 4 -
+/images/logo/logo-eoffice.php 1 -
+/reports/rwservlet 1 -
+/data.tar 4 -
+/new/alfacgiapi/404.php 9 -
+/css/index.php 1 -
+/ppdb.rar 4 -
+/laboratorium1.rar 4 -
+/fast.php 4 www.google.com
+/pub.rar 4 -
+/poltekkesbanten2024.tar.gz 4 -
+/alf.php 10 www.google.com
+/gallery 13 www.google.com
+/OLD 1 -
+/laboratorium.poltekkesbanten2022.tar.gz 4 -
+/ojs3.tar 4 -
+/laboratorium.poltekkesbanten.ac.idv1.tar.gz 4 -
+/xcv.php 2 www.google.com
+/Archive.tar.bz2 1 -
+/gank.php 1 www.google.com
+//file.php 2 -
+/laboratorium.poltekkesbanten.ac.idv1.zip 4 -
+/file.php 19 www.google.com
+/wp-includes/pomo/so.php 1 www.google.com
+//wso112233.php 2 -
+/.quarantine/alfacgiapi/radio.php 9 -
+/database.tar.gz 4 -
+/zwso.php 1 -
+//wp-includes/pomo/wp-login.php 2 -
+/ojs1.tar 4 -
+/index.rar 4 -
+/ar.php 6 -
+/tmp/kcfinder/upload.php 1 -
+/4.tar.gz 4 -
+/%7Bsub0upper%7D.%7Bsub1upper%7Dv1.rar 4 -
+/desa_laboratorium.zip 4 -
+/wp-content/plugins/core-plugin/include.php 1 -
+/%7Bsiteupper%7Dv1.rar 4 -
+/ejournall.tar.gz 4 -
+/wp-content/themes/cakiltheme/idx.php 1 www.google.com
+/resources/global/plugins/jquery-file-upload/server/php 1 -
+/public_html.7z 1 -
+/weblaboratorium.zip 4 -
+/poltekkesbantenv2.tar 4 -
+/6.php 4 -
+/laboratoriumold.tar 4 -
+/application.tar.xz 5 -
+/wbs.rar 4 -
+/cgi-bin.tar 9 -
+/wp-content/masshp.php 1 -
+/cgi-bin.rar 9 -
+/www.tar 6 -
+/ioxi.php 1 www.google.com
+/wp_cron.php 3 -
+/wp-includes/customize/dedi1.php 1 -
+/.tmb.tar 4 -
+/antiheker.php 5 www.google.com
+/testwp.php 8 www.google.com
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/2016.tar 4 -
+/wp/wp-includes/fonts/dev.php 5 -
+/portal.tar 4 -
+//wp-content/themes/mha/db.php 2 -
+/.well-known/admin.php 11 -
+/filemanager.php 21 -
+/wp-content/index.php 14 -
+/wp-includes/sys.php 1 www.google.com
+/documents.tar 4 -
+/assets/upload/alfacgiapi/404.php 9 -
+/poltekkesbanten.zip 9 -
+/simpeg.zip 4 -
+/assets/filemanager 1 -
+/wp_backup 13 www.google.com
+//wp-content/plugins/fighter/fk.php 2 -
+/backup_laboratorium.poltekkesbanten.ac.id.rar 4 -
+/general/index.php 1 -
+/laboratorium.poltekkesbanten.tar.gz 10 -
+/zfox.php 2 www.google.com
+/pub.tar.gz 4 -
+/10.tar.gz 4 -
+/kabupaten.tar.gz 4 -
+/kii.php 4 www.google.com
+/bpbd.tar 4 -
+/laboratorium.poltekkesbantenv1.tar 4 -
+/wp-help.php 8 www.google.com
+/apps.zip 4 -
+/uploads/files/kcfinder/upload.php 1 -
+/desa.zip 5 -
+/bkcp.zip 4 -
+/po-admin.rar 4 -
+//.well-known/acme-challenge/upfile.php 2 -
+/jurutani.tar.gz 4 -
+/.well-known/alfacgiapi/py.alfa 18 -
+/wp-includes/pomo/autoload_classmap.php 2 www.google.com
+/pemeliharaan.zip 5 -
+/wordpress.zip 4 -
+/laboratorium2.rar 4 -
+/con7.php 6 www.google.com
+/packages/js/kcfinder-3.12/upload.php 1 -
+/warm.PhP7 1 -
+/ejournals.zip 4 -
+/wp/alfacgiapi/radio.php 7 -
+/con7ext.php 2 www.google.com
+/%7Bsiteupper%7D2023.rar 4 -
+/wp-content/plugins/augmented-reality/vendor/elfinder/php/connector.minimal.php 1 -
+/belajar.tar.gz 5 -
+/dpkp.tar.gz 4 -
+/laboratoriumv2.tar.gz 4 -
+/bappeda.tar.gz 4 -
+/wordpress/wp-includes/IXR/allez.php 1 -
+/bak.tar 4 -
+/laboratoriumpoltekkesbantenpoltekkesbanten.tar.bz2 6 -
+/sakip.rar 4 -
+/blog/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/wp-includes/js 1 www.google.com
+/wp-content/uploads/admin.php 1 -
+/asset/plugins/jquery-file-upload/server/php 2 -
+//blog/index.php 2 -
+/openSID.rar 4 -
+/wp-backup.rar 4 -
+/dispar.rar 4 -
+/wbs.tar.gz 4 -
+//alfa-rex.php 2 -
+/openSID.tar 4 -
+/laboratoriumv1.zip 4 -
+/Archive.7z 1 -
+/kepegawaian.rar 4 -
+/pucktr.tar 4 -
+/room.php 11 www.google.com
+/components/ALFA_DATA/alfacgiapi/index.php 9 -
+/disparekraf.tar 4 -
+/wp-load.php 7 -
+/wp-content/uploads/ac_assets/IndoSec.php 1 www.google.com
+/libs/kcfinder/upload.php 1 -
+/blog/wp-includes/about.php 1 -
+/home/alfacgiapi/perl.alfa 1 -
+/js/tinymce4/plugins/filemanager/dialog.php 1 -
+/organisasi.rar 5 -
+/website_laboratorium.poltekkesbanten.ac.id.zip 4 -
+/wp-content/plugins/library/alfacgiapi/perl.alfa 18 -
+/app/webroot/kcfinder-3.12/upload.php 1 -
+/wp-content/plugins/zedd/1.php 3 www.google.com
+/tracer.zip 4 -
+/laravel/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/resources/kcfinder/upload.php 2 -
+/.tmb/ALFA_DATA/alfacgiapi/404.php 9 -
+/wp-includes/Text/Diff/Renderer/about.php 1 -
+/assets/ckeditor/kcfinder/upload.php 3 -
+/wp-content/themes/ALFA_DATA/alfacgiapi/index.php 9 -
+/dpupr2kp.tar.gz 4 -
+/wp-includes/PHPMailer/index.php 1 -
+/siakad.tar.gz 5 -
+/admin/js/kcfinder/upload.php 1 -
+//ticket/vendor/htmlawed/htmlawed/gel4y.php 2 -
+/2014.rar 4 -
+/utchiha.phP 1 www.google.com
+/uploads/uploads/kcfinder/upload.php 1 -
+/ojs.tar.bz2 1 -
+/wordpress/alfacgiapi/perl.alfa 18 -
+/web.tar 5 -
+/%7Bsiteupper%7Dpublic.tar 3 -
+/wp-admin/maint/maint.php 1 -
+//wp-admin/about.php 2 -
+/.tmb/ALFA_DATA/alfacgiapi/radio.php 9 -
+/cgi-bin/alfacgiapi/bash.alfa 18 -
+//wp-includes/images/about.php 2 -
+/well-known%20%281%29.zip 4 -
+/pref.php 1 www.google.com
+/ojs.tar.gz 5 -
+/500.php 3 -
+/about/Geforce.php 1 -
+/production.rar 4 -
+/vendor/phpunit/phpunit/src/Util/PHP/as.php 1 -
+/.wp/wso.php 1 -
+/administrator.zip 5 -
+/ah.php 4 www.google.com
+/damkar.zip 4 -
+/mm.php 7 -
+/ojs4.tar.gz 4 -
+/laboratorium.poltekkesbantenv1.tar.gz 4 -
+/laboratoriumpoltekkesbantenpoltekkesbanten.tar.xz 6 -
+/sdabk.rar 4 -
+/wp-content/flame.php 12 www.google.com
+/xl2023x.php 1 www.google.com
+/admin/plugins/kcfinder/upload.php 1 -
+/production.zip 4 -
+/xforce.php 1 www.google.com
+/ALFA_DATA/alfacgiapi/radio.php 9 -
+/p3ap2kb.tar.gz 4 -
+/dishub.tar 4 -
+/assets/ALFA_DATA/alfacgiapi/index.php 9 -
+/js/ckeditor/kcfinder/upload.php 1 -
+/date.php 1 -
+/wp-content/uploads 4 www.google.com
+/wp-content/themes/tflow/up.php 1 -
+/zya.tar 4 -
+/wp-includes/SimplePie/applicationd.php 1 -
+/js/server/php 1 -
+/wp-include.tar 4 -
+/organisasi.zip 5 -
+/opac.tar.gz 4 -
+/backup123.tar 4 -
+/style-js.php 4 www.google.com
+/wp-includes/pomo/alfacgiapi/perl.alfa 1 -
+/wp-admin.rar 4 -
+/fileuploads/kcfinder/upload.php 1 -
+/main 13 www.google.com
+/admin/assets/plugins/jquery.filer/php/upload.php 1 -
+/wp-content/themes/astra/inc/fm.php 1 -
+/wp-content/themes/sky-pro/js.php 1 -
+/admin/plugin/server/php 1 -
+/webdesa_laboratorium.zip 4 -
+/superadmin.tar.gz 4 -
+/webassist/kcfinder/upload.php 1 -
+/wp-includes/IXR/security.php 1 -
+/sid.tar 4 -
+/disdukcapil.rar 4 -
+/mariju.php 1 -
+/uploader.php 7 -
+/login.action 8 -
+/%7BSITE%7D.tar.gz 4 -
+/diskominfo.rar 4 -
+/config.tar 4 -
+//update.php 2 -
+/manager.php 15 www.google.com
+/azdare.php 11 -
+/wp/gvy6f.php 1 www.google.com
+//wp-admin/css/colors/about.php 2 -
+/web/administrator 3 -
+/2012.rar 4 -
+/laboratoriumpublic.zip 4 -
+/assets/libs/kcfinder/upload.php 1 -
+/9.tar.gz 4 -
+/webdesa_laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+/oldlaboratorium.tar 4 -
+/upload/server/php/files 1 -
+/7.tar 4 -
+/uploads/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/alumni.tar.gz 5 -
+/upel.php 4 www.google.com
+/ojs.rar 5 -
+/pdf 1 -
+//wp-admin/admin.php 2 -
+/application.tar.bz2 5 -
+/resources/views/kcfinder/upload.php 1 -
+/wp-mna.php 1 www.google.com
+/wp-includes/z.php 1 www.google.com
+/jindex.php 14 www.google.com
+/editor/kcfinder/upload.php 1 -
+/blog/ALFA_DATA/alfacgiapi/index.php 9 -
+/%7Bsiteupper%7D2023.zip 4 -
+/wp-content/plugins/about.php 2 -
+//wp-content/plugins/dzs-zoomsounds/1877.php 2 -
+/wp-content/plugins/widget-logic/mini.php 4 www.google.com
+/wp-includes/block-patterns/autoload_classmap.php 1 -
+/Web%20test.tar 4 -
+/dispen.zip 4 -
+/backend.tar.gz 4 -
+/new/ALFA_DATA/alfacgiapi/index.php 9 -
+/wp-we.php 11 -
+/dp3a.tar 4 -
+/config/config.kcfinder/upload.php 1 -
+//wp-includes/wp-includes_function.php 2 -
+/user.php 9 -
+/OJS.zip 2 -
+//wp-content/uploads/wpr-addons/forms/b1ack.php 2 -
+/shell4.php 4 www.google.com
+//wp-content/plugins/ioxi/retu.php 2 -
+/assets/color_admin/plugins/jquery-file-upload/server/php 1 -
+/backup_jurnal_2022.tar 4 -
+/wp_fma.php 7 -
+/7.php 4 -
+/wp-includes/js/thickbox/thickbox.php 1 www.google.com
+/ae.php 12 -
+/clan.php 4 www.google.com
+//admin.php 2 -
+/wp-content/plugins/wp-diambar/includes/loadme.php 5 www.google.com
+/abby.php 1 www.google.com
+/wp-content/themes/ALFA_DATA/alfacgiapi/radio.php 9 -
+/laboratorium_lama.tar.gz 4 -
+/assets/plugins/jQuery-File-Upload/server/php 1 -
+/dispenda.tar.gz 4 -
+/kcfinder-3.12/upload.php 1 -
+/public.tar 5 -
+//wp-content/themes/include.php 2 -
+/blog/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/core 14 www.google.com
+/e-journals.tar 4 -
+/public.7z 1 -
+/diskominfo.zip 4 -
+/ojs2.tar.gz 4 -
+/dev1.rar 4 -
+/ww.php 8 www.google.com
+/dpapmk.rar 4 -
+/wp-content/plugins/wp-freeform/wawe.php 1 www.google.com
+/fr.php 12 -
+/ALFA_DATA/alfacgiapi/index.php 9 -
+/backup8 13 www.google.com
+/lufix.php 13 -
+//wp-content/languages/wp-login.php 2 -
+/1.tar 4 -
+/assets/admin/js/filemanager 1 -
+/teslav.php 1 www.google.com
+/images/waf_defender.php 1 -
+/siamik.zip 4 -
+/.well-known/alfacgiapi/bash.alfa 18 -
+//wp-content/json.php 2 -
+/%7BSUB0%7D.%7BSUB1%7D.rar 4 -
+/wordpress/alfacgiapi/py.alfa 18 -
+/makeasmtp.php 11 -
+/303.php 4 www.google.com
+/bem.tar 5 -
+/vendor.zip 4 -
+/restore.php 3 www.google.com
+/wp-content/plugins/view-more/ioxi.php 1 -
+/ppid.rar 4 -
+/leaf.php 12 -
+/binamarga.tar 4 -
+/v1.tar 4 -
+/405.php 4 www.google.com
+/assets/vendors/kcfinder-3.12/upload.php 1 -
+//templates/beez/jsstrings.php 2 -
+/wp-content/plugins/wp-freeform/style.php 1 www.google.com
+/wp-content/updraft/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/mano.php 8 -
+/wordpress/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/laboratorium2025 13 www.google.com
+/wwwroot.tar 4 -
+/wp-l0gin.php 2 -
+/eviltwin.php 1 www.google.com
+/desa.tar.xz 1 -
+/html.tar.gz 4 -
+/images/DJP9.php 1 -
+/wwwroot.rar 4 -
+/dashboard/assets/filemanager 1 -
+/pemeliharaan.tar 5 -
+/laboratoriumv2.tar 4 -
+/old.zip 4 -
+/filemanager/dialog.php 3 -
+/wp-config-samsples.php 4 www.google.com
+/dpmptspd.tar 4 -
+/wp-includes/library.php 3 -
+/tppk.tar 4 -
+/zone.php 6 -
+/webadmin.zip 4 -
+/resources/js/kcfinder/upload.php 1 -
+/laboratorium.poltekkesbantenv1.rar 4 -
+/locales.php 1 www.google.com
+/dinkes.tar.gz 4 -
+/layanan.tar.gz 4 -
+/wp-file.php 5 www.google.com
+/wp-includes/radio.php 3 -
+/.well-known/ 3 binance.com
+//wp-includes/product.php 2 -
+/laboratorium.poltekkesbanten2023.zip 4 -
+/filefuns.php 1 -
+/laboratoriumpoltekkesbantenpoltekkesbanten.zip 6 -
+/1.php 20 -
+/infos.php 1 -
+/.well-known.tar 9 -
+/app.7z 5 -
+/wp-admin/file.php 1 -
+/galekjaya.php 1 www.google.com
+/lama.tar 4 -
+/.config/sftp.json 1 -
+/rexx.php 11 -
+/stikes.tar 4 -
+/fatal.php 4 www.google.com
+/laboratorium_2023.rar 4 -
+/wp-content/themes/about.php 13 -
+/poltekkesbanten2024.zip 4 -
+/3.php 8 www.google.com
+/assets/alfacgiapi/radio.php 9 -
+/wp-includes/customize/zmFM.php 3 -
+/sendmail.php 1 www.google.com
+/laboratorium.poltekkesbanten.ac.idv2.tar.gz 4 -
+/repository.tar.gz 4 -
+/post-data.php 3 -
+/l-app.zip 4 -
+/application.rar 9 -
+/r00t.php 10 www.google.com
+/coloradmin/assets/plugins/jquery-file-upload/server/php 1 -
+/xleetmailer.php 1 www.google.com
+/wp-includes/css/atomlib.php 1 -
+/wp-content/uploads/bypass.php 1 -
+/goods.php 5 www.google.com
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/2015.tar 4 -
+/phpformbuilder/plugins/filemanager/dialog.php 1 -
+/fonts/database.php 1 -
+/%7BSUB0%7D.zip 4 -
+/old-site.tar 4 -
+/journals.tar 5 -
+/d.php 13 -
+/poltekkesbanten.tar.bz2 5 -
+/Public.tar.gz 4 -
+/wp-content/plugins/seoplugins/mar.php 10 -
+/assets/admin/js/kcfinder/upload.php 4 -
+/01.php 14 www.google.com
+/waf_defender.php 1 -
+/jurnallaboratorium.rar 4 -
+/assets/admin/kcfinder/upload.php 2 -
+/packages/scripts/kcfinder/upload.php 1 -
+/wp-includes/alfacgiapi/perl.alfa 19 -
+/%7BSUB0%7D.rar 4 -
+/assets/vendors/js/kcfinder/upload.php 1 -
+/disnaker.zip 4 -
+/config.inc.php.zip 4 -
+/apple-touch-icon-120x120-precomposed.png 2 -
+//wp-maps.php 2 -
+/application/themes/admin/assets/js/kcfinder/upload.php 1 -
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/radio.php 9 -
+/laboratorium2020 13 www.google.com
+/spmi.tar.gz 4 -
+/api/.env 1 -
+/laboratorium2021.tar.gz 4 -
+/info.zip 5 -
+/assets/images/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/wmsyb.php 1 www.google.com
+/wordpress/wp-admin/setup-config.php 1 -
+/.well-known%20%282%29.tar.gz 4 -
+/components/ALFA_DATA/alfacgiapi/radio.php 9 -
+/old/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/update.tar 4 -
+/cache.zip 5 -
+/3.tar 4 -
+/wp-content/themes/seotheme/db.php 13 -
+//1.php 2 -
+/webdesa_laboratorium.poltekkesbanten.ac.id.zip 4 -
+/poltekkesbantenv2.zip 4 -
+/wp-content/wso.php 17 www.google.com
+/wp-admin/mah.php 1 -
+/desa_laboratorium.tar 4 -
+/wp-content/plugins/hello.php 1 -
+/dsdabmbk.zip 4 -
+/_.php 2 -
+/bapenda.tar.gz 4 -
+//wp-content/themes/dikan/db.php 2 -
+/testing 1 -
+/wp-includes/wp-old.pHP 1 www.google.com
+//wp-content/about.php 2 -
+/assets/webadmin/js/kcfinder/upload.php 1 -
+/css.php 27 www.google.com
+/pmb.tar.gz 4 -
+/pro.tar 4 -
+/cbt.tar 4 -
+/wp-user.php 9 -
+/wp-admin/inputs.php 3 -
+/test.php 11 www.google.com
+/dpuair.tar 4 -
+/resources.rar 4 -
+//wp-content/uploads/index.php 2 -
+/wp-includes/css/gelay.php 3 -
+/oldlaboratorium.tar.gz 4 -
+/backup_jurnal_2020.rar 4 -
+//wp-includes/sitemaps/providers/zmFM.php 2 -
+/Backup.rar 4 -
+/%7Bsiteupper%7Ddesa.tar 4 -
+/po-includes.rar 4 -
+/cd.php 4 www.google.com
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/wp-admin/css/colors/blue/xmrlpc.php 1 -
+/includes.php 15 -
+/mhs.tar 5 -
+/3.rar 4 -
+/1877.php 1 www.google.com
+/wp-includes/PHPMailer/purna.php 1 -
+/updates.zip 4 -
+/sys.php 5 -
+/admin/includes/general.js 2 -
+/laboratorium_old.tar.gz 4 -
+/.quarantine/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/cms.zip 4 -
+/wp-admin/images/index.php 14 -
+/6index.php 1 www.google.com
+/thesmartestx.php 2 -
+/disbimacipta.rar 4 -
+/wp-admin/js/wp-login.php 1 -
+/%7BSUB0%7D%7BSUB1%7D.rar 4 -
+/wp_wrong_datlib.php 7 -
+/mail.zip 4 -
+/nasgor.php 1 www.google.com
+/assets/images/alfacgiapi/perl.alfa 1 -
+/.well-known/wp-conflg.php 1 -
+/bpkad.rar 4 -
+/website-backup.zip 4 -
+/wp-content/uploads/2023/05/404.php 1 -
+/laboratorium_2022.zip 4 -
+/we1y8.php 3 -
+/update/f35.php 1 -
+/seeyon/htmlofficeservlet 1 -
+/dlh.tar.gz 4 -
+/bless.php 1 -
+/public_html.tar.bz2 1 -
+/bypass404.php 4 www.google.com
+/asset/global/plugins/jquery-file-upload/server/php 1 -
+/media/kcfinder/upload.php 2 -
+/rapemda.rar 4 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D2023.tar.gz 4 -
+/sosial.tar.gz 4 -
+/1337.php 7 -
+/rapemda.tar 4 -
+/wp-content/themes/cepair/doc.php 1 www.google.com
+/tshop.php 1 www.google.com
+/assets/js/kcfinder-3.12/upload.php 1 -
+/wp-comments-pos.php 1 -
+/fw.php 23 www.google.com
+/laboratorium2021 13 www.google.com
+/assets/css/admin/kcfinder/upload.php 1 -
+/surat.rar 4 -
+/fai.php 1 -
+/cpanel.tar.gz 4 -
+/silakop.tar.gz 4 -
+/templates/beez3/index.php 1 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D2022.zip 4 -
+/js/libs/kcfinder/upload.php 1 -
+/fx-mini.php 6 -
+/laboratorium.tar.xz 6 -
+/wp-content/updraft/alfacgiapi/perl.alfa 18 -
+/wp-content/lx.php 2 -
+/wp-includes/ID3/rus.php 1 -
+//class.php 2 -
+//wp-content/plugins/royal-ckeditor/admin.php 2 -
+/priv8.php 10 www.google.com
+/backup_jurnal_2021.zip 4 -
+/wp-content/themes/skatepark/doc.php 1 www.google.com
+/oldlaboratorium.rar 4 -
+/release.tar.gz 4 -
+/cache.tar 5 -
+/well-known%20%283%29.rar 4 -
+/pmb.rar 4 -
+/config.php 26 -
+/documents.zip 4 -
+/new/ALFA_DATA/alfacgiapi/py.alfa 18 -
+//wp-admin/includes/class-wp-filesystem-base.php 2 -
+/baru.tar.gz 4 -
+/devil.php 7 -
+/smart_taxx.tar.gz 4 -
+/alfa123.php 4 -
+/jquery-file-upload 1 -
+/wp-content/uploads/ALFA_DATA/alfacgiapi/404.php 9 -
+/assets/vendors/kcfinder/3.12/upload.php 1 -
+/backend/plugins/kcfinder-3.12/upload.php 1 -
+/lib/fileman/index.html 9 -
+/layanan 13 www.google.com
+/repeater.php 11 -
+//wp-admin/css/colors/coffee/index.php 2 -
+/images/ALFA_DATA/alfacgiapi/index.php 9 -
+/wp/alfacgiapi/bash.alfa 16 -
+/setdako.rar 4 -
+/setdako.tar 4 -
+/laboratoriumpoltekkesbanten2023.tar 4 -
+/wp-content/radio.php 4 -
+//shell20211028.php 2 -
+/App.zip 4 -
+/laboratorium.poltekkesbanten.zip 10 -
+/dbx.php 5 www.google.com
+/wordpress.tar 4 -
+/wp-content/plugins/core/include.php 11 -
+/backup/alfacgiapi/404.php 9 -
+/admin/plugins/jquery.filer/php/upload.php 1 -
+/back.rar 4 -
+/.well-known%20%283%29.zip 4 -
+/ejournals.tar 4 -
+/assets/upload/alfacgiapi/bash.alfa 18 -
+//wp-content/plugins/chosen.php 2 -
+/dlh.rar 4 -
+/wp-content/uploads/wpr-addons/forms/e.php 1 -
+/laboratoriumpoltekkesbanten.tar.gz 10 -
+/wpbackup2 13 www.google.com
+/%7Bsub0upper%7D.%7Bsub1upper%7Ddesa.zip 4 -
+/simaset.zip 4 -
+/wp-includes/PHPMailer/wp-conflg.php 1 -
+/wp-includes/block-supports/autoload_classmap.php 1 -
+/disdik.tar 4 -
+/zf.php 2 www.google.com
+/.wp-cli.tar.gz 4 -
+/updates.php 13 -
+/1.rar 4 -
+/Laboratorium5 13 www.google.com
+/disperadankpp.tar.gz 4 -
+/backup_jurnal_2024.tar 4 -
+/wp-admin/images/xmrlpc.php 10 -
+/htdocs.tar 4 -
+/Byp.php 13 -
+/humas.rar 4 -
+/assets/images/doc.php 1 -
+/debug.php 6 www.google.com
+/l-app.tar 4 -
+/inc_admin/plugins/kcfinder/upload.php 1 -
+/zyacbt.tar 4 -
+/journal.gz 1 -
+/tonant.php 12 www.google.com
+/wpbackup4 13 www.google.com
+/wp-includes/assets/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/wp-includes/pomo/admin.php 1 -
+/laboratorium.7z 6 -
+/wp-info.php 21 -
+/5.zip 4 -
+/wordpress/wp-includes/wlwmanifest.xml 1 -
+/wp-about.php 3 -
+/joomla/administrator 3 -
+/wp-content/plugins/elementor/wp-wjvngrh.php 1 -
+/laboratorium.poltekkesbanten.ac.idpublic.tar 4 -
+/kejari.rar 4 -
+/la.php 1 www.google.com
+/images/class.php 1 -
+/laboratorium.poltekkesbanten.rar 10 -
+/simpeg.tar 4 -
+/assets/admin/plugins/kcfinder/upload.php 2 -
+/backup7 13 www.google.com
+/ojs1.tar.gz 4 -
+/tes.php 15 -
+/2013.rar 3 -
+/dp3ap2kb.tar 4 -
+/.well-known/pki-validation/mariju.php 1 -
+/libs/kcfinder-3.12/upload.php 1 -
+/wp-includes/js/crop/index.php 4 -
+/.well-known/acme-challenge/install.php 1 -
+/10.php 4 -
+/download.php 1 www.google.com
+/wp-includes/interactivity-api/interactivity-api-class.php 1 -
+/wp-content/mu-plugins-old/index.php 1 www.google.com
+/portal.zip 4 -
+/db.tar 4 -
+//wp-admin/css/colors/blue/index.php 2 -
+/website_laboratorium.rar 4 -
+/wp-includes/shadowx.php 1 www.google.com
+/laboratorium.poltekkesbanten.ac.iddesa.tar.gz 4 -
+/assets/bo/plugin/kcfinder-3.12/upload.php 1 -
+/assets/plugins/jquery-file-upload/server/php 4 -
+/laboratorium.poltekkesbanten.ac.id.zip 8 -
+/wp-optimization.php 1 www.google.com
+/database.zip 4 -
+/backup 16 www.google.com
+/files.tar.gz 4 -
+/img/alfacgiapi/perl.alfa 1 -
+/wp-includes/f0x.php 3 www.google.com
+/perizinan.zip 4 -
+/ckeditor/kcfinder-3.12/upload.php 1 -
+/install.rar 4 -
+/l.php 16 -
+/ckeditor/plugins/kcfinder-3.12/upload.php 1 -
+/install.tar 4 -
+/lms.rar 4 -
+/wp-includes/SimplePie/Cache/upfile.php 1 -
+/.settings/sftp.json 1 -
+/vendor/laravel-filemanager/js/script.js 1 -
+/desalaboratorium.tar.gz 4 -
+/zcanp.php 2 -
+/V3.php 1 www.google.com
+/prkp.tar 4 -
+/pucktr.zip 4 -
+/wp-includes/sitemaps/providers/zmFM.php 3 -
+/public/javascript/jquery.upload/server/php 1 -
+/%7BSUB0%7D.%7BSUB1%7D.tar 4 -
+/js/WP-DIRCHECKEKdj.php 1 -
+/core/scripts/wysiwyg/kcfinder-3.12/upload.php 1 -
+/backup3 13 www.google.com
+/laboratorium2.zip 4 -
+/data.tar.gz 4 -
+/disperkimta.zip 4 -
+/web.gz 1 -
+/test/kcfinder/upload.php 1 -
+//wp-content/plugins/pwnd1/pwnd.php 2 -
+/resource/js/kcfinder/upload.php 1 -
+/admin/filemanager/dialog.php 2 -
+/7.rar 4 -
+/wp-content/plugins/bypass.php 1 -
+/crypted.php 2 -
+/god4m.php 8 www.google.com
+/doc.php 23 -
+/public_html.rar 5 -
+/old_core 3 www.google.com
+/ojs3.tar.gz 4 -
+/wp-admin/css/colors/tfileman.php 1 -
+/laboratorium-poltekkesbanten.laboratorium.poltekkesbanten.ac.id.zip 4 -
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/404.php 9 -
+/anggota.tar.gz 4 -
+/admin/public/kcfinder/upload.php 1 -
+/wp-includes/ID3/module.audio-video.riff-set.php 1 -
+/raw.php 3 -
+/wp-includes/style-engine/wp-conflg.php 1 -
+/cms/wp-includes/wlwmanifest.xml 1 -
+/laboratorium1.zip 4 -
+/symlink.php 9 www.google.com
+/asset/filemanager 1 -
+/conferences.zip 4 -
+/dpkp.tar 4 -
+/Laboratorium6 13 www.google.com
+/resources.tar.gz 4 -
+/.well-known/acme-challenge/alfacgiapi/py.alfa 18 -
+/wp-content/updraft/alfacgiapi/bash.alfa 18 -
+/upload/alfacgiapi/404.php 9 -
+/gelay.php 4 -
+//xleet.php 2 -
+/assets/plugins/jquery.filer/php/upload.php 1 -
+//wp-includes/ID3/bads.php 2 -
+/.quarantine/ALFA_DATA/alfacgiapi/404.php 9 -
+/sippn.tar.gz 4 -
+/wp-trackback.php 5 -
+/wp-includes/maro.php 1 www.google.com
+/wp-22.php 1 www.google.com
+/0x.php 8 -
+//wp-includes/assets/winnner.php 2 -
+/wp-admin/css/colors/light/profile.php 1 -
+/laboratoriumpoltekkesbanten2021.tar 4 -
+//wp-signup.php 2 -
+/laboratoriumv2.rar 4 -
+/assets/js/plugins/ckeditor/plugins/kcfinder-3.12/upload.php 1 -
+/2016.tar.gz 4 -
+/wp-includes/style-engine/about.php 11 -
+/demo/plugin/jquery.filer/php/upload.php 1 -
+/website_laboratorium.tar 4 -
+/.well-known/ALFA_DATA/alfacgiapi/404.php 9 -
+/wp-admin.php 12 -
+/kebakaran.tar 4 -
+/t.php 13 -
+/jurutani.zip 4 -
+/.tmb.tar.gz 4 -
+/send.php 4 -
+/robots.php 2 -
+//wp-content/plugins/press/wp-class.php 2 -
+/lms.tar.gz 4 -
+/wp-content/batm.php 1 -
+/assets/uploads/ALFA_DATA/alfacgiapi/radio.php 9 -
+/tpp.zip 4 -
+/l-content.zip 4 -
+//wp-content/ThreeFox_Exploit/index.php 2 -
+/backup.tar.bz2 5 -
+/sisdjatansdabm.zip 4 -
+/wp-includes/blocks/table/int/tmpl/index.php 10 -
+/update.php 6 -
+/acara 13 www.google.com
+/wordpress/alfacgiapi/radio.php 9 -
+/clay.php 4 www.google.com
+/cmd.php 6 -
+/live/i.php 1 -
+/resource/js/kcfinder-3.12/upload.php 1 -
+//x.php 2 -
+/css/kcfinder/upload.php 1 -
+/classwithtostring.php 1 -
+/bpbd.tar.gz 4 -
+/poltekkesbanten2021.tar.gz 4 -
+/lib/ckeditor/kcfinder/upload.php 1 -
+/wp-admin/js/about.php 19 -
+//randkeyword.PhP7 2 -
+/ojs4.tar 4 -
+/assets/jquery-file-upload 2 -
+/site/administrator 3 -
+/cok.php 13 -
+/rootshell.php 11 -
+/wp-includes/css/dist/edit-widgets/about.php 1 -
+/wp-admin/css/colors/coffee/cloud.php 1 -
+/wp-content/ice.php 2 -
+/rsud.rar 4 -
+/new 19 -
+/%7BSUB0%7D.tar 4 -
+/wp-includes/Text/about.php 14 www.google.com
+/v2.tar 4 -
+/assets/filemanager/dialog.php 3 -
+/wp-admin/defaults.php 1 -
+/binamarga.zip 4 -
+/components/alfacgiapi/perl.alfa 18 -
+/1index.php 3 www.google.com
+/wp-content/themes/noriumportfolio/doc.php 1 www.google.com
+/%7Bsiteupper%7Ddesa.tar.gz 4 -
+/korpri.tar.gz 4 -
+/wp-admin/network/cloud.php 9 -
+/opac.tar 4 -
+/webdesa_laboratorium.poltekkesbanten.ac.id.tar 4 -
+/wp-includes/js/tinymce/skins/lightgray/img/wp-login.php 1 -
+/admin/plugins/kcfinder-3.12/upload.php 1 -
+//wp-content/languages/index.php 2 -
+//wp-admin/includes/moon.php 2 -
+/www.gz 1 -
+/autoload_classmap/bypass.php 1 -
+//wp-includes/blocks/page-list/page-list/index.php 2 -
+/wp-includes/theme-compat 1 www.google.com
+/main/user/assets/jquery-file-upload/server/php 1 -
+/config.zip 4 -
+/alf4.php 4 -
+//wp-content/themes/seotheme/db.php 2 -
+/wp-content/plugins/erinyani/asasx.php.bak 1 -
+/wp-header.php 1 -
+/mpp.tar 4 -
+/wp/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/404.php 9 -
+/wp-includes/wp_class_datlib.php 1 -
+/beence.php 2 -
+/wp-includes/ALFA_DATA/alfacgiapi/404.php 9 -
+/whmcs.php 8 -
+/uploads/files/uploads/kcfinder/upload.php 1 -
+/laboratorium.poltekkesbanten.ac.id.7z 6 -
+/dpupr2kp.zip 4 -
+/alfateslav4.php 1 www.google.com
+/public.zip 5 -
+/test/wp-admin/setup-config.php 1 -
+/wp-includes/css/buttons.css 1 www.google.com
+//wp-admin/class-db.php 2 -
+/dispen.tar 4 -
+/.well-known/acme-challenge/alfacgiapi/404.php 9 -
+/2019/wp-includes/wlwmanifest.xml 1 -
+/demos.php 4 www.google.com
+/components/alfacgiapi/radio.php 9 -
+/pkm.tar.gz 4 -
+//wp-admin/network/wp-login.php 2 -
+/dinsos.tar.gz 4 -
+/hehehehe.php 1 -
+/laboratorium.poltekkesbanten2021.rar 4 -
+/blog/alfacgiapi/radio.php 9 -
+/journal.tar.xz 1 -
+/wp-includes/js/jcrop/Jcrop.php 4 -
+/dispenda.zip 4 -
+/dp3a.tar.gz 4 -
+/2017.zip 4 -
+//uploaded_script.php 2 -
+/wp-mails.php 5 -
+/sipenmaru.tar.gz 5 -
+/wp-includes/Text/options.php 1 -
+/poltekkesbanten2021.tar 4 -
+/dcktrp.rar 4 -
+/wp-admin/css/index.php 15 -
+/laboratorium.poltekkesbanten2022.rar 4 -
+/administrator.rar 5 -
+/wp-content/themes/jaida/lang.php 1 -
+/wp-thesex.php 1 www.google.com
+/bbb.php 4 www.google.com
+/wp-admin/xleet.php 1 -
+/cgi-bin/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+//wp-admin/css/about.php 2 -
+/css/slider.php 1 -
+/wp-includes/fonts/about.php 4 -
+/wp-content/themes/chosen.php 1 -
+/gecko.php 18 www.google.com
+/adm.php 6 www.google.com
+/wp-menu.php 5 www.google.com
+/wp-content/plugins/ALFA_DATA/alfacgiapi/index.php 9 -
+/wp-content/themes/twentytwentytwo/waf_defender.php 1 -
+/ojs2.tar 4 -
+/tracer.tar 4 -
+//wp-includes/SimplePie/about.php 2 -
+/wp-admin/alfacgiapi/radio.php 9 -
+//mar/function.php 2 -
+/wp-admin/css/colors/light/about.php 1 -
+/6.rar 4 -
+/js/fileman/dev.html 9 -
+//mah/function.php 2 -
+/laboratorium6 13 www.google.com
+/dpmp.rar 4 -
+/public.gz 1 -
+/admin/jquery-file-upload 2 -
+/wp-includes/x.php 4 -
+/demo.zip 4 -
+//Njima.php 2 -
+//1337.php 2 -
+/laboratoriumpoltekkesbanten2024.tar 4 -
+/login/site/wp-includes/wlwmanifest.xml 56 -
+/wp-themes.php 1 -
+/laboratorium_2022.tar 4 -
+/vendor/phpunit/phpunit/src/Util/PHP/ask.php 1 -
+/backup.tar.gz 9 -
+/assets/ckeditor/kcfinder-3.12/upload.php 1 -
+/joy.php 4 www.google.com
+/ujian.tar.gz 4 -
+/lpm.zip 4 -
+/uploads/alfacgiapi/404.php 9 -
+/kota.rar 4 -
+/3index.php 3 www.google.com
+/poltekkesbanten.gz 5 -
+/resources/assets/kcfinder/upload.php 1 -
+/packages/ckeditor/kcfinder-3.12/upload.php 1 -
+/web/.env 1 -
+/damkar.tar 4 -
+/pkm.rar 4 -
+/.quarantine/alfacgiapi/404.php 9 -
+/wp-admin/css/colors/xmrlpc.php 4 -
+/dishub.zip 4 -
+/wsoyanzorng.php 1 www.google.com
+/kepo.php 1 www.google.com
+//wp-l0gin.php 2 -
+/login.tar.gz 4 -
+/wp-includes/classwithtostring.php 1 -
+//modules/mod_simplefileuploadv1.3/elements/udd.php 2 -
+/tppk.tar.gz 4 -
+/api.tar 5 -
+/css/js1.php 1 -
+/wp-includes/pomo/zmFM.php 3 -
+//wp-admin/js/about.php 2 -
+/zaco.php 5 www.google.com
+/sipenmaru.rar 5 -
+/core/scripts/kcfinder/upload.php 1 -
+/assets/tinymce/plugins/filemanager/dialog.php 1 -
+/laboratorium.poltekkesbanten.ac.id2021.rar 4 -
+/vendors/kcfinder/upload.php 1 -
+/0z.php 2 www.google.com
+/ext.php 2 -
+/Web%20test.rar 4 -
+//themes/zMousse/otuz1.php 2 -
+/guest_auth/guestIsUp.php 2 -
+/well-known%20%281%29.rar 4 -
+/wp-admin/css/colors/blue/file.php 1 -
+/e-journals.rar 4 -
+/dinaspariwisata.rar 4 -
+/simple/function.php 1 -
+/pasca.rar 4 -
+/inspektorat.tar 4 -
+//wp-includes/style-engine/about.php 2 -
+/webadmin.tar.gz 4 -
+/lama.tar.gz 4 -
+/rs.tar.gz 4 -
+/.well-known/gecko-litespeed.php 1 -
+/Laboratorium2021 13 www.google.com
+/new/alfacgiapi/bash.alfa 18 -
+/poltekkesbanten2023.tar.gz 4 -
+/wp-inlcudes.php 4 www.google.com
+/cgi-bin/alfacgiapi/py.alfa 18 -
+/wp-admin/network/wp-footer.php 4 www.google.com
+/wp-admin/radio.php 3 -
+/wp-admin/alfacgiapi/index.php 9 -
+/update.zip 4 -
+//b.php 2 -
+/diskominfo.tar 4 -
+/e-journals.zip 4 -
+//wp-admin/css/network.php 2 -
+/admin/server/php 1 -
+/mah.php 14 -
+/poltekkesbanten_2023.tar.gz 4 -
+/__MACOSX.tar 4 -
+/wp-includes/BDKR28_nfbxj7ov.php 1 -
+/minishell.php 8 www.google.com
+/new/ALFA_DATA/alfacgiapi/radio.php 9 -
+/laboratoriumold.rar 4 -
+/.well-known/acme-challenge/content.php 1 -
+/wp-plugins.php 11 -
+//z.php 2 -
+/lppm.rar 4 -
+//wp-content/themes/too.php 2 -
+/dprkp.tar.gz 4 -
+/laboratorium_poltekkesbanten.zip 4 -
+//wp-info.php 2 -
+/configuration.tar 4 -
+/alfa-shell-v4.php 1 www.google.com
+/uploads/images/upload/images/kcfinder/upload.php 1 -
+/backup123.zip 4 -
+/.tmb/alfacgiapi/404.php 9 -
+/wp-content/themes/ccx/index.php 1 www.google.com
+//NewFile.php 2 -
+/old/alfacgiapi/radio.php 8 -
+/wp-json.php 1 www.google.com
+/tes.zip 4 -
+/asset/webadmin/js/kcfinder/upload.php 1 -
+/.well-known/pki-validation/alfacgiapi/radio.php 9 -
+/Web%20test.zip 4 -
+/website.tar 5 -
+/tiny.php 1 -
+/html.tar 4 -
+/website.rar 5 -
+/sx.php 8 -
+/wp-includes/mailer.php 1 www.google.com
+/poltekkesbantenv1.tar.gz 4 -
+/application.7z 5 -
+/dsdabmbk.tar.gz 4 -
+/autoload_classmap/wso.php 1 -
+/shop/wp-includes/wlwmanifest.xml 1 -
+/laboratorium5 13 www.google.com
+/wp-content/themes/pridmag/init.php 1 www.google.com
+/mar.php 19 -
+/desa.tar.bz2 1 -
+/.quarantine/alfacgiapi/py.alfa 18 -
+/spmi.tar 4 -
+/public_html.tar.xz 1 -
+/assets/libs/jquery-file-upload/server/php 1 -
+/wp-includes/Text/Diff/Engine/about.php 1 -
+/syd.php 6 -
+/ym.php 1 www.google.com
+/poltekkesbanten_2024.tar.gz 4 -
+/old 18 -
+/.well-known/acme-challenge/admin.php 1 -
+/siamik.tar 4 -
+/wp-admin/alfacgiapi/perl.alfa 18 -
+/login/wordpress/wp-includes/wlwmanifest.xml 55 -
+/twin.php 12 -
+/priv.php 4 -
+//al.php 2 -
+/wp-rss.php 11 -
+/admin/index.php 2 -
+/laboratoriumpoltekkesbanten2022.zip 4 -
+/laboratorium-poltekkesbanten.laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+/putr.zip 4 -
+/disnaker.tar.gz 4 -
+/sptpd.rar 4 -
+/upload.tar.gz 4 -
+/wp-content/themes/alfacgiapi/py.alfa 18 -
+/vendor.tar 4 -
+/wp-includes/leaf.php 1 www.google.com
+/wp-admin/css/colors/midnight/index.php 1 -
+/blogs 3 www.google.com
+/wp-include.rar 4 -
+/dinaspariwisata.tar.gz 4 -
+/admin/plugin/kcfinder/upload.php 1 -
+/wp-includes/autoload_classmap.php 3 -
+/laboratoriumold.tar.gz 4 -
+/wp-includes/codeboy1877_up.php 3 -
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/radio.php 9 -
+/laboratorium.poltekkesbanten.tar 10 -
+/theme.php 1 -
+//wp-includes/customize/index.php 2 -
+/wp-content/plugins/ALFA_DATA/alfacgiapi/404.php 9 -
+/stikes.zip 4 -
+/pirja.php 7 -
+/laravel.zip 4 -
+/backup-01 13 www.google.com
+/backuplaboratorium.tar 4 -
+//style2.php 2 -
+/iqb.php 1 www.google.com
+/wp-includes/alfacgiapi/index.php 9 -
+/wp-include.zip 4 -
+/organisasi.tar 5 -
+/wp-admin/css/colors/blue/index.php 1 -
+/wp-content/upgrade/cc.php 1 -
+/wp/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/production.tar 4 -
+/j.php 13 -
+//alfa.php 2 -
+/%7Bsiteupper%7Dv1.tar.gz 4 -
+/.well-known%20%281%29.tar.gz 4 -
+/2015.tar.gz 4 -
+//lufix.php 2 -
+/xmlrpc.php 5 www.google.com
+/uploads/data/kcfinder/upload.php 1 -
+/gizi.zip 5 -
+/main/user/assets//kcfinder/upload.php 2 -
+//wp-content/plugins/hello.php 2 -
+/wp-admin/autoload_classmap.php 1 -
+/djfksr4.php 3 -
+/.well-known/pki-validation/admin.php 1 -
+/plugins/ckeditor/kcfinder/upload.php 1 -
+/.quarantine/alfacgiapi/perl.alfa 18 -
+/pi.php 6 -
+/wso1.php 2 www.google.com
+/admin/assets/js/ckeditor/kcfinder/upload.php 2 -
+/laboratoriumdesa.rar 4 -
+//log.php 2 -
+/js/header-rollup-554.js 1 -
+/buy.php 1 -
+/new/alfacgiapi/perl.alfa 18 -
+/pws.php 1 -
+/wbs.zip 4 -
+//wp-admin/network/admin.php 2 -
+/backup/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/wp-includes/images/media/dog.php 1 -
+/dinaspupr.rar 4 -
+/rpd.tar 4 -
+/uploads.php 3 -
+/files/index.php 1 -
+/filemanager/kcfinder/upload.php 1 -
+/laboratorium_2021.zip 4 -
+/wp-includes/rest-api/endpoints/index.php 1 -
+/well-known%20%282%29.rar 3 -
+/wp-includes/up.php 4 -
+/.env.tar 4 -
+/laboratorium.poltekkesbantenpublic.zip 4 -
+/2018.zip 4 -
+/administrator.tar.gz 5 -
+/wp-content/blue.php 1 -
+/assets/admin/plugins/kcfinder-3.12/upload.php 1 -
+/scripts/js/kcfinder-3.12/upload.php 1 -
+/setwan.rar 5 -
+/anggota.tar 4 -
+/plugin.php 1 -
+/wp-content/plugins/theme-configurator/mini.php 4 www.google.com
+/laboratorium_old.zip 4 -
+/anggota.rar 4 -
+/wp-content/themes/cakiltheme/up.php 1 www.google.com
+/pub.zip 4 -
+/mah/function.php 1 -
+/backup.php 3 www.google.com
+/vendor/assets/kcfinder/upload.php 1 -
+/sekolahku.tar.gz 4 -
+/disperindag.rar 4 -
+/admin/assets/plugins/server/php 1 -
+/wp-signup.php 2 www.google.com
+/cpanel.zip 4 -
+/cgi-bin/xmrlpc.php 10 -
+/upload/ALFA_DATA/alfacgiapi/404.php 9 -
+/admin/function.php 1 -
+/s.php 13 -
+/assets/css/about.php 3 -
+/wso.php 22 -
+/disperakim.tar 4 -
+/modules/mod_simplefileuploadv1.3/elements/udd.php 1 -
+/wp-includes/infi.php 1 -
+//wp-content/termps.php 2 -
+/laboratoriumpoltekkesbanten2024.tar.gz 4 -
+/_backup/sftp.json 1 -
+/laboratorium7 13 www.google.com
+/sosial.zip 4 -
+/Mo2AaAaAaPrivateShell.php 1 www.google.com
+/assets/js/ckeditor/kcfinder/upload.php 1 -
+/assets/vendor/kcfinder/upload.php 1 -
+/wp-content/uploads/2025/08 1 -
+/well-known%20%282%29.zip 4 -
+/site/wp-admin/setup-config.php 1 -
+//hehehehe.php 2 -
+/New.tar 4 -
+/wp1 3 www.google.com
+/rs.tar 4 -
+/admin/tinymce/plugins/kcfinder/upload.php 2 -
+/un2.php 8 www.google.com
+/disparbudpar.tar 4 -
+/backup2 13 www.google.com
+/1975Team.php 1 www.google.com
+/.well-known/acme-challenge/inputs.php 3 -
+/wp-includes/images/autoload_classmap.php 1 -
+/sitemap.php 1 -
+/Laboratorium 13 www.google.com
+/wp-backup-sql-302.php 1 www.google.com
+/demon.php 4 www.google.com
+/wp-includes/customize/index.php 4 -
+//wp-content/plugins/view-more/ioxi.php 2 -
+/2021.tar 4 -
+/wpn.php 1 -
+/laboratoriumlama.tar 4 -
+/%7Bsiteupper%7D2023.tar.gz 4 -
+/wp-config.zip 4 -
+/wp-content/plugins/ioptimization/IOptimize.php 1 www.google.com
+/wp-content/uploads/index.php 8 www.google.com
+/sdabk.tar.gz 4 -
+/%7Bsiteupper%7Ddesa.rar 4 -
+/jurnallaboratorium.tar.gz 4 -
+/lib/kcfinder-3.12/upload.php 1 -
+/nf_tracking.php 10 -
+/sftp.json.tmp 1 -
+/cgi-bin/index.php 4 -
+/wp-includes/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/laboratorium.tar.gz 10 -
+/zentao/user-login.html 2 http://laboratorium.poltekkesbanten.ac.id/zentao/user-login.html
+//doc.php 2 -
+/inc.php 7 -
+/backend/ckeditor/kcfinder-3.12/upload.php 1 -
+/8.php 4 -
+//wp-admin/user/about.php 2 -
+/backup4 13 www.google.com
+//ova-tools.php 2 -
+//wp-includes/mah.php 2 -
+/alfatesla.php 1 www.google.com
+/8.tar 4 -
+//wp-content/themes/pridmag/db.php 2 -
+/website_laboratorium.tar.gz 4 -
+/poltekkesbantendesa.tar.gz 4 -
+/wp-includes/css/wp-login.php 3 -
+/.git.tar 5 -
+/assets/kcfinder/upload.php 5 -
+/tinymce/plugins/filemanager/dialog.php 1 -
+/barulaboratorium.tar 4 -
+/journal.zip 5 -
+/qindex.php 4 -
+/galeri 12 www.google.com
+/asset//kcfinder/upload.php 2 -
+/73.php 2 www.google.com
+/laboratorium.poltekkesbantenpublic.tar 4 -
+/wp-content/themes/fitnessbase/dev.php 1 www.google.com
+/scripts/setup.php 2 -
+/functions.php 1 -
+/wp-content/plugins/elementor/readme.txt 1 www.google.com
+/dbmsda.tar 4 -
+/images/ALFA_DATA/alfacgiapi/radio.php 9 -
+/litespeed.php 2 www.google.com
+/pupr.rar 4 -
+/%7BSUB1%7D.tar 4 -
+/5fesj.php 3 -
+/wp-includes/assets/index.php 4 -
+//cgi-bin/wp-login.php 2 -
+/2023.tar 4 -
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/worm0.PhP7 9 -
+/dinas.zip 4 -
+//wp-content/index.php 2 -
+/install.tar.gz 4 -
+/service.zip 4 -
+/plugins.php 13 -
+/bypass.php 26 www.google.com
+/mass.php 5 -
+/wp-contact.php 5 www.google.com
+/tinymce/filemanager/dialog.php 1 -
+/.well-known/wincust.php 1 -
+/laboratorium.zip 9 -
+/admin/ckeditor/plugins/kcfinder/upload.php 1 -
+/setdako.tar.gz 4 -
+/.tmb/alfacgiapi/index.php 9 -
+/wp-content/updraft/alfacgiapi/py.alfa 18 -
+/administrator.gz 1 -
+/wp-admin.tar.gz 4 -
+/well-known.tar.xz 5 -
+//wp-content/plugins/seoxx/randkeyword.php 2 -
+/mas.php 4 -
+/portal.tar.gz 4 -
+/test 30 www.google.com
+/clen.php 12 -
+/applications.rar 4 -
+/laboratorium.poltekkesbanten.tar.bz2 6 -
+/upload.php 16 -
+/service/~iufo/com.ufida.web.action.ActionServlet 2 -
+/laboratoriumlama.rar 4 -
+/web_laboratorium.poltekkesbanten.ac.id.zip 4 -
+/wp-content/themes/skatepark/img_screen.php 1 www.google.com
+/release.tar 4 -
+/disparekraf.rar 4 -
+/upload/ALFA_DATA/alfacgiapi/radio.php 9 -
+//wp-content/admin.php 2 -
+/.well-known/pki-validation/index.php 4 -
+/release.rar 4 -
+/kepegawaian.tar 4 -
+/wp-content/wso112233.php 1 www.google.com
+/artikel 13 www.google.com
+/1975.phP 1 www.google.com
+/poltekkesbantenpublic.tar 4 -
+/e-journalstikes.rar 4 -
+/assets/upload/alfacgiapi/perl.alfa 18 -
+/poltekkesbanten2021.zip 4 -
+/rad.php 9 -
+//wp-content/themes/hariko/lib.php 2 -
+/metronic/assets/global/plugins/jquery-file-upload/server/php 1 -
+/api.7z 1 -
+/.well-known.tar.xz 5 -
+/desalaboratorium.zip 4 -
+/wp-content/themes/pridmag/db.php 12 -
+/packages/ckeditor/kcfinder/upload.php 1 -
+/tinymce/kcfinder/upload.php 1 -
+/dpupr2kp.rar 4 -
+/wp-includes/edit.php 1 -
+/inc/kcfinder/upload.php 1 -
+/hello.php 4 -
+/.well-known/pki-validation/alfacgiapi/perl.alfa 18 -
+/application/themes/admin/assets/js/kcfinder-3.12/upload.php 1 -
+/wp-content/themes/twentytwentytwo/index.php 2 www.google.com
+/admin/fileman/index.html 9 -
+/public.tar.bz2 1 -
+/ppdb.zip 4 -
+/v2.tar.gz 4 -
+/.well-known%20%282%29.rar 4 -
+/xm.php 2 www.google.com
+/wp-content/updraft/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/.wp-cli.tar 4 -
+/index/function.php 4 -
+/.wp-cli.rar 4 -
+/laboratoriumpoltekkesbantenv2.tar 4 -
+/pucktr.tar.gz 4 -
+/tentang 13 www.google.com
+/%7Bsub0upper%7D.%7Bsub1upper%7D2023.tar 4 -
+/123.php 16 -
+/wp-content/plugins/fix/as.php 1 -
+//wp-includes/SimplePie/index.php 2 -
+/mahasiswa.tar 5 -
+/2020/wp-includes/wlwmanifest.xml 1 -
+/wp-includes/images/media/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/desa_laboratorium.tar.gz 4 -
+/libraries/jsupload/server/php 1 -
+/laboratorium.poltekkesbanten.ac.id2023.tar.gz 4 -
+/13.php 1 www.google.com
+/barulaboratorium.rar 4 -
+/wp-content/plugins/seoplugins/db.php 10 -
+/blog/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/local.php 5 -
+/.well-known/pki-validation/xmrlpc.php 13 -
+/user.action 2 -
+/disnakertrans.tar 4 -
+//.well-known/acme-challenge/about.php 2 -
+/blog/alfacgiapi/py.alfa 18 -
+//wp-includes/room.php 2 -
+/gecko-new.php 4 www.google.com
+/assets/app-assets/data/jquery-file-upload/server/php 1 -
+/blog/alfacgiapi/bash.alfa 18 -
+/satpolpp.tar 4 -
+/dispenda.rar 4 -
+//tiny.php 2 -
+/admin/assets/plugins/js/jquery-file-upload/server/php 1 -
+/data.php 7 -
+/dinaspupr.tar.gz 4 -
+/wp-del.php 4 www.google.com
+/wp-.myluv.php 4 www.google.com
+/ALFA_DATA/alfacgiapi/404.php 9 -
+/laboratoriumdesa.tar 4 -
+//wp-includes/assets/index.php 2 -
+/login/blog/wp-includes/wlwmanifest.xml 57 -
+/e-journalstikes.tar.gz 4 -
+/wp-content/plugins/WordPressCore/index.php 1 -
+/registrasi.rar 4 -
+/burjuva.aspx 2 -
+/asu.php 4 www.google.com
+/assets/frontend/js/kcfinder-3.12/upload.php 1 -
+/teamadmin.php 7 -
+/painel/kcfinder/upload.php 1 -
+/bapenda.tar 4 -
+/assets/cw/alfacgiapi/perl.alfa 1 -
+/bapenda.rar 4 -
+/po-content.tar.gz 4 -
+/sekolahku.rar 4 -
+/public_lama.tar.gz 4 -
+//wp-includes/js/index.php 2 -
+/app_openSID.zip 4 -
+/desa.rar 5 -
+/.well-known/pki-validation/alfacgiapi/index.php 9 -
+/apps.rar 4 -
+/silakop.tar 4 -
+/bkcp.rar 4 -
+/wp-includes/css/index.php 4 -
+/silakop.rar 4 -
+/images/alfacgiapi/perl.alfa 19 -
+/m4r1ju4n4.php 4 www.google.com
+/i.php 13 -
+/dinasrumkimtan.tar 4 -
+/sym.php 9 www.google.com
+//.well-known/index.php 2 -
+/registrasi.zip 3 -
+/options-writing.php 1 -
+/laboratorium.poltekkesbanten.ac.iddesa.tar 4 -
+/ejournal.tar 4 -
+/core/scripts/wysiwyg/kcfinder/upload.php 1 -
+/rapemda.tar.gz 4 -
+/app/.env 1 -
+//epinyins.php 2 -
+/backup/alfacgiapi/index.php 9 -
+/assets/plugins/server/php 1 -
+/alwso.php 4 -
+/admin/galerie/server/php 1 -
+/plugins.zip 4 -
+/b374k.php 6 www.google.com
+/wp-content/themes/alfacgiapi/index.php 9 -
+/wp-content/plugins/instabuilder2/cache/plugins/moon.php 1 www.google.com
+/backup_jurnal_2025.tar 4 -
+/app/laravel-filemanager 1 -
+/pariwisata.tar.gz 4 -
+//ans.php 2 -
+/wp-includes/js/imgareaselect/index.php 1 -
+/config.tar.gz 4 -
+/wp-content/alfacgiapi/index.php 9 -
+/wp-content/plugins/ppus/up.php 4 www.google.com
+/wp-content/fw.php 4 -
+/wp-ad.php 1 www.google.com
+/go.php 1 -
+/con.php 9 www.google.com
+/korpri.zip 4 -
+/xinfo.php 1 www.google.com
+//wp-includes/ID3/index.php 2 -
+/wp-aespa.php 5 www.google.com
+/wp-includes/wso112233.php 1 www.google.com
+/wp-content/plugins/ioxi/ioxiworm.php 1 -
+/database.rar 4 -
+//wp-includes/fonts/wp-login.php 2 -
+/.well-known/login.php 1 -
+/wp-admin/wso.php 5 -
+/.bod/.ll/ss.php 1 -
+/Apps.tar.gz 4 -
+/admin/plugins/js/server/php 1 -
+/jquery-file-upload/server/php 2 -
+/poltekkesbanten2021.rar 4 -
+/laboratorium-old.rar 4 -
+//elp.php 2 -
+/alumni.tar 5 -
+/smartcity.tar 5 -
+/wp-content/ALFA_DATA/alfacgiapi/bypass.php 1 -
+/sct.php 7 -
+/bj.php 2 www.google.com
+//wander.php 2 -
+/wp-content/themes/twentytwentyfour/wonder.php 1 -
+/v4.php 1 www.google.com
+/2019.tar.gz 4 -
+/FoxWSO.php 5 www.google.com
+/sendgrid/.env 1 -
+/wp-content/updraft/ALFA_DATA/alfacgiapi/index.php 9 -
+/well-known%20%283%29.tar.gz 4 -
+/resources/assets/kcfinder-3.12/upload.php 1 -
+/dinsos.zip 4 -
+/uploads/ALFA_DATA/alfacgiapi/404.php 9 -
+/disperadankpp.rar 4 -
+/pmblaboratorium.rar 4 -
+/sym403.php 11 -
+/2014.zip 4 -
+/old.rar 4 -
+/assets/admin/jquery-file-upload 2 -
+/resource/assets/kcfinder-3.12/upload.php 1 -
+/includes/kcfinder/upload.php 1 -
+/disdukcapil.tar 4 -
+/fckeditor/editor/filemanager/connectors/php/upload.php 1 -
+//wp-content/uploads/2024/01/RxR.php 2 -
+/upload/kcfinder/upload.php 2 -
+/.well-known(1).rar 4 -
+/wp-admin/js/wp-conflg.php 1 -
+//a.php 2 -
+/postfs.php 1 www.google.com
+/db.tar.gz 4 -
+/wp-includes/widgets/wp-login.php 1 -
+/file_upload.php 4 www.google.com
+/public.tar.gz 5 -
+/0.php 13 -
+/app.gz 5 -
+/sid_baru.tar.gz 4 -
+/uploads/alfacgiapi/perl.alfa 18 -
+/wp-content.tar.gz 4 -
+/laboratorium2024.rar 4 -
+/wp/alfacgiapi/perl.alfa 16 -
+/2024 13 www.google.com
+/wp-includes/inputs.php 3 -
+/backup.gz 5 -
+/news/wp-includes/wlwmanifest.xml 1 -
+/public/ckeditor/kcfinder-3.12/upload.php 1 -
+/laboratoriumpoltekkesbantenpoltekkesbanten.rar 6 -
+/wp-content/themes/aahana/worksec.php 1 -
+/Web%20ejournal.rar 4 -
+/smarttaxx.tar 5 -
+/asset.tar 4 -
+/wp-includes/style-engine/bypass.php 1 -
+/.well-known(2).rar 4 -
+/dev1.zip 4 -
+/kecamatan.tar 4 -
+/wp-includes/images/media 1 www.google.com
+/disparbudpar.zip 4 -
+/esakip.rar 4 -
+/rename.php 9 -
+/.well-known.tar.bz2 5 -
+/assets/js/ckeditor12/kcfinder/upload.php 1 -
+/z7.php 1 www.google.com
+/%7Bsub0upper%7D.%7Bsub1upper%7Dv1.tar.gz 4 -
+/uploads/upload/kcfinder/upload.php 1 -
+/dinperkpp.tar.gz 4 -
+/wp-includes/PHPMailer/load.php 1 -
+/lx.php 13 www.google.com
+/wp-includes/rest-api 1 www.google.com
+/assets/assets/kcfinder/upload.php 2 -
+/wp/alfacgiapi/index.php 7 -
+/packages/scripts/kcfinder-3.12/upload.php 1 -
+//plugins.php 2 -
+/.well-known/alfacgiapi/radio.php 9 -
+/gmc.tar 4 -
+/pindu.tar.gz 4 -
+/plugin/kcfinder/upload.php 1 -
+/lp3m.tar.gz 4 -
+/mad.php 3 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/index.php 8 -
+/idx.php 8 www.google.com
+/dpppappkb.rar 4 -
+/siakad.tar 5 -
+/admin.tar.gz 4 -
+/laboratorium_2021.tar 4 -
+/cgi-bin/ALFA_DATA/alfacgiapi/index.php 9 -
+/2020.tar 4 -
+/asset/global/plugins/server/php 1 -
+/website.tar.gz 5 -
+/alpha.php 15 www.google.com
+/wp-conctent.php 4 -
+/NEW 1 -
+/dishub.tar.gz 4 -
+/old.tar.gz 4 -
+/cadangan.tar 4 -
+/dispuprkim.tar.gz 4 -
+/laboratorium_poltekkesbanten.rar 4 -
+/wp-content/themes/noriumportfolio/img_screen.php 1 www.google.com
+/blog/alfacgiapi/perl.alfa 18 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D2022.rar 4 -
+//vendor/bin/loader.php 2 -
+/wp-admin/shapes.php 3 -
+//user.php 2 -
+/pmblaboratorium.tar.gz 4 -
+//login.php 2 -
+/jurutani.rar 4 -
+/po-admin.tar.gz 4 -
+/old_site 13 www.google.com
+/wordpress/wp-admin/includes 1 -
+/login/wp2/wp-includes/wlwmanifest.xml 48 -
+/blog/wp-content/about.php 1 -
+/poltekkesbanten_2023.rar 4 -
+/2012.zip 4 -
+/backup/ALFA_DATA/alfacgiapi/404.php 9 -
+/backup.zip 8 -
+/wp-content/uploads/content.php 1 -
+/%7Bsub0upper%7D.%7Bsub1upper%7Dv2.tar 4 -
+/anone.php 1 www.google.com
+/components/com_jea/views/form/tmpl/size.php 1 -
+/wp-admin/js/index.php 4 -
+/laboratoriumpoltekkesbanten2022.rar 4 -
+/portal 13 www.google.com
+/compat.php 3 -
+/www/sftp.json 1 -
+//up.php 2 -
+/laboratorium_2024.rar 4 -
+/aab.php 4 www.google.com
+/wp-content/mode.php 2 -
+/license.php 4 www.google.com
+/tox.php 1 -
+//wp-content/themes/finley/min.php 2 -
+//wp-includes/rest-api/about.php 2 -
+/curme.php 4 www.google.com
+//wp-admin/css/OK.php 2 -
+/geju.php 4 -
+/wp-admin/css/colors/modern/3eTB38lCsA.php 1 -
+/.well-known%20%281%29.zip 4 -
+/wpindex.php 14 -
+/log.php 29 -
+/zero.php 4 -
+/dinperkpp.rar 4 -
+/black.php 9 www.google.com
+/v3.php 9 -
+/disdamkar.zip 4 -
+/wp-includes/mari.php 1 www.google.com
+/wp.php 31 -
+/wp-content/plugins/cakil/up.php 4 www.google.com
+/peraturan.zip 4 -
+/yuki.php 5 www.google.com
+/wp-content/themes/seotheme/mar.php 12 -
+//wp-content/plugins/about.php 2 -
+//ini.php 2 -
+/wp-aa.php 1 -
+/journals.gz 1 -
+//chosen.php 2 -
+/index2.php 1 -
+/wp-includes/js/jquery/suggest.php 1 -
+/wp-json/wp/v2/users 1 -
+/OJS.tar.gz 2 -
+/js/jquery-file-upload 2 -
+/webboard/plugins/editors/kcfinder/upload.php 1 -
+/archive.zip 4 -
+/laboratorium.poltekkesbanten2024.tar.gz 4 -
+/Laboratorium7 13 www.google.com
+/assets/lib/kcfinder-3.12/upload.php 1 -
+/sakip.tar.gz 4 -
+/wp-includes/widgets/class-wp-widget-search-function.php 1 -
+/disparbudpar.tar.gz 4 -
+/backup/alfacgiapi/perl.alfa 18 -
+/demo/plugins/jquery.filer/php/upload.php 1 -
+/dpppappkb.tar.gz 4 -
+/backup_jurnal_2022.zip 4 -
+/i3wfj.php 3 -
+/Public.tar 4 -
+/dinasrumkimtan.tar.gz 4 -
+/backup_laboratorium.tar.gz 4 -
+/images/inputs.php 3 -
+/2022.tar.gz 4 -
+/blueimp-jQuery-File-Upload/server/php 1 -
+/application.tar 9 -
+/WP 17 -
+/administrator.7z 1 -
+/administrator/language/en-GB/install.xml 1 -
+//templates/atomic/index.php 2 -
+/g3l4y.php 13 -
+/sites/default/files 3 binance.com
+/laboratorium.poltekkesbanten2024.tar 4 -
+/profile.php 6 -
+/website/wp-includes/wlwmanifest.xml 1 -
+/991176.php 4 -
+/V5.php 5 www.google.com
+//wp-content/plugins/pwnd/pwnd.php 2 -
+/ojs.tar.xz 1 -
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/404.php 9 -
+/website.tar.bz2 1 -
+/laboratorium.poltekkesbantenpublic.tar.gz 4 -
+/plugins/content/apismtp/apismtp.php 1 -
+/settings.php 5 www.google.com
+/domain.php 8 -
+/wp-content/shell20211028.php 10 -
+/wp-includes/IXR/index 3 -
+/as.php 20 -
+/wp-content/plugins/pwnd/pwnd.php 2 -
+/wp-admin/xmrlpc.php 1 -
+/ppid.zip 4 -
+/wp-content/themes/jobart/doc.php 1 www.google.com
+//.well-known/pki-validation/moon.php 2 -
+/update.tar.gz 4 -
+/upload/ALFA_DATA/alfacgiapi/py.alfa 18 -
+//wp-content/tmpls.php 2 -
+/fm.php 4 -
+//about.php 4 -
+/laboratoriumpublic.tar 4 -
+/wp-includes/blocks/calendar/index.php 1 -
+/laboratoriumpoltekkesbanten.tar 10 -
+/2024.tar.gz 4 -
+/index.tar.gz 4 -
+/pdam.tar 4 -
+/jurnall.zip 4 -
+/assets/assets/jquery-file-upload/server/php 1 -
+/wp-admin/css/colors/light/alfa-rex.php 1 -
+/5.tar.gz 4 -
+/wp-includes/ID3 1 -
+/laboratorium.poltekkesbanten.ac.idv2.tar 4 -
+/laboratoriumpoltekkesbantenv1.tar.gz 4 -
+/upload.zip 4 -
+/laboratorium-old.tar 4 -
+/old/ALFA_DATA/alfacgiapi/404.php 9 -
+/poltekkesbanten_lama.rar 4 -
+/nee.php 1 www.google.com
+/wp-content/x.php 1 -
+//class.api.php 2 -
+/wp-content/vuln.php 4 www.google.com
+/wp-includes/html-api/chosen.php 1 -
+/.well-known.rar 9 -
+/wp-content/plugins/up/main.php 1 -
+/.well-known/pki-validation/alfacgiapi/404.php 9 -
+//wp-admin/wso.php 2 -
+/info.rar 5 -
+/website.7z 1 -
+/about/function.php 1 -
+/desa_laboratorium.poltekkesbanten.ac.id.tar 4 -
+/images/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/88.php 4 www.google.com
+/public/ckeditor/plugins/kcfinder/upload.php 1 -
+/lv.php 4 -
+/laboratorium_poltekkesbanten.tar 4 -
+//wp-includes/Requests/about.php 2 -
+/laboratorium-poltekkesbanten-laboratorium.poltekkesbanten.ac.id.zip 4 -
+/wp-includes/themes.php 12 -
+/%7Bsiteupper%7Ddesa.zip 4 -
+/assets/uploads/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/2019 3 www.google.com
+/backup-05 13 www.google.com
+/include/libs/kcfinder-2.54/upload.php 1 -
+/.well-known(3).rar 4 -
+/admin/asset/plugins/js/jquery-file-upload/server/php 1 -
+/apps/kcfinder/upload.php 1 -
+/OJS.rar 2 -
+/tmp/cache/kcfinder/upload.php 1 -
+/ojs.zip 5 -
+//wp-content/ThreeFox_Exploit/threefox.php 2 -
+/laboratorium2024.tar 4 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D2021.tar.gz 4 -
+/inputs.php 12 -
+/%7Bsiteupper%7D.tar 4 -
+/fierza.php 21 www.google.com
+/wso403.php 4 -
+/zzz.php 5 www.google.com
+/laboratorium 13 www.google.com
+/plugins/jQuery-File-Upload/server/php 1 -
+//wp-admin/dropdown.php 2 -
+/wp-includes/function.php 1 -
+/NewFile.php 4 -
+/fileman/index.html 9 -
+//lock.php 2 -
+/dinkes.tar 4 -
+/wp-includes/wp-class.php 11 www.google.com
+/wp-content/themes/twentyseventeen/page/index.php 10 -
+/company 13 www.google.com
+/wp-content/plugins/woocommerce-payments/readme.txt 2 -
+/stikes.tar.gz 4 -
+/webadmin.php 1 -
+/wp-includes/css/about.php 1 -
+/public_html/sftp.json 1 -
+/inc_admin/plugins/kcfinder-3.12/upload.php 1 -
+/jdih.tar.gz 4 -
+/wp-content/plugins/mar.php 3 www.google.com
+/wp-god.php 6 -
+/laboratorium.tar 10 -
+//wp-content/plugins/sid/sidwso.php 2 -
+/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 22 -
+/00.php 3 -
+/.well-known%20%283%29.rar 4 -
+/teamx.php 1 -
+//wp-content/plugins/anttt/simple.php 2 -
+/.well-known/ALFA_DATA/alfacgiapi/perl.alfa.php 1 -
+/wp-content/plugins/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/ujian.rar 4 -
+/wp-contentt.php 3 -
+/home/user/app/sftp.json 1 -
+/wp-content/classwithtostring.php 1 -
+/assets/scripts/kcfinder/upload.php 1 -
+/old1 3 www.google.com
+/admin/assets/jquery-file-upload/server/php 1 -
+/wp-includes/PHPMailer/zmFM.php 3 -
+/desa.gz 1 -
+/options-reading.php 1 -
+/p.php 13 -
+/xleet.php 10 www.google.com
+/wp-content/uploads/wpr-addons/forms/b1ack.php 15 -
+/upload/images/kcfinder/upload.php 1 -
+/lms.zip 4 -
+/ckeditor/kcfinder/upload.phpkcfinder/upload.php 1 -
+/cgi-bin/alfacgiapi/404.php 9 -
+/tpp.tar.gz 4 -
+/js/kcfinder/upload.php 5 -
+/backup_jurnal_2024.tar.gz 4 -
+/poltekkesbanten2022.rar 4 -
+/cgi-bin/ffAA531.php 3 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/py.alfa 16 -
+/wp-includes/wp-login.php 3 -
+/flower.php 1 -
+/poltekkesbanten2024.tar 4 -
+/.well-known/pki-validation/class_api.php 1 -
+/9.zip 4 -
+/wp-includes/index.php 5 -
+/asset/plugins/js/jquery-file-upload/server/php 1 -
+/home/user/.vscode/sftp.json 1 -
+/yoi.php 3 -
+//function.php 2 -
+/wp-includes/sitemaps/rz.php 1 -
+/wp-content/alfacgiapi/py.alfa 18 -
+/backup-03 12 www.google.com
+//0.php 2 -
+/.ftp-config 1 -
+/assets/admin/js/kcfinder-3.12/upload.php 1 -
+/dbmsda.zip 4 -
+/disdik.tar.gz 4 -
+/lol.php 2 www.google.com
+/mail.rar 4 -
+/hehe.php 5 -
+/update-core.php 1 -
+/kelurahan.tar.gz 4 -
+/webadmin.rar 4 -
+//wp-admin/images/Mhbgf.php 2 -
+/openSID.tar.gz 4 -
+/nn.php 3 -
+/.idea/sftp.json 1 -
+/backup_jurnal_2023.rar 4 -
+/ye.php 5 www.google.com
+/belajar.tar 5 -
+/bappeda.rar 4 -
+/v1.tar.gz 4 -
+/zyacbt.tar.gz 4 -
+/belajar.rar 5 -
+/pmblaboratorium.tar 4 -
+/bappeda.tar 4 -
+/.env.tar.gz 4 -
+/laboratorium.poltekkesbanten.ac.id2022.zip 4 -
+/bar/kcfinder/upload.php 1 -
+/registrasi.tar 4 -
+/assets/filemanagers 1 -
+/wp-content/IXR/index.php 3 -
+/public/javascript/filemanager/dialog.php 1 -
+/update/403.php 1 -
+/htdocs.tar.gz 4 -
+/.well-known(2).tar 4 -
+/mahasiswa.zip 5 -
+/laboratorium.poltekkesbanten.ac.id2021.zip 4 -
+/wsopriv.php 1 www.google.com
+/Web%20ejournal.tar 4 -
+/web.7z 1 -
+/%7Bsiteupper%7D2022.tar.gz 4 -
+/dpuair.tar.gz 4 -
+/wp-content.php 15 www.google.com
+/laboratorium10 13 www.google.com
+/.git.tar.gz 5 -
+/ipt.php 4 www.google.com
+/wp-admin/css/about.php7 1 -
+/wp-includes/widgets/about.php 12 -
+/xzd.php 8 -
+//wp-includes/pomo/pomo.php 2 -
+/wp-admin/plugin.php 1 -
+/web_laboratorium.rar 4 -
+/gac.php 7 -
+/wp-admin/network/atomlib.php 1 -
+/assets/ckeditor/plugins/kcfinder-3.12/upload.php 1 -
+/public.tar.xz 1 -
+/well-known.tar.gz 9 -
+/packages/upload/kcfinder-3.12/upload.php 1 -
+/assets/themes/metronic/global/jquery-file-upload/server/php 1 -
+/.well-known(1).tar 4 -
+//wp-content/themes/about.php 2 -
+/.well-known/about.php 13 www.google.com
+/wp-content/edit-wolf.php 1 -
+//wp-add.php 2 -
+//wp-content/themes/wordpress-mag/0x1949.php 2 -
+/wp-content/plugins/pwnd-1/admin.php 1 -
+/assets/alfacgiapi/bash.alfa 18 -
+/wp-links.php 2 -
+/wp-includes/js/jquery/jquery-migrate.min.js 1 www.google.com
+/tpp.rar 4 -
+/wikindex.php 3 www.google.com
+/document.tar 4 -
+/back.zip 4 -
+/assets/admin/tinymce/plugins/filemanager/dialog.php 1 -
+/wp-content/plugins/alfacgiapi/index.php 9 -
+/2023.tar.gz 4 -
+/cgi-bin.tar.gz 9 -
+/wp-content/uploads/about.php 4 -
+/laboratoriumpoltekkesbantenv2.zip 4 -
+/po-includes.tar 4 -
+/jurnal.rar 5 -
+/uploads/uploadfiles/kcfinder/upload.php 1 -
+/wso1337.php 11 -
+/sosial.tar 4 -
+/poltekkesbanten_lama.tar.gz 4 -
+/1313.php 4 www.google.com
+/perpustakaan.tar.gz 4 -
+/disnaker.rar 4 -
+/assets/lib/kcfinder/upload.php 1 -
+/laboratorium.poltekkesbanten.ac.idpublic.tar.gz 4 -
+/assets/plugins/js/jquery-file-upload/server/php 1 -
+/2021.tar.gz 4 -
+/public/laravel-filemanager 1 -
+/wp-admin/includes/xmrlpc.php 1 -
+/asset/jquery-file-upload/server/php 1 -
+/puskesmas.rar 4 -
+/wp-admin/css/up.php 3 www.google.com
+//wp-content/plugins/core-plugin/include.php 2 -
+//templates/beez/index.php 4 -
+/dsdabmbk.rar 4 -
+/wp-includes/vy2m7.php 1 www.google.com
+/uploads/pengumuman/alfacgiapi/perl.alfa 1 -
+/developer.tar.gz 4 -
+/cpanel.tar 4 -
+/poltekkesbanten.tar.xz 5 -
+/.well-known%20%281%29.tar 4 -
+/backup_jurnal_2024.zip 4 -
+/%7Bsiteupper%7Dv2.rar 4 -
+/laboratoriumpoltekkesbantenpublic.tar.gz 4 -
+/obfbyte.php 4 www.google.com
+/poltekkesbantenv1.tar 4 -
+/function.php 1 -
+/my_cms/public/assets/plugins/ckeditor/kcfinder-3.12/upload.php 1 -
+//fw.php 2 -
+//themes.php 2 -
+/laboratorium.poltekkesbanten.ac.id.gz 6 -
+//.well-known/autoload_classmap.php 2 -
+/assets/frontend/js/ckeditor/kcfinder-3.12/upload.php 1 -
+/assets/ckeditor/plugins/kcfinder/upload.php 2 -
+/Archive.rar 5 -
+/.well-known%20%282%29.zip 4 -
+/wp-content/themes/alfacgiapi/bash.alfa 18 -
+//wp-content/plugins/vwcleanerplugin/bump.php 2 -
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/Archive.tar 5 -
+/wp-includes/atomlib.php 1 -
+/app.tar 10 -
+/%7BSUB1%7D.rar 4 -
+//wp-includes/admin.php 2 -
+/web_laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+//jp.php 2 -
+/wp-content/uploads/ALFA_DATA/alfacgiapi/radio.php 9 -
+//back.php 2 -
+/wp-posts.php 8 www.google.com
+/laravel-filemanager 1 -
+//wp-content/uploads/import-export-for-woocommerce/product/import_manual_1737090262.php 2 -
+/%7Bsub0upper%7D.%7Bsub1upper%7Dv1.zip 4 -
+/assets/js/scripts/kcfinder-3.12/upload.php 1 -
+/wp-content/themes/wp-pridmag/status.php 1 www.google.com
+/kominfo.rar 4 -
+/web_laboratorium.tar 4 -
+/uploads/images/images/uploads/kcfinder/upload.php 1 -
+/kominfo.tar 4 -
+/.well-known(3).tar 4 -
+/%7BSUB1%7D.zip 4 -
+/alfax.php 12 -
+//simple.php 2 -
+/class_appfun.php 6 -
+/alpa.php 12 -
+/2023 13 www.google.com
+/assets/text_editor/kcfinder/upload.php 1 -
+/system.rar 4 -
+/webdesa.zip 4 -
+/vendor/laravel-filemanager 1 -
+/App.tar.gz 4 -
+/wp-admin/js/widgets/autoload_classmap.php 1 -
+/c.php 15 -
+/small.php 5 www.google.com
+/laboratoriumpoltekkesbanten.gz 6 -
+/conferences.tar.gz 4 -
+/poltekkesbanten_2023.tar 4 -
+/admin/plugin/jquery.filer/php/upload.php 1 -
+/vendor/kcfinder-3.12/upload.php 1 -
+/cms.rar 4 -
+/assets/admin/js/tinymce/plugins/filemanager/dialog.php 1 -
+/journals.tar.bz2 1 -
+/oldwebsite 3 www.google.com
+/wp-system.php 11 -
+/wp-admin.zip 4 -
+/cgi-bin.tar.bz2 5 -
+/wp-apxupx.php 10 -
+/assets/sandi-amir.php 1 -
+/sptpd.tar.gz 4 -
+//text.php 2 -
+/backup_jurnal_2021.tar 4 -
+/2013.zip 4 -
+/529.php 4 www.google.com
+/perpustakaan.zip 4 -
+/puskesmas.tar.gz 4 -
+/%7Bsiteupper%7D2023.tar 4 -
+/wp-admin/css/colors/coffee/xmrlpc.php 1 -
+/wp-content/themes/twentyfive/include.php 27 -
+/%7Bsiteupper%7D.tar.gz 4 -
+/developer.rar 4 -
+/apps/js/kcfinder/upload.php 1 -
+/shell.php 33 -
+/wp-includes/certificates/about.php 1 -
+/wp-includes/js/tinymce/utils/license.php 1 -
+/disperakim.rar 4 -
+/dprkp.rar 4 -
+/q.php 13 -
+/.env 21 -
+/assets/uploads/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/cp/server/php 1 -
+/uploads/cache/kcfinder/upload.php 1 -
+/cache/images/kcfinder/upload.php 1 -
+/wp-commentin.php 7 -
+//goods.php 2 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D2023.rar 4 -
+/wp-config.tar 4 -
+//administrator/templates/isis/error.php 2 -
+/wp-content/uploads/2020/wp-couldent.php.suspected 1 -
+/ThirdParty/kcfinder/upload.php 1 -
+/simpeg.tar.gz 4 -
+/database.php 5 www.google.com
+/dlh.zip 4 -
+//templates/beez3/error.php 2 -
+//wp-content/plugins/wp-help/admin/wp-fclass.php 2 -
+/disperkimta.tar.gz 4 -
+/admin/assets/plugins/js/server/php 1 -
+/cgi-bin.7z 5 -
+/public_html.tar 5 -
+//menu.php 2 -
+/laboratorium.poltekkesbanten.ac.iddesa.rar 4 -
+/Sym.php 3 -
+/assets/server/php 1 -
+/modules/ckeditor/kcfinder/upload.php 1 -
+//wp-admin/classwithtostring.php 2 -
+//wp-includes/rest-api/index.php 2 -
+/wp-includes/images/smilies/about.php 1 -
+/edit.php 1 -
+/resources/js/tinymce/plugins/filemanager/dialog.php 1 -
+//makeasmtp.php 2 -
+/assets/uploads/alfacgiapi/radio.php 9 -
+/wp-admin/user/index.php 3 -
+/cms.tar.gz 4 -
+/desa_laboratorium.poltekkesbanten.ac.id.zip 4 -
+/wp-content/plugins/alfacgiapi/perl.alfa 19 -
+/ms-themes.php 1 -
+//bypass.php 2 -
+/asset/js_ckeditor/kcfinder-3.12/upload.php 1 -
+//wp-admin.php 2 -
+/learning.tar 4 -
+/aaa.php 6 -
+/App.rar 4 -
+/old/ALFA_DATA/alfacgiapi/radio.php 9 -
+/degeselih.php 1 www.google.com
+/kelurahan.rar 4 -
+/login/2020/wp-includes/wlwmanifest.xml 47 -
+/dev/sftp.json 1 -
+/uploads/upload/upload/kcfinder/upload.php 1 -
+/wp-includes/SimplePie/Canonical.php 1 -
+/login.rar 4 -
+/%7Bsiteupper%7D.rar 4 -
+/well-known%20%281%29.tar 4 -
+/wp-content/themes/workart/doc.php 1 www.google.com
+/laboratorium_2023.tar.gz 4 -
+/news 13 www.google.com
+/disperakim.zip 4 -
+/v2.php 8 -
+//wp-includes/fonts/class-wp-font-library.php 2 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D2021.tar 4 -
+/kk.php 4 -
+/assets/vendor/jquery.filer/php/readme.txt 1 -
+//wp-admin/network/about.php 2 -
+/pasca.tar.gz 4 -
+/.well-known/classwithtostring.php 1 -
+/.quarantine/ALFA_DATA/alfacgiapi/index.php 9 -
+/pmb.zip 4 -
+/asset.zip 4 -
+/adminpanel.php 5 www.google.com
+/ey.php 8 -
+/wp-includes/admin.php 1 -
+/css/admin/kcfinder/upload.php 1 -
+/sid_baru.zip 4 -
+/tes.rar 4 -
+/bpjsdaerah.tar.gz 4 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D.zip 4 -
+/thumbs.php 1 -
+/laboratorium.poltekkesbanten.ac.id2024.rar 4 -
+/wso2.7.php 1 www.google.com
+/2019.tar 4 -
+/default.php 7 -
+/admin/tools/assets/jquery-file-upload/server/php 1 -
+/testsend.php 1 -
+/disdamkar.tar 4 -
+//test.php 2 -
+//wp-content/themes/digital-download/up.php 2 -
+/peraturan.tar 4 -
+/index.action 12 -
+/wp-content/plugins/atomlib.php 1 -
+/siakad.zip 5 -
+/data/files/kcfinder/upload.php 1 -
+/backend/js/kcfinder-3.12/upload.php 1 -
+/elearning.tar.gz 4 -
+/blog/ALFA_DATA/alfacgiapi/404.php 9 -
+/new/alfacgiapi/index.php 9 -
+/laboratorium-poltekkesbanten.laboratorium.poltekkesbanten.ac.id.tar 4 -
+//ws.php 2 -
+/tracer.tar.gz 4 -
+/dinaspkp.tar 4 -
+/wp-includes/js/jcrop 1 www.google.com
+/backuplaboratorium.zip 4 -
+/static/lib/jquery-file-upload/server/php 1 -
+/fdgfdgdsfd.php 11 -
+/wp-content/uploads/wp.php 1 -
+/zec.php 8 -
+/images/js1.php 1 -
+/wp-admin/ALFA_DATA/alfacgiapi/404.php 8 -
+/%7Bsub0upper%7D.%7Bsub1upper%7Ddesa.tar.gz 4 -
+/laboratorium.poltekkesbanten.ac.id2024.tar 4 -
+/humas.tar.gz 4 -
+/data/upload/kcfinder/upload.php 1 -
+/contacts.php 1 -
+/perkimnah.tar.gz 4 -
+/wp-head.php 11 -
+//repeater.php 2 -
+//ioxi002.PhP7 2 -
+/backup.tar 9 -
+/backup_jurnal_2023.tar.gz 4 -
+/img/about.php 1 -
+/wordpress 18 www.google.com
+/backup.7z 5 -
+/uploads/alfacgiapi/bash.alfa 18 -
+/xp.php 1 -
+/ws.php 18 www.google.com
+/cgi-bin/printenv.pl 1 -
+/up.php 22 -
+/shop 13 www.google.com
+/wp-includes/harga.php 1 www.google.com
+/admin/view/javascript/common.js 1 -
+//wp-content/plugins/background-image-cropper/ups.php 2 -
+/wp-content/themes/alera/alpha.php 14 www.google.com
+/laboratorium2022.tar 4 -
+/1234.php 8 -
+/demo/assets/plugins/jquery.filer/php/upload.php 1 -
+/packages/ckeditor/plugins/kcfinder/upload.php 1 -
+/wp-content/plugins/shell/about.php 1 -
+/Priv.php 4 www.google.com
+//wp-includes/Text/wp-login.php 2 -
+/Apps.tar 4 -
+/admin/ckeditor/kcfinder-3.12/upload.php 1 -
+/rsud.zip 4 -
+/%7Bsiteupper%7D2021.tar.gz 4 -
+/wp-admin/alfa.php 7 www.google.com
+/cgi-bin/alfacgiapi/radio.php 9 -
+//administrator/templates/bluestork/error.php 2 -
+/uploads/images/upload/kcfinder/upload.php 1 -
+/wp-includes/l10n.php 3 -
+/wp-admin/css/colors/blue/atomlib.php 1 -
+//Xl2023.php 2 -
+/wp-includes/style-engine/autoload_classmap.php 1 -
+/event 13 www.google.com
+/.git.7z 1 -
+/perkim.rar 4 -
+/dpmptsp.zip 4 -
+/laboratorium_lama.rar 4 -
+/.well-known(1).tar.gz 4 -
+//wp-admin/maint/index.php 2 -
+/damkar.tar.gz 4 -
+/fileman/dev.html 9 -
+/wp-admin/css/colors/blue/rk2.php 1 -
+/wp-content/plugins/cache-wordpress/payment.php 1 www.google.com
+/filemanager 1 -
+/wp1.php 3 -
+/wwwroot.tar.gz 4 -
+/wp-content/plugins/ALFA_DATA/alfacgiapi/perl.alfa 19 -
+/bpkad.tar.gz 4 -
+/apple-touch-icon.png 3 -
+/alumni.zip 5 -
+/.well-known(2).tar.gz 4 -
+/wp-content/plugins/wp-login.php 1 -
+/green.php 9 -
+/sia.tar 4 -
+/well-known%20%283%29.zip 4 -
+/prod/sftp.json 1 -
+/css/css.php 1 -
+/yuuki2.php 12 -
+/assets/editor/fileman/dev.html 9 -
+/tes.tar.gz 4 -
+/Web%20ejournal.tar.gz 4 -
+//wp-content/themes/travel/issue.php 2 -
+/manajemen.rar 4 -
+/e-journal.rar 4 -
+/laboratorium-poltekkesbanten-laboratorium.poltekkesbanten.ac.id.rar 4 -
+/wp-includes/sitemaps/providers/index.php 2 www.google.com
+/po-admin.zip 4 -
+/kota.zip 4 -
+/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/0o.php 11 www.google.com
+/assets/global/plugins/server/php 1 -
+/dpmp.zip 4 -
+/plugins/system/debug/debug.xml 1 -
+/wh/glass.php 1 -
+/2.tar.gz 4 -
+/natural.php 1 -
+//wp-includes/Text/about.php 2 -
+/demo.rar 4 -
+/surat.tar.gz 4 -
+/services 13 www.google.com
+/wp-content/plugins/db/uploader.php 1 www.google.com
+/korpri.tar 4 -
+/wp-pano.php 9 -
+/components/alfacgiapi/py.alfa 18 -
+/assets/alfacgiapi/index.php 9 -
+/wp-content/plugins/ioxi/ioxi/dropdown.php 1 -
+/db.php 23 -
+/laboratorium_2021.tar.gz 4 -
+/h0110w4y.php 2 -
+/wp-includes/pomo/about.php 10 -
+/wp-admin/about.php 4 -
+/laboratoriumpoltekkesbantenpoltekkesbanten.gz 6 -
+/login/xmlrpc.php 60 -
+/wp-xxx.php 1 www.google.com
+/cgi-bin/class.api.php 1 -
+/g.php 13 -
+/laboratorium2023.tar 4 -
+/upload/images/uploads/kcfinder/upload.php 1 -
+//kean.php 2 -
+/lp3m.tar 4 -
+/dinsos.tar 4 -
+/backup-core 3 www.google.com
+/backup5 13 www.google.com
+/laboratoriumpoltekkesbantenpoltekkesbanten.tar 6 -
+/wp-login.php 66 -
+/layanan.rar 4 -
+/disperadankpp.zip 4 -
+/fm1.php 13 -
+/layanan.tar 4 -
+/cgi-bin/991176.php 3 -
+/cgi-bin/ALFA_DATA/alfacgiapi/radio.php 9 -
+/AK-74.php 2 -
+/%7BSUB0%7D%7BSUB1%7D.tar 4 -
+/assets/kcfinder/upload.phpckeditor 1 -
+/10.tar 4 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D2021.rar 4 -
+/wp-content/themes/twentytwentyfour/system_cache.php 1 -
+/wp-admin/network/network.php 1 -
+/dispen.tar.gz 4 -
+/wp/ALFA_DATA/alfacgiapi/radio.php 9 -
+/wp-content/plugins/wordpress-seo/rk1.php 9 -
+/2020.tar.gz 4 -
+//templates/beez3/index.php 2 -
+/admin/js/kcfinder-3.12/upload.php 1 -
+/plugins/js/server/php 1 -
+/2017.rar 4 -
+/wp-content/plugins/ndak/1.php 1 www.google.com
+/resources/kcfinder-3.12/upload.php 1 -
+/wp-content/updraft/ALFA_DATA/alfacgiapi/radio.php 9 -
+/2020 3 www.google.com
+/dispendukcapil.zip 4 -
+/wp-content/install.php 7 www.google.com
+/wp-content/themes/mero-magazine/ws.php 1 www.google.com
+//edit.php 2 -
+/8.rar 4 -
+/resource/assets/kcfinder/upload.php 1 -
+/new/ALFA_DATA/alfacgiapi/404.php 9 -
+/e-journalstikes.tar 4 -
+/wp-includes/ID3/about.php 10 -
+/.vscode/sftp.json 31 -
+/e-journal.tar.gz 4 -
+/upload.tar 4 -
+/dinasrumkimtan.rar 4 -
+/manajemen.tar.gz 4 -
+/wsad.php 1 -
+/.well-known/radio.php 1 -
+/n.php 13 -
+/vendor.tar.gz 4 -
+/assets/global/plugins/jquery-file-upload/server/php 3 -
+/wp-content/plugins/revslider/includes/external/page/index.php 10 -
+/lppm.zip 4 -
+/www.7z 1 -
+/lpm.tar.gz 4 -
+/orange.php 5 www.google.com
+/by.php 11 -
+/shell20211028.php 26 -
+/asset/plugins/kcfinder/upload.php 2 -
+/documentation.tar 4 -
+/journalslaboratorium.zip 4 -
+//wp-includes/js/dist/dist/index.php 2 -
+/siamik.tar.gz 4 -
+/backup9 13 www.google.com
+/wp-admin/includes/wso.php 3 www.google.com
+/.tmb/wso.php 3 -
+/smartcity.zip 5 -
+/poltekkesbanten2022.zip 4 -
+/idk.php 13 -
+/admin/plugins/server/php 1 -
+/wp-content/uploads/inputs.php 3 -
+/backup-jurnal.tar 4 -
+/app/webroot/js/kcfinder-3.12/upload.php 1 -
+//wp-login.php 2 -
+/website_laboratorium.zip 4 -
+/pascasarjana.rar 4 -
+/xinder.php 1 www.google.com
+/wp-content/gallery/about.php 9 -
+/local/moodle_webshell/webshell.php 4 http://example.com
+//wp-content/themes.php 2 -
+/wp-admin/install.php 20 -
+/wp-admin/js/widgets/bypass.php 1 -
+/xdmah.php 1 www.google.com
+/wpvitamins.php 1 www.google.com
+/login/wp-includes/ID3/license.txt 6 -
+/laboratorium-poltekkesbanten-laboratorium.poltekkesbanten.ac.id.tar 4 -
+/login/wp-includes/wlwmanifest.xml 49 -
+/laboratorium2.tar.gz 4 -
+/1111.php 4 www.google.com
+//wp-admin/images/about.php 2 -
+/old-site 3 www.google.com
+/laboratorium2023.rar 4 -
+/dinkes.zip 4 -
+/sippn.rar 4 -
+/backend.tar 4 -
+/wp-includes/alfacgiapi/bash.alfa 18 -
+/backend.rar 4 -
+/2022.tar 4 -
+/main.php 4 www.google.com
+/laboratoriumpoltekkesbanten2021.tar.gz 4 -
+/pkm.zip 4 -
+/wp-includes/wp-optimization.php 1 www.google.com
+/gizi.rar 5 -
+/laboratorium.poltekkesbanten.ac.id2024.zip 4 -
+/smarttaxx.zip 5 -
+/123 3 www.google.com
+/laboratorium1.tar.gz 4 -
+/dinas.tar 4 -
+/css/xmrlpc.php 1 -
+/kecamatan.zip 4 -
+/f35.php 1 -
+/Public.zip 4 -
+/modules/admin/editor/kcfinder/upload.php 1 -
+/poltekkesbantenv1.zip 4 -
+/wp-includes/assets/script-loader-react-refresh-runtime.min-soap.php 1 -
+/perpustakaan.tar 4 -
+//fm1.php 2 -
+/wp-includes/Requests/autoload_classmap.php 1 -
+/elearning.rar 4 -
+/.well-known(3).tar.gz 4 -
+//wp-admin/maint/go.php 2 -
+/laboratorium.poltekkesbanten.ac.idpublic.zip 4 -
+/666.php 3 -
+/lpm.rar 4 -
+/yonetim/engine/ckeditor/kcfinder/upload.php 1 -
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/404.php 9 -
+/wp/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/.well-known.7z 5 -
+/wp.tar.gz 4 -
+/perkimnah.rar 4 -
+//wp-content/plugins/backup_index.php 2 -
+/plugins/jquery.filer/php/upload.php 1 -
+/v3.tar.gz 4 -
+/jdih.tar 4 -
+/wp-includes/certificates/wp-login.php 1 -
+/kuda.php 4 www.google.com
+/wp-includes/lx.php 2 -
+/laboratoriumpoltekkesbanten2022.tar 4 -
+/wp-content/plugins/alfacgiapi/bash.alfa 18 -
+/e-learning.tar.gz 4 -
+/.well-known/acme-challenge/iR7SzrsOUEP.php 1 -
+/2024.tar 4 -
+/pdam.tar.gz 4 -
+/components/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/lock.php 8 www.google.com
+/wp-email.php 13 www.google.com
+/Laboratorium10 13 www.google.com
+/data/kcfinder/upload.php 1 -
+/backup-ejournal.zip 4 -
+/4.zip 4 -
+/wp-admin/css/colors/blue/wp-trackback.php 1 -
+/putr.rar 4 -
+/laboratorium2021.zip 4 -
+/wp-includes/pomo/newup.php 1 www.google.com
+/storage.zip 4 -
+/admin/assets/plugins/jquery-file-upload/server/php 1 -
+/adminpanel/kcfinder-3.12/upload.php 1 -
+/inspektorat.rar 4 -
+/laboratorium2022.rar 4 -
+/p3ap2kb.rar 4 -
+/wso2.php 2 www.google.com
+/wp-content/plugins/fix/up.php 29 -
+/admin/uploads/server/php 1 -
+//wp-content/mich-REP.php 2 -
+/files.rar 4 -
+/p3ap2kb.tar 4 -
+/indosec.php 2 -
+/core.php 13 -
+//fm.php 2 -
+/vv.php 5 www.google.com
+/backuplaboratorium.tar.gz 4 -
+/wp-includes/Text/index.php 3 -
+//administrator/templates/hathor/error.php 2 -
+/js/fm.php 1 -
+/images/alfacgiapi/radio.php 9 -
+//xx.php 2 -
+/wp-content/plugins/ubh/as.php 1 -
+/laboratorium.poltekkesbanten2022.zip 4 -
+/.well-known%20%282%29.tar 4 -
+/laboratorium.gz 6 -
+/wp-content/upgrade/alfacgiapi/404.php 9 -
+/cgi-bin/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/laboratorium.poltekkesbantendesa.tar.gz 4 -
+/backend/js/plugins/ckeditor/kcfinder/upload.php 1 -
+/wp-content/iu.php 3 -
+/ciis.php 1 www.google.com
+/core/scripts/kcfinder-3.12/upload.php 1 -
+/vesiw.php 2 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D2024.tar.gz 4 -
+/old/alfacgiapi/bash.alfa 18 -
+/wp-includes/css/modules.php 3 -
+/wp-content/product.php 1 -
+/backup_jurnal_2020.tar 4 -
+/wp-admin/includes/logs.php 1 www.google.com
+/public.rar 5 -
+/dpubinmarcipka.tar 4 -
+/laboratoriumlama.tar.gz 4 -
+//sck.php 2 -
+/assets/frontend/js/kcfinder/upload.php 1 -
+/.wp-cache.php 4 -
+/binamarga.rar 4 -
+/.well-known.tar.gz 9 -
+/laboratorium_2022.rar 4 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D.tar 4 -
+/wp/alfacgiapi/404.php 7 -
+//upgrade.php 2 -
+/.well-known/pki-validation/moon.php 1 -
+/web.zip 5 -
+//editor.php 2 -
+/backupan.rar 4 -
+/disbimacipta.tar.gz 4 -
+/revisi.php 7 -
+/assets/grocery_crud/texteditor/ckeditor/kcfinder/upload.php 1 -
+/system/assets/kcfinder/upload.php 1 -
+/wp-includes/assets/husky301.php 1 -
+/blog/wp-includes/fonts/dev.php 4 -
+/zya.zip 4 -
+/ftp-simple.json 1 -
+//worksec.php 2 -
+/jurnal.tar.xz 1 -
+/fse.php 4 www.google.com
+/ujian.zip 4 -
+/wp-json 1 http://laboratorium.poltekkesbanten.ac.id/wp-json/
+/admin/asset/plugins/server/php 1 -
+/login/sito/wp-includes/wlwmanifest.xml 49 -
+/c99.php 5 -
+/%7BSUB0%7D%7BSUB1%7D.zip 4 -
+/back.php 4 www.google.com
+/abc.php 10 www.google.com
+/mi.php 1 www.google.com
+/wp-editor.php 8 -
+/wp-content/themes/travelscape/json.php 10 -
+/laboratorium.poltekkesbanten.ac.id2024.tar.gz 4 -
+/laboratorium.poltekkesbantendesa.rar 4 -
+/admin/assets/global/plugins/jquery-file-upload/server/php 1 -
+/wp-includes/js/crop/uword.php 2 -
+/mail.tar 4 -
+/wp-pluging.php 6 www.google.com
+/wp-includes/assets/info.php 1 -
+/wg.php 5 www.google.com
+/wp-admin/ALFA_DATA/alfacgiapi/index.php 8 -
+/lf.php 4 -
+/config.rar 4 -
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/perl.alfa 18 -
+/barulaboratorium.tar.gz 4 -
+/site/wp-includes/wlwmanifest.xml 1 -
+/poltekkesbanten_2024.zip 4 -
+/pupr.tar.gz 4 -
+/wp-includes/Requests/about.php 15 -
+/xx.php 7 -
+/petugas/index.html 1 http://laboratorium.poltekkesbanten.ac.id/petugas/barang
+/assets/upload/ALFA_DATA/alfacgiapi/index.php 9 -
+/wp-content 3 -
+/amigo.php 3 -
+/wp-content/ALFA_DATA/alfacgiapi/wp-content/uploads/alfacgiapi/index.php 9 -
+/wp-plugins/alfacgiapi/perl.alfa 1 -
+/sid.zip 4 -
+/web.tar.xz 1 -
+/wp-content/cache/index.php 1 -
+/webdesalaboratorium.zip 4 -
+/laboratoriumpoltekkesbanten2023.rar 4 -
+/public/kcfinder/upload.php 1 -
+/wp-content/plugins/wp-freeform/includes/loadme.php 1 www.google.com
+/wp-content/uploads/alfacgiapi/perl.alfa 1 -
+/7.zip 4 -
+/documentation.zip 3 -
+/wp-content/plugins/cekidot/mar.php 1 www.google.com
+/Archive.zip 5 -
+/admin/assets/js/jquery-file-upload 2 -
+/backup_db 13 www.google.com
+/dishub.rar 4 -
+/kominfo.zip 4 -
+/laboratoriumpoltekkesbantendesa.rar 4 -
+/%7Bsiteupper%7D2021.rar 4 -
+/wp-includes/install.php 23 -
+/wp-mailcek.php 8 -
+/webdesa.tar 4 -
+/login/news/wp-includes/wlwmanifest.xml 49 -
+/packages/js/kcfinder/upload.php 1 -
+/webdesa.rar 4 -
+/uploads/k69834253_index.php 9 -
+/uploads/kcfinder-3.12/upload.php 1 -
+/lib/jquery-file-upload/server/php 1 -
+/OJS.tar 2 -
+/dev 17 -
+/content.php 28 -
+/wp-singupp.php 2 www.google.com
+/cgi-bin.gz 5 -
+/5.rar 4 -
+/dcktrp.zip 4 -
+/backup-jurnal.zip 4 -
+/.tmb/alfacgiapi/radio.php 9 -
+/application.zip 8 -
+/foxx.php 16 www.google.com
+/security.rar 4 -
+/backup123.tar.gz 4 -
+/dump.php 3 www.google.com
+/archives.rar 4 -
+//randkeyword.php 2 -
+/backup_jurnal_2024.rar 4 -
+/uploads/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+//wp-includes/customize/about.php 2 -
+//.well-known/pki-validation/about.php 2 -
+/fonts/fontawesome-webfont.php 1 -
+/admin/controller/extension/extension/cloud.php 1 -
+/themes.php 27 -
+/.well-known/pki-validation/alfacgiapi/py.alfa 18 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D.rar 4 -
+/admin/assets/plugin/jquery.filer/php/upload.php 1 -
+//wp-content/plugins/classic-editor/wp-login.php 2 -
+/upload/server/php 1 -
+/esakip.tar.gz 4 -
+/images/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/%7BSUB0%7D%7BSUB1%7D.tar.gz 4 -
+/backend/js/kcfinder/upload.php 1 -
+/wp-content/codeboy1877_up.php 3 -
+/wp-content/plugins/pwnd-1/pwnd.php 1 -
+/defaul1.php 17 -
+/laboratoriumv1.tar 4 -
+/wordpress/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/update.rar 4 -
+/prkp.zip 4 -
+/po-admin.tar 4 -
+//xmlrpc.php 2 -
+/wp-includes/css/dist/edit-widgets/index.php 1 -
+/cong.php 37 -
+/username 3 www.google.com
+/1.zip 4 -
+/bem.zip 5 -
+/www.php 2 www.google.com
+/laboratoriumdesa.tar.gz 4 -
+/wp-includes/widgets/index.php 4 -
+/degesaciihaxor.php 7 -
+/registrasi.tar.gz 4 -
+/f0x.php 5 -
+/axis2-admin/login 2 -
+/backup/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/po-content.rar 4 -
+/sipenmaru.zip 5 -
+/cadangan.tar.gz 4 -
+/laboratorium.poltekkesbantenpublic.rar 4 -
+/old.tar 4 -
+/poltekkesbantendesa.zip 4 -
+/produk 13 www.google.com
+/pariwisata.zip 4 -
+/.git.gz 1 -
+/test/wp-includes/wlwmanifest.xml 1 -
+/admin/blueimp-jQuery-File-Upload/server/php 1 -
+/.well-known%20%281%29.rar 4 -
+/.tmb/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/v3.rar 4 -
+/backend/ckeditor/kcfinder/upload.php 1 -
+//en/index.php 2 -
+/wp.rar 4 -
+//vendor/htmlawed/htmlawed/htmLawedTest.php 2 -
+/components/com_newsfeeds/models/indexx.php 1 -
+/gmc.tar.gz 4 -
+/laboratorium2022 13 www.google.com
+/.well-known/acme-challenge/atomlib.php 2 www.google.com
+/wpbackup3 13 www.google.com
+/wordpress/alfacgiapi/index.php 9 -
+/block-patwp.php 1 www.google.com
+/wp-includes/SimplePie/Parse/about.php 1 -
+/kyami.php 1 www.google.com
+/pariwisata.rar 4 -
+/poltekkesbanten.tar 9 -
+/eagle.php 3 -
+/laboratorium.poltekkesbanten.ac.id.tar 10 -
+/ikeh.php 6 -
+/wp-includes/PHPMailer/options.php 1 -
+//assets/library.php 2 -
+/backup123.rar 4 -
+/wp-admin/includes/index.php 3 -
+/blog 18 www.google.com
+/backup1 13 www.google.com
+/.tmb/alfacgiapi/bash.alfa 18 -
+/Laboratorium8 13 www.google.com
+/wp-content/inputs.php 3 -
+/images/upload.php 1 -
+/po-content.zip 4 -
+/about.php 51 -
+/wp-includes/Requests/src/Exception/Http/about.php 1 -
+/0byte.php 6 -
+/disperadankpp.tar 4 -
+/admin/fileman/dev.html 9 -
+/yup.php 1 www.google.com
+/laboratorium-backup 12 www.google.com
+/disbimacipta.zip 4 -
+/wp-includes/images/media/wp-login.php 1 -
+/unknown.php 11 www.google.com
+/backup_jurnal_2023.zip 4 -
+/bak.php 16 -
+/wp-admin/css/glex.php 1 -
+/assets/admin/bower_components/jquery.filer/php/readme.txt 1 -
+/dinaspkp.zip 4 -
+/wp-content/plugins/Cache/Cache.php 9 -
+/admin/asset/server/php 1 -
+/wp-one.php 6 www.google.com
+/assets/global/plugins/kcfinder/upload.php 1 -
+/zacosmall.php 1 www.google.com
+/xox.php 2 www.google.com
+/stikes.rar 4 -
+/login.zip 4 -
+/bkcp.tar.gz 4 -
+/sid_baru.tar 4 -
+/wp-2017.php 4 www.google.com
+/weblaboratorium.tar 4 -
+/y.php 14 -
+/binamarga.tar.gz 4 -
+/upload/alfacgiapi/perl.alfa 18 -
+/apps.tar.gz 4 -
+/desa.tar.gz 5 -
+/laboratoriumold.zip 4 -
+/img/ 1 -
+/ohayo.php 1 www.google.com
+/.well-known/acme-challenge/alfacgiapi/perl.alfa 18 -
+/asset.rar 4 -
+/wp-includes/sodium_compat/src/Core32/Curve25519/Ge/Core32.php/admin@123 1 www.google.com
+/wp-content/plugins/alfacgiapi/404.php 9 -
+/wp-content/updraft/alfacgiapi/404.php 9 -
+/.well-known/save.php 1 -
+/assets/admin/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+/dpkp.zip 4 -
+/disdukcapil.zip 4 -
+/temp/sftp.json 1 -
+/av.php 1 -
+/dprkp.zip 4 -
+/ok.php 9 www.google.com
+/dinaspariwisata.zip 4 -
+/bk/index.php 1 -
+/blog/ALFA_DATA/alfacgiapi/radio.php 9 -
+/gmc.rar 4 -
+/new/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/.well-known/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/webassist/kcfinder-3.12/upload.php 1 -
+/config.inc.php.tar.gz 4 -
+/laboratorium2023 13 www.google.com
+/laboratoriumpoltekkesbanten.rar 10 -
+/wp-admin/shell20211028.php 2 www.google.com
+//wp-content/themes/Divi/404.php 2 -
+/assets/js/mylibs/kcfinder/upload.php 1 -
+/dpapmk.tar 4 -
+/laboratorium.poltekkesbanten2023.tar 4 -
+/plugin/server/php 1 -
+/laboratoriumpoltekkesbantendesa.tar 4 -
+/z.php 14 -
+/upload/ALFA_DATA/alfacgiapi/index.php 9 -
+/blog/wp-includes/fonts/iqb.php 4 -
+/belajar.zip 5 -
+/well-known.tar 9 -
+/bappeda.zip 4 -
+/wp-init.php 5 www.google.com
+/wp-includes/leafmailer.php 1 www.google.com
+//wp-content/themes/deeto/login.php 2 -
+/wp-content/languages/404.php 1 -
+/cyl.php 4 www.google.com
+/wp-includes/SimplePie/Content/Type/index.php 1 -
+/bypass403.php 7 www.google.com
+/blog/wp-admin/setup-config.php 1 -
+/3.zip 4 -
+//modules/mod_simplefileuploadv1.3/elements/Clean.php 2 -
+/blvck.php 8 -
+/assets/script.js.php 1 -
+/dpu.zip 4 -
+/dispuprkim.zip 4 -
+/Laboratorium2022 13 www.google.com
+/wp-content/uploads/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/wp-booking.php 1 www.google.com
+/wp-content/admin.php 4 -
+/apple-touch-icon-precomposed.png 3 -
+/desa_laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+/upload/uploads/kcfinder/upload.php 1 -
+/upload/alfacgiapi/py.alfa 18 -
+/db 1 -
+/resources.zip 4 -
+/.well-known/ALFA_DATA/alfacgiapi/radio.php 9 -
+/5index.php 1 www.google.com
+/data/file/kcfinder/upload.php 1 -
+/xz.php 1 www.google.com
+/wso112233.php 10 -
+/wordpress-backup 13 www.google.com
+/2019.rar 4 -
+/server/php 1 -
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/index.php 9 -
+//wp-content/plugins/Cache/Cache.php 2 -
+/poltekkesbantendesa.rar 4 -
+/2.tar 4 -
+/ejournal.tar.gz 4 -
+//wp-config-sample.php 2 -
+//wp-includes/css/about.php 2 -
+/blog/alfacgiapi/404.php 9 -
+/wp-content/themes/noriumportfolio/db.php 1 www.google.com
+/library/kcfinder/upload.php 1 -
+/.well-known/acme-challenge/alfacgiapi/radio.php 9 -
+/laboratorium8 13 www.google.com
+/admin/core/kcfinder-3.12/upload.php 1 -
+/web.php 1 -
+//ty.php 2 -
+/satpolpp.tar.gz 4 -
+/setwan.tar.gz 5 -
+/bps.php 4 www.google.com
+/2.php 8 www.google.com
+/upgrade.php 8 www.google.com
+/Apps.rar 4 -
+/wp-content/uploads/2017-------/09/wp-console.php 2 -
+/website-backup.rar 4 -
+/iq.php 4 -
+//wp-admin/css/go.php 2 -
+/ab.php 8 -
+/public_lama.rar 4 -
+/l-content.tar.gz 4 -
+/wp-config.php 16 -
+/diknas.tar 4 -
+/backend/plugins/kcfinder/upload.php 1 -
+/storage/kcfinder/upload.php 1 -
+/ojs4.zip 4 -
+/app_openSID.tar 4 -
+/Backup.zip 4 -
+/wp-admin/admin.php 13 -
+/public/ckeditor/kcfinder/upload.php 1 -
+/app/config/sftp.json 1 -
+/assets/js/plugins/ckeditor/plugins/kcfinder/upload.php 1 -
+/blog/alfacgiapi/index.php 9 -
+/haxor.php 5 -
+/uploads/files/files/kcfinder/upload.php 1 -
+/use.php 8 -
+/yan.php 2 www.google.com
+/oldlaboratorium.zip 4 -
+/p3ap2kb.zip 4 -
+//403.php 2 -
+/storage.rar 4 -
+/vendors/js/kcfinder/upload.php 1 -
+/dispuprkim.rar 4 -
+/media/kcfinder-3.12/upload.php 1 -
+/storage.tar 3 -
+/wp-content/updraft/alfacgiapi/index.php 9 -
+/assets.tar 4 -
+/login/test/wp-includes/wlwmanifest.xml 57 -
+/wp-admin/css/colors/midnight/wp-login.php 1 -
+//alfa-ioxi.php 2 -
+/on-settingssl.php 4 www.google.com
+/.well-known/content.php 4 -
+/templates/beez3/bypass.php 1 -
+/wso2.8.php 1 www.google.com
+/learning.zip 4 -
+/opac.zip 4 -
+/backend/js/plugins/ckeditor/kcfinder-3.12/upload.php 1 -
+/wp-content/plugins/dummyyummy/wp-signup.php 1 -
+/Laboratorium2023 13 www.google.com
+/wp-content/themes/skatepark/db.php 1 www.google.com
+/wp-includes/widgets/11.php 1 -
+/wp-config-sample.php 13 -
+/.Wp-back.phP 1 www.google.com
+/up 4 -
+/defaults.php 15 -
+/wp-content/upgrade/alfacgiapi/perl.alfa 18 -
+/remove.php 4 www.google.com
+/eperda.tar 4 -
+/wp-admin/wp-login.php 4 -
+/admin.php 29 -
+/wp-includes/gelay.php 1 www.google.com
+/assets/upload/ALFA_DATA/alfacgiapi/radio.php 9 -
+/laboratorium.poltekkesbanten.ac.idpublic.rar 4 -
+/prod/.env 1 -
+//wp-content/classwithtostring.php 2 -
+/documents.rar 4 -
+/demo.tar 4 -
+/v1.rar 4 -
+/backup_jurnal_2020.tar.gz 4 -
+//byp.php 2 -
+/cgi-bin.tar.xz 5 -
+/well-known%20%282%29.tar.gz 4 -
+/well-known%20%283%29.tar 4 -
+/backup_jurnal_2021.tar.gz 4 -
+/wp-includes/assets/about.php 1 -
+/disparekraf.tar.gz 4 -
+/home/user/sftp.json 1 -
+/fx.php 9 -
+/kepegawaian.zip 4 -
+/perizinan.tar.gz 4 -
+/wp-includes/rest-api/index.php 5 -
+/wp-content/plugins/wp-freeform/black2llleaf.php 3 www.google.com
+/e-learning.tar 4 -
+//wp-content/plugins/three-column-screen-layout/db.php 2 -
+/wp-includes/IXR/about.php 9 -
+/allahnaber.php 2 -
+/WSO.php 4 www.google.com
+/disnakertrans.rar 4 -
+/wp-content.zip 4 -
+/wp-admin/css/colors/sunrise/colors_95.php 1 -
+/wp-includes/css/themes.php 3 -
+/shelss.php 7 -
+/lp3m.rar 4 -
+/wp-content/plugins/wp-file-manager/lib/php/connector.minimal.php 1 www.google.com
+/Fdbxhriw.php 4 www.google.com
+/wp-admin.tar 4 -
+/codeboy1877x.php 1 www.google.com
+/wp-content.rar 4 -
+/var.php 11 www.google.com
+/wp-admin/network/admin.php 6 www.google.com
+/copy 3 www.google.com
+//cong.php 2 -
+/2017.tar 4 -
+/.well-known/alfacgiapi/perl.alfa 18 -
+/plugins/jquery.filer/php/readme.txt 1 -
+/templates/beez5/mar.php 9 -
+/data/uploads/kcfinder/upload.php 1 -
+/wp-backup.tar 4 -
+/plugins/js/jquery-file-upload/server/php 1 -
+/backup_laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+/ojs2.zip 4 -
+/assets/js/ckeditor/kcfinder-3.12/upload.php 1 -
+/%7Bsub0upper%7D.%7Bsub1upper%7Ddesa.rar 4 -
+/.tmb/alfacgiapi/perl.alfa 18 -
+/alfacgiapi/py.alfa 18 -
+/wp-admin/css/colors/ectoplasm/mKSJUaFdm.php 1 -
+/webdesa_laboratorium.poltekkesbanten.ac.id.rar 4 -
+/wp-includes/widgets/dyqvcfqv.php 1 -
+/backend.zip 4 -
+/configuration.tar.gz 4 -
+/init.php 10 www.google.com
+/uploads/alfacgiapi/index.php 9 -
+//wp-includes/pomo/yellow.php 2 -
+/wp-includes/js/tinymce/langs/about.php 1 -
+/dpubinmarcipka.tar.gz 4 -
+/indexof.php 11 -
+/text.php 6 -
+/wp-includes/bk/index.php 1 -
+/dispar.tar 4 -
+/63ck0.php 4 www.google.com
+/poltekkesbantenv2.tar.gz 4 -
+/6.zip 3 -
+/alfa3.php 2 -
+//wp-apxupx.php 2 -
+/wordpress/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/New.rar 4 -
+/laboratorium.poltekkesbanten.ac.iddesa.zip 4 -
+/old-site.rar 4 -
+/rs.zip 4 -
+/pucktr.rar 4 -
+/documents.tar.gz 4 -
+/worm.PhP 1 -
+/journals.rar 5 -
+/document.zip 4 -
+//click.php 2 -
+//wp-includes/images/wp-login.php 2 -
+/login/2019/wp-includes/wlwmanifest.xml 57 -
+/anonym.php 4 www.google.com
+/html.zip 4 -
+/hi.php 6 -
+/wp-includes/js/jquery/jquery.php 1 -
+/system/kcfinder/upload.php 1 -
+/components/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/sippn.zip 4 -
+/config.inc.php.tar 4 -
+/perizinan.rar 4 -
+/gawean.PhP7 9 -
+/aks.php 1 -
+/laboratorium.poltekkesbanten.ac.idv2.rar 4 -
+/vendor/phpunit/phpunit/src/Util/PHP/kill.php 1 -
+/laboratorium-old.tar.gz 4 -
+/wp-root.php 5 www.google.com
+//w.php 2 -
+/kabupaten.tar 4 -
+/wp-includes/sodium_compat/index.php 1 -
+/bb.php 5 www.google.com
+/components/alfacgiapi/index.php 9 -
+/uploaded/alfacgiapi/perl.alfa 1 -
+/wp-admin/dropdown.php 14 -
+/wp-content/themes/theme/gr.php 1 www.google.com
+/misc/ajax.js 1 -
+/gallery/kcfinder/upload.php 1 -
+/ups.php 5 -
+/kejari.zip 4 -
+/images/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/login/media/wp-includes/wlwmanifest.xml 10 -
+/wp-admin/index.php 4 -
+//wp-content/themes/seotheme/mar.php 2 -
+/2022.rar 4 -
+/.well-known%20%283%29.tar.gz 4 -
+/desa.7z 1 -
+/adminer.php 13 -
+/application/.env 1 -
+/resources/js/kcfinder-3.12/upload.php 1 -
+/wp-activate.php 16 -
+/wp-content/upgrade/item.php 1 -
+/wp-content/plugins/linkpreview/db.php 11 -
+/www.zip 6 -
+/layanan.zip 4 -
+/wp-content/plugins/contact-form-7/includes/js/jquery-ui/themes/smoothness/admin.php 9 -
+/rpd.rar 4 -
+/wp-includes/blocks/about.php 1 -
+/portal.rar 4 -
+/panel/kcfinder/upload.php 2 -
+/wp-content/languages/about.php 4 -
+/uploads/af32.php 1 -
+/laboratorium2024.tar.gz 4 -
+/disbimacipta.tar 4 -
+/wp-content/xxx/xxx-xxx/xxxx-xx-xx/pages/xxxxxx.php 1 www.google.com
+/FoxWSO-full.php 1 www.google.com
+/kontoru.php 4 www.google.com
+/bpjsdaerah.tar 4 -
+/simple.php 45 -
+/laboratoriumpoltekkesbantenpublic.rar 4 -
+/webdesalaboratorium.rar 4 -
+/wp-admin/css/colors/ocean/wp-login.php 1 -
+/New.tar.gz 4 -
+/wp-content/themes/jobart/db.php 1 www.google.com
+/bk 17 -
+/modules/autoupgrade/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 10 -
+/wordpress/alfacgiapi/bash.alfa 18 -
+/filemanager/filemanager/dialog.php 1 -
+/.well-known/pki-validation/wp-signup.php 11 www.google.com
+/support 13 www.google.com
+/seo.php 3 -
+/components/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/jdih.rar 4 -
+/wp-admin/includes/class_api.php 11 -
+/plugins/jquery-file-upload/server/php 1 -
+/js.php 24 www.google.com
+/gank.php.PhP 2 www.google.com
+/gizi.tar 5 -
+/%7Bsiteupper%7D2021.zip 4 -
+/wp-includes/sitemaps/autoload_classmap.php 2 www.google.com
+/files.zip 4 -
+/cache/kcfinder/upload.php 1 -
+/agenda 13 www.google.com
+/wp-content/themes/alfacgiapi/radio.php 9 -
+/fox.php 1 www.google.com
+/wp-admin/fw.php 4 -
+/gh.php 1 www.google.com
+/wxo.php 3 -
+/wp-content/upgrade/alfacgiapi/radio.php 9 -
+/laboratorium_backup.tar 4 -
+/wp-includes/default.php 3 -
+/www.tar.xz 1 -
+/disperindag.tar.gz 4 -
+/spmi.zip 4 -
+/wp-content/languages/fucku.php 1 -
+/%7Bsub0upper%7D.%7Bsub1upper%7Dv2.tar.gz 4 -
+/info.tar.gz 5 -
+/ri.php 4 www.google.com
+/87.php 1 www.google.com
+/laboratoriumv2.zip 4 -
+/alfaindex.php 2 -
+/l-content.rar 4 -
+/wp-includes/defaults.php 1 -
+/backuplaboratorium.rar 4 -
+/wp-admin/css/colors/ectoplasm/zmFM.php 3 -
+/index.php/User/doLogin 2 -
+/laboratorium.poltekkesbanten2024.zip 4 -
+/min.php 5 -
+//wp-content/mah.php 2 -
+/laboratorium-poltekkesbanten-laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+/wp-includes/customize/class-wp-customize-nav-menu-section-boolean.php 1 -
+/laboratorium.poltekkesbanten2023.tar.gz 4 -
+/admin/js/jquery-file-upload/server/php 1 -
+/laboratoriumv1.tar.gz 4 -
+/assets/plugins/jquery-file-upload 1 -
+/sisdjatansdabm.rar 4 -
+/2024.rar 4 -
+/images/about.php 12 www.google.com
+/ejournall.tar 4 -
+/ahax.php 1 -
+/dpmptspd.rar 4 -
+/tinymce/kcfinder-3.12/upload.php 1 -
+/ini.php 12 -
+/fileupload/server/php 1 -
+/wp-admin/css/colors/ectoplasm/about.php 1 -
+/wp-content/plugins/virr/v.php 1 www.google.com
+/rpd.tar.gz 4 -
+/dpmptsp.rar 4 -
+/laboratoriumpoltekkesbanten2021.rar 4 -
+/dpmptsp.tar 4 -
+/bak.zip 4 -
+/putr.tar 4 -
+/documentation.rar 4 -
+/wp-content/uploads/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/wp-content/1.php 1 -
+/wp-admin/ccx/index.php 9 -
+/perkim.tar.gz 4 -
+/wp-content/plugins/wp-theme-editor/include.php 1 -
+/wp-content/plugins/wp-file-manager/alfacgiapi/perl.alfa 1 -
+/damkar.rar 4 -
+/assets/upload/alfacgiapi/index.php 9 -
+/.env.rar 4 -
+/module.php 7 -
+/wso-latest.php 1 www.google.com
+/owl.php 4 www.google.com
+/sipenmaru.tar 5 -
+//templates/beez_20/error.php 2 -
+/root.php 17 -
+/web_laboratorium.poltekkesbanten.ac.id.tar 4 -
+//Nexus.php 2 -
+/updates.tar.gz 4 -
+/wp-site.php 11 -
+/wp-title.php 11 -
+/pelatihan 13 www.google.com
+/wp-admin/f0x.php 3 www.google.com
+/mail.tar.gz 4 -
+/webdesalaboratorium.tar.gz 4 -
+/command.php 2 www.google.com
+/.git/config 3 -
+//wp-content/plugins/Core-Econ/upH.php 2 -
+/bapenda.zip 4 -
+/well-known.rar 9 -
+/ckeditor/kcfinder/upload.php 2 -
+/dir.php 1 -
+/icomsium.php 1 -
+/wp-content/plugins/inputs.php 3 -
+/kndw1.php 1 www.google.com
+/assets/editor/fileman/index.html 9 -
+/wp-admin/includes/atomlib.php 3 -
+/silakop.zip 4 -
+/wp-includes/js/tinymce/skins/lightgray/img/index.php 13 -
+/wp-content/languages/plugins.php 1 -
+/8.tar.gz 4 -
+/cw.php 1 -
+/laboratorium.poltekkesbanten.ac.id.rar 10 -
+/m.php 14 -
+/wp-includes/assets/autoload_classmap.php 1 -
+/sippn.tar 4 -
+/wp-includes/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/ccx/index.php 13 -
+/wp-content/plugins/library/alfacgiapi/404.php 9 -
+/assets/css/kcfinder/upload.php 1 -
+/wp-content/f0x.php 3 www.google.com
+/well-known.zip 9 -
+/radio.php 40 -
+/index404.php 12 -
+/tracer.rar 4 -
+/mpp.zip 4 -
+/old/alfacgiapi/py.alfa 16 -
+/wp-includes/js/dist/default.php 1 -
+/.well-known/acme-challenge/plugins.php 1 -
+/wp-includes/ID3/index.php 4 -
+/asset/kcfinder/upload.php 2 -
+/.well-known/acme-challenge/license.php 10 -
+/adriv.php 11 www.google.com
+/inspektorat.tar.gz 4 -
+/laboratorium.poltekkesbanten2022.tar 4 -
+//wp-content/plugins/Core-EconX/up.php 2 -
+/backup-jurnal.rar 4 -
+/pemeliharaan.rar 5 -
+/plugins.tar 4 -
+/admin/assets/filemanager 1 -
+/dcktrp.tar 4 -
+/plugins.rar 4 -
+/well-known%20%281%29.tar.gz 4 -
+//wp-admin/wp-login.php 2 -
+/pariwisata.tar 4 -
+/baru.zip 3 -
+/wp-content/themes/inputs.php 3 -
+/dispen.rar 4 -
+//wp-admin/maint/about.php 2 -
+/wp-includes/js/index.php 5 -
+/wp-includes/SimplePie/index.php 1 -
+/wp-admin/x.php 12 -
+/wp-content/upgrade/alfacgiapi/py.alfa 18 -
+/service.tar 4 -
+/service.rar 4 -
+/%7Bsub0upper%7D.%7Bsub1upper%7Dpublic.zip 4 -
+/journals.7z 1 -
+/wp-admin/maint/wonder.php 1 -
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/sftp.json.dist 1 -
+/assets/uploads/alfacgiapi/bash.alfa 18 -
+/laboratoriumpoltekkesbantendesa.zip 4 -
+/db.rar 4 -
+//upload.php 2 -
+/wp/wp-includes/wlwmanifest.xml 1 -
+/wp-admin/user/about.php 23 -
+/release.zip 4 -
+/wp-ver.php 9 -
+/website.tar.xz 1 -
+/wp-content/languages/themes/index.php 1 -
+/wp-content/xleet.php 3 -
+/moon.php 26 -
+/old/ALFA_DATA/alfacgiapi/index.php 9 -
+/poltekkesbanten_lama.zip 4 -
+/themes/zMousse/otuz1.php 1 -
+/alfacgiapi/404.php 9 -
+/lyda.php 4 www.google.com
+/web 13 www.google.com
+/img/kcfinder/upload.php 1 -
+/admin1.php 4 www.google.com
+/website-backup.tar 4 -
+/2021.rar 4 -
+/asset/webadmin/js/kcfinder-3.12/upload.php 1 -
+/disperkimtan.zip 4 -
+/w3llstore.php 1 www.google.com
+/laboratorium.poltekkesbanten.ac.id.tar.xz 6 -
+/packages/assets/js/kcfinder-3.12/upload.php 1 -
+/dinas.rar 4 -
+/bc 1 -
+/dxshell.php 4 www.google.com
+/po-content.tar 4 -
+/wp-admin/maint/atomlib.php 5 www.google.com
+/lpm.tar 4 -
+/wp-content/languages/wp-conflg.php 1 -
+/wp-admin/maint/index.php 7 www.google.com
+/seminar 13 www.google.com
+/laboratorium2024 13 www.google.com
+/third_party/kcfinder/upload.php 1 -
+/pupr.tar 4 -
+/wp-admin/function.php 1 -
+/files.tar 4 -
+/.configs/sftp.json 1 -
+/2023.rar 4 -
+/core/kcfinder/upload.php 1 -
+//wp-includes/update.php 2 -
+/posting 13 www.google.com
+/simaset.tar.gz 4 -
+/assets/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+//modules/mod_webshell/mod_webshell.php 2 -
+/sftp.json.bak 1 -
+/well-known.7z 5 -
+/wp_backup.php 5 www.google.com
+/ninja.php 4 -
+/.well-knownold/index.php 3 -
+/.well-known/acme-challenge/zmFM.php 1 -
+/.git.rar 5 -
+/.wp-cli.zip 4 -
+/laboratoriumpoltekkesbanten2023.tar.gz 4 -
+/wp-content/themes/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/wp-includes/widgets/autoload_classmap.php 1 www.google.com
+/.quarantine/alfacgiapi/bash.alfa 18 -
+/lolzk.php 1 www.google.com
+/wp-content/uploads/2014/07/olx.php 2 -
+/wp-admin/user/xmrlpc.php 10 -
+/assets/uploads/alfacgiapi/index.php 9 -
+/laboratorium4 13 www.google.com
+/media/mediamgr/other/jq_fileupload/server/php 1 -
+/.well-known/ALFA_DATA/alfacgiapi/index.php 9 -
+/%7Bsiteupper%7Dv1.zip 4 -
+/wp-content/plugins/ALFA_DATA/alfacgiapi/radio.php 9 -
+/desa_laboratorium.rar 4 -
+//wp-head.php 2 -
+/ojs1.zip 4 -
+/app/webroot/global/plugins/jquery-file-upload/server/php 1 -
+/administrator.tar.bz2 1 -
+/l-app.tar.gz 4 -
+/mt 1 -
+/api.zip 5 -
+/disperkimtan.tar.gz 4 -
+/laravel/.env 1 -
+//content.php 2 -
+/scripts/kcfinder-3.12/upload.php 1 -
+/autoload_classmap/function.php 1 -
+/sisdjatansdabm.tar 4 -
+/wp-admin/maint/about.php 1 -
+/.well-known/acme-challenge/alfacgiapi/bash.alfa 18 -
+/admin 28 -
+/panel/kcfinder-3.12/upload.php 1 -
+//wp-includes/css/index.php 2 -
+/wp-js.php 4 www.google.com
+/disperakim.tar.gz 4 -
+/wp-admin/xl2023.php 1 www.google.com
+/wp-admin/css/colors/light/colors.min.php 1 -
+/lib/kcfinder/upload.php 2 -
+/assets/upload/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/%7Bsiteupper%7Dpublic.rar 4 -
+/wp-includes/db.php 1 -
+/website_laboratorium.poltekkesbanten.ac.id.tar.gz 4 -
+/406.php 4 -
+/laboratoriumpoltekkesbantendesa.tar.gz 4 -
+/tinyfilemanager/tinyfilemanager.php 1 -
+/wp-content/plugins/library/alfacgiapi/bash.alfa 18 -
+/mini.php 21 -
+/poltekkesbanten_2023.zip 4 -
+/siamik.rar 4 -
+/wp-content/languages/index.php 2 -
+/assets/administrator/kcfinder/upload.php 2 -
+/eval.php 2 www.google.com
+/wordpress/ALFA_DATA/alfacgiapi/404.php 9 -
+//administrator/templates/isis/index.php 2 -
+/wp-content/function.php 3 -
+/sh.php 1 www.google.com
+/dpapmk.zip 4 -
+/wp-content/plugins/admin.php 4 -
+/backup_laboratorium.poltekkesbanten.ac.id.zip 4 -
+/vendor.rar 4 -
+//404.php 2 -
+/journal.tar 5 -
+/journalslaboratorium.tar.gz 4 -
+/wp-content/updraft/ALFA_DATA/alfacgiapi/py.alfa 18 -
+/journal.rar 5 -
+/new/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/spawn.php 4 www.google.com
+/ojs3.zip 4 -
+/sandbox 3 www.google.com
+/%7Bsub0upper%7D.%7Bsub1upper%7Dpublic.tar 4 -
+/%7Bsiteupper%7Dpublic.zip 4 -
+/yo.php 1 www.google.com
+/cadangan.zip 4 -
+/admin404.php 1 www.google.com
+//amaxx.php 2 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D2024.tar 4 -
+/tes.tar 4 -
+/files/data/kcfinder/upload.php 1 -
+/cache.tar.gz 5 -
+/data.zip 4 -
+/sia.tar.gz 4 -
+/wp-admin/css/colors/midnight/install.php 1 -
+/laboratoriumpoltekkesbanten2023.zip 4 -
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/index.php 9 -
+/index1.php 1 -
+/snd.php 1 -
+/laboratorium_2023.tar 4 -
+/coaster/jquery/gallery-upload/server/php 1 -
+/images/cloud.php 9 -
+/jurnal.tar.bz2 1 -
+/web_laboratorium.tar.gz 4 -
+/%7BSUB1%7D.tar.gz 4 -
+/B3KP/wordpress 13 www.google.com
+/10.zip 4 -
+/system/libraries/kcfinder/upload.php 1 -
+/mobile/plugin/browser.jsp 2 -
+/wp-includes/fonts/index.php 1 -
+/laboratoriumpoltekkesbantenv2.tar.gz 4 -
+/dp3ap2kb.rar 4 -
+/%7Bsiteupper%7D2022.zip 4 -
+/api.tar.xz 1 -
+/ccaef.php 1 www.google.com
+/anggota.zip 4 -
+/atomlib.php 17 -
+/wp-includes/ID3/readme.txt 1 -
+/config-backup.tar.gz 4 -
+/backup/alfacgiapi/bash.alfa 18 -
+/wp-content/themes/workart/db.php 1 www.google.com
+/asd.php 3 -
+/wp-admin/ALFA_DATA/alfacgiapi/py.alfa 16 -
+/wp-includes/js/jquery/jquery.js 4 -
+/config.inc.php.rar 4 -
+/.tmb.zip 4 -
+/wp-includes/IXR/index.php 1 -
+/backup_site 13 www.google.com
+/wp-admin/js/widgets/index.php 1 -
+/2016.zip 4 -
+/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 10 -
+/sia.rar 4 -
+/bpbd.zip 4 -
+/apps.tar 4 -
+/desa.tar 5 -
+/webdesa_laboratorium.tar 4 -
+/2.rar 3 -
+/bkcp.tar 4 -
+/poltekkesbanten.7z 5 -
+/new/alfacgiapi/py.alfa 18 -
+//wp-admin/user/index.php 2 -
+/mrjn.php 4 -
+/kontol.php 12 -
+//wp-content/plugins/wordpresss3cll/up.php 2 -
+/dinaspkp.tar.gz 4 -
+//templates/beez_20/index.php 2 -
+/htdocs.rar 4 -
+/anons79.php 5 -
+/wp-admin/css/wp-conflg.php 1 -
+/learning.tar.gz 4 -
+/yuuki.php 5 www.google.com
+/%7Bsub0upper%7D.%7Bsub1upper%7Dv1.tar 4 -
+/jurnall.tar 4 -
+/jurnall.rar 4 -
+/backup_laboratorium.tar 4 -
+/login/web/wp-includes/wlwmanifest.xml 57 -
+/pro.zip 4 -
+/zyacbt.rar 4 -
+/cbt.zip 4 -
+/public/scripts/filemanager/dialog.php 1 -
+/laboratoriumpoltekkesbanten2024.rar 3 -
+/wp-includes/sodium_compat/src/index.php 1 -
+/poltekkesbantenpublic.zip 4 -
+/wp-content/alfacgiapi/bash.alfa 18 -
+/disnakertrans.zip 4 -
+/alfacgiapi/perl.alfa 22 -
+//wp-content/plugins/fix5/index.php 2 -
+/setup.php 7 www.google.com
+/eperda.zip 4 -
+/js/tinymce/kcfinder/upload.php 1 -
+/xd.php 2 www.google.com
+/storage/app/kcfinder/upload.php 1 -
+/laboratoriumpoltekkesbantenv2.rar 4 -
+//plugin.php 2 -
+/old_files 3 www.google.com
+/disperkimta.rar 4 -
+/cms.tar 4 -
+/777.php 4 -
+/mhs.zip 5 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D2022.tar 4 -
+/plugins/server/php 1 -
+/disdik.rar 4 -
+/public_html.zip 5 -
+/satpolpp.zip 4 -
+/uploads/images/files/kcfinder/upload.php 1 -
+/dev.php 14 www.google.com
+/upfile.php 16 -
+/kabupaten.zip 4 -
+/upload/images/images/kcfinder/upload.php 1 -
+/100.php 4 -
+//wp-includes/wp-class.php 2 -
+/dosya.php 1 www.google.com
+/blue.php 4 www.google.com
+/disperkimtan.tar 4 -
+/ejournals.tar.gz 4 -
+/assets/js/jquery-file-upload 2 -
+/ejournal.zip 4 -
+/wordpress.tar.gz 4 -
+/wp-setup.php 1 -
+/wp-includes/widgets 1 www.google.com
+/.well-known/acme-challenge/wp-load.php 1 -
+/readme.php 14 -
+/app.rar 10 -
+/website-backup.tar.gz 4 -
+/webdb.php 1 -
+/new-index.php 6 -
+/wp-includes/fonts/autoload_classmap.php 1 -
+//wp-includes/sitemaps/about.php 2 -
+/laboratorium_2024.tar.gz 4 -
+/images/images/about.php 1 -
+/wp-includes/SimplePie/Exception-wp.php 1 -
+/ALFA_DATA/alfacgiapi/perl.alfa 23 -
+/asset/plugins/jquery.filer/php/upload.php 1 -
+/admin/ckeditor/kcfinder/upload.php 1 -
+/wp-content/plugins/envato-css.php 1 -
+/wp-includes/js/autoload_classmap.php 1 www.google.com
+/wp-content/themes/wp-pridmag/up.php 1 www.google.com
+/store 13 www.google.com
+/laboratorium2023.tar.gz 4 -
+/asset/plugins/js/server/php 1 -
+/admin/core/kcfinder/upload.php 1 -
+/wp-content/plugins/dzs-zoomsounds/alfacgiapi/perl.alfa 1 -
+/wp-includes/IXR/admin.php 1 -
+/wp-content/plugins/ndak/marijuana.php 1 www.google.com
+/bkp2 3 www.google.com
+/flame.php 12 www.google.com
+/ard/assets/js/kcfinder/upload.php 1 -
+/minimo.php 1 www.google.com
+/asset/server/php 1 -
+/laboratoriumpublic.tar.gz 4 -
+/0x0.php 1 www.google.com
+/2017.tar.gz 4 -
+/.well-known/acme-challenge/Alfa.php 1 www.google.com
+/cms/administrator 3 -
+/backup_laboratorium.poltekkesbanten.ac.id.tar 4 -
+/administrator/help/en-GB/toc.json 1 -
+/2020.rar 4 -
+/dp3a.zip 4 -
+/laboratoriumpoltekkesbantenpublic.tar 4 -
+/archive.rar 4 -
+/pvt.php 2 -
+/bpjsdaerah.rar 4 -
+/archive.tar 4 -
+/wp-content/ccx/index.php 9 -
+/App.tar 4 -
+/wordpress/ALFA_DATA/alfacgiapi/index.php 9 -
+/images/admin.php 1 -
+/puki.php 4 www.google.com
+/customize.php 1 -
+/wp-content/plugins/db/mar.php 1 www.google.com
+//wp-admin/images/admin.php 2 -
+/wp-content/plugins/autoload_classmap.php 1 -
+/4x4.php 1 www.google.com
+/wp/v2geb.php 1 www.google.com
+//baxa1.php7 2 -
+/dprkp.tar 4 -
+/jurnal.tar.gz 5 -
+/%7Bsiteupper%7D2024.tar 4 -
+/assets/vendor/kcfinder-3.12/upload.php 1 -
+/wp-includes/js/jquery/bypass.php 1 -
+/img/ALFA_DATA/alfacgiapi/perl.alfa 1 -
+//admin/function.php 2 -
+/%7Bsiteupper%7D2022.rar 4 -
+/seeyon/test123456.jsp 1 -
+/kebakaran.rar 4 -
+/site/ckeditor/kcfinder/upload.php 1 -
+/assets.zip 4 -
+/wp-includes/ID3/vp.php 1 www.google.com
+/assets/alfacgiapi/perl.alfa 18 -
+/old/alfacgiapi/perl.alfa 18 -
+/mt/pekok.php 1 www.google.com
+/bpjsdaerah.zip 4 -
+/app.tar.gz 10 -
+/assets/plugins/filemanager/dialog.php 3 -
+//templates/protostar/error.php 2 -
+/demo.tar.gz 4 -
+/website.gz 1 -
+/app.tar.bz2 5 -
+/upload/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/conferences.rar 4 -
+/WordPress 16 www.google.com
+/wp-content/upgrade/alfacgiapi/bash.alfa 18 -
+/wpbackup5 12 www.google.com
+/foxwso.php 5 www.google.com
+/backup_jurnal_2022.rar 4 -
+/base.php 5 -
+/login.tar 4 -
+/dpubinmarcipka.rar 4 -
+/wp-includes/certificates/index.php 4 -
+//wp-includes/pomo/zmFM.php 2 -
+/%7Bsub0upper%7D.%7Bsub1upper%7D2023.zip 4 -
+/.alf.php 1 -
+/B3KP 12 www.google.com
+/.tmb/ALFA_DATA/alfacgiapi/index.php 9 -
+/jp.php 1 -
+/assets/upload/ALFA_DATA/alfacgiapi/bash.alfa 18 -
+/stylec.php 4 www.google.com
+/laboratorium2022.tar.gz 4 -
+/chitoge.php 1 www.google.com
+/about 13 www.google.com
+/ejournall.zip 4 -
+/a1.php 3 -
+/mclash.php 1 www.google.com
+/wp-phpinfo.php 1 www.google.com
+/dpuair.rar 4 -
+/js/ 2 -
+/Backup.tar 4 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/perl.alfa 17 -
+/diknas.zip 4 -
+/gifclass.php 1 -
+/.well-known/wso112233.php 9 -
+/assets/css/403.php 11 -
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/perl.alfa 18 -
+/axis2/axis2-admin/login 2 -
+/wp-content/plugins/wp-conflg.php 1 -
+/asset/plugins/server/php 1 -
+/Simple.php 1 -
+/e-learning.zip 4 -
+/.tmb/bypass.php 1 -
+/components/alfacgiapi/bash.alfa 18 -
+/wp-content.tar 4 -
+/cron.php 1 www.google.com
+/5.tar 4 -
+/.well-known/acme-challenge/file.php 1 -
+/admin/asset/plugins/js/server/php 1 -
+/fg.php 3 -
+/laboratorium.poltekkesbanten.ac.id2022.tar 4 -
+/tppk.zip 4 -
+/danci.php 4 www.google.com
+/wp-includes/feed-rsss.php 1 -
+/gec212.php 11 -
+/laboratoriumpoltekkesbanten.tar.bz2 6 -
+/weblaboratorium.tar.gz 4 -
+/laboratorium_2023.zip 4 -
+/resources.tar 4 -
+/2index.php 3 www.google.com
+/scripts/js/kcfinder/upload.php 1 -
+/uploads/images/uploadfiles/kcfinder/upload.php 1 -
+/demo 29 www.google.com
+/administrator.php 3 -
+/uploads/server/php 1 -
+/anonsec.php 7 www.google.com
+/help.php 4 www.google.com
+/lama.zip 4 -
+//.well-known/about.php 2 -
+/ujian.tar 4 -
+/laboratorium.poltekkesbanten.ac.idv1.tar 4 -
+/wp-admin/maint/file.php 1 -
+/toko 13 www.google.com
+/system.tar.gz 4 -
+//h.php 2 -
+/.well-known.gz 5 -
+/backup/alfacgiapi/radio.php 9 -
+/style.php 4 -
+/h.php 13 -
+/sites/all/libraries/mailchimp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 10 -
+/kebakaran.tar.gz 4 -
+/wp-content/themes/astra/inc/ki1k.php 1 -
+/images/alfacgiapi/index.php 9 -
+/.well-known/pki-validation/1.php 1 -
+/po-includes.zip 4 -
+/new/alfacgiapi/radio.php 9 -
+/login/wp1/wp-includes/wlwmanifest.xml 57 -
+/uploads/files/upload/images/kcfinder/upload.php 1 -
+/wp-includes/xmlrpc.php 3 -
+//home.php 2 -
+/laboratorium_poltekkesbanten.tar.gz 4 -
+/administrator/index2.php 3 -
+/archives.php 2 -
+/e-learning.rar 4 -
+/bak 1 -
+//wp-content/plugins/fighter/ultra.php 2 -
+/crm/.env 1 -
+/unduh 13 www.google.com
+/cgi-bin/wp-2019.php 2 -
+/wp-content/banners/about.php 9 -
+/document.tar.gz 4 -
+/poltekkesbanten.rar 9 -
+/web/wp-includes/wlwmanifest.xml 1 -
+//as.php 2 -
+/5.php 14 www.google.com
+/wp-content/themes/kadence/functions.php 1 -
+/weblaboratorium.rar 4 -
+/public/js/kcfinder/upload.php 1 -
+/info.tar 5 -
+//wp-blog-footer.php 2 -
+/byp7.php 3 -
+/licenses.php 4 www.google.com
+/license.txt 1 www.google.com
+/ojs.7z 1 -
+/wp-includes/fonts/iqb.php 5 -
+/db-config.php 7 -
+/poltekkesbantenv2.rar 4 -
+/Laboratorium2024 13 www.google.com
+/backup/ALFA_DATA/alfacgiapi/index.php 9 -
+/poltekkesbanten_lama.tar 4 -
+//wp-content/themes/wordpress-mag/up.php 2 -
+/%7Bsiteupper%7Dv1.tar 4 -
+/pdam.rar 4 -
+/sftp-config.json 31 -
+/dispar.zip 4 -
+/v2.rar 4 -
+/Laboratorium4 13 www.google.com
+/dispuprkim.tar 4 -
+/wp-includes/Requests/Auth/index.php 3 -
+/settings/sftp.json 1 -
+/you.php 1 www.google.com
+/putr.tar.gz 4 -
+/wp-defaul.php 8 www.google.com
+/Dz.php 5 www.google.com
+/priv01.php 4 www.google.com
+/wp-access.php 3 -
+/wp-2018.php 4 www.google.com
+/jurnallaboratorium.tar 4 -
+/wp-admin/js/widgets/about.php 1 -
+/ejournals.rar 4 -
+/tpp.tar 4 -
+/wordpress/ALFA_DATA/alfacgiapi/radio.php 9 -
+/wp 20 -
+/wp-clon.php 8 -
+/wp-content/themes/alfacgiapi/perl.alfa 18 -
+/erros_run.php 9 -
+/wordpress.rar 4 -
+/wp-includes/customize/class-wp-customize-nav-menu-auto-add-control-repository.php 1 -
+/wp2/wp-includes/wlwmanifest.xml 1 -
+/r.php 13 -
+/pda.php 4 www.google.com
+/laravel.tar.gz 4 -
+/backup/sftp.json 1 -
+/ticket.php 4 www.google.com
+/wp-includes/style-engine/index.php 1 -
+/wp-backup.zip 4 -
+/old-index.php 4 -
+/wp-includes/fw.php 4 -
+/__MACOSX.rar 4 -
+/p7m94.php 3 -
+/poltekkesbanten.tar.gz 9 -
+/kejari.tar 4 -
+/gizi.tar.gz 5 -
+/tinyfilemanager.php 15 www.google.com
+/simpeg.rar 4 -
+/assets/scripts/filemanager/dialog.php 1 -
+/exploit.php 3 -
+/2015.zip 4 -
+/sisdjatansdabm.tar.gz 4 -
+/laboratoriumv1.rar 4 -
+/poltekkesbanten2023.tar 4 -
+//wp-blog.php 2 -
+/assets/uploads/alfacgiapi/404.php 9 -
+/wp-includes/js/tinymce/skins/lightgray/img/about.php 1 -
+//wp-includes/item.php 2 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 181
+103.177.177.129 4859 5545 663563479 20250831225121
+199.127.63.248 46 46 171856 20250807163913
+167.172.93.197 27 27 100872 20250830113748
+152.42.244.162 22 22 78456 20250809034128
+146.75.160.27 20 69 25998919 20250829001137
+182.6.7.146 18 81 38624268 20250810225544
+182.6.4.91 16 44 16404854 20250827223636
+146.75.160.26 14 68 18675745 20250825065257
+112.215.238.105 13 21 1907491 20250819081749
+182.6.6.20 13 39 16159635 20250803211913
+140.213.9.202 12 17 1195121 20250819081838
+157.230.41.234 12 12 44832 20250826014109
+194.233.64.236 12 12 44832 20250829230816
+182.6.0.35 11 11 643771 20250826215526
+188.166.191.56 10 10 33624 20250814055124
+103.186.30.230 9 9 33624 20250827045422
+172.225.78.213 9 25 8387270 20250820050624
+114.4.212.29 9 23 14385206 20250811033104
+182.6.11.143 6 20 14650813 20250820231611
+140.213.136.64 6 6 215893 20250820001450
+152.42.197.84 6 6 22416 20250829200402
+172.225.78.203 6 18 7950232 20250807000838
+182.6.7.51 5 19 8137074 20250825011647
+182.3.47.62 5 19 8126370 20250827033556
+145.220.91.19 5 5 18680 20250831201529
+114.124.183.45 0 1 146896 
+114.124.151.157 1 3 39108 20250814033520
+193.26.115.6 1 1 3736 20250831132605
+140.213.128.212 3 11 746028 20250821032907
+112.215.231.26 3 11 7384815 20250813202750
+194.233.64.133 2 2 7472 20250819085309
+104.28.118.72 2 3 52555 20250820045535
+185.241.208.212 1 1 3736 20250820192614
+114.8.211.250 0 3 573668 
+182.6.3.158 4 4 78484 20250826045742
+147.93.158.187 1 1 3736 20250831010921
+202.155.143.229 1 1 3736 20250823123156
+104.28.118.69 3 3 204322 20250820045929
+147.93.157.159 1 1 3736 20250831010641
+140.213.6.248 1 4 6148828 20250826021009
+103.186.30.186 3 3 11208 20250817203937
+159.223.84.242 2 2 7532 20250815011917
+47.82.11.216 1 1 3736 20250814092626
+68.183.230.22 4 4 14944 20250817024117
+104.28.118.63 1 4 6072129 20250824233651
+114.10.30.53 2 9 760369 20250804234057
+169.197.142.180 3 3 11208 20250808044350
+114.124.182.188 1 2 6598851 20250814033524
+172.225.78.223 2 5 6636609 20250826020841
+175.24.181.155 1 1 3736 20250815020305
+84.247.144.190 1 1 3736 20250829133859
+91.199.118.57 2 2 7472 20250816083846
+140.213.6.54 0 2 237753 
+112.215.152.242 1 1 3736 20250815000320
+182.6.0.157 1 1 3736 20250820021937
+114.124.150.12 0 1 1263 
+139.59.234.195 1 1 3766 20250827061009
+114.4.78.218 2 15 1506494 20250820231814
+199.45.154.147 2 3 13878 20250809111304
+104.28.118.70 1 4 349947 20250807000555
+84.247.170.208 1 1 3736 20250830200352
+104.28.229.14 2 2 7472 20250815035820
+182.6.0.154 3 16 8023300 20250820024925
+167.172.82.213 2 2 7472 20250821104508
+172.225.78.192 1 8 756450 20250807022405
+165.232.127.122 1 2 10142 20250819012513
+43.128.99.181 1 1 3736 20250830072429
+157.66.54.86 2 2 7472 20250826042312
+112.215.45.116 0 1 1263 
+147.139.140.90 2 2 7472 20250807193208
+167.99.67.219 2 2 7502 20250807091446
+159.223.44.200 1 1 3736 20250808060716
+128.199.168.195 2 2 7532 20250826010235
+162.243.4.24 1 1 552144 20250819075558
+64.227.187.73 4 4 14944 20250818054514
+104.28.121.63 1 2 22938 20250807000724
+182.6.9.252 3 17 8082993 20250820231236
+114.10.118.58 3 5 60161 20250811002339
+150.158.45.24 2 2 7472 20250805121050
+182.6.6.160 5 19 8141739 20250820043240
+206.189.89.54 2 2 7502 20250803165057
+18.224.192.118 1 1 3736 20250820090719
+180.254.73.57 2 10 1162588 20250823041203
+146.190.109.159 1 1 3766 20250829203532
+140.213.6.93 0 1 30514 
+81.29.134.51 1 2 10142 20250807121936
+103.120.76.54 3 15 1797774 20250802213136
+104.28.118.73 4 19 8107607 20250803213722
+172.225.78.214 0 4 406503 
+114.124.183.61 0 1 171895 
+157.173.193.153 3 3 11208 20250831080238
+137.184.31.44 4 4 14944 20250824110432
+182.6.4.234 5 19 8119332 20250803234849
+114.8.210.146 2 8 753780 20250813221056
+182.6.10.176 5 19 8125589 20250828224819
+68.183.239.229 1 1 3736 20250815000211
+182.6.9.143 1 1 3736 20250819000923
+182.6.7.128 4 4 89439 20250821033803
+159.223.66.158 1 1 3766 20250802040847
+182.6.7.43 5 21 8152119 20250812022824
+24.199.118.231 1 2 10142 20250804235855
+114.124.182.44 0 1 88151 
+157.66.54.26 2 2 7472 20250830171303
+114.124.150.28 0 1 503168 
+51.222.21.64 1 1 3736 20250805002436
+114.10.75.247 5 20 14170757 20250804033307
+174.138.29.129 4 4 14944 20250825235421
+178.128.121.135 1 1 3736 20250801130921
+128.199.232.49 1 1 3736 20250823072019
+182.6.2.1 1 1 3736 20250807021624
+112.215.45.83 0 1 171895 
+188.166.237.147 2 2 7472 20250827051741
+112.215.252.56 4 10 752514 20250813202647
+114.10.113.3 2 16 7517450 20250804002432
+182.6.1.61 5 19 8113581 20250814023718
+206.189.152.2 2 2 7472 20250816225433
+103.206.72.5 1 1 3736 20250814000859
+104.234.167.102 4 4 14944 20250813212601
+114.8.213.141 4 18 8111469 20250814025324
+182.2.136.74 4 4 61561 20250824213114
+140.213.130.35 3 3 59451 20250828230927
+103.208.204.132 1 5 599258 20250816210137
+112.215.152.231 0 1 30514 
+143.198.209.21 1 1 3736 20250813221522
+112.215.45.147 1 1 18351 20250815000421
+140.213.14.239 0 4 597055 
+3.140.182.19 1 1 3736 20250830100509
+114.10.67.34 5 20 14172201 20250820234225
+138.197.170.20 1 1 3736 20250819075527
+196.251.86.207 1 1 3736 20250819084738
+114.10.117.183 5 19 8107814 20250806002541
+34.220.71.146 2 2 7472 20250817105407
+165.232.168.147 3 3 11208 20250807124437
+104.28.118.68 2 8 699894 20250825045148
+114.124.148.173 1 1 26497 20250814033536
+140.213.14.58 0 1 88151 
+114.124.150.156 0 1 3840 
+138.197.158.207 1 1 3736 20250803110544
+206.189.33.69 2 2 7502 20250808114848
+172.225.78.210 5 22 8163291 20250820044207
+180.243.2.242 1 8 756450 20250827035432
+182.6.1.2 4 4 71717 20250815004715
+206.189.89.239 1 1 3736 20250829033731
+140.213.130.104 5 5 234699 20250820001036
+182.6.0.142 4 4 43859 20250820234039
+45.138.16.215 1 1 3736 20250813203145
+182.6.6.237 5 19 8120146 20250813203030
+103.161.130.233 2 9 760186 20250803012301
+147.93.157.244 2 2 7472 20250804123333
+140.213.6.156 1 5 6837867 20250815000402
+114.124.181.140 2 3 200942 20250814033718
+18.208.165.72 2 2 7472 20250825213857
+159.223.70.170 1 1 3736 20250826222524
+47.82.11.21 1 1 3736 20250807093457
+206.168.34.43 1 2 10142 20250809122522
+182.6.7.26 3 3 73862 20250826234810
+165.22.60.8 1 1 3736 20250806123103
+112.215.152.99 2 4 6627864 20250826021103
+103.59.160.174 1 1 3736 20250803032323
+155.117.20.192 2 2 7472 20250821031756
+140.213.14.174 1 3 25580 20250815000334
+114.10.64.46 1 7 750044 20250803002632
+45.94.31.77 1 1 3736 20250815114229
+143.110.150.225 2 2 7472 20250825220832
+104.248.147.84 1 1 3736 20250829113700
+114.124.182.60 1 5 430546 20250814033439
+140.213.14.107 2 3 358681 20250815000511
+98.82.179.1 2 2 7472 20250813163704
+140.213.14.132 0 1 503168 
+172.225.72.40 5 19 7550605 20250826020804
+182.6.7.13 1 7 750044 20250830035337
+159.223.90.11 2 2 7472 20250818125623
+112.215.45.245 2 6 545722 20250826021016
+114.10.67.94 5 19 8141303 20250820043058
+128.199.155.125 1 1 3766 20250826055559
+140.213.138.22 5 11 7426930 20250821033128
+152.42.234.125 2 2 7532 20250819120158
+68.183.228.19 1 1 3766 20250803123945
+165.232.162.115 1 1 3736 20250806073503
+143.110.247.153 2 2 7472 20250805085450
+140.213.142.158 4 4 52475 20250828230829
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 31
+20250801 145 180 17371115 6
+20250802 12 24 1831428 10
+20250803 158 268 72995275 18
+20250804 390 460 67780763 18
+20250805 348 370 23014721 20
+20250806 103 117 13039525 15
+20250807 340 380 35357880 27
+20250808 154 196 30311980 11
+20250809 10 12 50172 5
+20250810 150 219 44455679 3
+20250811 166 202 23123515 4
+20250812 181 211 19061268 8
+20250813 372 418 53618017 13
+20250814 405 494 74552459 16
+20250815 122 183 32513554 14
+20250816 10 14 632882 6
+20250817 15 15 56040 7
+20250818 65 94 18606707 6
+20250819 109 169 18363553 13
+20250820 453 686 165015213 20
+20250821 298 368 44780211 12
+20250822 232 262 51160846 5
+20250823 4 12 1170060 3
+20250824 122 168 28511484 7
+20250825 220 256 33017840 12
+20250826 226 296 73007063 16
+20250827 287 350 53064836 12
+20250828 97 153 41588193 4
+20250829 132 161 19797006 11
+20250830 12 18 791140 7
+20250831 135 149 9853918 6
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+30s-2mn 34
+5mn-15mn 16
+0s-30s 218
+15mn-30mn 9
+1h+ 29
+2mn-5mn 18
+30mn-1h 11
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 760
+/petugas/request 798 30380120 7 6
+/login 667 2494376 268 211
+/user/peminjaman 362 9071777 0 10
+/petugas/pengembalian 281 72028647 7 10
+/profile 247 5344810 14 6
+/user/kunjungan 243 5791235 6 45
+/user/req_peminjaman 242 31139788 3 5
+/petugas/request_jadwal 197 8995809 0 2
+/user/jadwal_praktikum 100 9389694 2 4
+/thema/assets/css/icons/tabler-icons/fonts/tabler-icons.woff2 84 44723664 7 7
+/petugas/laporan/kunjungan_lab 77 11577955 0 1
+/petugas/laporan 51 1466709 0 0
+/petugas/laporan/penggunaan_lab 50 1909849 0 1
+/home 50 1286748 6 1
+/petugas/barangmedis 43 66115136 0 1
+/petugas/barang 42 10382631 1 0
+/petugas/pengembalian_detail2/479 32 2500522 0 0
+/petugas/pengembalian_detail2/492 27 1971172 0 0
+/user/req_jadwal 25 939614 0 0
+/petugas/belum_dikembalikan 24 1530362 0 2
+/petugas/laporan/pinjaman_alat_medis 21 3547039 0 0
+/petugas/barangbhp 16 1323659 0 1
+/petugas/pengembalian_detail2/488 16 799584 0 0
+/petugas/pengembalian_detail2/480 15 769235 0 0
+/petugas/pengembalian_detail2/481 15 716660 0 0
+/petugas/request_detail/691 1 26292 0 0
+/petugas/pengembalian_detail2/598 4 134894 0 0
+/petugas/request_detail/676 2 74226 0 0
+/petugas/request_detail/596 1 29605 0 0
+/petugas/pengembalian_detail2/544 6 244088 0 0
+/petugas/pengembalian_detail2/558 11 442942 0 0
+/petugas/pengembalian_detail2/395 2 66406 0 0
+/petugas/request_detail/391 1 33201 0 0
+/petugas/request_detail/427 2 52582 0 0
+/petugas/request_detail/481 1 41221 0 0
+/petugas/request_detail/336 4 130738 0 0
+/petugas/pengembalian_detail2/712 2 53545 0 0
+/petugas/request_detail/436 3 78641 0 0
+/petugas/request_detail/586 7 220586 0 0
+/petugas/pengembalian_detail2/351 1 24519 0 0
+/petugas/pengembalian_detail2/356 2 65194 0 0
+/petugas/pengembalian_detail2/452 4 124237 0 0
+/petugas/pengembalian_detail2/306 9 331753 0 0
+/petugas/pengembalian_detail2/522 5 193824 0 0
+/petugas/pengembalian_detail2/610 2 60326 0 0
+/petugas/request_detail/631 2 52420 0 0
+/index.php/login 14 52724 14 11
+/petugas/pengembalian_detail2/457 4 149163 0 0
+/petugas/pengembalian_detail2/553 3 85155 0 0
+/petugas/request_detail/589 2 52095 0 0
+/petugas/request_detail/582 1 33831 0 0
+/petugas/tambah_jadwal 1 48435 0 0
+/petugas/pengembalian_detail2/367 3 104922 0 0
+/petugas/pengembalian_detail2/333 2 60686 0 0
+/petugas/request_detail/488 2 89109 0 0
+/petugas/request_detail/381 3 85104 0 0
+/petugas/pengembalian_detail2/686 3 104644 0 0
+/petugas/request_detail/352 1 43478 0 0
+/user/peminjaman_detail/361 1 11521 0 0
+/petugas/pengembalian_detail2/591 2 53043 0 0
+/petugas/request_detail/662 1 26297 0 0
+/petugas/request_detail/375 2 56652 0 0
+/petugas/request_detail/405 1 33115 0 0
+/petugas/request_detail/695 1 27198 0 0
+/petugas/request_detail/519 1 38420 0 0
+/user/peminjaman_detail/298 2 37538 0 0
+/user/peminjaman_detail/425 1 11127 0 0
+/petugas/request_detail/367 1 28585 0 0
+/petugas/request_detail/496 2 64479 0 0
+/petugas/request_detail/616 1 33771 0 0
+/petugas/pengembalian_detail2/318 2 65121 0 0
+/petugas/request_detail/543 1 26303 0 0
+/petugas/laporan/bahan_bhp 3 137093 0 0
+/petugas/request_detail/432 1 29497 0 0
+/petugas/pengembalian_detail2/412 5 150574 0 0
+/petugas/pengembalian_detail2/542 2 57924 0 0
+/petugas/request_detail/457 1 34784 0 0
+/petugas/pengembalian_detail2/458 4 147799 0 0
+/petugas/pengembalian_detail2/633 2 66343 0 0
+/petugas/request_detail/370 1 27487 0 0
+/petugas/pengembalian_detail2/403 6 205293 0 0
+/petugas/pengembalian_detail2/569 5 150168 0 0
+/petugas/pengembalian_detail2/699 2 53039 0 0
+/user/peminjaman_detail/584 1 18248 0 0
+/petugas/pengembalian_detail2/312 4 146590 0 0
+/petugas/request_detail/429 1 32055 0 0
+/petugas/request_detail/353 1 36657 0 0
+/petugas/request_detail/316 1 26051 0 0
+/petugas/request_detail/540 1 29924 0 0
+/petugas/request_detail/687 1 27475 0 0
+/petugas/request_detail/507 1 32676 0 0
+/petugas/pengembalian_detail2/626 5 181614 0 0
+/petugas/pengembalian_detail2/599 2 63377 0 0
+/petugas/request_detail/710 1 38164 0 0
+/petugas/pengembalian_detail2/685 3 104649 0 0
+/petugas/request_detail/572 1 27840 0 0
+/petugas/pengembalian_detail2/299 3 105069 0 0
+/petugas/request_detail/368 1 33223 0 0
+/petugas/request_detail/331 2 78005 0 0
+/petugas/pengembalian_detail2/373 4 147415 0 0
+/petugas/request_detail/443 1 39778 0 0
+/petugas/pengembalian_detail2/525 2 53239 0 0
+/petugas/request_detail/354 1 36672 0 0
+/petugas/request_detail/393 1 33532 0 0
+/petugas/request_detail/412 1 29670 0 0
+/petugas/pengembalian_detail2/445 4 134653 0 0
+/petugas/request_detail/475 1 37371 0 0
+/petugas/request_detail/328 2 52888 0 0
+/petugas/pengembalian_detail2/346 3 103597 0 0
+/petugas/pengembalian_detail2/302 4 147735 0 0
+/petugas/pengembalian_detail2/705 2 54603 0 1
+/petugas/pengembalian_detail2/579 3 102233 0 0
+/petugas/pengembalian_detail2/597 3 98471 0 0
+/petugas/request_detail/404 1 35372 0 0
+/petugas/request_detail/588 1 26132 0 0
+/petugas/pengembalian_detail2/625 2 52755 0 0
+/petugas/request_detail/320 1 29731 0 0
+/petugas/request_detail/516 1 32771 0 0
+/petugas/request_detail/612 2 65624 0 0
+/petugas/pengembalian_detail2/506 10 392070 0 0
+/petugas/request_detail/527 1 32780 0 0
+/petugas/request_detail/622 1 34138 0 0
+/petugas/pengembalian_detail2/682 2 65864 0 0
+/petugas/request_detail/323 1 26039 0 0
+/petugas/pengembalian_detail2/632 5 166942 0 0
+/petugas/pengembalian_detail2/508 3 103131 0 0
+/petugas/pengembalian_detail2/374 3 104922 0 0
+/user/peminjaman_detail/279 1 25859 0 0
+/petugas/pengembalian_detail2/298 8 317134 0 0
+/petugas/request_detail/424 2 51882 0 0
+/petugas/pengembalian_detail2/668 2 66326 0 0
+/petugas/request_detail/500 1 31097 0 0
+/petugas/request_detail/465 1 33963 0 0
+/user/peminjaman_detail/563 1 17961 0 0
+/petugas/pengembalian_detail2/441 3 90789 0 0
+/petugas/request_detail/426 2 54128 0 0
+/petugas/request_detail/707 1 36603 0 0
+/petugas/pengembalian_detail2/415 4 147856 0 1
+/petugas/pengembalian_detail2/720 2 65913 0 0
+/petugas/request_detail/433 1 28347 0 0
+/petugas/request_detail/504 1 43224 0 0
+/petugas/request_detail/346 1 34039 0 0
+/petugas/request_detail/394 1 32996 0 0
+/petugas/request_detail/699 1 26050 0 0
+/petugas/request_detail/614 2 65532 0 0
+/petugas/request_detail/641 1 27049 0 0
+/petugas/request_detail/672 1 34447 0 0
+/petugas/pengembalian_detail2/324 2 63289 0 0
+/petugas/request_detail/654 1 35004 0 0
+/petugas/pengembalian_detail2/406 4 133147 0 0
+/petugas/request_detail/514 2 65520 0 0
+/petugas/pengembalian_detail2/534 1 33659 0 0
+/petugas/request_detail/712 1 32509 0 0
+/petugas/pengembalian_detail2/586 5 160584 0 0
+/petugas/request_detail/418 1 29339 0 0
+/petugas/pengembalian_detail2/489 4 147360 0 0
+/petugas/request_detail/692 1 36174 0 0
+/petugas/laporan/penambahan_bahan_bhp 2 60115 0 0
+/petugas/request_detail/696 1 32042 0 0
+/petugas/pengembalian_detail2/372 4 133567 0 0
+/petugas/pengembalian_detail2/345 10 475759 0 0
+/petugas/request_detail/657 2 52776 0 0
+/petugas/pengembalian_detail2/339 7 225048 0 0
+/petugas/request_detail/430 1 34310 0 0
+/petugas/request_detail/392 1 31123 0 0
+/petugas/request_detail/409 1 30627 0 0
+/petugas/pengembalian_detail2/672 8 298180 0 0
+/petugas/request_detail/581 1 33838 0 0
+/petugas/pengembalian_detail2/706 5 161924 0 0
+/petugas/pengembalian_detail2/307 10 398161 0 0
+/petugas/request_detail/721 1 31177 0 0
+/petugas/pengembalian_detail2/414 5 152724 0 0
+/user/peminjaman_detail/613 1 17478 0 0
+/petugas/request_detail/334 1 37774 0 0
+/petugas/pengembalian_detail2/652 4 134324 0 0
+/petugas/request_detail/680 1 26307 0 0
+/petugas/request_detail/547 1 30897 0 0
+/petugas/request_detail/587 2 52097 0 0
+/petugas/pengembalian_detail2/323 2 65565 0 0
+/petugas/request_detail/479 1 60420 0 0
+/petugas/pengembalian_detail2/653 3 93248 0 0
+/petugas/request_detail/455 2 59265 0 0
+/petugas/request_detail/713 1 26053 0 0
+/petugas/request_detail/518 1 34972 0 0
+/petugas/request_detail/371 1 26297 0 0
+/petugas/request_detail/638 1 31237 0 0
+/petugas/pengembalian_detail2/313 4 146534 0 0
+/petugas/pengembalian_detail2/386 2 66400 0 0
+/petugas/request_detail/311 1 32301 0 0
+/petugas/request_detail/524 1 32964 0 0
+/petugas/request_detail/656 2 52608 0 0
+/petugas/request_detail/658 2 52604 0 0
+/petugas/pengembalian_detail2/623 3 84771 0 0
+/petugas/request_detail/361 1 27445 0 0
+/petugas/request_detail/425 1 26054 0 0
+/petugas/request_detail/473 1 32735 0 0
+/petugas/pengembalian_detail2/563 2 66641 0 0
+/petugas/request_detail/708 2 64039 0 0
+/petugas/pengembalian_detail2/311 6 242308 0 0
+/petugas/request_detail/401 1 34457 0 0
+/petugas/pengembalian_detail2/709 3 85914 0 0
+/petugas/pengembalian_detail2/504 9 414304 0 0
+/petugas/pengembalian_detail2/390 4 147356 0 0
+/petugas/pengembalian_detail2/575 4 148283 0 0
+/petugas/request_detail/598 1 29529 0 0
+/petugas/pengembalian_detail2/676 6 204519 0 0
+/petugas/request_detail/452 1 35268 0 0
+/user/peminjaman_detail/513 3 54606 0 0
+/petugas/pengembalian_detail2/694 7 250758 0 0
+/petugas/request_detail/379 3 93237 0 0
+/petugas/request_detail/403 1 37879 0 0
+/petugas/request_detail/698 2 66840 0 0
+/petugas/request_detail/583 1 41194 0 0
+/petugas/pengembalian_detail2/715 6 243394 0 0
+/petugas/request_detail/478 2 66304 0 0
+/petugas/request_detail/558 2 74583 0 0
+/petugas/pengembalian_detail2/400 8 354556 0 0
+/petugas/pengembalian_detail2/667 2 66280 0 0
+/petugas/request_detail/498 2 72794 0 0
+/petugas/request_detail/667 1 28750 0 0
+/petugas/request_detail/342 1 36157 0 0
+/petugas/request_detail/722 1 31384 0 0
+/petugas/request_detail/505 1 32861 0 0
+/petugas/pengembalian_detail2/562 3 105373 0 0
+/petugas/request_detail/660 1 27455 0 0
+/petugas/request_detail/501 2 61745 0 0
+/petugas/request_detail/397 1 36940 0 0
+/petugas/request_detail/327 1 26292 0 0
+/petugas/pengembalian_detail2/683 2 65858 0 0
+/petugas/request_detail/312 1 31035 0 0
+/petugas/request_detail/630 1 33961 0 0
+/petugas/pengembalian_detail2/670 3 105264 0 0
+/petugas/request_detail/467 2 65582 0 0
+/petugas/request_detail/549 1 28413 0 0
+/petugas/request_detail/592 1 26054 0 0
+/petugas/pengembalian_detail2/674 5 157425 0 0
+/petugas/request_detail/365 2 52758 0 0
+/petugas/request_detail/610 1 30616 0 0
+/petugas/request_detail/485 1 34276 0 0
+/petugas/pengembalian_detail2/695 3 85197 0 0
+/petugas/request_detail/531 2 55835 0 0
+/petugas/pengembalian_detail2/422 2 53241 0 0
+/petugas/request_detail/717 1 27207 0 0
+/petugas/pengembalian_detail2/596 2 60724 0 0
+/user/peminjaman_detail/345 1 21026 0 0
+/petugas/pengembalian_detail2/559 4 149249 0 0
+/petugas/request_detail/629 2 52618 0 0
+/petugas/pengembalian_detail2/322 2 64857 0 0
+/petugas/request_detail/510 2 76354 0 0
+/petugas/request_detail/472 1 34970 0 0
+/petugas/request_detail/349 2 77167 0 0
+/petugas/request_detail/653 1 26300 0 0
+/petugas/pengembalian_detail2/723 5 179375 0 0
+/user/peminjaman_detail/481 2 41200 0 0
+/petugas/request_detail/608 1 30073 0 0
+/petugas/request_detail/705 1 26091 0 0
+/petugas/request_detail/493 1 44340 0 0
+/petugas/pengembalian_detail2/615 4 147966 0 0
+/petugas/request_detail/727 2 54340 0 0
+/petugas/request_detail/363 1 27477 0 0
+/petugas/pengembalian_detail2/566 2 61432 0 0
+/petugas/pengembalian_detail2/342 1 28823 0 0
+/petugas/request_detail/317 1 27194 0 0
+/petugas/request_detail/477 1 36117 0 0
+/petugas/pengembalian_detail2/338 8 292435 0 0
+/petugas/request_detail/725 2 61230 0 0
+/petugas/pengembalian_detail2/583 7 295706 0 0
+/petugas/pengembalian_detail2/647 4 147108 0 0
+/petugas/request_detail/440 1 33683 0 0
+/user/peminjaman_detail/565 1 17797 0 0
+/petugas/request_detail/454 1 31928 0 0
+/petugas/pengembalian_detail2/484 9 312413 0 0
+/petugas/request_detail/541 1 26307 0 0
+/petugas/pengembalian_detail2/589 2 53035 0 0
+/petugas/request_detail/459 2 72536 0 0
+/petugas/request_detail/665 1 28409 0 0
+/petugas/request_detail/461 2 72188 0 0
+/petugas/request_detail/441 1 33731 0 0
+/user/peminjaman_detail/440 1 17996 0 0
+/petugas/pengembalian_detail2/518 5 142488 0 0
+/petugas/pengembalian_detail2/513 3 105157 0 0
+/petugas/ruang 8 3934510 0 0
+/petugas/request_detail/548 1 29746 0 0
+/petugas/pengembalian_detail2/320 5 161077 0 0
+/petugas/request_detail/690 1 29674 0 0
+/petugas/pengembalian_detail2/325 2 62497 0 0
+/petugas/request_detail/635 1 27263 0 0
+/petugas/pengembalian_detail2/543 2 58015 0 0
+/petugas/request_detail/495 1 39339 0 0
+/petugas/request_detail/451 1 37566 0 0
+/petugas/pengembalian_detail2/394 4 147687 0 0
+/petugas/request_detail/618 1 38732 0 0
+/petugas/pengembalian_detail2/460 7 297766 0 0
+/petugas/request_detail/627 1 28595 0 0
+/petugas/request_detail/400 1 40194 0 0
+/petugas/pengembalian_detail2/612 4 132478 0 0
+/petugas/request_detail/313 1 32885 0 0
+/petugas/pengembalian_detail2/602 2 53551 0 0
+/petugas/request_detail/325 1 26291 0 1
+/petugas/laporan/penambahan_alat_medis 2 60127 0 0
+/petugas/request_detail/683 1 26303 0 0
+/petugas/request_detail/411 1 28327 0 0
+/petugas/request_detail/528 1 41663 0 0
+/petugas/request_detail/494 1 40914 0 0
+/petugas/pengembalian_detail2/375 2 66184 0 0
+/petugas/pengembalian_detail2/393 5 193688 0 0
+/petugas/pengembalian_detail2/725 5 175359 0 0
+/petugas/request_detail/399 1 36649 0 0
+/petugas/pengembalian_detail2/680 2 65885 0 0
+/petugas/edit_bhp/510 1 32725 0 0
+/petugas/request_detail/337 1 32658 0 0
+/petugas/request_detail/684 1 27447 0 0
+/petugas/request_detail/420 1 28598 0 0
+/petugas/pengembalian_detail2/564 2 66629 0 0
+/petugas/pengembalian_detail2/430 7 294988 0 0
+/petugas/request_detail/636 1 32598 0 0
+/petugas/request_detail/609 1 30478 0 0
+/petugas/pengembalian_detail2/590 2 53049 0 0
+/petugas/laporan/pinjaman_bahan_bhp 9 581975 0 0
+/petugas/request_detail/408 1 28598 0 0
+/petugas/pengembalian_detail2/571 2 66594 0 0
+/petugas/pengembalian_detail2/417 2 66490 0 0
+/petugas/request_detail/539 1 26480 0 0
+/petugas/pengembalian_detail2/349 7 299299 0 0
+/petugas/request_detail/560 2 74557 0 0
+/petugas/pengembalian_detail2/727 2 58311 0 0
+/petugas/request_detail/460 4 147314 0 1
+/petugas/pengembalian_detail2/696 6 204457 0 0
+/petugas/request_detail/545 1 35090 0 0
+/petugas/pengembalian_detail2/355 6 234743 0 0
+/petugas/request_detail/564 1 31443 0 0
+/petugas/request_detail/647 1 28592 0 0
+/petugas/request_detail/646 2 52360 0 0
+/petugas/request_detail/463 1 27212 0 0
+/petugas/request_detail/700 1 29735 0 0
+/petugas/request_detail/679 1 28593 0 0
+/petugas/request_detail/520 1 36102 0 0
+/petugas/request_detail/326 2 53026 0 0
+/user/peminjaman_detail/552 2 34872 0 1
+/petugas/request_detail/537 1 26341 0 0
+/petugas/request_detail/615 1 35089 0 0
+/petugas/request_detail/546 1 33833 0 0
+/petugas/request_detail/655 1 26207 0 0
+/petugas/pengembalian_detail2/502 5 173079 0 0
+/user/peminjaman_detail/234 1 25076 0 0
+/petugas/request_detail/571 1 27639 0 0
+/petugas/request_detail/551 2 65554 0 0
+/petugas/pengembalian_detail2/519 8 297195 0 0
+/user/peminjaman_detail/449 1 17787 0 0
+/user/peminjaman_detail/548 1 12324 0 0
+/petugas/request_detail/471 2 65422 0 0
+/petugas/pengembalian_detail2/649 2 66090 0 0
+/petugas/pengembalian_detail2/691 2 65884 0 0
+/petugas/pengembalian_detail2/360 3 105188 0 0
+/petugas/request_detail/339 1 37437 0 0
+/petugas/request_detail/321 1 26296 0 0
+/petugas/request_detail/585 3 97971 0 0
+/petugas/pengembalian_detail2/364 2 66281 0 0
+/petugas/pengembalian_detail2/281 5 159862 0 0
+/petugas/pengembalian_detail2/334 7 296831 0 0
+/petugas/request_detail/407 1 30897 0 0
+/petugas/pengembalian_detail2/603 1 27075 0 0
+/petugas/pengembalian_detail2/420 4 122033 0 0
+/petugas/pengembalian_detail2/494 11 506014 0 0
+/petugas/pengembalian_detail2/622 3 105076 0 0
+/petugas/request_detail/529 2 52590 0 0
+/petugas/request_detail/389 1 33306 0 0
+/petugas/request_detail/599 1 30729 0 0
+/petugas/pengembalian_detail2/368 5 191709 0 0
+/petugas/request_detail/557 1 32372 0 0
+/petugas/pengembalian_detail2/540 4 132561 0 0
+/petugas/pengembalian_detail2/515 3 100002 0 0
+/user/peminjaman_detail/458 1 18402 0 0
+/petugas/request_detail/552 2 61678 0 0
+/petugas/request_detail/470 3 98219 0 0
+/petugas/request_detail/402 1 38926 0 0
+/user/peminjaman_detail/479 2 47753 0 0
+/petugas/request_detail/632 2 52600 0 0
+/petugas/pengembalian_detail2/547 6 243689 0 0
+/petugas/request_detail/637 1 31063 0 0
+/petugas/pengembalian_detail2/335 4 147353 0 0
+/petugas/request_detail/492 2 119003 0 0
+/petugas/request_detail/607 1 30211 0 0
+/petugas/request_detail/522 1 36246 0 0
+/petugas/pengembalian_detail2/314 3 98022 0 0
+/petugas/request_detail/682 1 26304 0 0
+/petugas/request_detail/332 1 31647 0 0
+/petugas/request_detail/499 2 61753 0 0
+/petugas/pengembalian_detail2/713 2 66186 0 0
+/petugas/request_detail/538 1 33073 0 0
+/petugas/pengembalian_detail2/541 2 58151 0 0
+/petugas/request_detail/356 1 31628 0 0
+/petugas/pengembalian_detail2/286 5 174073 0 0
+/petugas/pengembalian_detail2/361 3 105119 0 0
+/petugas/request_detail/620 1 36382 0 0
+/petugas/laporan/alat_lab 1 34445 0 0
+/petugas/pengembalian_detail2/408 4 147799 0 0
+/petugas/request_detail/319 1 30883 0 0
+/petugas/pengembalian_detail2/308 2 66270 0 0
+/petugas/request_detail/462 1 26091 0 0
+/petugas/request_detail/384 2 52604 0 0
+/petugas/request_detail/611 3 98535 0 0
+/petugas/request_detail/434 1 28349 0 0
+/petugas/request_detail/338 1 38431 0 0
+/petugas/request_detail/561 2 87909 0 0
+/petugas/pengembalian_detail2/573 2 59973 0 0
+/petugas/request_detail/723 1 30326 0 0
+/petugas/request_detail/458 2 69972 0 0
+/petugas/pengembalian_detail2/359 6 243887 0 0
+/petugas/request_detail/628 1 32656 0 0
+/petugas/pengembalian_detail2/692 6 194580 0 0
+/petugas/request_detail/398 1 34645 0 0
+/petugas/pengembalian_detail2/451 6 211485 0 0
+/petugas/pengembalian_detail2/487 3 99091 0 0
+/petugas/pengembalian_detail2/443 9 366507 0 0
+/changePassword 1 15196 0 0
+/petugas/request_detail/374 2 57050 0 0
+/petugas/request_detail/714 1 28348 0 0
+/petugas/request_detail/594 1 28968 0 0
+/petugas/request_detail/566 1 28023 0 0
+/petugas/request_detail/390 3 98067 0 0
+/petugas/request_detail/651 1 32053 0 0
+/petugas/request_detail/601 1 36339 0 0
+/petugas/pengembalian_detail2/593 2 64104 0 0
+/petugas/pengembalian_detail2/535 3 98941 0 0
+/petugas/pengembalian_detail2/636 2 66289 0 0
+/petugas/request_detail/600 1 26210 0 0
+/petugas/request_detail/355 2 70773 0 0
+/petugas/pengembalian_detail2/434 3 88848 0 0
+/petugas/pengembalian_detail2/407 7 282051 0 0
+/petugas/request_detail/324 1 26827 0 0
+/petugas/request_detail/358 2 52758 0 0
+/petugas/request_detail/584 1 34245 0 0
+/user/peminjaman_detail/564 1 17550 0 0
+/petugas/request_detail/513 3 101913 0 0
+/petugas/request_detail/677 1 37223 0 0
+/petugas/request_detail/719 1 39011 0 0
+/petugas/request_detail/685 1 27462 0 0
+/petugas/request_detail/542 1 26341 0 0
+/petugas/request_detail/329 1 27763 0 0
+/petugas/request_detail/474 3 105767 0 0
+/petugas/request_detail/604 1 34013 0 0
+/petugas/request_detail/701 1 29699 0 0
+/petugas/pengembalian_detail2/634 2 66343 0 0
+/petugas/pengembalian_detail2/639 2 66197 0 0
+/petugas/request_detail/362 1 26296 0 0
+/petugas/request_detail/553 1 27184 0 0
+/petugas/request_detail/366 1 29507 0 0
+/petugas/request_detail/369 1 34326 0 0
+/petugas/request_detail/517 1 39724 0 0
+/user/peminjaman_detail/336 1 17737 0 0
+/petugas/pengembalian_detail2/330 2 57103 0 0
+/petugas/request_detail/497 2 71068 0 0
+/petugas/request_detail/640 1 29490 0 0
+/petugas/pengembalian_detail2/459 6 235065 0 0
+/petugas/request_detail/449 1 32970 0 0
+/petugas/request_detail/437 1 32738 0 0
+/user/peminjaman_detail/405 2 39305 0 1
+/user/peminjaman_detail/290 1 18370 0 0
+/petugas/pengembalian_detail2/436 2 53041 0 0
+/petugas/request_detail/709 1 33708 0 0
+/petugas/pengembalian_detail2/651 8 336073 0 0
+/petugas/request_detail/364 1 26302 0 0
+/petugas/request_detail/574 2 76338 0 0
+/petugas/pengembalian_detail2/309 1 31017 0 0
+/petugas/pengembalian_detail2/369 8 345061 0 0
+/petugas/request_detail/315 1 33393 0 0
+/petugas/request_detail/417 1 27085 0 0
+/petugas/request_detail/413 1 31774 0 0
+/petugas/request_detail/569 1 29112 0 0
+/petugas/request_detail/491 1 41056 0 0
+/petugas/request_detail/318 2 52586 0 0
+/petugas/request_detail/715 1 30666 0 0
+/petugas/request_detail/643 2 65196 0 0
+/petugas/pengembalian_detail2/473 2 63746 0 0
+/petugas/request_detail/623 1 27199 0 0
+/user/peminjaman_detail/448 1 17689 0 0
+/petugas/request_detail/330 1 26979 0 0
+/petugas/request_detail/576 1 36311 0 0
+/petugas/request_detail/444 1 32896 0 0
+/petugas/request_detail/556 1 32469 0 0
+/petugas/request_detail/359 2 61494 0 0
+/petugas/request_detail/310 2 56117 0 0
+/petugas/request_detail/343 1 32823 0 0
+/petugas/request_detail/386 2 55842 0 1
+/petugas/request_detail/590 2 52109 0 0
+/petugas/request_detail/694 1 31795 0 0
+/petugas/request_detail/415 1 28724 0 0
+/petugas/request_detail/445 1 35137 0 0
+/petugas/pengembalian_detail2/527 3 98921 0 0
+/petugas/request_detail/624 1 34926 0 0
+/petugas/pengembalian_detail2/332 2 64628 0 0
+/petugas/request_detail/446 1 34985 0 0
+/petugas/request_detail/673 1 27331 0 0
+/petugas/request_detail/689 1 26293 0 0
+/petugas/request_detail/697 1 28331 0 0
+/petugas/pengembalian_detail2/688 5 193272 0 0
+/petugas/request_detail/489 1 36477 0 0
+/petugas/request_detail/456 1 29779 0 0
+/petugas/pengembalian_detail2/253 6 242592 0 0
+/petugas/pengembalian_detail2/421 1 29608 0 0
+/petugas/request_detail/423 1 27462 0 0
+/petugas/request_detail/626 1 34904 0 0
+/petugas/pengembalian_detail2/432 5 164362 0 0
+/petugas/pengembalian_detail2/478 3 86891 0 0
+/petugas/request_detail/419 2 65399 0 0
+/petugas/request_detail/410 1 26208 0 0
+/petugas/request_detail/554 2 54092 0 0
+/petugas/request_detail/515 1 32770 0 0
+/petugas/request_detail/322 1 26289 0 0
+/petugas/pengembalian_detail2/568 4 138735 0 0
+/petugas/pengembalian_detail2/35 2 68423 0 0
+/petugas/request_detail/674 1 28462 0 0
+/petugas/request_detail/617 2 86313 0 0
+/petugas/request_detail/663 1 30894 0 0
+/petugas/pengembalian_detail2/576 6 245244 0 0
+/petugas/pengembalian_detail2/532 9 355891 0 0
+/petugas/pengembalian_detail2/438 3 90498 0 0
+/petugas/request_detail/502 1 34287 0 0
+/petugas/request_detail/416 1 27975 0 0
+/user/peminjaman_detail/457 1 18357 0 0
+/petugas/request_detail/385 1 26205 0 0
+/petugas/request_detail/681 1 26198 0 0
+/petugas/request_detail/490 1 37536 0 0
+/petugas/pengembalian_detail2/555 2 65964 0 0
+/petugas/request_detail/606 1 30883 0 0
+/petugas/request_detail/650 1 30798 0 0
+/petugas/request_detail/595 2 59660 0 0
+/user/peminjaman_detail/360 1 11516 0 0
+/petugas/request_detail/438 1 27449 0 0
+/petugas/request_detail/716 1 26130 0 0
+/petugas/pengembalian_detail2/321 2 53253 0 0
+/petugas/pengembalian_detail2/677 6 204501 0 0
+/petugas/pengembalian_detail2/724 3 95193 0 0
+/petugas/pengembalian_detail2/560 6 246062 0 0
+/petugas/pengembalian_detail2/387 7 269668 0 0
+/petugas/pengembalian_detail2/684 3 104549 0 0
+/petugas/pengembalian_detail2/383 4 122053 0 0
+/petugas/pengembalian_detail2/644 4 147186 0 0
+/user/peminjaman_detail/480 1 21760 0 0
+/user/peminjaman_detail/444 1 17782 0 0
+/petugas/pengembalian_detail2/700 6 195183 0 0
+/petugas/request_detail/511 1 36319 0 0
+/petugas/request_detail/348 1 36146 0 0
+/petugas/pengembalian_detail2/548 6 230143 0 0
+/petugas/laporan/alat_medis 1 80009 0 0
+/petugas/request_detail/573 1 27882 0 0
+/petugas/request_detail/344 1 33152 0 0
+/petugas/pengembalian_detail2/721 2 65946 0 0
+/petugas/request_detail/645 1 28588 0 0
+/petugas/pengembalian_detail2/336 2 56119 0 0
+/petugas/request_detail/241 1 35965 0 0
+/user/peminjaman_detail/460 2 39206 0 0
+/petugas/request_detail/661 1 27437 0 0
+/petugas/request_detail/544 1 37295 0 0
+/petugas/request_detail/711 1 32587 0 0
+/petugas/pengembalian_detail2/587 2 53033 0 0
+/user/peminjaman_detail/365 1 11024 0 0
+/petugas/request_detail/602 1 32731 0 0
+/petugas/request_detail/421 1 29518 0 0
+/petugas/pengembalian_detail2/444 4 111533 0 0
+/petugas/request_detail/450 1 32970 0 0
+/petugas/pengembalian_detail2/352 10 436632 0 0
+/petugas/request_detail/480 1 44591 0 0
+/petugas/pengembalian_detail2/341 2 66168 0 0
+/petugas/request_detail/388 1 29576 0 0
+/petugas/request_detail/442 2 65663 0 0
+/petugas/request_detail/532 2 68224 0 0
+/petugas/pengembalian_detail2/423 3 104681 0 0
+/user/peminjaman_detail/450 1 17787 0 0
+/petugas/request_detail/634 1 26809 0 0
+/petugas/pengembalian_detail2/398 4 121045 0 0
+/petugas/pengembalian_detail2/90 1 33401 0 0
+/petugas/pengembalian_detail2/637 3 99715 0 0
+/petugas/pengembalian_detail2/290 5 174127 0 0
+/petugas/pengembalian_detail2/693 3 80025 0 0
+/petugas/request_detail/466 1 33818 0 0
+/user/peminjaman_detail/265 1 19198 0 0
+/petugas/request_detail/639 1 31722 0 0
+/petugas/pengembalian_detail2/416 3 105376 0 0
+/petugas/pengembalian_detail2/707 6 205311 0 0
+/petugas/request_detail/591 3 78161 0 0
+/petugas/pengembalian_detail2/319 7 235664 0 0
+/petugas/request_detail/633 2 53227 0 0
+/petugas/pengembalian_detail2/429 7 296589 0 0
+/user/peminjaman_detail/264 1 17558 0 0
+/petugas/request_detail/535 1 26305 0 0
+/petugas/request_detail/562 1 32200 0 0
+/petugas/pengembalian_detail2/433 4 125321 0 0
+/petugas/request_detail/476 1 35049 0 0
+/petugas/request_detail/483 3 99195 0 0
+/petugas/request_detail/559 2 72621 0 0
+/password/reset 6 17294 0 0
+/petugas/pengembalian_detail2/643 2 66341 0 0
+/petugas/pengembalian_detail2/303 2 66484 0 0
+/petugas/request_detail/702 2 59579 0 0
+/petugas/request_detail/526 1 32856 0 0
+/petugas/request_detail/314 1 30025 0 0
+/petugas/pengembalian_detail2/619 6 243466 0 0
+/petugas/pengembalian_detail2/439 2 57597 0 0
+/petugas/request_detail/619 3 116739 0 0
+/petugas/request_detail/486 1 38533 0 0
+/petugas/request_detail/350 1 32838 0 0
+/petugas/request_detail/396 1 34988 0 0
+/petugas/pengembalian_detail2/301 2 66338 0 0
+/petugas/request_detail/383 1 28597 0 0
+/petugas/request_detail/555 2 54438 0 0
+/petugas/pengembalian_detail2/556 2 65877 0 0
+/petugas/request_detail/530 3 84580 0 0
+/petugas/pengembalian_detail2/350 4 119118 0 0
+/petugas/pengembalian_detail2/666 9 414342 0 0
+/petugas/pengembalian_detail2/511 3 102618 0 0
+/petugas/request_detail/570 1 30250 0 0
+/petugas/pengembalian_detail2/456 2 66005 0 0
+/petugas/pengembalian_detail2/328 2 57375 0 0
+/petugas/pengembalian_detail2/401 3 105255 0 0
+/petugas/request_detail/341 3 99462 0 0
+/petugas/request_detail/469 1 32762 0 0
+/petugas/request_detail/335 1 34954 0 0
+/petugas/request_detail/613 2 65324 0 0
+/petugas/request_detail/625 1 26045 0 0
+/petugas/request_detail/422 1 32712 0 0
+/petugas/pengembalian_detail2/440 3 91515 0 0
+/petugas/request_detail/464 1 34157 0 0
+/petugas/pengembalian_detail2/449 3 80679 0 0
+/petugas/request_detail/649 1 26312 0 0
+/petugas/request_detail/644 1 28595 0 0
+/petugas/pengembalian_detail2/717 1 35808 0 0
+/petugas/request_detail/577 1 35876 0 0
+/petugas/request_detail/406 2 61238 0 0
+/petugas/pengembalian_detail2/509 3 86897 0 0
+/petugas/pengembalian_detail2/520 6 201863 0 0
+/petugas/request_detail/508 2 67969 0 0
+/petugas/request_detail/563 3 99978 0 0
+/petugas/request_detail/447 1 34045 0 0
+/petugas/pengembalian_detail2/673 3 86956 0 0
+/petugas/pengembalian_detail2/507 3 93083 0 0
+/petugas/request_detail/718 1 33462 0 0
+/petugas/request_detail/360 1 27444 0 0
+/petugas/request_detail/664 1 28599 0 0
+/petugas/request_detail/550 1 32685 0 0
+/petugas/pengembalian_detail2/728 3 100159 0 0
+/petugas/request_detail/484 1 36578 0 0
+/petugas/pengembalian_detail2/512 4 141293 0 0
+/petugas/pengembalian_detail2/627 5 182549 0 0
+/petugas/request_detail/671 1 26054 0 0
+/petugas/pengembalian_detail2/362 2 66297 0 0
+/petugas/pengembalian_detail2/689 2 66068 0 0
+/petugas/pengembalian_detail2/621 3 84759 0 0
+/petugas/pengembalian_detail2/347 7 283082 0 0
+/petugas/request_detail/435 1 28160 0 0
+/petugas/pengembalian_detail2/450 4 108474 0 0
+/petugas/pengembalian_detail2/645 4 147104 0 0
+/petugas/request_detail/652 1 27443 0 0
+/petugas/pengembalian_detail2/618 7 296850 0 0
+/petugas/request_detail/605 1 29935 0 0
+/petugas/pengembalian_detail2/517 6 201801 0 0
+/petugas/request_detail/648 1 25950 0 0
+/petugas/request_detail/668 1 28748 0 0
+/user/peminjaman_detail/427 1 11115 0 0
+/petugas/request_detail/693 1 32813 0 0
+/petugas/request_detail/720 1 31017 0 0
+/petugas/pengembalian_detail2/485 8 255682 0 0
+/petugas/request_detail/724 3 90075 0 0
+/petugas/pengembalian_detail2/354 4 133697 0 0
+/petugas/request_detail/669 1 30864 0 0
+/petugas/request_detail/688 1 30924 0 0
+/petugas/pengembalian_detail2/523 3 85494 0 0
+/petugas/request_detail/523 1 34135 0 0
+/petugas/pengembalian_detail2/679 4 146697 0 0
+/petugas/pengembalian_detail2/531 3 89928 0 0
+/petugas/request_detail/380 2 60222 0 0
+/petugas/request_detail/448 1 32870 0 0
+/petugas/pengembalian_detail2/550 3 99813 0 0
+/petugas/request_detail/525 1 32940 0 0
+/petugas/request_detail/666 1 36786 0 0
+/petugas/request_detail/659 1 26300 0 0
+/user/peminjaman_detail/459 1 18847 0 0
+/petugas/request_detail/706 2 69856 0 0
+/user/peminjaman_detail/562 1 17941 0 0
+/petugas/request_detail/372 1 26297 0 0
+/petugas/pengembalian_detail2/629 2 66320 0 0
+/petugas/pengembalian_detail2/545 5 183409 0 0
+/petugas/request_detail/506 2 81678 0 0
+/petugas/request_detail/536 1 25959 0 0
+/petugas/request_detail/503 1 33071 0 0
+/petugas/request_detail/578 1 27224 0 0
+/petugas/pengembalian_detail2/570 1 29799 0 0
+/petugas/request_detail/579 2 63752 0 0
+/petugas/request_detail/340 1 42000 0 0
+/petugas/request_detail/345 1 41939 0 0
+/petugas/request_detail/428 1 26210 0 0
+/user/peminjaman_detail/409 1 12423 0 0
+/petugas/request_detail/565 1 34349 0 0
+/petugas/pengembalian_detail2/371 2 60868 0 1
+/petugas/request_detail/567 1 30449 0 0
+/petugas/request_detail/675 1 30968 0 0
+/petugas/pengembalian_detail2/463 3 85599 0 0
+/petugas/request_detail/431 1 27311 0 0
+/petugas/request_detail/512 1 34178 0 0
+/petugas/pengembalian_detail2/327 3 95755 0 0
+/petugas/pengembalian_detail2/353 5 175186 0 0
+/petugas/pengembalian_detail2/574 7 297848 0 0
+/petugas/request_detail/521 1 40535 0 0
+/petugas/request_detail/670 1 31646 0 0
+/user/peminjaman_detail/503 1 17436 0 1
+/petugas/request_detail/593 4 111583 0 0
+/petugas/pengembalian_detail2/340 10 460466 0 0
+/petugas/pengembalian_detail2/614 3 98724 0 0
+/petugas/request_detail/414 1 28338 0 0
+/petugas/request_detail/575 1 35443 0 0
+/petugas/request_detail/642 2 54098 0 0
+/petugas/pengembalian_detail2/640 5 160549 0 0
+/petugas/pengembalian_detail2/490 6 243760 0 0
+/petugas/pengembalian_detail2/582 4 140461 0 0
+/petugas/pengembalian_detail2/595 4 123119 0 0
+/petugas/request_detail/347 1 37470 0 0
+/petugas/pengembalian_detail2/616 1 32707 0 0
+/petugas/request_detail/382 2 58859 0 0
+/petugas/pengembalian_detail2/719 4 146935 0 0
+/petugas/request_detail/468 1 32723 0 0
+/petugas/laporan/pinjaman_alat_lab 11 294766 0 0
+/petugas/pengembalian_detail2/617 11 548491 0 0
+/petugas/pengembalian_detail2/601 6 229888 0 0
+/petugas/request_detail/357 2 52102 0 0
+/petugas/request_detail/387 1 32679 0 0
+/petugas/request_detail/597 2 59193 0 0
+/petugas/request_detail/351 1 32920 0 0
+/petugas/request_detail/439 2 64990 0 0
+/petugas/pengembalian_detail2/718 6 229075 0 1
+/petugas/pengembalian_detail2/698 5 161339 0 0
+/petugas/pengembalian_detail2/578 4 129996 0 0
+/petugas/pengembalian_detail2/516 2 66347 0 0
+/petugas/request_detail/726 2 54134 0 0
+/user/peminjaman_detail/561 1 21009 0 0
+/petugas/pengembalian_detail2/530 2 56395 0 0
+/petugas/request_detail/395 1 31153 0 0
+/petugas/request_detail/621 1 27191 0 0
+/petugas/request_detail/568 1 30848 0 0
+/petugas/pengembalian_detail2/413 6 203774 0 0
+/petugas/request_detail/482 1 39657 0 0
+/petugas/pengembalian_detail2/567 5 171382 0 0
+/petugas/request_detail/603 1 29889 0 0
+/petugas/request_detail/580 2 65375 0 0
+/petugas/request_detail/373 1 28346 0 0
+/petugas/request_detail/487 1 33118 0 0
+/petugas/pengembalian_detail2/493 12 619670 0 0
+/petugas/request_detail/453 1 36186 0 0
+/petugas/request_detail/728 1 31319 0 0
+/petugas/detail_jadwal/1261 1 36575 0 0
+/user/peminjaman_detail/549 1 11741 0 0
+/petugas/pengembalian_detail2/411 4 120957 0 0
+/petugas/pengembalian_detail2/702 1 26291 0 0
+/petugas/request_detail/333 4 128345 0 0
+/petugas/request_detail/509 2 65584 0 0
+/petugas/pengembalian_detail2/580 6 200093 0 0
+/petugas/pengembalian_detail2/472 4 143511 0 0
+/petugas/pengembalian_detail2/397 6 203799 0 1
+/petugas/request_detail/678 1 38103 0 0
+/petugas/request_detail/686 1 27454 0 0
+END_SIDER

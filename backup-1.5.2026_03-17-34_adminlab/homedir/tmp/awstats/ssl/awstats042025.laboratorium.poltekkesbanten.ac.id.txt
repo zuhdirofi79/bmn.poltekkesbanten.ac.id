@@ -1,0 +1,3125 @@
+AWSTATS DATA FILE 7.8 (build 20200416)
+# If you remove this file, all statistics for date 202504 will be lost/reset.
+# Last config file used to build this data file was /home/adminlab/tmp/awstats/ssl/awstats.laboratorium.poltekkesbanten.ac.id.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2035                
+POS_TIME 2710                
+POS_VISITOR 94972               
+POS_DAY 97273               
+POS_DOMAIN 3481                
+POS_LOGIN 3844                
+POS_ROBOT 3999                
+POS_WORMS 4454                
+POS_EMAILSENDER 4585                
+POS_EMAILRECEIVER 4728                
+POS_SESSION 97782               
+POS_SIDER 97989               
+POS_FILETYPES 4863                
+POS_DOWNLOADS 5055                
+POS_OS 5122                
+POS_BROWSER 5366                
+POS_SCREENSIZE 6034                
+POS_UNKNOWNREFERER 6108                
+POS_UNKNOWNREFERERBROWSER 6494                
+POS_ORIGIN 6648                
+POS_SEREFERRALS 6786                
+POS_PAGEREFS 6949                
+POS_SEARCHWORDS 7175                
+POS_KEYWORDS 7327                
+POS_MISC 2373                
+POS_ERRORS 7386                
+POS_CLUSTER 3700                
+POS_SIDER_404 7557                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20250501015211 3 524 15990154531309
+FirstTime 20250410175010
+LastTime 20250430061544
+LastUpdate 20250501081208 3 0 2 0 0
+TotalVisits 64                  
+TotalUnique 53                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 56                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+DirectorSupport 0 0 0
+AddToFavourites 0 10 0
+TotalMisc 0 0 0
+PDFSupport 0 0 0
+QuickTimeSupport 0 0 0
+JavascriptDisabled 0 0 0
+JavaEnabled 0 0 0
+RealPlayerSupport 0 0 0
+FlashSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 9 21 1389198 12 14 10150
+1 40 116 18171883 34 36 24442
+2 17 31 2396053 73 75 102106
+3 7 34 3560263 13 15 11260
+4 0 0 0 6 30 46560
+5 3 16 2049807 349 350 538338
+6 18 52 19299125 19 42 50834
+7 3 6 1734630 9 32 50716
+8 5 27 2610071 10 33 610921
+9 3 8 606754 390 391 602340
+10 1 1 3744 168 169 264444
+11 1 1 3744 227 268 2391789
+12 2 3 13894 7 7 9750
+13 0 0 0 5 13 944003
+14 2 8 753796 9 51 1748709
+15 0 0 0 8 8 16800
+16 1 1 3744 2073 2084 3874934
+17 1 1 3744 2083 2101 5214846
+18 1 2 10150 6 13 19062
+19 1 1 3744 5 9 87424
+20 0 0 0 12 13 18648
+21 40 101 16684995 32 61 882055
+22 223 571 123662401 121 155 1296111
+23 22 67 13053458 32 146 775720
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 10
+in 245 630 128848343
+id 119 334 56251085
+us 20 66 12436797
+se 6 21 8158984
+cn 3 8 280945
+au 2 2 7488
+nl 2 2 7488
+be 1 2 10150
+sg 1 2 10150
+gb 1 1 3744
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 8
+bingbot/ 43 3314887 20250429142106 8
+Googlebot/ 38 2896606 20250426194506 8
+bot[\s_+:,\.\;\/\\-] 9 599362 20250430012554 4
+Googlebot\-Image/ 4 12812 20250422110102 0
+facebookexternalhit/ 1 24 20250415224133 1
+no_user_agent 1 3744 20250428030040 0
+[\s_+:,\.\;\/\\-]bot 1 3744 20250421061425 0
+scrapy 1 3744 20250429102542 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 6
+png 167 6357539 0 0
+Unknown 357 6253633 0 0
+svg 17 102794019 0 0
+js 313 37898617 0 0
+woff2 43 23742192 0 0
+css 171 28969174 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 1
+/robots.txt 0 1 24
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 12
+macosx15 15 7
+Unknown 13 9
+win7 4 2
+android 66 29
+android10 466 192
+macosx9 1 1
+win10 68 27
+ios_iphone 384 119
+androidnougat 40 11
+macosx 3 1
+macosx11 1 1
+androidmarshmallow 7 1
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 31
+chrome50.0.2661.102 1 1
+chrome125.0.0.0 82 35
+chrome135.0.0.0 404 169
+mozilla 8 4
+chrome49.0.2623.112 3 1
+safari17.6 21 6
+msie11.0 1 1
+chrome36.0.1944.0 1 1
+safari18.0.1 44 15
+safari17.5 27 6
+safari15.6.3 27 8
+chrome106.0.0.0 7 1
+safari16.2 20 5
+chrome59.0.3071.125 37 8
+safari18.4 21 6
+chrome133.0.0.0 20 7
+firefox118.0 2 1
+chrome124.0.0.0 17 4
+chrome135.0.7049.37 21 8
+chrome60.0.3112.107 3 3
+chrome87.0.4280.88 3 1
+chrome123.0.6312.118 35 15
+chrome135.0.7049.111 14 6
+safari18.2 56 20
+safari18.3 73 22
+chrome135.0.7049.38 3 1
+safari16.4 29 8
+chrome96.0.4664.110 2 1
+safari18.3.1 79 29
+firefox122.0 2 2
+Unknown 5 5
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 5
+WhatsApp/2.23.20.0 20250428215525
+Mozilla/5.0_(compatible;_InternetMeasurement/1.0;__https://internet-measurement.com/) 20250423183912
+python-requests/2.32.3 20250416163233
+Mozilla/5.0_(compatible) 20250428232556
+Mozilla/5.0_(compatible;_CensysInspect/1.1;__https://about.censys.io/) 20250414034132
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 2
+python-requests/2.32.3 20250416163233
+WhatsApp/2.23.20.0 20250428215525
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 76 81
+From1 6 6
+From2 6 6
+From3 10 10
+From4 302 965
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+www_google_com 6 6
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 3
+https://bit.ly/3E80m4r 5 5
+https://bit.ly 4 4
+https://192.145.206.97:7171 1 1
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 7
+500 1 582056
+301 10 2844
+404 5726 8891766
+206 9 885042
+419 1 1558
+405 4 2280095
+302 257 113678
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 2727
+/.well-known/acme-challenge/mariju.php 2 -
+/wp-content/plugins/wp-freeform/style.php 2 www.google.com
+/wp-content/plugins/tarteaucitronjs/readme.txt 1 -
+/wp-includes/Requests/requests.php 2 -
+/lx.php 3 www.google.com
+/public/data_lampiran/image1.png.php 2 -
+/ini.php 2 -
+/wp-content/plugins/woo-thank-you-page-nextmove-lite/readme.txt 1 -
+/wp-includes/SimplePie/Decode/HTML/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/mini-shell.php 2 -
+/alm.php 2 -
+/wp-content/plugins/clickdesk-live-support-chat-plugin/readme.txt 1 -
+/wp-content/wol.php 2 -
+/program/include/index.php 2 -
+/.anonsec.php 2 -
+/wp-content/mu-plugins-old/index.php 2 www.google.com
+/wp-content/uploads.php 2 -
+/database.php 2 -
+/wp-content/plugins/alt-manager/readme.txt 1 -
+/wp-content/uploads/2024/9/byp.php 2 -
+/wp-includes/Text/Diff/wkwwkwk.php 2 -
+/core.php 2 -
+/wp-content/wp-mail.php 2 -
+/tete.php 2 -
+/assets/IndoXploit.php 2 -
+/wp-includes/blocks/post-template/index.php 2 -
+/wp-admin/wp-lib.php 2 -
+/downloads/index.php 2 -
+/wp-js.php 3 www.google.com
+/assets/media.php 2 -
+/wp-admin/main.php 2 -
+/fw.php 5 -
+/wp-content/plugins/rbxgallery/readme.txt 1 -
+/new-index.php 3 www.google.com
+/sa.php 2 -
+/doc.php 3 www.google.com
+/wp-includes/blocks/comment-author-name/index.php 2 -
+/Options-Meta.php 2 -
+/wp-includes/kn.php 2 -
+/wp-content/themes/skatepark/db.php 2 www.google.com
+/wp-content/plugins/demomentsomtres-address/readme.txt 1 -
+/wp-includes/blocks/comments-title/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/block-supports/block.php 2 -
+/4.php 3 www.google.com
+/alf.php 5 -
+/db.php 2 -
+/index.phtml 2 -
+/public/filemanager/dialog.php 2 -
+/wp-includes/fonts/.fonts.php 2 -
+/wp-content/themes/cuisine-palace/style.css 1 -
+/wp-content/plugins/pica-photo-gallery/readme.txt 1 -
+/assets/autentification.php 2 -
+/wp-content/class-wp-block-supports.php 2 -
+/admin1.php 2 -
+/wp-content/about.php 2 -
+/style.php 2 -
+/assets/sc.php 2 -
+/wp-content/ms-functions.php 2 -
+/wp-includes/blocks/query-pagination-next/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/uploads/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/sitemaps/sitemaps.php 2 -
+/wp-content/plugins/new-video-gallery/readme.txt 1 -
+/wp-includes/assets/assets.php 2 -
+/public/js/index.php 2 -
+/fofi.php 2 -
+/wp-includes/theme-compat/oembed.php 2 -
+/wp-content/plugins/upload-fields-for-wpforms/readme.txt 1 -
+/403.php 5 -
+/wp-includes/java.php 2 -
+/2.php 3 www.google.com
+/wp-content/images.php 2 -
+/blog-header.php 2 -
+/vendor/sebastian/index.php 2 -
+/wp-includes/blocks/query-pagination/index.php 2 -
+/wp-content/adminer.php 2 -
+/wp-content/system.php 2 -
+/wp-content/plugins/user-control/readme.txt 1 -
+/wp-content/plugins/wp-radio/readme.txt 1 -
+/zone.php 5 -
+/lf.php 2 www.google.com
+/wp-content/priv.php 2 -
+/wp-content/uploads/2024/8/bypass.php 2 -
+/wp-content/plugins/wwc-amz-aff/readme.txt 1 -
+/cgi-bin/wp-blog.php 2 -
+/js/jquery/ui/autodex.php 2 -
+/public/javascripts/tinymce/filemanager/filemanager/dialog.php 2 -
+/alo.php 2 -
+/wp-content/themes/seotheme/mar.php 2 www.google.com
+/wp-admin/css/colors/blue/autoload_classmap.php 2 -
+/wp-config-sample.php 1 www.google.com
+/wp-includes/database.php 2 -
+/mau-ngapain.php 2 -
+/wp-admin/network/index.php 2 -
+/wp-admin/cylul.php 2 -
+/02.php 2 -
+/19.php 1 www.google.com
+/wp-content/themes/Newspaper/woocommerce/404.php 2 -
+/.hx0.php 2 -
+/wp-content/inputs.php 2 -
+/wp-content/plugins/itwitter/readme.txt 1 -
+/csv.php 2 -
+/wp-includes/gecko-old.php 2 -
+/as.php 2 -
+/diare.php 2 -
+/get-money.php 4 -
+/wp-admin/uploader.php 2 -
+/wp-includes/blocks/post-featured-image/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/assets/skeined.php 2 -
+/inc.php 2 -
+/wp-admin/leaf.php 2 -
+/id.php 5 -
+/mas.php 3 www.google.com
+/bj.php 3 www.google.com
+/crot.php 2 -
+/wp-admin/lolalf.php 2 -
+/mah.php 4 -
+/wp-admin/user/users.php 2 -
+/system/fonts/index.php 2 -
+/wp-includes/blocks/image/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/tesla.php 4 -
+/uploadzip.php 2 -
+/groupon.php 1 www.google.com
+/wp-includes/blocks/freeform/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/sitemaps-xml.php 2 -
+/cgi-bin/run.php 2 -
+/system/database/drivers/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/assets/plugin.php 2 -
+/you.php 1 www.google.com
+/wp-content/uploads/2024/5/index.php 2 -
+/assets/css/upgrade/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-cron.php 3 -
+/anonsec.php7 2 -
+/18.php 1 www.google.com
+/assets/Sadrazam.php 2 -
+/black.php 3 www.google.com
+/assets/lock666.php 2 -
+/wp-includes/blocks/audio/index.php 2 -
+/adminer.php 2 -
+/.env.local 4 -
+/assets/css/plugins/library/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/cgialfa/perl.alfa 2 -
+/s1.php 2 -
+/wp-content/uploader.php 2 -
+/fileHandler.php 2 -
+/zu.php 2 -
+/admin/auth/reset-password 1 -
+/wp-includes/images/images.php 2 -
+/ucen.php 2 -
+/wp-content/litespeed.php 2 -
+/boy.php 2 -
+/.Indosec.php 2 -
+/.env.prod.local 4 -
+/wp-content/plugins/litespeed-cache/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/content-aware-sidebars/readme.txt 1 -
+/wp-content/plugins/wpgform/readme.txt 1 -
+/wp-content/anons79.php 2 -
+/filemanager/byps.php 2 -
+/wp-inlcudes.php 3 www.google.com
+/assets/data/usrimg/2wea1juqymgrlrmi5dnhkqy64gt.php 1 -
+/ddd.php 2 -
+/r00t.php 5 -
+/1.php 5 -
+/wp-content/plugins/book-buyback-prices/readme.txt 1 -
+/wp-the1me.php 2 -
+/.well-known(2).tar 2 -
+/program/js/index.php 2 -
+/wp-includes/LazyShell.php 2 -
+/themes/frontend/fonts/ciau.php 2 -
+/app/alfa403.php 2 -
+/wp-admin/color.php 2 -
+/wp-content/.wpcontent.php 2 -
+/wp-admin/dwqdonat.php 2 -
+/readme.php 7 -
+/wp-includes/blocks/calendar/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-plugins.php 5 -
+/source/index.php 2 -
+/app/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/maintenance.php 2 -
+/kominfo.php 2 -
+/wp-admin/maint/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/vendor/phpunit/index.php 2 -
+/chosen.php 2 -
+/assets/mini.php 2 -
+/xmlsadminzz.php 2 -
+/wp-admin/wp-add.php 2 -
+/backup/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/assets/simple.php 2 -
+/wp-admin/wolv2.php 2 -
+/alfacgiapi/perl.alfa 2 -
+/js/chartjs/index.php 2 -
+/help/js/index.php 2 -
+/wp-content/bak.php 2 -
+/wp-content/plugins/my-category-order/readme.txt 1 -
+/assets/js/plugins/library/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/sc.php 2 -
+/system/libraries/Cache/drivers/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/background.php 2 -
+/media/boostrap/index.php 2 -
+/eviltwin.php 1 www.google.com
+/cot.php 1 www.google.com
+/nahpeh.php 2 -
+/wp-content/plugins/ai-wp-writer/readme.txt 1 -
+/wp-includes/blocks/query-pagination-numbers/index.php 2 -
+/wp-includes/css/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/cache/styling-css.php 2 -
+/adm.php 1 www.google.com
+/wp-content/plugins/featurific-for-wordpress/readme.txt 1 -
+/wp-content/alfa.php 2 -
+/plus/ajax_street.php 2 -
+/wp-content/plugins/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/cost-calculator-builder-pro/readme.txt 1 -
+/san.php 2 -
+/wp-includes/blocks/button/index.php 2 -
+/wp-includes/assets/index.php 2 -
+/wp-includes/blocks/post-author-biography/index.php 2 -
+/assets/modules.php 2 -
+/wp-includes/blocks/comments-pagination/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/table.css.php 2 -
+/tinyfilemanager.php 3 www.google.com
+/caches.php 2 -
+/control.php 2 -
+/wp-includes/.index.php 2 -
+/public/images/index.php 2 -
+/wp-admin/Sequence.php 2 -
+/wp-admin/alfa_bashful.php 2 -
+/options-general.php 2 -
+/wp-caches.php 2 -
+/wp-content/303-Nothingx.php 2 -
+/clay.php 2 -
+/program/resources/index.php 2 -
+/wp-admin/sessions.php 2 -
+/ext.php 2 -
+/wp-content/plugins/wordpress-seo/src/services/importing/aioseo/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/25.php 1 www.google.com
+/wp-includes/blocks/verse/verse.php 2 -
+/wp-includes/Text/Text.php 2 -
+/repository/css.php 2 -
+/wp-content/plugins/kk-star-ratings/readme.txt 1 -
+/public/js/tinymce/plugins/filemanager/dialog.php 2 -
+/wp-content/teslas.php 2 -
+/files.php 2 -
+/x.php 5 -
+/wp-content/themes/cakiltheme/up.php 2 www.google.com
+/PluginsHandling.inc.php 2 -
+/45.php 5 -
+/assets/wp-login.php 2 -
+/wp-content/plugins/custom-global-variables/readme.txt 1 -
+/wp-admin.php 5 -
+/tr.php 2 -
+/.wp-crons.php 2 -
+/wp-admin/css/colors/adaaja/docindex.php 2 -
+/license.php 3 -
+/journal.rar 2 -
+/service.php 2 -
+/.well-known%20%283%29.tar.gz 2 -
+/cgi-bin/login.cgi 1 https://laboratorium.poltekkesbanten.ac.id
+/p.php 5 -
+/v3.tar.gz 2 -
+/wp-includes/SimplePie/Decode/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/files/index.php 2 -
+/alfax.php 2 -
+/.well-known(3).tar.gz 2 -
+/blvck.php 2 -
+/.well-known%20%282%29.zip 2 -
+/wp-includes/ID3/ID3.php 2 -
+/assets/java.php 2 -
+/wp-includes/blocks/nextpage/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/.bypss.php 2 -
+/sample-config-options.php 2 -
+/vuln.php 3 www.google.com
+/wp-content/themes/twentytwentythree/404.php 2 -
+/wp-includes/blocks/verse/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/cgialfa/config.alfa 2 -
+/wp-includes/Requests/index.php 2 -
+/wp-includes/customize/customize.php 4 -
+/.well-known/acme-challenge/brovas.php 2 -
+/wp-lgin.php 2 -
+/wp-content/themes/enlighten/style.css 1 -
+/ah.php 2 -
+/uploadfile.php 2 -
+/access.php 2 -
+/wp-includes/css/alfa.php 2 -
+/assets/general.php 2 -
+/seok.php 2 -
+/wp-includes/plugins.php 2 -
+/wp-content/plugins/woocommerce-bulk-stock-management/readme.txt 1 -
+/xiaom.php 2 -
+/wp-content/plugins/wp-mobile-detector/readme.txt 1 -
+/wp-admin/root.php 2 -
+/wp-content/plugins.php 2 -
+/assets/js/uploads/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/zentao/user-login.html 1 https://laboratorium.poltekkesbanten.ac.id/zentao/user-login.html
+/wp-content/plugins/cache-wordpress/payment.php 2 www.google.com
+/alfxx.php 2 -
+/wp-content/mariju.php 2 -
+/dr.php 2 -
+/mv.php 2 -
+/wp-content/fonts/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/tonant.php 3 www.google.com
+/wp-admin/images/index.php 2 -
+/bssn.php 2 -
+/v3.tar 1 -
+/wp-content/themes/rehub-theme/style.css 1 -
+/custom.php 2 -
+/assets/LazyShell.php 2 -
+/test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/searcher.php 2 -
+/wp-includes/blocks/avatar/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/abby.php 2 -
+/font-editor.php 2 -
+/app/Providers/index.php 2 -
+/15.php 1 www.google.com
+/sunda.php 1 www.google.com
+/wp-includes/ID3/index.php 2 -
+/wp-crons.php 2 -
+/wp-includes/adminer.php 2 -
+/wp-content/themes/pridmag/db.php 2 www.google.com
+/shells.php 3 www.google.com
+/of.php 2 -
+/.well-known(3).rar 2 -
+/wp-admin/.uploads.php 2 -
+/wp-admin/marijuana.php 2 -
+/wp-admin/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/w.php 5 -
+/wp-includes/root.php 2 -
+/.env.stage 4 -
+/wp-includes/assets/radio.php 2 -
+/simplebackup.php 2 -
+/.env.dev 2 -
+/la.php 3 www.google.com
+/wp-content/root.php 2 -
+/maintenance.php 2 -
+/wp-admin/news.php 2 -
+/wp-content/themes/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/sam-pro-lite/readme.txt 1 -
+/info.php 5 -
+/public/data_lampiran/lampiran_isi/index.php 2 -
+/wp-key.php 3 www.google.com
+/wp-content/B374K.php 2 -
+/wp-includes/p0wny.php 2 -
+/ppdb.tar 1 -
+/wp-includes/wp-cron.php 2 -
+/system/mini.php 2 -
+/anon7.php 2 -
+/FoxWSO-full.php 2 www.google.com
+/manage/webshell/u 2 -
+/phpinfo.php 3 www.google.com
+/wp-content/function.php 2 -
+/public/data_lampiran/data.php 2 -
+/wp-content/wflogs/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wrpoliksa.php 2 -
+/wp-includes/blocks/spacer/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/list/index.php 2 -
+/wp-includes/blocks/columns/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/woorewards/readme.txt 1 -
+/.well-known/pki-validation/wp-login.php 2 -
+/wp-admin/woldigi-MAR.php 2 -
+/wp-admin/css/colors/midnight/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/application/views/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/init.php 3 www.google.com
+/api/config/stats.php 2 -
+/wp-includes/SimplePie/SimplePie.php 2 -
+/wp-content/abby.php 2 -
+/wp-includes/blocks/comments-pagination-previous/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/indx.php 2 -
+/wp-includes/blocks/post-author-biography/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/use.php 1 www.google.com
+/casper.php 2 -
+/database_log.phar 2 -
+/ccaef.php 2 www.google.com
+/wp-content/sample.php 2 -
+/wp-we.php 2 www.google.com
+/wp-includes/filemanager.php 2 -
+/7.php 3 www.google.com
+/source/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/program.php 2 -
+/wp-includes/wp-ajax.php 2 -
+/wp-includes/images/index.php 2 -
+/dev.php 5 -
+/wp-includes/blocks/image/index.php 2 -
+/wp-content/main.php 2 -
+/system/libraries/cache/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/user-old.php 2 -
+/assets/Wso.php 2 -
+/ex.php 2 -
+/wp-content/plugins/yith-woocommerce-brands-add-on/readme.txt 1 -
+/wp-content/plugins/wpe-indoshipping/readme.txt 1 -
+/wp-admin/blank.php 2 -
+/wp-admin/abbyp.php 2 -
+/wp-includes/Text/Diff/Renderer/outline.php 4 -
+/well-known.rar 2 -
+/.xx.php 2 -
+/wp-content/plugins/wupo-group-attributes/readme.txt 1 -
+/upload-file.php 2 -
+/skeined.php 2 -
+/havk0r.php 2 -
+/wp-includes/blocks/video/video.php 2 -
+/app/gecko.php 2 -
+/app/alfa.php 2 -
+/wp-includes/blocks/pullquote/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/ID3/readme.php 2 -
+/vendor/run.php 2 -
+/wp-includes/blocks/comment-date/index.php 2 -
+/wp-content/maria.php 2 -
+/wp-includes/Indosec.php 2 -
+/upgrade/index.php 2 -
+/wpindex.php 3 www.google.com
+/wp-admin/radio.php 2 -
+/wp-content/server.php 2 -
+/application/-/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/themes/viral/style.css 1 -
+/wp-admin/admin-ajax.php 1 -
+/wp-includes/Text/Diff/Renderer/index.php 2 -
+/backup.php 2 -
+/apply_sec.cgi 2 -
+/default.php 2 -
+/wp-includes/ID3/plugin.php 2 -
+/.well-known%20%282%29.tar.gz 2 -
+/wp-content/uploads/2024/04/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/includes/1975.php 2 www.google.com
+/wp-content/plugins/mdc-youtube-downloader/readme.txt 1 -
+/wp-includes/blocks/group/index.php 2 -
+/wp-admin/user/wp-size.php 2 -
+/wp-configss.php 2 -
+/wp-admin/session.php 2 -
+/wp-admin/includes/customize-nav-menus.js.php 2 -
+/wp-includes/blocks/page-list-item/index.php 2 -
+/telescope/requests 2 -
+/wp-content/fox-wso.php 2 -
+/paranoidhax.php 2 -
+/wp-includes/priv.php 2 -
+/wp-includes/pwn.php 2 -
+/byps.php 3 www.google.com
+/alpass.php 2 -
+/wp-content/plugins/snipe-nginx-cache/readme.txt 1 -
+/XxX.php 2 www.google.com
+/al.php 5 -
+/wp-content/themes/rishi/doc.php 2 www.google.com
+/wp-content/wp-mails.php 2 -
+/jurnal.zip 2 -
+/wp-includes/blocks/comment-edit-link/index.php 2 -
+/filemanager/abyp.php 2 -
+/wp-content/alfa_bashful.php 2 -
+/wp-admin/hid.php 2 -
+/wp-content/plugins/free-sales-funnel-squeeze-pages-landing-page-builder-templates-make/readme.txt 1 -
+/assets/R57.php 2 -
+/wp-admin/css/colors/sunrise/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/kas.php 2 -
+/diagram_lang.php 2 -
+/j.php 5 -
+/template/default/index.php 2 -
+/wp-admin/gecko.php 2 -
+/wp-content/plugins/jw-player-7-for-wp/readme.txt 1 -
+/wp-includes/abyp.php 2 -
+/application/config/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/fbi.php 2 -
+/back-up.php 2 -
+/Assets/index.php 2 -
+/wp-content/sym403.php 2 -
+/wp-content/plugins/tree-website-map/readme.txt 1 -
+/components/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/Sadrazam.php 2 -
+/wp-content/wp-security.php 2 -
+/assets/abyp.php 2 -
+/wp-includes/blocks/latest-posts/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/upload/konslet.php 2 -
+/media/css/index.php 2 -
+/vendor/phpunit/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/tiny.php 2 -
+/.quarantine/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/legacy-widget/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/network/about.php 2 -
+/blog/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-myluv.php 2 -
+/password/index.html 1 -
+/wp-includes/php-compat/php-compat.php 4 -
+/wp-2019.php 3 www.google.com
+/wp-xmlrpc.php 2 -
+/wp-admin/mini.php 2 -
+/public/css/index.php 2 -
+/wp-admin/pra.php 2 -
+/lolalf.php 2 -
+/wp-content.php 5 -
+/assets/upload-file.php 2 -
+/v3.php 3 www.google.com
+/assets/indexx.php 2 -
+/wp-admin/plugin.php 2 -
+/mmk.php 2 -
+/system/languange/english/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/admin/editor/mini.php 2 -
+/wp-includes/blocks/archives/index.php 2 -
+/iq.php 3 www.google.com
+/app/app.php 2 -
+/laravel/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/findes.php 1 www.google.com
+/wp-content/plugins/price-commander-xforwc/readme.txt 1 -
+/wp-includes/html-api/index.php 2 -
+/.xmlrpc.php 2 -
+/wp-includes/blocks/template-part/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/mum.php 2 -
+/wp-includes/js/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/go.php 2 -
+/bs.php 2 -
+/wp-content/plugins/wp-freeform/wawe.php 2 www.google.com
+/wp-includes/rest-api/rest-api.php 4 -
+/wp-content/uploads/s.php 2 -
+/wp-admin/index.php 1 -
+/.rul.php 2 -
+/bootstrap/cache/index.php 2 -
+/wp-admin/css/colors/light/setting.php 2 -
+/wp-functions.php 2 -
+/ffAA531.php 2 www.google.com
+/captcha/about.php 2 -
+/alfanew.php 2 -
+/admins.php 2 -
+/wp-includes/alfapass.php 2 -
+/asu.php 2 -
+/mariju.php 2 -
+/dwqdonat.php 2 -
+/wp-uploads.php 2 -
+/fushigore.php 2 -
+/wp-admin/user/user.php 2 -
+/wp-includes/SimplePie/simplePie.php 2 -
+/wp-content/plugins/wp-mail-logging/readme.txt 1 -
+/wp-content/plugins/elementor/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/library.php 2 -
+/u.php 5 -
+/wp-includes/wpbuff.php 2 -
+/program/localization/index.php 2 -
+/wp-includes/blocks/comment-reply-link/index.php 2 -
+/assets/sa.php 2 -
+/wp-includes/Sadrazam.php 2 -
+/wp-admin/a1.php 2 -
+/fileuploader.php 2 -
+/lest.php 2 -
+/wp-includes/blocks/preformatted/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-links-opml.php 1 www.google.com
+/lock666.php 2 -
+/wp-admin/input.php 2 -
+/scan2.php 2 -
+/wp-content/plugins/king-addons/readme.txt 1 -
+/wp-content/plugins/donorbox-donation-form/readme.txt 1 -
+/.lock.php 2 -
+/assets/bypass.php 2 -
+/dxx.php 2 -
+/system/core/index.php 2 -
+/wp-settings.php 2 -
+/cong 2 -
+/inspect.php 2 -
+/wp-includes/blocks/template-part/template.php 2 -
+/wp-admin/lock.php 2 -
+//laboratorium.poltekkesbanten.ac.id/login' 7 -
+/wp-root.php 2 -
+/size.php 2 -
+/wp-content/plugins/new-order-notification-for-woocommerce/readme.txt 1 -
+/wp-admin/user/license.php 2 -
+/wp-content/p37k.php 2 -
+/wp-content/Wso.php 2 -
+/wp-content/plugins/xpresslane-integration-for-woocommerce/readme.txt 1 -
+/con.php 3 www.google.com
+/wp-includes/block-supports/block-supports.php 2 -
+/16.php 1 www.google.com
+/.well-known(2).zip 2 -
+/wp-content/plugins/profilepress-pro/readme.txt 1 -
+/hi.php 3 www.google.com
+/Collector/diagnostics/ping 1 -
+/application/cache/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/laravel-filemanager 1 -
+/links-opml.php 2 -
+/WSO.php 3 www.google.com
+/wp-includes/blocks/navigation-link/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/public/scss/index.php 2 -
+/wp-includes/radio.php 2 -
+/phpimage.php 2 -
+/wp-content/plugins/content-control/readme.txt 1 -
+/wp-content/plugins/contus-hd-flv-player/readme.txt 1 -
+/wp-content/wp-cache.php 2 -
+/assets/images/konten/plugins.php 2 -
+/xcv.php 3 www.google.com
+/wp-admin/woldigi-OTH.php 2 -
+/admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/kn.php 4 -
+/sc.php 2 -
+/wp-content/plugins/interactive-geo-maps/readme.txt 1 -
+/perkosa.php 2 -
+/class-wp-block-supports.php 2 -
+/s3.php 2 -
+/wp-includes/blocks/latest-comments/index.php 2 -
+/wso2.php 3 www.google.com
+/mini_shell.php 2 -
+/wp-content/themes/pridmag/init.php 2 www.google.com
+/ups.php 3 www.google.com
+/wp-includes/blocks/comments/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/alfasdonat.php 2 -
+/wp-admin/colors.php 2 -
+/wp-includes/blocks/post-excerpt/index.php 2 -
+/wp-content/plugins/jiangqie-free-mini-program/readme.txt 1 -
+/compliancepolicies.inc.php 1 -
+/function.php 5 -
+/fm.php 2 -
+/wp-content/themes/hello-elementor/404.php 2 -
+/wp-content/plugins/resmushit-image-optimizer/readme.txt 1 -
+/wp-content/perkosa.php 2 -
+/assets/js/plugins/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-add.php 2 -
+/click.php 3 -
+/.well-known/assetlinks.json 21 -
+/wp-includes/blocks/shortcode/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/indexx.php 2 -
+/defaults.php 3 -
+/wp-content/plugins/fuse-social-floating-sidebar/readme.txt 1 -
+/xinder.php 1 www.google.com
+/footer-templates.php 2 -
+/wp-includes/blocks/query-pagination/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/async-upload.php 2 -
+/wp-includes.php 2 -
+/wp-includes/blocks/missing/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/fox2.php 2 -
+/assets/p37k.php 2 -
+/-/MQyC.php 2 -
+/wp-includes/blocks/preformatted/index.php 2 -
+/pref.php 3 www.google.com
+/wp-includs.php 2 -
+/wp-includes/widgets/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/wp-add.php 2 -
+/asset/media/alfacgiapi/perl.alfa 2 -
+/24.php 1 www.google.com
+/assets/postfs.php 2 -
+/wp-includes/dwqdonat.php 2 -
+/autoload_classmap.php 3 www.google.com
+/assets/woldigi-OTH.php 2 -
+/wp-content/file-upload.php 2 -
+/srx.php 3 www.google.com
+/upgrade.php 2 -
+/assets/xmlrpc.php 2 -
+/wp-includes/IXR/index.php 4 -
+/B374K.php 2 -
+/wp-includes/.templates.php 2 -
+/lib-parse.php 2 -
+/api/.env 3 -
+/search.php 3 -
+/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/.well-known%20%281%29.tar 2 -
+/wp-content/plugins/wechat-reward/readme.txt 1 -
+/wp-content/index.php 2 -
+/.env 5 -
+/wp-trackback.php 3 -
+/template/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/alfas.php 2 -
+/wp-content/plugins/twentyfourth-wp-scraper/readme.txt 1 -
+/8.php 3 www.google.com
+/.well-known/pki-validation/moon.php 2 -
+/application/logs/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/Gel4y.phtml 2 -
+/wordpress.tar 2 -
+/lau.php 2 -
+/pentester.php 2 -
+/cybers.php 2 -
+/filemanager.php 5 -
+/wp-admin/css/colors/light/func.php 2 -
+/assets/css/themes/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/uplosd.html 2 -
+/uploads/autentification.php 2 -
+/wp-includes/html-api/html-api.php 4 -
+/log.txt 1 -
+/main.php 2 -
+/wp-includes/css/css.php 2 -
+/wp-includes/blocks/details/index.php 2 -
+/help/css/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/fonts.php 2 -
+/wp-includes/litespeed.php 2 -
+/991176.php 2 www.google.com
+/nulz.php 2 -
+/tmp/index.php 2 -
+/wp-includes/blocks/comment-reply-link/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-edit.php 2 -
+/application/run.php 2 -
+/cgi-bin/cgiServer 1 -
+/wp-includes/blocks/comment-date/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/file/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/themes/photolio/style.css 1 -
+/wp-includes/wp-assets.php 2 -
+/.well-known/acme-challenge/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/IndoXploit.php 2 -
+/wp-includes/blocks/post-excerpt/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/wepos/readme.txt 1 -
+/wp-includes/Cache.php 2 -
+/wp-content/MARIJUANA.php 2 -
+/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/templates.php 2 -
+/wp-content/wp-login.php 2 -
+/autodex.php 2 -
+/wp-admin/indexx.php 2 -
+/wp-admin/gecko-new.php 2 -
+/wp-includes/SimplePie/Parse/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/sample.php 2 -
+/iqb.php 3 www.google.com
+/88.php 2 -
+/wp-includes/blocks/comments-title/index.php 2 -
+/14.php 1 www.google.com
+/database/index.php 2 -
+/wp-admin/css/colors/modern/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/lws-tools/readme.txt 1 -
+/wp-includes/session.php 2 -
+/wp-content/uploads/2024/4/index.php 2 -
+/byte.php 2 -
+/wp-content/uploads/tr.php 2 -
+/.of.php 2 -
+/fonts/montserrat/404.php 2 -
+/wp-admin/pwn.php 2 -
+/wp-includes/pluginsnew.php 2 -
+/asset/images/gui/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/kk.php 3 www.google.com
+/wp-includes/blocks/text-columns/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/includes.php 2 -
+/wp-content/themes/workart/doc.php 2 www.google.com
+/server.php 2 -
+/encoded.php 2 -
+/fx.php 2 -
+/wp-includes/marijuana.php 2 -
+/wp-content/plugins/inbound-brew/readme.txt 1 -
+/xploit.php 2 -
+/file/wso.php 2 -
+/lolzk.php 2 www.google.com
+/assets/js/style.php 2 -
+/wp-content/wpo-cache/ALFA_DATA/alfacgiapi/perl.alfawp-content/wpo-cache/config/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/byp.php 5 -
+/wawe.php 2 www.google.com
+/.bypps.php 2 -
+/wp-admin/myass.php 2 -
+/wp-content/uploads/2024/9/alfa.php 2 -
+/wp-mailcek.php 2 -
+/k.php 5 -
+/wp-content/plugins/elementor-pro/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/alfa.php 2 -
+/assets/admin.php 2 -
+/alfac.php 2 -
+/assets/autoload.php 2 -
+/wp-content/plugins/visualizer/readme.txt 1 -
+/wp-content/plugins/yotuwp-easy-youtube-embed/readme.txt 1 -
+/wp-includes/ID3/jaspxgrb.php 2 -
+/brand.php 2 -
+/gecko.phtml 2 -
+/wp-includes/style-engine/style-engine.php 4 -
+/r.php 5 -
+/journals.rar 2 -
+/system/index.php 2 -
+/system/helpers/index.php 2 -
+/am4n.php 1 www.google.com
+/wp-meil.php 2 -
+/wp-conflg.php 3 www.google.com
+/outline.php 4 -
+/alfabypass.php 2 -
+/87.php 3 www.google.com
+/wp-content/plugins/gi-media-library/readme.txt 1 -
+/wp-content/votes.php 2 -
+/wp-type.php 2 -
+/wp-includes/form.php 2 -
+/latespeada1.php 4 -
+/wp-mails.php 5 -
+/.well-known/wp-signup.php 3 www.google.com
+/sistem/index.php 2 -
+/makeasmtp.php 2 -
+/glock.php 2 -
+/koplak.php 2 -
+/wp-includes/sodium_compat/namespaced/Core/Curve25519/Ge/spaced/ALFA_DATA/alfagciapi/perl.alfa 2 -
+/wp-includes/Text/index.php 2 -
+/senpai.php 2 -
+/files.zip 2 -
+/Tests/Feature/index.php 2 -
+/shop/mini.php 2 -
+/sasa.php 2 -
+/wp-admin/.09x2.php 2 -
+/wp-includes/blocks/avatar/foxwso.php 2 -
+/wp-includes/IXR/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/alfa403.php 2 -
+/wp-content/wp-themes.php 2 -
+/wp-includes/style-engine/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/gelay.php 5 -
+/wp-content/plugins/templately/readme.txt 1 -
+/help/css/index.php 2 -
+/wp-includes/blocks/query-pagination-previous/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/kem.php 2 -
+/indoxploit.php 5 -
+/wp-includes/wp-cache.php 2 -
+/wp-includes/blocks/post-author/index.php 2 -
+/yan.php 1 www.google.com
+/wp-includes/wp-user.php 2 -
+/wp-includes/blocks/site-tagline/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/ocim-mp3/readme.txt 1 -
+/start.php 2 -
+/abbyp.php 2 -
+/wp-admin/hoki.php 2 -
+/alfabusuq.php 2 -
+/wp-includes/pomo/pomo.php 2 -
+/a.php 5 -
+/aknahsdfsd.php 2 -
+/mar.php 5 -
+/fuck.php 2 -
+/ebook/bookPerPub.php 1 -
+/well-known.tar.gz 2 -
+/alpha.php 3 www.google.com
+/mari.php 3 -
+/server/node_upgrade_srv.js 1 -
+/wp-admin/lock666.php 2 -
+/wp-track.php 2 -
+/wp-content/themes/mags/style.css 1 -
+/wp-includes/SimplePie/XML/index.php 2 -
+/wp-includes/widgets/index.php 2 -
+/assets/filemanager.php 2 -
+/wp-content/content.php 2 -
+/public/data_lampiran/image2.php7 2 -
+/wp-includes/blocks/table/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/bak.php 2 -
+/wp-content/themes/jobart/doc.php 2 www.google.com
+/wp-blog-header.php 3 -
+/Site/mini.php 2 -
+/sitemaps-xml.php 2 -
+/wp-content/plugins/improve-my-city/readme.txt 1 -
+/css/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/uninstall.php 2 -
+/options-index.php 2 -
+/wp-includes/SimplePie/index.php 2 -
+/wso1337.php 2 www.google.com
+/assets/content.php 2 -
+/wp-includes/blocks/block/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/blog-header.php 2 -
+/system/libraries/Session/drivers/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/navigation-submenu/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/lanciao.php 2 -
+/wp-content/plugins/sendgrid-email-delivery-simplified/readme.txt 1 -
+/photos/alfapass.php 2 -
+/wp-includes/blocks/rss/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/jembud.php 2 -
+/siapa.php 1 www.google.com
+/votes.php 2 -
+/wp-blog-opml.php 2 -
+/.well-known/brovas.php 2 -
+/.well-known/pki-validation/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-scripts.php 2 -
+/xmlrpcs.php 2 -
+/wp-configs.php 3 -
+/log.log 1 -
+/wp-includes/blocks/audio/ip.php 2 -
+/bak.php 2 -
+/wp-content/themes/rishi/db.php 2 www.google.com
+/wp-admin/user/user-new.php 2 -
+/wp-content/themes/carspot/style.css 1 -
+/integration/saveGangster.action 1 -
+/wp-content/plugins/wp-backitup/readme.txt 1 -
+/wp-content/themes/twentytwentyone/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/uploads/2024/08/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/siadu/static/install.phtml 2 -
+/wp-content/plugins/wp_rokbox/readme.txt 1 -
+/wp-content/plugins/maps-block-apple/readme.txt 1 -
+/test.php 3 www.google.com
+/wp-content/plugins/mygallery/readme.txt 1 -
+/wp-content/plugins/wc-serial-numbers/readme.txt 1 -
+/wp-includes/blocks/freeform/index.php 2 -
+/brovas.php 2 -
+/wp-includes/blocks/navigation-submenu/index.php 2 -
+/shellsiapa.php 1 www.google.com
+/funky.php 2 -
+/wp-includes/blocks/post-date/index.php 2 -
+/alpa.php 2 -
+/wp-includes/fox-wso.php 2 -
+/cgi-bin/class_api.php 2 -
+/wp-admin/js/widgets/simple.php 2 -
+/wp-content/wp.php 2 -
+/wp-includes/simple.php 2 -
+/wp-content/default.php 2 -
+/wp-admin/js/widgets/custom.php 2 -
+/assets/nive.php 2 -
+/wp-admin/user/user-old.php 2 -
+/wp-includes/fonts/iq.php 2 www.google.com
+/wsanon.php 3 www.google.com
+/wp-site.php 3 www.google.com
+/sym.php 3 www.google.com
+/wp-content/ts.php 2 -
+/assets/Josea.php 2 -
+/disnakertrans.tar 2 -
+/assets/wp-config.php 2 -
+/wp-admin/.cache.php 2 -
+/well-known.zip 2 -
+/assets/root.php 2 -
+/wp-includes/blocks/blocks.php 2 -
+/wp-includes/blocks/query-title/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/load.php 5 -
+/assets/abby.php 2 -
+/idx.php 3 www.google.com
+/system/libraries/Javascript/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/nextpage/index.php 2 -
+/wp-content/plugins/apartment-management/readme.txt 1 -
+/wp-includes/blocks/media-text/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/gallery/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/asset/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/phpfm.php 2 -
+/wp-configsss.php 2 -
+/assets/nani.php 2 -
+/vendor/phpunit/phpunit/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/uploads/2024/06/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/index.php 2 -
+/wp-admin/cyber.php 2 -
+/wp-editor.php 2 -
+/surend.php 2 -
+/wp-security.php 2 -
+/wp-content/plugins/walk-score/readme.txt 1 -
+/login.htm 1 -
+/wp-admin/fm.php 2 -
+/wp-admin/alfa.php 2 -
+/.well-known/db_connect.php 2 -
+/22.php 1 www.google.com
+/application/language/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/ampedsense-adsense-split-tester/readme.txt 1 -
+/V3.php 3 www.google.com
+/fsociety.php 2 -
+/wp-content/font-editor.php 2 -
+/wp-content/cache.php 2 -
+/wp-content/lock666.php 2 -
+/assets/adminer.php 2 -
+/wp-content/plugins/wp-youtube-live/readme.txt 1 -
+/wp-admin/htaccess.php 2 -
+/wp-includes/blocks/list-item/index.php 2 -
+/wp-content/.cache.php 2 -
+/wp-includes/alfashell.php 2 -
+/tes.php 3 www.google.com
+/sistem/fungsi/index.php 2 -
+/help.php 2 -
+/symlink.php 5 -
+/wp-content/.alfa.php 2 -
+/captcha/captcha.php 2 -
+/wp-content/Gel4y.php 2 -
+/class-wp-term-conf.php 2 -
+/.alm.php 2 -
+/wp-includes/SimplePie/XML/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/minipriv.php 1 www.google.com
+/corn.php 2 -
+/sistem/assets/index.php 2 -
+/wordpress.tar.gz 2 -
+/wp-includes/alfa_bashful.php 2 -
+/public/assets/plugins/jquery-countdown/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/assets/303-Nothingx.php 2 -
+/user-cron.php 2 -
+/wp-content/pwn.php 2 -
+/wp-content/p0wny.php 2 -
+/FoxWSO.php 2 www.google.com
+/wp-content/themes/twentytwentythree/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/wp-content/links-opml.php 2 -
+/wp-mail.php 3 -
+/wp-content/colors.php 2 -
+/wp-content/benteke.php 2 -
+/wp-admin/images.php 2 -
+/general.php 2 -
+/bypass403.php 2 -
+/.skeined.php 2 -
+/haxor.php 3 www.google.com
+/wp-content/plugins/wp-rss-retriever/readme.txt 1 -
+/dragonforce.php 1 www.google.com
+/themes.php 2 -
+/wp-content/plugins/fast-image-adder/readme.txt 1 -
+/assets/gecko.php 2 -
+/files.tar 2 -
+/ppdb.rar 2 -
+/ciis.php 2 www.google.com
+/wp-includes/fonts/iqb.php 2 www.google.com
+/assets/-/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/SimplePie/Cache/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/comments/index.php 2 -
+/sym403.php 5 -
+/wp-admin/wp-cache.php 2 -
+/wp-includes/blocks/pullquote/index.php 2 -
+/wp-foter.php 1 www.google.com
+/alfasetan.php 2 -
+/wp-content/fm.php 2 -
+/wp-content/plugins/pmpro-courses/readme.txt 1 -
+/wp-admin/fox-wso.php 2 -
+/media/jquery/index.php 2 -
+/wp-admin/core-admin.php 2 -
+/wp-content/gecko.php 2 -
+/wp-content/themes/jobart/db.php 2 www.google.com
+/wp-includes/Text/Diff/index.php 2 -
+/wp-booking.php 2 www.google.com
+/assets/wol.php 2 -
+/wp-content/plugins/jobcareer/readme.txt 1 -
+/includes/index.php 2 -
+/core-admin.php 2 -
+/ucp.php 1 www.google.com
+/wp-includes/file-upload.php 2 -
+/99.php 2 -
+/users/sign_in 1 -
+/wp-content/themes/skatepark/doc.php 2 www.google.com
+/alfatesla.php 2 www.google.com
+/wp-includes/.config.php 2 -
+/wp-includes/blocks/html/index.php 2 -
+/12.php 1 www.google.com
+/wp-admin/anonsec.php 2 -
+/wp-includes/core-admin.php 2 -
+/update.php 2 -
+/wp-admin/user/ts.php 2 -
+/4ism3.php 2 -
+/js/js.php 2 -
+/wp-content/plugins/swipehq-payment-gateway-wp-e-commerce/readme.txt 1 -
+/wp-admin/lite.php 2 -
+/wp-includes/wp-login.php 2 -
+/rbs.php 2 -
+/js/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/ws.php 3 www.google.com
+/wp-content/wp-lib.php 2 -
+/wp-includes/fonts/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-links.php 2 -
+/wp-content/plugins/wp-elegant-testimonial/readme.txt 1 -
+/priv8.php 5 -
+/wp-includes/PHPMailer/index.php 2 -
+/un.php 5 www.google.com
+/100.php 3 www.google.com
+/defau1t.php 3 www.google.com
+/wp-content/themes/noriumportfolio/db.php 2 www.google.com
+/wp-content/plugins/siteorigin-panels/readme.txt 1 -
+/system/core/compat/index.php 2 -
+/0.php 5 -
+/fvnky.php 2 -
+/wp-title.php 5 -
+/digital.php 2 -
+/wp-content/plugins/bic-media/readme.txt 1 -
+/wp-content/plugins/mainwp-child-reports/readme.txt 1 -
+/9.php 3 www.google.com
+/alfa_bashful.php 2 -
+/.info.php 2 -
+/template/default/assets/index.php 2 -
+/lol.php 5 -
+/assets/.config.php 2 -
+/dbx.php 3 www.google.com
+/wp-mains.php 2 -
+/pub/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/themes/wplocalplaces/style.css 1 -
+/nvr.php 2 -
+/system/core/compat/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/.env.example 3 -
+/documents.php 2 -
+/upload/default.php 2 -
+/xidcm.php 2 www.google.com
+/ghost.php 2 -
+/wp-admin/plugins.php 2 -
+/rex.php 3 www.google.com
+/wp-admin/admins-ajax.php 2 -
+/wp-includes/default.php 2 -
+/wp-includes/blocks/comment-author-name/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/years.php 2 -
+/wp-content/plugins/wp-photo-effects/readme.txt 1 -
+/wp-content/plugins/akismet/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/javanese.php 2 -
+/-/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/cache-wordpress/wp-activates.php 2 www.google.com
+/con7.php 3 www.google.com
+/wp-content/uploads/2024/9/bypass.php 2 -
+/wp-admin/maint/index.php 2 -
+/wp-content/filemandonat.php 2 -
+/FoxWSOv1.php 2 www.google.com
+/wp-content/plugins/gallery-album/readme.txt 1 -
+/.wibu.php 2 -
+/wp-includes/defaults.php 2 -
+/wp-admin/anon7.php 2 -
+/users.php 2 -
+/wp-content/alfapass.php 2 -
+/administrator.php 2 -
+/scan.php 2 -
+/wp-content/flame.php 3 www.google.com
+/styling-css.php 2 -
+/superbyp.php 2 -
+/adriv.php 3 www.google.com
+/minik.php 2 www.google.com
+/wp-content/color.php 2 -
+/wp-includes/blocks/comment-template/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/yith-infinite-scrolling/readme.txt 1 -
+/mk.php 2 -
+/upload/run.php 2 -
+/ads.txt 2 -
+/wp-content/uploads/2024/3/index.php 2 -
+/.well-known%20%282%29.tar 2 -
+/wp-content/plugins/brands-for-woocommerce/readme.txt 1 -
+/wp-admin/form.php 2 -
+/alf4.php 2 www.google.com
+/wso403.php 1 www.google.com
+/public/data_lampiran/user.php 2 -
+/include/index.php 2 -
+/wp-admin/css/colors/xmrlpc.php 2 -
+/wp-content/plugins/all-in-one-wp-migration/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/vendor/ALFA_DATA/perl.alfa 2 -
+/wp-includes/blocks/query-pagination-numbers/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/mylinksdump/readme.txt 1 -
+/wp-includes/js/index.php 2 -
+/images.php 1 www.google.com
+/alfa_asli.php 2 -
+/wp-includes/class-wp-link.php 2 -
+/wp/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/leaf.php 2 -
+/m.php 5 -
+/gm.php 2 -
+/wp-admin/lite-MAR.php 2 -
+/zk.php 3 www.google.com
+/index1.php 2 -
+/0byte.php 3 www.google.com
+/wp-includes/css/index.php 2 -
+/hello.php 5 -
+/wp-includes/theme-compat/theme-compat.php 4 -
+/item.php 2 -
+/wp-admin/woldigi.php 2 -
+/assets/js/themes/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/assets/votes.php 2 -
+/mad.php 2 -
+/z.php 5 -
+/.Gel4y.php 2 -
+/wp-content/alfas.php 2 -
+/c9sell.php 2 -
+/wp-content/updraft/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wordpress.php 2 -
+/encrypted.php 2 -
+/plugin/run.php 2 -
+/0x0.php 2 www.google.com
+/surveipelanggan/indexx.php 2 -
+/wp-includes/customize/index.php 2 -
+/wp-includes/js/kas.php 2 -
+/wp-content/uploads/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/vendor/phpunit/phpunit/src/Util/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/block-supports/index.php 2 -
+/amp.php 2 -
+/includes.php 3 -
+/wp-content/admin.php 2 -
+/wp-content/uploads/alfa403.php 2 -
+/simple-shell.php 2 -
+/upload/size.php 2 -
+/wp-includes/blocks/page-list-item/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/modules/index.php 2 -
+/wp-includes/wp-admin.php 2 -
+/jurnal.tar.gz 2 -
+/Wso.php 2 -
+/wp-admin/gecko-old.php 2 -
+/images/index.php 2 -
+/wp-includes/blocks/post-terms/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/options.php 2 -
+/.tmb/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-ad.php 3 www.google.com
+/js.php 5 -
+/wp-admin/filemanager.php 2 -
+/3.php 3 www.google.com
+/wp-admin/css/colors/colors/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/.bak.php 2 -
+/assets/0.php 2 -
+/wp-admin/user/size.php 2 -
+/jurnal.tar 2 -
+/xleet-shell.php 3 www.google.com
+/olux.php 2 www.google.com
+/wp-includes/.xixixi.php 2 -
+/plugins.php 2 -
+/.well-known/pki-validation/alfacgiapi/perl.alfa 2 -
+/unknown.php 3 www.google.com
+/wp-includes/nive.php 2 -
+/wp-content/plugins/houzez-login-register/readme.txt 1 -
+/ite.php 2 -
+/vendor/phpunit/phpunit/src/Util/PHP/.eval-stdin.php 2 -
+/wp-includes/blocks/widget-group/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/anjay.php 2 www.google.com
+/help/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/lite.php 2 -
+/.zc.php 2 -
+/wp-ucen.php 2 -
+/assets/teslas.php 2 -
+/wp-content/plugins/car-rental-system/readme.txt 1 -
+/wp-admin/size.php 2 -
+/wp-includes/p37k.php 2 -
+/wp-content/defaults.php 2 -
+/wp-content/hoki.php 2 -
+/wp-includes/blocks/cover/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/uploads/2024/05/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/pages.php 2 -
+/wp-content/uploads/2024/8/mini.php 2 -
+/assets/error.php 2 -
+/b.php 5 -
+/assets/kem.php 2 -
+/security.php 1 www.google.com
+/wp-content/plugins/pta-member-directory/readme.txt 1 -
+/wp-content/uploads/2023/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/send.php 3 www.google.com
+/.well-known%20%282%29.rar 2 -
+/wp-includes/blocks/comment-edit-link/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/abyp.php 2 -
+/mass.php 2 www.google.com
+/wp-admin/adminer.php 2 -
+/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 19 -
+/wp-includes/R57.php 2 -
+/q.php 5 -
+/wpadminss.php 2 -
+/p0wny-shell.php 2 -
+/wp-content/mu-plugins/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/block-patwp.php 2 www.google.com
+/xd.php 2 www.google.com
+/wp-content/uploads/2024/9/MARIJUANA.php 2 -
+/wp-includes/pomo/cache.php 2 -
+/wp-admin/wp-json.php 2 -
+/html2pdf/readme.php 2 -
+/wp-includes/sitemaps/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/css/fonts/index.php 2 -
+/.bypass.php 2 -
+/uploads.php 2 -
+/media/js/index.php 2 -
+/class-IXR-date.php 2 -
+/wp-content/uploads/-/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/post-title/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/user/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/assets/includes.php 2 -
+/wp-admin/shellpw.php 2 -
+/captcha/autentification.php 2 -
+/defaul.php 2 -
+/install.php 3 -
+/wp-includes/lock666.php 2 -
+/old/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/system/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/.index.php 2 -
+/wg.php 2 -
+/wp-content/pluginsnew.php 2 -
+/system/database/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/rest-api/fields/function.php 2 -
+/assets/js/upgrade/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/themes/virtue/assets/css/index.php 2 -
+/vendor/phpspec/index.php 2 -
+/chitoge.php 2 www.google.com
+/jandamuda.php 2 -
+/media/icons/index.php 2 -
+/wp-content/abyp.php 2 -
+/premiums.php 2 -
+/galekjaya.php 2 www.google.com
+/upload/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/jembut.php 2 -
+/wp-includes/wp-lib.php 2 -
+/wp-content/plugins/salient-home-slider/includes/frontend/scan.php 2 -
+/css.php 5 -
+/wp-admin/wjsindex.php 2 -
+/wp-includes/blocks/button/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/js/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/function.php 2 -
+/wp-content/plugins/booking-calendar-contact-form/readme.txt 1 -
+/wp-content/plugins/theme-blvd-shortcodes/readme.txt 1 -
+/wp-content/plugins/quick-orders-for-woocommerce/readme.txt 1 -
+/wp-help.php 3 www.google.com
+/user-old.php 2 -
+/wp-content/plugins/wp-spell-check/readme.txt 1 -
+/4mosan.php 2 www.google.com
+/sbpass.php 2 -
+/wp-content/plugins/geodir_location_manager/readme.txt 1 -
+/.tester23634.php 2 -
+/wp-includes/bypass.php 2 -
+/wp-content/themes/themes.php 2 -
+/assets/about.php 2 -
+/wp-content/plugins/woorousell/readme.txt 1 -
+/fup.php 2 -
+/wp-includes/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/symlink403.php 1 www.google.com
+/wp-content/plugins/fancy-gallery/readme.txt 1 -
+/wp-content/plugins/s3bubble-amazon-s3-html-5-video-with-adverts/readme.txt 1 -
+/jadow.php 1 www.google.com
+/db-config.php 2 -
+/wp-content/plugins/v-form/readme.txt 1 -
+/xleet.php 5 -
+/wp-includes/pomo/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/certificates/certificates.php 4 -
+/app/info.php 2 -
+/assets/inputs.php 2 -
+/wp-content/themes/vertice/style.css 1 -
+/nopass.php 2 -
+/index2.php 2 -
+/wp-files.php 2 -
+/webadmin/out 1 https://laboratorium.poltekkesbanten.ac.id/webadmin/admin/service_manager_data.php
+/wp-includes/blocks/avatar/index.php 2 -
+/.well-known%20%281%29.zip 2 -
+/wp-content/themes/regina-lite/style.css 1 -
+/wp-content/themes/everse/style.css 1 -
+/wp_wrong_datlib.php 3 www.google.com
+/wp-includes/php-compat/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/Mo2AaAaAaPrivateShell.php 2 www.google.com
+/fsh.php 2 -
+/wp-content/gecko-new.php 2 -
+/.well-known(1).rar 2 -
+/wp-admin/includes/shell.php 2 -
+/xxxx.php 2 -
+/wp-content/themes/twentytwentyfour/styles/home.php 2 -
+/assets/system.php 2 -
+/wp-includes/blocks/post-navigation-link/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/sodium_compat/sodium_compat.php 4 -
+/wp-includes/alfas.php 2 -
+/css/images/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/17.php 1 www.google.com
+/wp-l0gin.php 2 -
+/include.php 2 -
+/codeboy1877x.php 2 www.google.com
+/i.php 5 -
+/wp-menu.php 2 -
+/p0wny.php 2 -
+/Assets/mini.php 2 -
+/system/libraries/aib.php 2 -
+/wp-content/uploads/2024/8/alfa.php 2 -
+/network.php 2 -
+/ciau.php 2 -
+/wp-includes/customize/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/themes/twentytwentytwo/404.php 2 -
+/asset/images/misc/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/application/helpers/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/nive.php 2 -
+/wp-includes/Requests/Requests.php 2 -
+/wp-includes/SimplePie/Cache/index.php 2 -
+/wp-content/Indosec.php 2 -
+/wp-includes/block-patterns/index.php 2 -
+/g3l4y.php 2 -
+/assets/css/theme/wrpoliksa.php 2 -
+/wp-admin/wp-mails.php 2 -
+/blog/wp-includes/fonts/dev.php 2 www.google.com
+/wp-includes/SimplePie/Net/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/js/ckeditor/index.php 2 -
+/files/mini.php 2 -
+/file-upload.php 2 -
+/wp-includes/blocks/loginout/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/archives/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/assets/priv.php 2 -
+/wp-content/plugins/clean-and-simple-contact-form-by-meg-nicholas/readme.txt 1 -
+/wp-content/R57.php 2 -
+/wp-content/themes/skatepark/alpha.php 2 www.google.com
+/wso.php 5 -
+/assets/assets.php 2 -
+/public/plugins/index.php 2 -
+/assets/radio.php 2 -
+/wp-admin/includes/index.php 2 -
+/wp-admin/css/colors/blue/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/uc.php 2 -
+/wordpress.rar 2 -
+/files/leaf.php 2 -
+/.well-known(1).tar.gz 2 -
+/wp-content/uploads/2024/9/index.php 2 -
+/class-vendor.php 2 -
+/scanner.php 2 -
+/wp-content/uploads/2024/01/wibu.php 2 -
+/fype.php 2 -
+/assets/xs.php 2 -
+/lock360.php 3 www.google.com
+/blog/wp-includes/fonts/iqb.php 2 www.google.com
+/modules.php 2 -
+/wp-includes/blocks/footnotes/index.php 2 -
+/wp-includes/Text/Diff/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/kenapa.php 2 -
+/wp-content/themes/wp-pridmag/up.php 2 www.google.com
+/goods.php 2 -
+/zfox.php 2 www.google.com
+/wp-includes/.uploads.php 2 -
+/usb.php 3 www.google.com
+/wp-includes/senpai.php 2 -
+/wordpress.zip 2 -
+/wp-email.php 3 www.google.com
+/wp-includes/blocks/comments-pagination-previous/index.php 2 -
+/wp-pluging.php 2 www.google.com
+/.byp.php 2 -
+/wp-includes/Text/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-lib.php 2 -
+/utchiha.phP 2 www.google.com
+/sitemap 1 -
+/wp-admin/js/index.php 2 -
+/images/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/shell.php 2 -
+/anonsec.phtml 2 -
+/xl.php 3 www.google.com
+/bypas.php 5 -
+/lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/assets/asets.php 2 -
+/plugins/index.php 2 -
+/files/indexx.php 2 -
+/wp-content/backups-dup-lite/tmp/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/cgi-bin/admin.php 2 -
+/orb.php 2 -
+/wp-content/plugins/ep4-more-embeds/readme.txt 1 -
+/ojs/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/rahma.php 2 www.google.com
+/media/bootstrap-modal/index.php 2 -
+/antek.php 1 www.google.com
+/wp-includes/b374k.php 2 -
+/wp-includes/blocks/file/index.php 2 -
+/wp-includes/blocks/more/index.php 2 -
+/flame.php 3 www.google.com
+/wp-content/wp-admin.php 2 -
+/fox.php 5 -
+/php-function.php 2 -
+/wp-content/plugins/wp-carouselslideshow/readme.txt 1 -
+/wp-includes/js/.js.php 2 -
+/file/uplod.php 2 -
+/wp-content/plugins/appointment-hour-booking/readme.txt 1 -
+/wp-includes/sodium_compat/namespaced/Core/Curve25519/Ge/ALFA_DATA/alfagciapi/perl.alfa 2 -
+/wp-includes/fonts/index.php 2 -
+/.git.php 2 -
+/components/get-started/snippets/config.php 2 -
+/.well-known(2).tar.gz 2 -
+/media/select2/index.php 2 -
+/kndw1.php 2 www.google.com
+/system/fonts/aib.php 2 -
+/wp-admin/index1.php 2 -
+/wp-admin/nive.php 2 -
+/wp-includes/rest-api/fields/ip.php 4 -
+/wp-includes/SimplePie/Category-options.php 2 -
+/wp-content/uploads/2024/2/index.php 2 -
+/constant.php 2 -
+/wp-includes/sitemaps/index.php 2 -
+/anone.php 3 www.google.com
+/wp-contact.php 2 -
+/wp-includes/blocks/query-no-results/index.php 2 -
+/wp-content/language.php 2 -
+/jox.php 2 -
+/help/js/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/asset/images/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/.alfa.php 2 -
+/303-Nothingx.php 2 -
+/Gel4y.php 2 -
+/wp-includes/blocks/navigation-link/index.php 2 -
+/wp-content/plugins/jiangqie-official-website-mini-program/readme.txt 1 -
+/21.php 1 www.google.com
+/.wp-cache.php 3 www.google.com
+/media/html5shim/index.php 2 -
+/alfa-ioxi.php 2 www.google.com
+/omest.php 1 www.google.com
+/wp-backup-sql-302.php 2 www.google.com
+/wp-admin/kem.php 2 -
+/hiddenuploader.php 2 -
+/wp-content/anonymus.php 2 -
+/wp-includes/0byt3m1n1.php 2 -
+/manager.php 3 www.google.com
+/2index.php 3 www.google.com
+/wp-content/plugins/clover-online-orders/readme.txt 1 -
+/wp-admin/uploadfile.php 2 -
+/login/blog/robots.txt 1 https://publishing.stt-tawangmangu.ac.id/wp-login.php
+/vendor/phenx/index.php 2 -
+/class-wp.php 2 -
+/wp-content/uploads/2024/9/403.php 2 -
+/assets/sample.php 2 -
+/wp-includes/blocks/page-list/index.php 2 -
+/g.php 5 -
+/wp-navigate.php 2 -
+/public/index.php 2 -
+/wp-admin/network/hid.php 2 -
+/file/up.php 2 -
+/gelay-enc.php 2 -
+/wp-content/plugins/zeenshare/readme.txt 1 -
+/gel4y.php 3 www.google.com
+/wp-atom.php 3 www.google.com
+/fggg.php 2 -
+/wp-content/run.php 2 -
+/wp-sample.php 4 -
+/xx.php 5 -
+/base.php 3 www.google.com
+/wp-includes/sodium_compat/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/wp.php 2 -
+/wp-admin/load88.php 2 -
+/wp-admin/user-old.php 2 -
+/wp-includes/mains.php 2 -
+/1975.php 6 www.google.com
+/wp-content/modules.php 2 -
+/un2.php 3 www.google.com
+/ht.php 2 -
+/wp-content/themes/skatepark/img_screen.php 2 www.google.com
+/plugins/splide/splide.core.php 2 -
+/wp-includes/options.php 2 -
+/assets/anonsec.php 2 -
+/mi.php 3 www.google.com
+/hiddenhaxor.php 2 -
+/alfa123.php 3 www.google.com
+/wp-includes/blocks/cover/index.php 2 -
+/wp-content/cyber.php 2 -
+/n.php 5 -
+/o.php 5 -
+/well-known.tar 2 -
+/wp-includes/user-old.php 2 -
+/public/js/tinymce/plugins/filemanager/filemanager/dialog.php 2 -
+/config.php 7 -
+/wp-login.php 6 -
+/index404.php 2 -
+/xmlrs.php 2 -
+/abby.php 3 -
+/file.php 5 -
+/wp-admin/wp-ajax.php 2 -
+/wp-admin/bypass.php 2 -
+/sys.php 5 -
+/wp-includes/blocks/pattern/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/wp-cron.php 2 -
+/wp-includes/rest-api/index.php 2 -
+/ok.php 5 -
+/radio.php 5 -
+/0byt3m1n1.php 2 -
+/shell20211028.php 3 www.google.com
+/XML-RPC.php 2 -
+/ip.php 2 -
+/uploads/js.php 2 -
+/wp-configer.php 3 www.google.com
+/help/assets/index.php 2 -
+/s.php 5 -
+/Tests/Unit/index.php 2 -
+/wp-content/plugins/ithemes-sync/readme.txt 1 -
+/xdmah.php 1 www.google.com
+/11.php 1 www.google.com
+/wp-content/upload-file.php 2 -
+/upload/autentification.php 2 -
+/wp-includes/blocks/list/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/uploads/run.php 2 -
+/blacksec.php 1 www.google.com
+/form.php 2 -
+/wp-admin/ts.php 2 -
+/assets/sessions.php 2 -
+/1index.php 3 www.google.com
+/vendor/phpunit/phpunit/src/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/about.php 2 -
+/trash236735.php 2 -
+/resources/index.php 2 -
+/wp-editors.php 2 -
+/nee.php 2 www.google.com
+/wp-content/plugins/church-admin/readme.txt 1 -
+/wp-content/plugins/easy-student-results/readme.txt 1 -
+/skins/larry/index.php 2 -
+/wp-content/themes/theme/gr.php 2 www.google.com
+/nc4r3p1.php 2 -
+/wp-includes/IXR/IXR.php 2 -
+/shx.php 3 www.google.com
+/wp-content/plugins/yet-another-stars-rating/readme.txt 1 -
+/wp-config.bak.php 2 -
+/settings.php 2 -
+/wp-content/uploads/2024/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/u5mkr.php 2 -
+/root.php 5 -
+/hoki.php 2 -
+/png.php 2 -
+/hlya.php 2 -
+/.alfa.php 2 -
+/log.php 2 -
+/wp-includes/style-engine/style.php 2 -
+/wp-blog.php 3 -
+/.well-known(2).rar 2 -
+/5.php 3 www.google.com
+/by.php 5 -
+/bypass.php 5 -
+/wp-content/gecko-old.php 2 -
+/wp-includes/blocks/heading/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/wol.php 2 -
+/wp-includes/blocks/navigation/index.php 2 -
+/wp-content/uploads/2024/8/index.php 2 -
+/other-decode.php 2 -
+/wp-includes/theme-compat/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/haxorcgiapi/perl.haxor 2 -
+/assets/r1.php 2 -
+/.wp-blog-header.php 2 -
+/app/marijuana.php 2 -
+/wp-content/bypass.php 2 -
+/wp-includes/blocks/query-no-results/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/js/js.php 2 -
+/.abyp.php 2 -
+/fox-wso.php 2 -
+/wp-content/wp-navigate.php 2 -
+/index.html 1 https://laboratorium.poltekkesbanten.ac.id/profile
+/wp-includes/blocks/paragraph/index.php 2 -
+/.htaccess.php 2 -
+/wp-config.php 3 -
+/.well-known/alfacgiapi/perl.alfa 2 -
+/wp-includes/Text/Diff/Engine/index.php 2 -
+/wp-includes/php-compat/about.php 2 -
+/wp-includes/anonsec.php 2 -
+/wp-admin/wp-caches.php 2 -
+/wp-content/config.php 2 -
+/wp-content/plugins/simple/wp-add.php 2 -
+/system/languange/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/new.php 3 www.google.com
+/v.php 5 -
+/guest_auth/guestIsUp.php 1 -
+/lock.php 2 -
+/xindex.php 3 www.google.com
+/wp-includes/blocks/column/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/ilusi.php 1 www.google.com
+/wp-includes/SimplePie/Content/Type/index.php 2 -
+/wp-content/plugins/quotes-for-woocommerce/readme.txt 1 -
+/wp-admin/alfashell.php 2 -
+/wp-includes/wp.php 2 -
+/wp-content/plugins/yith-woocommerce-product-bundles/readme.txt 1 -
+/wp-includes/blocks/social-links/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/ads-box/readme.txt 1 -
+/wp-content/form.php 2 -
+/wp-includes/mini.php 2 -
+/mce.php 2 -
+/wp-content/plugins/appointments/readme.txt 1 -
+/bb.php 2 www.google.com
+/components/button/snippets/hoki.php 2 -
+/wp-content/seobarbar.php 2 -
+/wp-content/lock.php 2 -
+/css/index.php 2 -
+/alfa-v4.php 1 www.google.com
+/mini.php 5 -
+/wp-assets.php 2 -
+/.well-known/san.php 2 -
+/wp-includes/PHPMailer/SMPT.php 2 -
+/system/fonts/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/post-content/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/min.php 3 www.google.com
+/wp-admin/votes.php 2 -
+/l.php 5 -
+/wp-hoard.php 1 www.google.com
+/user-new.php 2 -
+/wp-includes/blocks/post-comments-form/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/wc-gsheetconnector/readme.txt 1 -
+/app/Libraries/index.php 2 -
+/.pwn.php 2 -
+/wp-content/themes/appius/style.css 1 -
+/LazyShell.php 2 -
+/wp-includes/block-patterns/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/admin.php 2 -
+/class-ftp-pures.php 2 -
+/buy.php 2 -
+/wp-admin/wp-assets.php 2 -
+/wp-includes/blocks/comments-pagination/index.php 2 -
+/assets/abbyp.php 2 -
+/wp-content/plugins/multiparcels-shipping-for-woocommerce/readme.txt 1 -
+/1877.php 2 www.google.com
+/indosec.php 1 www.google.com
+/pkexec.php 2 -
+/wp-content/plugins/wp-bootscraper/readme.txt 1 -
+/wp-content/upgrade/wp-config.php 2 -
+/coba.php 2 -
+/wp-content/uploads/2024/09/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/mclash.php 2 www.google.com
+/wp-includes/B374K.php 2 -
+/wp-error.php 2 -
+/wp-includes/sample.php 2 -
+/777.php 3 www.google.com
+/wp-includes/blocks/post-comments-form/index.php 2 -
+/wp-includes/includes.php 2 -
+/ye.php 2 -
+/wp-includes/cylul.php 2 -
+/app/Exceptions/index.php 2 -
+/wp-content/plugins/leadboxer/readme.txt 1 -
+/wp-includes/blocks/site-title/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/views.php 2 -
+/wp-smail.php 2 -
+/r57.php 2 www.google.com
+/wp-content/plugins/free-event-banner/readme.txt 1 -
+/wp-admin/css/colors/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/uploader.php 2 -
+/wp-content/plugins/nd-restaurant-reservations/readme.txt 1 -
+/1x.php 2 -
+/assets/Gel4y.php 2 -
+/wp-content/plugins/tag-groups/readme.txt 1 -
+/plus/ajax_officebuilding.php 1 -
+/libraries/index.php 2 -
+/convert 1 -
+/wp-content/uploads/2024/7/index.php 2 -
+/wp-content/plugins/bitpay-checkout-for-woocommerce/readme.txt 1 -
+/about.php 5 -
+/wp-includes/class-wp-other.php 3 www.google.com
+/wp-content/plugins/ndak/marijuana.php 2 www.google.com
+/assets/hlya.php 2 -
+/wp-default.php 2 -
+/73.php 3 www.google.com
+/wp-content/plugins/wp-gpx-maps/readme.txt 1 -
+/wp-includes/votes.php 2 -
+/webui/file_guest 1 -
+/system/languange/index.php 2 -
+/captcha/priv.php 2 -
+/wp-admin/readme.php 2 -
+/wp-includes/pomo/log.php 2 -
+/wp-content/session.php 2 -
+/.well-known(3).tar 2 -
+/p37k.php 2 -
+/files.tar.gz 2 -
+/wp-content/languages/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/journal.tar 2 -
+/wp-admin/images/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/pattern/index.php 2 -
+/dj.php 2 -
+/wp-admin/views.php 2 -
+/wp-admin/postfs.php 2 -
+/wp-content/Josea.php 2 -
+/public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/assets/ms-functions.php 2 -
+/1975.phP 2 www.google.com
+/wp-content/mini-shell.php 2 -
+/assets/uploads.php 2 -
+/.well-known/acme-challenge/plugins.php 2 -
+/wp-includes/hlya.php 2 -
+/eagle.php 1 www.google.com
+/backlink.php 2 -
+/templates/alfapass.php 2 -
+/link.php 2 -
+/wp-content/filemanager.php 2 -
+/s99.php 2 -
+/.well-known%20%283%29.zip 2 -
+/uploads/-/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/abbyp.php 2 -
+/wp-system.php 5 -
+/wp-includes/blocks/tag-cloud/tag-cloud.php 2 -
+/wp-content/plugins/ignitiondeck/readme.txt 1 -
+/media/files/index.php 2 -
+/wp-comments.php 2 -
+/shop/index.php 2 -
+/wp-includes/blocks/more/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/phpqrcode/temp/kem/1.php 2 -
+/wp-content/plugins/woocommerce-eu-vat-assistant/readme.txt 1 -
+/wp-content/autoload.php 2 -
+/.env.backup 3 -
+/alfashell.php 2 -
+/wp-content/themes/hasium/style.css 1 -
+/.env.laboratorium 2 -
+/www.php 3 www.google.com
+/login/xmlrpc.php 1 https://publishing.stt-tawangmangu.ac.id/wp-login.php
+/wp555.php 2 -
+/.well-known/acme-challenge/index.php 2 -
+/Collector/storagemgmt/apply 1 -
+/wp-content/plugins/duplicate-page-or-post/readme.txt 1 -
+/assets/server.php 2 -
+/wp-content/themes/vithy/style.css 1 -
+/dosya.php 2 www.google.com
+/.env_sample 3 -
+/assets/pra.php 2 -
+/lee.php 2 -
+/room.php 3 www.google.com
+/wp-includes/sitemaps/providers/var.php 2 -
+/alfaxx.php 2 -
+/embed-core.php 2 -
+/java.php 2 -
+/wp-includes/blocks/read-more/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp/wp-includes/fonts/iqb.php 2 www.google.com
+/abyp.phtml 2 -
+/wp-content/skeined.php 2 -
+/wp-content/themes/wp/fm.php 2 -
+/konslet.php 2 -
+/wp-content/themes/noriumportfolio/doc.php 2 www.google.com
+/app/index.php 2 -
+/wp-includes/MARIJUANA.php 2 -
+/wp-admin/mini-fm.php 2 -
+/wp-includes/gecko-new.php 2 -
+/backend/views/files.php 2 -
+/wp-includes/blocks/query-pagination-next/index.php 2 -
+/new/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/post-template/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/database/seeds/index.php 2 -
+/assets/alfas.php 2 -
+/wp-includes/block-patterns/file.php 2 -
+/mains.php 2 -
+/application/hooks/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/v4.php 3 www.google.com
+/wp-includes/font-editor.php 2 -
+/wp-content/plugins/library/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/comment-content/index.php 2 -
+/wp-includes/blocks/html/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/cgi.php 2 -
+/wp-includes/widgets/widgets.php 2 -
+/wp-content/alfasdonat.php 2 -
+/assets/js/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/newfile.php 2 -
+/error.php 5 -
+/user-edit.php 2 -
+/wp-includes/blocks/text-columns/columns.php 2 -
+/wp-content/program.php 2 -
+/wp-includes/certificates/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/content.php 2 -
+/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 5 -
+/wp-includes/SimplePie/Decode/index.php 2 -
+/wp-includes/SimplePie/Content/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/content.php 5 -
+/alfa.php 5 -
+/photo/alfapass.php 2 -
+/wp-content/0byt3m1n1.php 2 -
+/mydb.php 2 -
+/tshop.php 2 www.google.com
+/wp-content/xcc.php 4 -
+/wp-content/fonts.php 2 -
+/fileman.php 2 -
+/simple.php 3 -
+/wp-includes/blocks/code/index.php 2 -
+/fileadmin.php 2 -
+/wp-includes/blocks/term-description/description.php 2 -
+/wp/wp-includes/fonts/dev.php 2 www.google.com
+/uct.php 1 www.google.com
+/journals.tar 2 -
+/asu.phtml 2 -
+/app/readme.php 2 -
+/.well-known/pki-validation/wp-signup.php 3 www.google.com
+/js/index.php 2 -
+/wp-includes/blocks/paragraph/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/class-management.php 2 -
+/blank.php 2 -
+/wp-content/plugins/imageboss/readme.txt 1 -
+/.env.production 2 -
+/wp-admin/alfas.php 2 -
+/.well-known(3).zip 2 -
+/wp-includes/leaf.php 2 -
+/wp-content/upgrade/index.php 2 -
+/wp-content/.about.php 2 -
+/system/libraries/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/assets/font-editor.php 2 -
+/wp-admin/css/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/.admin.php 2 -
+/wp-includes/html-api/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/assets/go.php 2 -
+/wp-content/wp-ucen.php 2 -
+/assets/.alfa.php 2 -
+/wp-content/plugins/wp-football/readme.txt 1 -
+/123.php 2 -
+/error/index.php 2 -
+/wp-includes/lock.php 2 -
+/wp-content/themes/hello-elementor/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp_backup.php 2 -
+/assets/css/plugins/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/legacy-widget/index.php 2 -
+/wp-includes/block-supports/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/vendor/doctrine/index.php 2 -
+/wp-admin/maint/class_api.php 2 -
+/wp-includes/blocks/video/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/.env.old 3 -
+/butani/config/internet.php 2 -
+/wp-content/plugins/custom-login/readme.txt 1 -
+/numberv2.php 2 -
+/postfs.php 4 -
+/wp-admin/user/index.php 2 -
+/tuco.php 3 www.google.com
+/.well-known/pki-validation/saad@alfa26889.php 2 -
+/wp-content/plugins/simple/simple.php 2 -
+/assets/p0wny.php 2 -
+/assets/.root.php 2 -
+/assets/php/upload.php 1 http://laboratorium.poltekkesbanten.ac.id
+/wp-themes.php 2 -
+/defaul1.php 1 www.google.com
+/wp-includes/template.php 2 -
+/wp-admin/kn.php 2 -
+/wp-includes/.admin.php 2 -
+/wp-head.php 1 www.google.com
+/docindex.php 3 www.google.com
+/1975Team.php 2 www.google.com
+/wp-content/plugins/feedfocal/readme.txt 1 -
+/vendor/phpspec/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-conctent.php 2 www.google.com
+/jindex.php 3 www.google.com
+/wp-includes/IXR/wp-coment.php 2 -
+/wp-content/settingan.php 2 -
+/alfa.php7 2 -
+/wp-content/wp-add.php 2 -
+/wp-includes/SimplePie/HTTP/index.php 2 -
+/files.rar 2 -
+/wp-includes/blocks/column/index.php 2 -
+/wp-aa.php 2 -
+/local/alfa.php 2 -
+/minishell.php 5 -
+/wp-includes/blocks/latest-posts/index.php 2 -
+/xl2023x.php 1 www.google.com
+/wp-content/sa.php 2 -
+/accdoc.php 2 -
+/eror.php 2 -
+/wp-includes/blocks/audio/ip.ph 2 -
+/wp-admin/alfa403.php 2 -
+/app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/name.php 1 www.google.com
+/wp-content/antivirus.php 2 -
+/wp-content/plugins/userfeedback-lite/readme.txt 1 -
+/container.php 2 -
+/wp-content/upgrade/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/ar.php 2 -
+/Indosec.php 2 -
+/shellter.php 2 -
+/.quarantine/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/jet-tricks/readme.txt 1 -
+/wp-includes/blocks/quote/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-cache.php 2 -
+/adxmlrpc.php 1 -
+/admin403.php 1 www.google.com
+/cgi-bin/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/seur/readme.txt 1 -
+/wp-content/plugins/zynith-seo/readme.txt 1 -
+/wp-content/plugins/smart-wishlist-for-more-convert/readme.txt 1 -
+/wp-admins.php 2 -
+/wp-admin/function.php 2 -
+/wp-admin/simp.php 2 -
+/no2.php 2 -
+/wp-admin/wp-links.php 2 -
+/asset/js/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/.xixixi.php 2 -
+/4x4.php 2 www.google.com
+/journal.tar.gz 2 -
+/.well-known/acme-challenge/alfacgiapi/perl.alfa 2 -
+/lnedx.php 2 www.google.com
+/wp-content/0.php 2 -
+/wp-content/uploads/2022/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/mini_shell.php 2 -
+/.cache.php 2 -
+/wp-content/themes/noriumportfolio/alpha.php 2 www.google.com
+/assets/cylul.php 2 -
+/0o.php 3 www.google.com
+/wp-includes/wp-links.php 2 -
+/wp-includes/blocks/post-date/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/config.phtml 2 -
+/wp-content/themes/wp-pridmag/22x.php 2 www.google.com
+/litespeed.php 3 -
+/vendor/phpdocumentor/index.php 2 -
+/wp-admin/wp-security.php 2 -
+/wp-content/plugins/easy-csv-importer/readme.txt 1 -
+/wp-content/plugins/responsive-lightbox/readme.txt 1 -
+/wp-content/views.php 2 -
+/wp-content/plugins/wordpress-seo/src/services/importing/aioseo/fix_services/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/system/database/index.php 2 -
+/econfig.php 2 -
+/6.php 3 www.google.com
+/wp-includes/main.php 2 -
+/rootshell.php 2 -
+/wp-content/plugins/robo-gallery/readme.txt 1 -
+/anons79.php 3 www.google.com
+/wp-includes/blocks/quote/quote.php 2 -
+/assets/asset.php 2 -
+/fonts.php 2 -
+/wp-includes/pra.php 2 -
+/checkbox.php 2 -
+/1337_DATA/alfacgiapi/perl.alfa 2 -
+/kiannn.php 2 -
+/system/helpers/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/assets/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/wolv2.php 2 -
+/wp-includes/block-patterns/oi.php 2 -
+/wp-content/wp-config.php 2 -
+/wp-admin/.wp-admin.php 2 -
+/database/factories/index.php 2 -
+/cylul.php 2 -
+/.bypp.php 2 -
+/database/ALFA_DATA/perl.alfa 2 -
+/contents.php 2 -
+/components/button/snippets/id.php 2 -
+/wp-content/plugins/content-restrictor-for-divi/readme.txt 1 -
+/wp-content/alfacgiapi/perl.alfa 2 -
+/13.php 3 www.google.com
+/wp-content/secure.php7 2 -
+/wp-includes/run.php 2 -
+/wp-includes/wp-caches.php 2 -
+/asset/images/icons/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/assets/upload/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/ndak/1.php 2 www.google.com
+/management.php 2 -
+/wp-admin-int.php 2 -
+/wp-admin/user/user-default.php 2 -
+/wp-signup.php 3 -
+/e.php 5 -
+/wp-includes/about.php 2 -
+/wp-content/themes/colormag/style.css 1 -
+/wp-content/plugins/contact-form-7/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/polylang/readme.txt 1 -
+/ap.php 1 www.google.com
+/wp-content/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/wp-attest/readme.txt 1 -
+/wp-includes/lolalf.php 2 -
+/wp-engine.php 2 -
+/wp-content/plugins/virr/v.php 2 www.google.com
+/wp-admin/Gel4y.php 2 -
+/assets/session.php 2 -
+/storage/logs/laravel.log 1 -
+/wp-includes/blocks/footnotes/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/MARIJUANA.php 2 -
+/easytools.php 2 -
+/ts.php 2 -
+/chris.php 2 -
+/alfakun.php 2 www.google.com
+/assets/sym403.php 2 -
+/wp-content/plugins/skt-templates/readme.txt 1 -
+/wp-content/themes/wp-pridmag/init.php 2 www.google.com
+/terminal-root.php 2 -
+/wp-admin/network/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/ohayo.php 2 www.google.com
+/wp-includes/blocks/post-navigation-link/index.php 2 -
+/.p0wny.php 2 -
+/wp-admin/litespeed.php 2 -
+/.env.save 3 -
+/.lib/index.php 2 -
+/assets/input.php 2 -
+/wp-admin/.info.php 2 -
+/download/index.php 2 -
+/wp-includes/blocks/buttons/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/administrator/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/swacy.php 2 -
+/wp-admin/includes/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/SimplePie/Decode/HTML/index.php 4 -
+/assets/C99.php 2 -
+/wp-includes/mariju.php 2 -
+/xox.php 3 www.google.com
+/wp-admin/p37k.php 2 -
+/var.php 1 www.google.com
+/3301.php 2 www.google.com
+/wp-includes/gecko.php 2 -
+/wp-content/C99.php 2 -
+/byps.403.php 2 -
+/fx-mini.php 2 -
+/priv.php 5 -
+/wp-content/uploads/2024/6/index.php 2 -
+/fileupload.php 2 -
+/assets/auth.php 2 -
+/wp-feed.php 2 -
+/EemAdminService/EemAdmin 1 -
+/options.php 2 -
+/4lin.php 1 www.google.com
+/.tmb/gc.php 2 -
+/wp-includes/ts.php 2 -
+/file/idx.php 2 -
+/wp-content/boy.php 2 -
+/wp-content/plugins/import-users-from-csv-with-meta/readme.txt 1 -
+/wp-includes/SimplePie/Net/index.php 2 -
+/alfa4.php 2 -
+/image/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/add-fields-to-checkout-page-woocommerce/readme.txt 1 -
+/wp-includes/blocks/gallery/index.php 2 -
+/assets/fonts.php 2 -
+/.well-known%20%281%29.tar.gz 2 -
+/vendor/phpunit/phpunit/src/Util/PHP/eval.php 2 -
+/local/index.php 2 -
+/mrjn.php 3 www.google.com
+/wso1.php 2 www.google.com
+/unh.php 2 -
+/.well-known/455.php 2 -
+/application/libraries/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/assets/Indosec.php 2 -
+/wp-content/plugins/dashicons-cpt/readme.txt 1 -
+/abc.php 3 www.google.com
+/23.php 1 www.google.com
+/local.php 3 www.google.com
+/epinyinsss.php 2 -
+/seobarbar.php 2 -
+/wp-content/uploads/2024/9/Gecko.php 2 -
+/bkv74.php 1 www.google.com
+/wp-includes/wordpress.php 2 -
+/wp-includes/blocks/block/index.php 2 -
+/wp-includes/blocks/post-terms/index.php 2 -
+/wp-content/sessions.php 2 -
+/template/index.php 2 -
+/wp-content/themes/twentytwentyfour/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/SimplePie/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/.env.prod 2 -
+/assets/uploadfile.php 2 -
+/wp-content/plugins/pricing-deals-for-woocommerce/readme.txt 1 -
+/hid.php 2 -
+/wp-content/themes/noriumportfolio/img_screen.php 2 www.google.com
+/wp-admin/b374k.php 2 -
+/cmd.php 1 www.google.com
+/wp-content/themes/twentyfifteen/fm.php 2 -
+/wp-content/load88.php 2 -
+/.well-known/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/stacks-mobile-app-builder/readme.txt 1 -
+/.well-known%20%283%29.rar 2 -
+/wp-content/backups-dup-lite/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/assets/nothingX.php 2 -
+/wp-includes/input.php 2 -
+/database/migrations/index.php 2 -
+/wp-includes/blocks/calendar/index.php 2 -
+/cron.php 2 -
+/wp-includes/wp-config.php 2 -
+/wp-admin/anons79.php 2 -
+/wp-content/plugins/updraftcentral/readme.txt 1 -
+/wp-admin/images/samll.php 2 -
+/vendor/mpdf/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-loads.php 2 -
+/c99.php 5 -
+/wp-one.php 5 -
+/wp-includes/mini_shell.php 2 -
+/sistem/data/index.php 2 -
+/wp-content/readme.php 2 -
+/lite.php 2 -
+/data-user.php 2 -
+/journal.zip 2 -
+/aa.php 2 -
+/wp-content/uploadfile.php 2 -
+/vendor/mikey179/index.php 2 -
+/nasgor.php 2 www.google.com
+/wpadmin.php 2 -
+/kronis224.php 2 -
+/god4m.php 3 www.google.com
+/sure.php 2 -
+/wp-users.php 2 -
+/erorr.php 2 -
+/help/index.php 2 -
+/wp-defaul.php 3 www.google.com
+/assets/info.php 2 -
+/wp-includes/images.php 2 -
+/wp-content/plugins/yamaps/readme.txt 1 -
+/input.php 2 -
+/wp-content/plugins/contus-video-galleryversion-10/readme.txt 1 -
+/.well-known/index.php 2 -
+/wp-content/.admin.php 2 -
+/wp-content/plugins/wp-users-media/readme.txt 1 -
+/assets/readme.php 2 -
+/wp-includes/mini-shell.php 2 -
+/wp-content/.content.php 2 -
+/sistem/js/index.php 2 -
+/wp-admin/priv.php 2 -
+/wp-includes/abby.php 2 -
+/assets/mini_shell.php 2 -
+/wp-content/themes/workart/db.php 2 www.google.com
+/alfapass.php 2 -
+/class.php 2 -
+/wp-content/plugins/wp-diambar/includes/loadme.php 2 www.google.com
+/border-core.php 2 -
+/alfah.php 2 -
+/degeselih.php 2 www.google.com
+/wp-content/plugins/bsuite/readme.txt 1 -
+/wp-content/alfashell.php 2 -
+/wp-admin/sa.php 2 -
+/1100.php 1 www.google.com
+/wp-includes/blocks/query/index.php 2 -
+/fck.php 2 -
+/404.php 5 -
+/wp-includes/blocks/site-logo/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/user/core-admin.php 2 -
+/wp-includes/PHPMailer/PHPMailer.php 2 -
+/shinta.php 2 -
+/fvck-.php 2 -
+/sendmail.php 2 www.google.com
+/wp-includes/blocks/columns/index.php 2 -
+/wp-includes/blocks/embed/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wsopriv.php 1 www.google.com
+/en.php 2 -
+/asset/media/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/abyyp.php 2 -
+/bre.php 2 www.google.com
+/wp-content/radio.php 2 -
+/assets/js/updraft/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/server.php 2 -
+/wp-content/uploads/2024/8/byp.php 2 -
+/asset/css/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/wp-admin.php 2 -
+/wp-content/anonsec.php 2 -
+/wp-includes/ID3/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/app/media.php 2 -
+/header.php 2 -
+/wp-includes/anon7.php 2 -
+/board/forumrunner/request.php 1 -
+/wp-map.php 2 -
+/scdc.php 2 -
+/wp-content/document.php 2 -
+/plugin-wp.php 2 -
+/entity.php 2 -
+/alfabusuk.php 2 -
+/system/libraries/index.php 2 -
+/edit-comments.php 2 -
+/wp-includes/SimplePie/Cache/Cache.php 2 -
+/asset/js/alfacgiapi/perl.alfa 2 -
+/.well-known/acme-challenge/install.php 2 -
+/wp-content/wp-caches.php 2 -
+/app/system.php 2 -
+/wp-content/mini.php 2 -
+/evil.php 3 www.google.com
+/wp-content/plugins/cekidot/mar.php 2 www.google.com
+/wp-admin/user/ayazz.php 2 -
+/uploads/default.php 2 -
+/wp-includes/blocks/social-link/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/assets/css/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/css/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/mediabay-lite/readme.txt 1 -
+/wp-admin/widgets-log.php 2 -
+/wp-includes/blocks/post-author-name/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/assets/images/gui/cache.php 2 -
+/wp-admin/system.php 2 -
+/wp-content/plugins/wp-reset/readme.txt 1 -
+/ss.php 2 -
+/.env.www 2 -
+/wp-admin/css/colors/blue/makeasmtp.php 2 -
+/wp-content/plugins/bertha-ai-free/readme.txt 1 -
+/wp-includes/blocks/page-list/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/query-title/index.php 2 -
+/.env.production.local 4 -
+/.well-known(1).zip 2 -
+/8890.php 1 www.google.com
+/assets/secure.php7 2 -
+/wp-posts.php 3 www.google.com
+/kct.php 1 www.google.com
+/b0x.php 2 -
+/wp-content/.config.php 2 -
+/wp-includes/blocks/widget-group/group.php 2 -
+/assets/main.php 2 -
+/cyber.php 2 -
+/system/libraries/Session/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/themes/wp-pridmag/status.php 2 www.google.com
+/DB_config.shtml 2 -
+/sundaxploit.php 1 www.google.com
+/app/Console/index.php 2 -
+/wp-includes/blocks/navigation/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/font-editor.php 2 -
+/wp-content/plugins/rich-web-share-button/readme.txt 1 -
+/wp-content/plugins/speed-booster-pack/readme.txt 1 -
+/.env.development.local 4 -
+/wp-includes/wp-class.php 5 -
+/wp-info.php 3 www.google.com
+/cloud.php 2 -
+/sitemap.xml 1 -
+/php19.php 2 -
+/public/fonts/index.php 2 -
+/wp-wso.php 3 www.google.com
+/wp-content/.templates.php 2 -
+/usr.php 3 www.google.com
+/wp-includes/SimplePie/Content/Type/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/files/uploader.php 2 -
+/ppid/index.php 2 -
+/Cart.php 2 -
+/media/tinymce/index.php 2 -
+/wp-comments-post.php 1 www.google.com
+/app/alfacgiapi/perl.alfa 2 -
+/ww.php 3 www.google.com
+/.well-known/acme-challenge/admin.php 2 -
+/wp-includes/blocks/comment-template/index.php 2 -
+/antivirus.php 2 -
+/clears.php 2 -
+/wp-content/plugins/all-in-one-wp-migration/readme.txt 1 -
+/anon.php 5 -
+/wp-admin/wp-config.php 2 -
+/session.php 2 -
+/sample.php 2 -
+/wp-includes/C99.php 2 -
+/wp-content/themes/alera/alpha.php 3 www.google.com
+/wp-about.php 2 -
+/a1.php 2 -
+/public/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/wp-class.php 2 -
+/wp-content/uploads/2024/07/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/images/doc.php 2 -
+/wp-includes/blocks/embed/index.php 2 -
+/c.php 5 -
+/wp-content/plugins/popup-by-supsystic/readme.txt 1 -
+/modules/mini.php 2 -
+/hunter.php 1 www.google.com
+/edit.php 6 -
+/sistem/images/index.php 2 -
+/pwn.php 2 -
+/wp-includes/images/media/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/autentification.php 2 -
+/wp-admin/wp-login.php 2 -
+/image/alfacgiapi/perl.alfa 2 -
+/admin/editor/index.php 2 -
+/wp-load.php 3 www.google.com
+/assets/default.php 2 -
+/public/filemanager/filemanager/dialog.php 1 -
+/wp-includes/colors.php 2 -
+/wp-admin/wp-user.php 2 -
+/asset/css/alfacgiapi/perl.alfa 2 -
+/cms.php 2 -
+/general/index/UploadFile.php 1 -
+/wp-includes/IndoXploit.php 2 -
+/wp-includes/images/media/media.php 2 -
+/wp-includes/sa.php 2 -
+/other.php 2 -
+/plugin.php 2 -
+/wolv2.php 2 -
+/static/install.phtml 2 -
+/wp-includes/wol.php 2 -
+/assets/.assets.php 2 -
+/wp-content/litespeed/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/Dz.php 4 -
+/wp-content/plugin.php 2 -
+/wp-includes/admin.php 2 -
+/wp-includes/blocks/tag-cloud/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/shell-bypass.php 2 -
+/nothingX.php 2 -
+/wol.php 2 -
+/config/internet.php 2 -
+/repository/shinta.php 2 -
+/up.php 5 -
+/kct403.php 1 www.google.com
+/wp-user.php 2 -
+/vendor/composer/index.php 2 -
+/assets/alfa.php 2 -
+/wp-content/themes/twentytwentyone/404.php 2 -
+/wp-admin/abyyp.php 2 -
+/bypass404.php 2 -
+/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/DateTimeExcel/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/images/run.php 2 -
+/media/images/index.php 2 -
+/wp-includes/.about.php 2 -
+/.alf.php 2 -
+/wp-includes/SimplePie/Parse/index.php 2 -
+/wp-content/plugins/no-future-posts/readme.txt 1 -
+/cgi-bin/alfacgiapi/perl.alfa 2 -
+/sh.php 1 www.google.com
+/help/assets/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/upload.php 3 www.google.com
+/0z.php 3 www.google.com
+/jp.php 2 -
+/upload/alfapass.php 2 -
+/wp-update.php 2 -
+/h.php 5 -
+/wp-includes/content.php 2 -
+/bc.php 2 -
+/vendor/dompdf/index.php 2 -
+/wp-includes/size.php 2 -
+/wp-content/plugins/autoptimize/readme.txt 1 -
+/f.php 5 -
+/puki.php 2 -
+/foxx.php 3 www.google.com
+/wp-includes/blocks/spacer/spacer.php 2 -
+/wp-includes/blocks/home-link/index.php 2 -
+/database/priv.php 2 -
+/wp-includes/blocks/audio/net.php 2 -
+/wp-content/plugins/wp-membership/readme.txt 1 -
+/wp-includes/blocks/audio/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/disnakertrans.zip 2 -
+/mcc.php 1 www.google.com
+/wp-content/plugins/localseomap-for-elementor/readme.txt 1 -
+/wp-includes/wp-themes.php 2 -
+/marijuana.php 5 -
+/local/mini.php 2 -
+/Not-Found.php 2 -
+/.lite.php 2 -
+/cocot.php 1 www.google.com
+/assets/seobarbar.php 2 -
+/assets/pwn.php 2 -
+/wp-admin/.wpadmin.php 2 -
+/null.php 2 -
+/application/models/ALFA_DATA/alfacgiapi/perl.alfa 4 -
+/teslav.php 2 www.google.com
+/https.php 2 -
+/disnakertrans.tar.gz 2 -
+/application/default.php 2 -
+/customize.php 2 -
+/wp-content/plugins/twitter-cards-meta/readme.txt 1 -
+/k0nt0ll4nc1a0c1b41.php 2 -
+/administrator/reset_password/q173s8hs1jl04st35169ccl8o7 1 -
+/error303.php 2 -
+/wp-content/shellpw.php 2 -
+/batm.php 3 www.google.com
+/wp-content/core-admin.php 2 -
+/file/alfa.php 2 -
+/assets/B374K.php 2 -
+/indeax.php 2 -
+/language.php 2 -
+/wp-includes/config.php 2 -
+/alfaaneh.php 2 -
+/wp-content/plugins/db/mar.php 2 www.google.com
+/application/language/english/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/post-title/index.php 2 -
+/wp-includes/lite.php 2 -
+/assets/function.php 2 -
+/vendor/phpunit/phpunit/src/Util/PHP/alfacgiapi/perl.alfa 2 -
+/include/mini.php 2 -
+/01.php 5 -
+/wp-admin/.templates.php 2 -
+/gh.php 3 www.google.com
+/carbon/generic/save_artifact_ajaxprocessor.jsp 1 -
+/assets/lock.php 2 -
+/wp-content/uploads/2024/8/Gecko.php 2 -
+/abyp.php 2 -
+/bypwso.php 2 -
+/sites/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 2 -
+/wp-includes/blocks/audio/bssn.php 2 -
+/wp-includes/block-patterns/block-patterns.php 2 -
+/fsoxhl.php 2 -
+/wp-content/uploads/2024/9/1.php 2 -
+/ucmdb-api/connect 1 -
+/system/libraries/Javascript/drivers/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/user/adminer.php 2 -
+/alwso.php 2 www.google.com
+/ioxi.php 2 www.google.com
+/database/sql.php 2 -
+/classes/file/script.php 2 -
+/wp-content/plugins/easy2map/readme.txt 1 -
+/wp-content/plugins/two-factor-authentication/readme.txt 1 -
+/wp-admin/uploads.php 2 -
+/wp-content/wp-links.php 2 -
+/wp-includes/Gel4y.php 2 -
+/Parameter.php 2 -
+/wp-includes/blocks/post-content/index.php 2 -
+/y.php 5 -
+/wp-includes/Requests/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/css/.css.php 2 -
+/wp-content/plugins/contact-form-7/readme.txt 1 -
+/wp-admin/havk0r.php 2 -
+/bs.php7 1 www.google.com
+/gank.php.PhP 2 www.google.com
+/fuel/pages/select/ 1 -
+/application/third_party/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/rest-api/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/themes/index.php 2 -
+/geek-404.php 2 -
+/w3llstore.php 2 www.google.com
+/wp-content/plugins/booking/readme.txt 1 -
+/wp-includes/images/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/s2.php 2 -
+/ghostsec.php 1 www.google.com
+/.uploads.php 2 -
+/wp-includes/fonts/dev.php 2 www.google.com
+/uplaod.php 2 -
+/locale.php 2 -
+/wordpress/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/leaf.php 2 -
+/wp-includes/stats/stats.php 2 -
+/xxx.php 5 -
+/credits.php 2 -
+/admin.php 5 -
+/assets/css/uploads/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/sessions.php 2 -
+/wp-admin/alfapass.php 2 -
+/wp-content/themes/fitnessbase/crp.php 2 www.google.com
+/wp-content/plugins/salient-home-slider/includes/frontend/admin.php 2 -
+/document.php 2 -
+/assets/config.php 2 -
+/data.php 2 -
+/.env.poltekkesbanten 2 -
+/plugins/3rdPartyServers/ox3rdPartyServers/max.class.php 1 -
+/wp-content/plugins/cakil/up.php 2 www.google.com
+/updates.php 2 -
+/lite-MAR.php 2 -
+/wp-includes/css/alfa403.php 2 -
+/wp-includes/blocks/comments-pagination-next/index.php 2 -
+/xyn.php 2 -
+/pentes.php 2 -
+/wp-content/plugins/cekidot/readme.txt 2 www.google.com
+/template/beez3/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/wp-user.php 2 -
+/wp-admin/config.php 2 -
+/wp-singupp.php 2 www.google.com
+/wp-includes/blocks/heading/index.php 2 -
+/.env.bak 1 -
+/profile.php 3 -
+/azdare.php 2 -
+/wp-includes/blocks/post-author-name/index.php 2 -
+/wp-includes/blocks/categories/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/jumping.php 2 -
+/wp-includes/fonts.php 2 -
+/wp-content/htaccess.php 2 -
+/assets/css/updraft/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/admin/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/asset/alfacgiapi/perl.alfa 2 -
+/vendor/sabberworm/index.php 2 -
+/kyami.php 2 www.google.com
+/loader/ff.php 2 www.google.com
+/wp-content/themes/seotheme/db.php 3 www.google.com
+/phpqrcode/temp/templates.php 2 -
+/su.php 2 -
+/wp-content/themes/cakiltheme/idx.php 2 www.google.com
+/cache.php 2 -
+/xmlrpcsss.php 2 -
+/.well-known/acme-challenge/file.php 2 -
+/wp-admin/ms-functions.php 2 -
+/fierza.php 7 -
+/wp-content/plugins/wsm-downloader/readme.txt 1 -
+/cache/index.php 2 -
+/wp-rss.php 3 www.google.com
+/wp-admin/network/priv.php 2 -
+/wp-content/database.php 2 -
+/wp-content/plugins/wp-freeform/includes/loadme.php 2 www.google.com
+/wp-admin/default.php 2 -
+/__bx_log.log 1 -
+/wp-includes/fm.php 2 -
+/system/fonts/bypass.php 2 -
+/wp-admin/pluginsnew.php 2 -
+/foxwso.php 3 www.google.com
+/assets/wp555.php 2 -
+/wp-content/plugins/gravity-forms-sms-notifications/readme.txt 1 -
+/ninja.php 3 www.google.com
+/Xzd.php 2 www.google.com
+/assets/php-function.php 2 -
+/wp-content/plugins/linkpreview/db.php 2 www.google.com
+/special.php 3 -
+/mwmek.php 1 www.google.com
+/if.php 3 www.google.com
+/wp-includes/blocks/comments-pagination-numbers/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/.env.dev.local 4 -
+/mau-ngapain 2 -
+/wp-includes/wp-security.php 2 -
+/wp-includes/blocks/post-author/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/css/colors/ocean/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/rest-api/endpoints/security.php 2 -
+/gank.php 2 www.google.com
+/wp-includes/blocks/media-text/index.php 2 -
+/wp.php 5 -
+/wp-includes/blocks/separator/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/vendor/install.phtml 2 -
+/wp-content/uploads/2024/1/index.php 2 -
+/wp-content/options.php 2 -
+/wp-includes/indexx.php 2 -
+/Cron.php 2 -
+/upl.php 2 -
+/ms-functions.php 2 -
+/shellbypass.php 1 www.google.com
+/assets/size.php 2 -
+/3index.php 3 www.google.com
+/alp.php 2 -
+/wp-admin/hlya.php 2 -
+/admin404.php 1 www.google.com
+/shell.php 5 -
+/wp-includes/blocks/group/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/journals.zip 2 -
+/wp-content/themes/everest-news/style.css 1 -
+/wp-admin/minishell.php 2 -
+/wp-content/themes/twentytwentytwo/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/C99.php 2 -
+/anonsec.php 2 -
+/wp-content/themes/cepair/doc.php 2 www.google.com
+/cgialfa/user.alfa 2 -
+/wp-content/uploads/2024/9/mini.php 2 -
+/wp-includes/blocks/post-featured-image/index.php 2 -
+/wp-includes/blocks/term-description/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/ids.php 3 www.google.com
+/aduh.php 2 -
+/ppdb.zip 2 -
+/assets/b.php 2 -
+/wp-content/.uploads.php 2 -
+/application/index.php 2 -
+/sistem/css/index.php 2 -
+/sql.php 5 -
+/.env.live 4 -
+/wp-admin/includes.php 2 -
+/.config.php 2 -
+/wp-content/plugins/xen-carousel/readme.txt 1 -
+/wp-includes/blocks/table/table.php 2 -
+/wp-admin/skeined.php 2 -
+/wp-content/plugins/answer-my-question/readme.txt 1 -
+/wp-content/plugins/wp-media-cleaner/readme.txt 1 -
+/upgrade/old_sql/index.php 2 -
+/phpinf.php 2 -
+/assets/alfa403.php 2 -
+/lnc.php 2 -
+/alfa123.phpmain.min.css.php 2 -
+/database_log.php 2 -
+/wp-includes/0.php 2 -
+/assets/woldigi-MAR.php 2 -
+/LEVIATHAN/haxorcgiapi/perl.haxor 2 -
+/wp-includes/blocks/home-link/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/b374k.php 2 -
+/wp-content/plugins/altos-connect/readme.txt 1 -
+/wp-includes/blocks/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/contact-forms/readme.txt 1 -
+/wp-content/cache/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/qindex.php 3 www.google.com
+/bottom.php 2 -
+/menten.php 2 -
+/wp-content/plugins/products-stock-manager-with-excel/readme.txt 1 -
+/assets/marijuana.php 2 -
+/wp-admin/server.php 2 -
+/alfateslav4.php 3 www.google.com
+/assets/mariju.php 2 -
+/wp-admin/content-wp.php 2 -
+/wp-includes/blocks/comment-content/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/uploads/s.php 2 -
+/assets/run.php 2 -
+/wp-includes/blocks/rss/rss.php 2 -
+/con7ext.php 3 www.google.com
+/.env_1 3 -
+/wp-content/marijuana.php 2 -
+/media/datetimepicker/index.php 2 -
+/wp-admin/css/colors/ectoplasm/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/program/index.php 2 -
+/wp-content/plugins/bulletin-announcements/readme.txt 1 -
+/wp-content/uploads/2024/8/403.php 2 -
+/.well-known%20%281%29.rar 2 -
+/wp-includes/blocks/comments-pagination-numbers/index.php 2 -
+/repository/1x.php 2 -
+/.tmb/alfacgiapi/perl.alfa 2 -
+/wp-ajax.php 2 -
+/lv.php 3 -
+/testwp.php 3 www.google.com
+/R57.php 2 -
+/wp-content/info.php 2 -
+/shl.php 5 -
+/wp-includes/abbyp.php 2 -
+/wp-content/nani.php 2 -
+/assets/phpinf.php 2 -
+/wp-admin/general.php 2 -
+/wp-content/kn.php 2 -
+/nav-menus.php 2 -
+/.well-known/traffic-advice 1 -
+/Language.php 2 -
+/assets/alfasdonat.php 2 -
+/wp-admin/includes/capil%20.php 2 -
+/wp-includes/blocks/code/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/.admin.php 2 -
+/zx.php 3 www.google.com
+/product.php 1 www.google.com
+/omest403.php 1 www.google.com
+/pi.php 3 www.google.com
+/cache/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/kepo.php 2 www.google.com
+/gg.php 1 www.google.com
+/wp-includes/PHPMailer/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/plugins/wps-limit-login/readme.txt 1 -
+/system/database/drivers/index.php 2 -
+/digi.php 2 -
+/wp-includes/blocks/categories/index.php 2 -
+/wp-content/plugins/wp-banners-lite/readme.txt 1 -
+/twin.php 3 www.google.com
+/ac.php 2 -
+/blackmamba.php 2 -
+/ssl.php 2 -
+/style-js.php 2 -
+/racing.php 1 www.google.com
+/xm.php 5 -
+/Media.php 2 -
+/plugins/splide/spider.min.php 2 -
+/assets/cache.php 2 -
+/wp-footer.php 2 -
+/wp-admin/content-config.php 2 -
+/media.php 2 -
+/assets/program.php 2 -
+/assets/0byt3m1n1.php 2 -
+/wp-content/php-function.php 2 -
+/sila.php 2 -
+/wp-includes/Text/Diff/Engine/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/minimo.php 2 www.google.com
+/upload/inspect.php 2 -
+/wp-includes/js/tinymce/utils/index.php 2 -
+/assets/shel.php 2 -
+/hehe.php 3 www.google.com
+/wp-includes/blocks/details/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/vendor/symfony/index.php 2 -
+/wp-includes/SimplePie/HTTP/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-content/alfa403.php 2 -
+/assets/bak.php 2 -
+/10.php 3 www.google.com
+/wp-content/themes/montezuma/style.css 1 -
+/uploads/alfapass.php 2 -
+/wp-content/plugins/bulk-add-to-cart-xforwc/readme.txt 1 -
+/wp-content/settings.php 2 -
+/wp-includes/blocks/missing/index.php 2 -
+/wp-content/themes/namathemes/404.php 2 -
+/includes/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/blocks/latest-comments/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/custom-header.php 2 -
+/assets/uploads/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/.alfa.php 2 -
+/wp-includes/blocks/loginout/index.php 2 -
+/wp-content/themes/twentytwentytwo/index.php 2 www.google.com
+/wp-class.php 5 -
+/wp-admin/user/capil%20.php 2 -
+/.env.php 2 -
+/wp-content/plugins/sight/readme.txt 1 -
+/wp-admin/mains.php 2 -
+/vendor/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/tk.php 2 -
+/alfa-shell-v4.php 3 www.google.com
+/deploy-git-app/senpai.php 2 -
+/281.php 2 -
+/assets/colors.php 2 -
+/program/steps/index.php 2 -
+/mx.php 2 -
+/wp-admin/program.php 2 -
+/wp-content/.xixixi.php 2 -
+/wp-content/plugins/user-activity-log/readme.txt 1 -
+/wp-includes/Text/Diff/Renderer/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/public/data_lampiran/image1.php56 2 -
+/zf.php 2 www.google.com
+/uploader.php 5 -
+/system/core/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/Wso.php 2 -
+/.well-known(1).tar 2 -
+/t.php 5 -
+/wp-includes/ms-functions.php 2 -
+/ban.php 2 -
+/xmlrpc.php 6 -
+/old-index.php 3 www.google.com
+/wp-content/themes/fitnessbase/dev.php 2 www.google.com
+/vendor/myclabs/index.php 2 -
+/laypas.phtml 2 -
+/fuck.php5 2 -
+/wp-content/lolalf.php 2 -
+/wp-content/xmlrpc.php 2 -
+/wp-includes/uploads.php 2 -
+/wp-includes/blocks/comments-pagination-next/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/index4.php 2 -
+/teslas.php 2 -
+/js/chosen/index.php 2 -
+/wp-activate.php 1 www.google.com
+/gecko.php 7 -
+/wp-content/size.php 2 -
+/wp-admin-backups.php 2 -
+/jurnal.rar 2 -
+/.well-known/bypassup.jpg.php 2 -
+/wp-admin/sym403.php 2 -
+/xforce.php 1 www.google.com
+/elementor-pro.php 2 -
+/wp-content/plugins/db/uploader.php 2 www.google.com
+/program.php 2 -
+/wp-admin/info.php 2 -
+/wp-admin/user/priv.php 2 -
+/options-discussion.php 2 -
+/user.php 3 -
+/wp-content/plugins/csv-import-export/readme.txt 1 -
+/application/controllers/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-admin/auth.php 2 -
+/assets/andromedax.php 2 -
+/word.php 1 www.google.com
+/wp-includes/block-patterns/block-patternsphp 2 -
+/disnakertrans.rar 2 -
+/wp-content/nothingX.php 2 -
+/20.php 1 www.google.com
+/install.phtml 2 -
+/wp-content/plugins/stock-in/readme.txt 1 -
+/wp-includes/fonts/fonts.php 2 -
+/aman.php 1 www.google.com
+/wp-includes/blocks/query-pagination-previous/index.php 2 -
+/application/core/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/operator_lang.php 2 -
+/.well-known%20%283%29.tar 2 -
+/d.php 5 -
+/plugins/help/index.php 2 -
+/abbyp.phtml 2 -
+/wikindex.php 3 www.google.com
+/V5.php 2 www.google.com
+/journals.tar.gz 2 -
+/wp-content/hid.php 2 -
+/wp-content/cache/br01.php 2 -
+/files/mmk.php 2 -
+/wp-includes/blocks/list-item/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/cong.php 3 www.google.com
+/filemanager/up.php 2 -
+/wp-admin/mariju.php 2 -
+/.alfa403.php 2 -
+/wp-content/auth.php 2 -
+/wp-content/plugins/page-flip-image-gallery/readme.txt 1 -
+/report.php 2 -
+/wp-content/wp-assets.php 2 -
+/wp-content/plugins/peters-random-anti-spam-image/readme.txt 1 -
+/repository/jox.php 2 -
+/wp-content/themes/consultpress-lite/style.css 1 -
+/wp-includes/SimplePie/Content/index.php 2 -
+/css/themes/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/wp-includes/upload-file.php 2 -
+/wp-includes/blocks/search/ALFA_DATA/alfacgiapi/perl.alfa 2 -
+/vendor/webmozart/index.php 2 -
+/wi.php 3 www.google.com
+/wp-content/plugins/virr/uploader.php 2 www.google.com
+/assets/lite.php 2 -
+/wp-admin/run.php 2 -
+/degesaciihaxor.php 2 -
+/public/data_lampiran/upload.php 2 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 56
+103.206.72.5 227 551 112740431 20250429014415
+114.10.113.226 31 46 2312035 20250415223234
+114.10.71.176 13 34 9490718 20250415224039
+182.2.136.60 9 23 2135504 20250415222901
+140.213.253.163 8 14 1680061 20250416061123
+140.213.15.169 8 22 2101032 20250421010601
+103.177.177.209 8 28 9316861 20250415230802
+120.188.66.24 7 20 2082942 20250415234508
+114.4.213.237 6 27 8197522 20250415222603
+114.10.65.144 6 13 776038 20250420003918
+146.75.160.28 6 21 8158984 20250415222332
+120.188.35.67 5 18 2066533 20250415230733
+182.3.44.196 5 20 14150124 20250416061212
+114.124.205.107 5 18 3468940 20250430061544
+120.188.5.229 4 17 2043603 20250421032914
+172.225.72.84 3 17 8083005 20250428210858
+74.125.215.2 3 10 776688 20250427225224
+103.177.177.217 3 16 2049807 20250421054437
+74.125.215.3 3 11 1212129 20250424080504
+74.125.215.1 2 16 2312061 20250427225226
+123.160.223.73 2 3 88087 20250425230552
+103.59.160.164 2 2 7488 20250425070234
+114.10.118.141 2 8 753796 20250422140042
+114.5.211.178 2 9 760385 20250427225237
+103.177.93.46 2 3 343403 20250429022649
+182.0.215.86 1 8 756458 20250424080457
+123.160.223.74 0 1 6406 
+123.160.223.72 0 1 88151 
+167.99.154.34 1 2 10150 20250428232555
+188.166.249.72 1 1 3744 20250410175010
+103.111.102.61 1 3 1391227 20250418074313
+120.188.35.73 1 1 3744 20250415221925
+13.229.235.253 1 1 3744 20250418111631
+140.213.251.252 1 8 756458 20250415224951
+54.169.182.159 1 1 3744 20250426194959
+72.14.201.145 1 1 3744 20250428001108
+188.166.47.25 1 1 3744 20250422094852
+87.236.176.83 0 1 6406 
+101.255.169.38 1 6 599266 20250421094550
+162.142.125.197 1 2 10150 20250414034124
+164.90.201.131 1 2 10150 20250415000349
+159.223.88.67 1 1 3744 20250416163233
+212.85.25.173 1 1 3744 20250427121044
+103.220.22.117 1 7 750052 20250421010350
+103.175.82.69 1 7 750052 20250428211118
+134.209.205.221 1 1 3744 20250419105933
+202.157.184.38 1 2 10150 20250420120731
+106.75.146.37 1 3 98301 20250421085702
+182.3.39.57 1 5 599266 20250416005920
+87.236.176.227 1 1 3744 20250423183908
+103.147.85.3 1 7 750052 20250417035933
+103.177.92.46 1 8 756458 20250414032125
+54.251.231.0 1 1 3744 20250430023749
+114.124.245.45 1 1 3744 20250415223244
+182.2.166.176 1 8 756458 20250428220442
+180.243.11.70 1 8 756458 20250415084854
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 19
+20250410 1 1 3744 1
+20250412 15 29 2388565 1
+20250414 2 10 766608 2
+20250415 171 481 100030179 16
+20250416 15 40 16433195 4
+20250417 1 7 750052 1
+20250418 2 4 1394971 2
+20250419 1 1 3744 1
+20250420 7 15 786188 2
+20250421 39 127 18844915 10
+20250422 4 11 1097199 3
+20250423 1 2 10150 1
+20250424 3 16 1755312 3
+20250425 3 6 186388 2
+20250426 1 1 3744 1
+20250427 5 20 1913769 4
+20250428 111 245 52048358 6
+20250429 12 33 4125433 2
+20250430 6 19 3472684 2
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+30s-2mn 3
+2mn-5mn 10
+5mn-15mn 3
+15mn-30mn 1
+0s-30s 45
+1h+ 1
+30mn-1h 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 13
+/login 138 522370 63 47
+/profile 84 1336510 0 0
+/user/kunjungan 83 1851281 0 12
+/thema/assets/css/icons/tabler-icons/fonts/tabler-icons.woff2 43 23742192 1 4
+/user/jadwal_praktikum 13 161219 0 0
+/password/reset 11 32307 0 0
+/petugas/laporan/kunjungan_lab 7 521142 0 0
+/home 6 118093 0 1
+/user/peminjaman 5 93483 0 0
+/user/req_jadwal 4 112980 0 0
+/changePassword 3 37117 0 0
+/petugas/laporan 2 51586 0 0
+/petugas/barang 1 1415545 0 0
+END_SIDER
