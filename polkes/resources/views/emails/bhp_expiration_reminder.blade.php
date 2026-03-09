@@ -1,20 +1,19 @@
-@component('mail::message')
-# Reminder BHP Mendekati Expired
+<h2>Reminder BHP Mendekati Expired</h2>
 
-Berikut bahan BHP yang akan mendekati masa expired:
+<table border="1" cellpadding="6" cellspacing="0">
+    <tr>
+        <th>Nama</th>
+        <th>Jurusan</th>
+        <th>Tanggal Expired</th>
+        <th>Sisa Hari</th>
+    </tr>
 
-@component('mail::table')
-| Nama BHP | Jurusan | Expired Date | Sisa Hari |
-|:---------|:--------|:-------------|:----------|
 @foreach($items as $item)
-| {{ $item['nama'] }} | {{ $item['jurusan'] }} | {{ $item['tgl_expired'] }} | {{ $item['sisa_hari'] }} hari |
+<tr>
+    <td>{{ $item['nama'] }}</td>
+    <td>{{ $item['jurusan'] }}</td>
+    <td>{{ $item['tgl_expired'] }}</td>
+    <td>{{ $item['sisa_hari'] }}</td>
+</tr>
 @endforeach
-@endcomponent
-
-Mohon segera lakukan pengecekan dan tindak lanjut terhadap stok yang mendekati expired.
-
-Terima kasih.
-
-Salam,<br>
-{{ config('app.name') }}
-@endcomponent
+</table>

@@ -7,83 +7,152 @@ use App\Mail\BhpExpirationReminder;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
+/**
+ * Send daily email reminder for BHP items expiring within a defined threshold.
+ *
+ * Architecture: sync only. No queue workers. Cron runs schedule:run;
+ * this command runs once per day (scheduler). Emails are sent immediately.
+ * QUEUE_CONNECTION must be "sync" on shared hosting.
+ */
 class CheckBhpExpiration extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
+    /** Days before expiration to include in reminder (e.g. 30 = within 30 days). */
+    const EXPIRATION_THRESHOLD_DAYS = 30;
+
+    /** Cache key for daily lock; prevents duplicate sends if cron runs multiple times. */
+    const LOCK_KEY = 'bhp-reminder-daily';
+
+    /** Lock duration in seconds (24 hours). */
+    const LOCK_SECONDS = 86400;
+
     protected $signature = 'bhp:check-expiration';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Send daily email reminder for BHP items expiring within 7 days';
+    protected $description = 'Send daily BHP expiration reminder (sync; runs once per day via scheduler)';
 
-    /**
-     * Execute the console command.
-     *
-     * @return int
-     */
     public function handle()
     {
-        $today = Carbon::today();
-        $endDate = Carbon::today()->addDays(7);
+        $timezone = config('app.timezone', 'UTC');
+        $today = Carbon::today($timezone);
+        $endDate = Carbon::today($timezone)->addDays(self::EXPIRATION_THRESHOLD_DAYS);
 
-        $items = BarangBHP_bahan::whereNull('delete')
-            ->whereNotNull('tgl_expired')
-            ->whereRaw('tgl_expired >= ?', [$today->format('Y-m-d')])
-            ->whereRaw('tgl_expired <= ?', [$endDate->format('Y-m-d')])
-            ->orderBy('tgl_expired')
-            ->get();
+        Log::info('BHP reminder batch started', [
+            'timestamp' => now()->toIso8601String(),
+            'timezone'  => $timezone,
+            'threshold_days' => self::EXPIRATION_THRESHOLD_DAYS,
+        ]);
+
+        $items = $this->getItemsNearingExpiration($today, $endDate);
 
         if ($items->isEmpty()) {
-            $this->info('No BHP items expiring in the next 7 days.');
+            Log::info('BHP reminder skipped: no items nearing expiration', [
+                'count' => 0,
+            ]);
+            $this->info('No BHP items expiring within ' . self::EXPIRATION_THRESHOLD_DAYS . ' days.');
             return 0;
         }
 
-        $emailData = $items->map(function ($item) use ($today) {
-            $expiredDate = $item->tgl_expired
-                ? Carbon::parse($item->tgl_expired)
-                : null;
-            $sisaHari = $expiredDate ? (int) $today->diffInDays($expiredDate, false) : 0;
-            if ($sisaHari < 0) {
-                $sisaHari = 0;
-            }
-
-            return [
-                'nama'       => $item->nama ?? '-',
-                'jurusan'    => $item->jurusan ?? '-',
-                'tgl_expired' => $item->tgl_expired ?? '-',
-                'sisa_hari'  => $sisaHari,
-            ];
-        })->toArray();
+        Log::info('BHP reminder items detected', [
+            'count' => $items->count(),
+        ]);
 
         $recipients = $this->getRecipients();
+        if (empty($recipients)) {
+            Log::warning('BHP reminder skipped: no recipients configured');
+            $this->warn('No recipients configured.');
+            return 0;
+        }
 
-        foreach ($recipients as $email) {
-            try {
-                Mail::to($email)->send(new BhpExpirationReminder($emailData));
-                $this->info("Reminder sent to: {$email}");
-            } catch (\Exception $e) {
-                $this->error("Failed to send to {$email}: " . $e->getMessage());
+        Log::info('BHP reminder recipients', [
+            'recipients' => $recipients,
+        ]);
+
+        $sent = Cache::lock(self::LOCK_KEY, self::LOCK_SECONDS)->get(function () use ($items, $today, $recipients) {
+            $emailData = $this->buildEmailData($items, $today);
+            $sentCount = 0;
+            $failCount = 0;
+
+            foreach ($recipients as $email) {
+                try {
+                    Mail::to($email)->send(new BhpExpirationReminder($emailData));
+                    $sentCount++;
+                    Log::info('BHP reminder sent', [
+                        'recipient' => $email,
+                    ]);
+                    $this->info("Reminder sent to: {$email}");
+                } catch (\Throwable $e) {
+                    $failCount++;
+                    Log::error('BHP reminder send failed', [
+                        'recipient' => $email,
+                        'error'     => $e->getMessage(),
+                    ]);
+                    $this->error("Failed to send to {$email}: " . $e->getMessage());
+                }
             }
+
+            Log::info('BHP reminder batch completed', [
+                'sent' => $sentCount,
+                'failed' => $failCount,
+            ]);
+
+            return true;
+        });
+
+        if (!$sent) {
+            Log::info('BHP reminder skipped: already run in the last 24 hours (lock held)');
+            $this->info('Reminder already sent today; skipping to prevent duplicates.');
         }
 
         return 0;
     }
 
     /**
+     * Items with tgl_expired between today and today + threshold (inclusive).
+     * Timezone-safe; single query; no N+1.
+     */
+    protected function getItemsNearingExpiration(Carbon $today, Carbon $endDate)
+    {
+        $todayStr = $today->format('Y-m-d');
+        $endStr = $endDate->format('Y-m-d');
+
+        return BarangBHP_bahan::whereNull('delete')
+            ->whereNotNull('tgl_expired')
+            ->whereRaw('tgl_expired >= ? AND tgl_expired <= ?', [$todayStr, $endStr])
+            ->orderBy('tgl_expired')
+            ->get();
+    }
+
+    /**
+     * Build array for email template: nama, jurusan, tgl_expired, sisa_hari.
+     */
+    protected function buildEmailData($items, Carbon $today): array
+    {
+        return $items->map(function ($item) use ($today) {
+            $expiredDate = $item->tgl_expired
+                ? Carbon::parse($item->tgl_expired, config('app.timezone'))
+                : null;
+            $sisaHari = 0;
+            if ($expiredDate) {
+                $sisaHari = (int) $today->diffInDays($expiredDate, false);
+                if ($sisaHari < 0) {
+                    $sisaHari = 0;
+                }
+            }
+
+            return [
+                'nama'        => $item->nama ?? '-',
+                'jurusan'     => $item->jurusan ?? '-',
+                'tgl_expired' => $item->tgl_expired ?? '-',
+                'sisa_hari'   => $sisaHari,
+            ];
+        })->values()->all();
+    }
+
+    /**
      * Get list of email addresses to receive the reminder.
-     * Phase 1: single hardcoded address.
-     * Phase 2: all users with role = 'plp' (uncomment the query below).
-     *
-     * @return array
      */
     protected function getRecipients(): array
     {

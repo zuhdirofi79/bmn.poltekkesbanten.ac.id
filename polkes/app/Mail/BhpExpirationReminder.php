@@ -6,34 +6,22 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * Synchronous email for BHP items nearing expiration.
+ * Used with QUEUE_CONNECTION=sync (no queue workers).
+ */
 class BhpExpirationReminder extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * List of BHP items nearing expiration.
-     * Each item: ['nama' => string, 'jurusan' => string, 'tgl_expired' => string, 'sisa_hari' => int]
-     *
-     * @var array
-     */
+    /** @var array */
     public $items;
 
-    /**
-     * Create a new message instance.
-     *
-     * @param array $items
-     * @return void
-     */
     public function __construct(array $items)
     {
         $this->items = $items;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
         return $this->subject('Reminder BHP Mendekati Expired')

@@ -143,6 +143,7 @@ class PetugasLabController extends Controller
         $validatedData = $request->validate([
             'jurusan' => ['required'],
             'nama' => ['required'],
+            'kode_barang' => ['required'],
             'stok' => ['required'],
             'satuan' => ['required'],
             'tgl_expired' => ['required'],
@@ -153,6 +154,7 @@ class PetugasLabController extends Controller
         $idBaru = BarangBHP_bahan::insertGetId([
             'jurusan' => $request->jurusan,
             'nama' => $request->nama,
+            'kode_barang' => $request->kode_barang,
             'kimia' => $request->kimia,
             'stok' => $request->stok,
             'satuan' => $request->satuan,
@@ -188,13 +190,14 @@ class PetugasLabController extends Controller
     {
         $validatedData = $request->validate([
             'nama' => ['required'],
+            'kode_barang' => ['required'],
             'satuan' => ['required'],
             'tgl_expired' => ['required'],
         ]);
         $user = Auth()->user()->name;
         BarangBHP_bahan::find($request->id)->update([
             'nama' => $request->nama,
-            'kimia' => $request->kimia,
+            'kode_barang' => $request->kode_barang,
             'satuan' => $request->satuan,
             'tgl_expired' => $request->tgl_expired,
             'updated_at' => $user

@@ -16,7 +16,8 @@
                     <tr>
                         <th width="25">No</th>
                         <th>Nama</th>
-                        <th>Kimia</th>
+                        <th>Kode Barang</th>
+                        <th>Merk</th>
                         <th>Stok</th>
                         <th>tgl Expired</th>
                     </tr>
@@ -26,6 +27,7 @@
                   <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$b->nama}}</td>
+                    <td>{{$b->kode_barang}}</td>
                     <td>{{$b->kimia}}</td>
                     <td>{{$b->stok}}</td>
                     <td>{{$b->tgl_expired}}</td>

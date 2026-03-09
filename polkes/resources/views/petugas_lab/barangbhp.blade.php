@@ -26,7 +26,8 @@
                         <th width="25">No</th>
                         <th></th>
                         <th>Nama</th>
-                        <th>Kimia</th>
+                        <th>Kode Barang</th>
+                        <th>Merk</th>
                         <th>Stok</th>
                         <th>Satuan</th>
                         <th>tgl Expired</th>
@@ -39,6 +40,7 @@
                     <td>{{$loop->iteration}}</td>
                     <td><input type="checkbox" class="custom-control-input checkItem" name="ids[]"  value="{{$b->id}}"></td>
                     <td>{{$b->nama}}</td>
+                    <td>{{$b->kode_barang}}</td>
                     <td>{{$b->kimia}}</td>
                     <td>{{$b->stok}}</td>
                     <td>{{$b->satuan}}</td>
@@ -81,10 +83,17 @@
             </div>
             
             <div class="form-group mb-3 row">
-              <label for="kimia" class="col-sm-3 col-form-label">Kimia</label>
+              <label for="kimia" class="col-sm-3 col-form-label">Merk</label>
               <div class="col-sm-9">
                 <input type="text" class="form-control" id="kimia" name="kimia">
                 <small class="form-text text-muted">Opsional</small>
+              </div>
+            </div>
+
+            <div class="form-group mb-3 row">
+              <label for="kode_barang" class="col-sm-3 col-form-label">Kode Barang</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="kode_barang" name="kode_barang" placeholder="Masukkan kode barang">
               </div>
             </div>
 

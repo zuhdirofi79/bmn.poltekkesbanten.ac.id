@@ -16,9 +16,15 @@
                 <input type="text" class="form-control" id="nama" name="nama" value="{{$data->nama}}" required>
               </div>
             </div>
+            <div class="form-group mb-3 row">
+              <label for="kode_barang" class="col-sm-3 col-form-label">Kode Barang</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="kode_barang" name="kode_barang" value="{{$data->kode_barang}}" required>
+              </div>
+            </div>
 
             <div class="form-group mb-3 row">
-              <label for="kimia" class="col-sm-3 col-form-label">Kimia</label>
+              <label for="kimia" class="col-sm-3 col-form-label">Merk</label>
               <div class="col-sm-9">
                 <input type="text" class="form-control" id="kimia" name="kimia" value="{{$data->kimia}}">
               </div>
