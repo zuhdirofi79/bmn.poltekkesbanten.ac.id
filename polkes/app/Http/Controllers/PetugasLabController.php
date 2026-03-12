@@ -18,6 +18,7 @@ use App\PeminjamanDetail;
 use App\PenambahanBarang;
 use App\Tujuan;
 use App\User;
+use App\LabLocation;
 use DB;
 use PDF;
 use App\Notifications\EmailNotification;
@@ -35,8 +36,14 @@ class PetugasLabController extends Controller
     {
         $jurusan = $request->jurusan;
         $ruangan = Ruangan::where('jurusan','=',$jurusan)->get();
-        $barang = BarangInventaris::where('jurusan','=',$jurusan)->whereNull('delete')->OrderBy('nama','asc')->OrderBy('ruang','asc')->get();
-        return view('petugas_lab.barang',compact('barang','jurusan','ruangan'));
+        $barang = BarangInventaris::with('location')
+            ->where('jurusan','=',$jurusan)
+            ->whereNull('delete')
+            ->OrderBy('nama','asc')
+            ->OrderBy('ruang','asc')
+            ->get();
+        $locations = LabLocation::orderBy('name')->get();
+        return view('petugas_lab.barang',compact('barang','jurusan','ruangan','locations'));
     }
 
     public function add_barang(Request $request)
@@ -68,6 +75,7 @@ class PetugasLabController extends Controller
             'stok' => $request->stok,
             'satuan'=> 'Unit',
             'kondisi'=> $request->kondisi,
+            'location_id' => $request->location_id ?: null,
             'updated_at' => $user
         ]);
         
@@ -112,6 +120,7 @@ class PetugasLabController extends Controller
             'kode_barang' => $request->kode_barang,
             'ruang' => $request->ruang,
             'kondisi' => $request->kondisi,
+            'location_id' => $request->location_id ?: null,
             'updated_at' => $user
         ]);
 

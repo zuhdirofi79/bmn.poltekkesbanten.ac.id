@@ -5,11 +5,11 @@
         <div class="card">
           <div class="card-body">
             <div style="float: right;">
-              <a href="{{url('petugas/barang?jurusan='.$jurusan)}}" class="btn btn-primary btn-sm">Peralatan Laboratorium</a>&nbsp;
-              <a href="{{url('petugas/barangmedis?jurusan='.$jurusan)}}" class="btn btn-outline-primary btn-sm">Peralatan Medis</a>&nbsp;
-              <a href="{{url('petugas/barangbhp?jurusan='.$jurusan)}}" class="btn btn-outline-primary btn-sm">Bahan BHP</a>
+              <a href="{{url('petugas/barang?jurusan='.$jurusan)}}" class="btn btn-primary btn-sm">Aset Laboratorium</a>&nbsp;
+              <a href="{{url('petugas/barangmedis?jurusan='.$jurusan)}}" class="btn btn-outline-primary btn-sm">Alat Medis</a>&nbsp;
+              <a href="{{url('petugas/barangbhp?jurusan='.$jurusan)}}" class="btn btn-outline-primary btn-sm">Bahan Medis</a>
             </div>
-            <h5 class="card-title fw-semibold mb-4">PERALATAN LABORATORIUM - JURUSAN {{strtoupper($jurusan)}}</h5><hr>
+            <h5 class="card-title fw-semibold mb-4">ASET LABORATORIUM - JURUSAN {{strtoupper($jurusan)}}</h5><hr>
 
             <p style="text-align:right">
               <a  href="" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#exampleModal"><span><i class="ti ti-plus"></i></span> Data Barang</a>
@@ -27,6 +27,7 @@
                         <th>No Seri</th>
                         <th>Kode Barang</th>
                         <th>Ruang</th>
+                        <th>Lokasi</th>
                         <th>Stok</th>
                         <th>Kondisi</th>
                         <th width="58">Edit</th>
@@ -43,6 +44,7 @@
                         <td>{{$a->no_seri}}</td>
                         <td>{{$a->kode_barang}}</td>
                         <td>{{$a->ruang}}</td>
+                        <td>{{$a->location->name ?? 'Belum ditentukan'}}</td>
                         <td>{{$a->stok}}</td>
                         <td>{{$a->kondisi}}</td>
                         <td>
@@ -131,6 +133,20 @@
                                   <option value="Rusak">Rusak</option>
                                   <option value="Pecah">Pecah</option>
                                   <option value="Perbaikan">Perbaikan</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="form-group mb-3 row">
+                              <label for="location_id" class="col-sm-3 col-form-label">Lokasi</label>
+                              <div class="col-sm-9">
+                                <select id="location_id" name="location_id" class="form-control">
+                                  <option value="">-- Pilih Lokasi --</option>
+                                  @foreach($locations as $loc)
+                                  <option value="{{$loc->id}}" {{ $a->location_id == $loc->id ? 'selected' : '' }}>
+                                    {{$loc->name}}
+                                  </option>
+                                  @endforeach
                                 </select>
                               </div>
                             </div>
@@ -266,6 +282,18 @@
               <label for="stok" class="col-sm-3 col-form-label">Stok Awal</label>
               <div class="col-sm-9">
                 <input type="text" class="form-control" id="stok" name="stok" required>
+              </div>
+            </div>
+
+            <div class="form-group mb-3 row">
+              <label for="location_id" class="col-sm-3 col-form-label">Lokasi</label>
+              <div class="col-sm-9">
+                <select id="location_id" name="location_id" class="form-control">
+                  <option value="">-- Pilih Lokasi --</option>
+                  @foreach($locations as $loc)
+                  <option value="{{$loc->id}}">{{$loc->name}}</option>
+                  @endforeach
+                </select>
               </div>
             </div>
 

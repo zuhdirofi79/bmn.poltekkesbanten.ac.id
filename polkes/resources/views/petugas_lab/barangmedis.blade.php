@@ -5,11 +5,11 @@
         <div class="card">
           <div class="card-body">
             <div style="float: right;">
-              <a href="{{url('petugas/barang?jurusan='.$jurusan)}}" class="btn btn-outline-primary btn-sm">Peralatan Laboratorium</a>&nbsp;
-              <a href="{{url('petugas/barangmedis?jurusan='.$jurusan)}}" class="btn btn-primary btn-sm">Peralatan Medis</a>&nbsp;
-              <a href="{{url('petugas/barangbhp?jurusan='.$jurusan)}}" class="btn btn-outline-primary btn-sm">Bahan BHP</a>
+              <a href="{{url('petugas/barang?jurusan='.$jurusan)}}" class="btn btn-outline-primary btn-sm">Aset Laboratorium</a>&nbsp;
+              <a href="{{url('petugas/barangmedis?jurusan='.$jurusan)}}" class="btn btn-primary btn-sm">Alat Medis</a>&nbsp;
+              <a href="{{url('petugas/barangbhp?jurusan='.$jurusan)}}" class="btn btn-outline-primary btn-sm">Bahan Medis</a>
             </div>
-            <h5 class="card-title fw-semibold mb-4">PERALATAN MEDIS - JURUSAN {{strtoupper($jurusan)}}</h5><hr>
+            <h5 class="card-title fw-semibold mb-4">ALAT MEDIS - JURUSAN {{strtoupper($jurusan)}}</h5><hr>
 
             <p style="text-align:right">
               <a  href="" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#ModalAddAlat"><span><i class="ti ti-plus"></i></span> Data Alat</a>

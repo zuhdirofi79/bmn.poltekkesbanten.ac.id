@@ -19,6 +19,6 @@ This project sends BHP expiration reminders **synchronously**. No queue workers 
 2. Scheduler runs `bhp:check-expiration` once per day at 08:00.
 3. Command checks BHP items expiring within the threshold (default 30 days).
 4. Emails are sent **immediately** via `Mail::send()` (no background jobs).
-5. A 24-hour cache lock prevents duplicate reminders if the command is triggered more than once in a day.
+5. Duplicate runs are prevented by the scheduler’s `withoutOverlapping()` (no cache/Redis lock; safe with `CACHE_DRIVER=file`).
 
 No `queue:work` or Redis is required. Safe for shared hosting (e.g. Hostinger).

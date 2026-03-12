@@ -7,7 +7,6 @@ use App\Mail\BhpExpirationReminder;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
@@ -23,26 +22,24 @@ class CheckBhpExpiration extends Command
     /** Days before expiration to include in reminder (e.g. 30 = within 30 days). */
     const EXPIRATION_THRESHOLD_DAYS = 30;
 
-    /** Cache key for daily lock; prevents duplicate sends if cron runs multiple times. */
-    const LOCK_KEY = 'bhp-reminder-daily';
-
-    /** Lock duration in seconds (24 hours). */
-    const LOCK_SECONDS = 86400;
-
     protected $signature = 'bhp:check-expiration';
 
     protected $description = 'Send daily BHP expiration reminder (sync; runs once per day via scheduler)';
 
     public function handle()
     {
+        if (config('queue.default') !== 'sync') {
+            Log::warning('BHP reminder: QUEUE_CONNECTION is not sync. Emails may not be sent as expected.');
+        }
+
         $timezone = config('app.timezone', 'UTC');
         $today = Carbon::today($timezone);
         $endDate = Carbon::today($timezone)->addDays(self::EXPIRATION_THRESHOLD_DAYS);
 
         Log::info('BHP reminder batch started', [
-            'timestamp' => now()->toIso8601String(),
-            'timezone'  => $timezone,
-            'threshold_days' => self::EXPIRATION_THRESHOLD_DAYS,
+            'timestamp'       => now()->toIso8601String(),
+            'timezone'        => $timezone,
+            'threshold_days'  => self::EXPIRATION_THRESHOLD_DAYS,
         ]);
 
         $items = $this->getItemsNearingExpiration($today, $endDate);
@@ -70,41 +67,32 @@ class CheckBhpExpiration extends Command
             'recipients' => $recipients,
         ]);
 
-        $sent = Cache::lock(self::LOCK_KEY, self::LOCK_SECONDS)->get(function () use ($items, $today, $recipients) {
-            $emailData = $this->buildEmailData($items, $today);
-            $sentCount = 0;
-            $failCount = 0;
+        $emailData = $this->buildEmailData($items, $today);
+        $sentCount = 0;
+        $failCount = 0;
 
-            foreach ($recipients as $email) {
-                try {
-                    Mail::to($email)->send(new BhpExpirationReminder($emailData));
-                    $sentCount++;
-                    Log::info('BHP reminder sent', [
-                        'recipient' => $email,
-                    ]);
-                    $this->info("Reminder sent to: {$email}");
-                } catch (\Throwable $e) {
-                    $failCount++;
-                    Log::error('BHP reminder send failed', [
-                        'recipient' => $email,
-                        'error'     => $e->getMessage(),
-                    ]);
-                    $this->error("Failed to send to {$email}: " . $e->getMessage());
-                }
+        foreach ($recipients as $email) {
+            try {
+                Mail::to($email)->send(new BhpExpirationReminder($emailData));
+                $sentCount++;
+                Log::info('BHP reminder sent', [
+                    'recipient' => $email,
+                ]);
+                $this->info("Reminder sent to: {$email}");
+            } catch (\Throwable $e) {
+                $failCount++;
+                Log::error('BHP reminder send failed', [
+                    'recipient' => $email,
+                    'error'     => $e->getMessage(),
+                ]);
+                $this->error("Failed to send to {$email}: " . $e->getMessage());
             }
-
-            Log::info('BHP reminder batch completed', [
-                'sent' => $sentCount,
-                'failed' => $failCount,
-            ]);
-
-            return true;
-        });
-
-        if (!$sent) {
-            Log::info('BHP reminder skipped: already run in the last 24 hours (lock held)');
-            $this->info('Reminder already sent today; skipping to prevent duplicates.');
         }
+
+        Log::info('BHP reminder batch completed', [
+            'sent'   => $sentCount,
+            'failed' => $failCount,
+        ]);
 
         return 0;
     }
