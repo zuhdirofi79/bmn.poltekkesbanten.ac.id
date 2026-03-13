@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title fw-semibold mb-4">Laporan Peminjaman Bahan BHP</h5>
+            <h5 class="card-title fw-semibold mb-4">Laporan Peminjaman Bahan Medis</h5>
 
             <form action="{{ url('petugas/laporan/pinjaman_bahan_bhp') }}" method="get">  
               <div style="" class="d-flex justify-content-center">

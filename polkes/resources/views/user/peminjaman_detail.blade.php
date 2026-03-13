@@ -12,7 +12,7 @@
                         <th>Jenis</th>
                         <th>Nama Barang</th>
                         <th>Stok</th>
-                        @if($jenis=='Bahan BHP')
+                        @if($jenis=='Bahan Medis')
                         <th>Tgl Pemakaian</th>
                         @else
                         <th>Tgl Pinjaman</th>
@@ -28,7 +28,7 @@
                     <td>{{$a->jenis}}</td>
                     <td>{{$a->nama}}</td>
                     <td>{{$a->stok_pinjam}} {{$a->satuan}}</td>
-                    @if($jenis=='Bahan BHP')
+                    @if($jenis=='Bahan Medis')
                     <td>{{$a->tgl_pinjaman}}</td>
                     @else
                     <td>{{$a->tgl_pinjaman}}</td>

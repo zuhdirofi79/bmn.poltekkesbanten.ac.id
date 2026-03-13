@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title fw-semibold mb-4">Laporan Bahan BHP</h5>
+            <h5 class="card-title fw-semibold mb-4">Laporan Bahan Medis</h5>
 
             <form action="{{ url('petugas/laporan/bahan_bhp') }}" method="get" class="mb-4">
               <input type="hidden" name="jurusan" value="{{ $jurusan }}">

@@ -100,7 +100,7 @@ Route::group(['prefix' => 'petugas','middleware' => ['role:plp']], function () {
     Route::post('/edit_barang','PetugasLabController@edit_barang');
     Route::post('/delete_barang','PetugasLabController@delete_barang');
     Route::post('/penambahan_stok_barang','PetugasLabController@penambahan_stok_barang');
-    // CRUD BAHAN BHP
+    // CRUD BAHAN MEDIS
     Route::get('/barangbhp','PetugasLabController@barangbhp');
     Route::get('/edit_bhp/{id}','PetugasLabController@edit_bhp');
     Route::post('/add_bhp_bahan','PetugasLabController@add_bhp_bahan');

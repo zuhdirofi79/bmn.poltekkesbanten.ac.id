@@ -17,7 +17,7 @@
  *   "data": [
  *     {
  *       "id": 20,
- *       "jenis": "Peralatan Laboratorium",
+ *       "jenis": "Aset Laboratorium",
  *       "status": "Selesai",
  *       "tgl_pinjaman": "2024-02-11",
  *       ...

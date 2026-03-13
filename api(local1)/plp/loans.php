@@ -21,7 +21,7 @@
  *     {
  *       "id": 20,
  *       "user_name": "Admin Kampus",
- *       "jenis": "Peralatan Laboratorium",
+ *       "jenis": "Aset Laboratorium",
  *       "status": "Selesai",
  *       "tgl_pinjaman": "2024-02-11",
  *       "tgl_pengembalian": "2024-02-11",

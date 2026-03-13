@@ -64,9 +64,9 @@
               <div class="col-sm-9">
                 <select id="jenis" name="jenis" class="form-control" required>
                     <option value="">--Pilih--</option>
-                    <option value="Peralatan Laboratorium">Peralatan Laboratorium</option>
-                    <option value="Peralatan Medis">Peralatan Medis</option>
-                    <option value="Bahan BHP">Bahan BHP</option>
+                    <option value="Aset Laboratorium">Aset Laboratorium</option>
+                    <option value="Alat Medis">Alat Medis</option>
+                    <option value="Bahan Medis">Bahan Medis</option>
                 </select>
               </div>
             </div>

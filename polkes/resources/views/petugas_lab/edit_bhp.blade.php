@@ -4,7 +4,7 @@
       <div class="container-fluid col-lg-9">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title fw-semibold mb-4">EDIT BAHAN BHP</h5>
+            <h5 class="card-title fw-semibold mb-4">EDIT BAHAN MEDIS</h5>
             <form action="{{url('petugas/edit_bhp_bahan')}}" method="post">
             @csrf
             <input type="hidden" name="id" value="{{$data->id}}">
@@ -53,6 +53,26 @@
               </div>
             </div>
 
+            <div class="form-group mb-3 row">
+              <label for="ruangan_id" class="col-sm-3 col-form-label">Ruangan</label>
+              <div class="col-sm-9">
+                <select name="ruangan_id" class="form-control">
+                  <option value="">-- Pilih Ruangan --</option>
+                  @foreach($ruangan as $r)
+                  <option value="{{$r->id}}" {{ $data->ruangan_id == $r->id ? 'selected' : '' }}>
+                    {{$r->kampus}} - {{$r->nama_ruang}}
+                  </option>
+                  @endforeach
+                </select>
+                @if($data->ruangan_id && $data->ruangan)
+                <small class="text-muted">
+                  Lokasi: {{ optional($data->ruangan->location)->name ?? '-' }}
+                </small>
+                @else
+                <small class="text-muted">Lokasi mengikuti ruangan yang dipilih.</small>
+                @endif
+              </div>
+            </div>
 
             <div style="float: right;">
               <a href="{{url('petugas/barangbhp?jurusan='.$data->jurusan)}}" class="btn btn-secondary">Back</a>

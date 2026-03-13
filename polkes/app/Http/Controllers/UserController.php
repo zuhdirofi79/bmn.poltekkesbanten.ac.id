@@ -64,13 +64,13 @@ class UserController extends Controller
         $cek = Peminjaman::find($id);
         $jenis = $cek->jenis;
 
-        if($cek->jenis=='Peralatan Laboratorium'){
+        if($cek->jenis=='Aset Laboratorium'){
             $sql = "select b.jenis, c.satuan, c.nama, a.stok_pinjam, b.tgl_pinjaman, b.tgl_pengembalian, a.status
                     from peminjaman_detail a
                     join peminjaman b on (a.peminjaman_id=b.id)
                     join barang_inventaris c on (a.barang_id=c.id)
                     where a.peminjaman_id=$id";
-        }elseif($cek->jenis=='Peralatan Medis'){
+        }elseif($cek->jenis=='Alat Medis'){
             $sql = "select b.jenis, c.satuan, c.nama, a.stok_pinjam, b.tgl_pinjaman, b.tgl_pengembalian, a.status
                     from peminjaman_detail a
                     join peminjaman b on (a.peminjaman_id=b.id)
@@ -95,9 +95,9 @@ class UserController extends Controller
         $jenis = $request->jenis;
         $tujuan = Tujuan::get();
         $tingkat = DB::select("select * from tingkat");
-        if($jenis=='Peralatan Laboratorium'){
+        if($jenis=='Aset Laboratorium'){
             $barang = BarangInventaris::where('jurusan','=',$jurusan)->where('ruang','=',$ruangan)->whereNull('delete')->OrderBy('kode_barang')->get();
-        }elseif($jenis=='Peralatan Medis'){
+        }elseif($jenis=='Alat Medis'){
             $barang = BarangBHP_alat::where('jurusan','=',$jurusan)->whereNull('delete')->OrderBy('nama')->get();
         }else{
             $barang = BarangBHP_bahan::where('jurusan','=',$jurusan)->whereNull('delete')->OrderBy('nama')->get();
@@ -107,8 +107,7 @@ class UserController extends Controller
 
     public function add_peminjaman(Request $request)
     {
-
-        $jumlah = count($request->barang_id);
+        $barang_ids = collect($request->barang_id)->filter();
 
         $user_id = Auth()->user()->id;
         $validatedData = $request->validate([
@@ -120,6 +119,7 @@ class UserController extends Controller
             'waktu_mulai' => ['required'],
             'waktu_selesai' => ['required'],
             'tujuan' => ['required'],
+            'barang_id' => ['required','array'],
         ]);
         
         if($request->tingkat=='Other'){
@@ -142,10 +142,10 @@ class UserController extends Controller
             'status' => 'Menunggu Konfirmasi',
         ]);
 
-        for($x=0;$x<$jumlah;$x++){
+        foreach($barang_ids as $barang){
             PeminjamanDetail::insert([
                 'peminjaman_id'=>$peminjaman_id,
-                'barang_id'=>$request->barang_id[$x],
+                'barang_id'=>$barang,
                 'stok_pinjam'=>1,
                 'status'=>'Menunggu Konfirmasi',
             ]);

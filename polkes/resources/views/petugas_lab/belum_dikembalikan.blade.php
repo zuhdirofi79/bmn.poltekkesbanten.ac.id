@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title fw-semibold mb-4">Jenis Peralatan Laboratorium</h5>
+            <h5 class="card-title fw-semibold mb-4">Jenis Aset Laboratorium</h5>
             <table id="myTable" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
@@ -42,7 +42,7 @@
       <div class="container-fluid">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title fw-semibold mb-4">Jenis Peralatan Medis</h5>
+            <h5 class="card-title fw-semibold mb-4">Jenis Alat Medis</h5>
             <table id="myTable2" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>

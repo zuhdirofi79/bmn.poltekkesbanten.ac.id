@@ -14,7 +14,7 @@
                         <th width="30">No</th>
                         <th>Jenis</th>
                         <th>Nama Barang</th>
-                        @if($jenis=='Bahan BHP')
+                        @if($jenis=='Bahan Medis')
                         <th>Tgl Pemakaian</th>
                         @else
                         <th>Tgl Pinjaman</th>
@@ -33,7 +33,7 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$a->jenis}}</td>
                     <td>{{$a->nama}}</td>
-                    @if($jenis=='Bahan BHP')
+                    @if($jenis=='Bahan Medis')
                     <td>{{$a->tgl_pinjaman}}</td>
                     @else
                     <td>{{$a->tgl_pinjaman}}</td>
@@ -54,7 +54,7 @@
                     <td>
                       <select id="status" name="status[]" class="form-control" required>
                         <option value="">{{$a->status}}</option>
-                        @if($jenis=='Bahan BHP')
+                        @if($jenis=='Bahan Medis')
                         <option value="Pemakaian">Pemakaian</option>
                         @else
                         <option value="Dipinjamkan">Dipinjamkan</option>

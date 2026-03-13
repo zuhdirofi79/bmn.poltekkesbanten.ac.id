@@ -26,7 +26,8 @@
                         <th>Type</th>
                         <th>No Seri</th>
                         <th>Kode Barang</th>
-                        <th>Ruang</th>
+                        <th>Kampus</th>
+                        <th>Ruangan</th>
                         <th>Lokasi</th>
                         <th>Stok</th>
                         <th>Kondisi</th>
@@ -43,8 +44,9 @@
                         <td>{{$a->type}}</td>
                         <td>{{$a->no_seri}}</td>
                         <td>{{$a->kode_barang}}</td>
-                        <td>{{$a->ruang}}</td>
-                        <td>{{$a->location->name ?? 'Belum ditentukan'}}</td>
+                        <td>{{ optional($a->ruangan)->kampus ?? '-' }}</td>
+                        <td>{{ optional($a->ruangan)->nama_ruang ?? $a->ruang ?? '-' }}</td>
+                        <td>{{ optional(optional($a->ruangan)->location)->name ?? '-' }}</td>
                         <td>{{$a->stok}}</td>
                         <td>{{$a->kondisi}}</td>
                         <td>
@@ -110,15 +112,17 @@
                             </div>
 
                             <div class="form-group mb-3 row">
-                              <label for="ruang" class="col-sm-3 col-form-label">Ruang</label>
+                              <label for="ruangan_id" class="col-sm-3 col-form-label">Ruangan</label>
                               <div class="col-sm-9">
-                                <select id="ruang" name="ruang" class="form-control" required>
+                                <select id="ruangan_id" name="ruangan_id" class="form-control" required>
+                                  <option value="">-- Pilih Ruangan --</option>
                                   @foreach($ruangan as $b)
-                                  @if($a->ruang==$b->nama_ruang)
-                                    <option value="{{$b->nama_ruang}}" selected>{{$b->kampus}} - {{$b->jurusan}}, {{$b->nama_ruang}}</option>
-                                  @else
-                                  <option value="{{$b->nama_ruang}}">{{$b->kampus}} - {{$b->jurusan}}, {{$b->nama_ruang}}</option>
-                                  @endif
+                                  <option value="{{$b->id}}"
+                                    @if($a->ruangan_id == $b->id) selected
+                                    @elseif($a->ruangan_id == null && $a->ruang == $b->nama_ruang) selected
+                                    @endif>
+                                    {{$b->kampus}} - {{$b->nama_ruang}}
+                                  </option>
                                   @endforeach
                                 </select>
                               </div>
@@ -137,19 +141,6 @@
                               </div>
                             </div>
 
-                            <div class="form-group mb-3 row">
-                              <label for="location_id" class="col-sm-3 col-form-label">Lokasi</label>
-                              <div class="col-sm-9">
-                                <select id="location_id" name="location_id" class="form-control">
-                                  <option value="">-- Pilih Lokasi --</option>
-                                  @foreach($locations as $loc)
-                                  <option value="{{$loc->id}}" {{ $a->location_id == $loc->id ? 'selected' : '' }}>
-                                    {{$loc->name}}
-                                  </option>
-                                  @endforeach
-                                </select>
-                              </div>
-                            </div>
 
                           </div>
                           <div class="modal-footer">
@@ -255,12 +246,12 @@
             </div>
 
             <div class="form-group mb-3 row">
-              <label for="ruang" class="col-sm-3 col-form-label">Ruang</label>
+              <label for="ruangan_id" class="col-sm-3 col-form-label">Ruangan</label>
               <div class="col-sm-9">
-                <select id="ruang" name="ruang" class="form-control" required>
-                    <option>--Pilih--</option>
+                <select id="ruangan_id" name="ruangan_id" class="form-control" required>
+                  <option value="">-- Pilih Ruangan --</option>
                   @foreach($ruangan as $b)
-                    <option value="{{$b->nama_ruang}}">{{$b->kampus}} - {{$b->jurusan}}, {{$b->nama_ruang}}</option>
+                    <option value="{{$b->id}}">{{$b->kampus}} - {{$b->nama_ruang}}</option>
                   @endforeach
                 </select>
               </div>
@@ -285,17 +276,6 @@
               </div>
             </div>
 
-            <div class="form-group mb-3 row">
-              <label for="location_id" class="col-sm-3 col-form-label">Lokasi</label>
-              <div class="col-sm-9">
-                <select id="location_id" name="location_id" class="form-control">
-                  <option value="">-- Pilih Lokasi --</option>
-                  @foreach($locations as $loc)
-                  <option value="{{$loc->id}}">{{$loc->name}}</option>
-                  @endforeach
-                </select>
-              </div>
-            </div>
 
           </div>
           <div class="modal-footer">
@@ -314,7 +294,7 @@
         <form action="{{url('petugas/penambahan_stok_barang')}}" method="post">
         @csrf
           <input type="hidden" name="jurusan" value="{{$jurusan}}">
-          <input type="hidden" name="jenis_barang" value="Peralatan Laboratorium">
+          <input type="hidden" name="jenis_barang" value="Aset Laboratorium">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Tambah Stok Barang</h5>
             <button type="button" class="close btn btn-dark btn-sm" data-dismiss="modal" aria-label="Close">x</button>

@@ -21,6 +21,8 @@
                     <tr>
                         <th width="25">No</th>
                         <th>Nama</th>
+                        <th>Ruangan</th>
+                        <th>Lokasi</th>
                         <th>Stok</th>
                         <th>Satuan</th>
                         <th>Kondisi</th>
@@ -33,6 +35,8 @@
                   <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$a->nama}}</td>
+                    <td>{{ optional($a->ruangan)->nama_ruang ?? '-' }}</td>
+                    <td>{{ optional(optional($a->ruangan)->location)->name ?? '-' }}</td>
                     <td>{{$a->stok}}</td>
                     <td>{{$a->satuan}}</td>
                     <td>{{$a->kondisi}}</td>
@@ -83,7 +87,7 @@
                           <div class="form-group mb-3 row">
                               <label for="kondisi" class="col-sm-3 col-form-label">Kondisi</label>
                               <div class="col-sm-9">
-                                <select id="kondisi" name="kondisi" class="form-control" required>\
+                                <select id="kondisi" name="kondisi" class="form-control" required>
                                   <option value="Baik" {{($a->kondisi=='Baik')?'selected':''}}>Baik</option>
                                   <option value="Rusak" {{($a->kondisi=='Rusak')?'selected':''}}>Rusak</option>
                                   <option value="Pecah" {{($a->kondisi=='Pecah')?'selected':''}}>Pecah</option>
@@ -91,6 +95,25 @@
                                 </select>
                               </div>
                             </div>
+
+                          <div class="form-group mb-3 row">
+                            <label for="ruangan_id" class="col-sm-3 col-form-label">Ruangan</label>
+                            <div class="col-sm-9">
+                              <select name="ruangan_id" class="form-control">
+                                <option value="">-- Pilih Ruangan --</option>
+                                @foreach($ruangan as $r)
+                                <option value="{{$r->id}}" {{ $a->ruangan_id == $r->id ? 'selected' : '' }}>
+                                  {{$r->kampus}} - {{$r->nama_ruang}}
+                                </option>
+                                @endforeach
+                              </select>
+                              @if($a->ruangan_id)
+                              <small class="text-muted">
+                                Lokasi: {{ optional($a->ruangan->location)->name ?? '-' }}
+                              </small>
+                              @endif
+                            </div>
+                          </div>
 
                         </div>
                         <div class="modal-footer">
@@ -195,6 +218,19 @@
                   <option value="Pecah">Pecah</option>
                   <option value="Perbaikan">Perbaikan</option>
                 </select>
+              </div>
+            </div>
+
+            <div class="form-group mb-3 row">
+              <label for="ruangan_id" class="col-sm-3 col-form-label">Ruangan</label>
+              <div class="col-sm-9">
+                <select name="ruangan_id" class="form-control">
+                  <option value="">-- Pilih Ruangan --</option>
+                  @foreach($ruangan as $r)
+                  <option value="{{$r->id}}">{{$r->kampus}} - {{$r->nama_ruang}}</option>
+                  @endforeach
+                </select>
+                <small class="text-muted">Lokasi mengikuti ruangan yang dipilih.</small>
               </div>
             </div>
 

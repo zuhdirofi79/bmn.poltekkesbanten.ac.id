@@ -22,7 +22,7 @@
  *       "id": 20,
  *       "user_id": 4,
  *       "user_name": "Admin Kampus",
- *       "jenis": "Peralatan Laboratorium",
+ *       "jenis": "Aset Laboratorium",
  *       "ruangan": "Lab Kimia Dasar dan Terapan",
  *       "status": "Selesai",
  *       "tgl_pinjaman": "2024-02-11",

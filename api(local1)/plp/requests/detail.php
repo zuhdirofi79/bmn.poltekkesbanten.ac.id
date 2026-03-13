@@ -18,7 +18,7 @@
  *     "id": 20,
  *     "user_id": 4,
  *     "user_name": "Admin Kampus",
- *     "jenis": "Peralatan Laboratorium",
+ *     "jenis": "Aset Laboratorium",
  *     "status": "Selesai",
  *     "items": [
  *       {

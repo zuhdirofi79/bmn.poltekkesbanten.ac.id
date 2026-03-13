@@ -14,7 +14,7 @@
                         <th width="30">No</th>
                         <th>Jenis</th>
                         <th>Nama Barang</th>
-                        @if($status->jenis=='Bahan BHP')
+                        @if($status->jenis=='Bahan Medis')
                         <th>Tgl Pemakaian</th>
                         <th>Stok Pemakaian</th>
                         <th>Status</th>
@@ -36,7 +36,7 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$a->jenis}}</td>
                     <td>{{$a->nama}}</td>
-                    @if($status->jenis=='Bahan BHP')
+                    @if($status->jenis=='Bahan Medis')
                         <td>{{$a->tgl_pinjaman}}</td>
                         <td>{{$a->stok_pinjam}} {{$a->satuan}}</td>
                         <td>{{$a->status}}</td>

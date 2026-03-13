@@ -51,7 +51,7 @@
                     </div>
                   </div>
                   
-                  @if($jenis=='Bahan BHP')
+                  @if($jenis=='Bahan Medis')
                   
                   <div class="form-group mb-3 row">
                     <label for="tgl_peminjaman" class="col-sm-3 col-form-label">Tgl Pemakaian</label>

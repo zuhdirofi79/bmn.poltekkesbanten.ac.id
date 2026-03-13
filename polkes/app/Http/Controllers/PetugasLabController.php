@@ -18,7 +18,6 @@ use App\PeminjamanDetail;
 use App\PenambahanBarang;
 use App\Tujuan;
 use App\User;
-use App\LabLocation;
 use DB;
 use PDF;
 use App\Notifications\EmailNotification;
@@ -35,15 +34,15 @@ class PetugasLabController extends Controller
     public function barang(Request $request)
     {
         $jurusan = $request->jurusan;
-        $ruangan = Ruangan::where('jurusan','=',$jurusan)->get();
-        $barang = BarangInventaris::with('location')
+        $ruangan = Ruangan::where('jurusan','=',$jurusan)
+            ->orderBy('kampus')->orderBy('nama_ruang')->get();
+        $barang = BarangInventaris::with(['ruangan.location'])
             ->where('jurusan','=',$jurusan)
             ->whereNull('delete')
             ->OrderBy('nama','asc')
             ->OrderBy('ruang','asc')
             ->get();
-        $locations = LabLocation::orderBy('name')->get();
-        return view('petugas_lab.barang',compact('barang','jurusan','ruangan','locations'));
+        return view('petugas_lab.barang',compact('barang','jurusan','ruangan'));
     }
 
     public function add_barang(Request $request)
@@ -55,13 +54,15 @@ class PetugasLabController extends Controller
             'type' => ['required'],
             'no_seri' => ['required'],
             'kode_barang' => ['required'],
-            'ruang' => ['required'],
+            'ruangan_id' => ['required'],
             'stok' => ['required'],
             'kondisi' => ['required'],
         ]);
 
         $user = Auth()->user()->name;
         $username = Auth()->user()->username;
+
+        $ruanganRecord = Ruangan::find($request->ruangan_id);
         
         $idBaru = BarangInventaris::insertGetId([
             'jurusan' => $request->jurusan,
@@ -71,16 +72,16 @@ class PetugasLabController extends Controller
             'type' => $request->type,
             'no_seri' => $request->no_seri,
             'kode_barang' => $request->kode_barang,
-            'ruang' => $request->ruang,
+            'ruang' => $ruanganRecord ? $ruanganRecord->nama_ruang : null,
+            'ruangan_id' => $request->ruangan_id,
             'stok' => $request->stok,
             'satuan'=> 'Unit',
             'kondisi'=> $request->kondisi,
-            'location_id' => $request->location_id ?: null,
             'updated_at' => $user
         ]);
         
         PenambahanBarang::insert([
-            'jenis_barang' => 'Peralatan Laboratorium',
+            'jenis_barang' => 'Aset Laboratorium',
             'barang_id' => $idBaru,
             'stok' => $request->stok,
             'keterangan' => 'Penambahan Data baru',
@@ -90,7 +91,7 @@ class PetugasLabController extends Controller
         Aktifitas::insert([
             'username' => $username,
             'name' => $user,
-            'aktifitas' => 'Penambahan Peralatan Laboratorium',
+            'aktifitas' => 'Penambahan Aset Laboratorium',
         ]);
 
         return redirect()->back()->with('message', 'Data barang berhasil ditambahkan.'); 
@@ -105,11 +106,13 @@ class PetugasLabController extends Controller
             'type' => ['required'],
             'no_seri' => ['required'],
             'kode_barang' => ['required'],
-            'ruang' => ['required'],
+            'ruangan_id' => ['required'],
             'kondisi' => ['required']
         ]);
 
         $user = Auth()->user()->name;
+
+        $ruanganRecord = Ruangan::find($request->ruangan_id);
 
         BarangInventaris::find($request->id)->update([
             'nama' => $request->nama_barang,
@@ -118,9 +121,9 @@ class PetugasLabController extends Controller
             'type' => $request->type,
             'no_seri' => $request->no_seri,
             'kode_barang' => $request->kode_barang,
-            'ruang' => $request->ruang,
+            'ruang' => $ruanganRecord ? $ruanganRecord->nama_ruang : $request->ruang,
+            'ruangan_id' => $request->ruangan_id ?: null,
             'kondisi' => $request->kondisi,
-            'location_id' => $request->location_id ?: null,
             'updated_at' => $user
         ]);
 
@@ -137,13 +140,15 @@ class PetugasLabController extends Controller
         return redirect()->back()->with('message', 'Data barang berhasil dihapus.');
     }
 
-    // BARANG BAHAN BHP _________________________________________________
+    // BARANG BAHAN MEDIS _________________________________________________
 
     public function barangbhp(Request $request)
     {
         $jurusan = $request->jurusan;
-        $ruangan = Ruangan::where('jurusan','=',$jurusan)->get();
-        $bhp_bahan = BarangBHP_bahan::where('jurusan','=',$jurusan)->whereNull('delete')->OrderBy('nama')->get();
+        $ruangan = Ruangan::where('jurusan','=',$jurusan)
+            ->orderBy('kampus')->orderBy('nama_ruang')->get();
+        $bhp_bahan = BarangBHP_bahan::with(['ruangan.location'])
+            ->where('jurusan','=',$jurusan)->whereNull('delete')->OrderBy('nama')->get();
         return view('petugas_lab.barangbhp',compact('bhp_bahan','jurusan','ruangan'));
     }
 
@@ -168,11 +173,12 @@ class PetugasLabController extends Controller
             'stok' => $request->stok,
             'satuan' => $request->satuan,
             'tgl_expired' => $request->tgl_expired,
+            'ruangan_id' => $request->ruangan_id ?: null,
             'updated_at' => $user
         ]);
         
         PenambahanBarang::insert([
-            'jenis_barang' => 'Bahan BHP',
+            'jenis_barang' => 'Bahan Medis',
             'barang_id' => $idBaru, 
             'stok' => $request->stok,
             'keterangan' => 'Penambahan Data baru',
@@ -183,7 +189,7 @@ class PetugasLabController extends Controller
         Aktifitas::insert([
             'username' => $username,
             'name' => $user,
-            'aktifitas' => 'Penambahan Bahan BHP',
+            'aktifitas' => 'Penambahan Bahan Medis',
         ]);
         
         return redirect()->back()->with('message', 'Data BHP Bahan berhasil ditambah.');
@@ -191,8 +197,10 @@ class PetugasLabController extends Controller
     
     public function edit_bhp($id)
     {
-        $data = BarangBHP_bahan::find($id);
-        return view('petugas_lab.edit_bhp',compact('data'));
+        $data = BarangBHP_bahan::with('ruangan.location')->find($id);
+        $ruangan = Ruangan::where('jurusan','=',$data->jurusan)
+            ->orderBy('kampus')->orderBy('nama_ruang')->get();
+        return view('petugas_lab.edit_bhp',compact('data','ruangan'));
     }
 
     public function edit_bhp_bahan(Request $request)
@@ -209,6 +217,7 @@ class PetugasLabController extends Controller
             'kode_barang' => $request->kode_barang,
             'satuan' => $request->satuan,
             'tgl_expired' => $request->tgl_expired,
+            'ruangan_id' => $request->ruangan_id ?: null,
             'updated_at' => $user
         ]);
         return redirect('petugas/barangbhp?jurusan='.$request->jurusan)->with('message', 'Data BHP bahan berhasil dirubah.');
@@ -249,8 +258,10 @@ class PetugasLabController extends Controller
     public function barangmedis(Request $request)
     {
         $jurusan = $request->jurusan;
-        $ruangan = Ruangan::where('jurusan','=',$jurusan)->get();
-        $bhp_alat = BarangBHP_alat::where('jurusan','=',$jurusan)->whereNull('delete')->OrderBy('nama')->get();
+        $ruangan = Ruangan::where('jurusan','=',$jurusan)
+            ->orderBy('kampus')->orderBy('nama_ruang')->get();
+        $bhp_alat = BarangBHP_alat::with(['ruangan.location'])
+            ->where('jurusan','=',$jurusan)->whereNull('delete')->OrderBy('nama')->get();
         return view('petugas_lab.barangmedis',compact('bhp_alat','jurusan','ruangan'));
     }
 
@@ -272,11 +283,12 @@ class PetugasLabController extends Controller
             'stok' => $request->stok,
             'satuan' => $request->satuan,
             'kondisi' => $request->kondisi,
+            'ruangan_id' => $request->ruangan_id ?: null,
             'updated_at' => $user
         ]);
         
         PenambahanBarang::insert([
-            'jenis_barang' => 'Peralatan Medis',
+            'jenis_barang' => 'Alat Medis',
             'barang_id' => $idBaru,
             'stok' => $request->stok,
             'keterangan' => 'Penambahan Data baru',
@@ -286,7 +298,7 @@ class PetugasLabController extends Controller
         Aktifitas::insert([
             'username' => $username,
             'name' => $user,
-            'aktifitas' => 'Penambahan Peralatan Medis',
+            'aktifitas' => 'Penambahan Alat Medis',
         ]);
         
         return redirect()->back()->with('message', 'Data BHP Alat berhasil ditambah.');
@@ -304,6 +316,7 @@ class PetugasLabController extends Controller
             'nama' => $request->nama,
             'satuan' => $request->satuan,
             'kondisi' => $request->kondisi,
+            'ruangan_id' => $request->ruangan_id ?: null,
             'updated_at' => $user
         ]);
         return redirect()->back()->with('message', 'Data BHP alat berhasil dirubah.');
@@ -529,13 +542,13 @@ class PetugasLabController extends Controller
         $cek = Peminjaman::find($id);
         $jenis = $cek->jenis;
         $jurusan = $cek->jurusan;
-        if($cek->jenis=='Peralatan Laboratorium'){
+        if($cek->jenis=='Aset Laboratorium'){
             $sql = "select a.id, b.jenis, a.barang_id, c.nama, c.stok, c.satuan, a.stok_pinjam, b.tgl_pinjaman, b.tgl_pengembalian, a.status
                     from peminjaman_detail a
                     join peminjaman b on (a.peminjaman_id=b.id)
                     join barang_inventaris c on (a.barang_id=c.id)
                     where a.peminjaman_id=$id";
-        }elseif($cek->jenis=='Peralatan Medis'){
+        }elseif($cek->jenis=='Alat Medis'){
             $sql = "select a.id, b.jenis, a.barang_id, c.nama, c.stok, c.satuan, a.stok_pinjam, b.tgl_pinjaman, b.tgl_pengembalian, a.status
                     from peminjaman_detail a
                     join peminjaman b on (a.peminjaman_id=b.id)
@@ -560,7 +573,7 @@ class PetugasLabController extends Controller
         $peminjam = User::find($cek->user_id);
 
         $jumlah = count($request->id);
-        if($cek->jenis=='Peralatan Laboratorium'){
+        if($cek->jenis=='Aset Laboratorium'){
             $adaDataDipinjamkan = false;
             for($x=0;$x<$jumlah;$x++){
                 PeminjamanDetail::find($request->id[$x])->update([
@@ -600,7 +613,7 @@ class PetugasLabController extends Controller
                 }
 
             }
-        }elseif($cek->jenis=='Peralatan Medis'){
+        }elseif($cek->jenis=='Alat Medis'){
             $adaDataDipinjamkan = false;
             for($x=0;$x<$jumlah;$x++){
                 PeminjamanDetail::find($request->id[$x])->update([
@@ -697,13 +710,13 @@ class PetugasLabController extends Controller
     {
         $cek = Peminjaman::find($id);
         $jurusan = $cek->jurusan;
-        if($cek->jenis=='Peralatan Laboratorium'){
+        if($cek->jenis=='Aset Laboratorium'){
             $sql = "select a.id, b.jenis, a.barang_id, c.nama, c.satuan, a.kondisi, a.stok_pinjam, b.tgl_pinjaman, b.tgl_pengembalian, a.status
                     from peminjaman_detail a
                     join peminjaman b on (a.peminjaman_id=b.id)
                     join barang_inventaris c on (a.barang_id=c.id)
                     where a.peminjaman_id=$id and a.status!='Ditolak'";
-        }elseif($cek->jenis=='Peralatan Medis'){
+        }elseif($cek->jenis=='Alat Medis'){
             $sql = "select a.id, b.jenis, a.barang_id, c.nama, c.satuan, a.kondisi, a.stok_pinjam, b.tgl_pinjaman, b.tgl_pengembalian, a.status
                     from peminjaman_detail a
                     join peminjaman b on (a.peminjaman_id=b.id)
@@ -729,7 +742,7 @@ class PetugasLabController extends Controller
         $user = auth()->user()->name;
 
         $jumlah = count($request->id);
-        if($cek->jenis=='Peralatan Laboratorium'){
+        if($cek->jenis=='Aset Laboratorium'){
             for($x=0;$x<$jumlah;$x++){
                 PeminjamanDetail::find($request->id[$x])->update([
                 'status' => $request->status[$x],
@@ -747,7 +760,7 @@ class PetugasLabController extends Controller
                 }
 
             }
-        }elseif($cek->jenis=='Peralatan Medis'){
+        }elseif($cek->jenis=='Alat Medis'){
             for($x=0;$x<$jumlah;$x++){
                 PeminjamanDetail::find($request->id[$x])->update([
                 'status' => $request->status[$x],
@@ -800,13 +813,13 @@ class PetugasLabController extends Controller
     {
         $cek = Peminjaman::find($id);
         $jurusan = $cek->jurusan;
-        if($cek->jenis=='Peralatan Laboratorium'){
+        if($cek->jenis=='Aset Laboratorium'){
             $sql = "select a.id, b.jenis, a.barang_id, c.nama, c.satuan, a.kondisi, a.stok_pinjam, b.tgl_pinjaman, b.tgl_pengembalian, a.status
                     from peminjaman_detail a
                     join peminjaman b on (a.peminjaman_id=b.id)
                     join barang_inventaris c on (a.barang_id=c.id)
                     where a.peminjaman_id=$id and a.status!='Ditolak'";
-        }elseif($cek->jenis=='Peralatan Medis'){
+        }elseif($cek->jenis=='Alat Medis'){
             $sql = "select a.id, b.jenis, a.barang_id, c.nama, c.satuan, a.kondisi, a.stok_pinjam, b.tgl_pinjaman, b.tgl_pengembalian, a.status
                     from peminjaman_detail a
                     join peminjaman b on (a.peminjaman_id=b.id)
@@ -842,7 +855,7 @@ class PetugasLabController extends Controller
                 'petugas_pengembalian' => $user,
             ]);
 
-            if($cek->jenis=='Peralatan Laboratorium'){
+            if($cek->jenis=='Aset Laboratorium'){
                 if($request->status=='Dikembalikan'){
                     $barang = BarangInventaris::find($data->barang_id);
                     $stok = $barang->stok;
@@ -851,7 +864,7 @@ class PetugasLabController extends Controller
                         'kondisi' => $request->kondisi,
                     ]);
                 }
-            } elseif($cek->jenis=='Peralatan Medis') {
+            } elseif($cek->jenis=='Alat Medis') {
                 if($request->status=='Dikembalikan'){
                     $barang = BarangBHP_alat::find($request->barang_id);
                     $stok = $barang->stok;
@@ -878,7 +891,7 @@ class PetugasLabController extends Controller
             'stok_pinjam'=> $data->stok_pinjam - $request->stok_pengembalian
             ]);
 
-            if($cek->jenis=='Peralatan Laboratorium'){
+            if($cek->jenis=='Aset Laboratorium'){
                 if($request->status=='Dikembalikan'){
                 $barang = BarangInventaris::find($data->barang_id);
                 $stok = $barang->stok;
@@ -887,7 +900,7 @@ class PetugasLabController extends Controller
                     'kondisi' => $request->kondisi,
                 ]);
                 }
-            } elseif($cek->jenis=='Peralatan Medis') {
+            } elseif($cek->jenis=='Alat Medis') {
                 if($request->status=='Dikembalikan'){
                 $barang = BarangBHP_alat::find($request->barang_id);
                 $stok = $barang->stok;
@@ -931,7 +944,7 @@ class PetugasLabController extends Controller
                 join peminjaman b on (a.peminjaman_id=b.id)
                 join barang_inventaris c on (a.barang_id=c.id)
                 join users d on (b.user_id=d.id)
-                where b.jurusan='$jurusan' and b.jenis='Peralatan Laboratorium' and a.status='Dipinjamkan'
+                where b.jurusan='$jurusan' and b.jenis='Aset Laboratorium' and a.status='Dipinjamkan'
                 order by a.id");
         $alat_medis = DB::select("select d.name, b.jenis, b.ruangan, b.tgl_pinjaman, b.tgl_pengembalian, b.penanggung_jawab, b.tingkat, 
                 c.nama, c.satuan, a.stok_pinjam, a.petugas_peminjaman, a.petugas_pengembalian, a.status
@@ -939,7 +952,7 @@ class PetugasLabController extends Controller
                 join peminjaman b on (a.peminjaman_id=b.id)
                 join barangbhp_alat c on (a.barang_id=c.id)
                 join users d on (b.user_id=d.id)
-                where b.jurusan='$jurusan' and b.jenis='Peralatan Medis' and a.status='Dipinjamkan'
+                where b.jurusan='$jurusan' and b.jenis='Alat Medis' and a.status='Dipinjamkan'
                 order by a.id");
 
         return view('petugas_lab.belum_dikembalikan',compact('jurusan','alat_lab','alat_medis'));
@@ -997,7 +1010,7 @@ class PetugasLabController extends Controller
             $sql = "select a.created_at, b.nama, b.satuan, b.kode_barang, a.stok, a.petugas, a.keterangan
                 from penambahan_barang a
                 join barang_inventaris b on (a.barang_id=b.id)
-                where b.jurusan='$jurusan' and jenis_barang='Peralatan Laboratorium' and 
+                where b.jurusan='$jurusan' and jenis_barang='Aset Laboratorium' and 
                 created_at BETWEEN '$tgl_awal 00:00:01' AND '$tgl_akhir 23:59:59' ";
             $data = DB::select($sql);
         }else{
@@ -1020,7 +1033,7 @@ class PetugasLabController extends Controller
             $sql = "select a.created_at, b.nama, b.satuan, a.stok, a.petugas, a.keterangan
                 from penambahan_barang a
                 join barangbhp_alat b on (a.barang_id=b.id)
-                where b.jurusan='$jurusan' and jenis_barang='Peralatan Medis' and 
+                where b.jurusan='$jurusan' and jenis_barang='Alat Medis' and 
                 created_at BETWEEN '$tgl_awal 00:00:01' AND '$tgl_akhir 23:59:59' ";
             $data = DB::select($sql);
         }else{
@@ -1043,7 +1056,7 @@ class PetugasLabController extends Controller
             $sql = "select a.created_at, b.nama, b.satuan, a.stok, a.petugas, a.keterangan
                 from penambahan_barang a
                 join barangbhp_bahan b on (a.barang_id=b.id)
-                where b.jurusan='$jurusan' and jenis_barang='Bahan BHP' and 
+                where b.jurusan='$jurusan' and jenis_barang='Bahan Medis' and 
                 created_at BETWEEN '$tgl_awal 00:00:01' AND '$tgl_akhir 23:59:59' ";
             $data = DB::select($sql);
         }else{
@@ -1069,7 +1082,7 @@ class PetugasLabController extends Controller
                 join peminjaman b on (a.peminjaman_id=b.id)
                 join barang_inventaris c on (a.barang_id=c.id)
                 join users d on (b.user_id=d.id)
-                where b.jurusan='$jurusan' and b.jenis='Peralatan Laboratorium' and a.status!='Ditolak' and a.status!='Menunggu Konfirmasi'
+                where b.jurusan='$jurusan' and b.jenis='Aset Laboratorium' and a.status!='Ditolak' and a.status!='Menunggu Konfirmasi'
                 and b.tgl_pinjaman BETWEEN '$tgl_awal' AND '$tgl_akhir'
                 order by a.id";
             $data = DB::select($sql);
@@ -1096,7 +1109,7 @@ class PetugasLabController extends Controller
                 join peminjaman b on (a.peminjaman_id=b.id)
                 join barangbhp_alat c on (a.barang_id=c.id)
                 join users d on (b.user_id=d.id)
-                where b.jurusan='$jurusan' and b.jenis='Peralatan Medis' and a.status!='Ditolak' and a.status!='Menunggu Konfirmasi' and  
+                where b.jurusan='$jurusan' and b.jenis='Alat Medis' and a.status!='Ditolak' and a.status!='Menunggu Konfirmasi' and  
                 b.tgl_pinjaman BETWEEN '$tgl_awal' AND '$tgl_akhir'
                 order by a.id";
             $data = DB::select($sql);
@@ -1123,7 +1136,7 @@ class PetugasLabController extends Controller
                 join peminjaman b on (a.peminjaman_id=b.id)
                 join barangbhp_bahan c on (a.barang_id=c.id)
                 join users d on (b.user_id=d.id)
-                where b.jurusan='$jurusan' and b.jenis='Bahan BHP' and a.status!='Ditolak' and a.status!='Menunggu Konfirmasi'
+                where b.jurusan='$jurusan' and b.jenis='Bahan Medis' and a.status!='Ditolak' and a.status!='Menunggu Konfirmasi'
                 and b.tgl_pinjaman BETWEEN '$tgl_awal' AND '$tgl_akhir'
                 order by a.id";
             $data = DB::select($sql);
@@ -1195,9 +1208,9 @@ class PetugasLabController extends Controller
         ]);
         $user = Auth()->user()->name;
 
-        if($request->jenis_barang=='Peralatan Laboratorium'){
+        if($request->jenis_barang=='Aset Laboratorium'){
             PenambahanBarang::insert([
-                'jenis_barang' => 'Peralatan Laboratorium',
+                'jenis_barang' => 'Aset Laboratorium',
                 'barang_id' => $request->barang_id,
                 'stok' => $request->stok,
                 'keterangan' => $request->keterangan,
@@ -1209,9 +1222,9 @@ class PetugasLabController extends Controller
             $barang->update([
                 'stok' => $stok+$request->stok
             ]);
-        }elseif($request->jenis_barang=='Peralatan Medis'){
+        }elseif($request->jenis_barang=='Alat Medis'){
             PenambahanBarang::insert([
-                'jenis_barang' => 'Peralatan Medis',
+                'jenis_barang' => 'Alat Medis',
                 'barang_id' => $request->barang_id,
                 'stok' => $request->stok,
                 'keterangan' => $request->keterangan,
@@ -1223,9 +1236,9 @@ class PetugasLabController extends Controller
             $barang->update([
                 'stok' => $stok+$request->stok
             ]);
-        }elseif($request->jenis_barang=='Bahan BHP'){
+        }elseif($request->jenis_barang=='Bahan Medis'){
             PenambahanBarang::insert([
-                'jenis_barang' => 'Bahan BHP',
+                'jenis_barang' => 'Bahan Medis',
                 'barang_id' => $request->barang_id,
                 'stok' => $request->stok,
                 'keterangan' => $request->keterangan,

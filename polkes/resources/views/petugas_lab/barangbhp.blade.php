@@ -26,6 +26,8 @@
                         <th width="25">No</th>
                         <th></th>
                         <th>Nama</th>
+                        <th>Ruangan</th>
+                        <th>Lokasi</th>
                         <th>Kode Barang</th>
                         <th>Merk</th>
                         <th>Stok</th>
@@ -40,6 +42,8 @@
                     <td>{{$loop->iteration}}</td>
                     <td><input type="checkbox" class="custom-control-input checkItem" name="ids[]"  value="{{$b->id}}"></td>
                     <td>{{$b->nama}}</td>
+                    <td>{{ optional($b->ruangan)->nama_ruang ?? '-' }}</td>
+                    <td>{{ optional(optional($b->ruangan)->location)->name ?? '-' }}</td>
                     <td>{{$b->kode_barang}}</td>
                     <td>{{$b->kimia}}</td>
                     <td>{{$b->stok}}</td>
@@ -128,6 +132,19 @@
               </div>
             </div>
 
+            <div class="form-group mb-3 row">
+              <label for="ruangan_id" class="col-sm-3 col-form-label">Ruangan</label>
+              <div class="col-sm-9">
+                <select name="ruangan_id" class="form-control">
+                  <option value="">-- Pilih Ruangan --</option>
+                  @foreach($ruangan as $r)
+                  <option value="{{$r->id}}">{{$r->kampus}} - {{$r->nama_ruang}}</option>
+                  @endforeach
+                </select>
+                <small class="text-muted">Lokasi mengikuti ruangan yang dipilih.</small>
+              </div>
+            </div>
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -145,7 +162,7 @@
         <form action="{{url('petugas/penambahan_stok_barang')}}" method="post">
         @csrf
           <input type="hidden" name="jurusan" value="{{$jurusan}}">
-          <input type="hidden" name="jenis_barang" value="Bahan BHP">
+          <input type="hidden" name="jenis_barang" value="Bahan Medis">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Tambah Stok Barang</h5>
             <button type="button" class="close btn btn-dark btn-sm" data-dismiss="modal" aria-label="Close">x</button>

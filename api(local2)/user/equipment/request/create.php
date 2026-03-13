@@ -15,7 +15,7 @@ declare(strict_types=1);
  * 
  * Request Body (JSON):
  * {
- *   "jenis": "Peralatan Laboratorium",
+ *   "jenis": "Aset Laboratorium",
  *   "ruangan": "Lab Kimia Dasar dan Terapan",
  *   "penanggung_jawab": "Dosen Name",
  *   "tingkat": "1A",

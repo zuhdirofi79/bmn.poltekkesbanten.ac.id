@@ -11,7 +11,7 @@ Permintaan Peminjaman Anda dengan nomor id {{$data['id']}} telah diterima.
 - Tanggal Peminjaman : {{$data['tgl_pinjaman']}}
 - Tanggal Pengembalian : {{$data['tgl_pengembalian']}}
 
-Mohon pastikan Anda mengembalikan barang tersebut sesuai kesepakatan, Jika jenis barang adalah Bahan BHP maka tidak perlu dikembalikan.
+Mohon pastikan Anda mengembalikan barang tersebut sesuai kesepakatan, Jika jenis barang adalah Bahan Medis maka tidak perlu dikembalikan.
 
 Terima kasih.
 
