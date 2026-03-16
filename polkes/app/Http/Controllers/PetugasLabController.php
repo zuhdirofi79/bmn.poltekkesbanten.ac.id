@@ -527,13 +527,12 @@ class PetugasLabController extends Controller
     public function request(Request $request)
     {
         $jurusan = $request->jurusan;
-        $sql = "select a.*, b.name
-                from peminjaman a 
-                join users b on (a.user_id=b.id)
-                where a.jurusan='$jurusan' and a.status='Menunggu Konfirmasi'";
-        $data = DB::select($sql);
+        $data = Peminjaman::with(['prodi','user'])
+            ->where('jurusan', $jurusan)
+            ->where('status', 'Menunggu Konfirmasi')
+            ->orderBy('id', 'desc')
+            ->get();
         
-        //$data = Peminjaman::where('jurusan','=',$jurusan)->where('status','=','Menunggu Konfirmasi')->orderBy('id','desc')->get();
         return view('petugas_lab.request',compact('data','jurusan'));
     }
 

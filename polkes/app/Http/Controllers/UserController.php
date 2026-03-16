@@ -95,6 +95,7 @@ class UserController extends Controller
         $jenis = $request->jenis;
         $tujuan = Tujuan::get();
         $tingkat = DB::select("select * from tingkat");
+        $prodis = \App\Models\Prodi::orderBy('nama_prodi','asc')->get();
         if($jenis=='Aset Laboratorium'){
             $barang = BarangInventaris::where('jurusan','=',$jurusan)->where('ruang','=',$ruangan)->whereNull('delete')->OrderBy('kode_barang')->get();
         }elseif($jenis=='Alat Medis'){
@@ -102,7 +103,7 @@ class UserController extends Controller
         }else{
             $barang = BarangBHP_bahan::where('jurusan','=',$jurusan)->whereNull('delete')->OrderBy('nama')->get();
         }
-        return view('user.req_peminjaman',compact('jurusan','ruangan','jenis','barang','tingkat','tujuan'));
+        return view('user.req_peminjaman',compact('jurusan','ruangan','jenis','barang','tingkat','tujuan','prodis'));
     }
 
     public function add_peminjaman(Request $request)
@@ -115,12 +116,49 @@ class UserController extends Controller
             'jurusan' => ['required'],
             'ruangan' => ['required'],
             'tingkat' => ['required'],
+            'prodi_id' => ['required','exists:prodi,id'],
             'tgl_peminjaman' => ['required'],
             'waktu_mulai' => ['required'],
             'waktu_selesai' => ['required'],
             'tujuan' => ['required'],
             'barang_id' => ['required','array'],
         ]);
+
+        // Validasi konflik stok per barang berdasarkan waktu peminjaman
+        foreach ($barang_ids as $barangId) {
+            if ($request->jenis == 'Aset Laboratorium') {
+                $barang = BarangInventaris::find($barangId);
+            } elseif ($request->jenis == 'Alat Medis') {
+                $barang = BarangBHP_alat::find($barangId);
+            } else {
+                $barang = BarangBHP_bahan::find($barangId);
+            }
+
+            $stokTersedia = $barang ? $barang->stok : 0;
+
+            // Total yang sudah dipinjam pada waktu yang overlap (status detail bukan Ditolak)
+            $dipinjam = PeminjamanDetail::where('barang_id', $barangId)
+                ->where('status', '!=', 'Ditolak')
+                ->whereHas('peminjaman', function ($q) use ($request) {
+                    $q->where('tgl_pinjaman', $request->tgl_peminjaman)
+                      ->whereIn('status', ['Menunggu Konfirmasi', 'Menunggu Dikembalikan'])
+                      ->where(function ($query) use ($request) {
+                          $query->where('waktu_mulai', '<', $request->waktu_selesai)
+                                ->where('waktu_selesai', '>', $request->waktu_mulai);
+                      });
+                })
+                ->sum('stok_pinjam');
+
+            // Saat ini setiap checkbox = 1 unit
+            $kebutuhanBaru = 1;
+
+            if ($dipinjam + $kebutuhanBaru > $stokTersedia) {
+                $namaBarang = $barang ? $barang->nama : 'Barang';
+                return redirect()->back()
+                    ->withInput()
+                    ->with('error', 'Stok ' . $namaBarang . ' tidak tersedia pada jam tersebut.');
+            }
+        }
         
         if($request->tingkat=='Other'){
             $tingkat = $request->tingkat_other;
@@ -134,6 +172,7 @@ class UserController extends Controller
             'jenis' => $request->jenis,
             'ruangan' => $request->ruangan,
             'tingkat' => $tingkat,
+            'prodi_id' => $request->prodi_id,
             'waktu_mulai' => $request->waktu_mulai,
             'waktu_selesai' => $request->waktu_selesai,
             'tujuan' => $request->tujuan,

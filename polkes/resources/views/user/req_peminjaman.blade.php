@@ -6,6 +6,12 @@
           <div class="card-body">
             <h5 class="card-title fw-semibold mb-4">Peminjmaan Peralatan {{$ruangan}}</h5>
 
+            @if(session('error'))
+              <div class="alert alert-danger">
+                {{ session('error') }}
+              </div>
+            @endif
+
             <form action="{{url('user/add_peminjaman')}}" method="post">
               @csrf
                 <input type="hidden" name="jurusan" value="{{$jurusan}}">
@@ -48,6 +54,18 @@
                     <label for="tingkat_other" class="col-sm-3 col-form-label"></label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="tingkat_other" name="tingkat_other">
+                    </div>
+                  </div>
+
+                  <div class="form-group mb-3 row">
+                    <label for="prodi_id" class="col-sm-3 col-form-label">Prodi</label>
+                    <div class="col-sm-9">
+                      <select id="prodi_id" name="prodi_id" class="form-control" required>
+                        <option value="">-- Pilih Prodi --</option>
+                        @foreach($prodis as $prodi)
+                          <option value="{{ $prodi->id }}">{{ $prodi->nama_prodi }}</option>
+                        @endforeach
+                      </select>
                     </div>
                   </div>
                   
