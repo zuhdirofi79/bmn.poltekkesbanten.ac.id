@@ -16,6 +16,7 @@ use App\Tujuan;
 use App\Kelas;
 use App\ReqJadwalPraktikum;
 use DB;
+use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
@@ -122,6 +123,8 @@ class UserController extends Controller
             'waktu_selesai' => ['required'],
             'tujuan' => ['required'],
             'barang_id' => ['required','array'],
+            'bukti_foto' => ['nullable','array','max:5'],
+            'bukti_foto.*' => ['image','mimes:jpeg,jpg,png','max:2048'],
         ]);
 
         // Validasi konflik stok per barang berdasarkan waktu peminjaman
@@ -180,6 +183,28 @@ class UserController extends Controller
             'tgl_pengembalian' => $request->tgl_pengembalian,
             'status' => 'Menunggu Konfirmasi',
         ]);
+
+        if ($request->hasFile('bukti_foto')) {
+            $uploadDir = storage_path('app/public/bukti_peminjaman');
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0755, true);
+            }
+            foreach ($request->file('bukti_foto') as $file) {
+                $path = 'bukti_peminjaman/' . uniqid() . '.jpg';
+                $fullPath = storage_path('app/public/' . $path);
+                Image::make($file)
+                    ->resize(1600, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })
+                    ->encode('jpg', 70)
+                    ->save($fullPath);
+                DB::table('peminjaman_foto')->insert([
+                    'peminjaman_id' => $peminjaman_id,
+                    'foto_path' => $path,
+                    'created_at' => now(),
+                ]);
+            }
+        }
 
         foreach($barang_ids as $barang){
             PeminjamanDetail::insert([

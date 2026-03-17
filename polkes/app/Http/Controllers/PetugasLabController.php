@@ -21,6 +21,7 @@ use App\User;
 use DB;
 use PDF;
 use App\Notifications\EmailNotification;
+use Illuminate\Support\Facades\Storage;
 
 class PetugasLabController extends Controller
 {
@@ -797,6 +798,8 @@ class PetugasLabController extends Controller
             'status' => 'Selesai'
         ]);
 
+        $this->deleteBuktiFotoForPeminjaman($cek->id);
+
         $peminjam = User::find($cek->user_id);
 
         Aktifitas::insert([
@@ -920,6 +923,7 @@ class PetugasLabController extends Controller
             $cek->update([
             'status' => 'Selesai'
         ]);
+            $this->deleteBuktiFotoForPeminjaman($cek->id);
         }
         
         $peminjam = User::find($cek->user_id);
@@ -931,6 +935,26 @@ class PetugasLabController extends Controller
         ]);
 
         return redirect('petugas/pengembalian_detail2/'.$request->peminjaman_id)->with('message', 'Data pengembalian berhasil diupdate.');
+    }
+
+    /**
+     * Hapus file bukti foto dan record peminjaman_foto saat peminjaman selesai (dikembalikan).
+     */
+    private function deleteBuktiFotoForPeminjaman($peminjaman_id)
+    {
+        $photos = DB::table('peminjaman_foto')
+            ->where('peminjaman_id', $peminjaman_id)
+            ->get();
+
+        foreach ($photos as $foto) {
+            if (Storage::disk('public')->exists($foto->foto_path)) {
+                Storage::disk('public')->delete($foto->foto_path);
+            }
+        }
+
+        DB::table('peminjaman_foto')
+            ->where('peminjaman_id', $peminjaman_id)
+            ->delete();
     }
 
     public function belum_dikembalikan(Request $request)

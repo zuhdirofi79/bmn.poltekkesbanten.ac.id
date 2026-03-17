@@ -182,6 +182,7 @@
       });
   });
   </script>
+  @stack('scripts')
 
 </body>
 

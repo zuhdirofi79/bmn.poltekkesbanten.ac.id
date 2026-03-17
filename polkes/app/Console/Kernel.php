@@ -28,6 +28,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('bhp:check-expiration')
             ->dailyAt('08:00')
             ->withoutOverlapping();
+        $schedule->command('cleanup:bukti-peminjaman')->weekly();
     }
 
     /**

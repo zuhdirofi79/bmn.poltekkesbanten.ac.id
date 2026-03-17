@@ -4,7 +4,7 @@
       <div class="container-fluid col-lg-9">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title fw-semibold mb-4">Peminjmaan Peralatan {{$ruangan}}</h5>
+            <h5 class="card-title fw-semibold mb-4">Peminjaman Peralatan {{$ruangan}}</h5>
 
             @if(session('error'))
               <div class="alert alert-danger">
@@ -12,7 +12,7 @@
               </div>
             @endif
 
-            <form action="{{url('user/add_peminjaman')}}" method="post">
+            <form action="{{url('user/add_peminjaman')}}" method="post" enctype="multipart/form-data">
               @csrf
                 <input type="hidden" name="jurusan" value="{{$jurusan}}">
 
@@ -153,6 +153,23 @@
                     </div>
                   </div>
 
+                  <div class="form-group mb-3 row">
+                    <label class="col-sm-3 col-form-label">Bukti Foto</label>
+                    <div class="col-sm-9">
+                      <input type="file"
+                        name="bukti_foto[]"
+                        id="bukti_foto"
+                        class="form-control"
+                        multiple
+                        accept="image/jpeg,image/png,image/jpg"
+                        capture="environment">
+                      <small class="text-muted">Maksimal 5 foto, 2MB per file. Format: JPEG, JPG, PNG.</small>
+                      @error('bukti_foto') <span class="text-danger">{{ $message }}</span> @enderror
+                      @error('bukti_foto.*') <span class="text-danger d-block">{{ $message }}</span> @enderror
+                      <div id="preview_foto" class="row mt-2"></div>
+                    </div>
+                  </div>
+
                 <div class="modal-footer">
                   <!-- <button type="submit" class="btn btn-primary">Next</button> -->
                   <a href="" class="btn btn-primary" data-toggle="modal" data-target="#ModalKonfirmasi">Next</a>
@@ -202,6 +219,33 @@
               } else {
                   // Sembunyikan form input tambahan
                   $("#otherTingkat").hide();
+              }
+          });
+
+          // Preview Bukti Foto (maksimal 5 file)
+          var maxFiles = 5;
+          $("#bukti_foto").on("change", function () {
+              var files = this.files;
+              var container = $("#preview_foto");
+              container.empty();
+              if (files.length > maxFiles) {
+                  container.append('<div class="col-12"><span class="text-danger">Maksimal ' + maxFiles + ' file.</span></div>');
+                  this.value = "";
+                  return;
+              }
+              for (var i = 0; i < files.length; i++) {
+                  (function (file) {
+                      if (!file.type.match("image/(jpeg|jpg|png)")) return;
+                      var reader = new FileReader();
+                      reader.onload = function (e) {
+                          container.append(
+                              '<div class="col-md-2 col-4 mb-2">' +
+                              '<img src="' + e.target.result + '" class="img-fluid img-thumbnail" alt="preview">' +
+                              '</div>'
+                          );
+                      };
+                      reader.readAsDataURL(file);
+                  })(files[i]);
               }
           });
       });

@@ -1,5 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\DB;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -68,10 +70,22 @@ Route::group(['prefix' => 'admin','middleware' => ['role:admin']], function () {
     Route::post('/delete_icon','AdminController@delete_icon');
 });
 
+// View Composer: inject $fotos once for petugas_lab.request (fix N+1)
+View::composer('petugas_lab.request', function ($view) {
+    $fotos = DB::table('peminjaman_foto')->get()->groupBy('peminjaman_id');
+    $view->with('fotos', $fotos);
+});
+
 //PETUGAS
 Route::group(['prefix' => 'petugas','middleware' => ['role:plp']], function () {
     Route::get('/peminjaman','PetugasLabController@peminjaman');
     Route::get('/request','PetugasLabController@request');
+    Route::get('/peminjaman-foto/{id}', function ($id) {
+        $photos = DB::table('peminjaman_foto')
+            ->where('peminjaman_id', $id)
+            ->get(['foto_path']);
+        return response()->json($photos);
+    });
     Route::get('/request_detail/{id}','PetugasLabController@request_detail');
     Route::post('/request_submit','PetugasLabController@request_submit');
 
