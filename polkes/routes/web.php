@@ -147,7 +147,7 @@ Route::group(['prefix' => 'petugas','middleware' => ['role:plp']], function () {
     Route::get('/laporan','PetugasLabController@lap_index');
     Route::get('/laporan/alat_lab','PetugasLabController@lap_alat_lab');
     Route::get('/laporan/alat_medis','PetugasLabController@lap_alat_medis');
-    Route::get('/laporan/bahan_bhp','PetugasLabController@lap_bahan_bhp');
+    Route::get('/laporan/bahan_bhp', 'PetugasLabController@lap_bahan_bhp')->name('petugas.laporan.bahan_bhp');
     Route::get('/laporan/penambahan_alat_lab','PetugasLabController@lap_penambahan_alat_lab');
     Route::get('/laporan/penambahan_alat_medis','PetugasLabController@lap_penambahan_alat_medis');
     Route::get('/laporan/penambahan_bahan_bhp','PetugasLabController@lap_penambahan_bahan_bhp');

@@ -17,7 +17,7 @@
                         <th>Tgl Masuk</th>
                         <th>Kode Barang</th>
                         <th>Nama Barang</th>
-                        <th>Jumlah</th>
+                        <th>stok</th>
                         <th>Petugas</th>
                         <th>Edit</th>
                     </tr>
@@ -62,7 +62,7 @@
                             </div>
 
                             <div class="form-group mb-3 row">
-                              <label for="stok_masuk" class="col-sm-3 col-form-label">Jumlah</label>
+                              <label for="stok_masuk" class="col-sm-3 col-form-label">stok</label>
                               <div class="col-sm-9">
                                 <input type="number" class="form-control" id="stok_masuk" name="stok_masuk" value="{{$a->stok_masuk}}" required>
                               </div>
@@ -143,7 +143,7 @@
 
 
             <div class="form-group mb-3 row">
-              <label for="stok_masuk" class="col-sm-3 col-form-label">Jumlah</label>
+              <label for="stok_masuk" class="col-sm-3 col-form-label">stok</label>
               <div class="col-sm-9">
                 <input type="number" class="form-control" id="stok_masuk" name="stok_masuk" required>
               </div>
@@ -171,7 +171,7 @@
           <input type="hidden" name="kode_barang[]" value="{{$a->kode_barang}}">
           <input type="hidden" name="stok_masuk[]" value="{{$a->stok_masuk}}">
           @endforeach
-          <input type="hidden" name="jumlah_data" value="{{count($data)}}">
+          <input type="hidden" name="stok_data" value="{{count($data)}}">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Update Stok Barang</h5>
           <button type="button" class="close btn btn-dark btn-sm" data-dismiss="modal" aria-label="Close">x</button>
@@ -181,7 +181,7 @@
           <div class="alert alert-warning alert-dismissible">
             <h5><i class="icon fas fa-exclamation-triangle"></i> Perhatikan baik-baik!</h5>
             Periksa kembali stok barang masuk sebelum diupdate dengan stok barang saat ini, pastikan semua data sudah bener. <br><br>
-            Proses update akan secara otomatis menambahkan data stok saat ini dengan jumlah barang masuk, apabila sudah diupdate maka tidak dapat dirubah kembali! <br><br> Apakah anda sudah yakin data diatas sudah benar?
+            Proses update akan secara otomatis menambahkan data stok saat ini dengan stok barang masuk, apabila sudah diupdate maka tidak dapat dirubah kembali! <br><br> Apakah anda sudah yakin data diatas sudah benar?
           </div>
 
         </div>

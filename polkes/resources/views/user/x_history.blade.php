@@ -90,7 +90,7 @@
 
                           <div class="form-group mb-3 row">
                             <div class="col-sm-3">
-                              <p>Sejumlah</p>
+                              <p>Sestok</p>
                             </div>
                             <div class="col-sm-9">
                               <p>{{$a->stok_pinjaman}}</p>

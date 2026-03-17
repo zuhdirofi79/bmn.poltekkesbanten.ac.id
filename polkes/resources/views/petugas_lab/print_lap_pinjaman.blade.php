@@ -37,7 +37,7 @@ th, td {
       <th width=90px>Nama</th>
       <th width=60px>Kode Barang</th>
       <th width=130px>Nama Barang</th>
-      <th width=50px>Jumlah</th>
+      <th width=50px>stok</th>
       <th>Status</th>
       <th width=90px>Petugas</th>
   </tr>

@@ -13,7 +13,7 @@
                         <th>Nama</th>
                         <th>Kode Barang</th>
                         <th>Nama Barang</th>
-                        <th>Jumlah</th>
+                        <th>stok</th>
                     </tr>
                 </thead>
                 <tbody>

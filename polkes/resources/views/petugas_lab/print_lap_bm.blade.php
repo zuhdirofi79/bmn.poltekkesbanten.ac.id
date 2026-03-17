@@ -36,7 +36,7 @@ th, td {
       <th width=70px>Tanggal</th>
       <th width=70px>Kode Barang</th>
       <th>Nama Barang</th>
-      <th width=50px>Jumlah</th>
+      <th width=50px>stok</th>
       <th width=90px>Petugas</th>
   </tr>
   @foreach($laporan_barang_masuk as $a)
