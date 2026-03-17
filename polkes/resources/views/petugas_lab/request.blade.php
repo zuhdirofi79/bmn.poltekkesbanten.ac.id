@@ -55,7 +55,7 @@
         </div>
       </div>
 
-      {{-- Single modal for foto preview (filled via AJAX) --}}
+      {{-- Modal: URL gambar dari server (foto_url), bukan path server --}}
       <div class="modal fade" id="modalFotoGlobal" tabindex="-1" aria-labelledby="modalFotoGlobalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
@@ -63,51 +63,77 @@
               <h5 class="modal-title" id="modalFotoGlobalLabel">Bukti Foto - Peminjaman</h5>
               <button type="button" class="close btn btn-dark btn-sm" data-dismiss="modal" aria-label="Close">×</button>
             </div>
-            <div class="modal-body">
-              <div class="text-center py-3 text-muted" id="modalFotoLoading">Memuat...</div>
+            <div class="modal-body" id="modalBuktiFoto">
+              <div class="text-center py-3 text-muted loading" id="modalFotoLoading">Memuat...</div>
               <div class="row" id="modalFotoGrid" style="display:none;"></div>
-              <div class="text-center py-3 text-muted" id="modalFotoEmpty" style="display:none;">Tidak ada foto.</div>
+              <div class="text-center py-3" id="modalFotoEmpty" style="display:none;">Tidak ada foto.</div>
+              <img id="buktiFotoImg" src="" alt="" style="max-width:100%;display:none;">
             </div>
           </div>
         </div>
       </div>
 
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-$(function () {
+(function () {
   var baseUrl = "{{ url('petugas/peminjaman-foto') }}";
-  var storageUrl = "{{ asset('storage') }}";
 
-  $(document).on('click', '.btn-view-foto', function () {
-    var id = $(this).data('id');
-    var $modal = $('#modalFotoGlobal');
-    var $loading = $('#modalFotoLoading');
-    var $grid = $('#modalFotoGrid');
-    var $empty = $('#modalFotoEmpty');
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest && e.target.closest('.btn-view-foto');
+    if (!btn) return;
+    var id = btn.getAttribute('data-id');
+    var modal = document.getElementById('modalFotoGlobal');
+    var loading = document.getElementById('modalFotoLoading');
+    var grid = document.getElementById('modalFotoGrid');
+    var empty = document.getElementById('modalFotoEmpty');
+    var singleImg = document.getElementById('buktiFotoImg');
+    var title = modal.querySelector('.modal-title');
 
-    $modal.find('.modal-title').text('Bukti Foto - Peminjaman #' + id);
-    $loading.show();
-    $grid.hide().empty();
-    $empty.hide();
+    if (title) title.textContent = 'Bukti Foto - Peminjaman #' + id;
+    loading.style.display = 'block';
+    loading.textContent = 'Memuat...';
+    grid.style.display = 'none';
+    grid.innerHTML = '';
+    empty.style.display = 'none';
+    singleImg.style.display = 'none';
+    singleImg.src = '';
 
-    $.get(baseUrl + '/' + id)
-      .done(function (photos) {
-        $loading.hide();
-        if (photos && photos.length > 0) {
-          $.each(photos, function (i, foto) {
-            var src = storageUrl + '/' + (foto.foto_path || foto);
-            $grid.append('<div class="col-md-3 mb-2"><img src="' + src + '" class="img-fluid img-thumbnail" alt="Bukti foto"></div>');
-          });
-          $grid.show();
-        } else {
-          $empty.show();
-        }
+    fetch(baseUrl + '/' + id, { credentials: 'same-origin', headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' } })
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
       })
-      .fail(function () {
-        $loading.hide();
-        $empty.text('Gagal memuat foto.').show();
+      .then(function (photos) {
+        loading.style.display = 'none';
+        if (!photos || !photos.length) {
+          empty.style.display = 'block';
+          return;
+        }
+        if (photos.length === 1 && photos[0].foto_url) {
+          singleImg.src = photos[0].foto_url;
+          singleImg.style.display = 'block';
+          return;
+        }
+        photos.forEach(function (foto) {
+          var url = foto.foto_url || '';
+          if (!url) return;
+          var col = document.createElement('div');
+          col.className = 'col-md-3 mb-2';
+          var img = document.createElement('img');
+          img.src = url;
+          img.className = 'img-fluid img-thumbnail';
+          img.alt = 'Bukti foto';
+          img.style.maxWidth = '100%';
+          col.appendChild(img);
+          grid.appendChild(col);
+        });
+        grid.style.display = 'flex';
+        grid.className = 'row';
+      })
+      .catch(function () {
+        loading.style.display = 'block';
+        loading.textContent = 'Gagal memuat gambar.';
       });
   });
-});
+})();
 </script>
 @endsection

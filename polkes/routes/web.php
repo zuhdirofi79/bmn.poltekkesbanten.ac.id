@@ -81,9 +81,17 @@ Route::group(['prefix' => 'petugas','middleware' => ['role:plp']], function () {
     Route::get('/peminjaman','PetugasLabController@peminjaman');
     Route::get('/request','PetugasLabController@request');
     Route::get('/peminjaman-foto/{id}', function ($id) {
-        $photos = DB::table('peminjaman_foto')
+        $rows = DB::table('peminjaman_foto')
             ->where('peminjaman_id', $id)
             ->get(['foto_path']);
+    
+        $photos = $rows->map(function ($row) {
+            return [
+                'foto_path' => $row->foto_path,
+                'foto_url' => asset($row->foto_path),
+            ];
+        })->values();
+    
         return response()->json($photos);
     });
     Route::get('/request_detail/{id}','PetugasLabController@request_detail');

@@ -182,7 +182,6 @@
       });
   });
   </script>
-  @stack('scripts')
 
 </body>
 

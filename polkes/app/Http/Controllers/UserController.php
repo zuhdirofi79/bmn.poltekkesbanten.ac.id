@@ -185,22 +185,29 @@ class UserController extends Controller
         ]);
 
         if ($request->hasFile('bukti_foto')) {
-            $uploadDir = storage_path('app/public/bukti_peminjaman');
+
+            $uploadDir = '/home/u708283844/domains/laboratorium.poltekkesbanten.ac.id/public_html/storage/bukti_peminjaman';
+        
             if (!is_dir($uploadDir)) {
                 mkdir($uploadDir, 0755, true);
             }
+        
             foreach ($request->file('bukti_foto') as $file) {
-                $path = 'bukti_peminjaman/' . uniqid() . '.jpg';
-                $fullPath = storage_path('app/public/' . $path);
+        
+                $filename = 'PMJ-'.$peminjaman_id.'-'.time().'.jpg';
+                $fullPath = $uploadDir . '/' . $filename;
+        
                 Image::make($file)
+                    ->orientate()
                     ->resize(1600, null, function ($constraint) {
                         $constraint->aspectRatio();
                     })
                     ->encode('jpg', 70)
                     ->save($fullPath);
+        
                 DB::table('peminjaman_foto')->insert([
                     'peminjaman_id' => $peminjaman_id,
-                    'foto_path' => $path,
+                    'foto_path' => 'storage/bukti_peminjaman/' . $filename,
                     'created_at' => now(),
                 ]);
             }
