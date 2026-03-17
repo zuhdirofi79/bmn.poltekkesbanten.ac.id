@@ -19,26 +19,30 @@ class CleanupBuktiPeminjaman extends Command
 
     public function handle()
     {
-        $files = Storage::disk('public')->files('bukti_peminjaman');
         $deleted = 0;
 
-        foreach ($files as $file) {
-            $existsInDb = DB::table('peminjaman_foto')
-                ->where('foto_path', $file)
-                ->exists();
+        // Ambil semua foto yang peminjamannya sudah selesai / dikembalikan
+        $rows = DB::table('peminjaman_foto as pf')
+            ->join('peminjaman as p', 'pf.peminjaman_id', '=', 'p.id')
+            ->whereIn('p.status', ['selesai', 'dikembalikan']) // SESUAIKAN dengan value kamu
+            ->get(['pf.id', 'pf.foto_path']);
 
-            if (!$existsInDb) {
-                Storage::disk('public')->delete($file);
-                Log::info('Deleted orphan foto: ' . $file);
+        foreach ($rows as $row) {
+            // Hilangkan 'storage/' agar cocok dengan disk public
+            $relativePath = str_replace('storage/', '', $row->foto_path);
+
+            if (Storage::disk('public')->exists($relativePath)) {
+                Storage::disk('public')->delete($relativePath);
+
+                // Hapus juga dari DB
+                DB::table('peminjaman_foto')->where('id', $row->id)->delete();
+
+                Log::info('Deleted foto (selesai): ' . $relativePath);
                 $deleted++;
             }
         }
 
-        if ($deleted > 0) {
-            $this->info("Cleanup selesai. {$deleted} file orphan dihapus.");
-        } else {
-            $this->info('Cleanup selesai. Tidak ada file orphan.');
-        }
+        $this->info("Cleanup selesai. {$deleted} file dihapus berdasarkan status.");
 
         return 0;
     }

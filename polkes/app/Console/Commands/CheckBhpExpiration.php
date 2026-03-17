@@ -114,7 +114,7 @@ class CheckBhpExpiration extends Command
     }
 
     /**
-     * Build array for email template: nama, jurusan, tgl_expired, sisa_hari.
+     * Build array for email template: nama, merk, jumlah, jurusan, tgl_expired, sisa_hari.
      */
     protected function buildEmailData($items, Carbon $today): array
     {
@@ -130,8 +130,13 @@ class CheckBhpExpiration extends Command
                 }
             }
 
+            $jumlah = $item->jumlah ?? $item->stok ?? 0;
+            $jumlah = is_numeric($jumlah) ? (int) $jumlah : 0;
+
             return [
                 'nama'        => $item->nama ?? '-',
+                'merk'        => $item->merk ?? $item->kimia ?? '-',
+                'jumlah'      => $jumlah,
                 'jurusan'     => $item->jurusan ?? '-',
                 'tgl_expired' => $item->tgl_expired ?? '-',
                 'sisa_hari'   => $sisaHari,
@@ -145,7 +150,10 @@ class CheckBhpExpiration extends Command
     protected function getRecipients(): array
     {
         // Phase 1: single recipient
-        return ['septiana.anggraini13@gmail.com'];
+        return [
+            'septiana.anggraini13@gmail.com',
+        'auloraqowiyboyqowboy@gmail.com',
+    ];
 
         // Phase 2: all PLP users (uncomment when ready)
         // return User::where('role', 'plp')->pluck('email')->filter()->unique()->values()->all();
