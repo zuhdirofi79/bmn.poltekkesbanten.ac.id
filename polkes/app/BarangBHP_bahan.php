@@ -17,14 +17,21 @@ class BarangBHP_bahan extends Model
             if (app()->runningInConsole()) {
                 return;
             }
-            BhpNotificationService::clearCacheByJurusan($model->jurusan ?? null);
+            try {
+                BhpNotificationService::clearCacheByJurusan($model->jurusan ?? null);
+            } catch (\Throwable $e) {
+                // Never let cache busting break saves.
+            }
         });
 
         static::deleted(function ($model) {
             if (app()->runningInConsole()) {
                 return;
             }
-            BhpNotificationService::clearCacheByJurusan($model->jurusan ?? null);
+            try {
+                BhpNotificationService::clearCacheByJurusan($model->jurusan ?? null);
+            } catch (\Throwable $e) {
+            }
         });
     }
 

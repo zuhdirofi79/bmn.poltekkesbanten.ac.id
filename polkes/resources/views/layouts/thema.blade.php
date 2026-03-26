@@ -32,8 +32,8 @@
     <!--  Main wrapper -->
     <div class="body-wrapper">
       <!--  Header Start -->
-      <header class="app-header">
-        <nav class="navbar navbar-expand-lg navbar-light">
+      <header class="app-header" style="position: relative; z-index: 1050;">
+        <nav class="navbar navbar-expand-lg navbar-light" style="overflow: visible;">
           <ul class="navbar-nav">
             <li class="nav-item d-block d-xl-none">
               <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
@@ -45,6 +45,21 @@
                 <i class="ti ti-bell-ringing"></i>
                 <div class="notification bg-primary rounded-circle"></div>
               </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link nav-icon-hover position-relative"
+                 href="javascript:void(0)"
+                 id="bhpNotifDropdown"
+                 data-bs-toggle="dropdown"
+                 aria-expanded="false">
+                <i class="ti ti-bell"></i>
+                @if(isset($bhp_notifications) && $bhp_notifications instanceof \Illuminate\Support\Collection && $bhp_notifications->count() > 0)
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{ $bhp_notifications->count() }}
+                    </span>
+                @endif
+              </a>
+              @include('layouts.bhp_notifications_dropdown')
             </li>
           </ul>
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
@@ -116,6 +131,15 @@
       @yield('content')
       </div>
     </div>
+    <style>
+      .dropdown-menu {
+        z-index: 9999 !important;
+      }
+      .body-wrapper,
+      .page-wrapper {
+        overflow: visible;
+      }
+    </style>
   </div>
 
   <!-- Modal add request-->

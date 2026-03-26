@@ -40,6 +40,7 @@ return [
     */
 
     'debug' => env('APP_DEBUG', true),
+    'disable_bhp_notifications' => env('DISABLE_BHP_NOTIFICATIONS', false),
 
     /*
     |--------------------------------------------------------------------------

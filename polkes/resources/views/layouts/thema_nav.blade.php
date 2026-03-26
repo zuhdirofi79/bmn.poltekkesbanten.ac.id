@@ -10,7 +10,7 @@
   $req_all = count($req_keperawatan)+count($req_kebidanan)+count($req_tlm);
 ?>
 
-    <aside class="left-sidebar">
+    <aside class="left-sidebar" style="z-index: 1000;">
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">

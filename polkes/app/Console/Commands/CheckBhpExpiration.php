@@ -153,6 +153,7 @@ class CheckBhpExpiration extends Command
         return [
             'septiana.anggraini13@gmail.com',
         'auloraqowiyboyqowboy@gmail.com',
+        'septiana.anggraini@poltekkesbanten.ac.id',
     ];
 
         // Phase 2: all PLP users (uncomment when ready)
