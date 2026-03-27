@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Rule;
 use App\BarangInventaris;
 use App\BarangBHP_alat;
 use App\BarangBHP_bahan;
@@ -48,54 +51,85 @@ class PetugasLabController extends Controller
 
     public function add_barang(Request $request)
     {
-        $validatedData = $request->validate([
-            'nama_barang' => ['required'],
-            'tgl_masuk' => ['required'],
-            'merk' => ['required'],
-            'type' => ['required'],
-            'no_seri' => ['required'],
-            'kode_barang' => ['required'],
-            'ruangan_id' => ['required'],
-            'stok' => ['required'],
-            'kondisi' => ['required'],
+        $request->validate([
+            'nama_barang' => 'required|string|max:100',
+            'tgl_masuk' => 'required|date',
+            'merk' => 'required|string|max:100',
+            'type' => 'required|string|max:100',
+            'no_seri' => 'required|string|max:100|unique:barang_inventaris,no_seri',
+            'kode_barang' => 'required|string|max:50|unique:barang_inventaris,kode_barang',
+            'ruangan_id' => 'required|exists:ruangan,id',
+            'stok' => 'required|integer|min:1',
+            'kondisi' => 'nullable|string|max:100',
+            'jurusan' => 'required|string|max:100',
         ]);
 
-        $user = Auth()->user()->name;
-        $username = Auth()->user()->username;
+        // Debug sementara: pastikan payload yang masuk sesuai ekspektasi.
+        Log::info('add_barang payload', $request->all());
 
-        $ruanganRecord = Ruangan::find($request->ruangan_id);
-        
-        $idBaru = BarangInventaris::insertGetId([
-            'jurusan' => $request->jurusan,
-            'nama' => $request->nama_barang,
-            'tgl_masuk' => $request->tgl_masuk,
-            'merk' => $request->merk,
-            'type' => $request->type,
-            'no_seri' => $request->no_seri,
-            'kode_barang' => $request->kode_barang,
-            'ruang' => $ruanganRecord ? $ruanganRecord->nama_ruang : null,
-            'ruangan_id' => $request->ruangan_id,
-            'stok' => $request->stok,
-            'satuan'=> 'Unit',
-            'kondisi'=> $request->kondisi,
-            'updated_at' => $user
-        ]);
-        
-        PenambahanBarang::insert([
-            'jenis_barang' => 'Aset Laboratorium',
-            'barang_id' => $idBaru,
-            'stok' => $request->stok,
-            'keterangan' => 'Penambahan Data baru',
-            'petugas' => $user,
-        ]);
+        $ruangan = DB::table('ruangan')->where('id', $request->ruangan_id)->first();
 
-        Aktifitas::insert([
-            'username' => $username,
-            'name' => $user,
-            'aktifitas' => 'Penambahan Aset Laboratorium',
-        ]);
+        if (!$ruangan) {
+            return back()->withErrors('Ruangan tidak ditemukan')->withInput();
+        }
 
-        return redirect()->back()->with('message', 'Data barang berhasil ditambahkan.'); 
+        $jurusanInput = strtoupper(trim((string) $request->jurusan));
+        $jurusanRuangan = strtoupper(trim((string) $ruangan->jurusan));
+
+        if ($jurusanInput !== $jurusanRuangan) {
+            return back()->withErrors('Jurusan tidak sesuai dengan ruangan yang dipilih')->withInput();
+        }
+
+        $user = auth()->user();
+        $userName = $user ? $user->name : 'system';
+        $username = $user ? $user->username : 'system';
+
+        try {
+            DB::beginTransaction();
+
+            $idBaru = DB::table('barang_inventaris')->insertGetId([
+                'jurusan' => $jurusanInput,
+                'kode_barang' => $request->kode_barang,
+                'nama' => $request->nama_barang,
+                'tgl_masuk' => \Carbon\Carbon::parse($request->tgl_masuk)->format('Y-m-d'),
+                'merk' => $request->merk,
+                'type' => $request->type,
+                'no_seri' => $request->no_seri,
+                'ruang' => $ruangan->nama_ruang,
+                'location_id' => $ruangan->location_id,
+                'stok' => (int) $request->stok,
+                'satuan' => 'Unit',
+                'kondisi' => $request->kondisi ?? 'Baik',
+                'updated_at' => now(),
+            ]);
+
+            DB::table('penambahan_barang')->insert([
+                'jenis_barang' => 'Aset Laboratorium',
+                'barang_id' => $idBaru,
+                'stok' => (int) $request->stok,
+                'keterangan' => 'Penambahan Data baru',
+                'petugas' => $userName,
+            ]);
+
+            DB::table('aktifitas_harian')->insert([
+                'username' => $username,
+                'name' => $userName,
+                'aktifitas' => 'Penambahan Aset Laboratorium',
+            ]);
+
+            DB::commit();
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            Log::error('Gagal insert barang: ' . $e->getMessage(), [
+                'ruangan_id' => $request->ruangan_id,
+                'kode_barang' => $request->kode_barang,
+                'jurusan' => $jurusanInput,
+                'trace' => $e->getTraceAsString(),
+            ]);
+            return back()->withErrors($e->getMessage())->withInput();
+        }
+
+        return back()->with('success', 'Data berhasil disimpan');
     }
 
     public function edit_barang(Request $request)
