@@ -182,8 +182,10 @@ class PetugasLabController extends Controller
         $jurusan = $request->jurusan;
         $ruangan = Ruangan::where('jurusan','=',$jurusan)
             ->orderBy('kampus')->orderBy('nama_ruang')->get();
-        $bhp_bahan = BarangBHP_bahan::with(['ruangan.location'])
-            ->where('jurusan','=',$jurusan)->whereNull('delete')->OrderBy('nama')->get();
+        $bhp_bahan = $this->queryBhpBahanAktif($jurusan)
+            ->with(['ruangan.location'])
+            ->orderBy('nama')
+            ->get();
         return view('petugas_lab.barangbhp',compact('bhp_bahan','jurusan','ruangan'));
     }
 
@@ -196,26 +198,33 @@ class PetugasLabController extends Controller
             'stok' => ['required'],
             'satuan' => ['required'],
             'tgl_expired' => ['required'],
+            'tindak_lanjut' => ['nullable', 'in:dimusnahkan,digunakan kembali'],
         ]);
         $user = Auth()->user()->name;
         $username = Auth()->user()->username;
-        
+
+        $isDimusnahkan = $request->tindak_lanjut === 'dimusnahkan';
+        $stokAwal = $isDimusnahkan ? 0 : (int) $request->stok;
+
         $idBaru = BarangBHP_bahan::insertGetId([
             'jurusan' => $request->jurusan,
             'nama' => $request->nama,
             'kode_barang' => $request->kode_barang,
             'kimia' => $request->kimia,
-            'stok' => $request->stok,
+            'stok' => $stokAwal,
             'satuan' => $request->satuan,
             'tgl_expired' => $request->tgl_expired,
             'ruangan_id' => $request->ruangan_id ?: null,
+            'tindak_lanjut' => $request->filled('tindak_lanjut') ? $request->tindak_lanjut : null,
+            'status' => $isDimusnahkan ? BarangBHP_bahan::STATUS_DIMUSNAHKAN : BarangBHP_bahan::STATUS_AKTIF,
+            'tanggal_pemusnahan' => $isDimusnahkan ? now()->format('Y-m-d') : null,
             'updated_at' => $user
         ]);
-        
+
         PenambahanBarang::insert([
             'jenis_barang' => 'Bahan Medis',
-            'barang_id' => $idBaru, 
-            'stok' => $request->stok,
+            'barang_id' => $idBaru,
+            'stok' => $stokAwal,
             'keterangan' => 'Penambahan Data baru',
             'petugas' => $user,
             'tgl_expired' => $request->tgl_expired,
@@ -245,16 +254,31 @@ class PetugasLabController extends Controller
             'kode_barang' => ['required'],
             'satuan' => ['required'],
             'tgl_expired' => ['required'],
+            'tindak_lanjut' => ['nullable', 'in:dimusnahkan,digunakan kembali'],
         ]);
         $user = Auth()->user()->name;
-        BarangBHP_bahan::find($request->id)->update([
+        $row = BarangBHP_bahan::find($request->id);
+        $tindak = $request->filled('tindak_lanjut') ? $request->tindak_lanjut : null;
+
+        $meta = [
             'nama' => $request->nama,
             'kode_barang' => $request->kode_barang,
             'satuan' => $request->satuan,
             'tgl_expired' => $request->tgl_expired,
             'ruangan_id' => $request->ruangan_id ?: null,
-            'updated_at' => $user
-        ]);
+        ];
+
+        if ($tindak === 'dimusnahkan') {
+            $this->markBahanDimusnahkan($row, $user, $meta);
+        } else {
+            $row->update(array_merge($meta, [
+                'tindak_lanjut' => $tindak,
+                'updated_at' => $user,
+                'status' => BarangBHP_bahan::STATUS_AKTIF,
+                'tanggal_pemusnahan' => null,
+            ]));
+        }
+
         return redirect('petugas/barangbhp?jurusan='.$request->jurusan)->with('message', 'Data BHP bahan berhasil dirubah.');
         //return redirect()->back()->with('message', 'Data BHP bahan berhasil dirubah.');
     }
@@ -286,6 +310,36 @@ class PetugasLabController extends Controller
         }
 
         return redirect()->back()->with('message', 'Semua data yang ditandai berhasil dihapus.');
+    }
+
+    /**
+     * Query dasar: bahan medis aktif (bukan dimusnahkan, tidak soft-delete).
+     */
+    private function queryBhpBahanAktif(string $jurusan)
+    {
+        return BarangBHP_bahan::where('jurusan', $jurusan)->aktif();
+    }
+
+    /**
+     * Bahan yang sudah dimusnahkan (laporan terpisah).
+     */
+    private function queryBhpBahanDimusnahkan(string $jurusan)
+    {
+        return BarangBHP_bahan::where('jurusan', $jurusan)->dimusnahkan();
+    }
+
+    /**
+     * Tandai baris sebagai dimusnahkan: keluar dari stok aktif, stok 0, tanggal pemusnahan.
+     */
+    private function markBahanDimusnahkan(BarangBHP_bahan $row, string $updatedBy, array $extra = []): void
+    {
+        $row->update(array_merge([
+            'status' => BarangBHP_bahan::STATUS_DIMUSNAHKAN,
+            'stok' => 0,
+            'tindak_lanjut' => 'dimusnahkan',
+            'tanggal_pemusnahan' => now()->format('Y-m-d'),
+            'updated_at' => $updatedBy,
+        ], $extra));
     }
 
 // BARANG ALAT MEDIS ______________________________________________________________________________________________________
@@ -697,6 +751,10 @@ class PetugasLabController extends Controller
 
             if($request->status[$x]=='Pemakaian'){
                 $barang = BarangBHP_bahan::find($request->barang_id[$x]);
+                if (! $barang || $barang->status !== BarangBHP_bahan::STATUS_AKTIF) {
+                    return redirect('petugas/request?jurusan='.$jurusan)
+                        ->with('error', 'Barang bahan medis tidak valid atau sudah tidak aktif (mis. dimusnahkan).');
+                }
                 $stok = $barang->stok;
                 $barang->update([
                     'stok' => $stok-$request->stok_pinjam[$x]
@@ -820,10 +878,12 @@ class PetugasLabController extends Controller
 
             if($request->status[$x]=='Dikembalikan'){
                 $barang = BarangBHP_bahan::find($request->barang_id[$x]);
-                $stok = $barang->stok;
-                $barang->update([
-                    'stok' => $stok+$request->stok_pinjam[$x]
-                ]);
+                if ($barang && $barang->status === BarangBHP_bahan::STATUS_AKTIF) {
+                    $stok = $barang->stok;
+                    $barang->update([
+                        'stok' => $stok+$request->stok_pinjam[$x]
+                    ]);
+                }
                 }
             }
         }
@@ -1042,7 +1102,7 @@ class PetugasLabController extends Controller
         $jurusan = $request->jurusan;
         $statusExpired = $request->get('status_expired', 'all');
 
-        $query = BarangBHP_bahan::where('jurusan', $jurusan)->whereNull('delete');
+        $query = $this->queryBhpBahanAktif($jurusan);
 
         if ($statusExpired === 'expired') {
             $query->whereRaw('tgl_expired < CURDATE()');
@@ -1054,6 +1114,101 @@ class PetugasLabController extends Controller
         $data = $query->orderBy('nama')->get();
 
         return view('petugas_lab.lap_bahan_bhp', compact('jurusan', 'data', 'statusExpired'));
+    }
+
+    /**
+     * Laporan khusus: bahan dengan status dimusnahkan (bukan stok aktif).
+     */
+    public function lap_bahan_bhp_dimusnahkan(Request $request)
+    {
+        $jurusan = $request->jurusan;
+        $data = $this->queryBhpBahanDimusnahkan($jurusan)->orderByDesc('tanggal_pemusnahan')->orderBy('nama')->get();
+
+        return view('petugas_lab.lap_bahan_bhp_dimusnahkan', compact('jurusan', 'data'));
+    }
+
+    /**
+     * Scope query: BHP bahan medis expired (aktif saja).
+     */
+    private function lapBahanBhpExpiredQuery(string $jurusan)
+    {
+        return $this->queryBhpBahanAktif($jurusan)
+            ->whereRaw('tgl_expired < CURDATE()');
+    }
+
+    public function lap_bahan_bhp_update_tindak_lanjut(Request $request)
+    {
+        $request->validate([
+            'id' => ['required', 'integer', 'exists:barangbhp_bahan,id'],
+            'jurusan' => ['required', 'string'],
+            'status_expired' => ['required', 'in:expired'],
+            'tindak_lanjut' => ['required', 'in:dimusnahkan,digunakan kembali'],
+        ]);
+
+        $user = Auth()->user()->name;
+        $row = $this->lapBahanBhpExpiredQuery($request->jurusan)->where('id', $request->id)->first();
+
+        if (! $row) {
+            return redirect()
+                ->route('petugas.laporan.bahan_bhp', ['jurusan' => $request->jurusan, 'status_expired' => 'expired'])
+                ->with('error', 'Data tidak ditemukan atau bukan bahan expired untuk jurusan ini.');
+        }
+
+        if ($request->tindak_lanjut === 'dimusnahkan') {
+            $this->markBahanDimusnahkan($row, $user);
+        } else {
+            $row->update([
+                'tindak_lanjut' => $request->tindak_lanjut,
+                'status' => BarangBHP_bahan::STATUS_AKTIF,
+                'tanggal_pemusnahan' => null,
+                'updated_at' => $user,
+            ]);
+        }
+
+        return redirect()
+            ->route('petugas.laporan.bahan_bhp', ['jurusan' => $request->jurusan, 'status_expired' => 'expired'])
+            ->with('message', 'Tindak lanjut berhasil diperbarui.');
+    }
+
+    public function lap_bahan_bhp_bulk_tindak_lanjut(Request $request)
+    {
+        $request->validate([
+            'jurusan' => ['required', 'string'],
+            'status_expired' => ['required', 'in:expired'],
+            'tindak_lanjut' => ['required', 'in:dimusnahkan,digunakan kembali'],
+            'ids' => ['required', 'array', 'min:1'],
+            'ids.*' => ['integer', 'distinct', 'exists:barangbhp_bahan,id'],
+        ]);
+
+        $ids = array_values(array_unique($request->ids));
+        $user = Auth()->user()->name;
+
+        $query = $this->lapBahanBhpExpiredQuery($request->jurusan)->whereIn('id', $ids);
+        $matched = $query->count();
+
+        if ($matched !== count($ids)) {
+            return redirect()
+                ->route('petugas.laporan.bahan_bhp', ['jurusan' => $request->jurusan, 'status_expired' => 'expired'])
+                ->with('error', 'Beberapa item tidak valid atau bukan bahan expired untuk jurusan ini.');
+        }
+
+        if ($request->tindak_lanjut === 'dimusnahkan') {
+            $rows = $this->lapBahanBhpExpiredQuery($request->jurusan)->whereIn('id', $ids)->get();
+            foreach ($rows as $row) {
+                $this->markBahanDimusnahkan($row, $user);
+            }
+        } else {
+            $this->lapBahanBhpExpiredQuery($request->jurusan)->whereIn('id', $ids)->update([
+                'tindak_lanjut' => $request->tindak_lanjut,
+                'status' => BarangBHP_bahan::STATUS_AKTIF,
+                'tanggal_pemusnahan' => null,
+                'updated_at' => $user,
+            ]);
+        }
+
+        return redirect()
+            ->route('petugas.laporan.bahan_bhp', ['jurusan' => $request->jurusan, 'status_expired' => 'expired'])
+            ->with('message', 'Tindak lanjut untuk '.count($ids).' item berhasil diperbarui.');
     }
 
     public function lap_penambahan_alat_lab(Request $request)
@@ -1294,6 +1449,11 @@ class PetugasLabController extends Controller
                 'stok' => $stok+$request->stok
             ]);
         }elseif($request->jenis_barang=='Bahan Medis'){
+            $barang = BarangBHP_bahan::where('id', $request->barang_id)->aktif()->first();
+            if (! $barang) {
+                return redirect()->back()->with('error', 'Bahan medis tidak ditemukan, sudah dimusnahkan, atau tidak aktif.');
+            }
+
             PenambahanBarang::insert([
                 'jenis_barang' => 'Bahan Medis',
                 'barang_id' => $request->barang_id,
@@ -1303,7 +1463,6 @@ class PetugasLabController extends Controller
                 'petugas' => $user,
             ]);
 
-            $barang = BarangBHP_bahan::find($request->barang_id);
             $stok = $barang->stok;
             $barang->update([
                 'stok' => $stok+$request->stok,

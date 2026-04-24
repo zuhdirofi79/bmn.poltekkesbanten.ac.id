@@ -106,7 +106,7 @@ class CheckBhpExpiration extends Command
         $todayStr = $today->format('Y-m-d');
         $endStr = $endDate->format('Y-m-d');
 
-        return BarangBHP_bahan::whereNull('delete')
+        return BarangBHP_bahan::aktif()
             ->whereNotNull('tgl_expired')
             ->whereRaw('tgl_expired >= ? AND tgl_expired <= ?', [$todayStr, $endStr])
             ->orderBy('tgl_expired')

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\BMN\AsetBmn;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +31,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Route::bind('aset', function ($value) {
+            return AsetBmn::where('id', $value)->firstOrFail();
+        });
 
         parent::boot();
     }

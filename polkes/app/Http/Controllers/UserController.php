@@ -40,7 +40,7 @@ class UserController extends Controller
     public function daftar_barangbhp(Request $request)
     {
         $jurusan = $request->jurusan;
-        $bhp_bahan = BarangBHP_bahan::where('jurusan','=',$jurusan)->whereNull('delete')->OrderBy('nama')->get();
+        $bhp_bahan = BarangBHP_bahan::where('jurusan','=',$jurusan)->aktif()->OrderBy('nama')->get();
         return view('user.barangbhp',compact('bhp_bahan','jurusan'));
     }
 
@@ -102,7 +102,7 @@ class UserController extends Controller
         }elseif($jenis=='Alat Medis'){
             $barang = BarangBHP_alat::where('jurusan','=',$jurusan)->whereNull('delete')->OrderBy('nama')->get();
         }else{
-            $barang = BarangBHP_bahan::where('jurusan','=',$jurusan)->whereNull('delete')->OrderBy('nama')->get();
+            $barang = BarangBHP_bahan::where('jurusan','=',$jurusan)->aktif()->OrderBy('nama')->get();
         }
         return view('user.req_peminjaman',compact('jurusan','ruangan','jenis','barang','tingkat','tujuan','prodis'));
     }
@@ -134,10 +134,15 @@ class UserController extends Controller
             } elseif ($request->jenis == 'Alat Medis') {
                 $barang = BarangBHP_alat::find($barangId);
             } else {
-                $barang = BarangBHP_bahan::find($barangId);
+                $barang = BarangBHP_bahan::where('id', $barangId)->aktif()->first();
             }
 
             $stokTersedia = $barang ? $barang->stok : 0;
+            if ($request->jenis !== 'Aset Laboratorium' && $request->jenis !== 'Alat Medis' && ! $barang) {
+                return redirect()->back()
+                    ->withInput()
+                    ->with('error', 'Salah satu barang bahan medis tidak ditemukan atau sudah tidak aktif.');
+            }
 
             // Total yang sudah dipinjam pada waktu yang overlap (status detail bukan Ditolak)
             $dipinjam = PeminjamanDetail::where('barang_id', $barangId)

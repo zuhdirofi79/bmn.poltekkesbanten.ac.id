@@ -198,7 +198,7 @@ class BhpNotificationService
         $upcomingToStr = $upcomingTo->format('Y-m-d');
 
         $baseQuery = function () use ($jurusan) {
-            $q = BarangBHP_bahan::whereNull('delete')
+            $q = BarangBHP_bahan::aktif()
                 ->whereNotNull('tgl_expired')
                 ->select('nama', 'kimia', 'stok', 'tgl_expired', 'jurusan');
             if ($jurusan !== null) {

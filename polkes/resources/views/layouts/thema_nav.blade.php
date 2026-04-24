@@ -58,6 +58,8 @@
             </li>
             @endif
 
+            @include('layouts.bmn_nav')
+
             @if ( auth()->user()->hasRole('plp') )
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>

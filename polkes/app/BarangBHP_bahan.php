@@ -7,9 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class BarangBHP_bahan extends Model
 {
+    public const STATUS_AKTIF = 'aktif';
+
+    public const STATUS_DIMUSNAHKAN = 'dimusnahkan';
+
     protected $table = 'barangbhp_bahan';
+
     protected $guarded = [];
+
     public $timestamps = false;
+
+    protected $casts = [
+        'tanggal_pemusnahan' => 'date',
+    ];
 
     protected static function booted()
     {
@@ -42,5 +52,21 @@ class BarangBHP_bahan extends Model
     public function ruangan()
     {
         return $this->belongsTo(Ruangan::class, 'ruangan_id');
+    }
+
+    /**
+     * Bahan yang masuk stok / daftar aktif (bukan dimusnahkan, bukan soft-delete).
+     */
+    public function scopeAktif($query)
+    {
+        return $query->where('status', self::STATUS_AKTIF)->whereNull('delete');
+    }
+
+    /**
+     * Bahan yang sudah dipisahkan dari stok aktif.
+     */
+    public function scopeDimusnahkan($query)
+    {
+        return $query->where('status', self::STATUS_DIMUSNAHKAN)->whereNull('delete');
     }
 }

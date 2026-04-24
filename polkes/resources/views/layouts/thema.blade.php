@@ -202,14 +202,17 @@
     } );
 
     $(document).ready(function() {
-        $('#exampleButton').DataTable( {
-            dom: 'Bfrtip',
-            buttons: [
-                'excel', 'pdf', 'print'
-            ]
-        } );
+        if ($('#exampleButton').length) {
+            $('#exampleButton').DataTable( {
+                dom: 'Bfrtip',
+                buttons: [
+                    'excel', 'pdf', 'print'
+                ]
+            } );
+        }
     } );
   </script>
+  @stack('scripts')
 
 </body>
 

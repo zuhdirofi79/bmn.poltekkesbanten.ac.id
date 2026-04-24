@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\BMN\AsetBmn;
+use App\Observers\BMN\AsetBmnObserver;
 use App\Services\BhpNotificationService;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
@@ -27,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        AsetBmn::observe(AsetBmnObserver::class);
+
         View::composer(['layouts.thema', 'layouts.thema_select2'], function ($view) {
             if (! auth()->check()) {
                 $view->with('bhp_notifications', collect());

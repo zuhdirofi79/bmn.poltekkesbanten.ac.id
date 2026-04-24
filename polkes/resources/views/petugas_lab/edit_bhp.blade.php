@@ -54,6 +54,18 @@
             </div>
 
             <div class="form-group mb-3 row">
+              <label for="tindak_lanjut" class="col-sm-3 col-form-label">Tindak Lanjut</label>
+              <div class="col-sm-9">
+                <select id="tindak_lanjut" name="tindak_lanjut" class="form-control">
+                  <option value="">-- Belum ditentukan --</option>
+                  <option value="dimusnahkan" {{ ($data->tindak_lanjut ?? '') === 'dimusnahkan' ? 'selected' : '' }}>dimusnahkan</option>
+                  <option value="digunakan kembali" {{ ($data->tindak_lanjut ?? '') === 'digunakan kembali' ? 'selected' : '' }}>digunakan kembali</option>
+                </select>
+                <small class="form-text text-muted">Khusus tindak lanjut bahan expired (opsional sampai ditetapkan).</small>
+              </div>
+            </div>
+
+            <div class="form-group mb-3 row">
               <label for="ruangan_id" class="col-sm-3 col-form-label">Ruangan</label>
               <div class="col-sm-9">
                 <select name="ruangan_id" class="form-control">

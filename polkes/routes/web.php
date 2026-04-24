@@ -24,6 +24,16 @@ Route::get('/home', 'HomeController@profile')->name('home');
 // Route::get('/lap_pdf', 'HomeController@lap_pdf');
 // Route::get('/blank', 'HomeController@blank');
 
+Route::group(['prefix' => 'bmn', 'middleware' => ['auth']], function () {
+    Route::name('bmn.')->group(function () {
+        Route::get('aset/template', 'BMN\AsetController@downloadTemplate')->name('aset.template');
+        Route::post('aset/import', 'BMN\AsetController@import')->name('aset.import');
+        Route::resource('aset', 'BMN\AsetController')->except(['show']);
+        Route::resource('mutasi', 'BMN\MutasiController')->only(['index', 'create', 'store']);
+        Route::get('laporan', 'BMN\LaporanController@index')->name('laporan.index');
+    });
+});
+
 // Route::get('admin-page', function() {
 //     return 'Halaman untuk Admin';
 // })->middleware('role:admin')->name('admin.page');
@@ -148,6 +158,9 @@ Route::group(['prefix' => 'petugas','middleware' => ['role:plp']], function () {
     Route::get('/laporan/alat_lab','PetugasLabController@lap_alat_lab');
     Route::get('/laporan/alat_medis','PetugasLabController@lap_alat_medis');
     Route::get('/laporan/bahan_bhp', 'PetugasLabController@lap_bahan_bhp')->name('petugas.laporan.bahan_bhp');
+    Route::get('/laporan/bahan_bhp_dimusnahkan', 'PetugasLabController@lap_bahan_bhp_dimusnahkan')->name('petugas.laporan.bahan_bhp_dimusnahkan');
+    Route::post('/laporan/bahan_bhp/tindak_lanjut', 'PetugasLabController@lap_bahan_bhp_update_tindak_lanjut');
+    Route::post('/laporan/bahan_bhp/tindak_lanjut_bulk', 'PetugasLabController@lap_bahan_bhp_bulk_tindak_lanjut');
     Route::get('/laporan/penambahan_alat_lab','PetugasLabController@lap_penambahan_alat_lab');
     Route::get('/laporan/penambahan_alat_medis','PetugasLabController@lap_penambahan_alat_medis');
     Route::get('/laporan/penambahan_bahan_bhp','PetugasLabController@lap_penambahan_bahan_bhp');

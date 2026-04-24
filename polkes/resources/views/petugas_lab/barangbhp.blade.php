@@ -133,6 +133,18 @@
             </div>
 
             <div class="form-group mb-3 row">
+              <label for="tindak_lanjut" class="col-sm-3 col-form-label">Tindak Lanjut</label>
+              <div class="col-sm-9">
+                <select id="tindak_lanjut" name="tindak_lanjut" class="form-control">
+                  <option value="">-- Belum ditentukan --</option>
+                  <option value="dimusnahkan">dimusnahkan</option>
+                  <option value="digunakan kembali">digunakan kembali</option>
+                </select>
+                <small class="form-text text-muted">Bisa diisi jika sudah ditetapkan (mis. bahan expired).</small>
+              </div>
+            </div>
+
+            <div class="form-group mb-3 row">
               <label for="ruangan_id" class="col-sm-3 col-form-label">Ruangan</label>
               <div class="col-sm-9">
                 <select name="ruangan_id" class="form-control">
