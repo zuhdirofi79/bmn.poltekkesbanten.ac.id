@@ -23,9 +23,9 @@
       @if(session('error'))
         <div class="alert alert-danger">{{ session('error') }}</div>
       @endif
-      @if(session('import_errors') && is_array(session('import_errors')))
-        <div class="alert alert-danger">
-          <strong>Validasi import gagal:</strong>
+      @if(session('import_errors') && is_array(session('import_errors')) && count(session('import_errors')) > 0)
+        <div class="alert {{ session('success') ? 'alert-warning' : 'alert-danger' }}">
+          <strong>{{ session('success') ? 'Peringatan import (baris dilewati):' : 'Validasi import:' }}</strong>
           <ul class="mb-0 mt-2 small">
             @foreach(session('import_errors') as $err)
               <li>{{ $err }}</li>
@@ -37,7 +37,7 @@
       <div class="card border mb-4">
         <div class="card-body py-3">
           <h6 class="fw-semibold mb-2">Import multi-item (Excel)</h6>
-          <p class="small text-muted mb-2">Gunakan template resmi. Satu kesalahan pada baris mana pun akan membatalkan seluruh berkas (semua atau tidak sama sekali).</p>
+          <p class="small text-muted mb-2">Gunakan template resmi. Baris valid akan disimpan; baris bermasalah (mis. NUP bentrok) dilaporka di bawah dan dilewati.</p>
           <form method="post" action="{{ route('bmn.aset.import') }}" enctype="multipart/form-data" class="row g-2 align-items-end">
             @csrf
             <div class="col-md-8">
@@ -68,7 +68,7 @@
           <label class="form-label">Status</label>
           <select name="status" class="form-control form-control-sm">
             <option value="">— Semua —</option>
-            @foreach(['aktif', 'dihapus', 'dipindahtangankan'] as $s)
+            @foreach(['aktif', 'dipindahtangankan'] as $s)
               <option value="{{ $s }}" {{ ($filters['status'] ?? '') === $s ? 'selected' : '' }}>{{ ucfirst(str_replace('_', ' ', $s)) }}</option>
             @endforeach
           </select>
@@ -95,6 +95,7 @@
               <th>Status</th>
               <th>Pengguna</th>
               <th>Satker</th>
+              <th width="100">Foto</th>
               <th width="120">Aksi</th>
             </tr>
           </thead>
@@ -114,19 +115,43 @@
                 <td>{{ $row->pengguna_ruangan ?? '-' }}</td>
                 <td>{{ $row->satker ?? '-' }}</td>
                 <td>
-                  <a href="{{ route('bmn.aset.edit', $row) }}" class="btn btn-sm btn-primary"><i class="ti ti-edit"></i></a>
-                  @if($row->status !== 'dihapus')
-                    <form action="{{ route('bmn.aset.destroy', $row) }}" method="post" class="d-inline" onsubmit="return confirm('Tandai aset sebagai dihapus?');">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-sm btn-danger"><i class="ti ti-trash"></i></button>
-                    </form>
+                  @php
+                    $fotoList = (is_array($row->foto) && $row->foto !== [])
+                      ? $row->foto
+                      : ((($row->foto_url ?? null) && $row->foto_url !== '') ? [['thumb' => $row->foto_url, 'full' => $row->foto_url]] : []);
+                  @endphp
+                  @if($fotoList !== [])
+                    <div style="display:flex;flex-wrap:wrap;gap:5px;max-width:200px;">
+                      @foreach($fotoList as $img)
+                        @php
+                          $u = is_array($img) ? ($img['thumb'] ?? $img['full'] ?? '') : '';
+                          $fullU = is_array($img) ? ($img['full'] ?? $u) : $u;
+                          $src = (str_starts_with((string) $u, 'http://') || str_starts_with((string) $u, 'https://')) ? $u : url($u);
+                          $href = (str_starts_with((string) $fullU, 'http://') || str_starts_with((string) $fullU, 'https://')) ? $fullU : url($fullU);
+                        @endphp
+                        @if($src !== '')
+                          <a href="{{ $href }}" target="_blank" rel="noopener noreferrer">
+                            <img src="{{ $src }}" width="50" height="50" loading="lazy" alt="Foto aset" style="object-fit:cover;border-radius:4px;border:1px solid #e9ecef;">
+                          </a>
+                        @endif
+                      @endforeach
+                    </div>
+                  @else
+                    &mdash;
                   @endif
+                </td>
+                <td>
+                  <a href="{{ route('bmn.aset.edit', $row) }}" class="btn btn-sm btn-primary"><i class="ti ti-edit"></i></a>
+                  <form action="{{ route('bmn.aset.destroy', $row) }}" method="post" class="d-inline" onsubmit="return confirm('Hapus aset dari daftar? Data tetap tersimpan di basis data (penghapusan lunak).');">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-sm btn-danger"><i class="ti ti-trash"></i></button>
+                  </form>
                 </td>
               </tr>
             @empty
               <tr>
-                <td colspan="13" class="text-center text-muted">Belum ada data aset.</td>
+                <td colspan="14" class="text-center text-muted">Belum ada data aset.</td>
               </tr>
             @endforelse
           </tbody>

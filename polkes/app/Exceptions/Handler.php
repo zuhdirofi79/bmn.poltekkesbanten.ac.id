@@ -74,6 +74,10 @@ class Handler extends ExceptionHandler
      */
     protected function renderSafe($request, Throwable $exception)
     {
+        if (config('app.debug')) {
+            return parent::render($request, $exception);
+        }
+
         if ($exception instanceof ValidationException) {
             return parent::render($request, $exception);
         }

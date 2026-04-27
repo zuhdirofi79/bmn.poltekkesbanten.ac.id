@@ -8,7 +8,7 @@
       <p class="small text-muted mb-2">Lokasi tampil sebagai teks bebas. Untuk mutasi ke lokasi master (referensi), gunakan menu <strong>Mutasi Lokasi</strong>.</p>
       <hr>
 
-      <form method="post" action="{{ route('bmn.aset.update', $aset) }}" class="row g-3">
+      <form method="post" action="{{ route('bmn.aset.update', $aset) }}" enctype="multipart/form-data" class="row g-3">
         @csrf
         @method('PUT')
 
@@ -80,43 +80,40 @@
         <div class="col-md-6">
           <label class="form-label">Status</label>
           <select name="status" class="form-select @error('status') is-invalid @enderror" required>
-            @foreach(['aktif' => 'Aktif', 'dipindahtangankan' => 'Dipindahtangankan', 'dihapus' => 'Dihapus'] as $value => $label)
-              <option value="{{ $value }}" {{ old('status', $aset->status) === $value ? 'selected' : '' }}>{{ $label }}</option>
+            @foreach(['aktif' => 'Aktif', 'dipindahtangankan' => 'Dipindahtangankan'] as $value => $label)
+              <option value="{{ $value }}" {{ old('status', in_array($aset->status, ['aktif', 'dipindahtangankan'], true) ? $aset->status : 'aktif') === $value ? 'selected' : '' }}>{{ $label }}</option>
             @endforeach
           </select>
           @error('status')<div class="invalid-feedback">{{ $message }}</div>@enderror
         </div>
 
-        <div class="col-12"><hr class="my-1"><h6 class="text-muted small mt-1">Lanjutan (opsional)</h6></div>
-        <div class="col-md-6">
-          <label class="form-label">Tipe Asset Tag</label>
-          <select name="asset_tag_type" class="form-control">
-            <option value="">— Pilih —</option>
-            @foreach(['qr' => 'QR Code', 'barcode' => 'Barcode', 'rfid' => 'RFID', 'manual' => 'Manual'] as $value => $label)
-              <option value="{{ $value }}" {{ old('asset_tag_type', $aset->asset_tag_type) === $value ? 'selected' : '' }}>{{ $label }}</option>
-            @endforeach
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">Asset Tag Hash</label>
-          <input type="text" name="asset_tag_hash" class="form-control" value="{{ old('asset_tag_hash', $aset->asset_tag_hash) }}">
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">Provider Foto</label>
-          <select name="foto_provider" class="form-control">
-            <option value="">— Pilih —</option>
-            @foreach(['local' => 'Local Storage', 's3' => 'Amazon S3', 'gdrive' => 'Google Drive', 'other' => 'Lainnya'] as $value => $label)
-              <option value="{{ $value }}" {{ old('foto_provider', $aset->foto_provider) === $value ? 'selected' : '' }}>{{ $label }}</option>
-            @endforeach
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">URL Foto</label>
-          <input type="url" name="foto_url" class="form-control" value="{{ old('foto_url', $aset->foto_url) }}">
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">URL Preview Foto</label>
-          <input type="url" name="foto_preview_url" class="form-control" value="{{ old('foto_preview_url', $aset->foto_preview_url) }}">
+        @php
+          $fotoYangTampil = (is_array($aset->foto) && $aset->foto !== [])
+            ? $aset->foto
+            : ((($aset->foto_url ?? null) && $aset->foto_url !== '') ? [['thumb' => $aset->foto_url, 'full' => $aset->foto_url]] : []);
+        @endphp
+        <div class="col-12">
+          <label class="form-label">Foto saat ini</label>
+          @if($fotoYangTampil !== [])
+            <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
+              @foreach($fotoYangTampil as $f)
+                @php
+                  $tu = is_array($f) ? ($f['thumb'] ?? $f['full'] ?? '') : '';
+                  $tSrc = (str_starts_with((string) $tu, 'http://') || str_starts_with((string) $tu, 'https://')) ? $tu : url($tu);
+                @endphp
+                @if($tSrc !== '')
+                  <img src="{{ $tSrc }}" width="80" height="80" loading="lazy" alt="" style="object-fit:cover;border-radius:4px;border:1px solid #dee2e6;">
+                @endif
+              @endforeach
+            </div>
+          @else
+            <p class="text-muted small mb-2">Belum ada foto.</p>
+          @endif
+          <label class="form-label">Ganti foto (opsional, maks. 2 file)</label>
+          <input type="file" name="foto[]" class="form-control @error('foto') is-invalid @enderror @error('foto.*') is-invalid @enderror" accept="image/*" multiple>
+          <small class="text-muted d-block">Kosongkan jika tidak ingin mengganti foto. Unggah = mengganti <strong>semua</strong> foto lama (maks. 2 file, 2MB per file). Foto hanya-URL (impor) di server tidak dihapus.</small>
+          @error('foto')<div class="invalid-feedback d-block">{{ $message }}</div>@enderror
+          @error('foto.*')<div class="invalid-feedback d-block">{{ $message }}</div>@enderror
         </div>
 
         <div class="col-12 mt-2">

@@ -9,9 +9,12 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AsetBmn extends Model
 {
+    use SoftDeletes;
+
     protected $table = 'aset_bmn';
 
     /**
@@ -24,32 +27,40 @@ class AsetBmn extends Model
         'kode_barang',
         'nama_barang',
         'kategori_id',
-        'kondisi',
-        'tanggal_perolehan',
         'nilai_perolehan',
-        'lokasi',
-        'pengguna_ruangan',
-        'satker_id',
-        'satker',
+        'tanggal_perolehan',
+        'kondisi',
         'status',
         'nup',
         'nomor_register',
         'asset_tag',
         'asset_tag_hash',
         'asset_tag_type',
+        'merk',
         'foto',
         'foto_url',
         'foto_preview_url',
         'foto_provider',
+        'pengguna_ruangan',
+        'satker_id',
+        'satker',
+        'lokasi',
+        'lokasi_id',
+        'harga_satuan',
         'created_by',
         'updated_by',
         'deleted_by',
     ];
 
+    /**
+     * @var list<string>
+     */
+    protected $dates = ['deleted_at'];
+
     protected $casts = [
         'nilai_perolehan' => 'decimal:2',
         'tanggal_perolehan' => 'date',
-        'deleted_at' => 'datetime',
+        'foto' => 'array',
     ];
 
     public function kategori(): BelongsTo

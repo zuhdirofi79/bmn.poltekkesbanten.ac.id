@@ -11,6 +11,7 @@ use App\Http\Requests\BMN\UpdateAsetRequest;
 use App\Models\BmnSatker;
 use App\Models\BMN\AsetBmn;
 use App\Models\BMN\KategoriAset;
+use App\Services\BMN\AsetBmnFotoService;
 use App\Services\BMN\AsetBmnImportService;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\RedirectResponse;
@@ -22,7 +23,8 @@ use Maatwebsite\Excel\Facades\Excel;
 class AsetController extends Controller
 {
     public function __construct(
-        private readonly AsetBmnImportService $asetBmnImportService
+        private readonly AsetBmnImportService $asetBmnImportService,
+        private readonly AsetBmnFotoService $asetBmnFotoService
     ) {
     }
 
@@ -34,7 +36,7 @@ class AsetController extends Controller
             ->filter($filters)
             ->latest();
 
-        $aset = $query->paginate(20)->appends($filters);
+        $aset = $query->paginate(10)->appends($filters);
 
         return view('bmn.aset.index', compact('aset', 'filters'));
     }
@@ -50,6 +52,7 @@ class AsetController extends Controller
     public function store(StoreAsetRequest $request): RedirectResponse
     {
         $validated = $request->validated();
+        unset($validated['foto']);
         $satker = BmnSatker::findOrFail((int) $validated['satker_id']);
         $data = [
             'kode_barang' => $validated['kode_barang'],
@@ -64,13 +67,40 @@ class AsetController extends Controller
             'satker' => $satker->nama,
             'lokasi' => $request->lokasi,
             'status' => 'aktif',
+            'asset_tag_type' => 'MANUAL',
+            'foto_provider' => '',
             'created_by' => auth()->id(),
             'updated_by' => auth()->id(),
         ];
 
-        $aset = DB::transaction(function () use ($data): AsetBmn {
-            return AsetBmn::create($data);
-        });
+        $foto = null;
+        if ($request->hasFile('foto')) {
+            $foto = $this->asetBmnFotoService->processUploads(
+                $request->file('foto'),
+                (string) $validated['nama_barang'],
+                (string) $validated['kode_barang'],
+                $validated['nup'] ?? null,
+                AsetBmnFotoService::MAX_FOTO_PER_ASET
+            );
+            if ($foto === []) {
+                return back()
+                    ->with('error', 'Tidak ada foto valid yang diunggah (periksa format, maks. 2MB per file, maks. 2 foto).')
+                    ->withInput();
+            }
+        }
+        $data['foto'] = $foto;
+
+        try {
+            $aset = DB::transaction(function () use ($data): AsetBmn {
+                return AsetBmn::create($data);
+            });
+        } catch (\Throwable $e) {
+            if (is_array($foto) && $foto !== []) {
+                $this->asetBmnFotoService->deleteLocalFiles($foto);
+            }
+
+            return back()->with('error', $e->getMessage())->withInput();
+        }
 
         return redirect()
             ->route('bmn.aset.index')
@@ -92,47 +122,79 @@ class AsetController extends Controller
     public function update(UpdateAsetRequest $request, AsetBmn $aset): RedirectResponse
     {
         $data = $request->validated();
+        unset($data['foto']);
         $satker = BmnSatker::findOrFail((int) $data['satker_id']);
         $data['satker_id'] = $satker->id;
         $data['satker'] = $satker->nama;
         $data['lokasi'] = $request->lokasi;
         $data['updated_by'] = auth()->id();
 
-        if (($data['status'] ?? $aset->status) === 'dihapus') {
-            $data['deleted_by'] = auth()->id();
-            $data['deleted_at'] = $data['deleted_at'] ?? now();
-        } elseif (($data['status'] ?? $aset->status) !== 'dihapus') {
-            $data['deleted_by'] = null;
-            $data['deleted_at'] = null;
+        $data['asset_tag_type'] = $aset->asset_tag_type !== null && $aset->asset_tag_type !== ''
+            ? $aset->asset_tag_type
+            : 'MANUAL';
+        $data['foto_provider'] = $aset->foto_provider ?? '';
+
+        /** @var list<array{full?: string, thumb?: string}> $existingFoto */
+        $existingFoto = is_array($aset->foto) ? $aset->foto : [];
+        $replacementFoto = null;
+        if ($request->hasFile('foto')) {
+            $replacementFoto = $this->asetBmnFotoService->processUploads(
+                $request->file('foto'),
+                (string) $data['nama_barang'],
+                (string) $data['kode_barang'],
+                $data['nup'] ?? null,
+                AsetBmnFotoService::MAX_FOTO_PER_ASET
+            );
+            if ($replacementFoto === []) {
+                return back()
+                    ->with('error', 'Tidak ada foto valid yang diunggah (periksa format, ukuran maks. 2MB per file, maks. 2 foto).')
+                    ->withInput();
+            }
+            $data['foto'] = $replacementFoto;
+        } else {
+            $data['foto'] = $existingFoto;
         }
 
-        DB::transaction(function () use ($aset, $data): void {
+        try {
+            DB::beginTransaction();
             $aset->update($data);
-        });
+            DB::commit();
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            if ($replacementFoto !== null && $replacementFoto !== []) {
+                $this->asetBmnFotoService->deleteLocalFiles($replacementFoto);
+            }
+
+            return back()->with('error', $e->getMessage())->withInput();
+        }
+
+        if ($request->hasFile('foto') && $existingFoto !== []) {
+            $this->asetBmnFotoService->deleteLocalFiles($existingFoto);
+        }
+
+        $msg = $request->hasFile('foto')
+            ? 'Data dan foto aset berhasil diperbarui; foto lama (lokal) diganti penuh.'
+            : 'Aset '.$aset->kode_barang.' berhasil diperbarui.';
 
         return redirect()
             ->route('bmn.aset.index')
-            ->with('success', 'Aset '.$aset->kode_barang.' berhasil diperbarui.');
+            ->with('success', $msg);
     }
 
     public function destroy(AsetBmn $aset): RedirectResponse
     {
-        if ($aset->status === 'dihapus') {
-            return redirect()
-                ->route('bmn.aset.index')
-                ->with('error', 'Aset sudah berstatus dihapus.');
+        if (is_array($aset->foto) && $aset->foto !== []) {
+            $this->asetBmnFotoService->deleteLocalFiles($aset->foto);
         }
 
         DB::transaction(function () use ($aset): void {
-            $aset->status = 'dihapus';
-            $aset->deleted_by = auth()->id();
-            $aset->deleted_at = now();
-            $aset->save();
+            $aset->forceFill(['deleted_by' => auth()->id()])->saveQuietly();
+            $aset->delete();
         });
 
         return redirect()
             ->route('bmn.aset.index')
-            ->with('success', 'Aset '.$aset->kode_barang.' ditandai sebagai dihapus.');
+            ->with('success', 'Data berhasil dihapus');
     }
 
     public function import(Request $request): RedirectResponse
@@ -143,13 +205,20 @@ class AsetController extends Controller
 
         $result = $this->asetBmnImportService->importFromUpload($request->file('file'));
 
-        if ($result['ok'] !== true) {
+        if (($result['count'] ?? 0) === 0) {
             return back()
-                ->with('error', 'Import ditolak: ada kesalahan pada berkas. Periksa daftar di bawah.')
-                ->with('import_errors', $result['errors']);
+                ->with('error', 'Tidak ada baris yang diimpor. Periksa daftar di bawah.')
+                ->with('import_errors', $result['errors'] ?? []);
         }
 
-        return back()->with('success', 'Import berhasil: '.$result['count'].' aset tersimpan.');
+        $msg = 'Import berhasil: '.(int) $result['count'].' aset tersimpan.';
+        if (($result['errors'] ?? []) !== []) {
+            $msg .= ' Beberapa baris dilewati — lihat daftar peringatan.';
+        }
+
+        return back()
+            ->with('success', $msg)
+            ->with('import_errors', $result['errors'] ?? []);
     }
 
     public function downloadTemplate()

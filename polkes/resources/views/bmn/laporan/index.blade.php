@@ -36,7 +36,7 @@
           <label class="form-label">Status</label>
           <select name="status" class="form-control form-control-sm">
             <option value="">— Semua —</option>
-            @foreach(['aktif', 'dihapus', 'dipindahtangankan'] as $s)
+            @foreach(['aktif', 'dipindahtangankan'] as $s)
               <option value="{{ $s }}" {{ ($filters['status'] ?? '') === $s ? 'selected' : '' }}>{{ $s }}</option>
             @endforeach
           </select>
@@ -65,6 +65,7 @@
               <th>Kondisi</th>
               <th>Lokasi</th>
               <th>Status</th>
+              <th width="100">Foto</th>
             </tr>
           </thead>
           <tbody>
@@ -79,10 +80,32 @@
                 <td>{{ $row->kondisi ? ucfirst(str_replace('_', ' ', $row->kondisi)) : '-' }}</td>
                 <td>{{ $row->labelLokasi() }}</td>
                 <td>{{ $row->status ? ucfirst(str_replace('_', ' ', $row->status)) : '-' }}</td>
+                <td>
+                  @php
+                    $fLap = (is_array($row->foto) && $row->foto !== [])
+                      ? $row->foto
+                      : ((($row->foto_url ?? null) && $row->foto_url !== '') ? [['thumb' => $row->foto_url, 'full' => $row->foto_url]] : []);
+                  @endphp
+                  @if($fLap !== [])
+                    <div style="display:flex;flex-wrap:wrap;gap:4px;max-width:160px;">
+                      @foreach($fLap as $im)
+                        @php
+                          $uv = is_array($im) ? ($im['thumb'] ?? $im['full'] ?? '') : '';
+                          $sv = (str_starts_with((string) $uv, 'http://') || str_starts_with((string) $uv, 'https://')) ? $uv : url($uv);
+                        @endphp
+                        @if($sv !== '')
+                          <img src="{{ $sv }}" width="40" height="40" loading="lazy" alt="" style="object-fit:cover;border-radius:4px;">
+                        @endif
+                      @endforeach
+                    </div>
+                  @else
+                    &mdash;
+                  @endif
+                </td>
               </tr>
             @empty
               <tr>
-                <td colspan="9" class="text-center text-muted">Tidak ada data untuk filter ini.</td>
+                <td colspan="10" class="text-center text-muted">Tidak ada data untuk filter ini.</td>
               </tr>
             @endforelse
           </tbody>

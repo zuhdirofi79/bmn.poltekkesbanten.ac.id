@@ -16,19 +16,19 @@ use PhpOffice\PhpSpreadsheet\Shared\Date as ExcelDate;
 class AsetBmnImportService
 {
     /**
-     * @return array{ok: true, count: int}|array{ok: false, errors: list<string>, count: int}
+     * @return array{count: int, errors: list<string>}
      */
     public function importFromUpload(UploadedFile $file): array
     {
         $path = $file->getRealPath();
         if ($path === false) {
-            return ['ok' => false, 'errors' => ['Berkas tidak dapat dibaca.'], 'count' => 0];
+            return ['errors' => ['Berkas tidak dapat dibaca.'], 'count' => 0];
         }
 
         $spreadsheet = IOFactory::load($path);
         $rows = $spreadsheet->getActiveSheet()->toArray();
         if ($rows === [] || $rows[0] === null) {
-            return ['ok' => false, 'errors' => ['Berkas kosong.'], 'count' => 0];
+            return ['errors' => ['Berkas kosong.'], 'count' => 0];
         }
 
         $rawHeaders = $rows[0];
@@ -37,7 +37,6 @@ class AsetBmnImportService
         foreach ($required as $key) {
             if (! in_array($key, $map, true)) {
                 return [
-                    'ok' => false,
                     'errors' => ['Kolom wajib tidak ditemukan: '.implode(', ', $required).'. Pakai unduhan template resmi.'],
                     'count' => 0,
                 ];
@@ -47,7 +46,7 @@ class AsetBmnImportService
         $dataRows = array_slice($rows, 1);
         $lineErrors = [];
         $normalizedRows = [];
-        $kodeDalamBerkas = [];
+        $nupDalamBerkas = [];
 
         foreach ($dataRows as $idx => $row) {
             if (! is_array($row) || $this->isRowKosong($row)) {
@@ -63,18 +62,26 @@ class AsetBmnImportService
                 continue;
             }
 
-            if (isset($kodeDalamBerkas[$kode])) {
-                $lineErrors[] = "Baris {$rowNumber}: kode_barang '{$kode}' duplikat (sama dengan baris {$kodeDalamBerkas[$kode]}).";
-
-                continue;
-            }
-            $kodeDalamBerkas[$kode] = $rowNumber;
-
             $normalized = $this->normalizeAssoc($assoc);
             if ($normalized === null) {
                 $lineErrors[] = "Baris {$rowNumber}: format data tidak valid (cek kategori_id, satker_id, nilai, tanggal).";
 
                 continue;
+            }
+
+            $nup = $normalized['nup'] ?? null;
+            if ($nup !== null && $nup !== '') {
+                if (isset($nupDalamBerkas[$nup])) {
+                    $lineErrors[] = "Baris {$rowNumber}: NUP '{$nup}' duplikat di berkas (baris {$nupDalamBerkas[$nup]}).";
+
+                    continue;
+                }
+                if (AsetBmn::query()->where('nup', $nup)->exists()) {
+                    $lineErrors[] = "Baris {$rowNumber}: NUP sudah ada.";
+
+                    continue;
+                }
+                $nupDalamBerkas[$nup] = $rowNumber;
             }
 
             $v = Validator::make($normalized, $this->rulesForRow());
@@ -90,11 +97,11 @@ class AsetBmnImportService
         }
 
         if ($normalizedRows === [] && $lineErrors === []) {
-            return ['ok' => false, 'errors' => ['Tidak ada baris data yang diimpor.'], 'count' => 0];
+            return ['errors' => ['Tidak ada baris data yang diimpor.'], 'count' => 0];
         }
 
-        if ($lineErrors !== []) {
-            return ['ok' => false, 'errors' => $lineErrors, 'count' => 0];
+        if ($normalizedRows === []) {
+            return ['errors' => $lineErrors, 'count' => 0];
         }
 
         $inserted = 0;
@@ -103,6 +110,9 @@ class AsetBmnImportService
         DB::transaction(function () use ($normalizedRows, $userId, &$inserted): void {
             foreach ($normalizedRows as $row) {
                 $satker = BmnSatker::query()->findOrFail((int) $row['satker_id']);
+                $fotoJson = (isset($row['foto_url']) && is_string($row['foto_url']) && $row['foto_url'] !== '')
+                    ? [['full' => $row['foto_url'], 'thumb' => $row['foto_url']]]
+                    : null;
                 AsetBmn::create([
                     'kode_barang' => $row['kode_barang'],
                     'nup' => $row['nup'] ?? null,
@@ -117,6 +127,9 @@ class AsetBmnImportService
                     'lokasi' => $row['lokasi'] ?? null,
                     'lokasi_id' => null,
                     'status' => 'aktif',
+                    'asset_tag_type' => $row['asset_tag_type'] ?? 'MANUAL',
+                    'foto_provider' => $row['foto_provider'] ?? '',
+                    'foto' => $fotoJson,
                     'created_by' => $userId,
                     'updated_by' => $userId,
                 ]);
@@ -124,7 +137,7 @@ class AsetBmnImportService
             }
         });
 
-        return ['ok' => true, 'count' => $inserted];
+        return ['count' => $inserted, 'errors' => $lineErrors];
     }
 
     /**
@@ -190,6 +203,7 @@ class AsetBmnImportService
         if (in_array($h, [
             'kode_barang', 'nup', 'nama_barang', 'kategori_id', 'nilai_perolehan',
             'tanggal_perolehan', 'kondisi', 'pengguna_ruangan', 'satker_id', 'lokasi',
+            'foto_url',
         ], true)) {
             return $h;
         }
@@ -292,6 +306,11 @@ class AsetBmnImportService
             $lok = null;
         }
 
+        $fotoUrl = isset($assoc['foto_url']) && $assoc['foto_url'] !== null ? trim((string) $assoc['foto_url']) : null;
+        if ($fotoUrl === '') {
+            $fotoUrl = null;
+        }
+
         return [
             'kode_barang' => $kode,
             'nama_barang' => $nama,
@@ -303,6 +322,7 @@ class AsetBmnImportService
             'satker_id' => $sid,
             'nup' => $nup,
             'lokasi' => $lok,
+            'foto_url' => $fotoUrl,
         ];
     }
 
@@ -327,7 +347,7 @@ class AsetBmnImportService
     protected function rulesForRow(): array
     {
         return [
-            'kode_barang' => ['required', 'string', 'max:255', 'unique:aset_bmn,kode_barang'],
+            'kode_barang' => ['required', 'string', 'max:255'],
             'nama_barang' => ['required', 'string', 'max:255'],
             'kategori_id' => ['required', 'integer', 'exists:kategori_aset,id'],
             'nilai_perolehan' => ['nullable', 'numeric'],
@@ -337,6 +357,7 @@ class AsetBmnImportService
             'pengguna_ruangan' => ['nullable', 'string', 'max:200'],
             'nup' => ['nullable', 'string', 'max:50'],
             'lokasi' => ['nullable', 'string', 'max:255'],
+            'foto_url' => ['nullable', 'string', 'url', 'max:2048'],
         ];
     }
 }

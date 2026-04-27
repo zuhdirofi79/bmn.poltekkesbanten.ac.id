@@ -7,7 +7,7 @@
       <h5 class="card-title fw-semibold mb-3">Tambah Aset BMN</h5>
       <hr>
 
-      <form method="post" action="{{ route('bmn.aset.store') }}" class="row g-3">
+      <form method="post" action="{{ route('bmn.aset.store') }}" enctype="multipart/form-data" class="row g-3">
         @csrf
 
         <div class="col-12">
@@ -78,6 +78,13 @@
               <label class="form-label">Lokasi</label>
               <input type="text" name="lokasi" class="form-control @error('lokasi') is-invalid @enderror" value="{{ old('lokasi') }}" placeholder="Masukkan alamat lengkap">
               @error('lokasi') <div class="invalid-feedback">{{ $message }}</div> @enderror
+            </div>
+            <div class="col-md-12">
+              <label class="form-label">Foto aset (opsional, maks. 2 file)</label>
+              <input type="file" name="foto[]" class="form-control @error('foto') is-invalid @enderror @error('foto.*') is-invalid @enderror" accept="image/*" multiple>
+              <small class="text-muted d-block">Maks. 2 foto, masing-masing maks. 2MB. Disimpan terkompresi JPG (lebar maks. 1280px) + thumbnail. Kosongkan jika tidak perlu unggah.</small>
+              @error('foto') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror
+              @error('foto.*') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror
             </div>
           </div>
         </div>

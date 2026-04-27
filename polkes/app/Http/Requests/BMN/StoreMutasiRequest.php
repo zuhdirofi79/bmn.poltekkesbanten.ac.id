@@ -6,6 +6,7 @@ namespace App\Http\Requests\BMN;
 
 use App\Models\BMN\AsetBmn;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Validator;
 
 class StoreMutasiRequest extends FormRequest
@@ -21,7 +22,7 @@ class StoreMutasiRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'aset_id' => ['required', 'exists:aset_bmn,id'],
+            'aset_id' => ['required', Rule::exists('aset_bmn', 'id')->whereNull('deleted_at')],
             'ke_lokasi_id' => ['required', 'exists:lokasi_aset,id'],
             'tanggal_mutasi' => ['required', 'date'],
             'keterangan' => ['nullable', 'string'],

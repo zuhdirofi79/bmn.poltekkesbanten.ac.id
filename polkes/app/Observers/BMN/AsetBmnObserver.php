@@ -47,14 +47,8 @@ class AsetBmnObserver
             return;
         }
 
-        $oldStatus = $changed['data_lama']['status'] ?? $aset->getOriginal('status');
-        $newStatus = $changed['data_baru']['status'] ?? null;
-        $deleteTransition = $newStatus === 'dihapus' && $oldStatus !== 'dihapus';
-
         $this->pendingUpdates[spl_object_id($aset)] = [
             'changed' => $changed,
-            'delete_transition' => $deleteTransition,
-            'full_original_snapshot' => $deleteTransition ? AsetBmnAuditHelper::snapshotOriginal($aset) : null,
         ];
     }
 
@@ -74,22 +68,6 @@ class AsetBmnObserver
         /** @var array{data_lama: array<string, mixed>, data_baru: array<string, mixed>} $changed */
         $changed = $pending['changed'];
 
-        if ($pending['delete_transition'] === true) {
-            self::persistHistori([
-                'aset_id' => $aset->id,
-                'aksi' => 'delete',
-                'data_lama' => $pending['full_original_snapshot'] ?? AsetBmnAuditHelper::snapshotOriginal($aset),
-                'data_baru' => null,
-                'deskripsi' => sprintf(
-                    "Penghapusan logis (status → dihapus): kode_barang='%s', nama_barang='%s'",
-                    $aset->kode_barang,
-                    $aset->nama_barang
-                ),
-            ]);
-
-            return;
-        }
-
         self::persistHistori([
             'aset_id' => $aset->id,
             'aksi' => 'update',
@@ -100,7 +78,7 @@ class AsetBmnObserver
     }
 
     /**
-     * Penghapusan permanen: riwayat dipertahankan dengan aset_id null (butuh FK ON DELETE SET NULL pada MySQL).
+     * Soft delete: riwayat tetap terhubung ke aset. Force delete: aset_id dinull-kan pada histori.
      */
     public function deleted(AsetBmn $aset): void
     {
@@ -111,6 +89,22 @@ class AsetBmnObserver
                 continue;
             }
             $clean[$key] = AsetBmnAuditHelper::normalizeAttributeForAudit($key, $attrs[$key]);
+        }
+
+        if (! $aset->isForceDeleting()) {
+            self::persistHistori([
+                'aset_id' => $aset->id,
+                'aksi' => 'delete',
+                'data_lama' => $clean,
+                'data_baru' => null,
+                'deskripsi' => sprintf(
+                    "Penghapusan lunak (soft delete): kode_barang='%s', nama_barang='%s'",
+                    $attrs['kode_barang'] ?? '',
+                    $attrs['nama_barang'] ?? ''
+                ),
+            ]);
+
+            return;
         }
 
         self::persistHistori([
