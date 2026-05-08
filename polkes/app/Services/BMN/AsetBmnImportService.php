@@ -7,6 +7,7 @@ namespace App\Services\BMN;
 use App\Models\BmnSatker;
 use App\Models\BMN\AsetBmn;
 use Carbon\Carbon;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -16,19 +17,29 @@ use PhpOffice\PhpSpreadsheet\Shared\Date as ExcelDate;
 class AsetBmnImportService
 {
     /**
-     * @return array{count: int, errors: list<string>}
+     * @return array{
+     *     count: int,
+     *     errors: list<string>,
+     *     skipped_count: int,
+     *     skipped_rows: list<int>,
+     *     duplicate_nup_errors: list<string>
+     * }
      */
     public function importFromUpload(UploadedFile $file): array
     {
         $path = $file->getRealPath();
         if ($path === false) {
-            return ['errors' => ['Berkas tidak dapat dibaca.'], 'count' => 0];
+            return $this->emptyResult(['Berkas tidak dapat dibaca.']);
         }
 
-        $spreadsheet = IOFactory::load($path);
+        try {
+            $spreadsheet = IOFactory::load($path);
+        } catch (\Throwable) {
+            return $this->emptyResult(['Berkas tidak dapat dibaca atau format tidak didukung.']);
+        }
         $rows = $spreadsheet->getActiveSheet()->toArray();
         if ($rows === [] || $rows[0] === null) {
-            return ['errors' => ['Berkas kosong.'], 'count' => 0];
+            return $this->emptyResult(['Berkas kosong.']);
         }
 
         $rawHeaders = $rows[0];
@@ -36,17 +47,16 @@ class AsetBmnImportService
         $required = ['kode_barang', 'nama_barang', 'kategori_id', 'kondisi', 'satker_id'];
         foreach ($required as $key) {
             if (! in_array($key, $map, true)) {
-                return [
-                    'errors' => ['Kolom wajib tidak ditemukan: '.implode(', ', $required).'. Pakai unduhan template resmi.'],
-                    'count' => 0,
-                ];
+                return $this->emptyResult([
+                    'Kolom wajib tidak ditemukan: '.implode(', ', $required).'. Pakai unduhan template resmi.',
+                ]);
             }
         }
 
         $dataRows = array_slice($rows, 1);
         $lineErrors = [];
-        $normalizedRows = [];
-        $nupDalamBerkas = [];
+        $skippedRows = [];
+        $pendingInserts = [];
 
         foreach ($dataRows as $idx => $row) {
             if (! is_array($row) || $this->isRowKosong($row)) {
@@ -58,6 +68,7 @@ class AsetBmnImportService
             $kode = isset($assoc['kode_barang']) ? trim((string) $assoc['kode_barang']) : '';
             if ($kode === '') {
                 $lineErrors[] = "Baris {$rowNumber}: kode_barang wajib diisi.";
+                $skippedRows[] = $rowNumber;
 
                 continue;
             }
@@ -65,23 +76,9 @@ class AsetBmnImportService
             $normalized = $this->normalizeAssoc($assoc);
             if ($normalized === null) {
                 $lineErrors[] = "Baris {$rowNumber}: format data tidak valid (cek kategori_id, satker_id, nilai, tanggal).";
+                $skippedRows[] = $rowNumber;
 
                 continue;
-            }
-
-            $nup = $normalized['nup'] ?? null;
-            if ($nup !== null && $nup !== '') {
-                if (isset($nupDalamBerkas[$nup])) {
-                    $lineErrors[] = "Baris {$rowNumber}: NUP '{$nup}' duplikat di berkas (baris {$nupDalamBerkas[$nup]}).";
-
-                    continue;
-                }
-                if (AsetBmn::query()->where('nup', $nup)->exists()) {
-                    $lineErrors[] = "Baris {$rowNumber}: NUP sudah ada.";
-
-                    continue;
-                }
-                $nupDalamBerkas[$nup] = $rowNumber;
             }
 
             $v = Validator::make($normalized, $this->rulesForRow());
@@ -89,55 +86,111 @@ class AsetBmnImportService
                 foreach ($v->errors()->all() as $msg) {
                     $lineErrors[] = "Baris {$rowNumber}: {$msg}";
                 }
+                $skippedRows[] = $rowNumber;
 
                 continue;
             }
 
-            $normalizedRows[] = $normalized;
+            $pendingInserts[] = ['line' => $rowNumber, 'data' => $normalized];
         }
 
-        if ($normalizedRows === [] && $lineErrors === []) {
-            return ['errors' => ['Tidak ada baris data yang diimpor.'], 'count' => 0];
+        if ($pendingInserts === [] && $lineErrors === []) {
+            return $this->emptyResult(['Tidak ada baris data yang diimpor.']);
         }
 
-        if ($normalizedRows === []) {
-            return ['errors' => $lineErrors, 'count' => 0];
+        if ($pendingInserts === []) {
+            return [
+                'count' => 0,
+                'errors' => $lineErrors,
+                'skipped_count' => $this->uniqueSortedCount($skippedRows),
+                'skipped_rows' => $this->uniqueSortedRows($skippedRows),
+                'duplicate_nup_errors' => [],
+            ];
         }
 
         $inserted = 0;
         $userId = auth()->id();
 
-        DB::transaction(function () use ($normalizedRows, $userId, &$inserted): void {
-            foreach ($normalizedRows as $row) {
-                $satker = BmnSatker::query()->findOrFail((int) $row['satker_id']);
-                $fotoJson = (isset($row['foto_url']) && is_string($row['foto_url']) && $row['foto_url'] !== '')
-                    ? [['full' => $row['foto_url'], 'thumb' => $row['foto_url']]]
-                    : null;
-                AsetBmn::create([
-                    'kode_barang' => $row['kode_barang'],
-                    'nup' => $row['nup'] ?? null,
-                    'nama_barang' => $row['nama_barang'],
-                    'kategori_id' => (int) $row['kategori_id'],
-                    'nilai_perolehan' => $row['nilai_perolehan'] ?? null,
-                    'tanggal_perolehan' => $row['tanggal_perolehan'] ?? null,
-                    'kondisi' => $row['kondisi'],
-                    'pengguna_ruangan' => $row['pengguna_ruangan'] ?? null,
-                    'satker_id' => $satker->id,
-                    'satker' => $satker->nama,
-                    'lokasi' => $row['lokasi'] ?? null,
-                    'lokasi_id' => null,
-                    'status' => 'aktif',
-                    'asset_tag_type' => $row['asset_tag_type'] ?? 'MANUAL',
-                    'foto_provider' => $row['foto_provider'] ?? '',
-                    'foto' => $fotoJson,
-                    'created_by' => $userId,
-                    'updated_by' => $userId,
-                ]);
-                $inserted++;
-            }
-        });
+        foreach ($pendingInserts as $item) {
+            $rowNumber = $item['line'];
+            $row = $item['data'];
 
-        return ['count' => $inserted, 'errors' => $lineErrors];
+            try {
+                DB::transaction(function () use ($row, $userId): void {
+                    $satker = BmnSatker::query()->findOrFail((int) $row['satker_id']);
+                    $fotoJson = (isset($row['foto_url']) && is_string($row['foto_url']) && $row['foto_url'] !== '')
+                        ? [['full' => $row['foto_url'], 'thumb' => $row['foto_url']]]
+                        : null;
+                    AsetBmn::create([
+                        'kode_barang' => $row['kode_barang'],
+                        'nup' => $row['nup'] ?? null,
+                        'nama_barang' => $row['nama_barang'],
+                        'kategori_id' => (int) $row['kategori_id'],
+                        'nilai_perolehan' => $row['nilai_perolehan'] ?? null,
+                        'tanggal_perolehan' => $row['tanggal_perolehan'] ?? null,
+                        'kondisi' => $row['kondisi'],
+                        'pengguna_ruangan' => $row['pengguna_ruangan'] ?? null,
+                        'satker_id' => $satker->id,
+                        'satker' => $satker->nama,
+                        'lokasi' => $row['lokasi'] ?? null,
+                        'lokasi_id' => null,
+                        'status' => 'aktif',
+                        'asset_tag_type' => $row['asset_tag_type'] ?? 'MANUAL',
+                        'foto_provider' => $row['foto_provider'] ?? '',
+                        'foto' => $fotoJson,
+                        'created_by' => $userId,
+                        'updated_by' => $userId,
+                    ]);
+                });
+                $inserted++;
+            } catch (QueryException $e) {
+                $lineErrors[] = "Baris {$rowNumber} dilewati: terjadi kesalahan basis data ({$e->errorInfo[1]}).";
+                $skippedRows[] = $rowNumber;
+            }
+        }
+
+        return [
+            'count' => $inserted,
+            'errors' => $lineErrors,
+            'skipped_count' => $this->uniqueSortedCount($skippedRows),
+            'skipped_rows' => $this->uniqueSortedRows($skippedRows),
+            'duplicate_nup_errors' => [],
+        ];
+    }
+
+    /**
+     * @param  list<string>  $errors
+     * @return array{count: int, errors: list<string>, skipped_count: int, skipped_rows: list<int>, duplicate_nup_errors: list<string>}
+     */
+    private function emptyResult(array $errors): array
+    {
+        return [
+            'count' => 0,
+            'errors' => array_values($errors),
+            'skipped_count' => 0,
+            'skipped_rows' => [],
+            'duplicate_nup_errors' => [],
+        ];
+    }
+
+    /**
+     * @param  list<int>  $rows
+     */
+    private function uniqueSortedCount(array $rows): int
+    {
+        return count(array_unique($rows));
+    }
+
+    /**
+     * @param  list<int>  $rows
+     * @return list<int>
+     */
+    private function uniqueSortedRows(array $rows): array
+    {
+        $u = array_unique($rows);
+        sort($u);
+
+        return array_values($u);
     }
 
     /**
@@ -295,7 +348,17 @@ class AsetBmnImportService
 
         $kode = isset($assoc['kode_barang']) ? trim((string) $assoc['kode_barang']) : '';
         $nama = isset($assoc['nama_barang']) ? trim((string) $assoc['nama_barang']) : '';
-        $nup = isset($assoc['nup']) && $assoc['nup'] !== null && (string) $assoc['nup'] !== '' ? trim((string) $assoc['nup']) : null;
+        $nupRaw = $assoc['nup'] ?? null;
+        if ($nupRaw === null || $nupRaw === '') {
+            $nup = null;
+        } elseif (is_float($nupRaw) || is_int($nupRaw)) {
+            $nup = $this->normalizeNupStringFromScalar($nupRaw);
+        } else {
+            $nup = trim((string) $nupRaw);
+            if ($nup === '') {
+                $nup = null;
+            }
+        }
         $peng = isset($assoc['pengguna_ruangan']) && $assoc['pengguna_ruangan'] !== null
             ? trim((string) $assoc['pengguna_ruangan']) : null;
         if ($peng === '') {
@@ -324,6 +387,17 @@ class AsetBmnImportService
             'lokasi' => $lok,
             'foto_url' => $fotoUrl,
         ];
+    }
+
+    private function normalizeNupStringFromScalar(int|float $nupRaw): ?string
+    {
+        if (is_int($nupRaw) || (is_float($nupRaw) && floor($nupRaw) === $nupRaw)) {
+            return (string) (int) $nupRaw;
+        }
+
+        $s = trim((string) $nupRaw);
+
+        return $s === '' ? null : $s;
     }
 
     private function parseTanggalString(string $s): ?string

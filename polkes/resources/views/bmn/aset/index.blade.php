@@ -23,7 +23,17 @@
       @if(session('error'))
         <div class="alert alert-danger">{{ session('error') }}</div>
       @endif
-      @if(session('import_errors') && is_array(session('import_errors')) && count(session('import_errors')) > 0)
+      @if(session('import_summary') && is_array(session('import_summary')))
+        @php($sum = session('import_summary'))
+        <div class="alert alert-info py-2 small mb-2">
+          Ringkasan: <strong>{{ $sum['imported'] ?? 0 }}</strong> tersimpan;
+          <strong>{{ $sum['skipped_count'] ?? 0 }}</strong> baris dilewati.
+          @if(!empty($sum['skipped_rows']))
+            <span class="text-muted">(baris: {{ implode(', ', $sum['skipped_rows']) }})</span>
+          @endif
+        </div>
+      @endif
+      @if(session('import_errors') && is_array(session('import_errors')) && count(session('import_errors')) !== 0)
         <div class="alert {{ session('success') ? 'alert-warning' : 'alert-danger' }}">
           <strong>{{ session('success') ? 'Peringatan import (baris dilewati):' : 'Validasi import:' }}</strong>
           <ul class="mb-0 mt-2 small">
@@ -37,7 +47,7 @@
       <div class="card border mb-4">
         <div class="card-body py-3">
           <h6 class="fw-semibold mb-2">Import multi-item (Excel)</h6>
-          <p class="small text-muted mb-2">Gunakan template resmi. Baris valid akan disimpan; baris bermasalah (mis. NUP bentrok) dilaporka di bawah dan dilewati.</p>
+          <p class="small text-muted mb-2">Gunakan template resmi. Baris valid akan disimpan; baris bermasalah akan dilaporkan dan dilewati.</p>
           <form method="post" action="{{ route('bmn.aset.import') }}" enctype="multipart/form-data" class="row g-2 align-items-end">
             @csrf
             <div class="col-md-8">
@@ -51,9 +61,20 @@
       </div>
 
       <form method="get" action="{{ route('bmn.aset.index') }}" class="row g-2 mb-4">
-        <div class="col-md-4">
+        <div class="col-md-3">
           <label class="form-label">Lokasi</label>
           <input type="text" name="lokasi" class="form-control form-control-sm" value="{{ $filters['lokasi'] ?? '' }}" placeholder="Cari alamat / ruang (teks)">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Satker</label>
+          <select name="satker_id" class="form-control form-control-sm">
+            <option value="">— Semua —</option>
+            @foreach($satkers as $satker)
+              <option value="{{ $satker->id }}" {{ (string)($filters['satker_id'] ?? '') === (string)$satker->id ? 'selected' : '' }}>
+                {{ $satker->nama }}
+              </option>
+            @endforeach
+          </select>
         </div>
         <div class="col-md-2">
           <label class="form-label">Kondisi</label>
@@ -73,7 +94,7 @@
             @endforeach
           </select>
         </div>
-        <div class="col-md-4 d-flex align-items-end">
+        <div class="col-md-2 d-flex align-items-end">
           <button type="submit" class="btn btn-outline-primary btn-sm me-2">Terapkan</button>
           <a href="{{ route('bmn.aset.index') }}" class="btn btn-outline-secondary btn-sm">Reset</a>
         </div>
@@ -116,20 +137,37 @@
                 <td>{{ $row->satker ?? '-' }}</td>
                 <td>
                   @php
-                    $fotoList = (is_array($row->foto) && $row->foto !== [])
-                      ? $row->foto
-                      : ((($row->foto_url ?? null) && $row->foto_url !== '') ? [['thumb' => $row->foto_url, 'full' => $row->foto_url]] : []);
+                    $fotoList = [];
+
+                    if (is_array($row->foto) && count($row->foto) !== 0) {
+                        $fotoList = $row->foto;
+                    } elseif (!empty($row->foto_url)) {
+                        $fotoList = [
+                            [
+                                'thumb' => $row->foto_url,
+                                'full' => $row->foto_url,
+                            ],
+                        ];
+                    }
                   @endphp
-                  @if($fotoList !== [])
+
+                  @if(!empty($fotoList))
                     <div style="display:flex;flex-wrap:wrap;gap:5px;max-width:200px;">
                       @foreach($fotoList as $img)
                         @php
-                          $u = is_array($img) ? ($img['thumb'] ?? $img['full'] ?? '') : '';
-                          $fullU = is_array($img) ? ($img['full'] ?? $u) : $u;
-                          $src = (str_starts_with((string) $u, 'http://') || str_starts_with((string) $u, 'https://')) ? $u : url($u);
-                          $href = (str_starts_with((string) $fullU, 'http://') || str_starts_with((string) $fullU, 'https://')) ? $fullU : url($fullU);
+                          $thumbUrl = is_array($img) ? ($img['thumb'] ?? $img['full'] ?? null) : null;
+                          $fullUrl = is_array($img) ? ($img['full'] ?? $thumbUrl) : $thumbUrl;
+
+                          $src = $thumbUrl
+                              ? ((str_starts_with((string) $thumbUrl, 'http://') || str_starts_with((string) $thumbUrl, 'https://')) ? $thumbUrl : url($thumbUrl))
+                              : null;
+
+                          $href = $fullUrl
+                              ? ((str_starts_with((string) $fullUrl, 'http://') || str_starts_with((string) $fullUrl, 'https://')) ? $fullUrl : url($fullUrl))
+                              : null;
                         @endphp
-                        @if($src !== '')
+
+                        @if(!empty($src))
                           <a href="{{ $href }}" target="_blank" rel="noopener noreferrer">
                             <img src="{{ $src }}" width="50" height="50" loading="lazy" alt="Foto aset" style="object-fit:cover;border-radius:4px;border:1px solid #e9ecef;">
                           </a>

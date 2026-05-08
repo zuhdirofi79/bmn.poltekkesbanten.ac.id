@@ -30,15 +30,21 @@ class AsetController extends Controller
 
     public function index(Request $request): View
     {
-        $filters = $request->only(['lokasi', 'kondisi', 'status']);
+        $request->validate([
+            'satker_id' => ['nullable', 'integer', 'exists:bmn_satker,id'],
+        ]);
+
+        $filters = $request->only(['lokasi', 'kondisi', 'status', 'satker_id']);
+
+        $satkers = BmnSatker::orderBy('sort_order')->orderBy('id')->get();
 
         $query = AsetBmn::with(['kategori', 'lokasiMaster'])
             ->filter($filters)
             ->latest();
 
-        $aset = $query->paginate(10)->appends($filters);
+        $aset = $query->paginate(10)->appends($request->query());
 
-        return view('bmn.aset.index', compact('aset', 'filters'));
+        return view('bmn.aset.index', compact('aset', 'filters', 'satkers'));
     }
 
     public function create(): View
@@ -203,22 +209,43 @@ class AsetController extends Controller
             'file' => ['required', 'file', 'mimes:xlsx,csv', 'max:10240'],
         ]);
 
-        $result = $this->asetBmnImportService->importFromUpload($request->file('file'));
+        try {
+            $result = $this->asetBmnImportService->importFromUpload($request->file('file'));
+        } catch (\Throwable $e) {
+            report($e);
 
-        if (($result['count'] ?? 0) === 0) {
             return back()
-                ->with('error', 'Tidak ada baris yang diimpor. Periksa daftar di bawah.')
-                ->with('import_errors', $result['errors'] ?? []);
+                ->with('error', 'Import tidak dapat diproses. Periksa format berkas atau hubungi administrator.')
+                ->with('import_errors', [])
+                ->withoutInput();
         }
 
-        $msg = 'Import berhasil: '.(int) $result['count'].' aset tersimpan.';
+        $summary = [
+            'imported' => (int) ($result['count'] ?? 0),
+            'skipped_count' => (int) ($result['skipped_count'] ?? 0),
+            'skipped_rows' => $result['skipped_rows'] ?? [],
+            'duplicate_nup_errors' => $result['duplicate_nup_errors'] ?? [],
+        ];
+
+        if ($summary['imported'] === 0) {
+            return back()
+                ->with('error', 'Tidak ada baris yang diimpor. Periksa daftar di bawah.')
+                ->with('import_errors', $result['errors'] ?? [])
+                ->with('import_summary', $summary);
+        }
+
+        $msg = 'Import selesai: '.$summary['imported'].' aset tersimpan.';
+        if ($summary['skipped_count'] > 0) {
+            $msg .= ' '.$summary['skipped_count'].' baris dilewati.';
+        }
         if (($result['errors'] ?? []) !== []) {
-            $msg .= ' Beberapa baris dilewati — lihat daftar peringatan.';
+            $msg .= ' Lihat peringatan untuk detail baris yang dilewati.';
         }
 
         return back()
             ->with('success', $msg)
-            ->with('import_errors', $result['errors'] ?? []);
+            ->with('import_errors', $result['errors'] ?? [])
+            ->with('import_summary', $summary);
     }
 
     public function downloadTemplate()

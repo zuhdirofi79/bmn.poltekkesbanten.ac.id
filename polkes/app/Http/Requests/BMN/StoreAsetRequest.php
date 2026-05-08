@@ -28,7 +28,7 @@ class StoreAsetRequest extends FormRequest
             'kondisi' => ['required', Rule::in(['baik', 'rusak_ringan', 'rusak_berat'])],
             'satker_id' => ['required', 'exists:bmn_satker,id'],
             'pengguna_ruangan' => ['nullable', 'string', 'max:200'],
-            'nup' => ['nullable', 'string', 'max:50', Rule::unique('aset_bmn', 'nup')->whereNull('deleted_at')],
+            'nup' => ['nullable', 'string', 'max:50'],
             'lokasi' => ['nullable', 'string', 'max:255'],
             'foto' => ['nullable', 'array', 'max:2'],
             'foto.*' => ['file', 'image', 'max:2048'],

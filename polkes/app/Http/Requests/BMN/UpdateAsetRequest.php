@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\BMN;
 
-use App\Models\BMN\AsetBmn;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -20,9 +19,6 @@ class UpdateAsetRequest extends FormRequest
      */
     public function rules(): array
     {
-        $aset = $this->route('aset');
-        $asetId = $aset instanceof AsetBmn ? $aset->id : (int) $aset;
-
         return [
             'kode_barang' => ['required', 'string', 'max:255'],
             'nama_barang' => ['required', 'string', 'max:255'],
@@ -32,12 +28,7 @@ class UpdateAsetRequest extends FormRequest
             'kondisi' => ['required', Rule::in(['baik', 'rusak_ringan', 'rusak_berat'])],
             'satker_id' => ['required', 'exists:bmn_satker,id'],
             'pengguna_ruangan' => ['nullable', 'string', 'max:200'],
-            'nup' => [
-                'nullable',
-                'string',
-                'max:50',
-                Rule::unique('aset_bmn', 'nup')->ignore($asetId)->whereNull('deleted_at'),
-            ],
+            'nup' => ['nullable', 'string', 'max:50'],
             'lokasi' => ['nullable', 'string', 'max:255'],
             'status' => ['required', Rule::in(['aktif', 'dipindahtangankan'])],
             'foto' => ['nullable', 'array', 'max:2'],

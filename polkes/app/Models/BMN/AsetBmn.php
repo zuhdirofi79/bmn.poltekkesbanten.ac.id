@@ -113,6 +113,9 @@ class AsetBmn extends Model
         if (! empty($filters['status'])) {
             $query->where('status', $filters['status']);
         }
+        if (! empty($filters['satker_id'])) {
+            $query->where('satker_id', (int) $filters['satker_id']);
+        }
 
         return $query;
     }
