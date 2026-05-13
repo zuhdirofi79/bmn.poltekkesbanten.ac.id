@@ -32,11 +32,42 @@ class AsetController extends Controller
     {
         $request->validate([
             'satker_id' => ['nullable', 'integer', 'exists:bmn_satker,id'],
+            'kategori_id' => ['nullable', 'integer', 'exists:kategori_aset,id'],
+            'tahun_perolehan' => ['nullable', 'integer', 'digits:4'],
+            'tanggal_from' => ['nullable', 'date'],
+            'tanggal_to' => ['nullable', 'date', 'after_or_equal:tanggal_from'],
+            'nilai_min' => ['nullable', 'numeric', 'min:0'],
+            'nilai_max' => ['nullable', 'numeric', 'min:0', 'gte:nilai_min'],
+            'created_from' => ['nullable', 'date'],
+            'created_to' => ['nullable', 'date', 'after_or_equal:created_from'],
         ]);
 
-        $filters = $request->only(['lokasi', 'kondisi', 'status', 'satker_id']);
+        $filterKeys = [
+            'q',
+            'kode_barang',
+            'nup',
+            'nama_barang',
+            'merk',
+            'kategori_id',
+            'kondisi',
+            'status',
+            'lokasi',
+            'satker_id',
+            'satker',
+            'pengguna_ruangan',
+            'tahun_perolehan',
+            'tanggal_from',
+            'tanggal_to',
+            'nilai_min',
+            'nilai_max',
+            'created_from',
+            'created_to',
+        ];
+
+        $filters = $request->only($filterKeys);
 
         $satkers = BmnSatker::orderBy('sort_order')->orderBy('id')->get();
+        $kategoriList = KategoriAset::orderBy('id')->get();
 
         $query = AsetBmn::with(['kategori', 'lokasiMaster'])
             ->filter($filters)
@@ -44,7 +75,7 @@ class AsetController extends Controller
 
         $aset = $query->paginate(10)->appends($request->query());
 
-        return view('bmn.aset.index', compact('aset', 'filters', 'satkers'));
+        return view('bmn.aset.index', compact('aset', 'filters', 'satkers', 'kategoriList'));
     }
 
     public function create(): View
@@ -64,6 +95,7 @@ class AsetController extends Controller
             'kode_barang' => $validated['kode_barang'],
             'nup' => $validated['nup'] ?? null,
             'nama_barang' => $validated['nama_barang'],
+            'merk' => isset($validated['merk']) && $validated['merk'] !== '' ? $validated['merk'] : null,
             'kategori_id' => (int) $validated['kategori_id'],
             'nilai_perolehan' => $validated['nilai_perolehan'],
             'tanggal_perolehan' => $validated['tanggal_perolehan'] ?? null,
@@ -201,6 +233,43 @@ class AsetController extends Controller
         return redirect()
             ->route('bmn.aset.index')
             ->with('success', 'Data berhasil dihapus');
+    }
+
+    /**
+     * Soft-delete massal untuk aset terpilih dari halaman index.
+     *
+     * Sesuai konvensi BMN: status -> 'dihapus', deleted_at + deleted_by diisi,
+     * tanpa menyentuh berkas foto lokal (foto tetap aman untuk audit/restore).
+     */
+    public function bulkDelete(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'ids' => ['required', 'array', 'min:1'],
+            'ids.*' => ['integer', 'distinct'],
+        ]);
+
+        /** @var list<int> $ids */
+        $ids = array_values(array_unique(array_map('intval', $validated['ids'])));
+
+        $userId = auth()->id();
+        $now = now();
+
+        $affected = DB::transaction(function () use ($ids, $userId, $now): int {
+            return AsetBmn::query()
+                ->whereIn('id', $ids)
+                ->update([
+                    'status' => 'dihapus',
+                    'deleted_at' => $now,
+                    'deleted_by' => $userId,
+                    'updated_by' => $userId,
+                ]);
+        });
+
+        if ($affected === 0) {
+            return back()->with('error', 'Tidak ada aset yang berhasil dihapus.');
+        }
+
+        return back()->with('success', $affected.' aset berhasil dihapus.');
     }
 
     public function import(Request $request): RedirectResponse

@@ -28,6 +28,7 @@ Route::group(['prefix' => 'bmn', 'middleware' => ['auth']], function () {
     Route::name('bmn.')->group(function () {
         Route::get('aset/template', 'BMN\AsetController@downloadTemplate')->name('aset.template');
         Route::post('aset/import', 'BMN\AsetController@import')->name('aset.import');
+        Route::post('aset/bulk-delete', 'BMN\AsetController@bulkDelete')->name('aset.bulk-delete');
         Route::resource('aset', 'BMN\AsetController')->except(['show']);
         Route::resource('mutasi', 'BMN\MutasiController')->only(['index', 'create', 'store']);
         Route::get('laporan', 'BMN\LaporanController@index')->name('laporan.index');

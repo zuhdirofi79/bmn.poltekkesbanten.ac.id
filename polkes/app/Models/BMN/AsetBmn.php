@@ -92,14 +92,52 @@ class AsetBmn extends Model
     }
 
     /**
+     * Single-source-of-truth filter untuk daftar aset.
+     *
+     * Mendukung pencarian global (q) lintas kolom utama + pencarian per kolom.
+     *
      * @param  Builder<AsetBmn>  $query
+     * @param  array<string, mixed>  $filters
      * @return Builder<AsetBmn>
      */
     public function scopeFilter(Builder $query, array $filters): Builder
     {
+        $globalSearchColumns = [
+            'kode_barang',
+            'nama_barang',
+            'nup',
+            'lokasi',
+            'satker',
+            'pengguna_ruangan',
+            'merk',
+        ];
+
+        if (! empty($filters['q'])) {
+            $term = '%'.((string) $filters['q']).'%';
+            $query->where(function (Builder $q) use ($term, $globalSearchColumns): void {
+                foreach ($globalSearchColumns as $col) {
+                    $q->orWhere($col, 'like', $term);
+                }
+            });
+        }
+
+        $likeColumns = [
+            'kode_barang',
+            'nup',
+            'nama_barang',
+            'merk',
+            'pengguna_ruangan',
+            'satker',
+        ];
+
+        foreach ($likeColumns as $col) {
+            if (! empty($filters[$col])) {
+                $query->where($col, 'like', '%'.((string) $filters[$col]).'%');
+            }
+        }
+
         if (! empty($filters['lokasi'])) {
-            $w = (string) $filters['lokasi'];
-            $term = '%'.$w.'%';
+            $term = '%'.((string) $filters['lokasi']).'%';
             $query->where(function (Builder $q) use ($term): void {
                 $q->where('lokasi', 'like', $term)
                     ->orWhereHas('lokasiMaster', function (Builder $q2) use ($term): void {
@@ -107,14 +145,49 @@ class AsetBmn extends Model
                     });
             });
         }
-        if (! empty($filters['kondisi'])) {
-            $query->where('kondisi', $filters['kondisi']);
+
+        if (! empty($filters['kategori_id'])) {
+            $query->where('kategori_id', (int) $filters['kategori_id']);
         }
-        if (! empty($filters['status'])) {
-            $query->where('status', $filters['status']);
-        }
+
         if (! empty($filters['satker_id'])) {
             $query->where('satker_id', (int) $filters['satker_id']);
+        }
+
+        if (! empty($filters['kondisi'])) {
+            $query->where('kondisi', (string) $filters['kondisi']);
+        }
+
+        if (! empty($filters['status'])) {
+            $query->where('status', (string) $filters['status']);
+        }
+
+        if (! empty($filters['tahun_perolehan'])) {
+            $query->whereYear('tanggal_perolehan', (int) $filters['tahun_perolehan']);
+        }
+
+        if (! empty($filters['tanggal_from'])) {
+            $query->whereDate('tanggal_perolehan', '>=', (string) $filters['tanggal_from']);
+        }
+
+        if (! empty($filters['tanggal_to'])) {
+            $query->whereDate('tanggal_perolehan', '<=', (string) $filters['tanggal_to']);
+        }
+
+        if (isset($filters['nilai_min']) && $filters['nilai_min'] !== '' && $filters['nilai_min'] !== null) {
+            $query->where('nilai_perolehan', '>=', (float) $filters['nilai_min']);
+        }
+
+        if (isset($filters['nilai_max']) && $filters['nilai_max'] !== '' && $filters['nilai_max'] !== null) {
+            $query->where('nilai_perolehan', '<=', (float) $filters['nilai_max']);
+        }
+
+        if (! empty($filters['created_from'])) {
+            $query->whereDate('created_at', '>=', (string) $filters['created_from']);
+        }
+
+        if (! empty($filters['created_to'])) {
+            $query->whereDate('created_at', '<=', (string) $filters['created_to']);
         }
 
         return $query;

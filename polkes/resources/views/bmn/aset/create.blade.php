@@ -28,6 +28,11 @@
               @error('nama_barang') <div class="invalid-feedback">{{ $message }}</div> @enderror
             </div>
             <div class="col-md-6">
+              <label class="form-label">Merk</label>
+              <input type="text" name="merk" class="form-control @error('merk') is-invalid @enderror" value="{{ old('merk') }}" placeholder="Contoh: HP, Lenovo, Samsung, Toyota">
+              @error('merk') <div class="invalid-feedback">{{ $message }}</div> @enderror
+            </div>
+            <div class="col-md-6">
               <label class="form-label">Kategori</label>
               <select name="kategori_id" class="form-select @error('kategori_id') is-invalid @enderror" required>
                 <option value="">-- Pilih Kategori --</option>

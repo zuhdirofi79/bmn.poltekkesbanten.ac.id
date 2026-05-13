@@ -125,6 +125,7 @@ class AsetBmnImportService
                         'kode_barang' => $row['kode_barang'],
                         'nup' => $row['nup'] ?? null,
                         'nama_barang' => $row['nama_barang'],
+                        'merk' => $row['merk'] ?? null,
                         'kategori_id' => (int) $row['kategori_id'],
                         'nilai_perolehan' => $row['nilai_perolehan'] ?? null,
                         'tanggal_perolehan' => $row['tanggal_perolehan'] ?? null,
@@ -253,8 +254,11 @@ class AsetBmnImportService
         if ($h === 'pengguna' || $h === 'pengguna_ruangan') {
             return 'pengguna_ruangan';
         }
+        if ($h === 'merek') {
+            return 'merk';
+        }
         if (in_array($h, [
-            'kode_barang', 'nup', 'nama_barang', 'kategori_id', 'nilai_perolehan',
+            'kode_barang', 'nup', 'nama_barang', 'merk', 'kategori_id', 'nilai_perolehan',
             'tanggal_perolehan', 'kondisi', 'pengguna_ruangan', 'satker_id', 'lokasi',
             'foto_url',
         ], true)) {
@@ -374,9 +378,15 @@ class AsetBmnImportService
             $fotoUrl = null;
         }
 
+        $merk = isset($assoc['merk']) && $assoc['merk'] !== null ? trim((string) $assoc['merk']) : null;
+        if ($merk === '') {
+            $merk = null;
+        }
+
         return [
             'kode_barang' => $kode,
             'nama_barang' => $nama,
+            'merk' => $merk,
             'kategori_id' => $kategoriId,
             'nilai_perolehan' => $nilai,
             'tanggal_perolehan' => $tgl,
@@ -430,6 +440,7 @@ class AsetBmnImportService
             'satker_id' => ['required', 'integer', 'exists:bmn_satker,id'],
             'pengguna_ruangan' => ['nullable', 'string', 'max:200'],
             'nup' => ['nullable', 'string', 'max:50'],
+            'merk' => ['nullable', 'string', 'max:255'],
             'lokasi' => ['nullable', 'string', 'max:255'],
             'foto_url' => ['nullable', 'string', 'url', 'max:2048'],
         ];

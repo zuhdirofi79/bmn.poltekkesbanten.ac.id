@@ -29,6 +29,7 @@ class UpdateAsetRequest extends FormRequest
             'satker_id' => ['required', 'exists:bmn_satker,id'],
             'pengguna_ruangan' => ['nullable', 'string', 'max:200'],
             'nup' => ['nullable', 'string', 'max:50'],
+            'merk' => ['nullable', 'string', 'max:255'],
             'lokasi' => ['nullable', 'string', 'max:255'],
             'status' => ['required', Rule::in(['aktif', 'dipindahtangankan'])],
             'foto' => ['nullable', 'array', 'max:2'],
