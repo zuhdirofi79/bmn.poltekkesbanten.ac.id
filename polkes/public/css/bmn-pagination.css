@@ -1,0 +1,66 @@
+/* BMN Pagination Override
+ * Memperbaiki ukuran default pagination Laravel (Tailwind) yang
+ * tampil raksasa di project Bootstrap. Hanya menargetkan wrapper
+ * `.bmn-pagination` agar tidak mempengaruhi SVG / pagination lain.
+ */
+
+.bmn-pagination {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.bmn-pagination svg {
+    width: 16px !important;
+    height: 16px !important;
+    max-width: 16px !important;
+    max-height: 16px !important;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.bmn-pagination nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.bmn-pagination .pagination {
+    margin-bottom: 0;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+.bmn-pagination .page-link {
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    min-width: 36px;
+    text-align: center;
+}
+
+.bmn-pagination .page-item.active .page-link {
+    z-index: 1;
+}
+
+/* Fallback bila Laravel masih merender template Tailwind:
+ * paksa tombol Previous / Next agar ukurannya tidak meledak.
+ */
+.bmn-pagination [aria-label="Pagination Navigation"] span,
+.bmn-pagination [aria-label="Pagination Navigation"] a {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Mobile friendly */
+@media (max-width: 576px) {
+    .bmn-pagination .page-link {
+        padding: 4px 8px;
+        font-size: 12px;
+        min-width: 30px;
+    }
+
+    .bmn-pagination .pagination {
+        font-size: 12px;
+    }
+}

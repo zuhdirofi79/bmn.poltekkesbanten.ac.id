@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\BMN;
 
+use App\Exports\AsetBmnExport;
+use App\Exports\AsetBmnSelectedExport;
 use App\Exports\AsetBmnTemplateExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BMN\StoreAsetRequest;
@@ -13,12 +15,14 @@ use App\Models\BMN\AsetBmn;
 use App\Models\BMN\KategoriAset;
 use App\Services\BMN\AsetBmnFotoService;
 use App\Services\BMN\AsetBmnImportService;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Maatwebsite\Excel\Facades\Excel;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class AsetController extends Controller
 {
@@ -30,19 +34,30 @@ class AsetController extends Controller
 
     public function index(Request $request): View
     {
-        $request->validate([
-            'satker_id' => ['nullable', 'integer', 'exists:bmn_satker,id'],
-            'kategori_id' => ['nullable', 'integer', 'exists:kategori_aset,id'],
-            'tahun_perolehan' => ['nullable', 'integer', 'digits:4'],
-            'tanggal_from' => ['nullable', 'date'],
-            'tanggal_to' => ['nullable', 'date', 'after_or_equal:tanggal_from'],
-            'nilai_min' => ['nullable', 'numeric', 'min:0'],
-            'nilai_max' => ['nullable', 'numeric', 'min:0', 'gte:nilai_min'],
-            'created_from' => ['nullable', 'date'],
-            'created_to' => ['nullable', 'date', 'after_or_equal:created_from'],
-        ]);
+        $this->validateAsetFilters($request);
 
-        $filterKeys = [
+        $filters = $request->only($this->asetFilterKeys());
+
+        $satkers = BmnSatker::orderBy('sort_order')->orderBy('id')->get();
+        $kategoriList = KategoriAset::orderBy('id')->get();
+
+        $query = $this->asetQuery($request);
+
+        $perPage = $this->resolvePerPage($request);
+
+        $aset = $query->paginate($perPage)->appends($request->query());
+
+        return view('bmn.aset.index', compact('aset', 'filters', 'satkers', 'kategoriList', 'perPage'));
+    }
+
+    /**
+     * Daftar kunci filter yang dipakai bersama oleh index() dan exportExcel().
+     *
+     * @return list<string>
+     */
+    private function asetFilterKeys(): array
+    {
+        return [
             'q',
             'kode_barang',
             'nup',
@@ -63,19 +78,61 @@ class AsetController extends Controller
             'created_from',
             'created_to',
         ];
+    }
 
-        $filters = $request->only($filterKeys);
+    /**
+     * Validasi tipe filter yang dipakai index() & exportExcel(). Dipisah agar
+     * kedua endpoint memakai aturan yang identik (tidak ada divergensi).
+     */
+    private function validateAsetFilters(Request $request): void
+    {
+        $request->validate([
+            'satker_id' => ['nullable', 'integer', 'exists:bmn_satker,id'],
+            'kategori_id' => ['nullable', 'integer', 'exists:kategori_aset,id'],
+            'tahun_perolehan' => ['nullable', 'integer', 'digits:4'],
+            'tanggal_from' => ['nullable', 'date'],
+            'tanggal_to' => ['nullable', 'date', 'after_or_equal:tanggal_from'],
+            'nilai_min' => ['nullable', 'numeric', 'min:0'],
+            'nilai_max' => ['nullable', 'numeric', 'min:0', 'gte:nilai_min'],
+            'created_from' => ['nullable', 'date'],
+            'created_to' => ['nullable', 'date', 'after_or_equal:created_from'],
+        ]);
+    }
 
-        $satkers = BmnSatker::orderBy('sort_order')->orderBy('id')->get();
-        $kategoriList = KategoriAset::orderBy('id')->get();
+    /**
+     * Single source of truth query daftar aset. Dipakai oleh:
+     *  - index()        -> dipaginate untuk tampilan tabel
+     *  - exportExcel()  -> dipakai utuh tanpa pagination (chunk via FromQuery)
+     *
+     * Logika filter sepenuhnya didelegasikan ke scopeFilter() di model AsetBmn
+     * agar tidak ada duplikasi aturan filter.
+     *
+     * @return Builder<AsetBmn>
+     */
+    private function asetQuery(Request $request): Builder
+    {
+        $filters = $request->only($this->asetFilterKeys());
 
-        $query = AsetBmn::with(['kategori', 'lokasiMaster'])
+        return AsetBmn::with(['kategori', 'lokasiMaster'])
             ->filter($filters)
-            ->latest();
+            ->orderByDesc('id');
+    }
 
-        $aset = $query->paginate(10)->appends($request->query());
+    /**
+     * Whitelist ukuran halaman agar tidak bisa dipaksa load 200rb row sekaligus.
+     *
+     * @return int<10, 1000>
+     */
+    private function resolvePerPage(Request $request): int
+    {
+        $allowed = [10, 25, 50, 100, 250, 500, 1000];
+        $perPage = (int) $request->query('per_page', 10);
 
-        return view('bmn.aset.index', compact('aset', 'filters', 'satkers', 'kategoriList'));
+        if (! in_array($perPage, $allowed, true)) {
+            return 10;
+        }
+
+        return $perPage;
     }
 
     public function create(): View
@@ -244,12 +301,18 @@ class AsetController extends Controller
     public function bulkDelete(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'ids' => ['required', 'array', 'min:1'],
+            'ids' => ['required', 'array', 'min:1', 'max:5000'],
             'ids.*' => ['integer', 'distinct'],
         ]);
 
         /** @var list<int> $ids */
         $ids = array_values(array_unique(array_map('intval', $validated['ids'])));
+
+        // Safety hard-limit: hindari payload terlalu besar (max_input_vars,
+        // memory_limit, timeout) untuk dataset 200rb+ aset.
+        if (count($ids) > 5000) {
+            return back()->with('error', 'Maksimal 5.000 aset sekali hapus.');
+        }
 
         $userId = auth()->id();
         $now = now();
@@ -320,5 +383,95 @@ class AsetController extends Controller
     public function downloadTemplate()
     {
         return Excel::download(new AsetBmnTemplateExport, 'template_aset_bmn.xlsx');
+    }
+
+    /**
+     * Export daftar aset (sesuai filter aktif) ke file .xlsx.
+     *
+     * - Memakai asetQuery() agar filter persis sama dengan halaman index.
+     * - Tidak dipagination: query diserahkan ke AsetBmnExport (FromQuery) yang
+     *   akan men-chunk baris sehingga aman untuk ±35.000 data.
+     * - Otorisasi: route ini berada di group middleware ['auth'] yang sama
+     *   dengan index, sehingga hanya user yang boleh membuka halaman Aset BMN
+     *   yang dapat memanggil endpoint ini.
+     */
+    public function exportExcel(Request $request): BinaryFileResponse
+    {
+        $this->validateAsetFilters($request);
+
+        $fileName = 'aset-bmn-'.now()->format('Ymd-His').'.xlsx';
+
+        return Excel::download(
+            new AsetBmnExport($this->asetQuery($request)),
+            $fileName
+        );
+    }
+
+    /**
+     * Export hanya aset BMN yang dipilih (di-centang) dari halaman index.
+     *
+     * Body POST membawa `selected_ids` berupa string CSV id (mis: "1,3,7"),
+     * dikirim form di view yang di-populate oleh JS dari checkbox baris.
+     *
+     * Alur keamanan (TIDAK percaya input frontend):
+     *  1. validate selected_ids = string non-kosong
+     *  2. parse → array<int>, trim, filter 0/non-int, unique
+     *  3. hard-limit jumlah id (selaras dgn bulkDelete: 5.000)
+     *  4. confirm id benar-benar ada di tabel aset_bmn; jika 0 → tolak
+     *  5. delegasikan ke AsetBmnSelectedExport (FromQuery → chunked)
+     *
+     * Otorisasi: route ini berada di group middleware ['auth'] yang sama
+     * dengan index/export filter, sehingga hanya user yang boleh membuka
+     * halaman Aset BMN yang dapat memanggil endpoint ini.
+     */
+    public function exportSelectedExcel(Request $request)
+    {
+        $request->validate([
+            'selected_ids' => ['required', 'string'],
+        ]);
+
+        /** @var list<int> $ids */
+        $ids = collect(explode(',', (string) $request->input('selected_ids')))
+            ->map(fn ($v) => (int) trim((string) $v))
+            ->filter(fn (int $v) => $v > 0)
+            ->unique()
+            ->values()
+            ->all();
+
+        if ($ids === []) {
+            return back()->withErrors([
+                'selected_ids' => 'Pilih minimal 1 aset untuk diexport.',
+            ]);
+        }
+
+        // Hard-limit jumlah ID per export agar konsisten dgn bulk-delete &
+        // tidak memicu max_input_vars / memory_limit / timeout di server.
+        if (count($ids) > 5000) {
+            return back()->withErrors([
+                'selected_ids' => 'Maksimal 5.000 aset sekali export.',
+            ]);
+        }
+
+        // Filter ulang ke ID yang BENAR-BENAR ada di DB. Hindari trust
+        // pada hidden input di frontend (user bisa rekayasa value).
+        $validIds = AsetBmn::query()
+            ->whereIn('id', $ids)
+            ->pluck('id')
+            ->map(fn ($v) => (int) $v)
+            ->values()
+            ->all();
+
+        if ($validIds === []) {
+            return back()->withErrors([
+                'selected_ids' => 'Aset yang dipilih tidak ditemukan.',
+            ]);
+        }
+
+        $fileName = 'aset-bmn-terpilih-'.now()->format('Ymd-His').'.xlsx';
+
+        return Excel::download(
+            new AsetBmnSelectedExport($validIds),
+            $fileName
+        );
     }
 }

@@ -41,3 +41,60 @@ if (! function_exists('bmn_upload_url')) {
         return $path === '' ? $base : $base.'/'.$path;
     }
 }
+
+if (! function_exists('bmn_nota_dinas_path')) {
+    /**
+     * Path absolut (disk) untuk file Nota Dinas Peminjaman BMN.
+     *
+     * Resolusi:
+     *   1. config('bmn.nota_dinas_path')  (env BMN_NOTA_DINAS_BASE_PATH)
+     *   2. fallback: public_path('uploads/nota_dinas')
+     *
+     * Subpath disupport dengan "/" atau "\" (Windows) — dinormalisasi.
+     * Sengaja DI-DESIGN sama dengan bmn_upload_path() supaya pada hosting
+     * cPanel/Hostinger (docroot = public_html, Laravel di subfolder) admin
+     * cukup set 1 env var dan file langsung tersimpan di document root.
+     */
+    function bmn_nota_dinas_path(string $path = ''): string
+    {
+        $base = rtrim((string) (config('bmn.nota_dinas_path') ?? ''), '/\\');
+
+        if ($base === '') {
+            $base = rtrim((string) public_path('uploads/nota_dinas'), '/\\');
+        }
+
+        $path = (string) $path;
+        if ($path === '' || $path === '/') {
+            return $base;
+        }
+
+        $path = str_replace('\\', '/', ltrim($path, "/\\"));
+        if ($path === '') {
+            return $base;
+        }
+
+        return $base.'/'.$path;
+    }
+}
+
+if (! function_exists('bmn_nota_dinas_url')) {
+    /**
+     * URL publik untuk file Nota Dinas Peminjaman BMN.
+     *
+     * Resolusi:
+     *   1. config('bmn.nota_dinas_url')  (env BMN_NOTA_DINAS_BASE_URL)
+     *   2. fallback: url('/uploads/nota_dinas')
+     */
+    function bmn_nota_dinas_url(string $path = ''): string
+    {
+        $base = rtrim((string) (config('bmn.nota_dinas_url') ?? ''), '/');
+
+        if ($base === '') {
+            $base = rtrim((string) url('/uploads/nota_dinas'), '/');
+        }
+
+        $path = ltrim($path, '/');
+
+        return $path === '' ? $base : $base.'/'.$path;
+    }
+}

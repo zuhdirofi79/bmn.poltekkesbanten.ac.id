@@ -27,11 +27,39 @@ Route::get('/home', 'HomeController@profile')->name('home');
 Route::group(['prefix' => 'bmn', 'middleware' => ['auth']], function () {
     Route::name('bmn.')->group(function () {
         Route::get('aset/template', 'BMN\AsetController@downloadTemplate')->name('aset.template');
+        // PENTING: route export HARUS sebelum Route::resource('aset', ...)
+        // agar segmen "export" tidak ditangkap sebagai parameter {aset}.
+        Route::get('aset/export/excel', 'BMN\AsetController@exportExcel')->name('aset.export.excel');
+        // PENTING: export "terpilih" juga harus sebelum Route::resource('aset', ...)
+        // agar segmen "export-selected-excel" tidak ditangkap sebagai {aset}.
+        Route::post('aset/export-selected-excel', 'BMN\AsetController@exportSelectedExcel')
+            ->name('aset.export.selected.excel');
         Route::post('aset/import', 'BMN\AsetController@import')->name('aset.import');
         Route::post('aset/bulk-delete', 'BMN\AsetController@bulkDelete')->name('aset.bulk-delete');
         Route::resource('aset', 'BMN\AsetController')->except(['show']);
         Route::resource('mutasi', 'BMN\MutasiController')->only(['index', 'create', 'store']);
         Route::get('laporan', 'BMN\LaporanController@index')->name('laporan.index');
+
+        // ===== PEMINJAMAN ASET BMN =====
+        Route::prefix('peminjaman-aset')->name('peminjaman-aset.')->group(function () {
+            Route::get('/', 'BMN\PeminjamanAsetController@index')->name('index');
+            Route::get('create', 'BMN\PeminjamanAsetController@create')->name('create');
+            Route::post('/', 'BMN\PeminjamanAsetController@store')->name('store');
+            Route::get('{id}', 'BMN\PeminjamanAsetController@show')
+                ->where('id', '[0-9]+')->name('show');
+            Route::post('{id}/approve', 'BMN\PeminjamanAsetController@approve')
+                ->where('id', '[0-9]+')->name('approve');
+            Route::post('{id}/mark-dipinjam', 'BMN\PeminjamanAsetController@markDipinjam')
+                ->where('id', '[0-9]+')->name('mark-dipinjam');
+        });
+
+        // ===== PENGEMBALIAN ASET BMN =====
+        Route::prefix('pengembalian-aset')->name('pengembalian-aset.')->group(function () {
+            Route::get('/', 'BMN\PengembalianAsetController@index')->name('index');
+            Route::get('{peminjaman_id}/create', 'BMN\PengembalianAsetController@create')
+                ->where('peminjaman_id', '[0-9]+')->name('create');
+            Route::post('/', 'BMN\PengembalianAsetController@store')->name('store');
+        });
     });
 });
 

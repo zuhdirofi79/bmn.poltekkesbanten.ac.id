@@ -20,9 +20,17 @@
 <div class="container-fluid">
   <div class="card">
     <div class="card-body">
+      @php
+        // Bawa filter/search aktif ke URL export, tapi buang "page" karena
+        // export TIDAK dipaginate (harus seluruh hasil filter, bukan 1 halaman).
+        $exportQuery = collect(request()->query())->except(['page'])->all();
+      @endphp
       <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
         <h5 class="card-title fw-semibold mb-0">Aset BMN</h5>
         <div class="d-flex flex-wrap gap-2">
+          <a href="{{ route('bmn.aset.export.excel', $exportQuery) }}" class="btn btn-success btn-sm">
+            <i class="ti ti-file-spreadsheet"></i> Export Excel
+          </a>
           <a href="{{ route('bmn.aset.template') }}" class="btn btn-outline-secondary btn-sm">
             <i class="ti ti-download"></i> Unduh template Excel
           </a>
@@ -273,21 +281,83 @@
         @csrf
       </form>
 
+      {{-- Export "terpilih" form: SAMA polanya seperti bulkDeleteForm — diletakkan
+           di luar <table> dan dihubungkan ke tombol via atribut form="export-selected-form".
+           Berbeda dgn Hapus Terpilih, checkbox baris TIDAK dilampirkan langsung ke
+           form ini; JS yang membaca .aset-checkbox lalu mengisi hidden input
+           selected_ids (CSV id) sebelum submit. Backend tetap memvalidasi ulang. --}}
+      <form id="export-selected-form"
+            method="POST"
+            action="{{ route('bmn.aset.export.selected.excel') }}"
+            class="d-none">
+        @csrf
+        <input type="hidden" name="selected_ids" id="export-selected-ids" value="">
+      </form>
+
       <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
-        <div class="small text-muted">
-          <span id="bulkSelectedCount">0</span> aset dipilih
-          @if($aset->total() > 0)
-            <span class="text-muted">· Total {{ $aset->total() }} aset</span>
-          @endif
+        <div class="d-flex flex-wrap gap-3 align-items-center">
+          {{-- Form mandiri untuk dropdown "Show per page".
+               Filter aktif dibawa lewat hidden input agar value filter tidak hilang
+               saat user mengubah jumlah baris per halaman.
+               'page' sengaja TIDAK disertakan: setelah ganti ukuran halaman, paginator
+               kembali ke halaman 1 (mencegah out-of-range page yang menampilkan kosong). --}}
+          <form method="get"
+                action="{{ route('bmn.aset.index') }}"
+                class="d-flex gap-2 align-items-center mb-0">
+            @foreach($filters as $fKey => $fVal)
+              @if($fVal !== null && $fVal !== '')
+                <input type="hidden" name="{{ $fKey }}" value="{{ $fVal }}">
+              @endif
+            @endforeach
+            <label class="small text-muted mb-0">Show</label>
+            <select name="per_page"
+                    class="form-select form-select-sm"
+                    onchange="this.form.submit()"
+                    style="width:100px"
+                    aria-label="Jumlah baris per halaman">
+              @foreach([10, 25, 50, 100, 250, 500, 1000] as $size)
+                <option value="{{ $size }}" {{ (int)($perPage ?? 10) === $size ? 'selected' : '' }}>
+                  {{ $size }}
+                </option>
+              @endforeach
+            </select>
+            <label class="small text-muted mb-0">rows</label>
+          </form>
+
+          <div class="small text-muted">
+            <span id="bulkSelectedCount">0</span> aset dipilih
+            @if($aset->total() > 0)
+              <span class="text-muted">
+                · Menampilkan {{ $aset->firstItem() }}&ndash;{{ $aset->lastItem() }}
+                dari {{ number_format($aset->total(), 0, ',', '.') }} aset
+              </span>
+            @endif
+          </div>
         </div>
-        <button type="submit"
-                form="bulkDeleteForm"
-                id="bulkDeleteBtn"
-                class="btn btn-danger btn-sm"
-                disabled
-                onclick="return confirm('Hapus aset terpilih? Aksi ini akan menandai aset sebagai dihapus (soft delete).');">
-          <i class="ti ti-trash"></i> Hapus Terpilih
-        </button>
+
+        <div class="d-flex align-items-center gap-2">
+          @if(($perPage ?? 10) >= 500)
+            <span class="badge bg-warning text-dark" title="Limit per submit bulk delete">
+              <i class="ti ti-alert-triangle"></i> Maks 5.000 / hapus
+            </span>
+          @endif
+          <button type="submit"
+                  form="export-selected-form"
+                  id="btn-export-selected"
+                  class="btn btn-success btn-sm"
+                  disabled>
+            <i class="ti ti-file-spreadsheet"></i>
+            <span id="btn-export-selected-label">Export Excel Terpilih</span>
+          </button>
+          <button type="submit"
+                  form="bulkDeleteForm"
+                  id="bulkDeleteBtn"
+                  class="btn btn-danger btn-sm"
+                  disabled
+                  onclick="return confirm('Hapus aset terpilih? Aksi ini akan menandai aset sebagai dihapus (soft delete).');">
+            <i class="ti ti-trash"></i> Hapus Terpilih
+          </button>
+        </div>
       </div>
 
       <div class="table-responsive">
@@ -319,7 +389,7 @@
               <tr>
                 <td class="text-center">
                   <input type="checkbox"
-                         class="row-check"
+                         class="row-check aset-checkbox"
                          name="ids[]"
                          value="{{ $row->id }}"
                          form="bulkDeleteForm"
@@ -424,8 +494,8 @@
         </table>
       </div>
 
-      <div class="mt-2">
-        {{ $aset->appends(request()->query())->links() }}
+      <div class="mt-3 bmn-pagination">
+        {{ $aset->appends(request()->query())->links('pagination::bootstrap-5') }}
       </div>
     </div>
   </div>
@@ -437,8 +507,28 @@
   var bulkBtn = document.getElementById('bulkDeleteBtn');
   var counter = document.getElementById('bulkSelectedCount');
 
+  // Export "terpilih" — reuse mekanisme checkbox baris yang sama (.row-check /
+  // .aset-checkbox), jangan bikin sistem checkbox baru. Hidden input
+  // selected_ids akan diisi CSV id (mis: "1,3,7") sebelum form di-submit.
+  var exportBtn = document.getElementById('btn-export-selected');
+  var exportLabel = document.getElementById('btn-export-selected-label');
+  var exportIdsInput = document.getElementById('export-selected-ids');
+  var exportForm = document.getElementById('export-selected-form');
+
   function rowChecks() {
     return document.querySelectorAll('.row-check');
+  }
+
+  function updateSelectedExport(checkedList) {
+    if (!exportBtn) return;
+    var ids = Array.prototype.map.call(checkedList, function (cb) { return cb.value; });
+    if (exportIdsInput) exportIdsInput.value = ids.join(',');
+    exportBtn.disabled = ids.length === 0;
+    if (exportLabel) {
+      exportLabel.textContent = ids.length > 0
+        ? 'Export Excel Terpilih (' + ids.length + ')'
+        : 'Export Excel Terpilih';
+    }
   }
 
   function update() {
@@ -450,6 +540,7 @@
       checkAll.checked = total > 0 && checked.length === total;
       checkAll.indeterminate = checked.length > 0 && checked.length < total;
     }
+    updateSelectedExport(checked);
   }
 
   if (checkAll) {
@@ -463,6 +554,18 @@
   rowChecks().forEach(function (el) {
     el.addEventListener('change', update);
   });
+
+  // Safety net: kalau ada race condition / klik super cepat sebelum event
+  // change ter-handle, sinkronkan ulang hidden input saat form submit.
+  if (exportForm) {
+    exportForm.addEventListener('submit', function (e) {
+      var checked = document.querySelectorAll('.row-check:checked');
+      updateSelectedExport(checked);
+      if (checked.length === 0) {
+        e.preventDefault();
+      }
+    });
+  }
 
   update();
 })();

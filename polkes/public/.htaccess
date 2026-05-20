@@ -19,3 +19,30 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+
+# Fallback runtime tuning untuk Apache mod_php (server PHP-FPM/CGI memakai .user.ini).
+# Mendukung halaman BMN/Aset dengan 1000 row per page + bulk delete s.d. 5000 ID.
+<IfModule mod_php.c>
+    php_value max_input_vars 10000
+    php_value post_max_size 32M
+    php_value upload_max_filesize 16M
+    php_value max_input_time 120
+    php_value max_execution_time 120
+    php_value memory_limit 256M
+</IfModule>
+<IfModule mod_php7.c>
+    php_value max_input_vars 10000
+    php_value post_max_size 32M
+    php_value upload_max_filesize 16M
+    php_value max_input_time 120
+    php_value max_execution_time 120
+    php_value memory_limit 256M
+</IfModule>
+<IfModule mod_php8.c>
+    php_value max_input_vars 10000
+    php_value post_max_size 32M
+    php_value upload_max_filesize 16M
+    php_value max_input_time 120
+    php_value max_execution_time 120
+    php_value memory_limit 256M
+</IfModule>

@@ -60,8 +60,8 @@
         </table>
       </div>
 
-      <div class="mt-2">
-        {{ $mutasi->links() }}
+      <div class="mt-3 bmn-pagination">
+        {{ $mutasi->links('pagination::bootstrap-5') }}
       </div>
     </div>
   </div>

@@ -112,8 +112,8 @@
         </table>
       </div>
 
-      <div class="mt-2">
-        {{ $aset->links() }}
+      <div class="mt-3 bmn-pagination">
+        {{ $aset->links('pagination::bootstrap-5') }}
       </div>
     </div>
   </div>
