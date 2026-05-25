@@ -23,8 +23,16 @@ class StorePeminjamanAsetRequest extends FormRequest
     public function authorize(): bool
     {
         $user = $this->user();
+        if ($user === null) {
+            return true;
+        }
 
-        return $user !== null && $user->canRequestBmn();
+        return $user->canRequestBmn();
+    }
+
+    public function isGuestSubmission(): bool
+    {
+        return $this->user() === null;
     }
 
     /**
@@ -32,7 +40,7 @@ class StorePeminjamanAsetRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'tujuan_peminjaman' => ['required', 'string', 'max:255'],
             'tanggal_pinjam' => ['required', 'date'],
             'rencana_kembali' => ['required', 'date', 'after_or_equal:tanggal_pinjam'],
@@ -47,6 +55,25 @@ class StorePeminjamanAsetRequest extends FormRequest
             'aset_ids' => ['required', 'array', 'min:1', 'max:200'],
             'aset_ids.*' => ['integer', 'distinct', 'exists:aset_bmn,id'],
         ];
+
+        if ($this->isGuestSubmission()) {
+            $rules['public_nama'] = ['required', 'string', 'max:255'];
+            $rules['public_no_wa'] = ['required', 'string', 'max:30'];
+            $rules['public_email'] = ['required', 'email', 'max:255'];
+        }
+
+        return $rules;
+    }
+
+    protected function prepareForValidation(): void
+    {
+        if ($this->isGuestSubmission() && $this->has('public_no_wa')) {
+            $this->merge([
+                'public_no_wa' => \App\Services\BMN\BmnWaNumberNormalizer::normalize(
+                    (string) $this->input('public_no_wa')
+                ),
+            ]);
+        }
     }
 
     /**

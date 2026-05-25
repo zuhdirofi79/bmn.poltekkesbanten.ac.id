@@ -20,9 +20,32 @@ Route::post('/upload_foto', 'HomeController@upload_foto');
 
 
 Route::get('/home', 'HomeController@profile')->name('home');
-// Route::get('/home', 'HomeController@profile')->name('home');
-// Route::get('/lap_pdf', 'HomeController@lap_pdf');
-// Route::get('/blank', 'HomeController@blank');
+
+// ===== BMN PUBLIC (tanpa login) =====
+Route::prefix('bmn')->name('bmn.')->middleware('throttle:60,1')->group(function (): void {
+    Route::get('peminjaman-aset/create', 'BMN\PeminjamanAsetController@create')->name('peminjaman-aset.create');
+    Route::post('peminjaman-aset', 'BMN\PeminjamanAsetController@store')
+        ->middleware('throttle:10,1')
+        ->name('peminjaman-aset.store');
+
+    Route::get('pengembalian-aset/create', 'BMN\PengembalianAsetController@createPublic')
+        ->name('pengembalian-aset.create-public');
+    Route::post('pengembalian-aset', 'BMN\PengembalianAsetController@store')
+        ->middleware('throttle:10,1')
+        ->name('pengembalian-aset.store');
+
+    Route::get('public-verification/{type}/{id}/{token}', 'BMN\BmnPublicVerificationController@show')
+        ->where('type', 'peminjaman|pengembalian')
+        ->where('id', '[0-9]+')
+        ->where('token', '[A-Za-z0-9]{64}')
+        ->name('public-verification.show');
+    Route::post('public-verification/{type}/{id}/{token}', 'BMN\BmnPublicVerificationController@verify')
+        ->middleware('throttle:10,1')
+        ->where('type', 'peminjaman|pengembalian')
+        ->where('id', '[0-9]+')
+        ->where('token', '[A-Za-z0-9]{64}')
+        ->name('public-verification.verify');
+});
 
 Route::group(['prefix' => 'bmn', 'middleware' => ['auth']], function () {
     Route::name('bmn.')->group(function () {
@@ -40,25 +63,34 @@ Route::group(['prefix' => 'bmn', 'middleware' => ['auth']], function () {
         Route::resource('mutasi', 'BMN\MutasiController')->only(['index', 'create', 'store']);
         Route::get('laporan', 'BMN\LaporanController@index')->name('laporan.index');
 
-        // ===== PEMINJAMAN ASET BMN =====
+        // ===== PEMINJAMAN ASET BMN (auth) =====
         Route::prefix('peminjaman-aset')->name('peminjaman-aset.')->group(function () {
             Route::get('/', 'BMN\PeminjamanAsetController@index')->name('index');
-            Route::get('create', 'BMN\PeminjamanAsetController@create')->name('create');
-            Route::post('/', 'BMN\PeminjamanAsetController@store')->name('store');
             Route::get('{id}', 'BMN\PeminjamanAsetController@show')
                 ->where('id', '[0-9]+')->name('show');
             Route::post('{id}/approve', 'BMN\PeminjamanAsetController@approve')
                 ->where('id', '[0-9]+')->name('approve');
+            Route::post('{peminjaman}/approve-stage-1', 'BMN\BmnPeminjamanApprovalController@approveStage1')
+                ->where('peminjaman', '[0-9]+')->name('approve-stage-1');
+            Route::post('{peminjaman}/approve-stage-2', 'BMN\BmnPeminjamanApprovalController@approveStage2')
+                ->where('peminjaman', '[0-9]+')->name('approve-stage-2');
+            Route::post('{peminjaman}/final-report', 'BMN\BmnPeminjamanApprovalController@finalReport')
+                ->where('peminjaman', '[0-9]+')->name('final-report');
+            Route::post('{peminjaman}/reject-stage', 'BMN\BmnPeminjamanApprovalController@rejectStage')
+                ->where('peminjaman', '[0-9]+')->name('reject-stage');
             Route::post('{id}/mark-dipinjam', 'BMN\PeminjamanAsetController@markDipinjam')
                 ->where('id', '[0-9]+')->name('mark-dipinjam');
         });
 
-        // ===== PENGEMBALIAN ASET BMN =====
+        // ===== PENGEMBALIAN ASET BMN (auth) =====
         Route::prefix('pengembalian-aset')->name('pengembalian-aset.')->group(function () {
             Route::get('/', 'BMN\PengembalianAsetController@index')->name('index');
             Route::get('{peminjaman_id}/create', 'BMN\PengembalianAsetController@create')
                 ->where('peminjaman_id', '[0-9]+')->name('create');
-            Route::post('/', 'BMN\PengembalianAsetController@store')->name('store');
+            Route::post('{id}/verify', 'BMN\PengembalianAsetController@verify')
+                ->where('id', '[0-9]+')->name('verify');
+            Route::post('{id}/reject', 'BMN\PengembalianAsetController@reject')
+                ->where('id', '[0-9]+')->name('reject');
         });
     });
 });

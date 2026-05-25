@@ -45,7 +45,7 @@
               <tr>
                 <td>{{ $belumKembali->firstItem() + $loop->index }}</td>
                 <td><code>{{ $row->kode_peminjaman }}</code></td>
-                <td>{{ optional($row->user)->name ?? '-' }}</td>
+                <td>{{ $row->contactName() }}</td>
                 <td>{{ optional($row->user)->jurusan ? ucfirst($row->user->jurusan) : ($row->jurusan ? ucfirst($row->jurusan) : '-') }}</td>
                 <td>{{ optional($row->tanggal_pinjam)->format('Y-m-d') }}</td>
                 <td>{{ optional($row->rencana_kembali)->format('Y-m-d') }}</td>
@@ -86,9 +86,14 @@
               <th width="40">#</th>
               <th>Kode Transaksi</th>
               <th>Peminjam</th>
+              <th>Sumber</th>
+              <th>Verifikasi Kontak</th>
+              <th>Email</th>
+              <th>No WA</th>
               <th>Tgl Pinjam</th>
               <th>Tgl Kembali</th>
               <th>Diterima Oleh</th>
+              <th>Admin</th>
               <th>Catatan</th>
               <th width="80" class="text-center">Bukti Foto</th>
             </tr>
@@ -106,10 +111,65 @@
                     <span class="text-muted">—</span>
                   @endif
                 </td>
-                <td>{{ optional(optional($row->peminjaman)->user)->name ?? '-' }}</td>
+                <td>{{ $row->contactName() }}</td>
+                <td><span class="badge bg-light text-dark border">{{ $row->sourceLabel() }}</span></td>
+                <td>
+                  @if($row->isPublicSource())
+                    <span class="badge {{ ($row->verification_status ?? '') === 'verified' ? 'bg-success' : 'bg-warning text-dark' }}">
+                      {{ $row->verificationStatusLabel() }}
+                    </span>
+                  @else
+                    <span class="text-muted">—</span>
+                  @endif
+                </td>
+                <td class="small">{{ $row->contactEmail() }}</td>
+                <td class="small">{{ $row->contactWa() }}</td>
                 <td>{{ optional(optional($row->peminjaman)->tanggal_pinjam)->format('Y-m-d') }}</td>
                 <td>{{ optional($row->tanggal_kembali)->format('Y-m-d') }}</td>
-                <td>{{ optional($row->penerima)->name ?? '-' }}</td>
+                <td>{{ optional($row->penerima)->name ?? ($row->isPublicSource() ? '—' : '-') }}</td>
+                <td>
+                  @if($canApprove && $row->isPendingAdminVerification())
+                    <form method="post" action="{{ route('bmn.pengembalian-aset.verify', $row->id) }}" class="d-inline">
+                      @csrf
+                      <button type="submit" class="btn btn-sm btn-success"
+                              onclick="return confirm('Verifikasi pengembalian publik ini?');">
+                        Verify
+                      </button>
+                    </form>
+                    <button type="button" class="btn btn-sm btn-danger"
+                            data-bs-toggle="modal"
+                            data-bs-target="#rejectModal{{ $row->id }}">
+                      Reject
+                    </button>
+                    <div class="modal fade" id="rejectModal{{ $row->id }}" tabindex="-1">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <form method="post" action="{{ route('bmn.pengembalian-aset.reject', $row->id) }}">
+                            @csrf
+                            <div class="modal-header">
+                              <h6 class="modal-title">Tolak Pengembalian Publik</h6>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                              <label class="form-label">Alasan</label>
+                              <textarea name="admin_verification_note" class="form-control" rows="3" required></textarea>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Batal</button>
+                              <button type="submit" class="btn btn-danger btn-sm">Tolak</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  @elseif($row->admin_status === \App\Models\BMN\PengembalianAsetBmn::ADMIN_STATUS_APPROVED)
+                    <span class="badge bg-success">Approved</span>
+                  @elseif($row->isPublicSource() && ($row->verification_status ?? '') !== 'verified')
+                    <span class="badge bg-warning text-dark">Menunggu OTP</span>
+                  @else
+                    <span class="text-muted">—</span>
+                  @endif
+                </td>
                 <td>{{ \Illuminate\Support\Str::limit((string) ($row->catatan_pengembalian ?? '-'), 80) }}</td>
                 <td class="text-center">
                   @if($row->bukti_foto_path)
@@ -128,7 +188,7 @@
                 </td>
               </tr>
             @empty
-              <tr><td colspan="8" class="text-center text-muted">Belum ada riwayat pengembalian.</td></tr>
+              <tr><td colspan="12" class="text-center text-muted">Belum ada riwayat pengembalian.</td></tr>
             @endforelse
           </tbody>
         </table>

@@ -44,6 +44,24 @@ class PeminjamanAsetBmn extends Model
     public const STATUS_DIPINJAM = 'dipinjam';
     public const STATUS_DIKEMBALIKAN = 'dikembalikan';
 
+    public const APPROVAL_STAGE_VERIFIKATOR_1 = 'verifikator_1';
+    public const APPROVAL_STAGE_VERIFIKATOR_2 = 'verifikator_2';
+    public const APPROVAL_STAGE_FINAL_REPORT = 'final_report';
+    public const APPROVAL_STAGE_COMPLETED = 'completed';
+    public const APPROVAL_STAGE_REJECTED = 'rejected';
+
+    public const SOURCE_LOGIN = 'login';
+
+    public const SOURCE_PUBLIC = 'public';
+
+    public const VERIFICATION_NOT_REQUIRED = 'not_required';
+
+    public const VERIFICATION_PENDING = 'pending';
+
+    public const VERIFICATION_VERIFIED = 'verified';
+
+    public const VERIFICATION_FAILED = 'failed';
+
     /**
      * Sub-direktori publik (relatif terhadap public/) tempat file nota dinas
      * BARU disimpan. Lokasi ini SENGAJA berada di document root, BUKAN di
@@ -71,6 +89,31 @@ class PeminjamanAsetBmn extends Model
         'catatan',
         'nota_dinas_path',
         'nota_dinas_original_name',
+        'source',
+        'public_nama',
+        'public_no_wa',
+        'public_email',
+        'public_email_verified_at',
+        'public_wa_verified_at',
+        'public_email_otp',
+        'public_wa_otp',
+        'public_otp_expires_at',
+        'public_verified_at',
+        'public_token',
+        'public_otp_attempts',
+        'verification_status',
+        'approval_stage',
+        'verifier_1_id',
+        'verifier_1_approved_at',
+        'verifier_1_note',
+        'verifier_2_id',
+        'verifier_2_approved_at',
+        'verifier_2_note',
+        'final_report_by',
+        'final_report_at',
+        'final_report_note',
+        'rejected_stage',
+        'rejected_reason',
     ];
 
     protected $casts = [
@@ -78,6 +121,13 @@ class PeminjamanAsetBmn extends Model
         'rencana_kembali' => 'date',
         'approved_at' => 'datetime',
         'rejected_at' => 'datetime',
+        'public_email_verified_at' => 'datetime',
+        'public_wa_verified_at' => 'datetime',
+        'public_otp_expires_at' => 'datetime',
+        'public_verified_at' => 'datetime',
+        'verifier_1_approved_at' => 'datetime',
+        'verifier_2_approved_at' => 'datetime',
+        'final_report_at' => 'datetime',
     ];
 
     public function user(): BelongsTo
@@ -93,6 +143,21 @@ class PeminjamanAsetBmn extends Model
     public function rejecter(): BelongsTo
     {
         return $this->belongsTo(User::class, 'rejected_by');
+    }
+
+    public function verifier1(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'verifier_1_id');
+    }
+
+    public function verifier2(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'verifier_2_id');
+    }
+
+    public function finalReporter(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'final_report_by');
     }
 
     public function details(): HasMany
@@ -116,6 +181,155 @@ class PeminjamanAsetBmn extends Model
             self::STATUS_APPROVED,
             self::STATUS_DIPINJAM,
         ], true);
+    }
+
+    public function isPublicSource(): bool
+    {
+        return ($this->source ?? self::SOURCE_LOGIN) === self::SOURCE_PUBLIC;
+    }
+
+    public function contactName(): string
+    {
+        if ($this->isPublicSource()) {
+            return (string) ($this->public_nama ?? '-');
+        }
+
+        return (string) optional($this->user)->name ?: '-';
+    }
+
+    public function contactEmail(): string
+    {
+        if ($this->isPublicSource()) {
+            return (string) ($this->public_email ?? '-');
+        }
+
+        return (string) optional($this->user)->email ?: '-';
+    }
+
+    public function contactWa(): string
+    {
+        if ($this->isPublicSource()) {
+            return (string) ($this->public_no_wa ?? '-');
+        }
+
+        return '-';
+    }
+
+    public function verificationStatusLabel(): string
+    {
+        $status = (string) ($this->verification_status ?? self::VERIFICATION_NOT_REQUIRED);
+
+        return match ($status) {
+            self::VERIFICATION_PENDING => 'Pending',
+            self::VERIFICATION_VERIFIED => 'Verified',
+            self::VERIFICATION_FAILED => 'Failed',
+            default => '—',
+        };
+    }
+
+    public function sourceLabel(): string
+    {
+        return $this->isPublicSource() ? 'Public' : 'Login';
+    }
+
+    /**
+     * @return array{badge: string, label: string}
+     */
+    public function approvalStageBadge(): array
+    {
+        $stage = (string) ($this->approval_stage ?? self::APPROVAL_STAGE_VERIFIKATOR_1);
+
+        return match ($stage) {
+            self::APPROVAL_STAGE_VERIFIKATOR_1 => ['badge' => 'bg-warning text-dark', 'label' => 'Menunggu Pak Hendri'],
+            self::APPROVAL_STAGE_VERIFIKATOR_2 => ['badge' => 'bg-info text-dark', 'label' => 'Menunggu Pak Singgih'],
+            self::APPROVAL_STAGE_FINAL_REPORT => ['badge' => 'bg-primary', 'label' => 'Final Report Pak Hendri'],
+            self::APPROVAL_STAGE_COMPLETED => ['badge' => 'bg-success', 'label' => 'Verifikasi Selesai'],
+            self::APPROVAL_STAGE_REJECTED => ['badge' => 'bg-danger', 'label' => 'Ditolak'],
+            default => ['badge' => 'bg-secondary', 'label' => ucfirst(str_replace('_', ' ', $stage))],
+        };
+    }
+
+    public function usesMultiStageApproval(): bool
+    {
+        return in_array((string) ($this->approval_stage ?? ''), [
+            self::APPROVAL_STAGE_VERIFIKATOR_1,
+            self::APPROVAL_STAGE_VERIFIKATOR_2,
+            self::APPROVAL_STAGE_FINAL_REPORT,
+        ], true);
+    }
+
+    /**
+     * @return array{status: string, at: \Illuminate\Support\Carbon|null, note: string|null}
+     */
+    public function timelineStage1(): array
+    {
+        if ($this->approval_stage === self::APPROVAL_STAGE_REJECTED
+            && $this->rejected_stage === self::APPROVAL_STAGE_VERIFIKATOR_1) {
+            return [
+                'status' => 'rejected',
+                'at' => $this->rejected_at,
+                'note' => $this->rejected_reason,
+            ];
+        }
+
+        if ($this->verifier_1_approved_at !== null) {
+            return [
+                'status' => 'approved',
+                'at' => $this->verifier_1_approved_at,
+                'note' => $this->verifier_1_note,
+            ];
+        }
+
+        return ['status' => 'pending', 'at' => null, 'note' => null];
+    }
+
+    /**
+     * @return array{status: string, at: \Illuminate\Support\Carbon|null, note: string|null}
+     */
+    public function timelineStage2(): array
+    {
+        if ($this->approval_stage === self::APPROVAL_STAGE_REJECTED
+            && $this->rejected_stage === self::APPROVAL_STAGE_VERIFIKATOR_2) {
+            return [
+                'status' => 'rejected',
+                'at' => $this->rejected_at,
+                'note' => $this->rejected_reason,
+            ];
+        }
+
+        if ($this->verifier_2_approved_at !== null) {
+            return [
+                'status' => 'approved',
+                'at' => $this->verifier_2_approved_at,
+                'note' => $this->verifier_2_note,
+            ];
+        }
+
+        if ($this->verifier_1_approved_at === null) {
+            return ['status' => 'pending', 'at' => null, 'note' => null];
+        }
+
+        return ['status' => 'pending', 'at' => null, 'note' => null];
+    }
+
+    /**
+     * @return array{status: string, at: \Illuminate\Support\Carbon|null, note: string|null}
+     */
+    public function timelineFinalReport(): array
+    {
+        if ($this->final_report_at !== null) {
+            return [
+                'status' => 'completed',
+                'at' => $this->final_report_at,
+                'note' => $this->final_report_note,
+            ];
+        }
+
+        if ($this->verifier_2_approved_at === null) {
+            return ['status' => 'pending', 'at' => null, 'note' => null];
+        }
+
+        return ['status' => 'pending', 'at' => null, 'note' => null];
     }
 
     /**
@@ -201,6 +415,10 @@ class PeminjamanAsetBmn extends Model
     {
         if (! empty($filters['status'])) {
             $query->where('status', (string) $filters['status']);
+        }
+
+        if (! empty($filters['approval_stage'])) {
+            $query->where('approval_stage', (string) $filters['approval_stage']);
         }
 
         if (! empty($filters['user_id'])) {

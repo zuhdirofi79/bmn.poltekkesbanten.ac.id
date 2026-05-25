@@ -52,6 +52,12 @@ class User extends Authenticatable
         'kebidanan',
     ];
 
+    /** Verifikator 1 — Pak Hendri */
+    public const BMN_VERIFIER_1_ID = 3235;
+
+    /** Verifikator 2 — Pak Singgih */
+    public const BMN_VERIFIER_2_ID = 3240;
+
     /**
      * Apakah user boleh mengajukan request peminjaman aset BMN.
      *
@@ -77,5 +83,20 @@ class User extends Authenticatable
     public function canApproveBmn(): bool
     {
         return $this->hasRole('admin') && (bool) $this->can_approve_bmn === true;
+    }
+
+    public function isBmnVerifier1(): bool
+    {
+        return (int) $this->id === self::BMN_VERIFIER_1_ID;
+    }
+
+    public function isBmnVerifier2(): bool
+    {
+        return (int) $this->id === self::BMN_VERIFIER_2_ID;
+    }
+
+    public function isBmnApprovalParticipant(): bool
+    {
+        return in_array((int) $this->id, [self::BMN_VERIFIER_1_ID, self::BMN_VERIFIER_2_ID], true);
     }
 }

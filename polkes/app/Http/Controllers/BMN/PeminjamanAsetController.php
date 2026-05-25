@@ -12,6 +12,8 @@ use App\Models\BMN\KategoriAset;
 use App\Models\BMN\PeminjamanAsetBmn;
 use App\Models\BMN\PeminjamanAsetBmnDetail;
 use App\Models\BmnSatker;
+use App\Services\BMN\BmnPublicVerificationService;
+use App\Services\BMN\BmnWaNumberNormalizer;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
@@ -39,21 +41,32 @@ use Illuminate\View\View;
  */
 class PeminjamanAsetController extends Controller
 {
+    public function __construct(
+        private readonly BmnPublicVerificationService $publicVerificationService
+    ) {
+    }
+
     public function index(Request $request): View
     {
         $user = $request->user();
         abort_unless($user !== null, 403);
 
-        $filters = $request->only(['q', 'status', 'jurusan', 'tanggal_from', 'tanggal_to']);
+        $filters = $request->only(['q', 'status', 'approval_stage', 'jurusan', 'tanggal_from', 'tanggal_to']);
 
         $query = PeminjamanAsetBmn::query()
-            ->with(['user:id,name,jurusan', 'approver:id,name'])
+            ->with([
+                'user:id,name,jurusan',
+                'approver:id,name',
+                'verifier1:id,name',
+                'verifier2:id,name',
+                'finalReporter:id,name',
+            ])
             ->withCount('details')
             ->filter($filters)
             ->orderByDesc('id');
 
-        // Scoping akses: non-admin/non-approver hanya lihat miliknya.
-        if (! $user->hasRole('admin') && ! $user->canApproveBmn()) {
+        // Scoping akses: non-admin/non-approver/non-verifikator hanya lihat miliknya.
+        if (! $user->hasRole('admin') && ! $user->canApproveBmn() && ! $user->isBmnApprovalParticipant()) {
             $query->where('user_id', $user->id);
         }
 
@@ -68,7 +81,11 @@ class PeminjamanAsetController extends Controller
     public function create(Request $request): View
     {
         $user = $request->user();
-        abort_unless($user !== null && $user->canRequestBmn(), 403, 'Hanya pengguna jurusan yang berhak mengajukan peminjaman aset BMN.');
+        $isGuest = $user === null;
+
+        if (! $isGuest) {
+            abort_unless($user->canRequestBmn(), 403, 'Hanya pengguna jurusan yang berhak mengajukan peminjaman aset BMN.');
+        }
 
         $filters = $request->only([
             'q', 'kategori_id', 'kondisi', 'status', 'satker_id',
@@ -105,13 +122,15 @@ class PeminjamanAsetController extends Controller
             'asetList',
             'kategoriList',
             'satkers',
-            'filters'
+            'filters',
+            'isGuest'
         ));
     }
 
     public function store(StorePeminjamanAsetRequest $request): RedirectResponse
     {
         $user = $request->user();
+        $isGuest = $user === null;
         $data = $request->validated();
 
         /** @var list<int> $asetIds */
@@ -132,7 +151,7 @@ class PeminjamanAsetController extends Controller
         }
 
         try {
-            $peminjaman = DB::transaction(function () use ($user, $data, $asetIds, $notaPath, $notaOriginalName): PeminjamanAsetBmn {
+            $peminjaman = DB::transaction(function () use ($user, $isGuest, $data, $asetIds, $notaPath, $notaOriginalName): PeminjamanAsetBmn {
                 // Lock aset agar dua request bersamaan tidak menabrak baris yang sama.
                 $asetList = AsetBmn::query()
                     ->whereIn('id', $asetIds)
@@ -141,18 +160,31 @@ class PeminjamanAsetController extends Controller
 
                 $kode = $this->generateKodePeminjaman();
 
-                $peminjaman = PeminjamanAsetBmn::create([
+                $payload = [
                     'kode_peminjaman' => $kode,
-                    'user_id' => $user->id,
-                    'jurusan' => $user->jurusan,
+                    'user_id' => $isGuest ? null : $user->id,
+                    'jurusan' => $isGuest ? null : $user->jurusan,
                     'tujuan_peminjaman' => $data['tujuan_peminjaman'],
                     'tanggal_pinjam' => $data['tanggal_pinjam'],
                     'rencana_kembali' => $data['rencana_kembali'],
                     'status' => PeminjamanAsetBmn::STATUS_PENDING,
+                    'approval_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1,
                     'catatan' => $data['catatan'] ?? null,
                     'nota_dinas_path' => $notaPath,
                     'nota_dinas_original_name' => $notaOriginalName,
-                ]);
+                    'source' => $isGuest ? PeminjamanAsetBmn::SOURCE_PUBLIC : PeminjamanAsetBmn::SOURCE_LOGIN,
+                    'verification_status' => $isGuest
+                        ? PeminjamanAsetBmn::VERIFICATION_PENDING
+                        : PeminjamanAsetBmn::VERIFICATION_NOT_REQUIRED,
+                ];
+
+                if ($isGuest) {
+                    $payload['public_nama'] = $data['public_nama'];
+                    $payload['public_no_wa'] = BmnWaNumberNormalizer::normalize($data['public_no_wa']);
+                    $payload['public_email'] = $data['public_email'];
+                }
+
+                $peminjaman = PeminjamanAsetBmn::create($payload);
 
                 // Insert detail satu per satu via create() agar SEMUA kolom (utama + alias)
                 // terisi dengan benar dan default kondisi_awal terbaca dari aset.
@@ -185,6 +217,18 @@ class PeminjamanAsetController extends Controller
             return back()->withInput()->with('error', 'Gagal menyimpan peminjaman: '.$e->getMessage());
         }
 
+        if ($isGuest) {
+            $token = $this->publicVerificationService->initializePublicVerification($peminjaman);
+
+            return redirect()
+                ->route('bmn.public-verification.show', [
+                    'type' => 'peminjaman',
+                    'id' => $peminjaman->id,
+                    'token' => $token,
+                ])
+                ->with('success', 'Pengajuan tersimpan. Verifikasi Email dan WhatsApp untuk melanjutkan.');
+        }
+
         return redirect()
             ->route('bmn.peminjaman-aset.show', $peminjaman->id)
             ->with('success', 'Peminjaman '.$peminjaman->kode_peminjaman.' berhasil diajukan dan menunggu persetujuan.');
@@ -201,19 +245,42 @@ class PeminjamanAsetController extends Controller
                 'user:id,name,jurusan,email',
                 'approver:id,name',
                 'rejecter:id,name',
+                'verifier1:id,name',
+                'verifier2:id,name',
+                'finalReporter:id,name',
                 'details.aset.kategori:id,nama_kategori',
                 'details.aset.lokasiMaster:id,nama_lokasi',
                 'pengembalian.penerima:id,name',
             ])
             ->findOrFail($id);
 
-        // Scoping: requester hanya boleh lihat miliknya.
-        if (! $user->hasRole('admin') && ! $user->canApproveBmn() && $peminjaman->user_id !== $user->id) {
-            abort(403, 'Anda tidak berhak melihat transaksi ini.');
+        // Scoping: requester hanya boleh lihat miliknya (public hanya admin/approver/verifikator).
+        if (! $user->hasRole('admin') && ! $user->canApproveBmn() && ! $user->isBmnApprovalParticipant()) {
+            if ($peminjaman->isPublicSource() || (int) $peminjaman->user_id !== (int) $user->id) {
+                abort(403, 'Anda tidak berhak melihat transaksi ini.');
+            }
         }
 
-        $canApprove = $user->canApproveBmn();
-        $canMarkDipinjam = $user->canApproveBmn();
+        $canApproveLegacy = $user->canApproveBmn() && ! $peminjaman->usesMultiStageApproval();
+        $canMarkDipinjam = $user->canApproveBmn() || $user->isBmnVerifier1();
+
+        $canApproveStage1 = $user->isBmnVerifier1()
+            && $peminjaman->status === PeminjamanAsetBmn::STATUS_PENDING
+            && $peminjaman->approval_stage === PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1;
+
+        $canApproveStage2 = $user->isBmnVerifier2()
+            && $peminjaman->status === PeminjamanAsetBmn::STATUS_PENDING
+            && $peminjaman->approval_stage === PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_2;
+
+        $canFinalReport = $user->isBmnVerifier1()
+            && $peminjaman->status === PeminjamanAsetBmn::STATUS_PENDING
+            && $peminjaman->approval_stage === PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_REPORT;
+
+        $canRejectStage = (
+                ($user->isBmnVerifier1() && $peminjaman->approval_stage === PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1)
+                || ($user->isBmnVerifier2() && $peminjaman->approval_stage === PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_2)
+            )
+            && $peminjaman->status === PeminjamanAsetBmn::STATUS_PENDING;
 
         // Pengembalian boleh diproses oleh:
         //   - approver (admin + can_approve_bmn = 1), atau
@@ -237,8 +304,12 @@ class PeminjamanAsetController extends Controller
 
         return view('bmn.peminjaman.show', compact(
             'peminjaman',
-            'canApprove',
+            'canApproveLegacy',
             'canMarkDipinjam',
+            'canApproveStage1',
+            'canApproveStage2',
+            'canFinalReport',
+            'canRejectStage',
             'canCreatePengembalian',
             'userHistory'
         ));
@@ -251,6 +322,10 @@ class PeminjamanAsetController extends Controller
 
         if ($peminjaman->status !== PeminjamanAsetBmn::STATUS_PENDING) {
             return back()->with('error', 'Transaksi tidak lagi berstatus pending.');
+        }
+
+        if ($peminjaman->usesMultiStageApproval()) {
+            return back()->with('error', 'Peminjaman ini memakai workflow verifikator berurutan. Gunakan aksi tahap approval yang sesuai.');
         }
 
         $aksi = (string) $request->validated()['aksi'];
@@ -304,7 +379,7 @@ class PeminjamanAsetController extends Controller
     public function markDipinjam(Request $request, int $id): RedirectResponse
     {
         $user = $request->user();
-        abort_unless($user !== null && $user->canApproveBmn(), 403);
+        abort_unless($user !== null && ($user->canApproveBmn() || $user->isBmnVerifier1()), 403);
 
         try {
             DB::transaction(function () use ($id): void {

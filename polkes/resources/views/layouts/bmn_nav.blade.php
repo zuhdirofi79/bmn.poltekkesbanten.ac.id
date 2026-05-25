@@ -4,8 +4,9 @@
   $isPlp = $authUser && $authUser->hasRole('plp');
   $canRequestBmn = $authUser && method_exists($authUser, 'canRequestBmn') && $authUser->canRequestBmn();
   $canApproveBmn = $authUser && method_exists($authUser, 'canApproveBmn') && $authUser->canApproveBmn();
-  // Menu peminjaman/pengembalian terlihat oleh admin, requester (jurusan whitelist), atau approver officer.
-  $showPeminjamanMenu = $isAdmin || $canRequestBmn || $canApproveBmn;
+  $isBmnVerifier = $authUser && method_exists($authUser, 'isBmnApprovalParticipant') && $authUser->isBmnApprovalParticipant();
+  // Menu peminjaman/pengembalian terlihat oleh admin, requester (jurusan whitelist), approver officer, atau verifikator BMN.
+  $showPeminjamanMenu = $isAdmin || $canRequestBmn || $canApproveBmn || $isBmnVerifier;
   $seg1 = request()->segment(1);
   $seg2 = request()->segment(2);
 @endphp
@@ -40,9 +41,15 @@
   <a class="sidebar-link" href="{{ route('bmn.peminjaman-aset.index') }}" aria-expanded="false">
     <span><i class="ti ti-clipboard-check"></i></span>
     <span class="hide-menu">Peminjaman Aset BMN</span>
-    @if($canApproveBmn)
+    @if($canApproveBmn || $isBmnVerifier)
       @php
-        $pendingCount = \App\Models\BMN\PeminjamanAsetBmn::where('status', 'pending')->count();
+        $pendingCountQuery = \App\Models\BMN\PeminjamanAsetBmn::query()->where('status', 'pending');
+        if ($authUser && $authUser->isBmnVerifier1()) {
+          $pendingCountQuery->whereIn('approval_stage', ['verifikator_1', 'final_report']);
+        } elseif ($authUser && $authUser->isBmnVerifier2()) {
+          $pendingCountQuery->where('approval_stage', 'verifikator_2');
+        }
+        $pendingCount = $pendingCountQuery->count();
       @endphp
       @if($pendingCount > 0)
         <span class="badge bg-danger rounded-3 fw-semibold"><small>{{ $pendingCount }}</small></span>

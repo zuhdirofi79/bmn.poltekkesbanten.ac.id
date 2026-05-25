@@ -1,4 +1,4 @@
-@extends('layouts.thema')
+@extends($isGuest ?? false ? 'layouts.guest_bmn' : 'layouts.thema')
 
 @section('content')
 <div class="container-fluid">
@@ -6,10 +6,23 @@
     <h5 class="fw-semibold mb-0">
       <i class="ti ti-clipboard-plus"></i> Ajukan Peminjaman Aset BMN
     </h5>
-    <a href="{{ route('bmn.peminjaman-aset.index') }}" class="btn btn-outline-secondary btn-sm">
-      <i class="ti ti-arrow-left"></i> Kembali
-    </a>
+    @if($isGuest ?? false)
+      <a href="{{ url('login') }}" class="btn btn-outline-secondary btn-sm">
+        <i class="ti ti-arrow-left"></i> Login
+      </a>
+    @else
+      <a href="{{ route('bmn.peminjaman-aset.index') }}" class="btn btn-outline-secondary btn-sm">
+        <i class="ti ti-arrow-left"></i> Kembali
+      </a>
+    @endif
   </div>
+
+  @if($isGuest ?? false)
+    <div class="alert alert-warning small">
+      Pengajuan tanpa akun wajib verifikasi Email dan WhatsApp.
+      Pengajuan tetap menunggu persetujuan admin BMN.
+    </div>
+  @endif
 
   @if(session('error'))
     <div class="alert alert-danger">{{ session('error') }}</div>
@@ -36,6 +49,32 @@
 
   <form id="peminjamanForm" method="POST" action="{{ route('bmn.peminjaman-aset.store') }}" enctype="multipart/form-data">
     @csrf
+
+    @if($isGuest ?? false)
+    <div class="card mb-3">
+      <div class="card-body">
+        <h6 class="fw-semibold mb-3">Data Pengaju</h6>
+        <div class="row g-2">
+          <div class="col-md-4">
+            <label class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
+            <input type="text" name="public_nama" required maxlength="255"
+                   value="{{ old('public_nama') }}" class="form-control form-control-sm">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Nomor WhatsApp <span class="text-danger">*</span></label>
+            <input type="text" name="public_no_wa" required maxlength="30"
+                   value="{{ old('public_no_wa') }}" class="form-control form-control-sm"
+                   placeholder="08xxxxxxxxxx">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Email <span class="text-danger">*</span></label>
+            <input type="email" name="public_email" required maxlength="255"
+                   value="{{ old('public_email') }}" class="form-control form-control-sm">
+          </div>
+        </div>
+      </div>
+    </div>
+    @endif
 
     <div class="card mb-3">
       <div class="card-body">
@@ -243,7 +282,11 @@
               onclick="return confirm('Ajukan peminjaman aset terpilih?');">
         <i class="ti ti-send"></i> Ajukan Peminjaman
       </button>
-      <a href="{{ route('bmn.peminjaman-aset.index') }}" class="btn btn-outline-secondary">Batal</a>
+      @if($isGuest ?? false)
+        <a href="{{ url('login') }}" class="btn btn-outline-secondary">Batal</a>
+      @else
+        <a href="{{ route('bmn.peminjaman-aset.index') }}" class="btn btn-outline-secondary">Batal</a>
+      @endif
     </div>
   </form>
 </div>

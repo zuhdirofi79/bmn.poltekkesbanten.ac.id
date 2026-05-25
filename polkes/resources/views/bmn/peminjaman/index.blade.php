@@ -9,6 +9,15 @@
     'dipinjam'     => 'bg-primary',
     'dikembalikan' => 'bg-success',
   ];
+  $approvalTabs = [
+    '' => 'Semua',
+    'verifikator_1' => 'Menunggu Verifikator 1',
+    'verifikator_2' => 'Menunggu Verifikator 2',
+    'final_report' => 'Menunggu Final Report',
+    'completed' => 'Selesai Verifikasi',
+    'rejected' => 'Ditolak',
+  ];
+  $currentApprovalStage = $filters['approval_stage'] ?? '';
 @endphp
 
 @section('content')
@@ -34,6 +43,23 @@
       @if(session('error'))
         <div class="alert alert-danger">{{ session('error') }}</div>
       @endif
+
+      <ul class="nav nav-pills flex-wrap gap-1 mb-3">
+        @foreach($approvalTabs as $stageValue => $stageLabel)
+          @php
+            $tabQuery = array_filter(array_merge($filters, ['approval_stage' => $stageValue]));
+            if ($stageValue === '') {
+              unset($tabQuery['approval_stage']);
+            }
+          @endphp
+          <li class="nav-item">
+            <a class="nav-link btn-sm py-1 px-2 {{ $currentApprovalStage === $stageValue ? 'active' : '' }}"
+               href="{{ route('bmn.peminjaman-aset.index', $tabQuery) }}">
+              {{ $stageLabel }}
+            </a>
+          </li>
+        @endforeach
+      </ul>
 
       <form method="get" action="{{ route('bmn.peminjaman-aset.index') }}" class="card border mb-3">
         <div class="card-body py-3">
@@ -76,6 +102,9 @@
               <input type="date" name="tanggal_to" class="form-control form-control-sm"
                      value="{{ $filters['tanggal_to'] ?? '' }}">
             </div>
+            @if($currentApprovalStage !== '')
+              <input type="hidden" name="approval_stage" value="{{ $currentApprovalStage }}">
+            @endif
             <div class="col-md-12 d-flex flex-wrap gap-2">
               <button type="submit" class="btn btn-primary btn-sm">
                 <i class="ti ti-search"></i> Terapkan
@@ -102,46 +131,57 @@
               <th width="40">#</th>
               <th>Kode</th>
               <th>Peminjam</th>
-              <th>Jurusan</th>
               <th>Tujuan</th>
               <th>Tgl Pinjam</th>
-              <th>Rencana Kembali</th>
-              <th>Jml Aset</th>
               <th>Status</th>
-              <th>Approver</th>
-              <th width="80" class="text-center">Nota</th>
+              <th>Tahap Approval</th>
+              <th>Verifikator 1</th>
+              <th>Verifikator 2</th>
+              <th>Final Report</th>
               <th width="100">Aksi</th>
             </tr>
           </thead>
           <tbody>
             @forelse($list as $row)
+              @php $stageBadge = $row->approvalStageBadge(); @endphp
               <tr>
                 <td>{{ $list->firstItem() + $loop->index }}</td>
                 <td><code>{{ $row->kode_peminjaman }}</code></td>
-                <td>{{ optional($row->user)->name ?? '-' }}</td>
-                <td>{{ $row->jurusan ? ucfirst($row->jurusan) : '-' }}</td>
+                <td>{{ $row->contactName() }}</td>
                 <td>{{ \Illuminate\Support\Str::limit($row->tujuan_peminjaman, 60) }}</td>
                 <td>{{ optional($row->tanggal_pinjam)->format('Y-m-d') }}</td>
-                <td>{{ optional($row->rencana_kembali)->format('Y-m-d') }}</td>
-                <td class="text-center">{{ $row->details_count }}</td>
                 <td>
                   <span class="badge {{ $statusBadge[$row->status] ?? 'bg-secondary' }} rounded-pill">
                     {{ ucfirst($row->status) }}
                   </span>
                 </td>
-                <td>{{ optional($row->approver)->name ?? '—' }}</td>
-                <td class="text-center">
-                  @php $notaUrl = $row->notaDinasUrl(); @endphp
-                  @if($notaUrl)
-                    <a href="{{ $notaUrl }}"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="btn btn-sm btn-outline-primary"
-                       title="Lihat Nota Dinas">
-                      <i class="ti ti-file-text"></i>
-                    </a>
+                <td>
+                  <span class="badge {{ $stageBadge['badge'] }} rounded-pill">
+                    {{ $stageBadge['label'] }}
+                  </span>
+                </td>
+                <td class="small">
+                  @if($row->verifier_1_approved_at)
+                    {{ optional($row->verifier1)->name ?? 'Pak Hendri' }}
+                    <br><span class="text-muted">{{ $row->verifier_1_approved_at->format('Y-m-d H:i') }}</span>
                   @else
-                    <span class="text-muted">-</span>
+                    <span class="text-muted">—</span>
+                  @endif
+                </td>
+                <td class="small">
+                  @if($row->verifier_2_approved_at)
+                    {{ optional($row->verifier2)->name ?? 'Pak Singgih' }}
+                    <br><span class="text-muted">{{ $row->verifier_2_approved_at->format('Y-m-d H:i') }}</span>
+                  @else
+                    <span class="text-muted">—</span>
+                  @endif
+                </td>
+                <td class="small">
+                  @if($row->final_report_at)
+                    {{ optional($row->finalReporter)->name ?? 'Pak Hendri' }}
+                    <br><span class="text-muted">{{ $row->final_report_at->format('Y-m-d H:i') }}</span>
+                  @else
+                    <span class="text-muted">—</span>
                   @endif
                 </td>
                 <td>
@@ -152,7 +192,7 @@
               </tr>
             @empty
               <tr>
-                <td colspan="12" class="text-center text-muted">Belum ada transaksi peminjaman.</td>
+                <td colspan="11" class="text-center text-muted">Belum ada transaksi peminjaman.</td>
               </tr>
             @endforelse
           </tbody>

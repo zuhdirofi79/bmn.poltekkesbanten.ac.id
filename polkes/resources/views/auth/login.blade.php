@@ -17,7 +17,23 @@
       class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
       <div class="d-flex align-items-center justify-content-center w-100">
         <div class="row justify-content-center w-100">
-          <div class="col-md-8 col-lg-3 col-xxl-3">
+          <div class="col-md-8 col-lg-4 col-xxl-4">
+            <div class="card mb-3 border-primary">
+              <div class="card-body py-3">
+                <h5 class="fw-semibold mb-2">Mau Pinjam atau Kembalikan Aset BMN?</h5>
+                <p class="small text-muted mb-3">
+                  Mau Pinjam/Kembalikan Aset BMN tanpa login? Ajukan langsung — verifikasi Email &amp; WhatsApp wajib.
+                </p>
+                <div class="d-grid gap-2">
+                  <a href="{{ route('bmn.peminjaman-aset.create') }}" class="btn btn-outline-primary btn-sm">
+                    Ajukan Peminjaman Aset BMN
+                  </a>
+                  <a href="{{ route('bmn.pengembalian-aset.create-public') }}" class="btn btn-outline-warning btn-sm">
+                    Ajukan Pengembalian Aset BMN
+                  </a>
+                </div>
+              </div>
+            </div>
             <div class="card mb-0">
               <div class="card-body">
                 <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
