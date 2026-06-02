@@ -20,7 +20,17 @@ class StorePublicSewaRequest extends FormRequest
     {
         return [
             'nama_lengkap' => ['required', 'string', 'max:255'],
-            'nomor_wa' => ['required', 'string', 'max:30'],
+            // Nomor WhatsApp wajib. Format Indonesia (08/62/+62) — divalidasi
+            // setelah dinormalisasi ke "62xxxxxxxx" oleh prepareForValidation.
+            //
+            // WhatsApp OTP sementara dinonaktifkan; nomor hanya divalidasi
+            // formatnya untuk keperluan kontak admin.
+            'nomor_wa' => [
+                'required',
+                'string',
+                'max:30',
+                'regex:/^62[0-9]{8,14}$/',
+            ],
             'email' => ['required', 'email', 'max:255'],
             'tarif_id' => ['required', 'integer', 'exists:bmn_sewa_tarifs,id'],
             'tanggal_mulai_sewa' => ['required', 'date'],
@@ -29,6 +39,16 @@ class StorePublicSewaRequest extends FormRequest
             'catatan' => ['nullable', 'string', 'max:2000'],
             'surat_resmi' => ['required', 'file', 'mimes:pdf', 'max:5120'],
             'bukti_bayar' => ['required', 'file', 'mimes:jpg,jpeg,png,webp,pdf', 'max:5120'],
+        ];
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'nomor_wa.regex' => 'Nomor WhatsApp tidak valid. Gunakan format Indonesia: 08xxxxxxx, 62xxxxxxx, atau +62xxxxxxx.',
         ];
     }
 

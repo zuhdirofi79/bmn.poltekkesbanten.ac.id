@@ -96,7 +96,18 @@
                 @php $no = preg_replace('/\D+/', '', (string) $row->nomor_wa); if (str_starts_with($no, '0')) { $no = '62'.substr($no,1); } @endphp
                 <a href="https://wa.me/{{ $no }}" target="_blank" rel="noopener">{{ $row->nomor_wa }}</a>
               </td>
-              <td><a href="mailto:{{ $row->email }}">{{ $row->email }}</a></td>
+              <td>
+                <a href="mailto:{{ $row->email }}">{{ $row->email }}</a>
+                @if(method_exists($row, 'isEmailVerified') && $row->isEmailVerified())
+                  <span class="badge bg-success ms-1" title="Email sudah diverifikasi pemohon">
+                    <i class="ti ti-circle-check"></i>
+                  </span>
+                @else
+                  <span class="badge bg-warning text-dark ms-1" title="Email belum diverifikasi pemohon">
+                    <i class="ti ti-mail-question"></i>
+                  </span>
+                @endif
+              </td>
               <td>{{ $row->jenisPenyewaLabel() }}</td>
               <td>{{ optional($row->tarif)->nama_layanan ?? '-' }}</td>
               <td>{{ optional($row->tanggal_mulai_sewa)->format('d-m-Y') }}</td>

@@ -48,6 +48,15 @@ class BmnSewaPengajuan extends Model
 
     public const BUKTI_BAYAR_DIR = 'uploads/sewa/bukti-bayar';
 
+    /** Status verifikasi email publik (kolom verification_status). */
+    public const VERIFICATION_PENDING = 'pending';
+
+    public const VERIFICATION_VERIFIED = 'verified';
+
+    public const VERIFICATION_FAILED = 'failed';
+
+    public const VERIFICATION_NOT_REQUIRED = 'not_required';
+
     /**
      * @var list<string>
      */
@@ -80,6 +89,15 @@ class BmnSewaPengajuan extends Model
         'coordination_note',
         'public_token',
         'status',
+        // === Verifikasi email publik (WA OTP sementara dinonaktifkan) ===
+        'public_email_otp',
+        'public_wa_otp',
+        'public_otp_expires_at',
+        'public_otp_attempts',
+        'public_email_verified_at',
+        'public_wa_verified_at',
+        'public_verified_at',
+        'verification_status',
     ];
 
     protected $casts = [
@@ -90,6 +108,11 @@ class BmnSewaPengajuan extends Model
         'admin_payment_at' => 'datetime',
         'payment_forwarded_at' => 'datetime',
         'coordination_at' => 'datetime',
+        'public_otp_expires_at' => 'datetime',
+        'public_otp_attempts' => 'integer',
+        'public_email_verified_at' => 'datetime',
+        'public_wa_verified_at' => 'datetime',
+        'public_verified_at' => 'datetime',
     ];
 
     public function tarif(): BelongsTo
@@ -135,6 +158,33 @@ class BmnSewaPengajuan extends Model
     public function jenisPenyewaLabel(): string
     {
         return $this->jenis_penyewa === self::JENIS_PEGAWAI ? 'Pegawai' : 'Umum';
+    }
+
+    /**
+     * Apakah pengajuan sewa ini sudah lolos verifikasi email pemohon.
+     * Memakai kolom `public_email_verified_at` bila ada, dengan fallback
+     * ke `verification_status === 'verified'` (kompat data lama).
+     */
+    public function isEmailVerified(): bool
+    {
+        if ($this->public_email_verified_at !== null) {
+            return true;
+        }
+
+        return (string) ($this->verification_status ?? '') === self::VERIFICATION_VERIFIED;
+    }
+
+    public function verificationStatusLabel(): string
+    {
+        $status = (string) ($this->verification_status ?? self::VERIFICATION_PENDING);
+
+        return match ($status) {
+            self::VERIFICATION_PENDING => 'Menunggu Verifikasi Email',
+            self::VERIFICATION_VERIFIED => 'Email Terverifikasi',
+            self::VERIFICATION_FAILED => 'Verifikasi Gagal',
+            self::VERIFICATION_NOT_REQUIRED => 'Tidak Perlu Verifikasi',
+            default => 'Menunggu Verifikasi Email',
+        };
     }
 
     /**

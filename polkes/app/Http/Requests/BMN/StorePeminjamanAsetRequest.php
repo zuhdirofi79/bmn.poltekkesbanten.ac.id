@@ -58,7 +58,10 @@ class StorePeminjamanAsetRequest extends FormRequest
 
         if ($this->isGuestSubmission()) {
             $rules['public_nama'] = ['required', 'string', 'max:255'];
-            $rules['public_no_wa'] = ['required', 'string', 'max:30'];
+            // Nomor WhatsApp wajib (format Indonesia 08/62/+62), divalidasi
+            // setelah normalisasi ke "62...". WA OTP sementara dinonaktifkan,
+            // jadi cukup validasi format saja.
+            $rules['public_no_wa'] = ['required', 'string', 'max:30', 'regex:/^62[0-9]{8,14}$/'];
             $rules['public_email'] = ['required', 'email', 'max:255'];
         }
 
@@ -85,6 +88,7 @@ class StorePeminjamanAsetRequest extends FormRequest
             'nota_dinas.file' => 'Nota dinas harus berupa file.',
             'nota_dinas.mimes' => 'Nota dinas harus berformat PDF, DOC, DOCX, JPG, JPEG, atau PNG.',
             'nota_dinas.max' => 'Ukuran nota dinas maksimal 20 MB.',
+            'public_no_wa.regex' => 'Nomor WhatsApp tidak valid. Gunakan format Indonesia: 08xxxxxxx, 62xxxxxxx, atau +62xxxxxxx.',
         ];
     }
 

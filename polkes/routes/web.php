@@ -108,13 +108,13 @@ Route::prefix('bmn')->name('bmn.')->middleware('throttle:60,1')->group(function 
         ->name('pengembalian-aset.store');
 
     Route::get('public-verification/{type}/{id}/{token}', 'BMN\BmnPublicVerificationController@show')
-        ->where('type', 'peminjaman|pengembalian')
+        ->where('type', 'peminjaman|pengembalian|sewa')
         ->where('id', '[0-9]+')
         ->where('token', '[A-Za-z0-9]{64}')
         ->name('public-verification.show');
     Route::post('public-verification/{type}/{id}/{token}', 'BMN\BmnPublicVerificationController@verify')
         ->middleware('throttle:10,1')
-        ->where('type', 'peminjaman|pengembalian')
+        ->where('type', 'peminjaman|pengembalian|sewa')
         ->where('id', '[0-9]+')
         ->where('token', '[A-Za-z0-9]{64}')
         ->name('public-verification.verify');

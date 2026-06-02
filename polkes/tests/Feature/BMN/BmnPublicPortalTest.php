@@ -195,8 +195,12 @@ class BmnPublicPortalTest extends TestCase
         $response->assertSee('200.000', false);
     }
 
-    public function test_sewa_submit_shows_success_with_indah_contact(): void
+    public function test_sewa_submit_redirects_to_email_verification(): void
     {
+        // WhatsApp OTP dinonaktifkan; email verification WAJIB. Setelah submit,
+        // user harus diarahkan ke halaman verifikasi email (bukan langsung
+        // success). Halaman success di-cover di test berikutnya setelah email
+        // diverifikasi.
         $tarif = BmnSewaTarif::create([
             'kategori' => 'Test',
             'nama_layanan' => 'Sewa Test',
@@ -221,12 +225,57 @@ class BmnPublicPortalTest extends TestCase
 
         $pengajuan = BmnSewaPengajuan::query()->first();
         $this->assertNotNull($pengajuan);
+        $this->assertSame('6281234567890', $pengajuan->nomor_wa);
+        // Token verifikasi harus terisi oleh BmnPublicVerificationService.
+        $this->assertNotNull($pengajuan->public_token);
+        $this->assertSame(64, strlen((string) $pengajuan->public_token));
+        $this->assertSame(BmnSewaPengajuan::VERIFICATION_PENDING, $pengajuan->verification_status);
+
+        // Halaman verifikasi publik harus accessible & menampilkan instruksi email.
+        $this->get(route('bmn.public-verification.show', [
+            'type' => 'sewa',
+            'id' => $pengajuan->id,
+            'token' => $pengajuan->public_token,
+        ]))->assertOk()
+            ->assertSee('Email wajib diverifikasi', false)
+            ->assertSee('Verifikasi WhatsApp sementara dinonaktifkan', false);
+    }
+
+    public function test_sewa_success_visible_after_email_verified(): void
+    {
+        // Setelah verifikasi email berhasil, halaman success sewa masih dapat
+        // diakses dan menampilkan kontak admin koordinasi (Bu Retno).
+        $tarif = BmnSewaTarif::create([
+            'kategori' => 'Test',
+            'nama_layanan' => 'Sewa Test',
+            'satuan' => 'per hari',
+            'tarif_umum' => 100000,
+            'tarif_pegawai' => 50000,
+            'is_active' => 1,
+            'sort_order' => 1,
+        ]);
+
+        $pengajuan = BmnSewaPengajuan::create([
+            'kode_sewa' => 'SW-BMN-TEST-001',
+            'jenis_penyewa' => BmnSewaPengajuan::JENIS_UMUM,
+            'nama_lengkap' => 'Penyewa Umum',
+            'nomor_wa' => '6281234567890',
+            'email' => 'sewa@example.test',
+            'tarif_id' => $tarif->id,
+            'tanggal_mulai_sewa' => now()->toDateString(),
+            'tanggal_rencana_kembali' => now()->addDays(2)->toDateString(),
+            'tujuan_peminjaman' => 'Acara',
+            'payment_status' => BmnSewaPengajuan::PAYMENT_PENDING,
+            'status' => BmnSewaPengajuan::STATUS_PAYMENT_REVIEW,
+            'public_email_verified_at' => now(),
+            'public_verified_at' => now(),
+            'verification_status' => BmnSewaPengajuan::VERIFICATION_VERIFIED,
+        ]);
 
         $this->get(route('public.sewa.success', $pengajuan->id))
             ->assertOk()
             ->assertSee('813-1511-9830', false)
-            ->assertSee($pengajuan->kode_sewa, false)
-            ->assertSee('Menunggu konfirmasi pembayaran BLU', false);
+            ->assertSee($pengajuan->kode_sewa, false);
     }
 
     public function test_user_helpers_rumah_tangga_and_final_approver(): void

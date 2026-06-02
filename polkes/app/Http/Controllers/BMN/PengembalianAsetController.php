@@ -162,7 +162,7 @@ class PengembalianAsetController extends Controller
                     'id' => $pengembalian->id,
                     'token' => $token,
                 ])
-                ->with('success', 'Pengajuan pengembalian tersimpan. Verifikasi Email dan WhatsApp untuk melanjutkan.');
+                ->with('success', 'Pengajuan pengembalian tersimpan. Mohon verifikasi email Anda untuk melanjutkan.');
         }
 
         return redirect()

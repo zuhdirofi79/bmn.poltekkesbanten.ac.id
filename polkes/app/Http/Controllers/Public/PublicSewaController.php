@@ -8,17 +8,24 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BMN\StorePublicSewaRequest;
 use App\Models\BMN\BmnSewaPengajuan;
 use App\Models\BMN\BmnSewaTarif;
+use App\Services\BMN\BmnPublicVerificationService;
 use App\Services\BMN\BmnWaNumberNormalizer;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class PublicSewaController extends Controller
 {
+    public function __construct(
+        private readonly BmnPublicVerificationService $publicVerificationService
+    ) {
+    }
+
     public function index(): View
     {
         return view('public.sewa.index');
@@ -111,20 +118,27 @@ class PublicSewaController extends Controller
                     'status' => BmnSewaPengajuan::STATUS_PAYMENT_REVIEW,
                 ];
 
-                if (\Illuminate\Support\Facades\Schema::hasColumn('bmn_sewa_pengajuan', 'jumlah_hari_sewa')) {
+                if (Schema::hasColumn('bmn_sewa_pengajuan', 'jumlah_hari_sewa')) {
                     $attrs['jumlah_hari_sewa'] = $jumlahHari;
                 }
-                if (\Illuminate\Support\Facades\Schema::hasColumn('bmn_sewa_pengajuan', 'total_biaya')) {
+                if (Schema::hasColumn('bmn_sewa_pengajuan', 'total_biaya')) {
                     $attrs['total_biaya'] = $totalBiaya;
                 }
-                if (\Illuminate\Support\Facades\Schema::hasColumn('bmn_sewa_pengajuan', 'surat_resmi_original_name')) {
+                if (Schema::hasColumn('bmn_sewa_pengajuan', 'surat_resmi_original_name')) {
                     $attrs['surat_resmi_original_name'] = $suratOriginal;
                 }
-                if (\Illuminate\Support\Facades\Schema::hasColumn('bmn_sewa_pengajuan', 'bukti_bayar_original_name')) {
+                if (Schema::hasColumn('bmn_sewa_pengajuan', 'bukti_bayar_original_name')) {
                     $attrs['bukti_bayar_original_name'] = $buktiOriginal;
                 }
-                if (\Illuminate\Support\Facades\Schema::hasColumn('bmn_sewa_pengajuan', 'public_token')) {
+                if (Schema::hasColumn('bmn_sewa_pengajuan', 'public_token')) {
+                    // public_token akan di-overwrite oleh
+                    // BmnPublicVerificationService::initializePublicVerification
+                    // setelah record dibuat. Set placeholder agar kolom NOT NULL
+                    // (jika ada constraint) tetap valid.
                     $attrs['public_token'] = BmnSewaPengajuan::generatePublicToken();
+                }
+                if (Schema::hasColumn('bmn_sewa_pengajuan', 'verification_status')) {
+                    $attrs['verification_status'] = BmnSewaPengajuan::VERIFICATION_PENDING;
                 }
 
                 return BmnSewaPengajuan::create($attrs);
@@ -134,6 +148,25 @@ class PublicSewaController extends Controller
             $this->cleanupUpload($buktiPath);
 
             return back()->withInput()->with('error', 'Gagal menyimpan pengajuan sewa: '.$e->getMessage());
+        }
+
+        // === Email verification (WAJIB) ===
+        // WhatsApp OTP sementara dinonaktifkan karena integrasi WhatsApp
+        // Business API belum aktif/berbayar. Nomor WA tetap disimpan untuk
+        // kontak petugas, namun pemohon hanya wajib memverifikasi email.
+        //
+        // Jika tabel sewa belum memiliki kolom OTP (migration belum jalan),
+        // fallback ke success page langsung agar deploy tidak hard-error.
+        if (Schema::hasColumn('bmn_sewa_pengajuan', 'public_email_otp')) {
+            $token = $this->publicVerificationService->initializePublicVerification($pengajuan);
+
+            return redirect()
+                ->route('bmn.public-verification.show', [
+                    'type' => 'sewa',
+                    'id' => $pengajuan->id,
+                    'token' => $token,
+                ])
+                ->with('success', 'Pengajuan sewa tersimpan. Mohon verifikasi email Anda untuk melanjutkan.');
         }
 
         return redirect()

@@ -21,6 +21,16 @@
       </div>
     @endif
 
+    <div class="alert alert-info small mb-3">
+      <i class="ti ti-info-circle"></i>
+      <strong>Email wajib diverifikasi</strong> untuk memastikan pengajuan berasal dari pemohon yang valid.
+      Setelah submit, Anda akan menerima kode OTP via email.
+      <br>
+      <i class="ti ti-brand-whatsapp"></i>
+      Nomor WhatsApp wajib diisi untuk memudahkan petugas menghubungi Anda.
+      <em>Verifikasi WhatsApp sementara dinonaktifkan.</em>
+    </div>
+
     <form method="post" action="{{ route('public.peminjaman-internal.pinjam.store') }}" enctype="multipart/form-data">
       @csrf
       <div class="card border mb-3">
@@ -34,10 +44,12 @@
             <div class="col-md-4">
               <label class="form-label">Nomor WhatsApp Aktif <span class="text-danger">*</span></label>
               <input type="text" name="public_no_wa" class="form-control" required maxlength="30" value="{{ old('public_no_wa') }}" placeholder="08xxxxxxxxxx">
+              <small class="text-muted">Format Indonesia: 08xxxxxxx / 62xxxxxxx / +62xxxxxxx.</small>
             </div>
             <div class="col-md-4">
               <label class="form-label">Email <span class="text-danger">*</span></label>
               <input type="email" name="public_email" class="form-control" required maxlength="255" value="{{ old('public_email') }}">
+              <small class="text-muted">Email wajib diverifikasi setelah submit (OTP 6 digit).</small>
             </div>
           </div>
         </div>

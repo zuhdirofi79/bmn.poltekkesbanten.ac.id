@@ -52,7 +52,9 @@ class StorePengembalianAsetRequest extends FormRequest
             return [
                 'kode_peminjaman' => ['required', 'string', 'max:32'],
                 'public_nama' => ['required', 'string', 'max:255'],
-                'public_no_wa' => ['required', 'string', 'max:30'],
+                // WA OTP sementara dinonaktifkan — nomor tetap wajib & divalidasi
+                // formatnya saja (Indonesia: 08/62/+62, dinormalisasi ke "62...").
+                'public_no_wa' => ['required', 'string', 'max:30', 'regex:/^62[0-9]{8,14}$/'],
                 'public_email' => ['required', 'email', 'max:255'],
                 'tanggal_kembali' => ['required', 'date'],
                 'catatan_pengembalian' => ['nullable', 'string', 'max:2000'],
@@ -78,6 +80,7 @@ class StorePengembalianAsetRequest extends FormRequest
             'bukti_foto.image' => 'Bukti foto harus berupa gambar.',
             'bukti_foto.mimes' => 'Bukti foto harus JPG, JPEG, PNG, atau WEBP.',
             'bukti_foto.max' => 'Ukuran bukti foto maksimal 4 MB.',
+            'public_no_wa.regex' => 'Nomor WhatsApp tidak valid. Gunakan format Indonesia: 08xxxxxxx, 62xxxxxxx, atau +62xxxxxxx.',
         ];
     }
 

@@ -93,7 +93,7 @@ class PublicPeminjamanInternalController extends Controller
                 'id' => $peminjaman->id,
                 'token' => $token,
             ])
-            ->with('success', 'Pengajuan tersimpan. Verifikasi Email dan WhatsApp untuk melanjutkan.');
+            ->with('success', 'Pengajuan tersimpan. Mohon verifikasi email Anda untuk melanjutkan.');
     }
 
     public function createKembali(Request $request): View

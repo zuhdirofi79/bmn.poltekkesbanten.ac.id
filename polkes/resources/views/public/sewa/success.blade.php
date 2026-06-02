@@ -31,6 +31,18 @@
 
     <div class="alert alert-light border text-start mx-auto" style="max-width: 560px;">
       <p class="mb-2"><strong>Kode pengajuan:</strong> <code>{{ $pengajuan->kode_sewa }}</code></p>
+      @if(method_exists($pengajuan, 'isEmailVerified') && $pengajuan->isEmailVerified())
+        <p class="mb-2 text-success">
+          <i class="ti ti-mail-check"></i>
+          Email <strong>{{ $pengajuan->email }}</strong> sudah terverifikasi.
+        </p>
+      @else
+        <p class="mb-2 text-warning">
+          <i class="ti ti-alert-triangle"></i>
+          Email <strong>{{ $pengajuan->email }}</strong> menunggu verifikasi —
+          cek inbox Anda untuk kode OTP. Verifikasi WhatsApp sementara dinonaktifkan.
+        </p>
+      @endif
       <p class="mb-2">Pengajuan sewa berhasil dikirim. Silakan tunggu konfirmasi berikutnya.</p>
       <hr>
       <p class="mb-1"><strong>Admin Koordinasi Sewa:</strong></p>

@@ -26,8 +26,9 @@
 
   @if($isGuest ?? false)
     <div class="alert alert-warning small">
-      Pengajuan tanpa akun wajib verifikasi Email dan WhatsApp.
-      Pengajuan tetap menunggu persetujuan admin BMN.
+      <strong>Email wajib diverifikasi</strong> untuk memastikan pengajuan berasal dari pemohon yang valid.
+      Nomor WhatsApp wajib diisi untuk memudahkan petugas menghubungi Anda;
+      <em>verifikasi WhatsApp sementara dinonaktifkan</em>. Pengajuan tetap menunggu persetujuan admin BMN.
     </div>
   @endif
 

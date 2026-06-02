@@ -165,7 +165,7 @@
                   @elseif($row->admin_status === \App\Models\BMN\PengembalianAsetBmn::ADMIN_STATUS_APPROVED)
                     <span class="badge bg-success">Approved</span>
                   @elseif($row->isPublicSource() && ($row->verification_status ?? '') !== 'verified')
-                    <span class="badge bg-warning text-dark">Menunggu OTP</span>
+                    <span class="badge bg-warning text-dark" title="Pengaju belum menyelesaikan verifikasi email">Menunggu Verifikasi Email</span>
                   @else
                     <span class="text-muted">—</span>
                   @endif

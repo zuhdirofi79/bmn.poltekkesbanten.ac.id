@@ -227,7 +227,7 @@ class PeminjamanAsetController extends Controller
                     'id' => $peminjaman->id,
                     'token' => $token,
                 ])
-                ->with('success', 'Pengajuan tersimpan. Verifikasi Email dan WhatsApp untuk melanjutkan.');
+                ->with('success', 'Pengajuan tersimpan. Mohon verifikasi email Anda untuk melanjutkan.');
         }
 
         return redirect()

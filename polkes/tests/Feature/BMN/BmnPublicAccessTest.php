@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace Tests\Feature\BMN;
 
 use App\Models\BMN\AsetBmn;
+use App\Models\BMN\BmnSewaPengajuan;
+use App\Models\BMN\BmnSewaTarif;
 use App\Models\BMN\PeminjamanAsetBmn;
 use App\Models\BMN\PeminjamanAsetBmnDetail;
 use App\Models\BMN\PengembalianAsetBmn;
 use App\Services\BMN\BmnWaNumberNormalizer;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -85,11 +88,11 @@ class BmnPublicAccessTest extends TestCase
         ]));
     }
 
-    public function test_otp_verification_marks_public_peminjaman_verified(): void
+    public function test_email_only_otp_verification_marks_public_peminjaman_verified(): void
     {
+        // WhatsApp OTP sementara dinonaktifkan — verifikasi cukup pakai email.
         $aset = $this->makeAset();
         $plainEmailOtp = '123456';
-        $plainWaOtp = '654321';
 
         $peminjaman = PeminjamanAsetBmn::create([
             'kode_peminjaman' => 'PJM-BMN-TEST-001',
@@ -104,7 +107,7 @@ class BmnPublicAccessTest extends TestCase
             'public_email' => 'anon@example.test',
             'public_token' => str_repeat('a', 64),
             'public_email_otp' => Hash::make($plainEmailOtp),
-            'public_wa_otp' => Hash::make($plainWaOtp),
+            'public_wa_otp' => null,
             'public_otp_expires_at' => now()->addMinutes(10),
             'verification_status' => PeminjamanAsetBmn::VERIFICATION_PENDING,
         ]);
@@ -118,19 +121,99 @@ class BmnPublicAccessTest extends TestCase
             'status_item' => 'dipinjam',
         ]);
 
+        // Sengaja TIDAK mengirim `wa_otp` — endpoint harus tetap sukses karena
+        // WA OTP dinonaktifkan dan input `wa_otp` bersifat nullable.
         $response = $this->post(route('bmn.public-verification.verify', [
             'type' => 'peminjaman',
             'id' => $peminjaman->id,
             'token' => $peminjaman->public_token,
         ]), [
             'email_otp' => $plainEmailOtp,
-            'wa_otp' => $plainWaOtp,
         ]);
 
         $response->assertRedirect();
         $peminjaman->refresh();
         $this->assertSame(PeminjamanAsetBmn::VERIFICATION_VERIFIED, $peminjaman->verification_status);
         $this->assertNotNull($peminjaman->public_verified_at);
+        $this->assertNotNull($peminjaman->public_email_verified_at);
+    }
+
+    public function test_invalid_wa_format_is_rejected(): void
+    {
+        $aset = $this->makeAset();
+
+        // Nomor WA mengandung huruf — harus ditolak oleh format validator.
+        $response = $this->post(route('bmn.peminjaman-aset.store'), [
+            'public_nama' => 'Budi',
+            'public_no_wa' => 'abcde12345',
+            'public_email' => 'budi@example.test',
+            'tujuan_peminjaman' => 'Tes',
+            'tanggal_pinjam' => now()->toDateString(),
+            'rencana_kembali' => now()->addDay()->toDateString(),
+            'aset_ids' => [$aset->id],
+        ]);
+
+        $response->assertSessionHasErrors('public_no_wa');
+        $this->assertSame(0, PeminjamanAsetBmn::query()->count());
+    }
+
+    public function test_sewa_email_verification_full_flow(): void
+    {
+        // 1. Submit sewa → redirect ke halaman verifikasi email (bukan success).
+        // 2. Verifikasi email → record di-mark verified, dialihkan ke success page.
+        // 3. WhatsApp OTP tidak diminta sama sekali (dinonaktifkan).
+        $tarif = BmnSewaTarif::create([
+            'kategori' => 'Test',
+            'nama_layanan' => 'Sewa Email Verif',
+            'satuan' => 'per hari',
+            'tarif_umum' => 100000,
+            'tarif_pegawai' => 50000,
+            'is_active' => 1,
+            'sort_order' => 1,
+        ]);
+
+        $this->post(route('public.sewa.umum.store'), [
+            'nama_lengkap' => 'Penyewa Tes',
+            'nomor_wa' => '081234567890',
+            'email' => 'sewa-verif@example.test',
+            'tarif_id' => $tarif->id,
+            'tanggal_mulai_sewa' => now()->toDateString(),
+            'tanggal_rencana_kembali' => now()->addDay()->toDateString(),
+            'tujuan_peminjaman' => 'Acara',
+            'surat_resmi' => UploadedFile::fake()->create('surat.pdf', 100, 'application/pdf'),
+            'bukti_bayar' => UploadedFile::fake()->image('bukti.jpg'),
+        ])->assertRedirect();
+
+        /** @var BmnSewaPengajuan $pengajuan */
+        $pengajuan = BmnSewaPengajuan::query()->firstOrFail();
+
+        $this->assertSame(BmnSewaPengajuan::VERIFICATION_PENDING, $pengajuan->verification_status);
+        $this->assertNotNull($pengajuan->public_email_otp);
+        $this->assertNull($pengajuan->public_wa_otp, 'WA OTP harus null saat WA OTP dinonaktifkan.');
+
+        // Tidak ada cara membaca plain OTP dari record (hash). Untuk test, set
+        // ulang dengan hash known supaya bisa di-verify lewat endpoint.
+        $plainOtp = '987654';
+        $pengajuan->forceFill([
+            'public_email_otp' => Hash::make($plainOtp),
+            'public_otp_expires_at' => now()->addMinutes(10),
+        ])->save();
+
+        $response = $this->post(route('bmn.public-verification.verify', [
+            'type' => 'sewa',
+            'id' => $pengajuan->id,
+            'token' => $pengajuan->public_token,
+        ]), [
+            'email_otp' => $plainOtp,
+        ]);
+
+        // Sukses → redirect ke halaman success sewa.
+        $response->assertRedirect(route('public.sewa.success', $pengajuan->id));
+
+        $pengajuan->refresh();
+        $this->assertSame(BmnSewaPengajuan::VERIFICATION_VERIFIED, $pengajuan->verification_status);
+        $this->assertNotNull($pengajuan->public_email_verified_at);
+        $this->assertTrue($pengajuan->isEmailVerified());
     }
 
     public function test_wrong_verification_token_returns_404(): void
