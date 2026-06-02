@@ -1,4 +1,11 @@
-@extends($isGuest ?? false ? 'layouts.guest_bmn' : 'layouts.thema')
+@extends($isGuest ?? false ? 'layouts.guest_bmn' : 'layouts.bmn_admin')
+
+@if(!($isGuest ?? false))
+@section('page_title', 'Ajukan Peminjaman')
+@section('breadcrumbs')
+  <a href="{{ route('bmn.dashboard.index') }}">Dashboard</a> / <a href="{{ route('bmn.peminjaman-aset.index') }}">Peminjaman BMN</a> / Ajukan
+@endsection
+@endif
 
 @section('content')
 <div class="container-fluid">
@@ -111,11 +118,22 @@
 
     <div class="card mb-3">
       <div class="card-body">
+        @php
+          $hasKategoriFilter = ! empty($filters['kategori_id']);
+          $hasSearchFilter = ! empty($filters['q']);
+          if ($hasKategoriFilter && $hasSearchFilter) {
+              $resultLabel = $asetList->total().' aset cocok pencarian dalam kategori ini';
+          } elseif ($hasKategoriFilter) {
+              $resultLabel = $asetList->total().' aset dalam kategori terpilih';
+          } else {
+              $resultLabel = $asetList->total().' aset cocok filter';
+          }
+        @endphp
         <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
           <h6 class="fw-semibold mb-0">2. Pilih Aset <span class="text-danger">*</span></h6>
           <div class="small text-muted">
             <span id="selectedCount">0</span> aset dipilih
-            &middot; <strong>{{ $asetList->total() }}</strong> aset cocok filter
+            &middot; <strong>{{ $resultLabel }}</strong>
           </div>
         </div>
 
@@ -126,17 +144,13 @@
           klik Filter HANYA reload halaman create dengan query string —
           tidak ikut submit form pengajuan.
         --}}
-        <div class="row g-2 mb-3">
-          <div class="col-md-4">
-            <input type="text" name="q"
-                   form="filterAsetForm"
-                   class="form-control form-control-sm"
-                   value="{{ $filters['q'] ?? '' }}"
-                   placeholder="Cari: kode_barang, nama, NUP, lokasi, satker, merk, pengguna">
-          </div>
-          <div class="col-md-2">
-            <select name="kategori_id" form="filterAsetForm" class="form-control form-control-sm">
-              <option value="">— Kategori —</option>
+        <div class="row g-2 mb-2 align-items-end">
+          <div class="col-12 col-md-3">
+            <label class="form-label fw-semibold mb-1">Kategori Aset BMN</label>
+            <select name="kategori_id"
+                    form="filterAsetForm"
+                    class="form-select form-select-sm border-primary">
+              <option value="">-- Pilih Kategori Aset Terlebih Dahulu --</option>
               @foreach($kategoriList as $kat)
                 <option value="{{ $kat->id }}" {{ (string)($filters['kategori_id'] ?? '') === (string)$kat->id ? 'selected' : '' }}>
                   {{ $kat->nama_kategori }}
@@ -144,9 +158,18 @@
               @endforeach
             </select>
           </div>
-          <div class="col-md-2">
-            <select name="kondisi" form="filterAsetForm" class="form-control form-control-sm">
-              <option value="">— Kondisi —</option>
+          <div class="col-12 col-md-4">
+            <label class="form-label mb-1">Pencarian</label>
+            <input type="text" name="q"
+                   form="filterAsetForm"
+                   class="form-control form-control-sm"
+                   value="{{ $filters['q'] ?? '' }}"
+                   placeholder="Cari aset dalam kategori terpilih...">
+          </div>
+          <div class="col-6 col-md-2">
+            <label class="form-label mb-1">Kondisi</label>
+            <select name="kondisi" form="filterAsetForm" class="form-select form-select-sm">
+              <option value="">-- Kondisi --</option>
               @foreach(['baik','rusak_ringan','rusak_berat'] as $k)
                 <option value="{{ $k }}" {{ ($filters['kondisi'] ?? '') === $k ? 'selected' : '' }}>
                   {{ ucfirst(str_replace('_',' ',$k)) }}
@@ -154,9 +177,10 @@
               @endforeach
             </select>
           </div>
-          <div class="col-md-2">
-            <select name="satker_id" form="filterAsetForm" class="form-control form-control-sm">
-              <option value="">— Satker —</option>
+          <div class="col-6 col-md-2">
+            <label class="form-label mb-1">Satker</label>
+            <select name="satker_id" form="filterAsetForm" class="form-select form-select-sm">
+              <option value="">-- Satker --</option>
               @foreach($satkers as $s)
                 <option value="{{ $s->id }}" {{ (string)($filters['satker_id'] ?? '') === (string)$s->id ? 'selected' : '' }}>
                   {{ $s->nama }}
@@ -164,17 +188,24 @@
               @endforeach
             </select>
           </div>
-          <div class="col-md-2 d-flex gap-1">
-            <button type="submit" form="filterAsetForm" class="btn btn-outline-primary btn-sm">
-              <i class="ti ti-search"></i> Filter
+          <div class="col-12 col-md-1 d-flex gap-1">
+            <button type="submit" form="filterAsetForm" class="btn btn-primary btn-sm flex-grow-1">
+              Filter
             </button>
             <a href="{{ route('bmn.peminjaman-aset.create') }}"
-               class="btn btn-outline-secondary btn-sm"
+               class="btn btn-outline-secondary btn-sm flex-grow-1"
                title="Reset filter">
-              <i class="ti ti-refresh"></i>
+              Reset
             </a>
           </div>
         </div>
+
+        @if(! $hasKategoriFilter)
+          <div class="alert alert-warning py-2 small mb-2">
+            <i class="ti ti-info-circle"></i>
+            Disarankan memilih kategori terlebih dahulu agar hasil lebih tepat.
+          </div>
+        @endif
 
         <div class="alert alert-info py-2 small mb-2">
           <i class="ti ti-info-circle"></i>
@@ -242,7 +273,13 @@
                 </tr>
               @empty
                 <tr>
-                  <td colspan="11" class="text-center text-muted">Tidak ada aset tersedia untuk dipinjam.</td>
+                  <td colspan="11" class="text-center text-muted py-3">
+                    @if($hasKategoriFilter)
+                      Tidak ada aset aktif pada kategori/filter ini.
+                    @else
+                      Tampilkan semua aset aktif. Pilih kategori agar pencarian lebih tepat.
+                    @endif
+                  </td>
                 </tr>
               @endforelse
             </tbody>

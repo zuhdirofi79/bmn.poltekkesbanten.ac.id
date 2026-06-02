@@ -1,4 +1,4 @@
-@extends('layouts.thema')
+@extends('layouts.bmn_admin')
 
 @php
   $advancedFilterKeys = [
@@ -15,6 +15,11 @@
     }
   }
 @endphp
+
+@section('page_title', 'Daftar Aset')
+@section('breadcrumbs')
+  <a href="{{ route('bmn.dashboard.index') }}">Dashboard</a> / Daftar Aset / Data Aset BMN
+@endsection
 
 @section('content')
 <div class="container-fluid">

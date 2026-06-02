@@ -7,8 +7,81 @@ use Illuminate\Support\Facades\DB;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return redirect(url('login'));
+Route::get('/', 'Public\PublicLandingController@index')->name('public.landing');
+
+// ===== BMN PUBLIC PORTAL (tanpa login) =====
+Route::prefix('public')->name('public.')->middleware('throttle:60,1')->group(function (): void {
+    Route::get('peminjaman-internal', 'Public\PublicPeminjamanInternalController@index')
+        ->name('peminjaman-internal.index');
+    Route::get('peminjaman-internal/pinjam', 'Public\PublicPeminjamanInternalController@createPinjam')
+        ->name('peminjaman-internal.pinjam');
+    Route::post('peminjaman-internal/pinjam', 'Public\PublicPeminjamanInternalController@storePinjam')
+        ->middleware('throttle:10,1')
+        ->name('peminjaman-internal.pinjam.store');
+    Route::get('peminjaman-internal/kembali', 'Public\PublicPeminjamanInternalController@createKembali')
+        ->name('peminjaman-internal.kembali');
+    Route::post('peminjaman-internal/kembali', 'Public\PublicPeminjamanInternalController@storeKembali')
+        ->middleware('throttle:10,1')
+        ->name('peminjaman-internal.kembali.store');
+
+    Route::get('sewa', 'Public\PublicSewaController@index')->name('sewa.index');
+    Route::get('sewa/status', 'Public\PublicSewaController@statusForm')->name('sewa.status');
+    Route::post('sewa/status', 'Public\PublicSewaController@statusLookup')
+        ->middleware('throttle:20,1')
+        ->name('sewa.status.submit');
+    Route::get('sewa/umum', 'Public\PublicSewaController@createUmum')->name('sewa.umum');
+    Route::post('sewa/umum', 'Public\PublicSewaController@storeUmum')
+        ->middleware('throttle:10,1')
+        ->name('sewa.umum.store');
+    Route::get('sewa/pegawai', 'Public\PublicSewaController@createPegawai')->name('sewa.pegawai');
+    Route::post('sewa/pegawai', 'Public\PublicSewaController@storePegawai')
+        ->middleware('throttle:10,1')
+        ->name('sewa.pegawai.store');
+    Route::get('sewa/success/{id}', 'Public\PublicSewaController@success')
+        ->where('id', '[0-9]+')
+        ->name('sewa.success');
+
+    Route::get('pemeliharaan', 'Public\PublicPemeliharaanController@index')->name('pemeliharaan.index');
+});
+
+// ===== ADMIN SEWA BMN (login terpisah dari admin BMN utama) =====
+// Hanya 3 user real (Bu Indah / Bu Retno / Pak Singgih) yang lolos middleware 'sewa.admin'.
+Route::prefix('sewa-admin')->name('sewa-admin.')->group(function (): void {
+    // Auth (guest accessible)
+    Route::get('login', 'SewaAdmin\SewaAdminAuthController@showLoginForm')->name('login.show');
+    Route::post('login', 'SewaAdmin\SewaAdminAuthController@login')
+        ->middleware('throttle:10,1')
+        ->name('login.attempt');
+    Route::post('logout', 'SewaAdmin\SewaAdminAuthController@logout')->name('logout');
+
+    // Protected area
+    Route::middleware(['auth', 'sewa.admin'])->group(function (): void {
+        Route::get('dashboard', 'SewaAdmin\SewaAdminDashboardController@index')->name('dashboard');
+
+        Route::prefix('sewa')->name('sewa.')->group(function (): void {
+            Route::get('/', 'SewaAdmin\SewaAdminSewaController@index')->name('index');
+            Route::get('{id}', 'SewaAdmin\SewaAdminSewaController@show')
+                ->where('id', '[0-9]+')->name('show');
+            Route::post('{id}/forward-to-verifier', 'SewaAdmin\SewaAdminSewaController@forwardToVerifier')
+                ->where('id', '[0-9]+')->name('forward-to-verifier');
+            Route::post('{id}/confirm-payment', 'SewaAdmin\SewaAdminSewaController@confirmPayment')
+                ->where('id', '[0-9]+')->name('confirm-payment');
+            Route::post('{id}/reject-payment', 'SewaAdmin\SewaAdminSewaController@rejectPayment')
+                ->where('id', '[0-9]+')->name('reject-payment');
+            Route::post('{id}/mark-sent-to-team', 'SewaAdmin\SewaAdminSewaController@markSentToTeam')
+                ->where('id', '[0-9]+')->name('mark-sent-to-team');
+            Route::post('{id}/mark-coordination-done', 'SewaAdmin\SewaAdminSewaController@markCoordinationDone')
+                ->where('id', '[0-9]+')->name('mark-coordination-done');
+        });
+
+        Route::prefix('pelaporan-bulanan')->name('pelaporan.')->group(function (): void {
+            Route::get('/', 'SewaAdmin\SewaAdminPelaporanController@index')->name('index');
+            Route::get('export-excel', 'SewaAdmin\SewaAdminPelaporanController@exportExcel')->name('export-excel');
+            Route::get('export-csv', 'SewaAdmin\SewaAdminPelaporanController@exportCsv')->name('export-csv');
+        });
+
+        Route::get('komplain-asrama', 'SewaAdmin\SewaAdminKomplainController@index')->name('komplain.index');
+    });
 });
 
 Auth::routes();
@@ -49,6 +122,7 @@ Route::prefix('bmn')->name('bmn.')->middleware('throttle:60,1')->group(function 
 
 Route::group(['prefix' => 'bmn', 'middleware' => ['auth']], function () {
     Route::name('bmn.')->group(function () {
+        Route::get('/', 'BMN\BmnDashboardController@index')->name('dashboard.index');
         Route::get('aset/template', 'BMN\AsetController@downloadTemplate')->name('aset.template');
         // PENTING: route export HARUS sebelum Route::resource('aset', ...)
         // agar segmen "export" tidak ditangkap sebagai parameter {aset}.
@@ -66,6 +140,10 @@ Route::group(['prefix' => 'bmn', 'middleware' => ['auth']], function () {
         // ===== PEMINJAMAN ASET BMN (auth) =====
         Route::prefix('peminjaman-aset')->name('peminjaman-aset.')->group(function () {
             Route::get('/', 'BMN\PeminjamanAsetController@index')->name('index');
+            Route::get('{id}/screening', 'BMN\BmnPeminjamanScreeningController@show')
+                ->where('id', '[0-9]+')->name('screening');
+            Route::post('{id}/screening', 'BMN\BmnPeminjamanScreeningController@store')
+                ->where('id', '[0-9]+')->name('screening.store');
             Route::get('{id}', 'BMN\PeminjamanAsetController@show')
                 ->where('id', '[0-9]+')->name('show');
             Route::post('{id}/approve', 'BMN\PeminjamanAsetController@approve')
@@ -78,6 +156,10 @@ Route::group(['prefix' => 'bmn', 'middleware' => ['auth']], function () {
                 ->where('peminjaman', '[0-9]+')->name('final-report');
             Route::post('{peminjaman}/reject-stage', 'BMN\BmnPeminjamanApprovalController@rejectStage')
                 ->where('peminjaman', '[0-9]+')->name('reject-stage');
+            Route::post('{peminjaman}/approve-final-hendri', 'BMN\BmnPeminjamanApprovalController@approveFinalHendri')
+                ->where('peminjaman', '[0-9]+')->name('approve-final-hendri');
+            Route::post('{peminjaman}/reject-final-hendri', 'BMN\BmnPeminjamanApprovalController@rejectFinalHendri')
+                ->where('peminjaman', '[0-9]+')->name('reject-final-hendri');
             Route::post('{id}/mark-dipinjam', 'BMN\PeminjamanAsetController@markDipinjam')
                 ->where('id', '[0-9]+')->name('mark-dipinjam');
         });
@@ -92,6 +174,20 @@ Route::group(['prefix' => 'bmn', 'middleware' => ['auth']], function () {
             Route::post('{id}/reject', 'BMN\PengembalianAsetController@reject')
                 ->where('id', '[0-9]+')->name('reject');
         });
+
+        Route::prefix('sewa')->name('sewa.')->group(function (): void {
+            Route::get('/', 'BMN\BmnSewaController@index')->name('index');
+            Route::get('{id}', 'BMN\BmnSewaController@show')->where('id', '[0-9]+')->name('show');
+            Route::post('{id}/confirm-payment', 'BMN\BmnSewaController@confirmPayment')
+                ->where('id', '[0-9]+')->name('confirm-payment');
+            Route::post('{id}/reject-payment', 'BMN\BmnSewaController@rejectPayment')
+                ->where('id', '[0-9]+')->name('reject-payment');
+            Route::post('{id}/mark-coordinated', 'BMN\BmnSewaController@markCoordinated')
+                ->where('id', '[0-9]+')->name('mark-coordinated');
+        });
+
+        Route::get('pemeliharaan-aset', 'BMN\BmnPemeliharaanController@index')->name('pemeliharaan-aset.index');
+        Route::get('penghapusan-aset', 'BMN\BmnPenghapusanController@index')->name('penghapusan-aset.index');
     });
 });
 

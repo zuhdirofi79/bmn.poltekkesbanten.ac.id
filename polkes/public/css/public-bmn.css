@@ -1,0 +1,258 @@
+/**
+ * Portal publik BMN — landing page & halaman layanan publik.
+ * Gaya visual selaras dengan dashboard admin BMN (referensi desain).
+ */
+
+:root {
+  --pub-bg: #f5f7fb;
+  --pub-text: #0f172a;
+  --pub-muted: #64748b;
+  --pub-border: #e5e7eb;
+  --pub-blue: #2563eb;
+  --pub-green: #16a34a;
+  --pub-yellow: #d97706;
+  --pub-navy: #0f2a4a;
+}
+
+/* ===== BASE ===== */
+body.public-bmn-body {
+  margin: 0;
+  background: var(--pub-bg);
+  color: var(--pub-text);
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.public-bmn-body .container {
+  width: 100%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* ===== LANDING PAGE ===== */
+.public-bmn-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 48px 0 24px;
+}
+
+.public-hero {
+  margin-bottom: 8px;
+}
+
+.public-hero-card {
+  background: #ffffff;
+  border: 1px solid var(--pub-border);
+  border-radius: 24px;
+  padding: 36px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+}
+
+.public-logo {
+  width: 120px;
+  max-width: 120px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.public-kicker {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--pub-blue);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.public-hero-card h1 {
+  font-size: clamp(1.35rem, 2.5vw, 2.1rem);
+  line-height: 1.25;
+  font-weight: 800;
+  margin: 0;
+  color: var(--pub-text);
+}
+
+.public-hero-card h2 {
+  font-size: clamp(1.05rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: #334155;
+  margin: 8px 0 12px;
+}
+
+.public-subtitle {
+  margin: 0;
+  color: var(--pub-muted);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.public-services {
+  padding: 32px 0 16px;
+  flex: 1;
+}
+
+.public-services-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--pub-muted);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Service cards — NOT full-width bars */
+a.service-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 230px;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid var(--pub-border);
+  border-radius: 22px;
+  text-decoration: none !important;
+  color: var(--pub-text) !important;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+a.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.1);
+  color: var(--pub-text) !important;
+}
+
+.service-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 26px;
+  margin-bottom: 22px;
+  flex-shrink: 0;
+}
+
+.service-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 10px;
+  color: var(--pub-text);
+}
+
+.service-card p {
+  font-size: 15px;
+  color: var(--pub-muted);
+  margin: 0 0 auto;
+  padding-bottom: 20px;
+  line-height: 1.45;
+  flex: 1;
+}
+
+.service-card .service-link {
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: auto;
+}
+
+.service-blue .service-icon { background: var(--pub-blue); }
+.service-blue .service-link { color: var(--pub-blue); }
+
+.service-green .service-icon { background: var(--pub-green); }
+.service-green .service-link { color: var(--pub-green); }
+
+.service-yellow .service-icon { background: var(--pub-yellow); }
+.service-yellow .service-link { color: var(--pub-yellow); }
+
+.service-navy .service-icon { background: var(--pub-navy); }
+.service-navy .service-link { color: var(--pub-navy); }
+
+.public-footer {
+  padding: 20px 0 32px;
+  text-align: center;
+  color: var(--pub-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  border-top: 1px solid var(--pub-border);
+  margin-top: auto;
+  background: #fff;
+}
+
+.public-footer a {
+  color: var(--pub-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.public-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===== SUB-PAGES (forms, menu) ===== */
+.public-subpage {
+  min-height: 100vh;
+  padding: 32px 0 24px;
+}
+
+.public-page-card {
+  background: #ffffff;
+  border: 1px solid var(--pub-border);
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.05);
+  overflow: hidden;
+}
+
+.public-page-card-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--pub-border);
+}
+
+.public-page-card-header h2 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.public-page-card-header .subtitle {
+  font-size: 0.85rem;
+  color: var(--pub-muted);
+  margin-top: 0.25rem;
+}
+
+.public-page-card-body {
+  padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .public-bmn-page {
+    padding: 24px 0 16px;
+  }
+
+  .public-hero-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 26px;
+    gap: 20px;
+  }
+
+  .public-logo {
+    width: 96px;
+    max-width: 96px;
+  }
+
+  a.service-card {
+    min-height: 200px;
+    padding: 22px;
+  }
+}

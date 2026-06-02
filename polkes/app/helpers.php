@@ -98,3 +98,18 @@ if (! function_exists('bmn_nota_dinas_url')) {
         return $path === '' ? $base : $base.'/'.$path;
     }
 }
+
+if (! function_exists('bmn_public_upload_path')) {
+    function bmn_public_upload_path(string $subdir, string $path = ''): string
+    {
+        $base = rtrim((string) public_path($subdir), '/\\');
+        $path = (string) $path;
+        if ($path === '' || $path === '/') {
+            return $base;
+        }
+
+        $path = str_replace('\\', '/', ltrim($path, "/\\"));
+
+        return $base.'/'.$path;
+    }
+}

@@ -1,4 +1,4 @@
-@extends('layouts.thema')
+@extends('layouts.bmn_admin')
 
 @php
   $statusBadge = [
@@ -20,17 +20,18 @@
   $stageFinal = $peminjaman->timelineFinalReport();
 @endphp
 
+@section('page_title', 'Detail Peminjaman')
+@section('breadcrumbs')
+  <a href="{{ route('bmn.dashboard.index') }}">Dashboard</a> / <a href="{{ route('bmn.peminjaman-aset.index') }}">Peminjaman BMN</a> / {{ $peminjaman->kode_peminjaman }}
+@endsection
+
 @section('content')
+<div class="d-flex justify-content-end mb-3">
+  <a href="{{ route('bmn.peminjaman-aset.index') }}" class="btn btn-outline-secondary btn-sm">
+    <i class="ti ti-arrow-left"></i> Kembali
+  </a>
+</div>
 <div class="container-fluid">
-  <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
-    <h5 class="fw-semibold mb-0">
-      <i class="ti ti-clipboard-check"></i> Detail Peminjaman
-      <code class="ms-2 small">{{ $peminjaman->kode_peminjaman }}</code>
-    </h5>
-    <a href="{{ route('bmn.peminjaman-aset.index') }}" class="btn btn-outline-secondary btn-sm">
-      <i class="ti ti-arrow-left"></i> Kembali
-    </a>
-  </div>
 
   @if(session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
@@ -59,16 +60,61 @@
               </span>
             </div>
 
-            <div class="col-md-4 text-muted">Peminjam</div>
+            <div class="col-md-4 text-muted">Nama Peminjam</div>
             <div class="col-md-8">
-              {{ optional($peminjaman->user)->name ?? $peminjaman->contactName() }}
+              {{ $peminjaman->nama_peminjam }}
               <span class="text-muted">
                 ({{ optional($peminjaman->user)->jurusan ? ucfirst(optional($peminjaman->user)->jurusan) : ($peminjaman->jurusan ? ucfirst($peminjaman->jurusan) : '-') }})
               </span>
             </div>
 
+            <div class="col-md-4 text-muted">No WhatsApp</div>
+            <div class="col-md-8">
+              @if($peminjaman->wa_peminjam_link)
+                <a href="{{ $peminjaman->wa_peminjam_link }}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-sm btn-success">
+                  <i class="ti ti-brand-whatsapp"></i> Hubungi WhatsApp
+                </a>
+                <span class="text-muted ms-2 small">{{ $peminjaman->wa_peminjam }}</span>
+              @else
+                -
+              @endif
+            </div>
+
+            <div class="col-md-4 text-muted">Email</div>
+            <div class="col-md-8">
+              @if($peminjaman->email_peminjam !== '-')
+                <a href="mailto:{{ $peminjaman->email_peminjam }}"
+                   class="btn btn-sm btn-outline-primary">
+                  <i class="ti ti-mail"></i> Kirim Email
+                </a>
+                <span class="text-muted ms-2 small">{{ $peminjaman->email_peminjam }}</span>
+              @else
+                -
+              @endif
+            </div>
+
             <div class="col-md-4 text-muted">Tujuan</div>
             <div class="col-md-8">{{ $peminjaman->tujuan_peminjaman }}</div>
+
+            @if($peminjaman->requested_barang)
+              <div class="col-md-4 text-muted">Barang Diajukan</div>
+              <div class="col-md-8">{{ $peminjaman->requested_barang }}</div>
+            @endif
+
+            @if($peminjaman->screened_at)
+              <div class="col-md-4 text-muted">Screening Rumah Tangga</div>
+              <div class="col-md-8">
+                {{ optional($peminjaman->screener)->name ?? '-' }}
+                · {{ $peminjaman->screened_at->format('Y-m-d H:i') }}
+                · {{ ucfirst(str_replace('_', ' ', (string) $peminjaman->screening_status)) }}
+                @if($peminjaman->screening_note)
+                  <div class="text-muted mt-1">{{ $peminjaman->screening_note }}</div>
+                @endif
+              </div>
+            @endif
 
             <div class="col-md-4 text-muted">Tanggal Pinjam</div>
             <div class="col-md-8">{{ optional($peminjaman->tanggal_pinjam)->format('Y-m-d') }}</div>
@@ -275,6 +321,37 @@
             </form>
           @endif
 
+          @if($canScreen)
+            <a href="{{ route('bmn.peminjaman-aset.screening', $peminjaman->id) }}" class="btn btn-warning w-100 btn-sm mb-2">
+              <i class="ti ti-search"></i> Screening / Cocokkan Aset
+            </a>
+          @endif
+
+          @if($canApproveFinalHendri)
+            <form method="post" action="{{ route('bmn.peminjaman-aset.approve-final-hendri', $peminjaman->id) }}"
+                  class="mb-2" onsubmit="return confirm('Setujui peminjaman (Pak Hendri)?');">
+              @csrf
+              <div class="mb-2">
+                <label class="form-label small mb-1">Catatan (opsional)</label>
+                <textarea name="note" class="form-control form-control-sm" rows="2" maxlength="1000"></textarea>
+              </div>
+              <button type="submit" class="btn btn-success w-100 btn-sm">
+                <i class="ti ti-check"></i> Approve Final (Pak Hendri)
+              </button>
+            </form>
+          @endif
+
+          @if($canRejectFinalHendri)
+            <form method="post" action="{{ route('bmn.peminjaman-aset.reject-final-hendri', $peminjaman->id) }}"
+                  onsubmit="return confirmRejectFinalHendri(this);">
+              @csrf
+              <input type="hidden" name="rejected_reason" id="rejectedReasonFinalHendri">
+              <button type="submit" class="btn btn-danger w-100 btn-sm mb-2">
+                <i class="ti ti-x"></i> Tolak Final (Pak Hendri)
+              </button>
+            </form>
+          @endif
+
           @if($peminjaman->status === 'pending' && $canApproveLegacy)
             <form method="post" action="{{ route('bmn.peminjaman-aset.approve', $peminjaman->id) }}"
                   class="mb-2" onsubmit="return confirm('Setujui peminjaman ini?');">
@@ -311,7 +388,7 @@
             </a>
           @endif
 
-          @if($peminjaman->status === 'pending' && !$canApproveStage1 && !$canApproveStage2 && !$canFinalReport && !$canRejectStage && !$canApproveLegacy)
+          @if($peminjaman->status === 'pending' && !$canApproveStage1 && !$canApproveStage2 && !$canFinalReport && !$canRejectStage && !$canApproveLegacy && !$canScreen && !$canApproveFinalHendri)
             <p class="text-muted small mb-0">
               <i class="ti ti-info-circle"></i> Menunggu persetujuan verifikator BMN.
             </p>
@@ -439,6 +516,17 @@
     }
     form.querySelector('#rejectedReasonStage').value = reason;
     return window.confirm('Tolak peminjaman pada tahap ini?');
+  }
+  function confirmRejectFinalHendri(form) {
+    var reason = window.prompt('Alasan penolakan final (wajib):', '');
+    if (reason === null) return false;
+    reason = (reason || '').trim();
+    if (reason === '') {
+      window.alert('Alasan penolakan wajib diisi.');
+      return false;
+    }
+    form.querySelector('#rejectedReasonFinalHendri').value = reason;
+    return window.confirm('Tolak peminjaman pada tahap final?');
   }
 </script>
 @endsection

@@ -55,7 +55,7 @@ class PeminjamanAsetController extends Controller
 
         $query = PeminjamanAsetBmn::query()
             ->with([
-                'user:id,name,jurusan',
+                'user:id,name,jurusan,email,no_hp',
                 'approver:id,name',
                 'verifier1:id,name',
                 'verifier2:id,name',
@@ -65,8 +65,8 @@ class PeminjamanAsetController extends Controller
             ->filter($filters)
             ->orderByDesc('id');
 
-        // Scoping akses: non-admin/non-approver/non-verifikator hanya lihat miliknya.
-        if (! $user->hasRole('admin') && ! $user->canApproveBmn() && ! $user->isBmnApprovalParticipant()) {
+        // Scoping akses: non-admin/non-approver/non-verifikator/non-rumah-tangga hanya lihat miliknya.
+        if (! $user->hasRole('admin') && ! $user->canApproveBmn() && ! $user->isBmnApprovalParticipant() && ! $user->isRumahTanggaBmn()) {
             $query->where('user_id', $user->id);
         }
 
@@ -111,7 +111,8 @@ class PeminjamanAsetController extends Controller
             ->where('status', 'aktif')
             ->whereNotIn('id', $occupiedAsetIds)
             ->filter($filters)
-            ->orderBy('nama_barang');
+            ->orderBy('kode_barang')
+            ->orderBy('nup');
 
         $asetList = $asetQuery->paginate(20)->appends($request->query());
 
@@ -242,20 +243,21 @@ class PeminjamanAsetController extends Controller
         /** @var PeminjamanAsetBmn $peminjaman */
         $peminjaman = PeminjamanAsetBmn::query()
             ->with([
-                'user:id,name,jurusan,email',
+                'user:id,name,jurusan,email,no_hp',
                 'approver:id,name',
                 'rejecter:id,name',
                 'verifier1:id,name',
                 'verifier2:id,name',
                 'finalReporter:id,name',
+                'screener:id,name',
                 'details.aset.kategori:id,nama_kategori',
                 'details.aset.lokasiMaster:id,nama_lokasi',
                 'pengembalian.penerima:id,name',
             ])
             ->findOrFail($id);
 
-        // Scoping: requester hanya boleh lihat miliknya (public hanya admin/approver/verifikator).
-        if (! $user->hasRole('admin') && ! $user->canApproveBmn() && ! $user->isBmnApprovalParticipant()) {
+        // Scoping: requester hanya boleh lihat miliknya (public hanya admin/approver/verifikator/rumah tangga).
+        if (! $user->hasRole('admin') && ! $user->canApproveBmn() && ! $user->isBmnApprovalParticipant() && ! $user->isRumahTanggaBmn()) {
             if ($peminjaman->isPublicSource() || (int) $peminjaman->user_id !== (int) $user->id) {
                 abort(403, 'Anda tidak berhak melihat transaksi ini.');
             }
@@ -281,6 +283,14 @@ class PeminjamanAsetController extends Controller
                 || ($user->isBmnVerifier2() && $peminjaman->approval_stage === PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_2)
             )
             && $peminjaman->status === PeminjamanAsetBmn::STATUS_PENDING;
+
+        $canScreen = $user->isRumahTanggaBmn() && $peminjaman->isAwaitingScreening();
+
+        $canApproveFinalHendri = $user->isFinalBmnApprover()
+            && $peminjaman->status === PeminjamanAsetBmn::STATUS_PENDING
+            && $peminjaman->approval_stage === PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_HENDRI;
+
+        $canRejectFinalHendri = $canApproveFinalHendri;
 
         // Pengembalian boleh diproses oleh:
         //   - approver (admin + can_approve_bmn = 1), atau
@@ -310,6 +320,9 @@ class PeminjamanAsetController extends Controller
             'canApproveStage2',
             'canFinalReport',
             'canRejectStage',
+            'canScreen',
+            'canApproveFinalHendri',
+            'canRejectFinalHendri',
             'canCreatePengembalian',
             'userHistory'
         ));

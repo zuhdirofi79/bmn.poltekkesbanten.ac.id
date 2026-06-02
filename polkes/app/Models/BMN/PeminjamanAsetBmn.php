@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models\BMN;
 
+use App\Services\BMN\BmnWaNumberNormalizer;
 use App\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -49,6 +50,15 @@ class PeminjamanAsetBmn extends Model
     public const APPROVAL_STAGE_FINAL_REPORT = 'final_report';
     public const APPROVAL_STAGE_COMPLETED = 'completed';
     public const APPROVAL_STAGE_REJECTED = 'rejected';
+    public const APPROVAL_STAGE_SCREENING_RUMAH_TANGGA = 'screening_rumah_tangga';
+    public const APPROVAL_STAGE_FINAL_HENDRI = 'final_hendri';
+
+    public const SCREENING_PENDING = 'pending';
+    public const SCREENING_TERSEDIA = 'tersedia';
+    public const SCREENING_TIDAK_TERSEDIA = 'tidak_tersedia';
+    public const SCREENING_PERLU_KONFIRMASI = 'perlu_konfirmasi';
+
+    public const KONDISI_FOTO_DIR = 'uploads/peminjaman/kondisi';
 
     public const SOURCE_LOGIN = 'login';
 
@@ -79,6 +89,7 @@ class PeminjamanAsetBmn extends Model
         'user_id',
         'jurusan',
         'tujuan_peminjaman',
+        'requested_barang',
         'tanggal_pinjam',
         'rencana_kembali',
         'status',
@@ -114,6 +125,12 @@ class PeminjamanAsetBmn extends Model
         'final_report_note',
         'rejected_stage',
         'rejected_reason',
+        'screened_by',
+        'screened_at',
+        'screening_status',
+        'screening_note',
+        'kondisi_foto_path',
+        'kondisi_foto_original_name',
     ];
 
     protected $casts = [
@@ -128,6 +145,7 @@ class PeminjamanAsetBmn extends Model
         'verifier_1_approved_at' => 'datetime',
         'verifier_2_approved_at' => 'datetime',
         'final_report_at' => 'datetime',
+        'screened_at' => 'datetime',
     ];
 
     public function user(): BelongsTo
@@ -160,6 +178,11 @@ class PeminjamanAsetBmn extends Model
         return $this->belongsTo(User::class, 'final_report_by');
     }
 
+    public function screener(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'screened_by');
+    }
+
     public function details(): HasMany
     {
         return $this->hasMany(PeminjamanAsetBmnDetail::class, 'peminjaman_aset_bmn_id');
@@ -188,31 +211,53 @@ class PeminjamanAsetBmn extends Model
         return ($this->source ?? self::SOURCE_LOGIN) === self::SOURCE_PUBLIC;
     }
 
-    public function contactName(): string
+    public function getNamaPeminjamAttribute(): string
     {
-        if ($this->isPublicSource()) {
-            return (string) ($this->public_nama ?? '-');
+        return $this->isPublicSource()
+            ? ($this->public_nama ?: '-')
+            : (optional($this->user)->name ?: '-');
+    }
+
+    public function getEmailPeminjamAttribute(): string
+    {
+        return $this->isPublicSource()
+            ? ($this->public_email ?: '-')
+            : (optional($this->user)->email ?: '-');
+    }
+
+    public function getWaPeminjamAttribute(): string
+    {
+        return $this->isPublicSource()
+            ? ($this->public_no_wa ?: '-')
+            : (optional($this->user)->no_hp ?: '-');
+    }
+
+    public function getWaPeminjamLinkAttribute(): ?string
+    {
+        $wa = $this->wa_peminjam;
+
+        if (! $wa || $wa === '-') {
+            return null;
         }
 
-        return (string) optional($this->user)->name ?: '-';
+        $normalized = BmnWaNumberNormalizer::normalize($wa);
+
+        return $normalized !== '' ? 'https://wa.me/'.$normalized : null;
+    }
+
+    public function contactName(): string
+    {
+        return $this->nama_peminjam;
     }
 
     public function contactEmail(): string
     {
-        if ($this->isPublicSource()) {
-            return (string) ($this->public_email ?? '-');
-        }
-
-        return (string) optional($this->user)->email ?: '-';
+        return $this->email_peminjam;
     }
 
     public function contactWa(): string
     {
-        if ($this->isPublicSource()) {
-            return (string) ($this->public_no_wa ?? '-');
-        }
-
-        return '-';
+        return $this->wa_peminjam;
     }
 
     public function verificationStatusLabel(): string
@@ -243,6 +288,8 @@ class PeminjamanAsetBmn extends Model
             self::APPROVAL_STAGE_VERIFIKATOR_1 => ['badge' => 'bg-warning text-dark', 'label' => 'Menunggu Pak Hendri'],
             self::APPROVAL_STAGE_VERIFIKATOR_2 => ['badge' => 'bg-info text-dark', 'label' => 'Menunggu Pak Singgih'],
             self::APPROVAL_STAGE_FINAL_REPORT => ['badge' => 'bg-primary', 'label' => 'Final Report Pak Hendri'],
+            self::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA => ['badge' => 'bg-warning text-dark', 'label' => 'Screening Rumah Tangga'],
+            self::APPROVAL_STAGE_FINAL_HENDRI => ['badge' => 'bg-primary', 'label' => 'Menunggu Persetujuan Pak Hendri'],
             self::APPROVAL_STAGE_COMPLETED => ['badge' => 'bg-success', 'label' => 'Verifikasi Selesai'],
             self::APPROVAL_STAGE_REJECTED => ['badge' => 'bg-danger', 'label' => 'Ditolak'],
             default => ['badge' => 'bg-secondary', 'label' => ucfirst(str_replace('_', ' ', $stage))],
@@ -255,7 +302,33 @@ class PeminjamanAsetBmn extends Model
             self::APPROVAL_STAGE_VERIFIKATOR_1,
             self::APPROVAL_STAGE_VERIFIKATOR_2,
             self::APPROVAL_STAGE_FINAL_REPORT,
+            self::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA,
+            self::APPROVAL_STAGE_FINAL_HENDRI,
         ], true);
+    }
+
+    public function usesScreeningFlow(): bool
+    {
+        return in_array((string) ($this->approval_stage ?? ''), [
+            self::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA,
+            self::APPROVAL_STAGE_FINAL_HENDRI,
+        ], true) || ($this->requested_barang !== null && trim((string) $this->requested_barang) !== '');
+    }
+
+    public function isAwaitingScreening(): bool
+    {
+        return $this->status === self::STATUS_PENDING
+            && $this->approval_stage === self::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA;
+    }
+
+    public function kondisiFotoUrl(): ?string
+    {
+        $path = trim((string) ($this->kondisi_foto_path ?? ''));
+        if ($path === '') {
+            return null;
+        }
+
+        return asset(ltrim($path, '/'));
     }
 
     /**
@@ -441,7 +514,16 @@ class PeminjamanAsetBmn extends Model
             $term = '%'.((string) $filters['q']).'%';
             $query->where(function (Builder $q) use ($term): void {
                 $q->where('kode_peminjaman', 'like', $term)
-                    ->orWhere('tujuan_peminjaman', 'like', $term);
+                    ->orWhere('tujuan_peminjaman', 'like', $term)
+                    ->orWhere('public_nama', 'like', $term)
+                    ->orWhere('public_email', 'like', $term)
+                    ->orWhere('public_no_wa', 'like', $term)
+                    ->orWhere('requested_barang', 'like', $term)
+                    ->orWhereHas('user', function (Builder $userQuery) use ($term): void {
+                        $userQuery->where('name', 'like', $term)
+                            ->orWhere('email', 'like', $term)
+                            ->orWhere('no_hp', 'like', $term);
+                    });
             });
         }
 

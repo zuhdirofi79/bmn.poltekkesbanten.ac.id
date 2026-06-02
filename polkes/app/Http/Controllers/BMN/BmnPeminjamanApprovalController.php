@@ -113,6 +113,76 @@ class BmnPeminjamanApprovalController extends Controller
         );
     }
 
+    public function approveFinalHendri(BmnPeminjamanApprovalNoteRequest $request, PeminjamanAsetBmn $peminjaman): RedirectResponse
+    {
+        $user = $request->user();
+        abort_unless($user !== null && $user->isFinalBmnApprover(), 403);
+
+        $this->assertPendingAtStage($peminjaman, PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_HENDRI);
+
+        $note = trim((string) ($request->validated()['note'] ?? ''));
+
+        try {
+            DB::transaction(function () use ($peminjaman, $user, $note): void {
+                /** @var PeminjamanAsetBmn $locked */
+                $locked = PeminjamanAsetBmn::query()->lockForUpdate()->findOrFail($peminjaman->id);
+                $this->assertPendingAtStage($locked, PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_HENDRI);
+
+                $now = Carbon::now();
+
+                $locked->update([
+                    'final_report_by' => User::BMN_VERIFIER_1_ID,
+                    'final_report_at' => $now,
+                    'final_report_note' => $note !== '' ? $note : null,
+                    'approval_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_COMPLETED,
+                    'status' => PeminjamanAsetBmn::STATUS_APPROVED,
+                    'approved_by' => $user->id,
+                    'approved_at' => $now,
+                ]);
+            });
+        } catch (\Throwable $e) {
+            return back()->with('error', 'Gagal menyetujui peminjaman: '.$e->getMessage());
+        }
+
+        return back()->with(
+            'success',
+            'Peminjaman '.$peminjaman->kode_peminjaman.' disetujui Pak Hendri. Silakan tandai sebagai dipinjam saat aset diserahkan.'
+        );
+    }
+
+    public function rejectFinalHendri(BmnPeminjamanRejectStageRequest $request, PeminjamanAsetBmn $peminjaman): RedirectResponse
+    {
+        $user = $request->user();
+        abort_unless($user !== null && $user->isFinalBmnApprover(), 403);
+
+        if ($peminjaman->status !== PeminjamanAsetBmn::STATUS_PENDING
+            || $peminjaman->approval_stage !== PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_HENDRI) {
+            return back()->with('error', 'Transaksi tidak dapat ditolak pada tahap ini.');
+        }
+
+        $reason = trim((string) $request->validated()['rejected_reason']);
+
+        try {
+            DB::transaction(function () use ($peminjaman, $user, $reason): void {
+                /** @var PeminjamanAsetBmn $locked */
+                $locked = PeminjamanAsetBmn::query()->lockForUpdate()->findOrFail($peminjaman->id);
+
+                $locked->update([
+                    'approval_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_REJECTED,
+                    'status' => PeminjamanAsetBmn::STATUS_REJECTED,
+                    'rejected_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_HENDRI,
+                    'rejected_reason' => $reason,
+                    'rejected_by' => $user->id,
+                    'rejected_at' => Carbon::now(),
+                ]);
+            });
+        } catch (\Throwable $e) {
+            return back()->with('error', 'Gagal menolak peminjaman: '.$e->getMessage());
+        }
+
+        return back()->with('success', 'Peminjaman '.$peminjaman->kode_peminjaman.' ditolak.');
+    }
+
     public function rejectStage(BmnPeminjamanRejectStageRequest $request, PeminjamanAsetBmn $peminjaman): RedirectResponse
     {
         $user = $request->user();

@@ -1,4 +1,4 @@
-@extends('layouts.thema')
+@extends('layouts.bmn_admin')
 
 @section('content')
 <div class="container-fluid">

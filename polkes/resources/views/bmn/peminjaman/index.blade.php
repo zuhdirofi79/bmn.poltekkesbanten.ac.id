@@ -1,4 +1,4 @@
-@extends('layouts.thema')
+@extends('layouts.bmn_admin')
 
 @php
   /** @var \Illuminate\Contracts\Pagination\LengthAwarePaginator $list */
@@ -18,24 +18,45 @@
     'rejected' => 'Ditolak',
   ];
   $currentApprovalStage = $filters['approval_stage'] ?? '';
+  $statPending = \App\Models\BMN\PeminjamanAsetBmn::query()->where('status', 'pending')->count();
+  $statDipinjam = \App\Models\BMN\PeminjamanAsetBmn::query()->where('status', 'dipinjam')->count();
+  $statScreening = \App\Models\BMN\PeminjamanAsetBmn::query()->where('approval_stage', 'screening_rumah_tangga')->count();
 @endphp
 
+@section('page_title', 'Peminjaman BMN')
+@section('breadcrumbs')
+  <a href="{{ route('bmn.dashboard.index') }}">Dashboard</a> / Peminjaman BMN / Data Peminjaman
+@endsection
+
 @section('content')
-<div class="container-fluid">
-  <div class="card">
-    <div class="card-body">
-      <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
-        <h5 class="card-title fw-semibold mb-0">
-          <i class="ti ti-clipboard-check"></i> Peminjaman Aset BMN
-        </h5>
-        <div class="d-flex flex-wrap gap-2">
-          @if($canRequest)
-            <a href="{{ route('bmn.peminjaman-aset.create') }}" class="btn btn-primary btn-sm">
-              <i class="ti ti-plus"></i> Ajukan Peminjaman
-            </a>
-          @endif
-        </div>
-      </div>
+<div class="bmn-stat-row">
+  <div class="bmn-stat-card">
+    <div class="bmn-stat-icon blue"><i class="ti ti-clipboard-list"></i></div>
+    <div class="bmn-stat-body"><div class="label">Pengajuan</div><div class="value">{{ $statPending }}</div><div class="sub">Menunggu persetujuan</div></div>
+  </div>
+  <div class="bmn-stat-card">
+    <div class="bmn-stat-icon green"><i class="ti ti-check"></i></div>
+    <div class="bmn-stat-body"><div class="label">Disetujui / Dipinjam</div><div class="value">{{ $statDipinjam }}</div><div class="sub">Peminjaman aktif</div></div>
+  </div>
+  <div class="bmn-stat-card">
+    <div class="bmn-stat-icon yellow"><i class="ti ti-search"></i></div>
+    <div class="bmn-stat-body"><div class="label">Screening RT</div><div class="value">{{ $statScreening }}</div><div class="sub">Menunggu Rumah Tangga</div></div>
+  </div>
+</div>
+
+<div class="bmn-card">
+  <div class="bmn-card-header">
+    <div>
+      <h2>Data Peminjaman</h2>
+      <div class="subtitle">Daftar pengajuan peminjaman internal &amp; jurusan</div>
+    </div>
+    @if($canRequest)
+      <a href="{{ route('bmn.peminjaman-aset.create') }}" class="btn btn-bmn-primary btn-sm">
+        <i class="ti ti-plus"></i> Ajukan Peminjaman
+      </a>
+    @endif
+  </div>
+  <div class="bmn-card-body">
 
       @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -68,7 +89,7 @@
               <label class="form-label mb-1">Pencarian</label>
               <input type="text" name="q" class="form-control form-control-sm"
                      value="{{ $filters['q'] ?? '' }}"
-                     placeholder="Kode transaksi / tujuan peminjaman">
+                     placeholder="Kode / tujuan / nama / email / no WA peminjam">
             </div>
             <div class="col-md-2">
               <label class="form-label mb-1">Status</label>
@@ -125,12 +146,14 @@
       </div>
 
       <div class="table-responsive">
-        <table class="table table-striped table-bordered align-middle mb-0">
+        <table class="table table-striped table-bordered align-middle mb-0 table-peminjaman-bmn">
           <thead>
             <tr>
               <th width="40">#</th>
               <th>Kode</th>
               <th>Peminjam</th>
+              <th class="text-nowrap">No WA</th>
+              <th class="text-nowrap">Email</th>
               <th>Tujuan</th>
               <th>Tgl Pinjam</th>
               <th>Status</th>
@@ -147,7 +170,27 @@
               <tr>
                 <td>{{ $list->firstItem() + $loop->index }}</td>
                 <td><code>{{ $row->kode_peminjaman }}</code></td>
-                <td>{{ $row->contactName() }}</td>
+                <td>{{ $row->nama_peminjam }}</td>
+                <td class="text-nowrap small">
+                  @if($row->wa_peminjam !== '-')
+                    <a href="{{ $row->wa_peminjam_link }}"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                      {{ $row->wa_peminjam }}
+                    </a>
+                  @else
+                    -
+                  @endif
+                </td>
+                <td class="text-nowrap small">
+                  @if($row->email_peminjam !== '-')
+                    <a href="mailto:{{ $row->email_peminjam }}">
+                      {{ $row->email_peminjam }}
+                    </a>
+                  @else
+                    -
+                  @endif
+                </td>
                 <td>{{ \Illuminate\Support\Str::limit($row->tujuan_peminjaman, 60) }}</td>
                 <td>{{ optional($row->tanggal_pinjam)->format('Y-m-d') }}</td>
                 <td>
@@ -192,7 +235,7 @@
               </tr>
             @empty
               <tr>
-                <td colspan="11" class="text-center text-muted">Belum ada transaksi peminjaman.</td>
+                <td colspan="13" class="text-center text-muted">Belum ada transaksi peminjaman.</td>
               </tr>
             @endforelse
           </tbody>
@@ -202,7 +245,12 @@
       <div class="mt-3 bmn-pagination">
         {{ $list->appends(request()->query())->links('pagination::bootstrap-5') }}
       </div>
-    </div>
   </div>
 </div>
+
+<style>
+  .table-peminjaman-bmn {
+    font-size: 13px;
+  }
+</style>
 @endsection

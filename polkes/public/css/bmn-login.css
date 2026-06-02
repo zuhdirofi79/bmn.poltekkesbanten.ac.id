@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+.bmn-login-body {
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #eef6ff 0%, #f8fbff 55%, #eef4ff 100%);
+    color: #0f172a;
+}
+
+.bmn-login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 36px 18px;
+}
+
+.bmn-login-card {
+    width: 100%;
+    max-width: 520px;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 48px 42px 36px;
+    box-shadow: 0 22px 60px rgba(15, 23, 42, 0.10);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.bmn-login-logo-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 22px;
+}
+
+.bmn-login-logo {
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+    border-radius: 999px;
+    background: #ffffff;
+}
+
+.bmn-login-subtitle {
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: .02em;
+    color: #475569;
+    margin: 0 0 16px;
+    font-weight: 500;
+}
+
+.bmn-login-title {
+    text-align: center;
+    font-size: 30px;
+    line-height: 1;
+    margin: 0;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.bmn-login-divider {
+    height: 1px;
+    background: #cbd5e1;
+    margin: 24px 0 26px;
+}
+
+.bmn-form-group {
+    margin-bottom: 20px;
+}
+
+.bmn-form-group label {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.bmn-form-group input[type="text"],
+.bmn-form-group input[type="email"],
+.bmn-form-group input[type="password"] {
+    display: block;
+    width: 100%;
+    height: 48px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #ffffff;
+    padding: 0 14px;
+    font-size: 16px;
+    color: #0f172a;
+    outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.bmn-form-group input:focus {
+    border-color: #5b7cfa;
+    box-shadow: 0 0 0 4px rgba(91, 124, 250, .12);
+}
+
+.bmn-login-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin: 14px 0 28px;
+}
+
+.bmn-remember {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #334155;
+    font-size: 16px;
+}
+
+.bmn-remember input {
+    width: 20px;
+    height: 20px;
+    accent-color: #5b7cfa;
+}
+
+.bmn-login-options a {
+    color: #4f6df5;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.bmn-login-options a:hover {
+    text-decoration: underline;
+}
+
+.bmn-login-button {
+    width: 100%;
+    border: 0;
+    border-radius: 9px;
+    height: 58px;
+    background: #5b7cfa;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .15s ease, transform .15s ease;
+}
+
+.bmn-login-button:hover {
+    background: #4968e8;
+    transform: translateY(-1px);
+}
+
+.bmn-back-public {
+    display: block;
+    text-align: center;
+    margin-top: 24px;
+    color: #4f6df5;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.bmn-back-public:hover {
+    text-decoration: underline;
+}
+
+.bmn-error {
+    margin-top: 8px;
+    color: #dc2626;
+    font-size: 13px;
+}
+
+@media (max-width: 576px) {
+    .bmn-login-page {
+        align-items: flex-start;
+        padding-top: 24px;
+    }
+
+    .bmn-login-card {
+        padding: 34px 24px 28px;
+        border-radius: 16px;
+    }
+
+    .bmn-login-logo {
+        width: 82px;
+        height: 82px;
+    }
+
+    .bmn-login-title {
+        font-size: 26px;
+    }
+
+    .bmn-login-options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
