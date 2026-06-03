@@ -44,13 +44,27 @@
     <span class="hide-menu">Peminjaman Aset BMN</span>
     @if($canApproveBmn || $isBmnVerifier || $isRumahTangga)
       @php
+        // Workflow baru: Pak Singgih -> Pak Hendri.
+        //   - Pak Singgih (id 3240) lihat: screening_rumah_tangga + legacy verifikator_1
+        //   - Pak Hendri  (id 3235) lihat: final_hendri + legacy verifikator_2 / final_report
+        // Admin lain dengan can_approve_bmn (selain Hendri) tidak diberi badge spesifik.
         $pendingCountQuery = \App\Models\BMN\PeminjamanAsetBmn::query()->where('status', 'pending');
-        if ($authUser && $authUser->isRumahTanggaBmn()) {
-          $pendingCountQuery->where('approval_stage', 'screening_rumah_tangga');
+        if ($authUser && $authUser->isBmnVerifier2()) {
+          // Pak Singgih = BMN_VERIFIER_2_ID = 3240 (juga termasuk Rumah Tangga IDs)
+          $pendingCountQuery->whereIn('approval_stage', [
+            \App\Models\BMN\PeminjamanAsetBmn::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA,
+            \App\Models\BMN\PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1,
+          ]);
         } elseif ($authUser && $authUser->isBmnVerifier1()) {
-          $pendingCountQuery->whereIn('approval_stage', ['verifikator_1', 'final_report', 'final_hendri']);
-        } elseif ($authUser && $authUser->isBmnVerifier2()) {
-          $pendingCountQuery->where('approval_stage', 'verifikator_2');
+          // Pak Hendri = BMN_VERIFIER_1_ID = 3235 (final approver)
+          $pendingCountQuery->whereIn('approval_stage', [
+            \App\Models\BMN\PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_HENDRI,
+            \App\Models\BMN\PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_2,
+            \App\Models\BMN\PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_REPORT,
+          ]);
+        } elseif ($authUser && $authUser->isRumahTanggaBmn()) {
+          // Rumah Tangga lain (mis. Pak Munawir) — tetap lihat tahap screening.
+          $pendingCountQuery->where('approval_stage', \App\Models\BMN\PeminjamanAsetBmn::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA);
         }
         $pendingCount = $pendingCountQuery->count();
       @endphp

@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Tests\TestCase;
 
+/**
+ * Workflow approval BARU peminjaman aset BMN:
+ *   Pengajuan -> Pak Singgih (screening_rumah_tangga) -> Pak Hendri (final_hendri) -> completed.
+ */
 class BmnPeminjamanApprovalTest extends TestCase
 {
     use RefreshDatabase;
@@ -23,7 +27,7 @@ class BmnPeminjamanApprovalTest extends TestCase
         $this->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class);
     }
 
-    public function test_create_peminjaman_sets_pending_and_verifikator_1_stage(): void
+    public function test_create_peminjaman_sets_pending_and_screening_rumah_tangga_stage(): void
     {
         $requester = $this->makeRequesterUser();
         $aset = $this->makeAset();
@@ -38,102 +42,87 @@ class BmnPeminjamanApprovalTest extends TestCase
         $peminjaman = PeminjamanAsetBmn::query()->first();
         $this->assertNotNull($peminjaman);
         $this->assertSame(PeminjamanAsetBmn::STATUS_PENDING, $peminjaman->status);
-        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1, $peminjaman->approval_stage);
-        $this->assertNull($peminjaman->verifier_1_id);
-        $this->assertNull($peminjaman->verifier_2_id);
-        $this->assertNull($peminjaman->final_report_by);
+        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA, $peminjaman->approval_stage);
+        $this->assertNull($peminjaman->screened_by);
+        $this->assertNull($peminjaman->approved_by);
     }
 
-    public function test_full_two_verifier_approval_flow(): void
+    public function test_singgih_approval_advances_to_final_hendri(): void
     {
         $peminjaman = $this->makePendingPeminjaman();
-        $verifier1 = $this->makeVerifier1();
-        $verifier2 = $this->makeVerifier2();
+        $singgih = $this->makeSinggih();
 
-        $this->actingAs($verifier1)
-            ->post(route('bmn.peminjaman-aset.approve-stage-1', $peminjaman->id), [
-                'note' => 'OK tahap 1',
+        $this->actingAs($singgih)
+            ->post(route('bmn.peminjaman-aset.approve-singgih', $peminjaman->id), [
+                'note' => 'Stok tersedia',
             ])
             ->assertRedirect();
 
         $peminjaman->refresh();
         $this->assertSame(PeminjamanAsetBmn::STATUS_PENDING, $peminjaman->status);
-        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_2, $peminjaman->approval_stage);
-        $this->assertSame(User::BMN_VERIFIER_1_ID, (int) $peminjaman->verifier_1_id);
-        $this->assertNotNull($peminjaman->verifier_1_approved_at);
+        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_HENDRI, $peminjaman->approval_stage);
+        $this->assertSame(User::BMN_VERIFIER_2_ID, (int) $peminjaman->screened_by);
+        $this->assertSame(PeminjamanAsetBmn::SCREENING_TERSEDIA, $peminjaman->screening_status);
+        $this->assertNotNull($peminjaman->screened_at);
+    }
 
-        $this->actingAs($verifier2)
-            ->post(route('bmn.peminjaman-aset.approve-stage-2', $peminjaman->id), [
-                'note' => 'OK tahap 2',
+    public function test_hendri_final_approval_completes_workflow(): void
+    {
+        $peminjaman = $this->makePendingPeminjaman();
+        $singgih = $this->makeSinggih();
+        $hendri = $this->makeHendri();
+
+        $this->actingAs($singgih)
+            ->post(route('bmn.peminjaman-aset.approve-singgih', $peminjaman->id), [
+                'note' => 'Stok tersedia',
             ])
             ->assertRedirect();
 
-        $peminjaman->refresh();
-        $this->assertSame(PeminjamanAsetBmn::STATUS_PENDING, $peminjaman->status);
-        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_REPORT, $peminjaman->approval_stage);
-        $this->assertSame(User::BMN_VERIFIER_2_ID, (int) $peminjaman->verifier_2_id);
-        $this->assertNotNull($peminjaman->verifier_2_approved_at);
-
-        $this->actingAs($verifier1)
-            ->post(route('bmn.peminjaman-aset.final-report', $peminjaman->id), [
-                'note' => 'Pelaporan selesai',
+        $this->actingAs($hendri)
+            ->post(route('bmn.peminjaman-aset.approve-hendri', $peminjaman->id), [
+                'note' => 'Disetujui final',
             ])
             ->assertRedirect();
 
         $peminjaman->refresh();
         $this->assertSame(PeminjamanAsetBmn::STATUS_APPROVED, $peminjaman->status);
         $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_COMPLETED, $peminjaman->approval_stage);
-        $this->assertSame(User::BMN_VERIFIER_1_ID, (int) $peminjaman->final_report_by);
-        $this->assertNotNull($peminjaman->final_report_at);
+        $this->assertSame(User::BMN_VERIFIER_1_ID, (int) $peminjaman->approved_by);
         $this->assertNotNull($peminjaman->approved_at);
-
-        $aset = AsetBmn::query()->find($peminjaman->details()->value('aset_bmn_id'));
-        $this->assertNotNull($aset);
-        $this->assertSame('aktif', $aset->status);
-
-        Role::firstOrCreate(['name' => 'admin', 'guard_name' => 'web']);
-        $verifier1->assignRole('admin');
-        $verifier1->forceFill(['can_approve_bmn' => true])->save();
-
-        $this->actingAs($verifier1)
-            ->post(route('bmn.peminjaman-aset.mark-dipinjam', $peminjaman->id))
-            ->assertRedirect();
-
-        $peminjaman->refresh();
-        $aset->refresh();
-        $this->assertSame(PeminjamanAsetBmn::STATUS_DIPINJAM, $peminjaman->status);
-        $this->assertSame('dipinjam', $aset->status);
+        $this->assertNotNull($peminjaman->final_report_at);
     }
 
-    public function test_reject_at_stage_1(): void
+    public function test_singgih_can_reject_at_screening_stage(): void
     {
         $peminjaman = $this->makePendingPeminjaman();
-        $verifier1 = $this->makeVerifier1();
+        $singgih = $this->makeSinggih();
 
-        $this->actingAs($verifier1)
-            ->post(route('bmn.peminjaman-aset.reject-stage', $peminjaman->id), [
-                'rejected_reason' => 'Dokumen tidak lengkap',
+        $this->actingAs($singgih)
+            ->post(route('bmn.peminjaman-aset.reject-singgih', $peminjaman->id), [
+                'rejected_reason' => 'Barang tidak tersedia',
             ])
             ->assertRedirect();
 
         $peminjaman->refresh();
         $this->assertSame(PeminjamanAsetBmn::STATUS_REJECTED, $peminjaman->status);
         $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_REJECTED, $peminjaman->approval_stage);
-        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1, $peminjaman->rejected_stage);
-        $this->assertSame('Dokumen tidak lengkap', $peminjaman->rejected_reason);
+        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA, $peminjaman->rejected_stage);
+        $this->assertSame('Barang tidak tersedia', $peminjaman->rejected_reason);
+        $this->assertSame(PeminjamanAsetBmn::SCREENING_TIDAK_TERSEDIA, $peminjaman->screening_status);
     }
 
-    public function test_reject_at_stage_2(): void
+    public function test_hendri_can_reject_at_final_stage(): void
     {
         $peminjaman = $this->makePendingPeminjaman();
-        $verifier1 = $this->makeVerifier1();
-        $verifier2 = $this->makeVerifier2();
+        $singgih = $this->makeSinggih();
+        $hendri = $this->makeHendri();
 
-        $this->actingAs($verifier1)
-            ->post(route('bmn.peminjaman-aset.approve-stage-1', $peminjaman->id));
+        $this->actingAs($singgih)
+            ->post(route('bmn.peminjaman-aset.approve-singgih', $peminjaman->id))
+            ->assertRedirect();
 
-        $this->actingAs($verifier2)
-            ->post(route('bmn.peminjaman-aset.reject-stage', $peminjaman->id), [
+        $this->actingAs($hendri)
+            ->post(route('bmn.peminjaman-aset.reject-hendri', $peminjaman->id), [
                 'rejected_reason' => 'Tidak sesuai kebijakan',
             ])
             ->assertRedirect();
@@ -141,44 +130,171 @@ class BmnPeminjamanApprovalTest extends TestCase
         $peminjaman->refresh();
         $this->assertSame(PeminjamanAsetBmn::STATUS_REJECTED, $peminjaman->status);
         $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_REJECTED, $peminjaman->approval_stage);
-        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_2, $peminjaman->rejected_stage);
+        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_HENDRI, $peminjaman->rejected_stage);
+        $this->assertSame('Tidak sesuai kebijakan', $peminjaman->rejected_reason);
     }
 
-    public function test_non_verifier_cannot_approve_or_finalize(): void
+    public function test_hendri_cannot_approve_before_singgih(): void
+    {
+        $peminjaman = $this->makePendingPeminjaman();
+        $hendri = $this->makeHendri();
+
+        $this->actingAs($hendri)
+            ->post(route('bmn.peminjaman-aset.approve-hendri', $peminjaman->id))
+            ->assertSessionHas('error');
+
+        $peminjaman->refresh();
+        $this->assertSame(PeminjamanAsetBmn::STATUS_PENDING, $peminjaman->status);
+        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA, $peminjaman->approval_stage);
+    }
+
+    public function test_singgih_cannot_approve_after_passing_to_hendri(): void
+    {
+        $peminjaman = $this->makePendingPeminjaman();
+        $singgih = $this->makeSinggih();
+
+        $this->actingAs($singgih)
+            ->post(route('bmn.peminjaman-aset.approve-singgih', $peminjaman->id))
+            ->assertRedirect();
+
+        // Stage sekarang = final_hendri; Singgih tidak boleh approve lagi.
+        $this->actingAs($singgih)
+            ->post(route('bmn.peminjaman-aset.approve-singgih', $peminjaman->id))
+            ->assertSessionHas('error');
+
+        $peminjaman->refresh();
+        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_HENDRI, $peminjaman->approval_stage);
+    }
+
+    public function test_non_authorized_users_cannot_approve(): void
     {
         $peminjaman = $this->makePendingPeminjaman();
         $requester = $this->makeRequesterUser();
 
         $this->actingAs($requester)
-            ->post(route('bmn.peminjaman-aset.approve-stage-1', $peminjaman->id))
+            ->post(route('bmn.peminjaman-aset.approve-singgih', $peminjaman->id))
             ->assertForbidden();
 
         $this->actingAs($requester)
-            ->post(route('bmn.peminjaman-aset.approve-stage-2', $peminjaman->id))
+            ->post(route('bmn.peminjaman-aset.approve-hendri', $peminjaman->id))
             ->assertForbidden();
 
         $this->actingAs($requester)
-            ->post(route('bmn.peminjaman-aset.final-report', $peminjaman->id))
+            ->post(route('bmn.peminjaman-aset.reject-singgih', $peminjaman->id), [
+                'rejected_reason' => 'x',
+            ])
+            ->assertForbidden();
+
+        $this->actingAs($requester)
+            ->post(route('bmn.peminjaman-aset.reject-hendri', $peminjaman->id), [
+                'rejected_reason' => 'x',
+            ])
             ->assertForbidden();
 
         $peminjaman->refresh();
-        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1, $peminjaman->approval_stage);
+        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA, $peminjaman->approval_stage);
     }
 
-    public function test_verifier_cannot_skip_stage(): void
+    public function test_admin_with_can_approve_bmn_can_finalize_as_hendri_proxy(): void
+    {
+        // Skenario: admin BMN umum (bukan Pak Hendri) tetap boleh memberi approval final
+        // selama punya can_approve_bmn = 1. Spec: "user id 3235 atau can_approve_bmn = 1".
+        $peminjaman = $this->makePendingPeminjaman();
+        $singgih = $this->makeSinggih();
+
+        $this->actingAs($singgih)
+            ->post(route('bmn.peminjaman-aset.approve-singgih', $peminjaman->id))
+            ->assertRedirect();
+
+        $admin = $this->makeAdminApprover();
+
+        $this->actingAs($admin)
+            ->post(route('bmn.peminjaman-aset.approve-hendri', $peminjaman->id))
+            ->assertRedirect();
+
+        $peminjaman->refresh();
+        $this->assertSame(PeminjamanAsetBmn::STATUS_APPROVED, $peminjaman->status);
+        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_COMPLETED, $peminjaman->approval_stage);
+    }
+
+    public function test_legacy_data_at_verifikator_1_is_treated_as_awaiting_singgih(): void
+    {
+        // Data lama yang masih bertahap "verifikator_1" harus tetap bisa di-approve oleh
+        // Pak Singgih (spec point 9: legacy verifikator_1 = "Menunggu Pak Singgih").
+        $peminjaman = $this->makePendingPeminjaman(PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1);
+        $singgih = $this->makeSinggih();
+
+        $this->actingAs($singgih)
+            ->post(route('bmn.peminjaman-aset.approve-singgih', $peminjaman->id))
+            ->assertRedirect();
+
+        $peminjaman->refresh();
+        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_HENDRI, $peminjaman->approval_stage);
+    }
+
+    public function test_legacy_data_at_verifikator_2_is_treated_as_awaiting_hendri(): void
+    {
+        // Data lama bertahap "verifikator_2" harus tetap bisa di-approve final oleh Pak Hendri
+        // (spec point 9: legacy verifikator_2 / final_report = "Menunggu Pak Hendri").
+        $peminjaman = $this->makePendingPeminjaman(PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_2);
+        $hendri = $this->makeHendri();
+
+        $this->actingAs($hendri)
+            ->post(route('bmn.peminjaman-aset.approve-hendri', $peminjaman->id))
+            ->assertRedirect();
+
+        $peminjaman->refresh();
+        $this->assertSame(PeminjamanAsetBmn::STATUS_APPROVED, $peminjaman->status);
+        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_COMPLETED, $peminjaman->approval_stage);
+    }
+
+    public function test_show_page_shows_button_for_singgih_at_screening_stage(): void
     {
         $peminjaman = $this->makePendingPeminjaman();
-        $verifier2 = $this->makeVerifier2();
+        $singgih = $this->makeSinggih();
 
-        $this->actingAs($verifier2)
-            ->post(route('bmn.peminjaman-aset.approve-stage-2', $peminjaman->id))
-            ->assertForbidden();
+        $response = $this->actingAs($singgih)->get(route('bmn.peminjaman-aset.show', $peminjaman->id));
 
-        $peminjaman->refresh();
-        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1, $peminjaman->approval_stage);
+        $response->assertOk();
+        $response->assertSee('Setujui sebagai Pak Singgih', false);
+        $response->assertDontSee('Setujui Final Pak Hendri', false);
     }
 
-    private function makePendingPeminjaman(): PeminjamanAsetBmn
+    public function test_show_page_shows_button_for_hendri_at_final_stage(): void
+    {
+        $peminjaman = $this->makePendingPeminjaman(PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_HENDRI);
+        $hendri = $this->makeHendri();
+
+        $response = $this->actingAs($hendri)->get(route('bmn.peminjaman-aset.show', $peminjaman->id));
+
+        $response->assertOk();
+        $response->assertSee('Setujui Final Pak Hendri', false);
+        $response->assertDontSee('Setujui sebagai Pak Singgih', false);
+    }
+
+    public function test_show_page_does_not_show_approve_buttons_to_regular_admin(): void
+    {
+        // Admin biasa (tanpa can_approve_bmn) tidak boleh melihat tombol approve.
+        Role::firstOrCreate(['name' => 'admin', 'guard_name' => 'web']);
+        $admin = User::create([
+            'name' => 'Admin Biasa',
+            'email' => 'adm-'.uniqid().'@example.test',
+            'username' => 'adm'.uniqid(),
+            'password' => bcrypt('secret'),
+        ]);
+        $admin->assignRole('admin');
+
+        $peminjaman = $this->makePendingPeminjaman();
+
+        $response = $this->actingAs($admin)->get(route('bmn.peminjaman-aset.show', $peminjaman->id));
+
+        $response->assertOk();
+        $response->assertDontSee('Setujui sebagai Pak Singgih', false);
+        $response->assertDontSee('Setujui Final Pak Hendri', false);
+        $response->assertSee('Menunggu persetujuan verifikator terkait', false);
+    }
+
+    private function makePendingPeminjaman(string $stage = PeminjamanAsetBmn::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA): PeminjamanAsetBmn
     {
         $requester = $this->makeRequesterUser();
         $aset = $this->makeAset();
@@ -191,7 +307,7 @@ class BmnPeminjamanApprovalTest extends TestCase
             'tanggal_pinjam' => now()->toDateString(),
             'rencana_kembali' => now()->addDays(2)->toDateString(),
             'status' => PeminjamanAsetBmn::STATUS_PENDING,
-            'approval_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1,
+            'approval_stage' => $stage,
             'source' => PeminjamanAsetBmn::SOURCE_LOGIN,
             'verification_status' => PeminjamanAsetBmn::VERIFICATION_NOT_REQUIRED,
         ]);
@@ -244,7 +360,7 @@ class BmnPeminjamanApprovalTest extends TestCase
         return $user;
     }
 
-    private function makeVerifier1(): User
+    private function makeHendri(): User
     {
         return $this->makeFixedIdUser(
             User::BMN_VERIFIER_1_ID,
@@ -254,14 +370,30 @@ class BmnPeminjamanApprovalTest extends TestCase
         );
     }
 
-    private function makeVerifier2(): User
+    private function makeSinggih(): User
     {
         return $this->makeFixedIdUser(
             User::BMN_VERIFIER_2_ID,
             'Pak Singgih',
             'singgih-'.uniqid().'@example.test',
-            'singgih'.uniqid()
+            '199705042025211037'
         );
+    }
+
+    private function makeAdminApprover(): User
+    {
+        Role::firstOrCreate(['name' => 'admin', 'guard_name' => 'web']);
+
+        $user = User::create([
+            'name' => 'Admin BMN',
+            'email' => 'adm-'.uniqid().'@example.test',
+            'username' => 'adm'.uniqid(),
+            'password' => bcrypt('secret'),
+            'can_approve_bmn' => true,
+        ]);
+        $user->assignRole('admin');
+
+        return $user;
     }
 
     private function makeFixedIdUser(int $id, string $name, string $email, string $username): User

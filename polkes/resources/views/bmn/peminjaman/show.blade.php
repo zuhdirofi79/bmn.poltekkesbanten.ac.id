@@ -15,9 +15,32 @@
     'completed' => 'bg-primary',
   ];
   $stageBadge = $peminjaman->approvalStageBadge();
-  $stage1 = $peminjaman->timelineStage1();
-  $stage2 = $peminjaman->timelineStage2();
-  $stageFinal = $peminjaman->timelineFinalReport();
+  $singgihTl = $peminjaman->timelineSinggihApproval();
+  $hendriTl = $peminjaman->timelineHendriApproval();
+
+  $stageStatusLabel = [
+    'pending'  => 'Pending',
+    'approved' => 'Selesai',
+    'rejected' => 'Ditolak',
+  ];
+
+  // Saat Singgih masih Pending, tahap Hendri belum aktif → label "Menunggu".
+  $hendriDisplayStatus = $hendriTl['status'];
+  if ($hendriDisplayStatus === 'pending' && $singgihTl['status'] !== 'approved') {
+      $hendriDisplayStatus = 'menunggu';
+  }
+  $hendriBadgeClass = match ($hendriDisplayStatus) {
+      'approved' => 'bg-success',
+      'rejected' => 'bg-danger',
+      'pending'  => 'bg-warning text-dark',
+      default    => 'bg-secondary', // menunggu
+  };
+  $hendriLabel = match ($hendriDisplayStatus) {
+      'approved' => 'Selesai',
+      'rejected' => 'Ditolak',
+      'pending'  => 'Pending',
+      default    => 'Menunggu',
+  };
 @endphp
 
 @section('page_title', 'Detail Peminjaman')
@@ -225,39 +248,34 @@
           <h6 class="fw-semibold mb-2">Timeline Approval</h6>
           <div class="small">
             <div class="mb-3 pb-2 border-bottom">
-              <div class="fw-semibold">1. Verifikator 1 — Pak Hendri</div>
-              <span class="badge {{ $timelineStatusBadge[$stage1['status']] ?? 'bg-secondary' }} rounded-pill">
-                {{ ucfirst($stage1['status']) }}
+              <div class="fw-semibold">1. Screening Rumah Tangga — Pak Singgih</div>
+              @php
+                $singgihBadgeClass = match ($singgihTl['status']) {
+                    'approved' => 'bg-success',
+                    'rejected' => 'bg-danger',
+                    default    => 'bg-warning text-dark',
+                };
+              @endphp
+              <span class="badge {{ $singgihBadgeClass }} rounded-pill">
+                {{ $stageStatusLabel[$singgihTl['status']] ?? ucfirst($singgihTl['status']) }}
               </span>
-              @if($stage1['at'])
-                <div class="text-muted mt-1">{{ $stage1['at']->format('Y-m-d H:i') }}</div>
+              @if($singgihTl['at'])
+                <div class="text-muted mt-1">{{ $singgihTl['at']->format('Y-m-d H:i') }}</div>
               @endif
-              @if($stage1['note'])
-                <div class="mt-1">{{ $stage1['note'] }}</div>
-              @endif
-            </div>
-            <div class="mb-3 pb-2 border-bottom">
-              <div class="fw-semibold">2. Verifikator 2 — Pak Singgih</div>
-              <span class="badge {{ $timelineStatusBadge[$stage2['status']] ?? 'bg-secondary' }} rounded-pill">
-                {{ ucfirst($stage2['status']) }}
-              </span>
-              @if($stage2['at'])
-                <div class="text-muted mt-1">{{ $stage2['at']->format('Y-m-d H:i') }}</div>
-              @endif
-              @if($stage2['note'])
-                <div class="mt-1">{{ $stage2['note'] }}</div>
+              @if($singgihTl['note'])
+                <div class="mt-1">{{ $singgihTl['note'] }}</div>
               @endif
             </div>
             <div>
-              <div class="fw-semibold">3. Final Report — Pak Hendri</div>
-              <span class="badge {{ $timelineStatusBadge[$stageFinal['status']] ?? 'bg-secondary' }} rounded-pill">
-                {{ ucfirst($stageFinal['status']) }}
+              <div class="fw-semibold">2. Approval Final BMN — Pak Hendri</div>
+              <span class="badge {{ $hendriBadgeClass }} rounded-pill">
+                {{ $hendriLabel }}
               </span>
-              @if($stageFinal['at'])
-                <div class="text-muted mt-1">{{ $stageFinal['at']->format('Y-m-d H:i') }}</div>
+              @if($hendriTl['at'])
+                <div class="text-muted mt-1">{{ $hendriTl['at']->format('Y-m-d H:i') }}</div>
               @endif
-              @if($stageFinal['note'])
-                <div class="mt-1">{{ $stageFinal['note'] }}</div>
+              @if($hendriTl['note'])
+                <div class="mt-1">{{ $hendriTl['note'] }}</div>
               @endif
             </div>
           </div>
@@ -268,90 +286,68 @@
         <div class="card-body">
           <h6 class="fw-semibold mb-2">Aksi</h6>
 
-          @if($canApproveStage1)
-            <form method="post" action="{{ route('bmn.peminjaman-aset.approve-stage-1', $peminjaman->id) }}"
-                  class="mb-2" onsubmit="return confirm('Setujui tahap 1 (Verifikator 1)?');">
+          {{-- Workflow baru: Pak Singgih sebagai verifikator pertama (screening_rumah_tangga + legacy verifikator_1). --}}
+          @if($canApproveSinggih)
+            <form method="post" action="{{ route('bmn.peminjaman-aset.approve-singgih', $peminjaman->id) }}"
+                  class="mb-2" onsubmit="return confirm('Setujui pengajuan ini sebagai Pak Singgih?');">
               @csrf
               <div class="mb-2">
                 <label class="form-label small mb-1">Catatan (opsional)</label>
                 <textarea name="note" class="form-control form-control-sm" rows="2" maxlength="1000"></textarea>
               </div>
               <button type="submit" class="btn btn-success w-100 btn-sm">
-                <i class="ti ti-check"></i> Setujui Tahap 1
+                <i class="ti ti-check"></i> Setujui sebagai Pak Singgih
               </button>
             </form>
           @endif
 
-          @if($canApproveStage2)
-            <form method="post" action="{{ route('bmn.peminjaman-aset.approve-stage-2', $peminjaman->id) }}"
-                  class="mb-2" onsubmit="return confirm('Setujui tahap 2 (Verifikator 2)?');">
+          @if($canRejectSinggih)
+            <form method="post" action="{{ route('bmn.peminjaman-aset.reject-singgih', $peminjaman->id) }}"
+                  class="mb-2" onsubmit="return confirmRejectSinggih(this);">
               @csrf
-              <div class="mb-2">
-                <label class="form-label small mb-1">Catatan (opsional)</label>
-                <textarea name="note" class="form-control form-control-sm" rows="2" maxlength="1000"></textarea>
-              </div>
-              <button type="submit" class="btn btn-success w-100 btn-sm">
-                <i class="ti ti-check"></i> Setujui Tahap 2
+              <input type="hidden" name="rejected_reason" id="rejectedReasonSinggih">
+              <button type="submit" class="btn btn-danger w-100 btn-sm">
+                <i class="ti ti-x"></i> Tolak (Pak Singgih)
               </button>
             </form>
           @endif
 
-          @if($canFinalReport)
-            <form method="post" action="{{ route('bmn.peminjaman-aset.final-report', $peminjaman->id) }}"
-                  class="mb-2" onsubmit="return confirm('Finalisasi pelaporan peminjaman ini?');">
-              @csrf
-              <div class="mb-2">
-                <label class="form-label small mb-1">Catatan pelaporan (opsional)</label>
-                <textarea name="note" class="form-control form-control-sm" rows="2" maxlength="1000"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary w-100 btn-sm">
-                <i class="ti ti-report"></i> Finalisasi / Catat Pelaporan
-              </button>
-            </form>
-          @endif
-
-          @if($canRejectStage)
-            <form method="post" action="{{ route('bmn.peminjaman-aset.reject-stage', $peminjaman->id) }}"
-                  onsubmit="return confirmRejectStage(this);">
-              @csrf
-              <input type="hidden" name="rejected_reason" id="rejectedReasonStage">
-              <button type="submit" class="btn btn-danger w-100 btn-sm mb-2">
-                <i class="ti ti-x"></i> Tolak
-              </button>
-            </form>
-          @endif
-
+          {{-- Halaman screening detail (assign aset spesifik) tetap tersedia untuk Rumah Tangga
+               saat pengajuan masih awaiting screening. --}}
           @if($canScreen)
-            <a href="{{ route('bmn.peminjaman-aset.screening', $peminjaman->id) }}" class="btn btn-warning w-100 btn-sm mb-2">
+            <a href="{{ route('bmn.peminjaman-aset.screening', $peminjaman->id) }}" class="btn btn-outline-warning w-100 btn-sm mb-2">
               <i class="ti ti-search"></i> Screening / Cocokkan Aset
             </a>
           @endif
 
-          @if($canApproveFinalHendri)
-            <form method="post" action="{{ route('bmn.peminjaman-aset.approve-final-hendri', $peminjaman->id) }}"
-                  class="mb-2" onsubmit="return confirm('Setujui peminjaman (Pak Hendri)?');">
+          {{-- Workflow baru: Pak Hendri sebagai verifikator final (final_hendri + legacy verifikator_2/final_report). --}}
+          @if($canApproveHendri)
+            <form method="post" action="{{ route('bmn.peminjaman-aset.approve-hendri', $peminjaman->id) }}"
+                  class="mb-2" onsubmit="return confirm('Setujui peminjaman ini sebagai Pak Hendri (final)?');">
               @csrf
               <div class="mb-2">
                 <label class="form-label small mb-1">Catatan (opsional)</label>
                 <textarea name="note" class="form-control form-control-sm" rows="2" maxlength="1000"></textarea>
               </div>
               <button type="submit" class="btn btn-success w-100 btn-sm">
-                <i class="ti ti-check"></i> Approve Final (Pak Hendri)
+                <i class="ti ti-check"></i> Setujui Final Pak Hendri
               </button>
             </form>
           @endif
 
-          @if($canRejectFinalHendri)
-            <form method="post" action="{{ route('bmn.peminjaman-aset.reject-final-hendri', $peminjaman->id) }}"
-                  onsubmit="return confirmRejectFinalHendri(this);">
+          @if($canRejectHendri)
+            <form method="post" action="{{ route('bmn.peminjaman-aset.reject-hendri', $peminjaman->id) }}"
+                  class="mb-2" onsubmit="return confirmRejectHendri(this);">
               @csrf
-              <input type="hidden" name="rejected_reason" id="rejectedReasonFinalHendri">
-              <button type="submit" class="btn btn-danger w-100 btn-sm mb-2">
-                <i class="ti ti-x"></i> Tolak Final (Pak Hendri)
+              <input type="hidden" name="rejected_reason" id="rejectedReasonHendri">
+              <button type="submit" class="btn btn-danger w-100 btn-sm">
+                <i class="ti ti-x"></i> Tolak (Pak Hendri)
               </button>
             </form>
           @endif
 
+          {{-- Approval LEGACY: hanya untuk transaksi sangat lama yang status-nya pending tetapi
+               tidak punya approval_stage multi-tahap. Approver biasa (admin + can_approve_bmn). --}}
           @if($peminjaman->status === 'pending' && $canApproveLegacy)
             <form method="post" action="{{ route('bmn.peminjaman-aset.approve', $peminjaman->id) }}"
                   class="mb-2" onsubmit="return confirm('Setujui peminjaman ini?');">
@@ -388,9 +384,13 @@
             </a>
           @endif
 
-          @if($peminjaman->status === 'pending' && !$canApproveStage1 && !$canApproveStage2 && !$canFinalReport && !$canRejectStage && !$canApproveLegacy && !$canScreen && !$canApproveFinalHendri)
+          @if($peminjaman->status === 'pending'
+              && !$canApproveSinggih
+              && !$canApproveHendri
+              && !$canApproveLegacy
+              && !$canScreen)
             <p class="text-muted small mb-0">
-              <i class="ti ti-info-circle"></i> Menunggu persetujuan verifikator BMN.
+              <i class="ti ti-info-circle"></i> Menunggu persetujuan verifikator terkait.
             </p>
           @endif
         </div>
@@ -506,26 +506,27 @@
     return window.confirm('Tolak peminjaman ini?');
   }
 
-  function confirmRejectStage(form) {
-    var reason = window.prompt('Alasan penolakan (wajib):', '');
+  function confirmRejectSinggih(form) {
+    var reason = window.prompt('Alasan penolakan oleh Pak Singgih (wajib):', '');
     if (reason === null) return false;
     reason = (reason || '').trim();
     if (reason === '') {
       window.alert('Alasan penolakan wajib diisi.');
       return false;
     }
-    form.querySelector('#rejectedReasonStage').value = reason;
-    return window.confirm('Tolak peminjaman pada tahap ini?');
+    form.querySelector('#rejectedReasonSinggih').value = reason;
+    return window.confirm('Tolak pengajuan ini?');
   }
-  function confirmRejectFinalHendri(form) {
-    var reason = window.prompt('Alasan penolakan final (wajib):', '');
+
+  function confirmRejectHendri(form) {
+    var reason = window.prompt('Alasan penolakan final oleh Pak Hendri (wajib):', '');
     if (reason === null) return false;
     reason = (reason || '').trim();
     if (reason === '') {
       window.alert('Alasan penolakan wajib diisi.');
       return false;
     }
-    form.querySelector('#rejectedReasonFinalHendri').value = reason;
+    form.querySelector('#rejectedReasonHendri').value = reason;
     return window.confirm('Tolak peminjaman pada tahap final?');
   }
 </script>

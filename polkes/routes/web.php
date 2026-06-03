@@ -146,6 +146,19 @@ Route::group(['prefix' => 'bmn', 'middleware' => ['auth']], function () {
                 ->where('id', '[0-9]+')->name('screening.store');
             Route::get('{id}', 'BMN\PeminjamanAsetController@show')
                 ->where('id', '[0-9]+')->name('show');
+
+            // ===== Workflow approval BARU: Pak Singgih -> Pak Hendri =====
+            // Routes ini WAJIB sebelum resource-style routes lain agar pattern
+            // {id}/approve-singgih dst tidak tertimpa wildcard.
+            Route::post('{id}/approve-singgih', 'BMN\PeminjamanAsetController@approveBySinggih')
+                ->where('id', '[0-9]+')->name('approve-singgih');
+            Route::post('{id}/reject-singgih', 'BMN\PeminjamanAsetController@rejectBySinggih')
+                ->where('id', '[0-9]+')->name('reject-singgih');
+            Route::post('{id}/approve-hendri', 'BMN\PeminjamanAsetController@approveByHendri')
+                ->where('id', '[0-9]+')->name('approve-hendri');
+            Route::post('{id}/reject-hendri', 'BMN\PeminjamanAsetController@rejectByHendri')
+                ->where('id', '[0-9]+')->name('reject-hendri');
+
             Route::post('{id}/approve', 'BMN\PeminjamanAsetController@approve')
                 ->where('id', '[0-9]+')->name('approve');
             Route::post('{peminjaman}/approve-stage-1', 'BMN\BmnPeminjamanApprovalController@approveStage1')

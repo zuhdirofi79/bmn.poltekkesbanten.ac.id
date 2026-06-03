@@ -6,6 +6,8 @@ namespace App\Http\Controllers\BMN;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BMN\ApprovePeminjamanRequest;
+use App\Http\Requests\BMN\BmnPeminjamanApprovalNoteRequest;
+use App\Http\Requests\BMN\BmnPeminjamanRejectStageRequest;
 use App\Http\Requests\BMN\StorePeminjamanAsetRequest;
 use App\Models\BMN\AsetBmn;
 use App\Models\BMN\KategoriAset;
@@ -14,6 +16,7 @@ use App\Models\BMN\PeminjamanAsetBmnDetail;
 use App\Models\BmnSatker;
 use App\Services\BMN\BmnPublicVerificationService;
 use App\Services\BMN\BmnWaNumberNormalizer;
+use App\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
@@ -169,7 +172,9 @@ class PeminjamanAsetController extends Controller
                     'tanggal_pinjam' => $data['tanggal_pinjam'],
                     'rencana_kembali' => $data['rencana_kembali'],
                     'status' => PeminjamanAsetBmn::STATUS_PENDING,
-                    'approval_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1,
+                    // Workflow baru: Pak Singgih (screening_rumah_tangga) -> Pak Hendri (final_hendri).
+                    // Pengajuan baru SELALU masuk ke screening Pak Singgih dulu.
+                    'approval_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA,
                     'catatan' => $data['catatan'] ?? null,
                     'nota_dinas_path' => $notaPath,
                     'nota_dinas_original_name' => $notaOriginalName,
@@ -266,31 +271,40 @@ class PeminjamanAsetController extends Controller
         $canApproveLegacy = $user->canApproveBmn() && ! $peminjaman->usesMultiStageApproval();
         $canMarkDipinjam = $user->canApproveBmn() || $user->isBmnVerifier1();
 
-        $canApproveStage1 = $user->isBmnVerifier1()
-            && $peminjaman->status === PeminjamanAsetBmn::STATUS_PENDING
-            && $peminjaman->approval_stage === PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1;
+        // === WORKFLOW BARU: Pak Singgih -> Pak Hendri ===
+        // Tombol baru ini menggantikan stage1/stage2/final_report di workflow lama.
+        // Untuk Pak Singgih (id 3240): tombol muncul saat tahap "Menunggu Pak Singgih"
+        // (mencakup stage baru screening_rumah_tangga + legacy verifikator_1).
+        // Untuk Pak Hendri (id 3235 / can_approve_bmn): tombol muncul saat tahap
+        // "Menunggu Pak Hendri" (mencakup stage baru final_hendri + legacy verifikator_2/final_report).
+        $isSinggih = (int) $user->id === User::BMN_VERIFIER_2_ID;
+        $isHendri = (int) $user->id === User::BMN_VERIFIER_1_ID || $user->canApproveBmn();
 
-        $canApproveStage2 = $user->isBmnVerifier2()
-            && $peminjaman->status === PeminjamanAsetBmn::STATUS_PENDING
-            && $peminjaman->approval_stage === PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_2;
+        $canApproveSinggih = $isSinggih && $peminjaman->isAwaitingSinggih();
+        $canRejectSinggih = $canApproveSinggih;
 
-        $canFinalReport = $user->isBmnVerifier1()
-            && $peminjaman->status === PeminjamanAsetBmn::STATUS_PENDING
-            && $peminjaman->approval_stage === PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_REPORT;
+        $canApproveHendri = $isHendri && $peminjaman->isAwaitingHendri();
+        $canRejectHendri = $canApproveHendri;
 
-        $canRejectStage = (
-                ($user->isBmnVerifier1() && $peminjaman->approval_stage === PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1)
-                || ($user->isBmnVerifier2() && $peminjaman->approval_stage === PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_2)
-            )
-            && $peminjaman->status === PeminjamanAsetBmn::STATUS_PENDING;
-
+        // Halaman screening detail (assign aset spesifik) tetap tersedia bagi Rumah Tangga
+        // bila pengajuan masih dalam tahap screening (misal user kirim text "requested_barang"
+        // dan perlu dipilihkan aset).
         $canScreen = $user->isRumahTanggaBmn() && $peminjaman->isAwaitingScreening();
 
-        $canApproveFinalHendri = $user->isFinalBmnApprover()
-            && $peminjaman->status === PeminjamanAsetBmn::STATUS_PENDING
-            && $peminjaman->approval_stage === PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_HENDRI;
+        // === WORKFLOW LEGACY (dimatikan agar tidak konflik dengan workflow baru) ===
+        // Pengajuan baru tidak pernah lagi memakai stage verifikator_1/verifikator_2/final_report.
+        // Tombol legacy "Setujui Tahap 1/2/Final Report" dinonaktifkan; Pak Singgih dan
+        // Pak Hendri menyetujui transaksi LAMA via tombol baru karena
+        // isAwaitingSinggih()/isAwaitingHendri() juga mencakup nilai stage legacy.
+        $canApproveStage1 = false;
+        $canApproveStage2 = false;
+        $canFinalReport = false;
+        $canRejectStage = false;
 
-        $canRejectFinalHendri = $canApproveFinalHendri;
+        // Backward-compat alias untuk view: variabel lama tetap di-pass ke blade
+        // tetapi sekarang merefleksikan workflow baru.
+        $canApproveFinalHendri = $canApproveHendri;
+        $canRejectFinalHendri = $canRejectHendri;
 
         // Pengembalian boleh diproses oleh:
         //   - approver (admin + can_approve_bmn = 1), atau
@@ -323,6 +337,10 @@ class PeminjamanAsetController extends Controller
             'canScreen',
             'canApproveFinalHendri',
             'canRejectFinalHendri',
+            'canApproveSinggih',
+            'canRejectSinggih',
+            'canApproveHendri',
+            'canRejectHendri',
             'canCreatePengembalian',
             'userHistory'
         ));
@@ -383,6 +401,169 @@ class PeminjamanAsetController extends Controller
             : 'Peminjaman '.$peminjaman->kode_peminjaman.' ditolak.';
 
         return back()->with('success', $msg);
+    }
+
+    /**
+     * Workflow baru — Verifikator pertama (Pak Singgih, id 3240) menyetujui
+     * pengajuan pada tahap "screening_rumah_tangga" (atau legacy verifikator_1).
+     * Setelah approve, status tetap pending tetapi approval_stage berpindah ke
+     * "final_hendri" untuk menunggu approval Pak Hendri.
+     */
+    public function approveBySinggih(BmnPeminjamanApprovalNoteRequest $request, int $id): RedirectResponse
+    {
+        $user = $request->user();
+        abort_unless($user !== null && (int) $user->id === User::BMN_VERIFIER_2_ID, 403);
+
+        $note = trim((string) ($request->validated()['note'] ?? ''));
+
+        try {
+            DB::transaction(function () use ($id, $user, $note): void {
+                /** @var PeminjamanAsetBmn $peminjaman */
+                $peminjaman = PeminjamanAsetBmn::query()->lockForUpdate()->findOrFail($id);
+
+                if (! $peminjaman->isAwaitingSinggih()) {
+                    throw new \RuntimeException('Pengajuan tidak lagi pada tahap screening Pak Singgih.');
+                }
+
+                $peminjaman->update([
+                    'screened_by' => $user->id,
+                    'screened_at' => Carbon::now(),
+                    'screening_status' => PeminjamanAsetBmn::SCREENING_TERSEDIA,
+                    'screening_note' => $note !== '' ? $note : $peminjaman->screening_note,
+                    'approval_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_HENDRI,
+                    'status' => PeminjamanAsetBmn::STATUS_PENDING,
+                ]);
+            });
+        } catch (\Throwable $e) {
+            return back()->with('error', 'Gagal menyetujui pengajuan: '.$e->getMessage());
+        }
+
+        return back()->with('success', 'Pengajuan disetujui Pak Singgih. Menunggu persetujuan final Pak Hendri.');
+    }
+
+    public function rejectBySinggih(BmnPeminjamanRejectStageRequest $request, int $id): RedirectResponse
+    {
+        $user = $request->user();
+        abort_unless($user !== null && (int) $user->id === User::BMN_VERIFIER_2_ID, 403);
+
+        $reason = trim((string) $request->validated()['rejected_reason']);
+
+        try {
+            DB::transaction(function () use ($id, $user, $reason): void {
+                /** @var PeminjamanAsetBmn $peminjaman */
+                $peminjaman = PeminjamanAsetBmn::query()->lockForUpdate()->findOrFail($id);
+
+                if (! $peminjaman->isAwaitingSinggih()) {
+                    throw new \RuntimeException('Pengajuan tidak lagi pada tahap screening Pak Singgih.');
+                }
+
+                $peminjaman->update([
+                    'screened_by' => $user->id,
+                    'screened_at' => Carbon::now(),
+                    'screening_status' => PeminjamanAsetBmn::SCREENING_TIDAK_TERSEDIA,
+                    'screening_note' => $reason,
+                    'approval_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_REJECTED,
+                    'status' => PeminjamanAsetBmn::STATUS_REJECTED,
+                    'rejected_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA,
+                    'rejected_reason' => $reason,
+                    'rejected_by' => $user->id,
+                    'rejected_at' => Carbon::now(),
+                ]);
+            });
+        } catch (\Throwable $e) {
+            return back()->with('error', 'Gagal menolak pengajuan: '.$e->getMessage());
+        }
+
+        return back()->with('success', 'Pengajuan ditolak Pak Singgih.');
+    }
+
+    /**
+     * Workflow baru — Verifikator final (Pak Hendri, id 3235 atau admin dengan
+     * can_approve_bmn = 1) menyetujui pengajuan pada tahap "final_hendri"
+     * (atau legacy verifikator_2/final_report). Setelah approve:
+     *   - approval_stage = completed
+     *   - status         = approved
+     *   - approved_by/at = Pak Hendri sekarang
+     */
+    public function approveByHendri(BmnPeminjamanApprovalNoteRequest $request, int $id): RedirectResponse
+    {
+        $user = $request->user();
+        abort_unless(
+            $user !== null
+            && ((int) $user->id === User::BMN_VERIFIER_1_ID || $user->canApproveBmn()),
+            403
+        );
+
+        $note = trim((string) ($request->validated()['note'] ?? ''));
+
+        try {
+            DB::transaction(function () use ($id, $user, $note): void {
+                /** @var PeminjamanAsetBmn $peminjaman */
+                $peminjaman = PeminjamanAsetBmn::query()->lockForUpdate()->findOrFail($id);
+
+                if (! $peminjaman->isAwaitingHendri()) {
+                    throw new \RuntimeException('Pengajuan tidak lagi pada tahap approval Pak Hendri.');
+                }
+
+                $now = Carbon::now();
+
+                $peminjaman->update([
+                    'final_report_by' => $user->id,
+                    'final_report_at' => $now,
+                    'final_report_note' => $note !== '' ? $note : $peminjaman->final_report_note,
+                    'approval_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_COMPLETED,
+                    'status' => PeminjamanAsetBmn::STATUS_APPROVED,
+                    'approved_by' => $user->id,
+                    'approved_at' => $now,
+                ]);
+            });
+        } catch (\Throwable $e) {
+            return back()->with('error', 'Gagal menyetujui pengajuan: '.$e->getMessage());
+        }
+
+        /** @var PeminjamanAsetBmn $peminjaman */
+        $peminjaman = PeminjamanAsetBmn::query()->findOrFail($id);
+
+        return back()->with(
+            'success',
+            'Peminjaman '.$peminjaman->kode_peminjaman.' disetujui Pak Hendri. Silakan tandai sebagai dipinjam saat aset diserahkan.'
+        );
+    }
+
+    public function rejectByHendri(BmnPeminjamanRejectStageRequest $request, int $id): RedirectResponse
+    {
+        $user = $request->user();
+        abort_unless(
+            $user !== null
+            && ((int) $user->id === User::BMN_VERIFIER_1_ID || $user->canApproveBmn()),
+            403
+        );
+
+        $reason = trim((string) $request->validated()['rejected_reason']);
+
+        try {
+            DB::transaction(function () use ($id, $user, $reason): void {
+                /** @var PeminjamanAsetBmn $peminjaman */
+                $peminjaman = PeminjamanAsetBmn::query()->lockForUpdate()->findOrFail($id);
+
+                if (! $peminjaman->isAwaitingHendri()) {
+                    throw new \RuntimeException('Pengajuan tidak lagi pada tahap approval Pak Hendri.');
+                }
+
+                $peminjaman->update([
+                    'approval_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_REJECTED,
+                    'status' => PeminjamanAsetBmn::STATUS_REJECTED,
+                    'rejected_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_FINAL_HENDRI,
+                    'rejected_reason' => $reason,
+                    'rejected_by' => $user->id,
+                    'rejected_at' => Carbon::now(),
+                ]);
+            });
+        } catch (\Throwable $e) {
+            return back()->with('error', 'Gagal menolak pengajuan: '.$e->getMessage());
+        }
+
+        return back()->with('success', 'Peminjaman ditolak final oleh Pak Hendri.');
     }
 
     /**

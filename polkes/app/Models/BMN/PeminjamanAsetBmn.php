@@ -278,22 +278,61 @@ class PeminjamanAsetBmn extends Model
     }
 
     /**
+     * Workflow baru: Pak Singgih (screening_rumah_tangga) -> Pak Hendri (final_hendri) -> completed.
+     *
+     * Mapping legacy fallback (DATA LAMA, jangan dipakai untuk pengajuan baru):
+     *   - verifikator_1                 -> "Menunggu Pak Singgih"
+     *   - verifikator_2 / final_report  -> "Menunggu Pak Hendri"
+     *
      * @return array{badge: string, label: string}
      */
     public function approvalStageBadge(): array
     {
-        $stage = (string) ($this->approval_stage ?? self::APPROVAL_STAGE_VERIFIKATOR_1);
+        $stage = (string) ($this->approval_stage ?? self::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA);
 
         return match ($stage) {
-            self::APPROVAL_STAGE_VERIFIKATOR_1 => ['badge' => 'bg-warning text-dark', 'label' => 'Menunggu Pak Hendri'],
-            self::APPROVAL_STAGE_VERIFIKATOR_2 => ['badge' => 'bg-info text-dark', 'label' => 'Menunggu Pak Singgih'],
-            self::APPROVAL_STAGE_FINAL_REPORT => ['badge' => 'bg-primary', 'label' => 'Final Report Pak Hendri'],
-            self::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA => ['badge' => 'bg-warning text-dark', 'label' => 'Screening Rumah Tangga'],
-            self::APPROVAL_STAGE_FINAL_HENDRI => ['badge' => 'bg-primary', 'label' => 'Menunggu Persetujuan Pak Hendri'],
+            self::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA,
+            self::APPROVAL_STAGE_VERIFIKATOR_1 => ['badge' => 'bg-warning text-dark', 'label' => 'Menunggu Pak Singgih'],
+            self::APPROVAL_STAGE_FINAL_HENDRI,
+            self::APPROVAL_STAGE_VERIFIKATOR_2,
+            self::APPROVAL_STAGE_FINAL_REPORT => ['badge' => 'bg-primary', 'label' => 'Menunggu Pak Hendri'],
             self::APPROVAL_STAGE_COMPLETED => ['badge' => 'bg-success', 'label' => 'Verifikasi Selesai'],
             self::APPROVAL_STAGE_REJECTED => ['badge' => 'bg-danger', 'label' => 'Ditolak'],
             default => ['badge' => 'bg-secondary', 'label' => ucfirst(str_replace('_', ' ', $stage))],
         };
+    }
+
+    /**
+     * Apakah pengajuan masih menunggu screening Pak Singgih (workflow baru).
+     * Termasuk legacy stage 'verifikator_1' agar data lama tetap tampak benar.
+     */
+    public function isAwaitingSinggih(): bool
+    {
+        return $this->status === self::STATUS_PENDING && in_array(
+            (string) $this->approval_stage,
+            [
+                self::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA,
+                self::APPROVAL_STAGE_VERIFIKATOR_1,
+            ],
+            true
+        );
+    }
+
+    /**
+     * Apakah pengajuan sudah lolos Pak Singgih dan menunggu approval final Pak Hendri.
+     * Termasuk legacy stage 'verifikator_2' / 'final_report' agar data lama tetap tampak benar.
+     */
+    public function isAwaitingHendri(): bool
+    {
+        return $this->status === self::STATUS_PENDING && in_array(
+            (string) $this->approval_stage,
+            [
+                self::APPROVAL_STAGE_FINAL_HENDRI,
+                self::APPROVAL_STAGE_VERIFIKATOR_2,
+                self::APPROVAL_STAGE_FINAL_REPORT,
+            ],
+            true
+        );
     }
 
     public function usesMultiStageApproval(): bool
@@ -406,6 +445,100 @@ class PeminjamanAsetBmn extends Model
     }
 
     /**
+     * Timeline tahap-1 workflow baru: Screening Rumah Tangga oleh Pak Singgih.
+     *
+     * Selesai bila:
+     *   - approval_stage sudah lewat tahap singgih (final_hendri / completed), ATAU
+     *   - data lama: stage = verifikator_2 / final_report / completed
+     *     (artinya verifier_2 alias singgih sudah menyetujui di workflow lama)
+     *
+     * Ditolak bila approval_stage = rejected & rejected_stage menunjuk tahap singgih.
+     *
+     * @return array{status: string, at: \Illuminate\Support\Carbon|null, note: string|null, by: int|null}
+     */
+    public function timelineSinggihApproval(): array
+    {
+        $stage = (string) ($this->approval_stage ?? '');
+        $rejectedStage = (string) ($this->rejected_stage ?? '');
+
+        if ($stage === self::APPROVAL_STAGE_REJECTED && in_array($rejectedStage, [
+            self::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA,
+            self::APPROVAL_STAGE_VERIFIKATOR_1,
+        ], true)) {
+            return [
+                'status' => 'rejected',
+                'at' => $this->rejected_at,
+                'note' => $this->rejected_reason ?? $this->screening_note,
+                'by' => $this->rejected_by !== null ? (int) $this->rejected_by : null,
+            ];
+        }
+
+        $passedSinggih = in_array($stage, [
+            self::APPROVAL_STAGE_FINAL_HENDRI,
+            self::APPROVAL_STAGE_VERIFIKATOR_2,
+            self::APPROVAL_STAGE_FINAL_REPORT,
+            self::APPROVAL_STAGE_COMPLETED,
+        ], true);
+
+        if ($passedSinggih) {
+            $at = $this->screened_at ?? $this->verifier_2_approved_at ?? $this->verifier_1_approved_at;
+            $note = $this->screening_note ?? $this->verifier_2_note ?? $this->verifier_1_note;
+            $by = $this->screened_by ?? $this->verifier_2_id ?? $this->verifier_1_id;
+
+            return [
+                'status' => 'approved',
+                'at' => $at,
+                'note' => $note,
+                'by' => $by !== null ? (int) $by : null,
+            ];
+        }
+
+        return ['status' => 'pending', 'at' => null, 'note' => null, 'by' => null];
+    }
+
+    /**
+     * Timeline tahap-2 workflow baru: Approval Final BMN oleh Pak Hendri.
+     *
+     * Selesai bila approval_stage = completed.
+     * Ditolak bila approval_stage = rejected & rejected_stage menunjuk tahap hendri (final_hendri / verifikator_2 / final_report).
+     *
+     * @return array{status: string, at: \Illuminate\Support\Carbon|null, note: string|null, by: int|null}
+     */
+    public function timelineHendriApproval(): array
+    {
+        $stage = (string) ($this->approval_stage ?? '');
+        $rejectedStage = (string) ($this->rejected_stage ?? '');
+
+        if ($stage === self::APPROVAL_STAGE_REJECTED && in_array($rejectedStage, [
+            self::APPROVAL_STAGE_FINAL_HENDRI,
+            self::APPROVAL_STAGE_VERIFIKATOR_2,
+            self::APPROVAL_STAGE_FINAL_REPORT,
+        ], true)) {
+            return [
+                'status' => 'rejected',
+                'at' => $this->rejected_at,
+                'note' => $this->rejected_reason ?? $this->final_report_note,
+                'by' => $this->rejected_by !== null ? (int) $this->rejected_by : null,
+            ];
+        }
+
+        if ($stage === self::APPROVAL_STAGE_COMPLETED) {
+            $at = $this->approved_at ?? $this->final_report_at;
+            $note = $this->final_report_note;
+            $by = $this->approved_by ?? $this->final_report_by;
+
+            return [
+                'status' => 'approved',
+                'at' => $at,
+                'note' => $note,
+                'by' => $by !== null ? (int) $by : null,
+            ];
+        }
+
+        return ['status' => 'pending', 'at' => null, 'note' => null, 'by' => null];
+    }
+
+    /**
      * URL publik untuk file nota dinas, kompatibel mundur dengan path lama.
      *
      * Aturan resolve (urut prioritas):
@@ -491,7 +624,25 @@ class PeminjamanAsetBmn extends Model
         }
 
         if (! empty($filters['approval_stage'])) {
-            $query->where('approval_stage', (string) $filters['approval_stage']);
+            $stageFilter = (string) $filters['approval_stage'];
+
+            // Workflow baru memakai dua alias: 'singgih' dan 'hendri'.
+            // Alias ini ekspand ke gabungan stage baru + legacy agar data lama
+            // tetap muncul di tab yang relevan tanpa migrasi data.
+            if ($stageFilter === 'singgih') {
+                $query->whereIn('approval_stage', [
+                    self::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA,
+                    self::APPROVAL_STAGE_VERIFIKATOR_1,
+                ]);
+            } elseif ($stageFilter === 'hendri') {
+                $query->whereIn('approval_stage', [
+                    self::APPROVAL_STAGE_FINAL_HENDRI,
+                    self::APPROVAL_STAGE_VERIFIKATOR_2,
+                    self::APPROVAL_STAGE_FINAL_REPORT,
+                ]);
+            } else {
+                $query->where('approval_stage', $stageFilter);
+            }
         }
 
         if (! empty($filters['user_id'])) {

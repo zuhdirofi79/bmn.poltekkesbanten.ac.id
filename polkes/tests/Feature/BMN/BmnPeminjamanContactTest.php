@@ -193,7 +193,8 @@ class BmnPeminjamanContactTest extends TestCase
             'tanggal_pinjam' => now()->toDateString(),
             'rencana_kembali' => now()->addDays(2)->toDateString(),
             'status' => PeminjamanAsetBmn::STATUS_PENDING,
-            'approval_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1,
+            // Workflow baru: pengajuan baru selalu start di screening_rumah_tangga (Pak Singgih).
+            'approval_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA,
             'source' => $source,
             'verification_status' => PeminjamanAsetBmn::VERIFICATION_NOT_REQUIRED,
         ]);
@@ -221,7 +222,8 @@ class BmnPeminjamanContactTest extends TestCase
             'tanggal_pinjam' => now()->toDateString(),
             'rencana_kembali' => now()->addDays(2)->toDateString(),
             'status' => PeminjamanAsetBmn::STATUS_PENDING,
-            'approval_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1,
+            // Workflow baru: pengajuan baru selalu start di screening_rumah_tangga (Pak Singgih).
+            'approval_stage' => PeminjamanAsetBmn::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA,
             'source' => PeminjamanAsetBmn::SOURCE_PUBLIC,
             'public_nama' => $nama,
             'public_no_wa' => $wa,

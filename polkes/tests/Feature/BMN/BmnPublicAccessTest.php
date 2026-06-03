@@ -78,7 +78,8 @@ class BmnPublicAccessTest extends TestCase
         $this->assertNull($peminjaman->user_id);
         $this->assertSame(PeminjamanAsetBmn::SOURCE_PUBLIC, $peminjaman->source);
         $this->assertSame(PeminjamanAsetBmn::VERIFICATION_PENDING, $peminjaman->verification_status);
-        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1, $peminjaman->approval_stage);
+        // Workflow baru: pengajuan baru SELALU masuk ke screening_rumah_tangga (Pak Singgih).
+        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA, $peminjaman->approval_stage);
         $this->assertSame('6281234567890', $peminjaman->public_no_wa);
 
         $response->assertRedirect(route('bmn.public-verification.show', [
@@ -256,7 +257,8 @@ class BmnPublicAccessTest extends TestCase
         $this->assertSame((int) $user->id, (int) $peminjaman->user_id);
         $this->assertSame(PeminjamanAsetBmn::SOURCE_LOGIN, $peminjaman->source);
         $this->assertSame(PeminjamanAsetBmn::VERIFICATION_NOT_REQUIRED, $peminjaman->verification_status);
-        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1, $peminjaman->approval_stage);
+        // Workflow baru: pengajuan baru SELALU masuk ke screening_rumah_tangga (Pak Singgih).
+        $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA, $peminjaman->approval_stage);
 
         $response->assertRedirect(route('bmn.peminjaman-aset.show', $peminjaman->id));
     }

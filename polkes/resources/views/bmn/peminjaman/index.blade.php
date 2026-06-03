@@ -9,18 +9,26 @@
     'dipinjam'     => 'bg-primary',
     'dikembalikan' => 'bg-success',
   ];
+  // Workflow baru: Pak Singgih -> Pak Hendri.
+  // Tab "Menunggu Pak Singgih" mencakup stage baru screening_rumah_tangga DAN legacy verifikator_1
+  // (lihat scopeFilter pada model, value 'singgih'/'hendri' menjadi alias multi-stage).
   $approvalTabs = [
     '' => 'Semua',
-    'verifikator_1' => 'Menunggu Verifikator 1',
-    'verifikator_2' => 'Menunggu Verifikator 2',
-    'final_report' => 'Menunggu Final Report',
-    'completed' => 'Selesai Verifikasi',
+    'singgih' => 'Menunggu Pak Singgih',
+    'hendri' => 'Menunggu Pak Hendri',
+    'completed' => 'Verifikasi Selesai',
     'rejected' => 'Ditolak',
   ];
   $currentApprovalStage = $filters['approval_stage'] ?? '';
   $statPending = \App\Models\BMN\PeminjamanAsetBmn::query()->where('status', 'pending')->count();
   $statDipinjam = \App\Models\BMN\PeminjamanAsetBmn::query()->where('status', 'dipinjam')->count();
-  $statScreening = \App\Models\BMN\PeminjamanAsetBmn::query()->where('approval_stage', 'screening_rumah_tangga')->count();
+  $statScreening = \App\Models\BMN\PeminjamanAsetBmn::query()
+    ->where('status', 'pending')
+    ->whereIn('approval_stage', [
+        \App\Models\BMN\PeminjamanAsetBmn::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA,
+        \App\Models\BMN\PeminjamanAsetBmn::APPROVAL_STAGE_VERIFIKATOR_1,
+    ])
+    ->count();
 @endphp
 
 @section('page_title', 'Peminjaman BMN')
@@ -158,15 +166,18 @@
               <th>Tgl Pinjam</th>
               <th>Status</th>
               <th>Tahap Approval</th>
-              <th>Verifikator 1</th>
-              <th>Verifikator 2</th>
-              <th>Final Report</th>
+              <th>Pak Singgih</th>
+              <th>Pak Hendri</th>
               <th width="100">Aksi</th>
             </tr>
           </thead>
           <tbody>
             @forelse($list as $row)
-              @php $stageBadge = $row->approvalStageBadge(); @endphp
+              @php
+                $stageBadge = $row->approvalStageBadge();
+                $singgihTl = $row->timelineSinggihApproval();
+                $hendriTl = $row->timelineHendriApproval();
+              @endphp
               <tr>
                 <td>{{ $list->firstItem() + $loop->index }}</td>
                 <td><code>{{ $row->kode_peminjaman }}</code></td>
@@ -204,25 +215,31 @@
                   </span>
                 </td>
                 <td class="small">
-                  @if($row->verifier_1_approved_at)
-                    {{ optional($row->verifier1)->name ?? 'Pak Hendri' }}
-                    <br><span class="text-muted">{{ $row->verifier_1_approved_at->format('Y-m-d H:i') }}</span>
+                  @if($singgihTl['status'] === 'approved')
+                    <span class="badge bg-success rounded-pill">Disetujui</span>
+                    @if($singgihTl['at'])
+                      <br><span class="text-muted">{{ $singgihTl['at']->format('Y-m-d H:i') }}</span>
+                    @endif
+                  @elseif($singgihTl['status'] === 'rejected')
+                    <span class="badge bg-danger rounded-pill">Ditolak</span>
+                    @if($singgihTl['at'])
+                      <br><span class="text-muted">{{ $singgihTl['at']->format('Y-m-d H:i') }}</span>
+                    @endif
                   @else
                     <span class="text-muted">—</span>
                   @endif
                 </td>
                 <td class="small">
-                  @if($row->verifier_2_approved_at)
-                    {{ optional($row->verifier2)->name ?? 'Pak Singgih' }}
-                    <br><span class="text-muted">{{ $row->verifier_2_approved_at->format('Y-m-d H:i') }}</span>
-                  @else
-                    <span class="text-muted">—</span>
-                  @endif
-                </td>
-                <td class="small">
-                  @if($row->final_report_at)
-                    {{ optional($row->finalReporter)->name ?? 'Pak Hendri' }}
-                    <br><span class="text-muted">{{ $row->final_report_at->format('Y-m-d H:i') }}</span>
+                  @if($hendriTl['status'] === 'approved')
+                    <span class="badge bg-success rounded-pill">Disetujui</span>
+                    @if($hendriTl['at'])
+                      <br><span class="text-muted">{{ $hendriTl['at']->format('Y-m-d H:i') }}</span>
+                    @endif
+                  @elseif($hendriTl['status'] === 'rejected')
+                    <span class="badge bg-danger rounded-pill">Ditolak</span>
+                    @if($hendriTl['at'])
+                      <br><span class="text-muted">{{ $hendriTl['at']->format('Y-m-d H:i') }}</span>
+                    @endif
                   @else
                     <span class="text-muted">—</span>
                   @endif
@@ -235,7 +252,7 @@
               </tr>
             @empty
               <tr>
-                <td colspan="13" class="text-center text-muted">Belum ada transaksi peminjaman.</td>
+                <td colspan="12" class="text-center text-muted">Belum ada transaksi peminjaman.</td>
               </tr>
             @endforelse
           </tbody>
