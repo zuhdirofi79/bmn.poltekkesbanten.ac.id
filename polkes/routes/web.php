@@ -44,6 +44,39 @@ Route::prefix('public')->name('public.')->middleware('throttle:60,1')->group(fun
     Route::get('pemeliharaan', 'Public\PublicPemeliharaanController@index')->name('pemeliharaan.index');
 });
 
+// ===== PERSEDIAAN ASET BMN — PUBLIK + PEMOHON (guard 'persediaan') =====
+Route::prefix('public/persediaan')->name('public.persediaan.')->middleware('throttle:60,1')->group(function (): void {
+    // Pilih unit kerja (folder cards)
+    Route::get('/', 'Persediaan\UnitPickerController@index')->name('index');
+
+    // Auth pemohon (terpisah dari admin BMN & admin sewa) — login via NIP
+    Route::get('{unit}/register', 'Persediaan\PemohonAuthController@showRegister')
+        ->where('unit', 'keperawatan|kebidanan|tlm|direktorat')->name('register');
+    Route::post('{unit}/register', 'Persediaan\PemohonAuthController@register')
+        ->where('unit', 'keperawatan|kebidanan|tlm|direktorat')
+        ->middleware('throttle:10,1')->name('register.store');
+    Route::get('{unit}/login', 'Persediaan\PemohonAuthController@showLogin')
+        ->where('unit', 'keperawatan|kebidanan|tlm|direktorat')->name('login');
+    Route::post('{unit}/login', 'Persediaan\PemohonAuthController@login')
+        ->where('unit', 'keperawatan|kebidanan|tlm|direktorat')
+        ->middleware('throttle:10,1')->name('login.attempt');
+    Route::post('logout', 'Persediaan\PemohonAuthController@logout')->name('logout');
+
+    // Area pemohon login
+    Route::middleware('persediaan.pemohon')->group(function (): void {
+        Route::get('permintaan', 'Persediaan\PermintaanController@index')->name('permintaan.index');
+        Route::get('permintaan/create', 'Persediaan\PermintaanController@create')->name('permintaan.create');
+        Route::post('permintaan', 'Persediaan\PermintaanController@store')
+            ->middleware('throttle:20,1')->name('permintaan.store');
+        Route::post('permintaan/{id}/ajukan', 'Persediaan\PermintaanController@ajukan')
+            ->where('id', '[0-9]+')->name('permintaan.ajukan');
+        Route::get('permintaan/{id}', 'Persediaan\PermintaanController@show')
+            ->where('id', '[0-9]+')->name('permintaan.show');
+        Route::get('permintaan/{id}/pdf', 'Persediaan\PermintaanController@pdf')
+            ->where('id', '[0-9]+')->name('permintaan.pdf');
+    });
+});
+
 // ===== ADMIN SEWA BMN (login terpisah dari admin BMN utama) =====
 // Hanya 3 user real (Bu Indah / Bu Retno / Pak Singgih) yang lolos middleware 'sewa.admin'.
 Route::prefix('sewa-admin')->name('sewa-admin.')->group(function (): void {
@@ -81,6 +114,67 @@ Route::prefix('sewa-admin')->name('sewa-admin.')->group(function (): void {
         });
 
         Route::get('komplain-asrama', 'SewaAdmin\SewaAdminKomplainController@index')->name('komplain.index');
+    });
+});
+
+// ===== ADMIN PERSEDIAAN (session custom; user_id 3235 & 3243) =====
+Route::prefix('persediaan')->name('persediaan.admin.')->group(function (): void {
+    Route::get('login', 'PersediaanAdmin\AuthController@showLoginForm')->name('login.show');
+    Route::post('login', 'PersediaanAdmin\AuthController@login')
+        ->middleware('throttle:10,1')->name('login.attempt');
+    Route::post('logout', 'PersediaanAdmin\AuthController@logout')->name('logout');
+
+    Route::middleware('persediaan.admin')->group(function (): void {
+        Route::get('dashboard', 'PersediaanAdmin\DashboardController@index')->name('dashboard');
+
+        // Permintaan
+        Route::prefix('permintaan')->name('permintaan.')->group(function (): void {
+            Route::get('/', 'PersediaanAdmin\PermintaanController@index')->name('index');
+            Route::get('{id}', 'PersediaanAdmin\PermintaanController@show')->where('id', '[0-9]+')->name('show');
+            Route::post('{id}/setujui', 'PersediaanAdmin\PermintaanController@setujui')->where('id', '[0-9]+')->name('setujui');
+            Route::post('{id}/tolak', 'PersediaanAdmin\PermintaanController@tolak')->where('id', '[0-9]+')->name('tolak');
+            Route::post('{id}/keluarkan', 'PersediaanAdmin\PermintaanController@keluarkan')->where('id', '[0-9]+')->name('keluarkan');
+            Route::get('{id}/pdf', 'PersediaanAdmin\PermintaanController@pdf')->where('id', '[0-9]+')->name('pdf');
+        });
+
+        // Pembelian
+        Route::prefix('pembelian')->name('pembelian.')->group(function (): void {
+            Route::get('/', 'PersediaanAdmin\PembelianController@index')->name('index');
+            Route::get('create', 'PersediaanAdmin\PembelianController@create')->name('create');
+            Route::post('/', 'PersediaanAdmin\PembelianController@store')->name('store');
+            Route::get('{id}', 'PersediaanAdmin\PembelianController@show')->where('id', '[0-9]+')->name('show');
+            Route::get('import/template', 'PersediaanAdmin\PembelianController@importTemplate')->name('import.template');
+            Route::post('import', 'PersediaanAdmin\PembelianController@import')->name('import');
+        });
+
+        // Stok Akhir
+        Route::get('stok-akhir', 'PersediaanAdmin\StokAkhirController@index')->name('stok-akhir.index');
+        Route::get('stok-akhir/export', 'PersediaanAdmin\StokAkhirController@exportExcel')->name('stok-akhir.export');
+
+        // Stock Opname
+        Route::prefix('opname')->name('opname.')->group(function (): void {
+            Route::get('/', 'PersediaanAdmin\StockOpnameController@index')->name('index');
+            Route::get('create', 'PersediaanAdmin\StockOpnameController@create')->name('create');
+            Route::post('/', 'PersediaanAdmin\StockOpnameController@store')->name('store');
+            Route::get('{id}', 'PersediaanAdmin\StockOpnameController@show')->where('id', '[0-9]+')->name('show');
+            Route::get('{id}/berita-acara', 'PersediaanAdmin\StockOpnameController@beritaAcara')->where('id', '[0-9]+')->name('berita-acara');
+            Route::get('{id}/export', 'PersediaanAdmin\StockOpnameController@exportExcel')->where('id', '[0-9]+')->name('export');
+        });
+
+        // Laporan
+        Route::get('laporan', 'PersediaanAdmin\LaporanController@index')->name('laporan.index');
+        Route::get('laporan/export', 'PersediaanAdmin\LaporanController@exportExcel')->name('laporan.export');
+
+        // Master Barang
+        Route::prefix('master-barang')->name('master-barang.')->group(function (): void {
+            Route::get('/', 'PersediaanAdmin\MasterBarangController@index')->name('index');
+            Route::post('/', 'PersediaanAdmin\MasterBarangController@store')->name('store');
+            Route::put('{id}', 'PersediaanAdmin\MasterBarangController@update')->where('id', '[0-9]+')->name('update');
+            Route::delete('{id}', 'PersediaanAdmin\MasterBarangController@destroy')->where('id', '[0-9]+')->name('destroy');
+        });
+
+        // Pengaturan
+        Route::get('pengaturan', 'PersediaanAdmin\PengaturanController@index')->name('pengaturan.index');
     });
 });
 

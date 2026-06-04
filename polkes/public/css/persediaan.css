@@ -1,0 +1,348 @@
+/* =========================================================
+   PERSEDIAAN ASET BMN — gaya modul (publik + admin)
+   Dibuat terpisah agar tidak mengganggu CSS modul lain.
+   ========================================================= */
+
+:root {
+  --prs-teal: #0f9b8e;
+  --prs-teal-dark: #0b7a70;
+  --prs-navy: #16315c;
+  --prs-navy-2: #1f4178;
+  --prs-blue: #2f6fdb;
+  --prs-green: #2e9e5b;
+  --prs-amber: #e0a52b;
+  --prs-purple: #7a5cd0;
+  --prs-red: #d9534f;
+  --prs-ink: #1f2d3d;
+  --prs-muted: #6b7a90;
+  --prs-line: #e3e9f2;
+  --prs-bg: #f4f7fb;
+}
+
+/* ---------- Wrapper publik ---------- */
+.prs-public-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px 18px 60px;
+}
+.prs-public-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 18px 50px rgba(13, 35, 71, 0.18);
+  padding: 26px;
+}
+.prs-banner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: linear-gradient(120deg, var(--prs-teal), var(--prs-teal-dark));
+  color: #fff;
+  border-radius: 16px;
+  padding: 22px 26px;
+  margin-bottom: 26px;
+  box-shadow: 0 14px 36px rgba(15, 155, 142, 0.35);
+}
+.prs-banner i { font-size: 42px; opacity: .92; }
+.prs-banner h1 { font-size: 1.5rem; font-weight: 800; margin: 0; }
+.prs-banner p { margin: 2px 0 0; opacity: .9; }
+
+/* ---------- Pilih unit kerja (folder cards) ---------- */
+.prs-unit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+@media (max-width: 860px) { .prs-unit-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .prs-unit-grid { grid-template-columns: 1fr; } }
+
+.prs-folder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-decoration: none;
+  text-align: center;
+  min-height: 168px;
+  padding: 24px 16px 20px;
+  border-radius: 16px;
+  border: 1px solid var(--prs-line);
+  background: #fff;
+  overflow: visible;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.prs-folder > * { position: relative; z-index: 2; }
+.prs-folder:hover { transform: translateY(-6px); box-shadow: 0 16px 34px rgba(13,35,71,.16); }
+.prs-folder-ico {
+  width: 96px; height: 78px;
+  margin: 10px auto 6px;
+  flex: 0 0 auto;
+  border-radius: 12px 12px 14px 14px;
+  position: relative;
+  box-shadow: inset 0 -10px 18px rgba(0,0,0,.08);
+}
+.prs-folder-ico::before {
+  content: ""; position: absolute; top: -10px; left: 8px;
+  width: 42px; height: 14px; border-radius: 8px 8px 0 0;
+  background: inherit; filter: brightness(.92);
+}
+.prs-folder-ico i {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 34px; color: rgba(255,255,255,.95); line-height: 1;
+}
+.prs-folder--keperawatan .prs-folder-ico { background: #3b82d6; }
+.prs-folder--kebidanan   .prs-folder-ico { background: #e57aa6; }
+.prs-folder--tlm         .prs-folder-ico { background: #5aa469; }
+.prs-folder--direktorat  .prs-folder-ico { background: #9b8fe0; }
+.prs-folder-title {
+  font-weight: 700;
+  color: var(--prs-ink);
+  line-height: 1.25;
+  margin: 0;
+  white-space: normal;
+  word-break: normal;
+}
+
+@media (max-width: 768px) {
+  .prs-folder { min-height: 150px; padding: 20px 12px 16px; gap: 10px; }
+  .prs-folder-ico { width: 82px; height: 66px; }
+  .prs-folder-ico i { font-size: 30px; }
+}
+
+/* ---------- Box Admin Persediaan (pola mirip Admin Sewa) ---------- */
+.prs-admin-area-divider {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  color: #64748b;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin: 1.75rem 0 1rem;
+}
+.prs-admin-area-divider::before,
+.prs-admin-area-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e2e8f0;
+}
+.prs-admin-card {
+  border: 1px dashed #94a3b8;
+  border-radius: 12px;
+  background: #f8fafc;
+  padding: 1.25rem 1.25rem 1.1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.prs-admin-card .prs-admin-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 12px;
+  background: #0f2a4a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+.prs-admin-card h3 {
+  margin: 0 0 .25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+.prs-admin-card p {
+  margin: 0 0 .65rem;
+  color: #475569;
+  font-size: .85rem;
+  line-height: 1.4;
+}
+.prs-admin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .45rem .9rem;
+  border: 1px solid #0f2a4a;
+  color: #0f2a4a;
+  background: transparent;
+  border-radius: 8px;
+  font-size: .82rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all .15s ease-in-out;
+}
+.prs-admin-btn:hover {
+  background: #0f2a4a;
+  color: #fff;
+}
+
+/* ---------- Form & tabel ---------- */
+.prs-section-title {
+  background: linear-gradient(120deg, var(--prs-navy), var(--prs-navy-2));
+  color: #fff; font-weight: 700; padding: 10px 16px; border-radius: 10px;
+  display: inline-block; margin-bottom: 18px;
+}
+.prs-unit-badge {
+  display: inline-block; background: #d9e7ff; color: #1b4ba3;
+  border-radius: 8px; padding: 4px 12px; font-weight: 600; font-size: .85rem;
+}
+.prs-meta { margin: 14px 0; }
+.prs-meta .row > div { margin-bottom: 8px; }
+.prs-meta label { color: var(--prs-muted); font-size: .8rem; display: block; margin-bottom: 2px; }
+.prs-meta strong { color: var(--prs-ink); }
+
+.prs-table { width: 100%; border-collapse: collapse; margin: 10px 0 6px; }
+.prs-table thead th {
+  background: linear-gradient(120deg, var(--prs-blue), #4f86e6);
+  color: #fff; font-weight: 600; padding: 10px 12px; font-size: .85rem; text-align: left;
+}
+.prs-table tbody td { padding: 9px 12px; border-bottom: 1px solid var(--prs-line); font-size: .9rem; }
+.prs-table tbody tr:nth-child(even) { background: #f7faff; }
+.prs-table input.form-control { max-width: 120px; }
+.prs-table .text-end, .prs-table td.num { text-align: right; }
+
+/* ---------- Signature pad ---------- */
+.prs-sign-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
+@media (max-width: 720px) { .prs-sign-grid { grid-template-columns: 1fr; } }
+.prs-sign-box { text-align: center; }
+.prs-sign-box .ttl { font-weight: 700; color: var(--prs-ink); margin-bottom: 8px; }
+.prs-sign-pad {
+  border: 2px dashed #b9c6db; border-radius: 12px; background: #fcfdff;
+  touch-action: none; width: 100%; height: 170px; display: block;
+}
+.prs-sign-actions { margin-top: 8px; display: flex; gap: 8px; justify-content: center; }
+.prs-sign-static img { max-height: 150px; }
+
+/* ---------- Tombol ---------- */
+.btn-prs-green { background: var(--prs-green); border-color: var(--prs-green); color: #fff; }
+.btn-prs-green:hover { background: #277f49; color: #fff; }
+.btn-prs-blue { background: var(--prs-blue); border-color: var(--prs-blue); color: #fff; }
+.btn-prs-blue:hover { background: #245bc0; color: #fff; }
+.btn-prs-teal { background: var(--prs-teal); border-color: var(--prs-teal); color: #fff; }
+.btn-prs-teal:hover { background: var(--prs-teal-dark); color: #fff; }
+
+/* ---------- Timeline tracking ---------- */
+.prs-timeline { list-style: none; margin: 0; padding: 0; }
+.prs-timeline li { position: relative; padding: 0 0 26px 46px; }
+.prs-timeline li::before {
+  content: ""; position: absolute; left: 15px; top: 26px; bottom: -4px; width: 2px; background: var(--prs-line);
+}
+.prs-timeline li:last-child::before { display: none; }
+.prs-step-ico {
+  position: absolute; left: 0; top: 0; width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; color: #fff; background: #c2ccdb;
+  font-size: 16px;
+}
+.prs-timeline li.done .prs-step-ico { background: var(--prs-green); }
+.prs-timeline li.active .prs-step-ico { background: var(--prs-blue); box-shadow: 0 0 0 4px rgba(47,111,219,.18); }
+.prs-timeline li.reject .prs-step-ico { background: var(--prs-red); }
+.prs-step-title { font-weight: 700; color: var(--prs-ink); }
+.prs-step-sub { color: var(--prs-muted); font-size: .85rem; }
+
+/* ---------- Status badge ---------- */
+.prs-badge { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: .78rem; font-weight: 600; }
+.prs-badge.draft { background: #eef1f6; color: #5a6678; }
+.prs-badge.diajukan, .prs-badge.menunggu_persetujuan { background: #fff3d6; color: #9a6b00; }
+.prs-badge.disetujui { background: #dff3e6; color: #1d7a3f; }
+.prs-badge.ditolak { background: #fde2e1; color: #b02a26; }
+.prs-badge.barang_dikeluarkan { background: #dde9ff; color: #1b4ba3; }
+.prs-badge.selesai { background: #d7f0ec; color: #0b7a70; }
+
+/* ---------- Alur ikon tahap (horizontal) ---------- */
+.prs-flow { display: flex; flex-wrap: wrap; gap: 10px; align-items: stretch; justify-content: center; margin: 6px 0 4px; }
+.prs-flow .step { text-align: center; flex: 1 1 110px; max-width: 150px; }
+.prs-flow .step .ic {
+  width: 56px; height: 56px; border-radius: 14px; margin: 0 auto 6px; display: flex;
+  align-items: center; justify-content: center; font-size: 24px; color: #fff; background: var(--prs-blue);
+}
+.prs-flow .step small { color: var(--prs-muted); font-weight: 600; }
+
+/* ---------- Auth card ---------- */
+.prs-auth-wrap { max-width: 480px; margin: 36px auto; }
+
+/* =========================================================
+   ADMIN PERSEDIAAN (SIM-BMN Persediaan) — shell layout
+   ========================================================= */
+.pa-body { margin: 0; background: var(--prs-bg); }
+.pa-wrap { display: flex; min-height: 100vh; }
+
+.pa-sidebar {
+  width: 248px; flex-shrink: 0; background: linear-gradient(190deg, #16356b, #0f2550);
+  color: #cdd9ee; position: sticky; top: 0; height: 100vh; overflow-y: auto;
+}
+.pa-brand {
+  display: flex; align-items: center; gap: 10px; padding: 18px 18px 14px;
+  border-bottom: 1px solid rgba(255,255,255,.08); color: #fff;
+}
+.pa-brand .logo {
+  width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,.14);
+  display: flex; align-items: center; justify-content: center; font-size: 20px;
+}
+.pa-brand b { font-size: 1.02rem; line-height: 1; }
+.pa-brand small { color: #9fb4d8; letter-spacing: 2px; font-size: .62rem; }
+.pa-nav { list-style: none; margin: 12px 0; padding: 0; }
+.pa-nav a {
+  display: flex; align-items: center; gap: 12px; padding: 11px 20px; color: #c4d2ea;
+  text-decoration: none; font-size: .92rem; border-left: 3px solid transparent;
+}
+.pa-nav a i { font-size: 18px; }
+.pa-nav a:hover { background: rgba(255,255,255,.06); color: #fff; }
+.pa-nav a.active { background: rgba(47,111,219,.25); color: #fff; border-left-color: #4f86e6; }
+
+.pa-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.pa-topbar {
+  background: #fff; border-bottom: 1px solid var(--prs-line); padding: 12px 22px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.pa-topbar h1 { font-size: 1.05rem; margin: 0; color: var(--prs-ink); font-weight: 700; }
+.pa-content { padding: 22px; }
+.pa-user { display: flex; align-items: center; gap: 10px; color: var(--prs-muted); font-size: .9rem; }
+
+/* Stat cards */
+.pa-stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+@media (max-width: 980px) { .pa-stat-row { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .pa-stat-row { grid-template-columns: 1fr; } }
+.pa-stat {
+  border-radius: 16px; padding: 18px 20px; color: #fff; box-shadow: 0 12px 26px rgba(13,35,71,.12);
+}
+.pa-stat .lbl { font-size: .85rem; opacity: .92; }
+.pa-stat .val { font-size: 1.9rem; font-weight: 800; line-height: 1.1; margin: 4px 0; }
+.pa-stat .sub { font-size: .78rem; opacity: .85; }
+.pa-stat.blue   { background: linear-gradient(120deg, #2f6fdb, #4f86e6); }
+.pa-stat.green  { background: linear-gradient(120deg, #2e9e5b, #46b96f); }
+.pa-stat.amber  { background: linear-gradient(120deg, #e0a52b, #efbb52); }
+.pa-stat.purple { background: linear-gradient(120deg, #7a5cd0, #9b82e6); }
+
+.pa-card {
+  background: #fff; border-radius: 16px; border: 1px solid var(--prs-line);
+  box-shadow: 0 8px 22px rgba(13,35,71,.06); padding: 20px; margin-top: 18px;
+}
+.pa-card h2 { font-size: 1.02rem; font-weight: 700; color: var(--prs-ink); margin: 0 0 4px; }
+.pa-mini {
+  display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--prs-line);
+  border-radius: 14px; padding: 16px 18px;
+}
+.pa-mini .ic { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+.pa-mini .ic.red { background: #fde2e1; color: #b02a26; }
+.pa-mini .ic.amber { background: #fff3d6; color: #9a6b00; }
+.pa-mini .big { font-size: 1.6rem; font-weight: 800; color: var(--prs-ink); }
+.pa-mini .cap { color: var(--prs-muted); font-size: .82rem; }
+
+.pa-table { width: 100%; border-collapse: collapse; }
+.pa-table thead th { text-align: left; padding: 10px 12px; font-size: .8rem; color: var(--prs-muted); border-bottom: 2px solid var(--prs-line); }
+.pa-table tbody td { padding: 10px 12px; border-bottom: 1px solid var(--prs-line); font-size: .9rem; }
+.pa-table tbody tr:hover { background: #f7faff; }
+
+/* Rekap opname boxes */
+.pa-rekap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media (max-width: 720px) { .pa-rekap { grid-template-columns: repeat(2, 1fr); } }
+.pa-rekap .box { border: 1px solid var(--prs-line); border-radius: 14px; padding: 16px; text-align: center; background: #fbfdff; }
+.pa-rekap .box .n { font-size: 2rem; font-weight: 800; }
+.pa-rekap .box .lbl { color: var(--prs-muted); font-size: .82rem; font-weight: 600; }
+.pa-rekap .kurang .n { color: var(--prs-red); }
+.pa-rekap .lebih .n { color: var(--prs-green); }
+.pa-rekap .rusak .n { color: var(--prs-amber); }
+.pa-rekap .kadaluarsa .n { color: var(--prs-purple); }

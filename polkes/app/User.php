@@ -184,4 +184,21 @@ class User extends Authenticatable
     {
         return $this->canVerifySewaPayment();
     }
+
+    /**
+     * Apakah user terdaftar aktif sebagai Admin Persediaan
+     * (mapping di tabel persediaan_admins). Tidak destruktif terhadap users.
+     */
+    public function persediaanAdmin(): ?\App\Models\Persediaan\PersediaanAdmin
+    {
+        return \App\Models\Persediaan\PersediaanAdmin::query()
+            ->where('user_id', $this->id)
+            ->where('is_active', true)
+            ->first();
+    }
+
+    public function isPersediaanAdmin(): bool
+    {
+        return $this->persediaanAdmin() !== null;
+    }
 }

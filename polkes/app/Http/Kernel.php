@@ -68,5 +68,8 @@ class Kernel extends HttpKernel
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
 
         'sewa.admin' => \App\Http\Middleware\EnsureSewaAdmin::class,
+
+        'persediaan.pemohon' => \App\Http\Middleware\EnsurePersediaanPemohon::class,
+        'persediaan.admin' => \App\Http\Middleware\EnsurePersediaanAdmin::class,
     ];
 }

@@ -84,6 +84,21 @@
       </span>
     </a>
 
+    {{-- 5. PERSEDIAAN ASET BMN (modul baru) --}}
+    <a href="{{ route('public.persediaan.index') }}"
+       class="portal-service-card"
+       style="--card-img: url('{{ asset('img/icon/persediaan-bmn.png') }}');">
+      <span class="portal-service-overlay"></span>
+      <span class="portal-service-content">
+        <span class="portal-service-title">Persediaan Aset BMN</span>
+        <span class="portal-service-sub">Poltekkes Kemenkes Banten</span>
+        <span class="portal-service-cta">
+          Masuk Layanan
+          <i class="ti ti-arrow-right"></i>
+        </span>
+      </span>
+    </a>
+
   </div>
 </section>
 @endsection

@@ -6,7 +6,7 @@
   <title>@yield('page_title', 'Portal BMN') — Poltekkes Kemenkes Banten</title>
   <link rel="shortcut icon" type="image/png" href="{{ asset('img/fav.png') }}" />
   <link rel="stylesheet" href="{{ asset('thema/assets/css/styles.min.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/public-bmn-dashboard.css') }}?v=20260602b">
+  <link rel="stylesheet" href="{{ asset('css/public-bmn-dashboard.css') }}?v=20260603a">
   @stack('styles')
 </head>
 {{-- 

@@ -354,9 +354,9 @@ body.public-sidebar-open {
 }
 
 /* CARD ------------------------------------------------------------------
- * Setiap card adalah <a> sebagai background-image dari --card-img,
- * dengan overlay rgba(0,0,0,0.35) di atas, teks judul + subjudul + CTA.
- * Tidak ada perubahan file gambar — tetap memakai /img/icon/*.png.
+ * Glassmorphism light card — icon Canva (background-image) tampil dominan,
+ * overlay sangat ringan hanya untuk legibility judul/subjudul di bagian
+ * bawah. Tidak ada perubahan file gambar — tetap memakai /img/icon/*.png.
  * --------------------------------------------------------------------- */
 .portal-service-card {
   position: relative;
@@ -367,33 +367,37 @@ body.public-sidebar-open {
   cursor: pointer;
   text-decoration: none !important;
   color: #ffffff !important;
-  background-color: #0f2a4a;
+  background-color: rgba(255, 255, 255, 0.10);
   background-image: var(--card-img, none);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
-  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
   isolation: isolate;
 }
 
 .portal-service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5);
-  border-color: rgba(255, 255, 255, 0.32);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.20);
+  border-color: rgba(255, 255, 255, 0.45);
 }
 
-/* Overlay gelap rgba(0,0,0,0.35) di atas gambar */
+/* Overlay sangat ringan — icon Canva tetap dominan & terlihat utuh.
+ * Bagian atas mendekati transparan agar ilustrasi tidak tertutup;
+ * bagian bawah sedikit lebih gelap hanya untuk kontras teks. */
 .portal-service-overlay {
   position: absolute;
   inset: 0;
   background:
     linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.65) 0%,
-      rgba(0, 0, 0, 0.45) 50%,
-      rgba(0, 0, 0, 0.35) 100%
+      rgba(0, 0, 0, 0.32) 0%,
+      rgba(0, 0, 0, 0.10) 45%,
+      rgba(0, 0, 0, 0.00) 70%
     );
   z-index: 1;
   transition: background 300ms ease;
@@ -403,9 +407,9 @@ body.public-sidebar-open {
   background:
     linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.7) 0%,
-      rgba(0, 0, 0, 0.5) 50%,
-      rgba(37, 99, 235, 0.35) 100%
+      rgba(0, 0, 0, 0.36) 0%,
+      rgba(0, 0, 0, 0.12) 45%,
+      rgba(37, 99, 235, 0.10) 100%
     );
 }
 
@@ -423,11 +427,11 @@ body.public-sidebar-open {
 .portal-service-title {
   display: block;
   font-size: clamp(20px, 2.4vw, 26px);
-  font-weight: 800;
+  font-weight: 700;
   color: #ffffff;
   line-height: 1.15;
   letter-spacing: 0.01em;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.30);
 }
 
 .portal-service-sub {
@@ -435,9 +439,9 @@ body.public-sidebar-open {
   margin-top: 6px;
   font-size: 13px;
   font-weight: 500;
-  color: #e2e8f0;
+  color: rgba(255, 255, 255, 0.92);
   letter-spacing: 0.03em;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.30);
 }
 
 .portal-service-cta {

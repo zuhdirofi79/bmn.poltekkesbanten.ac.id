@@ -46,6 +46,13 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        // Guard terpisah untuk Pemohon modul Persediaan (login via NIP).
+        // Tidak mengganggu guard 'web' (admin BMN / admin sewa).
+        'persediaan' => [
+            'driver' => 'session',
+            'provider' => 'persediaan_pemohon',
+        ],
     ],
 
     /*
@@ -70,6 +77,13 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
             'username' => 'username',
+        ],
+
+        // Provider untuk akun pemohon Persediaan (tabel persediaan_pemohon).
+        'persediaan_pemohon' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Persediaan\PersediaanPemohon::class,
+            'username' => 'nip',
         ],
 
         // 'users' => [
