@@ -19,10 +19,11 @@
       <form method="POST" action="{{ route('public.persediaan.login.attempt', $unitSlug) }}" class="mt-3">
         @csrf
         <div class="mb-3">
-          <label class="form-label">NIP / NIDN / NIK</label>
-          <input type="text" name="nip" value="{{ old('nip') }}"
-                 class="form-control @error('nip') is-invalid @enderror" required autofocus>
-          @error('nip')<div class="invalid-feedback">{{ $message }}</div>@enderror
+          <label class="form-label">Nama / Username</label>
+          <input type="text" name="login" value="{{ old('login') }}"
+                 class="form-control @error('login') is-invalid @enderror"
+                 placeholder="Masukkan nama atau username" required autofocus>
+          @error('login')<div class="invalid-feedback">{{ $message }}</div>@enderror
         </div>
         <div class="mb-3">
           <label class="form-label">Password</label>

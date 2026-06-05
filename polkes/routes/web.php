@@ -157,6 +157,8 @@ Route::prefix('persediaan')->name('persediaan.admin.')->group(function (): void 
             Route::get('create', 'PersediaanAdmin\StockOpnameController@create')->name('create');
             Route::post('/', 'PersediaanAdmin\StockOpnameController@store')->name('store');
             Route::get('{id}', 'PersediaanAdmin\StockOpnameController@show')->where('id', '[0-9]+')->name('show');
+            Route::get('{id}/laporan', 'PersediaanAdmin\StockOpnameController@laporanPdf')->where('id', '[0-9]+')->name('laporan');
+            Route::get('{id}/laporan-excel', 'PersediaanAdmin\StockOpnameController@laporanExcel')->where('id', '[0-9]+')->name('laporan-excel');
             Route::get('{id}/berita-acara', 'PersediaanAdmin\StockOpnameController@beritaAcara')->where('id', '[0-9]+')->name('berita-acara');
             Route::get('{id}/export', 'PersediaanAdmin\StockOpnameController@exportExcel')->where('id', '[0-9]+')->name('export');
         });

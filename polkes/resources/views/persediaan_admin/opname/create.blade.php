@@ -37,8 +37,8 @@
         <thead>
           <tr>
             <th>Kode Barang</th><th>Nama Barang</th>
-            <th class="text-end">Stok Sistem</th><th style="width:120px;">Stok Fisik</th>
-            <th class="text-end">Selisih</th><th style="width:160px;">Kondisi</th><th style="width:160px;">Keterangan</th>
+            <th class="text-end">Stok Sistem</th><th>Stok Fisik</th>
+            <th class="text-end">Selisih</th><th>Keterangan</th>
           </tr>
         </thead>
         <tbody>
@@ -52,17 +52,10 @@
               <td class="text-end">{{ number_format($r['sistem'], 0, ',', '.') }}</td>
               <td><input type="number" min="0" name="items[{{ $i }}][stok_fisik]" value="{{ $r['sistem'] }}" class="form-control form-control-sm v-fisik"></td>
               <td class="text-end v-selisih">0</td>
-              <td>
-                <select name="items[{{ $i }}][kondisi]" class="form-select form-select-sm v-kondisi">
-                  <option value="">(otomatis)</option>
-                  <option value="rusak">Rusak</option>
-                  <option value="kadaluarsa">Kadaluarsa</option>
-                </select>
-              </td>
               <td><input type="text" name="items[{{ $i }}][keterangan]" class="form-control form-control-sm"></td>
             </tr>
           @empty
-            <tr><td colspan="7" class="text-center text-muted py-3">Tidak ada barang untuk unit ini.</td></tr>
+            <tr><td colspan="6" class="text-center text-muted py-3">Tidak ada barang untuk unit ini.</td></tr>
           @endforelse
         </tbody>
       </table>
@@ -74,8 +67,6 @@
     <div class="pa-rekap mt-2">
       <div class="box kurang"><div class="n" id="rKurang">0</div><div class="lbl">Selisih Kurang</div></div>
       <div class="box lebih"><div class="n" id="rLebih">0</div><div class="lbl">Selisih Lebih</div></div>
-      <div class="box rusak"><div class="n" id="rRusak">0</div><div class="lbl">Rusak</div></div>
-      <div class="box kadaluarsa"><div class="n" id="rKadaluarsa">0</div><div class="lbl">Kadaluarsa</div></div>
     </div>
   </div>
 
@@ -90,7 +81,7 @@
   if (!table) return;
 
   function recalc() {
-    var kurang = 0, lebih = 0, rusak = 0, kadaluarsa = 0;
+    var kurang = 0, lebih = 0;
     table.querySelectorAll('tr[data-row]').forEach(function (tr) {
       var sistem = parseInt(tr.querySelector('.v-sistem').value) || 0;
       var fisik = parseInt(tr.querySelector('.v-fisik').value);
@@ -100,16 +91,11 @@
       cell.textContent = (selisih > 0 ? '+' : '') + selisih;
       cell.style.color = selisih < 0 ? '#d9534f' : (selisih > 0 ? '#2e9e5b' : '#6b7a90');
 
-      var kondisi = tr.querySelector('.v-kondisi').value;
-      if (kondisi === 'rusak') { rusak++; }
-      else if (kondisi === 'kadaluarsa') { kadaluarsa++; }
-      else if (selisih < 0) { kurang++; }
+      if (selisih < 0) { kurang++; }
       else if (selisih > 0) { lebih++; }
     });
     document.getElementById('rKurang').textContent = kurang;
     document.getElementById('rLebih').textContent = lebih;
-    document.getElementById('rRusak').textContent = rusak;
-    document.getElementById('rKadaluarsa').textContent = kadaluarsa;
   }
 
   table.addEventListener('input', recalc);

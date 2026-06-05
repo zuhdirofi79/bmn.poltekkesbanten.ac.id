@@ -8,12 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class PersediaanStockOpnameItem extends Model
 {
-    public const KONDISI_SESUAI = 'sesuai';
-    public const KONDISI_KURANG = 'selisih_kurang';
-    public const KONDISI_LEBIH = 'selisih_lebih';
-    public const KONDISI_RUSAK = 'rusak';
-    public const KONDISI_KADALUARSA = 'kadaluarsa';
-
     protected $table = 'persediaan_stock_opname_items';
 
     protected $fillable = [
@@ -25,7 +19,6 @@ class PersediaanStockOpnameItem extends Model
         'stok_sistem',
         'stok_fisik',
         'selisih',
-        'kondisi',
         'keterangan',
     ];
 

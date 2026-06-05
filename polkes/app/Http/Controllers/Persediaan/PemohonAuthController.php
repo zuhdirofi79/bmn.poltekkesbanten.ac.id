@@ -11,12 +11,13 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 /**
- * Login/Register pemohon Persediaan (guard 'persediaan', login via NIP).
+ * Login/Register pemohon Persediaan (guard 'persediaan', login via nama/username).
  * Terpisah penuh dari login admin BMN (/login) dan admin sewa (/sewa-admin).
  */
 class PemohonAuthController extends Controller
@@ -33,24 +34,25 @@ class PemohonAuthController extends Controller
 
     public function login(Request $request, string $unit): RedirectResponse
     {
-        $this->resolveUnit($unit);
+        $unitName = $this->resolveUnit($unit);
 
         $request->validate([
-            'nip'      => ['required', 'string', 'max:50'],
+            'login'    => ['required', 'string', 'max:150'],
             'password' => ['required', 'string'],
         ]);
 
-        $credentials = [
-            'nip'      => (string) $request->input('nip'),
-            'password' => (string) $request->input('password'),
-        ];
+        $login = (string) $request->input('login');
+        $password = (string) $request->input('password');
 
-        if (! Auth::guard('persediaan')->attempt($credentials, (bool) $request->boolean('remember'))) {
+        $pemohon = $this->findPemohonForLogin($unitName, $login);
+
+        if ($pemohon === null || ! Hash::check($password, $pemohon->password)) {
             throw ValidationException::withMessages([
-                'nip' => 'NIP atau password salah.',
+                'login' => 'Nama/username atau password salah.',
             ]);
         }
 
+        Auth::guard('persediaan')->login($pemohon, (bool) $request->boolean('remember'));
         $request->session()->regenerate();
 
         return redirect()->route('public.persediaan.permintaan.create');
@@ -63,7 +65,7 @@ class PemohonAuthController extends Controller
         return view('persediaan.auth.register', [
             'unitSlug' => $unit,
             'unitName' => $unitName,
-            'units'    => UnitKerja::all(),
+            'units'    => UnitKerja::forPublic(),
         ]);
     }
 
@@ -72,21 +74,21 @@ class PemohonAuthController extends Controller
         $unitName = $this->resolveUnit($unit);
 
         $data = $request->validate([
-            'nama'       => ['required', 'string', 'max:150'],
-            'nip'        => ['required', 'string', 'max:50', Rule::unique('persediaan_pemohon', 'nip')],
-            'email'      => ['nullable', 'email', 'max:150'],
-            'nomor_wa'   => ['nullable', 'string', 'max:30'],
-            'jabatan'    => ['nullable', 'string', 'max:150'],
-            'unit_kerja' => ['required', Rule::in(UnitKerja::all())],
-            'password'   => ['required', 'string', 'min:6', 'confirmed'],
+            'nama_lengkap' => ['required', 'string', 'max:255'],
+            'jabatan'      => ['required', 'string', 'max:255'],
+            'password'     => ['required', 'string', 'min:6', 'confirmed'],
+            'unit_kerja'   => ['required', Rule::in(UnitKerja::forPublic())],
+            'nip_nidn_nik' => ['nullable', 'string', 'max:100', Rule::unique('persediaan_pemohon', 'nip')],
+            'email'        => ['nullable', 'email', 'max:255'],
+            'nomor_wa'     => ['nullable', 'string', 'max:30'],
         ]);
 
         $pemohon = PersediaanPemohon::create([
-            'nama'       => $data['nama'],
-            'nip'        => $data['nip'],
-            'email'      => $data['email'] ?? null,
-            'nomor_wa'   => $data['nomor_wa'] ?? null,
-            'jabatan'    => $data['jabatan'] ?? null,
+            'nama'       => $data['nama_lengkap'],
+            'nip'        => $this->nullableString($data['nip_nidn_nik'] ?? null),
+            'email'      => $this->nullableString($data['email'] ?? null),
+            'nomor_wa'   => $this->nullableString($data['nomor_wa'] ?? null),
+            'jabatan'    => $data['jabatan'],
             'unit_kerja' => $data['unit_kerja'],
             'password'   => Hash::make($data['password']),
         ]);
@@ -114,5 +116,31 @@ class PemohonAuthController extends Controller
         abort_unless($unit !== null, 404);
 
         return $unit;
+    }
+
+    private function findPemohonForLogin(string $unitKerja, string $login): ?PersediaanPemohon
+    {
+        $query = PersediaanPemohon::query()
+            ->where('unit_kerja', $unitKerja)
+            ->where(function ($q) use ($login): void {
+                $q->where('nama', $login);
+
+                if (Schema::hasColumn('persediaan_pemohon', 'username')) {
+                    $q->orWhere('username', $login);
+                }
+            });
+
+        return $query->first();
+    }
+
+    private function nullableString(?string $value): ?string
+    {
+        if ($value === null) {
+            return null;
+        }
+
+        $trimmed = trim($value);
+
+        return $trimmed === '' ? null : $trimmed;
     }
 }

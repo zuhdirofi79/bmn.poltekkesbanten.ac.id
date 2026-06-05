@@ -282,6 +282,67 @@
   color: #0f172a !important;
 }
 
+.persediaan-request-card .prs-barang-filter {
+  padding: 14px 16px;
+  border: 1px solid var(--prs-line);
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.persediaan-request-card .prs-barang-filter .form-label {
+  font-size: .8rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.persediaan-request-card .prs-barang-filter .btn-outline-secondary {
+  color: #334155 !important;
+  border-color: #cbd5e1 !important;
+  background: #fff !important;
+}
+
+.persediaan-request-card .pa-table-filter-wrap {
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+}
+
+.persediaan-request-card .prs-table.pa-table--filterable thead th {
+  vertical-align: bottom;
+  white-space: nowrap;
+}
+
+.persediaan-request-card .prs-table.pa-table--filterable thead th.pa-col-filter-th {
+  background: #2563eb !important;
+}
+
+.persediaan-request-card .pa-col-filter-label {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+.persediaan-request-card .pa-col-filter-btn {
+  color: rgba(255, 255, 255, 0.8) !important;
+  border-color: transparent !important;
+}
+
+.persediaan-request-card .pa-col-filter-btn:hover,
+.persediaan-request-card .pa-col-filter-btn.is-active {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.persediaan-request-card .pa-col-filter-badge {
+  color: #fde68a !important;
+}
+
+.persediaan-request-card .pa-col-filter-dropdown .form-control,
+.persediaan-request-card .pa-col-filter-dropdown .pa-col-filter-select-all,
+.persediaan-request-card .pa-col-filter-dropdown .pa-col-filter-option {
+  color: #0f172a !important;
+}
+
 /* ---------- Signature pad ---------- */
 .prs-sign-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
 @media (max-width: 720px) { .prs-sign-grid { grid-template-columns: 1fr; } }
@@ -517,12 +578,10 @@
 .pa-col-filter-empty { font-style: italic; }
 
 /* Rekap opname boxes */
-.pa-rekap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.pa-rekap { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 @media (max-width: 720px) { .pa-rekap { grid-template-columns: repeat(2, 1fr); } }
 .pa-rekap .box { border: 1px solid var(--prs-line); border-radius: 14px; padding: 16px; text-align: center; background: #fbfdff; }
 .pa-rekap .box .n { font-size: 2rem; font-weight: 800; }
 .pa-rekap .box .lbl { color: var(--prs-muted); font-size: .82rem; font-weight: 600; }
 .pa-rekap .kurang .n { color: var(--prs-red); }
 .pa-rekap .lebih .n { color: var(--prs-green); }
-.pa-rekap .rusak .n { color: var(--prs-amber); }
-.pa-rekap .kadaluarsa .n { color: var(--prs-purple); }

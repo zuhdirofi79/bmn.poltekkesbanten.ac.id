@@ -15,7 +15,7 @@ class CreatePersediaanPemohonTable extends Migration
         Schema::create('persediaan_pemohon', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama');
-            $table->string('nip')->unique();
+            $table->string('nip', 100)->nullable()->unique();
             $table->string('email')->nullable();
             $table->string('nomor_wa')->nullable();
             $table->string('jabatan')->nullable();

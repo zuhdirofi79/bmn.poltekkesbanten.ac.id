@@ -53,6 +53,12 @@ return [
             'driver' => 'session',
             'provider' => 'persediaan_pemohon',
         ],
+
+        // Guard Admin Persediaan (users + session persediaan_admins).
+        'persediaan_admin' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
     ],
 
     /*

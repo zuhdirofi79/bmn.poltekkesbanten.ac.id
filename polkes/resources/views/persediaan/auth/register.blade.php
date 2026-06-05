@@ -17,26 +17,26 @@
       <form method="POST" action="{{ route('public.persediaan.register.store', $unitSlug) }}" class="mt-3">
         @csrf
         <div class="mb-3">
-          <label class="form-label">Nama Lengkap</label>
-          <input type="text" name="nama" value="{{ old('nama') }}"
-                 class="form-control @error('nama') is-invalid @enderror" required>
-          @error('nama')<div class="invalid-feedback">{{ $message }}</div>@enderror
+          <label class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
+          <input type="text" name="nama_lengkap" value="{{ old('nama_lengkap') }}"
+                 class="form-control @error('nama_lengkap') is-invalid @enderror" required>
+          @error('nama_lengkap')<div class="invalid-feedback">{{ $message }}</div>@enderror
         </div>
         <div class="mb-3">
-          <label class="form-label">NIP / NIDN / NIK</label>
-          <input type="text" name="nip" value="{{ old('nip') }}"
-                 class="form-control @error('nip') is-invalid @enderror" required>
-          @error('nip')<div class="invalid-feedback">{{ $message }}</div>@enderror
+          <label class="form-label">NIP / NIDN / NIK <span class="text-muted">(opsional)</span></label>
+          <input type="text" name="nip_nidn_nik" value="{{ old('nip_nidn_nik') }}"
+                 class="form-control @error('nip_nidn_nik') is-invalid @enderror">
+          @error('nip_nidn_nik')<div class="invalid-feedback">{{ $message }}</div>@enderror
         </div>
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label class="form-label">Email</label>
+            <label class="form-label">Email <span class="text-muted">(opsional)</span></label>
             <input type="email" name="email" value="{{ old('email') }}"
                    class="form-control @error('email') is-invalid @enderror">
             @error('email')<div class="invalid-feedback">{{ $message }}</div>@enderror
           </div>
           <div class="col-md-6 mb-3">
-            <label class="form-label">Nomor WA</label>
+            <label class="form-label">Nomor WA <span class="text-muted">(opsional)</span></label>
             <input type="text" name="nomor_wa" value="{{ old('nomor_wa') }}"
                    class="form-control @error('nomor_wa') is-invalid @enderror" placeholder="08xxxxxxxxxx">
             @error('nomor_wa')<div class="invalid-feedback">{{ $message }}</div>@enderror
@@ -44,13 +44,13 @@
         </div>
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label class="form-label">Jabatan</label>
+            <label class="form-label">Jabatan <span class="text-danger">*</span></label>
             <input type="text" name="jabatan" value="{{ old('jabatan') }}"
-                   class="form-control @error('jabatan') is-invalid @enderror">
+                   class="form-control @error('jabatan') is-invalid @enderror" required>
             @error('jabatan')<div class="invalid-feedback">{{ $message }}</div>@enderror
           </div>
           <div class="col-md-6 mb-3">
-            <label class="form-label">Unit Kerja</label>
+            <label class="form-label">Unit Kerja <span class="text-danger">*</span></label>
             <select name="unit_kerja" class="form-select @error('unit_kerja') is-invalid @enderror" required>
               @foreach($units as $u)
                 <option value="{{ $u }}" @selected(old('unit_kerja', $unitName) === $u)>
@@ -63,13 +63,13 @@
         </div>
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label class="form-label">Password</label>
+            <label class="form-label">Password <span class="text-danger">*</span></label>
             <input type="password" name="password"
                    class="form-control @error('password') is-invalid @enderror" required>
             @error('password')<div class="invalid-feedback">{{ $message }}</div>@enderror
           </div>
           <div class="col-md-6 mb-3">
-            <label class="form-label">Konfirmasi Password</label>
+            <label class="form-label">Konfirmasi Password <span class="text-danger">*</span></label>
             <input type="password" name="password_confirmation" class="form-control" required>
           </div>
         </div>
