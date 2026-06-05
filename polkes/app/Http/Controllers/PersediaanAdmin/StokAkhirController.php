@@ -10,6 +10,7 @@ use App\Models\Persediaan\PersediaanBarang;
 use App\Services\Persediaan\StockService;
 use App\Support\Persediaan\UnitKerja;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\View\View;
 use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -22,12 +23,15 @@ class StokAkhirController extends Controller
 
     public function index(Request $request): View
     {
-        [$rows] = $this->buildRows($request);
+        [$rows, $from, $to] = $this->buildRows($request);
 
         return view('persediaan_admin.stok-akhir.index', [
             'rows'    => $rows,
             'units'   => UnitKerja::all(),
-            'filters' => $request->only(['unit', 'q', 'from', 'to', 'menipis']),
+            'filters' => array_merge(
+                $request->only(['unit', 'q', 'menipis']),
+                ['from' => $from, 'to' => $to],
+            ),
         ]);
     }
 
@@ -44,10 +48,13 @@ class StokAkhirController extends Controller
     }
 
     /**
-     * @return array{0: list<array<string,mixed>>}
+     * @return array{0: list<array<string,mixed>>, 1: string, 2: string}
      */
     private function buildRows(Request $request): array
     {
+        $from = $request->input('from') ?: Carbon::now()->startOfMonth()->toDateString();
+        $to = $request->input('to') ?: Carbon::now()->endOfMonth()->toDateString();
+
         $query = PersediaanBarang::query()->where('is_active', true)
             ->when($request->filled('unit'), fn ($q) => $q->where('unit_kerja', $request->input('unit')))
             ->when($request->filled('q'), function ($q) use ($request) {
@@ -57,12 +64,12 @@ class StokAkhirController extends Controller
             ->orderBy('unit_kerja')->orderBy('kode_barang');
 
         $barangs = $query->get();
-        $ringkasan = $this->stock->ringkasanBanyak($barangs, $request->input('from'), $request->input('to'));
+        $ringkasan = $this->stock->ringkasanBanyak($barangs, $from, $to);
 
         $menipis = $request->boolean('menipis');
         $rows = [];
         foreach ($barangs as $b) {
-            $r = $ringkasan[$b->id] ?? ['masuk' => 0, 'keluar' => 0, 'akhir' => $b->stok_awal];
+            $r = $ringkasan[$b->id] ?? ['awal' => (int) $b->stok_awal, 'masuk' => 0, 'keluar' => 0, 'akhir' => (int) $b->stok_awal];
             if ($menipis && $r['akhir'] > $b->stok_minimum) {
                 continue;
             }
@@ -70,7 +77,7 @@ class StokAkhirController extends Controller
                 'kode'   => $b->kode_barang,
                 'nama'   => $b->nama_barang,
                 'unit'   => $b->unit_kerja,
-                'awal'   => (int) $b->stok_awal,
+                'awal'   => $r['awal'],
                 'masuk'  => $r['masuk'],
                 'keluar' => $r['keluar'],
                 'akhir'  => $r['akhir'],
@@ -78,6 +85,6 @@ class StokAkhirController extends Controller
             ];
         }
 
-        return [$rows];
+        return [$rows, $from, $to];
     }
 }

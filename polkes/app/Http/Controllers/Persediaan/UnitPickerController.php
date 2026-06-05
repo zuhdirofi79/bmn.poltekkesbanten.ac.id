@@ -14,7 +14,7 @@ class UnitPickerController extends Controller
     public function index(): View
     {
         return view('persediaan.unit-pilih', [
-            'units'   => UnitKerja::all(),
+            'units'   => UnitKerja::forPublic(),
             'pemohon' => Auth::guard('persediaan')->user(),
         ]);
     }

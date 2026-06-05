@@ -14,6 +14,8 @@ final class UnitKerja
     public const KEBIDANAN = 'Kebidanan';
     public const TLM = 'TLM';
     public const DIREKTORAT = 'Direktorat';
+    public const PPPK = 'PPPK';
+    public const PIMPINAN = 'Pimpinan';
 
     /** @var array<string,string> nama unit => kode permintaan */
     public const KODE = [
@@ -21,6 +23,8 @@ final class UnitKerja
         self::KEBIDANAN   => 'BID',
         self::TLM         => 'TLM',
         self::DIREKTORAT  => 'DIR',
+        self::PPPK        => 'PPP',
+        self::PIMPINAN    => 'PIM',
     ];
 
     /** @var array<string,string> slug url => nama unit */
@@ -29,6 +33,8 @@ final class UnitKerja
         'kebidanan'   => self::KEBIDANAN,
         'tlm'         => self::TLM,
         'direktorat'  => self::DIREKTORAT,
+        'pppk'        => self::PPPK,
+        'pimpinan'    => self::PIMPINAN,
     ];
 
     /** @var array<string,string> nama unit => label tampilan */
@@ -37,12 +43,28 @@ final class UnitKerja
         self::KEBIDANAN   => 'Jurusan Kebidanan',
         self::TLM         => 'Jurusan Analis (TLM)',
         self::DIREKTORAT  => 'Direktorat',
+        self::PPPK        => 'PPPK',
+        self::PIMPINAN    => 'Pimpinan',
+    ];
+
+    /** Unit yang ditampilkan di halaman publik pemohon (pilih unit kerja). */
+    public const PUBLIC = [
+        self::KEPERAWATAN,
+        self::KEBIDANAN,
+        self::TLM,
+        self::DIREKTORAT,
     ];
 
     /** @return list<string> */
     public static function all(): array
     {
         return array_keys(self::KODE);
+    }
+
+    /** @return list<string> */
+    public static function forPublic(): array
+    {
+        return self::PUBLIC;
     }
 
     public static function isValid(?string $unit): bool

@@ -204,6 +204,84 @@
 .prs-table input.form-control { max-width: 120px; }
 .prs-table .text-end, .prs-table td.num { text-align: right; }
 
+/* ---------- Form permintaan (override teks portal gelap) ---------- */
+.persediaan-request-card {
+  color: #0f172a !important;
+}
+
+.persediaan-request-card label,
+.persediaan-request-card td,
+.persediaan-request-card th,
+.persediaan-request-card span,
+.persediaan-request-card div,
+.persediaan-request-card p,
+.persediaan-request-card code,
+.persediaan-request-card strong,
+.persediaan-request-card small {
+  color: #0f172a !important;
+}
+
+.persediaan-request-card .text-muted {
+  color: #64748b !important;
+}
+
+.persediaan-request-card .prs-meta label {
+  color: #64748b !important;
+}
+
+.persediaan-request-card table thead th {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+.persediaan-request-card table tbody td {
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+.persediaan-request-card table tbody tr:nth-child(even) td {
+  background: #f8fafc !important;
+}
+
+.persediaan-request-card input,
+.persediaan-request-card textarea,
+.persediaan-request-card select,
+.persediaan-request-card .form-control {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #d8e0ec !important;
+  -webkit-text-fill-color: #0f172a !important;
+}
+
+.persediaan-request-card input::placeholder,
+.persediaan-request-card textarea::placeholder {
+  color: #94a3b8 !important;
+  -webkit-text-fill-color: #94a3b8 !important;
+}
+
+.persediaan-request-card input[type="number"] {
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+}
+
+.persediaan-request-card .prs-unit-badge {
+  color: #1b4ba3 !important;
+  background: #d9e7ff;
+}
+
+.persediaan-request-card .badge {
+  color: inherit;
+}
+
+.persediaan-request-card .form-label {
+  color: #0f172a !important;
+}
+
+.persediaan-request-card .prs-sign-box .ttl {
+  color: #0f172a !important;
+}
+
 /* ---------- Signature pad ---------- */
 .prs-sign-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
 @media (max-width: 720px) { .prs-sign-grid { grid-template-columns: 1fr; } }
@@ -335,6 +413,108 @@
 .pa-table thead th { text-align: left; padding: 10px 12px; font-size: .8rem; color: var(--prs-muted); border-bottom: 2px solid var(--prs-line); }
 .pa-table tbody td { padding: 10px 12px; border-bottom: 1px solid var(--prs-line); font-size: .9rem; }
 .pa-table tbody tr:hover { background: #f7faff; }
+
+/* ---------- Filter per kolom (Excel-style) — Master Barang ---------- */
+.pa-table-filter-wrap {
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+}
+.pa-table--filterable thead th {
+  vertical-align: bottom;
+  white-space: nowrap;
+}
+.pa-col-filter-head {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 22px;
+}
+.pa-col-filter-label { font-weight: 600; color: var(--prs-muted); }
+.pa-col-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  line-height: 1;
+  transition: color .12s ease, background .12s ease, border-color .12s ease;
+}
+.pa-col-filter-btn:hover,
+.pa-col-filter-btn.is-active {
+  color: var(--prs-blue);
+  background: #eef4ff;
+  border-color: #d4e2ff;
+}
+.pa-col-filter-btn i { font-size: 13px; }
+.pa-col-filter-badge {
+  font-size: 8px;
+  line-height: 1;
+  color: var(--prs-blue);
+}
+.pa-col-filter-dropdown {
+  position: fixed;
+  z-index: 1060;
+  background: #fff;
+  border: 1px solid var(--prs-line);
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(13, 35, 71, .16);
+  padding: 10px;
+  max-height: 280px;
+  display: flex;
+  flex-direction: column;
+  min-width: 220px;
+}
+.pa-col-filter-dropdown[hidden] { display: none !important; }
+.pa-col-filter-search { margin-bottom: 8px; flex-shrink: 0; }
+.pa-col-filter-select-all {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--prs-ink);
+  margin-bottom: 6px;
+  padding: 2px 0;
+  border-bottom: 1px solid var(--prs-line);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.pa-col-filter-list {
+  overflow-y: auto;
+  max-height: 170px;
+  margin-bottom: 8px;
+  flex: 1 1 auto;
+}
+.pa-col-filter-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: .82rem;
+  color: var(--prs-ink);
+  padding: 4px 2px;
+  margin: 0;
+  cursor: pointer;
+  line-height: 1.35;
+}
+.pa-col-filter-option:hover { background: #f7faff; border-radius: 4px; }
+.pa-col-filter-option input { margin-top: 2px; flex-shrink: 0; }
+.pa-col-filter-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+  border-top: 1px solid var(--prs-line);
+  padding-top: 8px;
+}
+.pa-col-filter-actions .btn { flex: 1 1 0; }
+.pa-col-filter-empty { font-style: italic; }
 
 /* Rekap opname boxes */
 .pa-rekap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }

@@ -69,6 +69,6 @@
       </tbody>
     </table>
   </div>
-  <p class="text-muted mt-3 mb-0"><strong>Rumus:</strong> Stok Akhir = Stok Awal + Barang Masuk &minus; Barang Keluar</p>
+  <p class="text-muted mt-3 mb-0"><strong>Rumus:</strong> Stok Awal = stok master + masuk sebelum periode &minus; keluar sebelum periode. Stok Akhir = Stok Awal + Barang Masuk &minus; Barang Keluar.</p>
 </div>
 @endsection

@@ -11,9 +11,8 @@ use Illuminate\Support\Facades\DB;
 /**
  * Sumber kebenaran perhitungan stok persediaan.
  *
- * Stok Akhir = stok_awal + SUM(qty_masuk) - SUM(qty_keluar)
- * dihitung dari tabel persediaan_stock_movements (kecuali stok_awal yang
- * juga sudah dicatat sebagai movement tipe 'stok_awal' saat seed/master).
+ * Stok Awal Periode = stok_awal master + masuk sebelum from - keluar sebelum from
+ * Stok Akhir       = Stok Awal Periode + masuk periode - keluar periode
  */
 class StockService
 {
@@ -30,6 +29,25 @@ class StockService
             'keterangan' => $data['keterangan'] ?? null,
             'created_by' => $data['created_by'] ?? null,
         ]);
+    }
+
+    /**
+     * Catat pengeluaran permintaan; skip bila movement sudah ada (hindari double insert).
+     */
+    public function recordPermintaanKeluar(array $data): ?PersediaanStockMovement
+    {
+        $exists = PersediaanStockMovement::query()
+            ->where('tipe', PersediaanStockMovement::TIPE_KELUAR)
+            ->where('ref_table', $data['ref_table'] ?? null)
+            ->where('ref_id', $data['ref_id'] ?? null)
+            ->where('barang_id', $data['barang_id'])
+            ->exists();
+
+        if ($exists) {
+            return null;
+        }
+
+        return $this->recordMovement($data);
     }
 
     /** Total qty masuk dari movement (semua tipe, termasuk stok_awal). */
@@ -66,6 +84,29 @@ class StockService
     }
 
     /**
+     * Stok awal periode = stok_awal master + masuk sebelum from - keluar sebelum from.
+     */
+    public function stokAwalPeriode(PersediaanBarang $barang, ?string $from = null): int
+    {
+        if ($from === null || $from === '') {
+            return (int) $barang->stok_awal;
+        }
+
+        $masukSebelum = (int) PersediaanStockMovement::query()
+            ->where('barang_id', $barang->id)
+            ->where('tipe', '!=', PersediaanStockMovement::TIPE_STOK_AWAL)
+            ->whereDate('created_at', '<', $from)
+            ->sum('qty_masuk');
+
+        $keluarSebelum = (int) PersediaanStockMovement::query()
+            ->where('barang_id', $barang->id)
+            ->whereDate('created_at', '<', $from)
+            ->sum('qty_keluar');
+
+        return (int) $barang->stok_awal + $masukSebelum - $keluarSebelum;
+    }
+
+    /**
      * Stok akhir saat ini = stok_awal + (semua masuk non-awal) - (semua keluar).
      */
     public function stokAkhir(PersediaanBarang $barang): int
@@ -80,13 +121,33 @@ class StockService
      * Agregat stok untuk banyak barang sekaligus (hindari N+1 di tabel stok).
      *
      * @param  \Illuminate\Support\Collection<int,PersediaanBarang>  $barangs
-     * @return array<int,array{masuk:int,keluar:int,akhir:int}>
+     * @return array<int,array{awal:int,masuk:int,keluar:int,akhir:int}>
      */
     public function ringkasanBanyak($barangs, ?string $from = null, ?string $to = null): array
     {
         $ids = $barangs->pluck('id')->all();
         if (empty($ids)) {
             return [];
+        }
+
+        $masukSebelum = collect();
+        $keluarSebelum = collect();
+
+        if ($from !== null && $from !== '') {
+            $masukSebelum = PersediaanStockMovement::query()
+                ->select('barang_id', DB::raw('SUM(qty_masuk) as total'))
+                ->whereIn('barang_id', $ids)
+                ->where('tipe', '!=', PersediaanStockMovement::TIPE_STOK_AWAL)
+                ->whereDate('created_at', '<', $from)
+                ->groupBy('barang_id')
+                ->pluck('total', 'barang_id');
+
+            $keluarSebelum = PersediaanStockMovement::query()
+                ->select('barang_id', DB::raw('SUM(qty_keluar) as total'))
+                ->whereIn('barang_id', $ids)
+                ->whereDate('created_at', '<', $from)
+                ->groupBy('barang_id')
+                ->pluck('total', 'barang_id');
         }
 
         $masukQ = PersediaanStockMovement::query()
@@ -104,12 +165,16 @@ class StockService
 
         $result = [];
         foreach ($barangs as $b) {
+            $mSebelum = (int) ($masukSebelum[$b->id] ?? 0);
+            $kSebelum = (int) ($keluarSebelum[$b->id] ?? 0);
+            $awal = (int) $b->stok_awal + $mSebelum - $kSebelum;
             $m = (int) ($masuk[$b->id] ?? 0);
             $k = (int) ($keluar[$b->id] ?? 0);
             $result[(int) $b->id] = [
+                'awal'   => $awal,
                 'masuk'  => $m,
                 'keluar' => $k,
-                'akhir'  => (int) $b->stok_awal + $m - $k,
+                'akhir'  => $awal + $m - $k,
             ];
         }
 

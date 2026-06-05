@@ -5,7 +5,7 @@
 @php use App\Support\Persediaan\UnitKerja; @endphp
 
 @push('styles')
-  <link rel="stylesheet" href="{{ asset('css/persediaan.css') }}?v=1">
+  <link rel="stylesheet" href="{{ asset('css/persediaan.css') }}?v=3">
 @endpush
 
 @section('content')
@@ -31,7 +31,7 @@
     </div>
   @endif
 
-  <div class="prs-public-card">
+  <div class="prs-public-card persediaan-request-card">
     <p class="prs-unit-badge">{{ UnitKerja::label($pemohon->unit_kerja) }}</p>
 
     <div class="prs-meta">

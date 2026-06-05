@@ -85,6 +85,24 @@ class PermintaanController extends Controller
             $permintaan->approved_at = Carbon::now();
             $permintaan->tanda_tangan_admin_path = $ttd;
             $permintaan->save();
+
+            foreach ($permintaan->items as $item) {
+                $qty = (int) ($item->jumlah_disetujui ?? 0);
+                if ($qty <= 0 || ! $item->barang_id) {
+                    continue;
+                }
+
+                $this->stock->recordPermintaanKeluar([
+                    'barang_id'  => $item->barang_id,
+                    'unit_kerja' => $permintaan->unit_kerja,
+                    'tipe'       => PersediaanStockMovement::TIPE_KELUAR,
+                    'ref_table'  => 'persediaan_permintaan',
+                    'ref_id'     => $permintaan->id,
+                    'qty_keluar' => $qty,
+                    'keterangan' => 'Pengeluaran permintaan ' . $permintaan->nomor_permintaan,
+                    'created_by' => $request->user()->id,
+                ]);
+            }
         });
 
         return back()->with('success', 'Permintaan disetujui dan ditandatangani.');
@@ -130,7 +148,7 @@ class PermintaanController extends Controller
                     continue;
                 }
 
-                $this->stock->recordMovement([
+                $this->stock->recordPermintaanKeluar([
                     'barang_id'  => $item->barang_id,
                     'unit_kerja' => $permintaan->unit_kerja,
                     'tipe'       => PersediaanStockMovement::TIPE_KELUAR,

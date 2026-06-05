@@ -168,6 +168,8 @@ Route::prefix('persediaan')->name('persediaan.admin.')->group(function (): void 
         // Master Barang
         Route::prefix('master-barang')->name('master-barang.')->group(function (): void {
             Route::get('/', 'PersediaanAdmin\MasterBarangController@index')->name('index');
+            Route::get('template-excel', 'PersediaanAdmin\MasterBarangController@templateExcel')->name('template');
+            Route::post('import-excel', 'PersediaanAdmin\MasterBarangController@importExcel')->name('import');
             Route::post('/', 'PersediaanAdmin\MasterBarangController@store')->name('store');
             Route::put('{id}', 'PersediaanAdmin\MasterBarangController@update')->where('id', '[0-9]+')->name('update');
             Route::delete('{id}', 'PersediaanAdmin\MasterBarangController@destroy')->where('id', '[0-9]+')->name('destroy');
