@@ -67,21 +67,10 @@
         </div>
         <div><strong>Tujuan:</strong> {{ $pengajuan->tujuan_peminjaman }}</div>
         @if($pengajuan->catatan)<div><strong>Catatan Penyewa:</strong> {{ $pengajuan->catatan }}</div>@endif
-        <hr>
-        <div class="d-flex gap-2 flex-wrap">
-          @if($pengajuan->suratResmiUrl())
-            <a href="{{ $pengajuan->suratResmiUrl() }}" target="_blank" class="btn btn-sm btn-outline-primary">
-              <i class="ti ti-file-text"></i> Lihat Surat Resmi
-            </a>
-          @endif
-          @if($pengajuan->buktiBayarUrl())
-            <a href="{{ $pengajuan->buktiBayarUrl() }}" target="_blank" class="btn btn-sm btn-outline-primary">
-              <i class="ti ti-receipt"></i> Lihat Bukti Bayar
-            </a>
-          @endif
-        </div>
       </div>
     </div>
+
+    @include('sewa_admin.sewa._dokumen', ['pengajuan' => $pengajuan])
 
     <div class="bmn-card mb-3">
       <div class="bmn-card-header"><h2>Hubungi Penyewa</h2></div>

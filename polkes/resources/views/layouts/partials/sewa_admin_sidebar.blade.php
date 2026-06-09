@@ -8,6 +8,7 @@
   $isSewaSection = str_starts_with($routeName, 'sewa-admin.sewa.');
   $isPelaporan = str_starts_with($routeName, 'sewa-admin.pelaporan');
   $isKomplain = str_starts_with($routeName, 'sewa-admin.komplain');
+  $isTarif = str_starts_with($routeName, 'sewa-admin.tarif');
 
   // Sub-item Sewa aktif kalau saat ini berada di halaman sewa-admin.sewa.index DAN
   // parameter ?quick=<key> cocok. Untuk halaman show tidak ada quick filter,
@@ -62,6 +63,13 @@
           </li>
         @endforeach
       </ul>
+    </div>
+
+    <div class="bmn-nav-item {{ $isTarif ? 'active' : '' }}">
+      <a href="{{ route('sewa-admin.tarif.index') }}" class="bmn-nav-link {{ $isTarif ? 'active' : '' }}">
+        <i class="ti ti-photo"></i>
+        <span>Layanan &amp; Foto</span>
+      </a>
     </div>
 
     <div class="bmn-nav-item {{ $isPelaporan ? 'active' : '' }}">

@@ -55,6 +55,9 @@ class PublicSewaController extends Controller
     {
         $kategoriList = BmnSewaTarif::query()
             ->where('is_active', 1)
+            ->with(['photos' => function ($q): void {
+                $q->orderBy('sort_order')->orderBy('id');
+            }])
             ->orderBy('sort_order')
             ->get()
             ->groupBy('kategori');
@@ -79,13 +82,13 @@ class PublicSewaController extends Controller
                 /** @var UploadedFile $file */
                 $file = $request->file('surat_resmi');
                 $suratOriginal = (string) $file->getClientOriginalName();
-                $suratPath = $this->storeUpload($file, BmnSewaPengajuan::SURAT_DIR, 'surat');
+                $suratPath = $this->storeSuratResmi($file);
             }
             if ($request->hasFile('bukti_bayar')) {
                 /** @var UploadedFile $file */
                 $file = $request->file('bukti_bayar');
                 $buktiOriginal = (string) $file->getClientOriginalName();
-                $buktiPath = $this->storeUpload($file, BmnSewaPengajuan::BUKTI_BAYAR_DIR, 'bukti');
+                $buktiPath = $this->storeBuktiBayar($file);
             }
 
             $pengajuan = DB::transaction(function () use ($data, $jenis, $suratPath, $suratOriginal, $buktiPath, $buktiOriginal): BmnSewaPengajuan {
@@ -233,16 +236,41 @@ class PublicSewaController extends Controller
         ]);
     }
 
-    private function storeUpload(UploadedFile $file, string $dirRelative, string $prefix): string
+    private function storeSuratResmi(UploadedFile $file): string
     {
-        $dirAbsolute = bmn_public_upload_path($dirRelative);
+        $dirRelative = BmnSewaPengajuan::SURAT_DIR;
+        $dirAbsolute = bmn_nota_dinas_path();
 
         if (! is_dir($dirAbsolute)) {
             @mkdir($dirAbsolute, 0755, true);
         }
 
-        $ext = strtolower((string) $file->getClientOriginalExtension()) ?: 'bin';
-        $filename = sprintf('%s-%s-%s.%s', $prefix, Carbon::now()->format('Ymd'), Str::random(8), $ext);
+        if (! is_dir($dirAbsolute) || ! is_writable($dirAbsolute)) {
+            throw new \RuntimeException('Folder upload surat resmi tidak tersedia.');
+        }
+
+        $ext = strtolower((string) $file->getClientOriginalExtension()) ?: 'pdf';
+        $filename = sprintf('surat-sewa-%s-%s.%s', Carbon::now()->format('Ymd'), Str::random(8), $ext);
+        $file->move($dirAbsolute, $filename);
+
+        return $dirRelative.'/'.$filename;
+    }
+
+    private function storeBuktiBayar(UploadedFile $file): string
+    {
+        $dirRelative = BmnSewaPengajuan::BUKTI_BAYAR_DIR;
+        $dirAbsolute = bmn_bukti_bayar_sewa_path();
+
+        if (! is_dir($dirAbsolute)) {
+            @mkdir($dirAbsolute, 0755, true);
+        }
+
+        if (! is_dir($dirAbsolute) || ! is_writable($dirAbsolute)) {
+            throw new \RuntimeException('Folder upload bukti bayar tidak tersedia.');
+        }
+
+        $ext = strtolower((string) $file->getClientOriginalExtension()) ?: 'jpg';
+        $filename = sprintf('bukti-sewa-%s-%s.%s', Carbon::now()->format('Ymd'), Str::random(8), $ext);
         $file->move($dirAbsolute, $filename);
 
         return $dirRelative.'/'.$filename;
@@ -254,7 +282,27 @@ class PublicSewaController extends Controller
             return;
         }
 
-        $abs = public_path(ltrim($path, '/'));
+        $normalized = ltrim(str_replace('\\', '/', $path), '/');
+
+        if (str_starts_with($normalized, BmnSewaPengajuan::SURAT_DIR.'/')) {
+            $abs = bmn_nota_dinas_path(basename($normalized));
+            if (is_file($abs)) {
+                @unlink($abs);
+            }
+
+            return;
+        }
+
+        if (str_starts_with($normalized, BmnSewaPengajuan::BUKTI_BAYAR_DIR.'/')) {
+            $abs = bmn_bukti_bayar_sewa_path(basename($normalized));
+            if (is_file($abs)) {
+                @unlink($abs);
+            }
+
+            return;
+        }
+
+        $abs = public_path($normalized);
         if (is_file($abs)) {
             @unlink($abs);
         }

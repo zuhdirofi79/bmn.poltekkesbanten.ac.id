@@ -6,6 +6,7 @@ namespace App\Models\BMN;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class BmnSewaTarif extends Model
 {
@@ -33,6 +34,21 @@ class BmnSewaTarif extends Model
     public function pengajuan(): HasMany
     {
         return $this->hasMany(BmnSewaPengajuan::class, 'tarif_id');
+    }
+
+    public function photos(): HasMany
+    {
+        return $this->hasMany(BmnSewaTarifFoto::class, 'tarif_id')
+            ->orderBy('sort_order')
+            ->orderBy('id');
+    }
+
+    public function primaryPhoto(): HasOne
+    {
+        return $this->hasOne(BmnSewaTarifFoto::class, 'tarif_id')
+            ->where('is_primary', 1)
+            ->orderBy('sort_order')
+            ->orderBy('id');
     }
 
     public function tarifForJenis(string $jenisPenyewa): float

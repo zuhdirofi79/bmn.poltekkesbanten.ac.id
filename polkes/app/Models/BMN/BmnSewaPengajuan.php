@@ -44,9 +44,14 @@ class BmnSewaPengajuan extends Model
 
     public const COORD_DONE = 'done';
 
-    public const SURAT_DIR = 'uploads/sewa/surat';
+    public const SURAT_DIR = 'uploads/nota_dinas';
 
-    public const BUKTI_BAYAR_DIR = 'uploads/sewa/bukti-bayar';
+    public const BUKTI_BAYAR_DIR = 'uploads/bukti_bayar_sewa';
+
+    /** Path legacy sebelum migrasi folder upload. */
+    public const LEGACY_SURAT_DIR = 'uploads/sewa/surat';
+
+    public const LEGACY_BUKTI_BAYAR_DIR = 'uploads/sewa/bukti-bayar';
 
     /** Status verifikasi email publik (kolom verification_status). */
     public const VERIFICATION_PENDING = 'pending';
@@ -142,7 +147,21 @@ class BmnSewaPengajuan extends Model
             return null;
         }
 
-        return asset(ltrim($path, '/'));
+        if (preg_match('#^https?://#i', $path) === 1) {
+            return $path;
+        }
+
+        $normalized = ltrim(str_replace('\\', '/', $path), '/');
+
+        if (str_starts_with($normalized, self::SURAT_DIR.'/')) {
+            return bmn_nota_dinas_url(basename($normalized));
+        }
+
+        if (str_starts_with($normalized, self::LEGACY_SURAT_DIR.'/')) {
+            return asset($normalized);
+        }
+
+        return asset($normalized);
     }
 
     public function buktiBayarUrl(): ?string
@@ -152,7 +171,45 @@ class BmnSewaPengajuan extends Model
             return null;
         }
 
-        return asset(ltrim($path, '/'));
+        if (preg_match('#^https?://#i', $path) === 1) {
+            return $path;
+        }
+
+        $normalized = ltrim(str_replace('\\', '/', $path), '/');
+
+        if (str_starts_with($normalized, self::BUKTI_BAYAR_DIR.'/')) {
+            return bmn_bukti_bayar_sewa_url(basename($normalized));
+        }
+
+        if (str_starts_with($normalized, self::LEGACY_BUKTI_BAYAR_DIR.'/')) {
+            return asset($normalized);
+        }
+
+        return asset($normalized);
+    }
+
+    public function suratResmiOriginalName(): string
+    {
+        $name = trim((string) ($this->surat_resmi_original_name ?? ''));
+        if ($name !== '') {
+            return $name;
+        }
+
+        $path = trim((string) ($this->surat_resmi_path ?? ''));
+
+        return $path !== '' ? basename($path) : 'Surat Resmi';
+    }
+
+    public function buktiBayarOriginalName(): string
+    {
+        $name = trim((string) ($this->bukti_bayar_original_name ?? ''));
+        if ($name !== '') {
+            return $name;
+        }
+
+        $path = trim((string) ($this->bukti_bayar_path ?? ''));
+
+        return $path !== '' ? basename($path) : 'Bukti Bayar';
     }
 
     public function jenisPenyewaLabel(): string

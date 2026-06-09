@@ -37,8 +37,8 @@ class StorePublicSewaRequest extends FormRequest
             'tanggal_rencana_kembali' => ['required', 'date', 'after_or_equal:tanggal_mulai_sewa'],
             'tujuan_peminjaman' => ['required', 'string', 'max:2000'],
             'catatan' => ['nullable', 'string', 'max:2000'],
-            'surat_resmi' => ['required', 'file', 'mimes:pdf', 'max:5120'],
-            'bukti_bayar' => ['required', 'file', 'mimes:jpg,jpeg,png,webp,pdf', 'max:5120'],
+            'surat_resmi' => ['required', 'file', 'mimes:pdf,doc,docx,jpg,jpeg,png', 'max:10240'],
+            'bukti_bayar' => ['required', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:10240'],
         ];
     }
 
@@ -49,6 +49,10 @@ class StorePublicSewaRequest extends FormRequest
     {
         return [
             'nomor_wa.regex' => 'Nomor WhatsApp tidak valid. Gunakan format Indonesia: 08xxxxxxx, 62xxxxxxx, atau +62xxxxxxx.',
+            'surat_resmi.max' => 'Ukuran surat resmi maksimal 10 MB.',
+            'surat_resmi.mimes' => 'Surat resmi harus berformat PDF, DOC, DOCX, JPG, JPEG, atau PNG.',
+            'bukti_bayar.max' => 'Ukuran bukti bayar maksimal 10 MB.',
+            'bukti_bayar.mimes' => 'Bukti bayar harus berformat JPG, JPEG, PNG, atau PDF.',
         ];
     }
 

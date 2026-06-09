@@ -99,6 +99,50 @@ if (! function_exists('bmn_nota_dinas_url')) {
     }
 }
 
+if (! function_exists('bmn_bukti_bayar_sewa_path')) {
+    /**
+     * Path absolut (disk) untuk file bukti bayar sewa BMN.
+     */
+    function bmn_bukti_bayar_sewa_path(string $path = ''): string
+    {
+        $base = rtrim((string) (config('bmn.bukti_bayar_sewa_path') ?? ''), '/\\');
+
+        if ($base === '') {
+            $base = rtrim((string) public_path('uploads/bukti_bayar_sewa'), '/\\');
+        }
+
+        $path = (string) $path;
+        if ($path === '' || $path === '/') {
+            return $base;
+        }
+
+        $path = str_replace('\\', '/', ltrim($path, "/\\"));
+        if ($path === '') {
+            return $base;
+        }
+
+        return $base.'/'.$path;
+    }
+}
+
+if (! function_exists('bmn_bukti_bayar_sewa_url')) {
+    /**
+     * URL publik untuk file bukti bayar sewa BMN.
+     */
+    function bmn_bukti_bayar_sewa_url(string $path = ''): string
+    {
+        $base = rtrim((string) (config('bmn.bukti_bayar_sewa_url') ?? ''), '/');
+
+        if ($base === '') {
+            $base = rtrim((string) url('/uploads/bukti_bayar_sewa'), '/');
+        }
+
+        $path = ltrim($path, '/');
+
+        return $path === '' ? $base : $base.'/'.$path;
+    }
+}
+
 if (! function_exists('bmn_public_upload_path')) {
     function bmn_public_upload_path(string $subdir, string $path = ''): string
     {

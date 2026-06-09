@@ -91,6 +91,20 @@ Route::prefix('sewa-admin')->name('sewa-admin.')->group(function (): void {
     Route::middleware(['auth', 'sewa.admin'])->group(function (): void {
         Route::get('dashboard', 'SewaAdmin\SewaAdminDashboardController@index')->name('dashboard');
 
+        Route::prefix('tarif')->name('tarif.')->group(function (): void {
+            Route::get('/', 'SewaAdmin\SewaAdminTarifController@index')->name('index');
+            Route::get('{id}', 'SewaAdmin\SewaAdminTarifController@show')
+                ->where('id', '[0-9]+')->name('show');
+            Route::post('{id}/fotos', 'SewaAdmin\SewaAdminTarifController@uploadPhotos')
+                ->where('id', '[0-9]+')->name('fotos.upload');
+            Route::post('{tarifId}/fotos/{fotoId}/primary', 'SewaAdmin\SewaAdminTarifController@setPrimary')
+                ->where(['tarifId' => '[0-9]+', 'fotoId' => '[0-9]+'])->name('fotos.primary');
+            Route::post('{tarifId}/fotos/{fotoId}/move', 'SewaAdmin\SewaAdminTarifController@movePhoto')
+                ->where(['tarifId' => '[0-9]+', 'fotoId' => '[0-9]+'])->name('fotos.move');
+            Route::delete('{tarifId}/fotos/{fotoId}', 'SewaAdmin\SewaAdminTarifController@deletePhoto')
+                ->where(['tarifId' => '[0-9]+', 'fotoId' => '[0-9]+'])->name('fotos.delete');
+        });
+
         Route::prefix('sewa')->name('sewa.')->group(function (): void {
             Route::get('/', 'SewaAdmin\SewaAdminSewaController@index')->name('index');
             Route::get('{id}', 'SewaAdmin\SewaAdminSewaController@show')

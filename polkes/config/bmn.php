@@ -34,4 +34,17 @@ return [
     */
     'nota_dinas_path' => env('BMN_NOTA_DINAS_BASE_PATH', ''),
     'nota_dinas_url' => env('BMN_NOTA_DINAS_BASE_URL', ''),
+
+    /*
+    |----------------------------------------------------------------------
+    | Path absolut (disk) & URL publik untuk Bukti Bayar Sewa BMN
+    |----------------------------------------------------------------------
+    | Pola sama dengan nota_dinas — wajib di-set pada shared hosting.
+    |
+    | Contoh production:
+    | BMN_BUKTI_BAYAR_SEWA_BASE_PATH=/home/.../public_html/uploads/bukti_bayar_sewa
+    | BMN_BUKTI_BAYAR_SEWA_BASE_URL=https://bmn....ac.id/uploads/bukti_bayar_sewa
+    */
+    'bukti_bayar_sewa_path' => env('BMN_BUKTI_BAYAR_SEWA_BASE_PATH', ''),
+    'bukti_bayar_sewa_url' => env('BMN_BUKTI_BAYAR_SEWA_BASE_URL', ''),
 ];

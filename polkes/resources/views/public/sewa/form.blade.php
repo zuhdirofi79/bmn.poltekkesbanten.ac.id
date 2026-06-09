@@ -57,6 +57,52 @@
     border-radius: 8px;
     font-size: .82rem;
   }
+  .sewa-gallery-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1rem;
+    background: #fff;
+  }
+  .sewa-gallery-main {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+  }
+  .sewa-gallery-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+    border: 1px dashed #cbd5e1;
+    background: #f8fafc;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    font-size: .9rem;
+  }
+  .sewa-gallery-thumbs {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    margin-top: .75rem;
+  }
+  .sewa-gallery-thumb {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    background: #f8fafc;
+  }
+  .sewa-gallery-thumb.active {
+    border-color: #0d6efd;
+  }
 </style>
 @endpush
 
@@ -91,10 +137,11 @@
       <em>Verifikasi WhatsApp sementara dinonaktifkan.</em>
     </div>
 
-    <form method="post"
+    <form method="POST"
           action="{{ $isPegawai ? route('public.sewa.pegawai.store') : route('public.sewa.umum.store') }}"
           enctype="multipart/form-data"
-          id="formSewa">
+          id="formSewa"
+          autocomplete="off">
       @csrf
 
       {{-- A. Biodata Penyewa --}}
@@ -140,11 +187,18 @@
                 <option value="">— Pilih layanan —</option>
                 @foreach($kategoriList as $kategori => $items)
                   @foreach($items as $tarif)
+                    @php
+                      $photoPayload = $tarif->photos->map(static fn ($p) => [
+                          'url' => $p->fotoUrl(),
+                          'is_primary' => (bool) $p->is_primary,
+                      ])->values()->all();
+                    @endphp
                     <option value="{{ $tarif->id }}"
                             data-kategori="{{ $kategori }}"
                             data-satuan="{{ $tarif->satuan }}"
                             data-nama="{{ $tarif->nama_layanan }}"
                             data-tarif-umum="{{ (int) round((float) $tarif->tarif_umum) }}"
+                            data-photos='@json($photoPayload)'
                             @if($isPegawai && $tarif->tarif_pegawai !== null)
                               data-tarif-pegawai="{{ (int) round((float) $tarif->tarif_pegawai) }}"
                             @endif
@@ -157,12 +211,18 @@
             </div>
           </div>
 
-          <div id="tarifInfo" class="alert alert-light border small mb-0" style="display:none;">
+          <div id="tarifInfo" class="alert alert-light border small mb-3" style="display:none;">
             <div><strong>Satuan:</strong> <span id="infoSatuan">-</span></div>
             <div><strong>Tarif per satuan:</strong> Rp <span id="infoTarif">-</span></div>
             @if($isPegawai)
               <div class="text-muted"><s>Rp <span id="infoTarifUmum">-</span></s> → tarif pegawai</div>
             @endif
+          </div>
+
+          <div id="tarifGalleryWrap" class="sewa-gallery-card" style="display:none;">
+            <h6 class="fw-semibold mb-2">Detail Produk / Layanan</h6>
+            <div id="tarifGalleryMain"></div>
+            <div id="tarifGalleryThumbs" class="sewa-gallery-thumbs"></div>
           </div>
         </div>
       </div>
@@ -232,12 +292,16 @@
             <textarea name="tujuan_peminjaman" rows="2" class="form-control" required maxlength="2000">{{ old('tujuan_peminjaman') }}</textarea>
           </div>
           <div class="mb-3">
-            <label class="form-label">Upload Surat Resmi Permohonan (PDF) <span class="text-danger">*</span></label>
-            <input type="file" name="surat_resmi" class="form-control" accept="application/pdf" required>
+            <label class="form-label">Upload Surat Resmi / Nota Dinas <span class="text-danger">*</span></label>
+            <input type="file" name="surat_resmi" id="suratResmi" class="form-control"
+                   accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/jpeg,image/png" required>
+            <small class="text-muted">PDF, DOC, DOCX, JPG, JPEG, PNG. Maks. 10 MB.</small>
           </div>
           <div class="mb-3">
             <label class="form-label">Upload Bukti Bayar <span class="text-danger">*</span></label>
-            <input type="file" name="bukti_bayar" class="form-control" accept="image/jpeg,image/png,image/jpg,image/webp,application/pdf" required>
+            <input type="file" name="bukti_bayar" id="buktiBayar" class="form-control"
+                   accept=".jpg,.jpeg,.png,.pdf,image/jpeg,image/png,application/pdf" required>
+            <small class="text-muted">JPG, JPEG, PNG, PDF. Maks. 10 MB.</small>
           </div>
           <div class="mb-0">
             <label class="form-label">Catatan</label>
@@ -246,8 +310,7 @@
         </div>
       </div>
 
-      <button type="submit" id="btnSubmitSewa" class="btn btn-bmn-primary w-100"
-              onclick="return confirm('Kirim pengajuan sewa?');">
+      <button type="submit" id="btnSubmitSewa" class="btn btn-bmn-primary w-100">
         <i class="ti ti-send"></i> Ajukan Sewa
       </button>
     </form>
@@ -271,8 +334,15 @@
   var hiddenHari  = document.getElementById('jumlah_hari_sewa');
   var hiddenTotal = document.getElementById('total_biaya');
   var btnSubmit   = document.getElementById('btnSubmitSewa');
+  var formSewa    = document.getElementById('formSewa');
+  var tarifGalleryWrap  = document.getElementById('tarifGalleryWrap');
+  var tarifGalleryMain  = document.getElementById('tarifGalleryMain');
+  var tarifGalleryThumbs = document.getElementById('tarifGalleryThumbs');
+  var suratResmiInput = document.getElementById('suratResmi');
+  var buktiBayarInput = document.getElementById('buktiBayar');
 
   var isPegawai = @json($isPegawai);
+  var MAX_FILE_BYTES = 10 * 1024 * 1024;
 
   function formatRp(num) {
     var n = Math.max(0, Math.round(Number(num) || 0));
@@ -324,10 +394,68 @@
     return parseInt(opt.getAttribute('data-tarif-umum') || '0', 10) || 0;
   }
 
+  function parsePhotos(opt) {
+    if (!opt) return [];
+    var raw = opt.getAttribute('data-photos') || '[]';
+    try {
+      var parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function renderGallery(opt) {
+    if (!tarifGalleryWrap || !tarifGalleryMain || !tarifGalleryThumbs) return;
+
+    var photos = parsePhotos(opt);
+    tarifGalleryMain.innerHTML = '';
+    tarifGalleryThumbs.innerHTML = '';
+
+    if (!opt) {
+      tarifGalleryWrap.style.display = 'none';
+      return;
+    }
+
+    tarifGalleryWrap.style.display = 'block';
+
+    if (!photos.length) {
+      tarifGalleryMain.innerHTML = '<div class="sewa-gallery-placeholder">Foto belum tersedia</div>';
+      return;
+    }
+
+    var primaryIndex = 0;
+    photos.forEach(function (photo, idx) {
+      if (photo && photo.is_primary) primaryIndex = idx;
+    });
+
+    function setMain(index) {
+      var photo = photos[index];
+      if (!photo || !photo.url) return;
+      tarifGalleryMain.innerHTML = '<img src="' + photo.url + '" alt="Foto layanan" class="sewa-gallery-main">';
+      Array.prototype.forEach.call(tarifGalleryThumbs.querySelectorAll('.sewa-gallery-thumb'), function (thumb, idx) {
+        thumb.classList.toggle('active', idx === index);
+      });
+    }
+
+    photos.forEach(function (photo, idx) {
+      if (!photo || !photo.url) return;
+      var thumb = document.createElement('img');
+      thumb.src = photo.url;
+      thumb.alt = 'Thumbnail ' + (idx + 1);
+      thumb.className = 'sewa-gallery-thumb' + (idx === primaryIndex ? ' active' : '');
+      thumb.addEventListener('click', function () { setMain(idx); });
+      tarifGalleryThumbs.appendChild(thumb);
+    });
+
+    setMain(primaryIndex);
+  }
+
   function updateTarifInfo() {
     var opt = selectedOption();
     if (!opt) {
       tarifInfo.style.display = 'none';
+      renderGallery(null);
       return;
     }
     var satuanEl = document.getElementById('infoSatuan');
@@ -339,6 +467,17 @@
       if (umumEl) umumEl.textContent = formatRp(parseInt(opt.getAttribute('data-tarif-umum') || '0', 10));
     }
     tarifInfo.style.display = 'block';
+    renderGallery(opt);
+  }
+
+  function validateFileSize(input, label) {
+    if (!input || !input.files || !input.files[0]) return true;
+    if (input.files[0].size > MAX_FILE_BYTES) {
+      alert(label + ' terlalu besar. Maksimal 10 MB per file.');
+      input.value = '';
+      return false;
+    }
+    return true;
   }
 
   function updateRingkasan() {
@@ -394,6 +533,36 @@
   tarifSelect.addEventListener('change', refreshAll);
   tglMulai.addEventListener('change', updateRingkasan);
   tglKembali.addEventListener('change', updateRingkasan);
+
+  if (suratResmiInput) {
+    suratResmiInput.addEventListener('change', function () {
+      validateFileSize(suratResmiInput, 'Surat resmi');
+    });
+  }
+  if (buktiBayarInput) {
+    buktiBayarInput.addEventListener('change', function () {
+      validateFileSize(buktiBayarInput, 'Bukti bayar');
+    });
+  }
+
+  if (formSewa) {
+    formSewa.addEventListener('submit', function (event) {
+      if (!validateFileSize(suratResmiInput, 'Surat resmi')) {
+        event.preventDefault();
+        return false;
+      }
+      if (!validateFileSize(buktiBayarInput, 'Bukti bayar')) {
+        event.preventDefault();
+        return false;
+      }
+      if (!confirm('Kirim pengajuan sewa?')) {
+        event.preventDefault();
+        return false;
+      }
+      if (btnSubmit) btnSubmit.disabled = true;
+      return true;
+    });
+  }
 
   filterTarif();
 })();

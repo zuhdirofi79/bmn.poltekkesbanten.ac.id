@@ -29,15 +29,9 @@
           <div>Kembali: {{ optional($pengajuan->tanggal_rencana_kembali)->format('Y-m-d') }}</div>
           <div>Tujuan: {{ $pengajuan->tujuan_peminjaman }}</div>
           @if($pengajuan->catatan)<div>Catatan: {{ $pengajuan->catatan }}</div>@endif
-          <hr>
-          @if($pengajuan->suratResmiUrl())
-            <a href="{{ $pengajuan->suratResmiUrl() }}" target="_blank" class="btn btn-sm btn-outline-primary me-1">Surat Resmi</a>
-          @endif
-          @if($pengajuan->buktiBayarUrl())
-            <a href="{{ $pengajuan->buktiBayarUrl() }}" target="_blank" class="btn btn-sm btn-outline-primary">Bukti Bayar</a>
-          @endif
         </div>
       </div>
+      @include('sewa_admin.sewa._dokumen', ['pengajuan' => $pengajuan])
     </div>
     <div class="col-lg-5">
       <div class="bmn-card mb-3">
