@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Http\Controllers\PersediaanAdmin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Persediaan\PersediaanBarang;
 use App\Models\Persediaan\PersediaanPermintaan;
 use App\Models\Persediaan\PersediaanStockMovement;
 use App\Services\Persediaan\SignatureService;
 use App\Services\Persediaan\StockService;
+use App\Support\Persediaan\PersediaanAccess;
 use App\Support\Persediaan\UnitKerja;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\RedirectResponse;
@@ -29,43 +29,70 @@ class PermintaanController extends Controller
 
     public function index(Request $request): View
     {
-        $permintaan = PersediaanPermintaan::query()
-            ->with('pemohon')
-            ->when($request->filled('unit'), fn ($q) => $q->where('unit_kerja', $request->input('unit')))
+        $lockedUnit = PersediaanAccess::lockedUnitForApprover($request);
+        $isSuperadmin = PersediaanAccess::isSuperadmin($request);
+
+        $permintaan = PersediaanAccess::scopePermintaanQuery(
+            PersediaanPermintaan::query()->with('pemohon'),
+            $request,
+        )
             ->when($request->filled('status'), fn ($q) => $q->where('status', $request->input('status')))
             ->when($request->filled('q'), fn ($q) => $q->where('nomor_permintaan', 'like', '%' . $request->input('q') . '%'))
-            ->orderByRaw("FIELD(status,'diajukan','menunggu_persetujuan','disetujui','barang_dikeluarkan','selesai','ditolak','draft')")
+            ->orderByRaw("FIELD(status,'menunggu_persetujuan','diajukan','disetujui','barang_dikeluarkan','selesai','ditolak','draft')")
             ->orderByDesc('created_at')
             ->paginate(15)
             ->withQueryString();
 
+        $units = $isSuperadmin ? UnitKerja::forPublic() : ($lockedUnit ? [$lockedUnit] : UnitKerja::forPublic());
+
         return view('persediaan_admin.permintaan.index', [
-            'permintaan' => $permintaan,
-            'units'      => UnitKerja::all(),
+            'permintaan'   => $permintaan,
+            'units'        => $units,
+            'lockedUnit'   => $lockedUnit,
+            'isSuperadmin' => $isSuperadmin,
         ]);
     }
 
-    public function show(int $id): View
+    public function show(Request $request, int $id): View|RedirectResponse
     {
-        $permintaan = PersediaanPermintaan::with(['items', 'pemohon'])->findOrFail($id);
+        $permintaan = PersediaanAccess::scopePermintaanQuery(
+            PersediaanPermintaan::query(),
+            $request,
+        )
+            ->with(['items', 'pemohon', 'approver'])
+            ->whereKey($id)
+            ->first();
+
+        if ($permintaan === null) {
+            abort(404);
+        }
+
+        $userId = (int) $request->user()->id;
+        $canApprove = PersediaanAccess::canApprovePermintaan($userId, $permintaan);
+        $canIssue = $permintaan->status === PersediaanPermintaan::STATUS_DISETUJUI
+            && (PersediaanAccess::isSuperadminUserId($userId)
+                || (int) ($permintaan->approver_user_id ?? 0) === $userId);
 
         return view('persediaan_admin.permintaan.show', [
-            'permintaan' => $permintaan,
+            'permintaan'   => $permintaan,
+            'canApprove'   => $canApprove,
+            'canIssue'     => $canIssue,
         ]);
     }
 
     public function setujui(Request $request, int $id): RedirectResponse
     {
-        $permintaan = PersediaanPermintaan::with('items')->findOrFail($id);
+        $permintaan = $this->findScoped($request, $id, ['items']);
 
-        if (! $permintaan->isPending()) {
-            return back()->with('error', 'Permintaan ini sudah diproses.');
+        if (! PersediaanAccess::canApprovePermintaan((int) $request->user()->id, $permintaan)) {
+            return back()->with('error', 'Anda tidak berhak menyetujui permintaan ini.');
         }
 
         $data = $request->validate([
             'tanda_tangan_admin'        => ['required', 'string'],
             'jumlah_disetujui'          => ['array'],
             'jumlah_disetujui.*'        => ['nullable', 'integer', 'min:0'],
+            'approval_note'             => ['nullable', 'string', 'max:1000'],
         ]);
 
         $ttd = $this->signature->storeBase64($data['tanda_tangan_admin']);
@@ -84,6 +111,7 @@ class PermintaanController extends Controller
             $permintaan->approved_by = $request->user()->id;
             $permintaan->approved_at = Carbon::now();
             $permintaan->tanda_tangan_admin_path = $ttd;
+            $permintaan->approval_note = $data['approval_note'] ?? null;
             $permintaan->save();
 
             foreach ($permintaan->items as $item) {
@@ -110,10 +138,10 @@ class PermintaanController extends Controller
 
     public function tolak(Request $request, int $id): RedirectResponse
     {
-        $permintaan = PersediaanPermintaan::findOrFail($id);
+        $permintaan = $this->findScoped($request, $id);
 
-        if (! $permintaan->isPending()) {
-            return back()->with('error', 'Permintaan ini sudah diproses.');
+        if (! PersediaanAccess::canApprovePermintaan((int) $request->user()->id, $permintaan)) {
+            return back()->with('error', 'Anda tidak berhak menolak permintaan ini.');
         }
 
         $data = $request->validate([
@@ -122,23 +150,28 @@ class PermintaanController extends Controller
 
         $permintaan->status = PersediaanPermintaan::STATUS_DITOLAK;
         $permintaan->catatan_admin = $data['catatan_admin'];
-        $permintaan->approved_by = $request->user()->id;
-        $permintaan->approved_at = Carbon::now();
+        $permintaan->approval_note = $data['catatan_admin'];
+        $permintaan->rejected_by = $request->user()->id;
+        $permintaan->rejected_at = Carbon::now();
         $permintaan->save();
 
         return back()->with('success', 'Permintaan ditolak.');
     }
 
     /**
-     * Keluarkan barang -> status barang_dikeluarkan -> selesai,
-     * dan stok berkurang otomatis (movement permintaan_keluar).
+     * Keluarkan barang -> status selesai (stok sudah berkurang saat disetujui).
      */
     public function keluarkan(Request $request, int $id): RedirectResponse
     {
-        $permintaan = PersediaanPermintaan::with('items')->findOrFail($id);
+        $permintaan = $this->findScoped($request, $id, ['items']);
 
         if ($permintaan->status !== PersediaanPermintaan::STATUS_DISETUJUI) {
             return back()->with('error', 'Hanya permintaan berstatus disetujui yang dapat dikeluarkan.');
+        }
+
+        if (! PersediaanAccess::isSuperadminUserId((int) $request->user()->id)
+            && (int) ($permintaan->approver_user_id ?? 0) !== (int) $request->user()->id) {
+            return back()->with('error', 'Anda tidak berhak mengeluarkan barang permintaan ini.');
         }
 
         DB::transaction(function () use ($permintaan, $request) {
@@ -164,12 +197,12 @@ class PermintaanController extends Controller
             $permintaan->save();
         });
 
-        return back()->with('success', 'Barang dikeluarkan, stok berkurang otomatis, permintaan selesai.');
+        return back()->with('success', 'Barang dikeluarkan, permintaan selesai.');
     }
 
-    public function pdf(int $id): Response
+    public function pdf(Request $request, int $id): Response
     {
-        $permintaan = PersediaanPermintaan::with(['items', 'pemohon'])->findOrFail($id);
+        $permintaan = $this->findScoped($request, $id, ['items', 'pemohon']);
 
         $pdf = Pdf::loadView('persediaan.permintaan.pdf', [
             'permintaan' => $permintaan,
@@ -177,5 +210,22 @@ class PermintaanController extends Controller
         ])->setPaper('a4', 'portrait');
 
         return $pdf->stream('Permintaan-' . $permintaan->nomor_permintaan . '.pdf');
+    }
+
+    /**
+     * @param  list<string>  $with
+     */
+    private function findScoped(Request $request, int $id, array $with = []): PersediaanPermintaan
+    {
+        $permintaan = PersediaanAccess::scopePermintaanQuery(
+            PersediaanPermintaan::query()->with($with),
+            $request,
+        )
+            ->whereKey($id)
+            ->first();
+
+        abort_if($permintaan === null, 404);
+
+        return $permintaan;
     }
 }

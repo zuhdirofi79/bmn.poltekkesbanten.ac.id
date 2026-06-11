@@ -47,13 +47,33 @@ final class PersediaanAdminSession
         return self::role($request) === PersediaanAdmin::ROLE_SUPERADMIN;
     }
 
-    public static function login(Request $request, PersediaanAdmin $admin, User $user): void
+    public static function login(Request $request, ?PersediaanAdmin $admin, User $user): void
     {
         $request->session()->regenerate();
+
+        $role = $admin?->role;
+        $satker = $admin?->satker;
+
+        if (PersediaanAccess::isSuperadminUserId((int) $user->id)) {
+            $role = PersediaanAdmin::ROLE_SUPERADMIN;
+            $satker = null;
+        } elseif ($unit = PersediaanAccess::approverUnitForUserId((int) $user->id)) {
+            $satker = $unit;
+            if ($role === null) {
+                $role = match ($unit) {
+                    'Keperawatan' => PersediaanAdmin::ROLE_KEPERAWATAN,
+                    'Kebidanan'   => PersediaanAdmin::ROLE_KEBIDANAN,
+                    'TLM'         => PersediaanAdmin::ROLE_TLM,
+                    'Direktorat'  => PersediaanAdmin::ROLE_DIREKTORAT,
+                    default       => 'admin_persediaan_unit',
+                };
+            }
+        }
+
         $request->session()->put([
             self::KEY_USER_ID => (int) $user->id,
-            self::KEY_ROLE    => $admin->role,
-            self::KEY_SATKER  => $admin->satker,
+            self::KEY_ROLE    => $role,
+            self::KEY_SATKER  => $satker,
         ]);
     }
 
@@ -91,8 +111,15 @@ final class PersediaanAdminSession
             ->where('is_active', true)
             ->first();
 
-        if ($admin === null) {
+        if ($admin === null && ! PersediaanAccess::hasAdminAccess((int) $user->id)) {
             return null;
+        }
+
+        if ($admin === null) {
+            $admin = PersediaanAdmin::query()
+                ->where('user_id', $user->id)
+                ->where('is_active', true)
+                ->first();
         }
 
         return ['user' => $user, 'admin' => $admin];

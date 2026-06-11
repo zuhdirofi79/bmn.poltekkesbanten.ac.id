@@ -9,12 +9,19 @@
   <form method="GET" class="row g-2 align-items-end">
     <div class="col-md-3">
       <label class="form-label">Unit Kerja</label>
-      <select name="unit" class="form-select form-select-sm">
-        <option value="">Semua Unit</option>
-        @foreach($units as $u)
-          <option value="{{ $u }}" @selected(request('unit') === $u)>{{ UnitKerja::label($u) }}</option>
-        @endforeach
-      </select>
+      @if(!empty($lockedUnit))
+        <input type="hidden" name="unit" value="{{ $lockedUnit }}">
+        <select class="form-select form-select-sm" disabled>
+          <option selected>{{ UnitKerja::label($lockedUnit) }}</option>
+        </select>
+      @else
+        <select name="unit" class="form-select form-select-sm">
+          <option value="">Semua Unit</option>
+          @foreach($units as $u)
+            <option value="{{ $u }}" @selected(request('unit') === $u)>{{ UnitKerja::label($u) }}</option>
+          @endforeach
+        </select>
+      @endif
     </div>
     <div class="col-md-3">
       <label class="form-label">Status</label>

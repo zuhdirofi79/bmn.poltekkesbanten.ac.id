@@ -18,12 +18,19 @@
   </a>
 </div>
 
+@php $editable = $canApprove ?? false; @endphp
+
 <div class="pa-card mt-0">
   <div class="d-flex justify-content-between align-items-start">
     <div>
       <h2>{{ $permintaan->nomor_permintaan }}</h2>
       <div class="text-muted">{{ UnitKerja::label($permintaan->unit_kerja) }} &middot;
         {{ optional($permintaan->tanggal_permintaan)->format('d M Y') }}</div>
+      @if($permintaan->approver_user_id)
+        <div class="text-muted mt-1" style="font-size:.85rem;">
+          Approver: <strong>{{ $permintaan->approverDisplayName() }}</strong>
+        </div>
+      @endif
     </div>
     <span class="prs-badge {{ $permintaan->status }}">{{ $permintaan->statusLabel() }}</span>
   </div>
@@ -38,8 +45,6 @@
     <div class="alert alert-danger mt-3 mb-0"><strong>Alasan Penolakan:</strong> {{ $permintaan->catatan_admin }}</div>
   @endif
 </div>
-
-@php $editable = $permintaan->isPending(); @endphp
 
 <form method="POST" action="{{ route('persediaan.admin.permintaan.setujui', $permintaan->id) }}" id="approveForm">
   @csrf
@@ -97,16 +102,16 @@
         </div>
       </div>
       <div class="d-flex flex-wrap gap-2 mt-3">
-        <button type="submit" class="btn btn-prs-green"><i class="ti ti-check"></i> Setujui &amp; Tanda Tangan</button>
+        <button type="submit" class="btn btn-prs-green"><i class="ti ti-check"></i> Setujui Permintaan</button>
         <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#tolakModal">
-          <i class="ti ti-x"></i> Tolak
+          <i class="ti ti-x"></i> Tolak Permintaan
         </button>
       </div>
     </div>
   @endif
 </form>
 
-@if($permintaan->status === P::STATUS_DISETUJUI)
+@if($canIssue ?? false)
   <div class="pa-card">
     <h2>Pengeluaran Barang</h2>
     <p class="text-muted">Setujui sudah dilakukan. Klik untuk mengeluarkan barang; stok akan berkurang otomatis dan permintaan menjadi <strong>selesai</strong>.</p>

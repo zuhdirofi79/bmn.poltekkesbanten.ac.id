@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
-use App\Models\Persediaan\PersediaanAdmin;
+use App\Support\Persediaan\PersediaanAccess;
 use App\Support\Persediaan\PersediaanAdminSession;
 use App\User;
 use Closure;
@@ -24,17 +24,18 @@ class EnsurePersediaanAdmin
                 ->with('error', 'Silakan login sebagai Admin Persediaan.');
         }
 
-        $admin = PersediaanAdminSession::activeAdmin($request);
-
-        if ($admin === null) {
+        $userId = PersediaanAdminSession::userId($request);
+        if ($userId === null || ! PersediaanAccess::hasAdminAccess($userId)) {
             PersediaanAdminSession::logout($request);
+            Auth::guard('persediaan_admin')->logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
 
             return redirect()->route('persediaan.admin.login.show')
-                ->with('error', 'Akun ini tidak memiliki akses Admin Persediaan.');
+                ->with('error', 'Anda tidak memiliki akses admin persediaan.');
         }
 
+        $admin = PersediaanAdminSession::activeAdmin($request);
         $request->attributes->set('persediaan_admin', $admin);
 
         if (! Auth::guard('persediaan_admin')->check()) {

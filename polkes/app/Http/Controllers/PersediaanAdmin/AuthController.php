@@ -44,6 +44,12 @@ class AuthController extends Controller
             ]);
         }
 
+        if (! \App\Support\Persediaan\PersediaanAccess::hasAdminAccess((int) $pair['user']->id)) {
+            throw ValidationException::withMessages([
+                'username' => 'Anda tidak memiliki akses admin persediaan.',
+            ]);
+        }
+
         PersediaanAdminSession::login($request, $pair['admin'], $pair['user']);
         Auth::guard('persediaan_admin')->login($pair['user']);
 

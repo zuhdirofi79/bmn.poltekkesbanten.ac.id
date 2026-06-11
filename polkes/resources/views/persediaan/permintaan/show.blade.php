@@ -8,24 +8,22 @@
 
   $status = $permintaan->status;
   $isRejected = $status === P::STATUS_DITOLAK;
+  $approverName = $permintaan->approverDisplayName();
 
-  // progress: 0..5 (indeks tahap terakhir yang "done")
   $progress = match ($status) {
       P::STATUS_DRAFT       => 0,
       P::STATUS_DIAJUKAN, P::STATUS_MENUNGGU => 1,
-      P::STATUS_DISETUJUI   => 2,
-      P::STATUS_DITOLAK     => 2,
+      P::STATUS_DISETUJUI, P::STATUS_DITOLAK => 2,
       P::STATUS_DIKELUARKAN => 3,
-      P::STATUS_SELESAI     => 5,
+      P::STATUS_SELESAI     => 4,
       default               => 0,
   };
 
   $steps = [
       ['t' => 'Permintaan Dibuat', 's' => 'Permintaan tersimpan di sistem', 'i' => 'ti-clipboard-text'],
-      ['t' => 'Menunggu Persetujuan Admin Persediaan', 's' => 'Diteruskan ke admin Persediaan', 'i' => 'ti-user-check'],
-      ['t' => $isRejected ? 'Ditolak' : 'Disetujui', 's' => $isRejected ? 'Permintaan ditolak admin' : 'Permintaan disetujui admin', 'i' => $isRejected ? 'ti-x' : 'ti-circle-check'],
-      ['t' => 'Pengeluaran Barang', 's' => 'Barang dikeluarkan dari gudang', 'i' => 'ti-package'],
-      ['t' => 'Stok Berkurang Otomatis', 's' => 'Stok unit kerja diperbarui', 'i' => 'ti-chart-bar'],
+      ['t' => 'Menunggu Persetujuan ' . $approverName, 's' => 'Menunggu persetujuan approver unit kerja', 'i' => 'ti-user-check'],
+      ['t' => $isRejected ? 'Ditolak' : 'Disetujui', 's' => $isRejected ? 'Permintaan ditolak approver' : 'Permintaan disetujui approver', 'i' => $isRejected ? 'ti-x' : 'ti-circle-check'],
+      ['t' => 'Barang Dikeluarkan', 's' => 'Barang dikeluarkan dari gudang', 'i' => 'ti-package'],
       ['t' => 'Selesai', 's' => 'Permintaan selesai diproses', 'i' => 'ti-flag-check'],
   ];
 @endphp
@@ -61,6 +59,12 @@
         <p class="mb-1"><span class="text-muted">Tanggal:</span> <strong>{{ optional($permintaan->tanggal_permintaan)->format('d M Y') }}</strong></p>
         <p class="mb-1"><span class="text-muted">Pemohon:</span> <strong>{{ $pemohon->nama }}</strong></p>
         <p class="mb-1"><span class="text-muted">Keterangan:</span> {{ $permintaan->keterangan }}</p>
+
+        @if($permintaan->isPending())
+          <div class="alert alert-info mt-3 mb-0">
+            Menunggu persetujuan <strong>{{ $permintaan->approverDisplayName() }}</strong>.
+          </div>
+        @endif
 
         @if($isRejected && $permintaan->catatan_admin)
           <div class="alert alert-danger mt-3 mb-0">

@@ -11,6 +11,7 @@ use App\Models\Persediaan\PersediaanPermintaanItem;
 use App\Services\Persediaan\NomorPermintaanService;
 use App\Services\Persediaan\SignatureService;
 use App\Services\Persediaan\StockService;
+use App\Support\Persediaan\PersediaanAccess;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
@@ -148,6 +149,7 @@ class PermintaanController extends Controller
 
         $permintaan = DB::transaction(function () use ($pemohon, $chosen, $data, $isAjukan, $ttdPath) {
             $nomor = $this->nomor->generate($pemohon->unit_kerja);
+            $approverUserId = PersediaanAccess::approverUserIdForUnit($pemohon->unit_kerja);
 
             $permintaan = PersediaanPermintaan::create([
                 'nomor_permintaan'          => $nomor,
@@ -156,8 +158,9 @@ class PermintaanController extends Controller
                 'tanggal_permintaan'        => Carbon::today(),
                 'keterangan'                => $data['keterangan'],
                 'status'                    => $isAjukan
-                    ? PersediaanPermintaan::STATUS_DIAJUKAN
+                    ? PersediaanPermintaan::STATUS_MENUNGGU
                     : PersediaanPermintaan::STATUS_DRAFT,
+                'approver_user_id'          => $isAjukan ? $approverUserId : null,
                 'tanda_tangan_pemohon_path' => $ttdPath,
             ]);
 
@@ -207,7 +210,8 @@ class PermintaanController extends Controller
             $permintaan->tanda_tangan_pemohon_path = $ttd;
         }
 
-        $permintaan->status = PersediaanPermintaan::STATUS_DIAJUKAN;
+        $permintaan->status = PersediaanPermintaan::STATUS_MENUNGGU;
+        $permintaan->approver_user_id = PersediaanAccess::approverUserIdForUnit($pemohon->unit_kerja);
         $permintaan->save();
 
         return redirect()
@@ -218,7 +222,7 @@ class PermintaanController extends Controller
     public function show(int $id): View
     {
         $pemohon = $this->pemohon();
-        $permintaan = $this->findOwned($id, $pemohon->id, ['items']);
+        $permintaan = $this->findOwned($id, $pemohon->id, ['items', 'approver']);
 
         return view('persediaan.permintaan.show', [
             'pemohon'    => $pemohon,

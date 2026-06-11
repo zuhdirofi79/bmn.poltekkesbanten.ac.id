@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models\Persediaan;
 
+use App\Support\Persediaan\PersediaanAccess;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class PersediaanPermintaan extends Model
@@ -28,16 +30,21 @@ class PersediaanPermintaan extends Model
         'tanggal_permintaan',
         'keterangan',
         'status',
+        'approver_user_id',
         'tanda_tangan_pemohon_path',
         'approved_by',
         'approved_at',
+        'rejected_by',
+        'rejected_at',
         'tanda_tangan_admin_path',
         'catatan_admin',
+        'approval_note',
     ];
 
     protected $casts = [
         'tanggal_permintaan' => 'date',
         'approved_at'        => 'datetime',
+        'rejected_at'        => 'datetime',
     ];
 
     public function items()
@@ -48,6 +55,20 @@ class PersediaanPermintaan extends Model
     public function pemohon()
     {
         return $this->belongsTo(PersediaanPemohon::class, 'pemohon_id');
+    }
+
+    public function approver()
+    {
+        return $this->belongsTo(User::class, 'approver_user_id');
+    }
+
+    public function approverDisplayName(): string
+    {
+        if ($this->relationLoaded('approver') && $this->approver !== null) {
+            return (string) $this->approver->name;
+        }
+
+        return PersediaanAccess::approverNameForUnit((string) $this->unit_kerja) ?? 'Approver Unit';
     }
 
     /** @var array<string,string> label status untuk UI */

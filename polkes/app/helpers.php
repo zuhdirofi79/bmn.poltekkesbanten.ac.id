@@ -143,6 +143,16 @@ if (! function_exists('bmn_bukti_bayar_sewa_url')) {
     }
 }
 
+if (! function_exists('getPersediaanApproverByUnit')) {
+    /**
+     * Ambil user approver persediaan untuk unit kerja dari config eksplisit.
+     */
+    function getPersediaanApproverByUnit(string $unitKerja): ?\App\User
+    {
+        return \App\Support\Persediaan\PersediaanAccess::getPersediaanApproverByUnit($unitKerja);
+    }
+}
+
 if (! function_exists('bmn_public_upload_path')) {
     function bmn_public_upload_path(string $subdir, string $path = ''): string
     {
