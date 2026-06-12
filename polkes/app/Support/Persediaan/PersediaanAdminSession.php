@@ -137,4 +137,19 @@ final class PersediaanAdminSession
             ->where('is_active', true)
             ->first();
     }
+
+    /**
+     * Resolver admin persediaan — session khusus diutamakan, lalu guard.
+     */
+    public static function resolveUser(Request $request): ?User
+    {
+        $userId = self::userId($request);
+        if ($userId !== null) {
+            return User::query()->whereKey($userId)->first();
+        }
+
+        return auth('persediaan_admin')->user()
+            ?? auth()->user()
+            ?? $request->user();
+    }
 }

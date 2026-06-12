@@ -123,6 +123,7 @@
   </div>
 @endif
 
+@if($editable)
 {{-- Modal Tolak --}}
 <div class="modal fade" id="tolakModal" tabindex="-1">
   <div class="modal-dialog">
@@ -141,6 +142,7 @@
     </form>
   </div>
 </div>
+@endif
 @endsection
 
 @push('scripts')

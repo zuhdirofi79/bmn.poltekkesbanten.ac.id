@@ -10,7 +10,9 @@ use App\Models\Persediaan\PersediaanStockMovement;
 use App\Services\Persediaan\SignatureService;
 use App\Services\Persediaan\StockService;
 use App\Support\Persediaan\PersediaanAccess;
+use App\Support\Persediaan\PersediaanAdminSession;
 use App\Support\Persediaan\UnitKerja;
+use App\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -55,10 +57,14 @@ class PermintaanController extends Controller
 
     public function show(Request $request, int $id): View|RedirectResponse
     {
-        $permintaan = PersediaanAccess::scopePermintaanQuery(
-            PersediaanPermintaan::query(),
-            $request,
-        )
+        $admin = $this->requireAdmin($request);
+        if ($admin instanceof RedirectResponse) {
+            return $admin;
+        }
+
+        $userId = (int) $admin->id;
+
+        $permintaan = PersediaanPermintaan::query()
             ->with(['items', 'pemohon', 'approver'])
             ->whereKey($id)
             ->first();
@@ -67,7 +73,10 @@ class PermintaanController extends Controller
             abort(404);
         }
 
-        $userId = (int) $request->user()->id;
+        if (! PersediaanAccess::canViewPermintaan($userId, $permintaan)) {
+            abort(403, 'Anda tidak memiliki akses ke permintaan ini.');
+        }
+
         $canApprove = PersediaanAccess::canApprovePermintaan($userId, $permintaan);
         $canIssue = $permintaan->status === PersediaanPermintaan::STATUS_DISETUJUI
             && (PersediaanAccess::isSuperadminUserId($userId)
@@ -82,9 +91,15 @@ class PermintaanController extends Controller
 
     public function setujui(Request $request, int $id): RedirectResponse
     {
-        $permintaan = $this->findScoped($request, $id, ['items']);
+        $admin = $this->requireAdmin($request);
+        if ($admin instanceof RedirectResponse) {
+            return $admin;
+        }
 
-        if (! PersediaanAccess::canApprovePermintaan((int) $request->user()->id, $permintaan)) {
+        $userId = (int) $admin->id;
+        $permintaan = $this->findAccessible($request, $id, ['items'], $userId);
+
+        if (! PersediaanAccess::canApprovePermintaan($userId, $permintaan)) {
             return back()->with('error', 'Anda tidak berhak menyetujui permintaan ini.');
         }
 
@@ -100,7 +115,7 @@ class PermintaanController extends Controller
             return back()->with('error', 'Tanda tangan admin tidak valid.');
         }
 
-        DB::transaction(function () use ($permintaan, $data, $ttd, $request) {
+        DB::transaction(function () use ($permintaan, $data, $ttd, $userId) {
             foreach ($permintaan->items as $item) {
                 $approved = $data['jumlah_disetujui'][$item->id] ?? $item->jumlah_diminta;
                 $item->jumlah_disetujui = max(0, (int) $approved);
@@ -108,7 +123,7 @@ class PermintaanController extends Controller
             }
 
             $permintaan->status = PersediaanPermintaan::STATUS_DISETUJUI;
-            $permintaan->approved_by = $request->user()->id;
+            $permintaan->approved_by = $userId;
             $permintaan->approved_at = Carbon::now();
             $permintaan->tanda_tangan_admin_path = $ttd;
             $permintaan->approval_note = $data['approval_note'] ?? null;
@@ -128,7 +143,7 @@ class PermintaanController extends Controller
                     'ref_id'     => $permintaan->id,
                     'qty_keluar' => $qty,
                     'keterangan' => 'Pengeluaran permintaan ' . $permintaan->nomor_permintaan,
-                    'created_by' => $request->user()->id,
+                    'created_by' => $userId,
                 ]);
             }
         });
@@ -138,9 +153,15 @@ class PermintaanController extends Controller
 
     public function tolak(Request $request, int $id): RedirectResponse
     {
-        $permintaan = $this->findScoped($request, $id);
+        $admin = $this->requireAdmin($request);
+        if ($admin instanceof RedirectResponse) {
+            return $admin;
+        }
 
-        if (! PersediaanAccess::canApprovePermintaan((int) $request->user()->id, $permintaan)) {
+        $userId = (int) $admin->id;
+        $permintaan = $this->findAccessible($request, $id, [], $userId);
+
+        if (! PersediaanAccess::canApprovePermintaan($userId, $permintaan)) {
             return back()->with('error', 'Anda tidak berhak menolak permintaan ini.');
         }
 
@@ -151,7 +172,7 @@ class PermintaanController extends Controller
         $permintaan->status = PersediaanPermintaan::STATUS_DITOLAK;
         $permintaan->catatan_admin = $data['catatan_admin'];
         $permintaan->approval_note = $data['catatan_admin'];
-        $permintaan->rejected_by = $request->user()->id;
+        $permintaan->rejected_by = $userId;
         $permintaan->rejected_at = Carbon::now();
         $permintaan->save();
 
@@ -163,18 +184,24 @@ class PermintaanController extends Controller
      */
     public function keluarkan(Request $request, int $id): RedirectResponse
     {
-        $permintaan = $this->findScoped($request, $id, ['items']);
+        $admin = $this->requireAdmin($request);
+        if ($admin instanceof RedirectResponse) {
+            return $admin;
+        }
+
+        $userId = (int) $admin->id;
+        $permintaan = $this->findAccessible($request, $id, ['items'], $userId);
 
         if ($permintaan->status !== PersediaanPermintaan::STATUS_DISETUJUI) {
             return back()->with('error', 'Hanya permintaan berstatus disetujui yang dapat dikeluarkan.');
         }
 
-        if (! PersediaanAccess::isSuperadminUserId((int) $request->user()->id)
-            && (int) ($permintaan->approver_user_id ?? 0) !== (int) $request->user()->id) {
+        if (! PersediaanAccess::isSuperadminUserId($userId)
+            && (int) ($permintaan->approver_user_id ?? 0) !== $userId) {
             return back()->with('error', 'Anda tidak berhak mengeluarkan barang permintaan ini.');
         }
 
-        DB::transaction(function () use ($permintaan, $request) {
+        DB::transaction(function () use ($permintaan, $userId) {
             foreach ($permintaan->items as $item) {
                 $qty = (int) ($item->jumlah_disetujui ?? $item->jumlah_diminta);
                 if ($qty <= 0 || ! $item->barang_id) {
@@ -189,7 +216,7 @@ class PermintaanController extends Controller
                     'ref_id'     => $permintaan->id,
                     'qty_keluar' => $qty,
                     'keterangan' => 'Pengeluaran barang permintaan ' . $permintaan->nomor_permintaan,
-                    'created_by' => $request->user()->id,
+                    'created_by' => $userId,
                 ]);
             }
 
@@ -200,9 +227,15 @@ class PermintaanController extends Controller
         return back()->with('success', 'Barang dikeluarkan, permintaan selesai.');
     }
 
-    public function pdf(Request $request, int $id): Response
+    public function pdf(Request $request, int $id): Response|RedirectResponse
     {
-        $permintaan = $this->findScoped($request, $id, ['items', 'pemohon']);
+        $admin = $this->requireAdmin($request);
+        if ($admin instanceof RedirectResponse) {
+            return $admin;
+        }
+
+        $userId = (int) $admin->id;
+        $permintaan = $this->findAccessible($request, $id, ['items', 'pemohon'], $userId);
 
         $pdf = Pdf::loadView('persediaan.permintaan.pdf', [
             'permintaan' => $permintaan,
@@ -213,18 +246,38 @@ class PermintaanController extends Controller
     }
 
     /**
+     * @return User|RedirectResponse
+     */
+    private function requireAdmin(Request $request): User|RedirectResponse
+    {
+        $admin = PersediaanAdminSession::resolveUser($request);
+
+        if ($admin === null) {
+            return redirect()
+                ->route('persediaan.admin.login.show')
+                ->with('error', 'Silakan login admin persediaan terlebih dahulu.');
+        }
+
+        return $admin;
+    }
+
+    /**
      * @param  list<string>  $with
      */
-    private function findScoped(Request $request, int $id, array $with = []): PersediaanPermintaan
+    private function findAccessible(Request $request, int $id, array $with, int $userId): PersediaanPermintaan
     {
-        $permintaan = PersediaanAccess::scopePermintaanQuery(
-            PersediaanPermintaan::query()->with($with),
-            $request,
-        )
+        $permintaan = PersediaanPermintaan::query()
+            ->with($with)
             ->whereKey($id)
             ->first();
 
         abort_if($permintaan === null, 404);
+
+        abort_if(
+            ! PersediaanAccess::canViewPermintaan($userId, $permintaan),
+            403,
+            'Anda tidak memiliki akses ke permintaan ini.',
+        );
 
         return $permintaan;
     }

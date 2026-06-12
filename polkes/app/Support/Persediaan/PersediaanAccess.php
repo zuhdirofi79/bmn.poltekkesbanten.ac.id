@@ -102,6 +102,22 @@ final class PersediaanAccess
         return null;
     }
 
+    public static function canViewPermintaan(int $userId, PersediaanPermintaan $permintaan): bool
+    {
+        if (self::isSuperadminUserId($userId)) {
+            return true;
+        }
+
+        $unit = self::approverUnitForUserId($userId);
+        if ($unit !== null && $permintaan->unit_kerja === $unit) {
+            return true;
+        }
+
+        $assigned = (int) ($permintaan->approver_user_id ?? 0);
+
+        return $assigned > 0 && $assigned === $userId;
+    }
+
     public static function canApprovePermintaan(int $userId, PersediaanPermintaan $permintaan): bool
     {
         if (! $permintaan->isPending()) {
