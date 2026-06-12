@@ -16,13 +16,12 @@ use Maatwebsite\Excel\Facades\Excel;
 class PersediaanMasterBarangImport
 {
     /** @var list<string> */
-    private const HEADERS = [
+    private const REQUIRED_HEADERS = [
         'kode_barang',
         'nama_barang',
         'unit_kerja',
         'satuan',
         'stok_awal',
-        'stok_minimum',
         'harga_satuan',
         'status',
     ];
@@ -53,7 +52,7 @@ class PersediaanMasterBarangImport
 
         $headerRow = $rows[0] ?? [];
         $map = $this->headerMap($headerRow);
-        foreach (self::HEADERS as $required) {
+        foreach (self::REQUIRED_HEADERS as $required) {
             if (! array_key_exists($required, $map)) {
                 return $this->result(0, 0, 0, [[
                     'baris'  => 1,
@@ -104,7 +103,6 @@ class PersediaanMasterBarangImport
                 'unit_kerja'   => $normalized['unit_kerja'],
                 'satuan'       => $normalized['satuan'],
                 'stok_awal'    => (int) $normalized['stok_awal'],
-                'stok_minimum' => (int) $normalized['stok_minimum'],
                 'harga_satuan' => (float) $normalized['harga_satuan'],
                 'is_active'    => $normalized['is_active'],
             ];
@@ -191,7 +189,7 @@ class PersediaanMasterBarangImport
     private function rowToAssoc(array $row, array $map): array
     {
         $assoc = [];
-        foreach (self::HEADERS as $key) {
+        foreach (self::REQUIRED_HEADERS as $key) {
             $idx = $map[$key] ?? null;
             $assoc[$key] = $idx !== null ? ($row[$idx] ?? null) : null;
         }
@@ -213,7 +211,6 @@ class PersediaanMasterBarangImport
             'unit_kerja'   => trim((string) ($assoc['unit_kerja'] ?? '')),
             'satuan'       => trim((string) ($assoc['satuan'] ?? '')),
             'stok_awal'    => $this->numericValue($assoc['stok_awal'] ?? 0),
-            'stok_minimum' => $this->numericValue($assoc['stok_minimum'] ?? '', 0),
             'harga_satuan' => $this->numericValue($assoc['harga_satuan'] ?? '', 0),
             'status'       => $statusRaw,
             'is_active'    => $statusRaw !== 'nonaktif',
@@ -253,7 +250,6 @@ class PersediaanMasterBarangImport
             'unit_kerja'   => ['required', Rule::in(UnitKerja::all())],
             'satuan'       => ['required', 'string', 'max:50'],
             'stok_awal'    => ['required', 'numeric', 'min:0'],
-            'stok_minimum' => ['nullable', 'numeric', 'min:0'],
             'harga_satuan' => ['nullable', 'numeric', 'min:0'],
             'status'       => ['nullable', 'string', Rule::in(['aktif', 'nonaktif', ''])],
             'is_active'    => ['boolean'],

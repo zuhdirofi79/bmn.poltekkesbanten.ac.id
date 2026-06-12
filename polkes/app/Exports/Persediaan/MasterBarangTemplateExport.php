@@ -16,9 +16,9 @@ class MasterBarangTemplateExport implements FromArray, WithHeadings, ShouldAutoS
     public function array(): array
     {
         return [
-            ['ATK001', 'Pulpen', 'Keperawatan', 'Buah', 150, 30, 2500, 'aktif'],
-            ['ATK002', 'Kertas A4', 'Keperawatan', 'Rim', 50, 10, 55000, 'aktif'],
-            ['ATK003', 'Stapler', 'Keperawatan', 'Buah', 20, 5, 35000, 'aktif'],
+            ['ATK001', 'Pulpen', 'Keperawatan', 'Buah', 150, 2500, 'aktif'],
+            ['ATK002', 'Kertas A4', 'Keperawatan', 'Rim', 50, 55000, 'aktif'],
+            ['ATK003', 'Stapler', 'Keperawatan', 'Buah', 20, 35000, 'aktif'],
         ];
     }
 
@@ -33,7 +33,6 @@ class MasterBarangTemplateExport implements FromArray, WithHeadings, ShouldAutoS
             'unit_kerja',
             'satuan',
             'stok_awal',
-            'stok_minimum',
             'harga_satuan',
             'status',
         ];

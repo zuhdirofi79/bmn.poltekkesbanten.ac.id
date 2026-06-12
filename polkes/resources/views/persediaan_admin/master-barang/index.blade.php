@@ -141,14 +141,6 @@
             'align' => 'end',
           ])
           @include('persediaan_admin.master-barang._column_filter', [
-            'column' => 'stok_minimum',
-            'param' => 'stok_minimum',
-            'label' => 'Min',
-            'options' => $filterOptions['stok_minimum'] ?? [],
-            'active' => $filters['stok_minimum'] ?? [],
-            'align' => 'end',
-          ])
-          @include('persediaan_admin.master-barang._column_filter', [
             'column' => 'harga_satuan',
             'param' => 'harga_satuan',
             'label' => 'Harga',
@@ -180,7 +172,6 @@
             <td>{{ $b->unit_kerja }}</td>
             <td>{{ $b->satuan }}</td>
             <td class="text-end">{{ number_format($b->stok_awal, 0, ',', '.') }}</td>
-            <td class="text-end">{{ number_format($b->stok_minimum, 0, ',', '.') }}</td>
             <td class="text-end">Rp {{ number_format($b->harga_satuan, 0, ',', '.') }}</td>
             <td>@if($b->is_active)<span class="prs-badge selesai">Aktif</span>@else<span class="prs-badge ditolak">Nonaktif</span>@endif</td>
             <td class="text-end">
@@ -200,7 +191,7 @@
             </td>
           </tr>
         @empty
-          <tr><td colspan="10" class="text-center text-muted py-3">Belum ada barang.</td></tr>
+          <tr><td colspan="9" class="text-center text-muted py-3">Belum ada barang.</td></tr>
         @endforelse
       </tbody>
     </table>
@@ -325,7 +316,7 @@
   /* ---------- Filter per kolom (Excel-style) ---------- */
   var COLUMN_PARAMS = [
     'kode_barang', 'nama_barang', 'unit_kerja', 'satuan',
-    'stok_awal', 'stok_minimum', 'harga_satuan', 'status'
+    'stok_awal', 'harga_satuan', 'status'
   ];
   var openDropdown = null;
 
