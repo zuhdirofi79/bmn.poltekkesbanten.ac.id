@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BMN\StorePengembalianAsetRequest;
 use App\Http\Requests\BMN\StorePublicPeminjamanInternalRequest;
 use App\Models\BMN\PeminjamanAsetBmn;
+use App\Models\BMN\PeminjamanAsetBmnDocument;
 use App\Services\BMN\BmnPublicVerificationService;
 use App\Services\BMN\BmnWaNumberNormalizer;
 use Illuminate\Http\RedirectResponse;
@@ -40,20 +41,35 @@ class PublicPeminjamanInternalController extends Controller
     {
         $data = $request->validated();
 
+        /** @var list<array{path: string, original_name: string, mime_type: string|null, file_size: int|null}> $storedNotaFiles */
+        $storedNotaFiles = [];
         $notaPath = null;
         $notaOriginalName = null;
-        if ($request->hasFile('nota_dinas')) {
-            /** @var UploadedFile $file */
-            $file = $request->file('nota_dinas');
-            $notaOriginalName = (string) $file->getClientOriginalName();
-            $notaPath = $this->storeNotaDinasPublic($file);
+
+        if ($request->hasFile('nota_dinas_files')) {
+            /** @var list<UploadedFile> $files */
+            $files = $request->file('nota_dinas_files');
+            foreach ($files as $index => $file) {
+                $path = $this->storeNotaDinasPublic($file);
+                $storedNotaFiles[] = [
+                    'path' => $path,
+                    'original_name' => (string) $file->getClientOriginalName(),
+                    'mime_type' => $file->getMimeType() ?: null,
+                    'file_size' => $file->getSize() ?: null,
+                ];
+
+                if ($index === 0) {
+                    $notaPath = $path;
+                    $notaOriginalName = (string) $file->getClientOriginalName();
+                }
+            }
         }
 
         try {
-            $peminjaman = DB::transaction(function () use ($data, $notaPath, $notaOriginalName): PeminjamanAsetBmn {
+            $peminjaman = DB::transaction(function () use ($data, $notaPath, $notaOriginalName, $storedNotaFiles): PeminjamanAsetBmn {
                 $kode = $this->generateKodePeminjaman();
 
-                return PeminjamanAsetBmn::create([
+                $peminjaman = PeminjamanAsetBmn::create([
                     'kode_peminjaman' => $kode,
                     'user_id' => null,
                     'jurusan' => null,
@@ -73,10 +89,23 @@ class PublicPeminjamanInternalController extends Controller
                     'public_email' => $data['public_email'],
                     'verification_status' => PeminjamanAsetBmn::VERIFICATION_PENDING,
                 ]);
+
+                foreach ($storedNotaFiles as $storedFile) {
+                    PeminjamanAsetBmnDocument::create([
+                        'peminjaman_aset_bmn_id' => $peminjaman->id,
+                        'file_path' => $storedFile['path'],
+                        'original_name' => $storedFile['original_name'],
+                        'mime_type' => $storedFile['mime_type'],
+                        'file_size' => $storedFile['file_size'],
+                        'uploaded_by' => null,
+                    ]);
+                }
+
+                return $peminjaman;
             });
         } catch (\Throwable $e) {
-            if ($notaPath !== null) {
-                $absolute = bmn_nota_dinas_path(basename($notaPath));
+            foreach ($storedNotaFiles as $storedFile) {
+                $absolute = bmn_nota_dinas_path(basename($storedFile['path']));
                 if (is_file($absolute)) {
                     @unlink($absolute);
                 }

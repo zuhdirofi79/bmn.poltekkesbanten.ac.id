@@ -151,28 +151,52 @@
             <div class="col-md-4 text-muted">Nota Dinas</div>
             <div class="col-md-8">
               @php
-                $notaUrl = $peminjaman->notaDinasUrl();
-                $notaExistsLocal = $peminjaman->notaDinasExistsLocally();
+                $notaDocuments = $peminjaman->resolvedNotaDinasDocuments();
               @endphp
-              @if($notaUrl)
-                <a href="{{ $notaUrl }}"
+              @if($notaDocuments->isEmpty())
+                <span class="text-muted">-</span>
+              @elseif($notaDocuments->count() === 1)
+                @php
+                  $doc = $notaDocuments->first();
+                @endphp
+                <a href="{{ $doc['url'] }}"
                    target="_blank"
                    rel="noopener noreferrer"
                    class="btn btn-sm btn-outline-primary">
                   <i class="ti ti-file-text"></i> Lihat Nota Dinas
                 </a>
-                @if($peminjaman->nota_dinas_original_name)
-                  <small class="text-muted ms-1">
-                    {{ $peminjaman->nota_dinas_original_name }}
-                  </small>
+                @if($doc['original_name'])
+                  <small class="text-muted ms-1">{{ $doc['original_name'] }}</small>
                 @endif
-                @if($notaExistsLocal === false)
+                @if($doc['exists_local'] === false)
                   <span class="badge bg-danger ms-1" title="File fisik tidak ditemukan di server">
                     File tidak ditemukan
                   </span>
                 @endif
               @else
-                <span class="text-muted">-</span>
+                <ul class="list-unstyled mb-0">
+                  @foreach($notaDocuments as $doc)
+                    <li class="mb-1">
+                      <span class="text-muted">Dokumen {{ $loop->iteration }}:</span>
+                      @if($doc['original_name'])
+                        <span>{{ $doc['original_name'] }}</span>
+                      @else
+                        <span class="text-muted">(tanpa nama)</span>
+                      @endif
+                      <a href="{{ $doc['url'] }}"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         class="btn btn-sm btn-outline-primary ms-1">
+                        Lihat
+                      </a>
+                      @if($doc['exists_local'] === false)
+                        <span class="badge bg-danger ms-1" title="File fisik tidak ditemukan di server">
+                          File tidak ditemukan
+                        </span>
+                      @endif
+                    </li>
+                  @endforeach
+                </ul>
               @endif
             </div>
 

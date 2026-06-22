@@ -258,6 +258,7 @@ class PeminjamanAsetController extends Controller
                 'details.aset.kategori:id,nama_kategori',
                 'details.aset.lokasiMaster:id,nama_lokasi',
                 'pengembalian.penerima:id,name',
+                'documents',
             ])
             ->findOrFail($id);
 

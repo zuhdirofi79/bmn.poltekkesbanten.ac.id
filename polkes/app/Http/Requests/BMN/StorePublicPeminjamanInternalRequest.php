@@ -39,7 +39,8 @@ class StorePublicPeminjamanInternalRequest extends FormRequest
             'tanggal_pinjam' => ['required', 'date'],
             'rencana_kembali' => ['required', 'date', 'after_or_equal:tanggal_pinjam'],
             'catatan' => ['nullable', 'string', 'max:2000'],
-            'nota_dinas' => ['required', 'file', 'mimes:pdf', 'max:5120'],
+            'nota_dinas_files' => ['required', 'array', 'min:1', 'max:5'],
+            'nota_dinas_files.*' => ['required', 'file', 'mimes:pdf', 'max:5120'],
         ];
     }
 

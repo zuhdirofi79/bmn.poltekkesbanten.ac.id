@@ -9,6 +9,7 @@ use App\Models\BMN\BmnSewaPengajuan;
 use App\Models\BMN\BmnSewaTarif;
 use App\Models\BMN\PeminjamanAsetBmn;
 use App\Models\BMN\PeminjamanAsetBmnDetail;
+use App\Models\BMN\PeminjamanAsetBmnDocument;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
@@ -71,6 +72,8 @@ class BmnPublicPortalTest extends TestCase
 
         $response->assertOk();
         $response->assertSee('Barang yang Diajukan', false);
+        $response->assertSee('Tambah File', false);
+        $response->assertSee('Bisa upload lebih dari 1 file', false);
         $response->assertDontSee('kode_barang', false);
         $response->assertDontSee('NUP', false);
         $response->assertDontSee('aset_ids', false);
@@ -86,7 +89,9 @@ class BmnPublicPortalTest extends TestCase
             'tujuan_peminjaman' => 'Rapat internal',
             'tanggal_pinjam' => now()->toDateString(),
             'rencana_kembali' => now()->addDays(3)->toDateString(),
-            'nota_dinas' => UploadedFile::fake()->create('nota.pdf', 100, 'application/pdf'),
+            'nota_dinas_files' => [
+                UploadedFile::fake()->create('nota.pdf', 100, 'application/pdf'),
+            ],
         ]);
 
         $response->assertRedirect();
@@ -98,6 +103,43 @@ class BmnPublicPortalTest extends TestCase
         $this->assertSame('Laptop dan proyektor', $peminjaman->requested_barang);
         $this->assertSame(PeminjamanAsetBmn::APPROVAL_STAGE_SCREENING_RUMAH_TANGGA, $peminjaman->approval_stage);
         $this->assertSame(0, $peminjaman->details()->count());
+        $this->assertNotNull($peminjaman->nota_dinas_path);
+        $this->assertSame(1, $peminjaman->documents()->count());
+    }
+
+    public function test_public_pinjam_submit_stores_multiple_nota_dinas_files(): void
+    {
+        $file1 = UploadedFile::fake()->create('nota-1.pdf', 100, 'application/pdf');
+        $file2 = UploadedFile::fake()->create('nota-2.pdf', 120, 'application/pdf');
+
+        $response = $this->post(route('public.peminjaman-internal.pinjam.store'), [
+            'public_nama' => 'Budi Publik',
+            'public_no_wa' => '081234567890',
+            'public_email' => 'budi-multi@example.test',
+            'requested_barang' => 'Laptop dan proyektor',
+            'tujuan_peminjaman' => 'Rapat internal',
+            'tanggal_pinjam' => now()->toDateString(),
+            'rencana_kembali' => now()->addDays(3)->toDateString(),
+            'nota_dinas_files' => [$file1, $file2],
+        ]);
+
+        $response->assertRedirect();
+
+        $peminjaman = PeminjamanAsetBmn::query()->where('public_email', 'budi-multi@example.test')->first();
+        $this->assertNotNull($peminjaman);
+        $this->assertSame('nota-1.pdf', $peminjaman->nota_dinas_original_name);
+        $this->assertNotNull($peminjaman->nota_dinas_path);
+        $this->assertTrue(is_file(bmn_nota_dinas_path(basename((string) $peminjaman->nota_dinas_path))));
+
+        $documents = PeminjamanAsetBmnDocument::query()
+            ->where('peminjaman_aset_bmn_id', $peminjaman->id)
+            ->orderBy('id')
+            ->get();
+        $this->assertCount(2, $documents);
+        $this->assertSame('nota-1.pdf', $documents[0]->original_name);
+        $this->assertSame('nota-2.pdf', $documents[1]->original_name);
+        $this->assertTrue(is_file(bmn_nota_dinas_path(basename($documents[0]->file_path))));
+        $this->assertTrue(is_file(bmn_nota_dinas_path(basename($documents[1]->file_path))));
     }
 
     public function test_rumah_tangga_can_screen_and_forward_to_hendri(): void

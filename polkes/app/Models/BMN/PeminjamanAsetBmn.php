@@ -188,6 +188,44 @@ class PeminjamanAsetBmn extends Model
         return $this->hasMany(PeminjamanAsetBmnDetail::class, 'peminjaman_aset_bmn_id');
     }
 
+    public function documents(): HasMany
+    {
+        return $this->hasMany(PeminjamanAsetBmnDocument::class, 'peminjaman_aset_bmn_id')
+            ->orderBy('id');
+    }
+
+    /**
+     * Daftar dokumen nota dinas untuk tampilan admin.
+     * Prioritas: relasi documents (multi-file baru). Fallback: kolom legacy nota_dinas_path.
+     *
+     * @return \Illuminate\Support\Collection<int, array{url: string, original_name: string|null, exists_local: bool|null, model: PeminjamanAsetBmnDocument|null}>
+     */
+    public function resolvedNotaDinasDocuments(): \Illuminate\Support\Collection
+    {
+        if ($this->documents->isNotEmpty()) {
+            return $this->documents->map(static function (PeminjamanAsetBmnDocument $doc): array {
+                return [
+                    'url' => (string) $doc->fileUrl(),
+                    'original_name' => $doc->original_name,
+                    'exists_local' => $doc->fileExistsLocally(),
+                    'model' => $doc,
+                ];
+            });
+        }
+
+        $legacyUrl = $this->notaDinasUrl();
+        if ($legacyUrl === null) {
+            return collect();
+        }
+
+        return collect([[
+            'url' => $legacyUrl,
+            'original_name' => $this->nota_dinas_original_name,
+            'exists_local' => $this->notaDinasExistsLocally(),
+            'model' => null,
+        ]]);
+    }
+
     public function pengembalian(): HasOne
     {
         return $this->hasOne(PengembalianAsetBmn::class, 'peminjaman_aset_bmn_id');

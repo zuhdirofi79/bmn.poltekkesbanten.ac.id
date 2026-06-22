@@ -79,8 +79,17 @@
           </div>
           <div class="mb-3">
             <label class="form-label">Upload Nota Dinas / Surat Permohonan (PDF) <span class="text-danger">*</span></label>
-            <input type="file" name="nota_dinas" class="form-control" accept="application/pdf" required>
-            <small class="text-muted">Maks. 5 MB, format PDF.</small>
+            <div id="nota-dinas-files">
+              <div class="nota-dinas-file-row d-flex gap-2 mb-2 align-items-center">
+                <input type="file" name="nota_dinas_files[]" class="form-control" accept="application/pdf,.pdf" required>
+              </div>
+            </div>
+            <button type="button" id="add-nota-dinas-file" class="btn btn-outline-secondary btn-sm mt-1">
+              <i class="ti ti-plus"></i> Tambah File
+            </button>
+            <small class="text-muted d-block mt-1">
+              Bisa upload lebih dari 1 file. Maksimal 5 file, masing-masing PDF maksimal 5 MB.
+            </small>
           </div>
           <div class="mb-0">
             <label class="form-label">Catatan</label>
@@ -95,4 +104,60 @@
     </form>
   </div>
 </div>
+
+<script>
+(function () {
+  var container = document.getElementById('nota-dinas-files');
+  var addBtn = document.getElementById('add-nota-dinas-file');
+  var maxFiles = 5;
+
+  if (!container || !addBtn) {
+    return;
+  }
+
+  function rowCount() {
+    return container.querySelectorAll('.nota-dinas-file-row').length;
+  }
+
+  function updateAddButton() {
+    addBtn.style.display = rowCount() >= maxFiles ? 'none' : 'inline-block';
+  }
+
+  function bindRemove(btn, row) {
+    btn.addEventListener('click', function () {
+      row.remove();
+      updateAddButton();
+    });
+  }
+
+  addBtn.addEventListener('click', function () {
+    if (rowCount() >= maxFiles) {
+      return;
+    }
+
+    var row = document.createElement('div');
+    row.className = 'nota-dinas-file-row d-flex gap-2 mb-2 align-items-center';
+
+    var input = document.createElement('input');
+    input.type = 'file';
+    input.name = 'nota_dinas_files[]';
+    input.className = 'form-control';
+    input.accept = 'application/pdf,.pdf';
+    input.required = true;
+
+    var removeBtn = document.createElement('button');
+    removeBtn.type = 'button';
+    removeBtn.className = 'btn btn-outline-danger btn-sm flex-shrink-0';
+    removeBtn.textContent = 'Hapus';
+
+    row.appendChild(input);
+    row.appendChild(removeBtn);
+    bindRemove(removeBtn, row);
+    container.appendChild(row);
+    updateAddButton();
+  });
+
+  updateAddButton();
+})();
+</script>
 @endsection
