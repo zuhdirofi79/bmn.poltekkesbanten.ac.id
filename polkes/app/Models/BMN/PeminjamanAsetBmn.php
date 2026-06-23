@@ -198,19 +198,28 @@ class PeminjamanAsetBmn extends Model
      * Daftar dokumen nota dinas untuk tampilan admin.
      * Prioritas: relasi documents (multi-file baru). Fallback: kolom legacy nota_dinas_path.
      *
-     * @return \Illuminate\Support\Collection<int, array{url: string, original_name: string|null, exists_local: bool|null, model: PeminjamanAsetBmnDocument|null}>
+     * @return \Illuminate\Support\Collection<int, array{url: string, view_url: string|null, download_url: string|null, original_name: string|null, file_size: int|null, formatted_size: string|null, exists_local: bool|null, model: PeminjamanAsetBmnDocument|null}>
      */
     public function resolvedNotaDinasDocuments(): \Illuminate\Support\Collection
     {
         if ($this->documents->isNotEmpty()) {
-            return $this->documents->map(static function (PeminjamanAsetBmnDocument $doc): array {
+            return $this->documents->map(function (PeminjamanAsetBmnDocument $doc): array {
                 return [
                     'url' => (string) $doc->fileUrl(),
+                    'view_url' => route('bmn.peminjaman-aset.documents.view', [$this->id, $doc->id]),
+                    'download_url' => route('bmn.peminjaman-aset.documents.download', [$this->id, $doc->id]),
                     'original_name' => $doc->original_name,
+                    'file_size' => $doc->file_size,
+                    'formatted_size' => $doc->formattedFileSize(),
                     'exists_local' => $doc->fileExistsLocally(),
                     'model' => $doc,
                 ];
             });
+        }
+
+        $legacyPath = trim((string) ($this->nota_dinas_path ?? ''));
+        if ($legacyPath === '') {
+            return collect();
         }
 
         $legacyUrl = $this->notaDinasUrl();
@@ -220,10 +229,41 @@ class PeminjamanAsetBmn extends Model
 
         return collect([[
             'url' => $legacyUrl,
+            'view_url' => route('bmn.peminjaman-aset.legacy-nota.view', $this->id),
+            'download_url' => route('bmn.peminjaman-aset.legacy-nota.download', $this->id),
             'original_name' => $this->nota_dinas_original_name,
+            'file_size' => null,
+            'formatted_size' => null,
             'exists_local' => $this->notaDinasExistsLocally(),
             'model' => null,
         ]]);
+    }
+
+    /**
+     * Path absolut file nota dinas legacy (kolom nota_dinas_path).
+     */
+    public function legacyNotaDinasAbsolutePath(): ?string
+    {
+        $path = trim((string) ($this->nota_dinas_path ?? ''));
+        if ($path === '') {
+            return null;
+        }
+
+        $normalized = ltrim($path, '/');
+
+        if (str_starts_with($normalized, self::NOTA_DINAS_DIR.'/')) {
+            return bmn_nota_dinas_path(basename($normalized));
+        }
+
+        if (str_starts_with($normalized, 'storage/')) {
+            return public_path($normalized);
+        }
+
+        if (str_starts_with($normalized, 'bmn/nota-dinas/')) {
+            return public_path('storage/'.$normalized);
+        }
+
+        return public_path('storage/'.$normalized);
     }
 
     public function pengembalian(): HasOne

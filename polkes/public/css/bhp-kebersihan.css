@@ -1,0 +1,101 @@
+/* Badge status BHP Kebersihan */
+.prs-badge.pending { background: #fff3d6; color: #9a6b00; }
+.prs-badge.siap_diambil { background: #dde9ff; color: #1b4ba3; }
+.prs-badge.sudah_diambil { background: #d7f0ec; color: #0b7a70; }
+
+/* Thumbnail barcode di master barang */
+.bhp-barcode-cell { min-width: 140px; vertical-align: middle; }
+.bhp-barcode-thumb {
+  display: block;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border: 1px solid var(--prs-line, #e3e9f2);
+  border-radius: 6px;
+  background: #fff;
+  padding: 2px;
+}
+.bhp-barcode-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+/* Halaman publik pengambilan BHP */
+.bhp-public-pickup-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--prs-ink, #1f2d3d);
+  margin: 0 0 .35rem;
+}
+.bhp-public-pickup-subtitle {
+  color: var(--prs-muted, #6b7a90);
+  margin: 0 0 1.25rem;
+  line-height: 1.45;
+}
+.bhp-scan-btn {
+  padding: .85rem 1rem;
+  font-weight: 600;
+}
+.bhp-scan-help {
+  font-size: .85rem;
+  line-height: 1.45;
+}
+.bhp-scanner-wrap {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--prs-line, #e3e9f2);
+  border-radius: 12px;
+  background: #f8fafc;
+}
+.bhp-qr-reader {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+}
+.bhp-qr-reader video {
+  width: 100% !important;
+  border-radius: 10px;
+}
+.bhp-manual-search .input-group-lg > .form-control {
+  font-size: 1rem;
+}
+
+/* Detail barang publik */
+.bhp-detail-card {
+  max-width: 560px;
+  margin: 0 auto;
+}
+.bhp-detail-meta label {
+  display: block;
+  margin-bottom: 2px;
+}
+.bhp-stok-box {
+  background: #f4f7fb;
+}
+.bhp-stok {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--prs-teal, #0f9b8e);
+  line-height: 1.1;
+}
+.bhp-stok-inline {
+  font-weight: 700;
+  color: var(--prs-teal, #0f9b8e);
+}
+
+@media (max-width: 576px) {
+  .bhp-manual-search .input-group-lg {
+    flex-wrap: wrap;
+  }
+  .bhp-manual-search .input-group-lg > .form-control {
+    border-radius: .5rem !important;
+    margin-bottom: .5rem;
+  }
+  .bhp-manual-search .input-group-lg > .btn {
+    width: 100%;
+    border-radius: .5rem !important;
+  }
+}

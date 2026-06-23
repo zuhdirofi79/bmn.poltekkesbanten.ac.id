@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -46,22 +47,26 @@ class PublicPeminjamanInternalController extends Controller
         $notaPath = null;
         $notaOriginalName = null;
 
-        if ($request->hasFile('nota_dinas_files')) {
-            /** @var list<UploadedFile> $files */
-            $files = $request->file('nota_dinas_files');
-            foreach ($files as $index => $file) {
-                $path = $this->storeNotaDinasPublic($file);
-                $storedNotaFiles[] = [
-                    'path' => $path,
-                    'original_name' => (string) $file->getClientOriginalName(),
-                    'mime_type' => $file->getMimeType() ?: null,
-                    'file_size' => $file->getSize() ?: null,
-                ];
+        /** @var list<UploadedFile> $files */
+        $files = $request->file('nota_dinas_files', []);
+        if (! is_array($files)) {
+            $files = [];
+        }
+        if ($request->hasFile('nota_dinas')) {
+            $files[] = $request->file('nota_dinas');
+        }
 
-                if ($index === 0) {
-                    $notaPath = $path;
-                    $notaOriginalName = (string) $file->getClientOriginalName();
-                }
+        foreach ($files as $file) {
+            if (! $file instanceof UploadedFile || ! $file->isValid()) {
+                continue;
+            }
+
+            $stored = $this->storeNotaDinasPublic($file);
+            $storedNotaFiles[] = $stored;
+
+            if ($notaPath === null) {
+                $notaPath = $stored['path'];
+                $notaOriginalName = $stored['original_name'];
             }
         }
 
@@ -145,14 +150,19 @@ class PublicPeminjamanInternalController extends Controller
         return $pengembalianController->store($request);
     }
 
-    private function storeNotaDinasPublic(UploadedFile $file): string
+    /**
+     * @return array{path: string, original_name: string, mime_type: string|null, file_size: int|null}
+     */
+    private function storeNotaDinasPublic(UploadedFile $file): array
     {
+        $originalName = (string) $file->getClientOriginalName();
+        $mimeType = $file->getMimeType() ?: null;
+        $fileSize = $file->getSize() ?: null;
+
         $dirRelative = PeminjamanAsetBmn::NOTA_DINAS_DIR;
         $dirAbsolute = bmn_nota_dinas_path();
 
-        if (! is_dir($dirAbsolute)) {
-            @mkdir($dirAbsolute, 0755, true);
-        }
+        File::ensureDirectoryExists($dirAbsolute);
 
         if (! is_dir($dirAbsolute) || ! is_writable($dirAbsolute)) {
             throw new \RuntimeException('Folder upload nota dinas tidak tersedia.');
@@ -162,7 +172,12 @@ class PublicPeminjamanInternalController extends Controller
         $filename = sprintf('nota-dinas-%s-%s.%s', Carbon::now()->format('Ymd'), Str::random(8), $ext);
         $file->move($dirAbsolute, $filename);
 
-        return $dirRelative.'/'.$filename;
+        return [
+            'path' => $dirRelative.'/'.$filename,
+            'original_name' => $originalName,
+            'mime_type' => $mimeType,
+            'file_size' => $fileSize,
+        ];
     }
 
     private function generateKodePeminjaman(): string

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Requests\BMN;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Validator;
 
 class StorePublicPeminjamanInternalRequest extends FormRequest
 {
@@ -39,9 +40,26 @@ class StorePublicPeminjamanInternalRequest extends FormRequest
             'tanggal_pinjam' => ['required', 'date'],
             'rencana_kembali' => ['required', 'date', 'after_or_equal:tanggal_pinjam'],
             'catatan' => ['nullable', 'string', 'max:2000'],
-            'nota_dinas_files' => ['required', 'array', 'min:1', 'max:5'],
-            'nota_dinas_files.*' => ['required', 'file', 'mimes:pdf', 'max:5120'],
+            'nota_dinas_files' => ['nullable', 'array', 'max:5'],
+            'nota_dinas_files.*' => ['file', 'mimes:pdf', 'max:5120'],
+            'nota_dinas' => ['nullable', 'file', 'mimes:pdf', 'max:5120'],
         ];
+    }
+
+    public function withValidator(Validator $validator): void
+    {
+        $validator->after(function (Validator $validator): void {
+            $hasMulti = $this->hasFile('nota_dinas_files')
+                && count(array_filter($this->file('nota_dinas_files', []))) > 0;
+            $hasSingle = $this->hasFile('nota_dinas');
+
+            if (! $hasMulti && ! $hasSingle) {
+                $validator->errors()->add(
+                    'nota_dinas_files',
+                    'Minimal satu file Nota Dinas / Surat Permohonan wajib diunggah.'
+                );
+            }
+        });
     }
 
     /**

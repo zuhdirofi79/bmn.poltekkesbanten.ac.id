@@ -13,6 +13,7 @@ use App\Models\BMN\AsetBmn;
 use App\Models\BMN\KategoriAset;
 use App\Models\BMN\PeminjamanAsetBmn;
 use App\Models\BMN\PeminjamanAsetBmnDetail;
+use App\Models\BMN\PeminjamanAsetBmnDocument;
 use App\Models\BmnSatker;
 use App\Services\BMN\BmnPublicVerificationService;
 use App\Services\BMN\BmnWaNumberNormalizer;
@@ -24,6 +25,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 /**
  * Modul Peminjaman Aset BMN.
@@ -622,6 +624,67 @@ class PeminjamanAsetController extends Controller
         }
 
         return back()->with('success', 'Transaksi ditandai dipinjam. Status aset terkait diperbarui.');
+    }
+
+    public function viewDocument(Request $request, int $peminjamanId, int $documentId): BinaryFileResponse
+    {
+        $peminjaman = $this->findAuthorizedPeminjaman($request, $peminjamanId);
+
+        $document = PeminjamanAsetBmnDocument::query()
+            ->where('peminjaman_aset_bmn_id', $peminjaman->id)
+            ->findOrFail($documentId);
+
+        return $document->viewResponse();
+    }
+
+    public function downloadDocument(Request $request, int $peminjamanId, int $documentId): BinaryFileResponse
+    {
+        $peminjaman = $this->findAuthorizedPeminjaman($request, $peminjamanId);
+
+        $document = PeminjamanAsetBmnDocument::query()
+            ->where('peminjaman_aset_bmn_id', $peminjaman->id)
+            ->findOrFail($documentId);
+
+        return $document->downloadResponse();
+    }
+
+    public function viewLegacyNotaDinas(Request $request, int $peminjamanId): BinaryFileResponse
+    {
+        $peminjaman = $this->findAuthorizedPeminjaman($request, $peminjamanId);
+
+        $absolute = $peminjaman->legacyNotaDinasAbsolutePath();
+        abort_if($absolute === null || ! is_file($absolute), 404, 'File tidak ditemukan.');
+
+        return response()->file($absolute, [
+            'Content-Type' => 'application/pdf',
+        ]);
+    }
+
+    public function downloadLegacyNotaDinas(Request $request, int $peminjamanId): BinaryFileResponse
+    {
+        $peminjaman = $this->findAuthorizedPeminjaman($request, $peminjamanId);
+
+        $absolute = $peminjaman->legacyNotaDinasAbsolutePath();
+        abort_if($absolute === null || ! is_file($absolute), 404, 'File tidak ditemukan.');
+
+        $name = trim((string) ($peminjaman->nota_dinas_original_name ?? ''));
+        if ($name === '') {
+            $name = basename($absolute);
+        }
+
+        return response()->download($absolute, $name);
+    }
+
+    private function findAuthorizedPeminjaman(Request $request, int $peminjamanId): PeminjamanAsetBmn
+    {
+        $user = $request->user();
+        abort_unless($user !== null, 403);
+
+        if (! $user->hasRole('admin') && ! $user->canApproveBmn() && ! $user->isBmnApprovalParticipant() && ! $user->isRumahTanggaBmn()) {
+            abort(403, 'Anda tidak berhak mengakses dokumen ini.');
+        }
+
+        return PeminjamanAsetBmn::query()->findOrFail($peminjamanId);
     }
 
     /**

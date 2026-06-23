@@ -99,6 +99,21 @@
       </span>
     </a>
 
+    {{-- 6. BHP KEBERSIHAN --}}
+    <a href="{{ route('public.bhp-kebersihan.index') }}"
+       class="portal-service-card"
+       style="--card-img: url('{{ asset('img/icon/bph-kebersihan.png') }}');">
+      <span class="portal-service-overlay"></span>
+      <span class="portal-service-content">
+        <span class="portal-service-title">BHP Kebersihan</span>
+        <span class="portal-service-sub">Pengelolaan barang habis pakai kebersihan</span>
+        <span class="portal-service-cta">
+          Masuk Layanan
+          <i class="ti ti-arrow-right"></i>
+        </span>
+      </span>
+    </a>
+
   </div>
 </section>
 @endsection

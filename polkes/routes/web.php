@@ -196,6 +196,71 @@ Route::prefix('persediaan')->name('persediaan.admin.')->group(function (): void 
     });
 });
 
+// ===== BHP KEBERSIHAN — PUBLIK + ADMIN (modul terpisah) =====
+Route::prefix('public/bhp-kebersihan')->name('public.bhp-kebersihan.')->middleware('throttle:60,1')->group(function (): void {
+    Route::get('/', 'BhpKebersihan\LandingController@index')->name('index');
+    Route::post('cari', 'BhpKebersihan\LandingController@search')
+        ->middleware('throttle:20,1')->name('cari');
+    Route::get('barang/{token}', 'BhpKebersihan\BarangController@show')->name('barang.show');
+    Route::post('barang/{token}', 'BhpKebersihan\BarangController@store')
+        ->middleware('throttle:10,1')->name('barang.store');
+    Route::get('success/{nomor}', 'BhpKebersihan\BarangController@success')->name('success');
+});
+
+Route::prefix('bhp-kebersihan')->name('bhp.admin.')->group(function (): void {
+    Route::get('login', 'BhpKebersihanAdmin\AuthController@showLoginForm')->name('login.show');
+    Route::post('login', 'BhpKebersihanAdmin\AuthController@login')
+        ->middleware('throttle:10,1')->name('login.attempt');
+    Route::post('logout', 'BhpKebersihanAdmin\AuthController@logout')->name('logout');
+
+    Route::middleware('bhp.admin')->group(function (): void {
+        Route::get('dashboard', 'BhpKebersihanAdmin\DashboardController@index')->name('dashboard');
+
+        Route::prefix('permintaan')->name('permintaan.')->group(function (): void {
+            Route::get('/', 'BhpKebersihanAdmin\PermintaanController@index')->name('index');
+            Route::get('{id}', 'BhpKebersihanAdmin\PermintaanController@show')->where('id', '[0-9]+')->name('show');
+            Route::post('{id}/setujui', 'BhpKebersihanAdmin\PermintaanController@setujui')->where('id', '[0-9]+')->name('setujui');
+            Route::post('{id}/tolak', 'BhpKebersihanAdmin\PermintaanController@tolak')->where('id', '[0-9]+')->name('tolak');
+        });
+
+        Route::prefix('pengambilan')->name('pengambilan.')->group(function (): void {
+            Route::get('/', 'BhpKebersihanAdmin\PengambilanController@index')->name('index');
+            Route::get('{id}', 'BhpKebersihanAdmin\PengambilanController@show')->where('id', '[0-9]+')->name('show');
+            Route::post('{id}/sudah-diambil', 'BhpKebersihanAdmin\PengambilanController@sudahDiambil')->where('id', '[0-9]+')->name('sudah-diambil');
+        });
+
+        Route::get('stok-akhir', 'BhpKebersihanAdmin\StokAkhirController@index')->name('stok-akhir.index');
+        Route::get('stok-akhir/export', 'BhpKebersihanAdmin\StokAkhirController@exportExcel')->name('stok-akhir.export');
+
+        Route::prefix('opname')->name('opname.')->group(function (): void {
+            Route::get('/', 'BhpKebersihanAdmin\StockOpnameController@index')->name('index');
+            Route::get('create', 'BhpKebersihanAdmin\StockOpnameController@create')->name('create');
+            Route::post('/', 'BhpKebersihanAdmin\StockOpnameController@store')->name('store');
+            Route::get('{id}', 'BhpKebersihanAdmin\StockOpnameController@show')->where('id', '[0-9]+')->name('show');
+            Route::get('{id}/export', 'BhpKebersihanAdmin\StockOpnameController@exportExcel')->where('id', '[0-9]+')->name('export');
+        });
+
+        Route::get('laporan', 'BhpKebersihanAdmin\LaporanController@index')->name('laporan.index');
+        Route::get('laporan/export', 'BhpKebersihanAdmin\LaporanController@exportExcel')->name('laporan.export');
+
+        Route::prefix('master-barang')->name('master-barang.')->group(function (): void {
+            Route::get('/', 'BhpKebersihanAdmin\MasterBarangController@index')->name('index');
+            Route::get('export-excel', 'BhpKebersihanAdmin\MasterBarangController@exportExcel')->name('export');
+            Route::get('barcode-batch', 'BhpKebersihanAdmin\MasterBarangController@barcodeBatch')->name('barcode-batch');
+            Route::post('generate-all-barcodes', 'BhpKebersihanAdmin\MasterBarangController@generateAllBarcodes')->name('generate-all-barcodes');
+            Route::post('/', 'BhpKebersihanAdmin\MasterBarangController@store')->name('store');
+            Route::put('{id}', 'BhpKebersihanAdmin\MasterBarangController@update')->where('id', '[0-9]+')->name('update');
+            Route::delete('{id}', 'BhpKebersihanAdmin\MasterBarangController@destroy')->where('id', '[0-9]+')->name('destroy');
+            Route::get('{id}/print-barcode', 'BhpKebersihanAdmin\MasterBarangController@barcodePrint')->where('id', '[0-9]+')->name('print-barcode');
+            Route::get('{id}/download-barcode', 'BhpKebersihanAdmin\MasterBarangController@barcodeDownload')->where('id', '[0-9]+')->name('download-barcode');
+            Route::post('{id}/generate-barcode', 'BhpKebersihanAdmin\MasterBarangController@generateBarcode')->where('id', '[0-9]+')->name('generate-barcode');
+            Route::post('{id}/regenerate-barcode', 'BhpKebersihanAdmin\MasterBarangController@regenerateBarcode')->where('id', '[0-9]+')->name('regenerate-barcode');
+        });
+
+        Route::get('pengaturan', 'BhpKebersihanAdmin\PengaturanController@index')->name('pengaturan.index');
+    });
+});
+
 Auth::routes();
 Route::get('/changePassword','Auth\ChangePasswordController@showChangePasswordForm');
 Route::post('/changePassword','Auth\ChangePasswordController@changePassword')->name('changePassword');
@@ -258,6 +323,14 @@ Route::group(['prefix' => 'bmn', 'middleware' => ['auth']], function () {
                 ->where('id', '[0-9]+')->name('screening.store');
             Route::get('{id}', 'BMN\PeminjamanAsetController@show')
                 ->where('id', '[0-9]+')->name('show');
+            Route::get('{peminjaman}/documents/{document}/view', 'BMN\PeminjamanAsetController@viewDocument')
+                ->where('peminjaman', '[0-9]+')->where('document', '[0-9]+')->name('documents.view');
+            Route::get('{peminjaman}/documents/{document}/download', 'BMN\PeminjamanAsetController@downloadDocument')
+                ->where('peminjaman', '[0-9]+')->where('document', '[0-9]+')->name('documents.download');
+            Route::get('{peminjaman}/legacy-nota/view', 'BMN\PeminjamanAsetController@viewLegacyNotaDinas')
+                ->where('peminjaman', '[0-9]+')->name('legacy-nota.view');
+            Route::get('{peminjaman}/legacy-nota/download', 'BMN\PeminjamanAsetController@downloadLegacyNotaDinas')
+                ->where('peminjaman', '[0-9]+')->name('legacy-nota.download');
 
             // ===== Workflow approval BARU: Pak Singgih -> Pak Hendri =====
             // Routes ini WAJIB sebelum resource-style routes lain agar pattern

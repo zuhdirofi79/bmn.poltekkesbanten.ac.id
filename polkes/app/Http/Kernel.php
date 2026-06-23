@@ -71,5 +71,7 @@ class Kernel extends HttpKernel
 
         'persediaan.pemohon' => \App\Http\Middleware\EnsurePersediaanPemohon::class,
         'persediaan.admin' => \App\Http\Middleware\EnsurePersediaanAdmin::class,
+
+        'bhp.admin' => \App\Http\Middleware\EnsureBhpAdmin::class,
     ];
 }
