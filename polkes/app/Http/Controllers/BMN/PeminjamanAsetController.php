@@ -71,7 +71,7 @@ class PeminjamanAsetController extends Controller
             ->orderByDesc('id');
 
         // Scoping akses: non-admin/non-approver/non-verifikator/non-rumah-tangga hanya lihat miliknya.
-        if (! $user->hasRole('admin') && ! $user->canApproveBmn() && ! $user->isBmnApprovalParticipant() && ! $user->isRumahTanggaBmn()) {
+        if (! $user->canViewAllBmnPeminjaman()) {
             $query->where('user_id', $user->id);
         }
 
@@ -265,7 +265,7 @@ class PeminjamanAsetController extends Controller
             ->findOrFail($id);
 
         // Scoping: requester hanya boleh lihat miliknya (public hanya admin/approver/verifikator/rumah tangga).
-        if (! $user->hasRole('admin') && ! $user->canApproveBmn() && ! $user->isBmnApprovalParticipant() && ! $user->isRumahTanggaBmn()) {
+        if (! $user->canViewAllBmnPeminjaman()) {
             if ($peminjaman->isPublicSource() || (int) $peminjaman->user_id !== (int) $user->id) {
                 abort(403, 'Anda tidak berhak melihat transaksi ini.');
             }
@@ -280,8 +280,8 @@ class PeminjamanAsetController extends Controller
         // (mencakup stage baru screening_rumah_tangga + legacy verifikator_1).
         // Untuk Pak Hendri (id 3235 / can_approve_bmn): tombol muncul saat tahap
         // "Menunggu Pak Hendri" (mencakup stage baru final_hendri + legacy verifikator_2/final_report).
-        $isSinggih = (int) $user->id === User::BMN_VERIFIER_2_ID;
-        $isHendri = (int) $user->id === User::BMN_VERIFIER_1_ID || $user->canApproveBmn();
+        $isSinggih = $user->canActAsBmnSinggih();
+        $isHendri = $user->canActAsBmnHendri();
 
         $canApproveSinggih = $isSinggih && $peminjaman->isAwaitingSinggih();
         $canRejectSinggih = $canApproveSinggih;
@@ -292,7 +292,7 @@ class PeminjamanAsetController extends Controller
         // Halaman screening detail (assign aset spesifik) tetap tersedia bagi Rumah Tangga
         // bila pengajuan masih dalam tahap screening (misal user kirim text "requested_barang"
         // dan perlu dipilihkan aset).
-        $canScreen = $user->isRumahTanggaBmn() && $peminjaman->isAwaitingScreening();
+        $canScreen = $user->canScreenBmnPeminjaman() && $peminjaman->isAwaitingScreening();
 
         // === WORKFLOW LEGACY (dimatikan agar tidak konflik dengan workflow baru) ===
         // Pengajuan baru tidak pernah lagi memakai stage verifikator_1/verifikator_2/final_report.
@@ -415,7 +415,7 @@ class PeminjamanAsetController extends Controller
     public function approveBySinggih(BmnPeminjamanApprovalNoteRequest $request, int $id): RedirectResponse
     {
         $user = $request->user();
-        abort_unless($user !== null && (int) $user->id === User::BMN_VERIFIER_2_ID, 403);
+        abort_unless($user !== null && $user->canActAsBmnSinggih(), 403);
 
         $note = trim((string) ($request->validated()['note'] ?? ''));
 
@@ -447,7 +447,7 @@ class PeminjamanAsetController extends Controller
     public function rejectBySinggih(BmnPeminjamanRejectStageRequest $request, int $id): RedirectResponse
     {
         $user = $request->user();
-        abort_unless($user !== null && (int) $user->id === User::BMN_VERIFIER_2_ID, 403);
+        abort_unless($user !== null && $user->canActAsBmnSinggih(), 403);
 
         $reason = trim((string) $request->validated()['rejected_reason']);
 
@@ -492,8 +492,7 @@ class PeminjamanAsetController extends Controller
     {
         $user = $request->user();
         abort_unless(
-            $user !== null
-            && ((int) $user->id === User::BMN_VERIFIER_1_ID || $user->canApproveBmn()),
+            $user !== null && $user->canActAsBmnHendri(),
             403
         );
 
@@ -537,8 +536,7 @@ class PeminjamanAsetController extends Controller
     {
         $user = $request->user();
         abort_unless(
-            $user !== null
-            && ((int) $user->id === User::BMN_VERIFIER_1_ID || $user->canApproveBmn()),
+            $user !== null && $user->canActAsBmnHendri(),
             403
         );
 
@@ -680,7 +678,7 @@ class PeminjamanAsetController extends Controller
         $user = $request->user();
         abort_unless($user !== null, 403);
 
-        if (! $user->hasRole('admin') && ! $user->canApproveBmn() && ! $user->isBmnApprovalParticipant() && ! $user->isRumahTanggaBmn()) {
+        if (! $user->canViewAllBmnPeminjaman()) {
             abort(403, 'Anda tidak berhak mengakses dokumen ini.');
         }
 

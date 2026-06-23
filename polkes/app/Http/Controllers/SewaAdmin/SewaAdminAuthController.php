@@ -88,6 +88,7 @@ class SewaAdminAuthController extends Controller
     private static function isWhitelistedUsername(string $username): bool
     {
         return in_array($username, [
+            User::SEWA_SUPERADMIN_USERNAME,
             User::SEWA_ADMIN_INDAH_USERNAME,
             User::SEWA_ADMIN_RETNO_USERNAME,
             User::SEWA_ADMIN_SINGGIH_USERNAME,
@@ -96,6 +97,10 @@ class SewaAdminAuthController extends Controller
 
     private static function matchIdUsername(User $user): bool
     {
+        if ($user->isSewaSuperadmin()) {
+            return $user->username === User::SEWA_SUPERADMIN_USERNAME;
+        }
+
         return match ((int) $user->id) {
             User::SEWA_ADMIN_INDAH_ID => $user->username === User::SEWA_ADMIN_INDAH_USERNAME,
             User::SEWA_ADMIN_RETNO_ID => $user->username === User::SEWA_ADMIN_RETNO_USERNAME,

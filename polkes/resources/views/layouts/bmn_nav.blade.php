@@ -7,7 +7,8 @@
   $isBmnVerifier = $authUser && method_exists($authUser, 'isBmnApprovalParticipant') && $authUser->isBmnApprovalParticipant();
   $isRumahTangga = $authUser && method_exists($authUser, 'isRumahTanggaBmn') && $authUser->isRumahTanggaBmn();
   // Menu peminjaman/pengembalian terlihat oleh admin, requester (jurusan whitelist), approver officer, verifikator BMN, atau Rumah Tangga.
-  $showPeminjamanMenu = $isAdmin || $canRequestBmn || $canApproveBmn || $isBmnVerifier || $isRumahTangga;
+  $showPeminjamanMenu = $isAdmin || $canRequestBmn || $canApproveBmn || $isBmnVerifier || $isRumahTangga
+    || ($authUser && method_exists($authUser, 'isAdminBmnSuperadminUser') && $authUser->isAdminBmnSuperadminUser());
   $seg1 = request()->segment(1);
   $seg2 = request()->segment(2);
 @endphp

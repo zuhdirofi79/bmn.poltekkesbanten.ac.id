@@ -12,7 +12,7 @@ class StoreBmnPeminjamanScreeningRequest extends FormRequest
     {
         $user = $this->user();
 
-        return $user !== null && $user->isRumahTanggaBmn();
+        return $user !== null && $user->canScreenBmnPeminjaman();
     }
 
     /**

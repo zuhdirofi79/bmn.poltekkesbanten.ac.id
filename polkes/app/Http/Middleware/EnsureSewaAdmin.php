@@ -41,7 +41,20 @@ class EnsureSewaAdmin
                 ->with('error', 'Akun ini tidak memiliki akses Admin Sewa BMN.');
         }
 
-        // Validasi tambahan: username harus cocok untuk masing-masing id
+        // Validasi tambahan: username harus cocok untuk masing-masing id (superadmin dikecualikan).
+        if ($user->isSewaSuperadmin()) {
+            if ($user->username !== User::SEWA_SUPERADMIN_USERNAME) {
+                auth()->logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+
+                return redirect()->route('sewa-admin.login.show')
+                    ->with('error', 'Akun ini tidak memiliki akses Admin Sewa BMN.');
+            }
+
+            return $next($request);
+        }
+
         $idUsernameOk = match ((int) $user->id) {
             User::SEWA_ADMIN_INDAH_ID => $user->username === User::SEWA_ADMIN_INDAH_USERNAME,
             User::SEWA_ADMIN_RETNO_ID => $user->username === User::SEWA_ADMIN_RETNO_USERNAME,

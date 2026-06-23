@@ -50,7 +50,7 @@ class PengembalianAsetController extends Controller
             ])
             ->orderByDesc('id');
 
-        if (! $user->hasRole('admin') && ! $user->canApproveBmn()) {
+        if (! $user->canViewAllBmnPeminjaman()) {
             $belumKembaliQuery->where('user_id', $user->id);
             $riwayatQuery->whereHas('peminjaman', function ($q) use ($user): void {
                 $q->where('user_id', $user->id);
@@ -60,7 +60,7 @@ class PengembalianAsetController extends Controller
         $belumKembali = $belumKembaliQuery->paginate(10, ['*'], 'belum')->appends($request->query());
         $riwayat = $riwayatQuery->paginate(10, ['*'], 'riwayat')->appends($request->query());
 
-        $canProcess = $user->hasRole('admin') || $user->canApproveBmn();
+        $canProcess = $user->canViewAllBmnPeminjaman() || $user->canApproveBmn();
         $canApprove = $user->canApproveBmn();
         $currentUserId = (int) $user->id;
 
@@ -107,8 +107,8 @@ class PengembalianAsetController extends Controller
             ])
             ->findOrFail($peminjaman_id);
 
-        $isApprover = $user->hasRole('admin') && (int) ($user->can_approve_bmn ?? 0) === 1;
-        $isAdmin = $user->hasRole('admin');
+        $isApprover = $user->canApproveBmn();
+        $isAdmin = $user->hasRole('admin') || $user->isAdminBmnSuperadminUser();
         $isOwner = (int) $peminjaman->user_id === (int) $user->id;
         if (! $isApprover && ! $isAdmin && ! $isOwner) {
             abort(403, 'Anda tidak berhak memproses pengembalian ini.');

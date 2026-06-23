@@ -43,14 +43,27 @@ final class BhpAdminSession
     {
         $request->session()->regenerate();
 
-        $role = BhpAccess::isSuperadminUserId((int) $user->id)
-            ? BhpKebersihanAdmin::ROLE_SUPERADMIN
-            : $admin->role;
+        $role = BhpAccess::roleForUserId((int) $user->id) ?? $admin->role;
 
         $request->session()->put([
             self::KEY_USER_ID => (int) $user->id,
             self::KEY_ROLE    => $role,
         ]);
+    }
+
+    public static function syncRoleFromDatabase(Request $request): ?string
+    {
+        $userId = self::userId($request);
+        if ($userId === null) {
+            return null;
+        }
+
+        $role = BhpAccess::roleForUserId($userId);
+        if ($role !== null && $role !== self::role($request)) {
+            $request->session()->put(self::KEY_ROLE, $role);
+        }
+
+        return $role ?? self::role($request);
     }
 
     public static function logout(Request $request): void

@@ -86,8 +86,30 @@ class User extends Authenticatable
     public const SEWA_ADMIN_SINGGIH_ID = 3240;
     public const SEWA_ADMIN_SINGGIH_USERNAME = '199705042025211037';
 
+    /** Superadmin BMN — akses penuh semua modul peminjaman (bypass role spesifik). */
+    public const BMN_SUPERADMIN_IDS = [3233];
+
+    /** Superadmin Sewa BMN — adminbmn, akses penuh semua menu & aksi admin sewa. */
+    public const SEWA_SUPERADMIN_ID = 3233;
+    public const SEWA_SUPERADMIN_USERNAME = 'adminbmn';
+
     /** @var list<int> id semua admin Sewa BMN */
-    public const SEWA_ADMIN_IDS = [3240, 3241, 3242];
+    public const SEWA_ADMIN_IDS = [3233, 3240, 3241, 3242];
+
+    public static function isAdminBmnSuperadmin(int $userId): bool
+    {
+        return in_array($userId, self::BMN_SUPERADMIN_IDS, true);
+    }
+
+    public function isAdminBmnSuperadminUser(): bool
+    {
+        return self::isAdminBmnSuperadmin((int) $this->id);
+    }
+
+    public function isSewaSuperadmin(): bool
+    {
+        return (int) $this->id === self::SEWA_SUPERADMIN_ID;
+    }
 
     /**
      * Apakah user boleh mengajukan request peminjaman aset BMN.
@@ -113,6 +135,10 @@ class User extends Authenticatable
      */
     public function canApproveBmn(): bool
     {
+        if ($this->isAdminBmnSuperadminUser()) {
+            return true;
+        }
+
         return $this->hasRole('admin') && (bool) $this->can_approve_bmn === true;
     }
 
@@ -141,13 +167,38 @@ class User extends Authenticatable
         return (int) $this->id === self::BMN_VERIFIER_1_ID;
     }
 
+    public function canViewAllBmnPeminjaman(): bool
+    {
+        return $this->hasRole('admin')
+            || $this->canApproveBmn()
+            || $this->isBmnApprovalParticipant()
+            || $this->isRumahTanggaBmn()
+            || $this->isAdminBmnSuperadminUser();
+    }
+
+    public function canActAsBmnSinggih(): bool
+    {
+        return $this->isAdminBmnSuperadminUser() || $this->isBmnVerifier2();
+    }
+
+    public function canActAsBmnHendri(): bool
+    {
+        return $this->isAdminBmnSuperadminUser() || $this->isBmnVerifier1() || $this->canApproveBmn();
+    }
+
+    public function canScreenBmnPeminjaman(): bool
+    {
+        return $this->isAdminBmnSuperadminUser() || $this->isRumahTanggaBmn();
+    }
+
     /**
      * Apakah user adalah salah satu Admin Sewa BMN
      * (Bu Indah / Bu Retno / Pak Singgih).
      */
     public function canManageSewaBmn(): bool
     {
-        return in_array((int) $this->id, self::SEWA_ADMIN_IDS, true);
+        return $this->isSewaSuperadmin()
+            || in_array((int) $this->id, self::SEWA_ADMIN_IDS, true);
     }
 
     /**
@@ -156,6 +207,10 @@ class User extends Authenticatable
      */
     public function canVerifySewaPayment(): bool
     {
+        if ($this->isSewaSuperadmin()) {
+            return true;
+        }
+
         return (int) $this->id === self::SEWA_ADMIN_INDAH_ID
             && $this->username === self::SEWA_ADMIN_INDAH_USERNAME;
     }
@@ -165,11 +220,19 @@ class User extends Authenticatable
      */
     public function canCoordinateSewa(): bool
     {
+        if ($this->isSewaSuperadmin()) {
+            return true;
+        }
+
         return in_array((int) $this->id, [self::SEWA_ADMIN_RETNO_ID, self::SEWA_ADMIN_SINGGIH_ID], true);
     }
 
     public function isRetnoSewaCoordinator(): bool
     {
+        if ($this->isSewaSuperadmin()) {
+            return true;
+        }
+
         return (int) $this->id === self::SEWA_ADMIN_RETNO_ID
             && $this->username === self::SEWA_ADMIN_RETNO_USERNAME;
     }

@@ -29,7 +29,7 @@ class EnsureBhpAdmin
                 ->with('error', 'Anda tidak memiliki akses admin BHP Kebersihan.');
         }
 
-        $role = BhpAdminSession::role($request);
+        $role = BhpAdminSession::syncRoleFromDatabase($request);
         $routeName = $request->route()?->getName();
 
         if (! BhpAccess::canAccessRoute($role, $routeName)) {

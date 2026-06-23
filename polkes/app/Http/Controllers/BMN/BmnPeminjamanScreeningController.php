@@ -23,7 +23,7 @@ class BmnPeminjamanScreeningController extends Controller
     public function show(Request $request, int $id): View
     {
         $user = $request->user();
-        abort_unless($user !== null && $user->isRumahTanggaBmn(), 403);
+        abort_unless($user !== null && $user->canScreenBmnPeminjaman(), 403);
 
         /** @var PeminjamanAsetBmn $peminjaman */
         $peminjaman = PeminjamanAsetBmn::query()
@@ -65,7 +65,7 @@ class BmnPeminjamanScreeningController extends Controller
     public function store(StoreBmnPeminjamanScreeningRequest $request, int $id): RedirectResponse
     {
         $user = $request->user();
-        abort_unless($user !== null && $user->isRumahTanggaBmn(), 403);
+        abort_unless($user !== null && $user->canScreenBmnPeminjaman(), 403);
 
         $data = $request->validated();
         $result = (string) $data['screening_result'];
