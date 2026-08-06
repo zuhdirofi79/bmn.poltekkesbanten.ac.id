@@ -108,6 +108,11 @@
         <div class="card-body py-3">
           <h6 class="fw-semibold mb-2">Import multi-item (Excel)</h6>
           <p class="small text-muted mb-2">Gunakan template resmi. Baris valid akan disimpan; baris bermasalah akan dilaporkan dan dilewati.</p>
+          <p class="small text-muted mb-2">
+            Kolom <code>tanggal_perolehan</code> mendukung:
+            <code>dd-mm-yyyy</code>, <code>dd/mm/yyyy</code>, <code>yyyy-mm-dd</code>, atau tanggal asli Excel
+            (urutan Indonesia: hari/bulan/tahun).
+          </p>
           <form method="post" action="{{ route('bmn.aset.import') }}" enctype="multipart/form-data" class="row g-2 align-items-end">
             @csrf
             <div class="col-md-8">

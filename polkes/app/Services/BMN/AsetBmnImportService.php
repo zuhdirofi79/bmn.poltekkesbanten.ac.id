@@ -6,7 +6,6 @@ namespace App\Services\BMN;
 
 use App\Models\BmnSatker;
 use App\Models\BMN\AsetBmn;
-use Carbon\Carbon;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
@@ -37,7 +36,9 @@ class AsetBmnImportService
         } catch (\Throwable) {
             return $this->emptyResult(['Berkas tidak dapat dibaca atau format tidak didukung.']);
         }
-        $rows = $spreadsheet->getActiveSheet()->toArray();
+        // formatData=false: jangan format sel tanggal jadi string lokal
+        // (bisa rusak seperti "12121222022年7月1日"). Ambil serial Excel mentah.
+        $rows = $spreadsheet->getActiveSheet()->toArray(null, true, false);
         if ($rows === [] || $rows[0] === null) {
             return $this->emptyResult(['Berkas kosong.']);
         }
@@ -73,9 +74,16 @@ class AsetBmnImportService
                 continue;
             }
 
-            $normalized = $this->normalizeAssoc($assoc);
+            try {
+                $normalized = $this->normalizeAssoc($assoc, $rowNumber);
+            } catch (\RuntimeException $e) {
+                $lineErrors[] = $e->getMessage();
+                $skippedRows[] = $rowNumber;
+
+                continue;
+            }
             if ($normalized === null) {
-                $lineErrors[] = "Baris {$rowNumber}: format data tidak valid (cek kategori_id, satker_id, nilai, tanggal).";
+                $lineErrors[] = "Baris {$rowNumber}: format data tidak valid (cek kategori_id, satker_id, nilai).";
                 $skippedRows[] = $rowNumber;
 
                 continue;
@@ -272,7 +280,7 @@ class AsetBmnImportService
      * @param  array<string, mixed>  $assoc
      * @return array<string, mixed>|null
      */
-    protected function normalizeAssoc(array $assoc): ?array
+    protected function normalizeAssoc(array $assoc, int $rowNumber): ?array
     {
         $kategoriId = $assoc['kategori_id'] ?? null;
         if (is_string($kategoriId) && is_numeric($kategoriId)) {
@@ -309,38 +317,11 @@ class AsetBmnImportService
             return null;
         }
 
-        $tgl = $assoc['tanggal_perolehan'] ?? null;
-        if ($tgl === '' || $tgl === null) {
-            $tgl = null;
-        } elseif (is_numeric($tgl) && (float) $tgl > 200) {
-            try {
-                $tgl = ExcelDate::excelToDateTimeObject((float) $tgl);
-                $tgl = $tgl instanceof \DateTimeInterface
-                    ? Carbon::instance($tgl)->format('Y-m-d')
-                    : null;
-            } catch (\Throwable $e) {
-                return null;
-            }
-        } elseif (is_string($tgl) && is_numeric($tgl) && (float) $tgl > 200) {
-            try {
-                $tgl = ExcelDate::excelToDateTimeObject((float) $tgl);
-                $tgl = $tgl instanceof \DateTimeInterface
-                    ? Carbon::instance($tgl)->format('Y-m-d')
-                    : null;
-            } catch (\Throwable $e) {
-                return null;
-            }
-        } elseif (is_string($tgl)) {
-            $parsed = $this->parseTanggalString($tgl);
-            if ($parsed === null) {
-                return null;
-            }
-            $tgl = $parsed;
-        } elseif ($tgl instanceof \DateTimeInterface) {
-            $tgl = Carbon::instance($tgl)->format('Y-m-d');
-        } else {
-            return null;
-        }
+        $tgl = $this->parseTanggalExcel(
+            $assoc['tanggal_perolehan'] ?? null,
+            $rowNumber,
+            'tanggal_perolehan'
+        );
 
         $kondisi = isset($assoc['kondisi']) ? trim(mb_strtolower((string) $assoc['kondisi'])) : '';
         $kondisi = str_replace(' ', '_', $kondisi);
@@ -410,19 +391,95 @@ class AsetBmnImportService
         return $s === '' ? null : $s;
     }
 
-    private function parseTanggalString(string $s): ?string
+    /**
+     * Parse nilai tanggal dari Excel ke format database Y-m-d.
+     *
+     * Mendukung: DateTimeInterface, serial Excel numerik, dd-mm-yyyy, dd/mm/yyyy,
+     * yyyy-mm-dd, yyyy/mm/dd. Interpretasi slash/dash memakai urutan Indonesia
+     * (hari-bulan-tahun). Tidak memakai Carbon::parse.
+     *
+     * Alias: parseExcelDate()
+     *
+     * @throws \RuntimeException jika format tidak valid
+     */
+    private function parseTanggalExcel(mixed $value, int $rowNumber = 0, string $columnName = 'tanggal_perolehan'): ?string
     {
-        $s = trim($s);
-        if ($s === '') {
+        if ($value === null) {
             return null;
         }
-        try {
-            $c = Carbon::parse($s);
 
-            return $c->format('Y-m-d');
-        } catch (\Throwable $e) {
+        if ($value instanceof \DateTimeInterface) {
+            return $value->format('Y-m-d');
+        }
+
+        if (is_string($value) && trim($value) === '') {
             return null;
         }
+
+        $rowLabel = $rowNumber > 0 ? "Baris {$rowNumber}" : 'Baris ?';
+        $invalidMsg = static function (string $display) use ($rowLabel, $columnName): string {
+            return "{$rowLabel}:\n"
+                ."Kolom {$columnName}:\n"
+                ."nilai \"{$display}\" tidak valid.";
+        };
+
+        // Angka / string numerik → serial Excel. Tahun 4 digit saja bukan tanggal penuh.
+        if (is_int($value) || is_float($value) || (is_string($value) && is_numeric(trim($value)))) {
+            $display = is_string($value) ? trim($value) : (string) $value;
+            $num = (float) $display;
+            $maxYear = (int) date('Y') + 1;
+
+            if ($num == floor($num) && $num >= 1900 && $num <= $maxYear) {
+                throw new \RuntimeException($invalidMsg($display));
+            }
+
+            try {
+                return ExcelDate::excelToDateTimeObject($num)->format('Y-m-d');
+            } catch (\Throwable) {
+                throw new \RuntimeException($invalidMsg($display));
+            }
+        }
+
+        if (! is_string($value)) {
+            throw new \RuntimeException($invalidMsg('(tipe tidak dikenali)'));
+        }
+
+        $raw = trim($value);
+
+        $formats = [
+            '!d-m-Y',
+            '!d/m/Y',
+            '!Y-m-d',
+            '!Y/m/d',
+        ];
+
+        foreach ($formats as $format) {
+            $date = \DateTimeImmutable::createFromFormat($format, $raw);
+            $errors = \DateTimeImmutable::getLastErrors();
+
+            $valid = $date !== false
+                && ($errors === false
+                    || (
+                        ($errors['warning_count'] ?? 0) === 0
+                        && ($errors['error_count'] ?? 0) === 0
+                    ));
+
+            if ($valid) {
+                return $date->format('Y-m-d');
+            }
+        }
+
+        throw new \RuntimeException($invalidMsg($raw));
+    }
+
+    /**
+     * @deprecated Gunakan parseTanggalExcel(); dipertahankan untuk kompatibilitas test/reflection.
+     *
+     * @throws \RuntimeException
+     */
+    private function parseExcelDate(mixed $value, int $rowNumber, string $columnName): ?string
+    {
+        return $this->parseTanggalExcel($value, $rowNumber, $columnName);
     }
 
     /**

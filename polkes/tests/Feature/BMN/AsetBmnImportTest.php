@@ -230,4 +230,64 @@ class AsetBmnImportTest extends TestCase
         $response->assertRedirect();
         $response->assertSessionHas('error');
     }
+
+    public function test_import_accepts_indonesian_and_iso_date_formats(): void
+    {
+        $user = $this->authenticatedUser();
+        $sid = $this->satkerId();
+
+        $csv = $this->csvHeader()
+            . "DT-DASH,1,Dash,1,,06-08-2026,baik,,{$sid},\n"
+            . "DT-SLASH,2,Slash,1,,06/08/2026,baik,,{$sid},\n"
+            . "DT-ISO,3,Iso,1,,2026-08-06,baik,,{$sid},\n"
+            . "DT-ISOSL,4,IsoSlash,1,,2026/08/06,baik,,{$sid},\n"
+            . "DT-SERIAL,5,Serial,1,,46240,baik,,{$sid},\n"
+            . "DT-TRIM,6,Trim,1,, 06/08/2026 ,baik,,{$sid},\n";
+
+        $response = $this->actingAs($user)->post(route('bmn.aset.import'), [
+            'file' => $this->csvFile($csv),
+        ]);
+
+        $response->assertRedirect();
+        $response->assertSessionHas('success');
+        $this->assertSame(6, AsetBmn::query()->count());
+
+        foreach (['DT-DASH', 'DT-SLASH', 'DT-ISO', 'DT-ISOSL', 'DT-SERIAL', 'DT-TRIM'] as $kode) {
+            $aset = AsetBmn::query()->where('kode_barang', $kode)->first();
+            $this->assertNotNull($aset, "Missing {$kode}");
+            $this->assertSame('2026-08-06', optional($aset->tanggal_perolehan)->format('Y-m-d'));
+        }
+    }
+
+    public function test_invalid_date_skips_row_and_keeps_valid_rows(): void
+    {
+        $user = $this->authenticatedUser();
+        $sid = $this->satkerId();
+
+        $csv = $this->csvHeader()
+            . "OK-DATE,1,Valid,1,,06/08/2026,baik,,{$sid},\n"
+            . "BAD-DATE,2,Invalid,1,,31/02/2026,baik,,{$sid},\n"
+            . "OK-EMPTY,3,EmptyDate,1,,,baik,,{$sid},\n";
+
+        $response = $this->actingAs($user)->post(route('bmn.aset.import'), [
+            'file' => $this->csvFile($csv),
+        ]);
+
+        $response->assertRedirect();
+        $response->assertSessionHas('success');
+        $this->assertSame(2, AsetBmn::query()->count());
+        $this->assertNull(AsetBmn::query()->where('kode_barang', 'BAD-DATE')->first());
+
+        $summary = session('import_summary');
+        $this->assertIsArray($summary);
+        $this->assertSame(2, $summary['imported']);
+        $this->assertSame(1, $summary['skipped_count']);
+        $this->assertContains(3, $summary['skipped_rows']);
+
+        $errors = session('import_errors');
+        $this->assertIsArray($errors);
+        $joined = implode("\n", $errors);
+        $this->assertStringContainsString('tanggal_perolehan', $joined);
+        $this->assertStringContainsString('31/02/2026', $joined);
+    }
 }
