@@ -3,35 +3,21 @@
 <head>
   <meta charset="utf-8">
   <title>Print Label QR Batch — BHP Kebersihan</title>
-  <style>
-    * { box-sizing: border-box; }
-    body { font-family: Arial, Helvetica, sans-serif; margin: 0; background: #fff; }
-    .wrap { padding: 16px; }
-    .label {
-      width: 100%;
-      max-width: 920px;
-      margin: 0 auto 18px;
-      page-break-inside: avoid;
-      break-inside: avoid;
-    }
-    .label img { width: 100%; height: auto; display: block; }
-    @media print {
-      .no-print { display: none !important; }
-      .wrap { padding: 0; }
-      .label { margin-bottom: 12mm; }
-    }
-  </style>
+  @include('bhp_kebersihan_admin.master-barang._barcode_print_styles')
 </head>
 <body>
-  <p class="no-print" style="text-align:center;padding:12px;">
-    <button onclick="window.print()">Print Semua</button>
-  </p>
-  <div class="wrap">
-    @foreach($items as $item)
-      <div class="label">
-        <img src="{{ $item['imageUrl'] }}" alt="{{ $item['barang']->nama_barang }} {{ $item['barang']->kode_barang }}">
-      </div>
-    @endforeach
+  <div class="no-print">
+    <button type="button" onclick="window.print()">Print Semua</button>
+    <p class="print-hint">Setiap label 50 mm × 20 mm pada kertas A4. Pilih skala cetak 100% (bukan Fit to page).</p>
+  </div>
+  <div class="sheet">
+    <div class="labels">
+      @foreach($items as $item)
+        <div class="barcode-label">
+          <img src="{{ $item['imageUrl'] }}" alt="{{ $item['barang']->nama_barang }} {{ $item['barang']->kode_barang }}">
+        </div>
+      @endforeach
+    </div>
   </div>
   <script>window.addEventListener('load', function () { window.print(); });</script>
 </body>
