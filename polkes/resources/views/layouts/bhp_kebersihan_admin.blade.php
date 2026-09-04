@@ -53,7 +53,7 @@
             <div class="fw-semibold">Hasil Penghapusan</div>
             <div class="small mt-2 mb-0">
               Berhasil dihapus : {{ $bulk['deleted'] ?? 0 }}<br>
-              Tidak dapat dihapus : {{ ($bulk['blocked'] ?? 0) + ($bulk['failed'] ?? 0) }}
+              Gagal : {{ $bulk['failed'] ?? 0 }}
             </div>
             @if(!empty($bulk['reasons']))
               <div class="small mt-2 mb-0">

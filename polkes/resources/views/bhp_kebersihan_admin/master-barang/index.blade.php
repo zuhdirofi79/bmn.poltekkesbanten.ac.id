@@ -134,6 +134,9 @@
                   data-merk="{{ $b->merk }}"
                   data-stok="{{ $stokMap[$b->id] ?? 0 }}"
                   data-satuan="{{ $b->satuan }}"
+                  data-permintaan="{{ $b->permintaan_count ?? 0 }}"
+                  data-movements="{{ $b->movements_count ?? 0 }}"
+                  data-opname="{{ $b->opname_details_count ?? 0 }}"
                   data-action="{{ route('bhp.admin.master-barang.destroy', $b->id) }}"
                 >Hapus</button>
                 @endif
@@ -323,11 +326,11 @@
     <form method="POST" action="#" class="modal-content bhp-edit-modal-content" id="bhpDeleteForm">
       @csrf @method('DELETE')
       <div class="modal-header">
-        <h5 class="modal-title" id="bhpDeleteModalTitle">Hapus Barang?</h5>
+        <h5 class="modal-title" id="bhpDeleteModalTitle">Hapus Permanen</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
       </div>
       <div class="modal-body">
-        <p class="mb-3">Anda yakin ingin menghapus:</p>
+        <p class="mb-3">Anda yakin ingin menghapus permanen:</p>
         <div class="bhp-meta-box mb-3">
           <div class="mb-2">
             <div class="text-muted small">Kode</div>
@@ -341,12 +344,20 @@
             <div class="text-muted small">Merk</div>
             <div class="fw-semibold" id="bhpDeleteMerk"></div>
           </div>
-          <div>
+          <div class="mb-2">
             <div class="text-muted small">Stok Saat Ini</div>
             <div class="fw-semibold" id="bhpDeleteStok"></div>
           </div>
+          <div>
+            <div class="text-muted small mb-1">Histori terkait</div>
+            <div class="small">Permintaan : <span id="bhpDeleteCntPermintaan">0</span></div>
+            <div class="small">Stock Movement : <span id="bhpDeleteCntMovement">0</span></div>
+            <div class="small">Stock Opname : <span id="bhpDeleteCntOpname">0</span></div>
+          </div>
         </div>
-        <p class="mb-0">Tindakan ini akan menghapus data barang secara permanen. Barang yang sudah punya histori transaksi tidak dapat dihapus.</p>
+        <div class="alert alert-warning mb-0" id="bhpDeleteWarn">
+          Data barang dan histori transaksi terkait akan dihapus secara permanen dan tidak dapat dipulihkan.
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
@@ -367,7 +378,9 @@
       <div class="modal-body">
         <p class="mb-2" id="bhpBulkDeleteLead"></p>
         <ul class="mb-3" id="bhpBulkDeleteList"></ul>
-        <p class="mb-0 text-muted small">Barang tanpa histori dihapus permanen. Barang yang sudah punya transaksi tidak dihapus dan statusnya tidak diubah.</p>
+        <div class="alert alert-warning mb-0">
+          Semua barang terpilih akan dihapus permanen, termasuk histori permintaan, stock movement, dan stock opname terkait. Tindakan ini tidak dapat dipulihkan.
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
@@ -745,6 +758,9 @@
       var stok = btn.getAttribute('data-stok') || '0';
       var satuan = btn.getAttribute('data-satuan') || '';
       document.getElementById('bhpDeleteStok').textContent = stok + (satuan ? ' ' + satuan : '');
+      document.getElementById('bhpDeleteCntPermintaan').textContent = btn.getAttribute('data-permintaan') || '0';
+      document.getElementById('bhpDeleteCntMovement').textContent = btn.getAttribute('data-movements') || '0';
+      document.getElementById('bhpDeleteCntOpname').textContent = btn.getAttribute('data-opname') || '0';
       if (deleteSubmit) {
         deleteSubmit.disabled = false;
         deleteSubmit.dataset.busy = '0';

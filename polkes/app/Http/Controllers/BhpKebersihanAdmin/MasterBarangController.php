@@ -7,6 +7,9 @@ namespace App\Http\Controllers\BhpKebersihanAdmin;
 use App\Exports\Persediaan\SimpleArrayExport;
 use App\Http\Controllers\Controller;
 use App\Models\BhpKebersihan\BhpKebersihanBarang;
+use App\Models\BhpKebersihan\BhpKebersihanPermintaan;
+use App\Models\BhpKebersihan\BhpKebersihanStockMovement;
+use App\Models\BhpKebersihan\BhpKebersihanStockOpnameDetail;
 use App\Services\BhpKebersihan\BarcodeService;
 use App\Services\BhpKebersihan\FotoService;
 use App\Services\BhpKebersihan\StockService;
@@ -36,6 +39,7 @@ class MasterBarangController extends Controller
     public function index(Request $request): View
     {
         $query = BhpKebersihanBarang::query()
+            ->withCount(['permintaan', 'movements', 'opnameDetails'])
             ->when($request->filled('q'), function ($q) use ($request) {
                 $term = '%' . $request->input('q') . '%';
                 $q->where(fn ($w) => $w->where('kode_barang', 'like', $term)
@@ -217,7 +221,7 @@ class MasterBarangController extends Controller
             return back()->with('error', 'Barang tidak ditemukan.');
         }
 
-        return back()->with('error', $result['message']);
+        return back()->with('error', 'Gagal menghapus barang. Tidak ada perubahan yang diterapkan.');
     }
 
     public function bulkDestroy(Request $request): RedirectResponse
@@ -243,7 +247,6 @@ class MasterBarangController extends Controller
         $items = BhpKebersihanBarang::query()->whereIn('id', $ids)->get()->keyBy('id');
 
         $deleted = 0;
-        $blocked = 0;
         $failed = 0;
         $reasons = [];
 
@@ -260,12 +263,9 @@ class MasterBarangController extends Controller
                 $result = $this->hapusPermanen($barang, $userId);
                 if ($result['status'] === 'deleted') {
                     $deleted++;
-                } elseif ($result['status'] === 'blocked') {
-                    $blocked++;
-                    $reasons[] = $result['ringkas'];
                 } else {
                     $failed++;
-                    $reasons[] = ($barang->kode_barang ?? ('ID ' . $id)) . ' tidak ditemukan.';
+                    $reasons[] = ($barang->kode_barang ?? ('ID ' . $id)) . ' gagal dihapus.';
                 }
             } catch (\Throwable $e) {
                 report($e);
@@ -274,69 +274,58 @@ class MasterBarangController extends Controller
             }
         }
 
-        $summary = [
+        return back()->with('bulk_delete_summary', [
             'deleted' => $deleted,
-            'blocked' => $blocked,
+            'blocked' => 0,
             'failed'  => $failed,
             'reasons' => $reasons,
-        ];
-
-        return back()->with('bulk_delete_summary', $summary);
+        ]);
     }
 
     /**
-     * Hard delete satu barang. Tidak mengubah status.
+     * Hard delete master + child. Tidak mengubah status, tidak membuat stock movement.
      *
-     * @return array{status:'deleted'}|array{status:'blocked', message:string, ringkas:string, alasan:list<string>}|array{status:'not_found'}
+     * @return array{status:'deleted'}|array{status:'not_found'}|array{status:'failed'}
      */
     private function hapusPermanen(BhpKebersihanBarang $barang, ?int $actorId): array
     {
         $fileSnapshot = null;
         $audit = null;
 
-        $result = DB::transaction(function () use ($barang, &$fileSnapshot, &$audit) {
-            $locked = BhpKebersihanBarang::query()->whereKey($barang->id)->lockForUpdate()->first();
-            if ($locked === null) {
-                return ['status' => 'not_found'];
-            }
+        try {
+            $result = DB::transaction(function () use ($barang, &$fileSnapshot, &$audit) {
+                $locked = BhpKebersihanBarang::query()->whereKey($barang->id)->lockForUpdate()->first();
+                if ($locked === null) {
+                    return ['status' => 'not_found'];
+                }
 
-            $alasan = $locked->alasanTidakDapatDihapus();
-            if ($alasan !== []) {
-                $ringkas = $locked->kode_barang . ' — ' . $locked->nama_barang . ' memiliki ' . implode(', ', $alasan);
-
-                return [
-                    'status'  => 'blocked',
-                    'message' => 'Barang tidak dapat dihapus karena sudah memiliki histori transaksi. Barang ini tidak dapat dihapus permanen karena sudah digunakan dalam transaksi/histori sistem.',
-                    'ringkas' => $ringkas,
-                    'alasan'  => $alasan,
+                $fileSnapshot = [
+                    'foto_path'    => $locked->foto_path,
+                    'barcode_path' => $locked->barcode_path,
                 ];
-            }
+                $audit = [
+                    'id'          => $locked->id,
+                    'kode_barang' => $locked->kode_barang,
+                    'nama_barang' => $locked->nama_barang,
+                ];
 
-            $fileSnapshot = [
-                'foto_path'    => $locked->foto_path,
-                'barcode_path' => $locked->barcode_path,
-            ];
-            $audit = [
-                'id'          => $locked->id,
-                'kode_barang' => $locked->kode_barang,
-                'nama_barang' => $locked->nama_barang,
-            ];
+                BhpKebersihanStockOpnameDetail::query()->where('barang_id', $locked->id)->delete();
+                BhpKebersihanStockMovement::query()->where('barang_id', $locked->id)->delete();
+                BhpKebersihanPermintaan::query()->where('barang_id', $locked->id)->delete();
 
-            try {
                 $locked->delete();
-            } catch (QueryException $e) {
-                $ringkas = $locked->kode_barang . ' — ' . $locked->nama_barang . ' memiliki histori transaksi';
 
-                return [
-                    'status'  => 'blocked',
-                    'message' => 'Barang tidak dapat dihapus karena sudah memiliki histori transaksi.',
-                    'ringkas' => $ringkas,
-                    'alasan'  => ['histori transaksi'],
-                ];
-            }
+                return ['status' => 'deleted'];
+            });
+        } catch (QueryException $e) {
+            report($e);
 
-            return ['status' => 'deleted'];
-        });
+            return ['status' => 'failed'];
+        } catch (\Throwable $e) {
+            report($e);
+
+            return ['status' => 'failed'];
+        }
 
         if (($result['status'] ?? null) === 'deleted') {
             $this->bersihkanFileSetelahHardDelete($fileSnapshot['foto_path'] ?? null, $fileSnapshot['barcode_path'] ?? null);
