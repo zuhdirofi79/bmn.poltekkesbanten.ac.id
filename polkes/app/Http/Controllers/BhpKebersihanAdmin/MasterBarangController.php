@@ -109,23 +109,30 @@ class MasterBarangController extends Controller
         }
 
         $barang = BhpKebersihanBarang::findOrFail($id);
-        $data = $this->validateData($request, $id);
+
+        try {
+            $data = $this->validateData($request, $id);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return back()
+                ->withErrors($e->errors())
+                ->withInput()
+                ->with('open_edit_id', $id);
+        }
 
         $barang->update([
-            'kode_barang'  => $data['kode_barang'],
             'nama_barang'  => $data['nama_barang'],
             'merk'         => $data['merk'] ?? null,
             'satuan'       => $data['satuan'],
             'harga_satuan' => $data['harga_satuan'] ?? null,
-            'status'       => $request->input('status', 'aktif'),
+            'status'       => $data['status'],
             'updated_by'   => BhpAdminSession::userId($request),
         ]);
 
         if ($request->hasFile('foto')) {
-            $this->foto->store($barang, $request->file('foto'));
+            $this->foto->store($barang->fresh(), $request->file('foto'));
         }
 
-        return back()->with('success', 'Barang BHP berhasil diperbarui.');
+        return back()->with('success', 'Data barang berhasil diperbarui.');
     }
 
     public function destroy(int $id): RedirectResponse
@@ -325,14 +332,20 @@ class MasterBarangController extends Controller
      */
     private function validateData(Request $request, ?int $id = null): array
     {
-        return $request->validate([
-            'kode_barang'  => ['required', 'string', 'max:100', Rule::unique('bhp_kebersihan_barang', 'kode_barang')->ignore($id)],
+        $rules = [
             'nama_barang'  => ['required', 'string', 'max:200'],
             'merk'         => ['nullable', 'string', 'max:255'],
             'satuan'       => ['required', 'string', 'max:50'],
             'stok_awal'    => [$id === null ? 'required' : 'nullable', 'integer', 'min:0'],
             'harga_satuan' => ['nullable', 'numeric', 'min:0'],
             'foto'         => ['nullable', 'file', 'max:5120', 'mimes:jpg,jpeg,png,webp'],
-        ]);
+            'status'       => [$id === null ? 'nullable' : 'required', 'in:aktif,nonaktif'],
+        ];
+
+        if ($id === null) {
+            $rules['kode_barang'] = ['required', 'string', 'max:100', Rule::unique('bhp_kebersihan_barang', 'kode_barang')];
+        }
+
+        return $request->validate($rules);
     }
 }

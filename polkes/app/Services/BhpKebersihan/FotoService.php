@@ -41,18 +41,21 @@ class FotoService
         PublicUploadPath::ensureDir($dir);
 
         $absolute = $dir . '/' . $filename;
+        $oldPath = $barang->foto_path;
         $file->move($dir, $filename);
 
         if (! is_file($absolute)) {
             throw new \RuntimeException('Gagal menyimpan foto barang ke ' . PublicUploadPath::FOTO_REL_DIR);
         }
 
-        $this->deleteStored($barang->foto_path);
-
         $relative = PublicUploadPath::FOTO_REL_DIR . '/' . $filename;
         $barang->foto_path = $relative;
         $barang->foto_original_name = $originalName;
         $barang->save();
+
+        if ($oldPath && $oldPath !== $relative) {
+            $this->deleteStored($oldPath);
+        }
 
         return $relative;
     }
