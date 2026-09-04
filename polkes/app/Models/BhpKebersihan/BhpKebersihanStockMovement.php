@@ -42,4 +42,32 @@ class BhpKebersihanStockMovement extends Model
     {
         return $this->belongsTo(BhpKebersihanBarang::class, 'barang_id');
     }
+
+    public function creator()
+    {
+        return $this->belongsTo(\App\User::class, 'created_by');
+    }
+
+    public function signedDelta(): int
+    {
+        return (int) $this->stok_sesudah - (int) $this->stok_sebelum;
+    }
+
+    public function jenisLabel(): string
+    {
+        if ($this->tipe === self::TIPE_KOREKSI && $this->sumber === self::SUMBER_MANUAL) {
+            return 'Koreksi Manual';
+        }
+        if ($this->tipe === self::TIPE_KOREKSI) {
+            return 'Koreksi Opname';
+        }
+        if ($this->tipe === self::TIPE_MASUK) {
+            return 'Barang Masuk';
+        }
+        if ($this->tipe === self::TIPE_KELUAR) {
+            return 'Barang Keluar';
+        }
+
+        return (string) $this->tipe;
+    }
 }

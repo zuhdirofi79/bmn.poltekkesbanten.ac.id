@@ -16,6 +16,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -52,23 +53,30 @@ class MasterBarangController extends Controller
         }
 
         return view('bhp_kebersihan_admin.master-barang.index', [
-            'barang'         => $barang,
-            'stokMap'        => $stokMap,
-            'barcodeUrlMap'  => $barcodeUrlMap,
-            'fotoUrlMap'     => $fotoUrlMap,
-            'filters'        => $request->only(['q', 'status']),
+            'barang'           => $barang,
+            'stokMap'          => $stokMap,
+            'barcodeUrlMap'    => $barcodeUrlMap,
+            'fotoUrlMap'       => $fotoUrlMap,
+            'filters'          => $request->only(['q', 'status']),
+            'canManageMaster'  => BhpAccess::canManageMaster(BhpAdminSession::role($request)),
         ]);
     }
 
     public function show(int $id): View
     {
         $barang = BhpKebersihanBarang::findOrFail($id);
+        $riwayat = $barang->movements()
+            ->with('creator')
+            ->orderByDesc('id')
+            ->limit(200)
+            ->get();
 
         return view('bhp_kebersihan_admin.master-barang.show', [
             'barang'     => $barang,
             'stokSaatIni'=> $this->stock->stokSaatIni($barang),
             'barcodeUrl' => $this->barcode->fileUrl($barang),
             'fotoUrl'    => $barang->fotoUrl(),
+            'riwayat'    => $riwayat,
         ]);
     }
 
@@ -135,13 +143,179 @@ class MasterBarangController extends Controller
         return back()->with('success', 'Data barang berhasil diperbarui.');
     }
 
-    public function destroy(int $id): RedirectResponse
+    public function koreksiStok(Request $request, int $id): RedirectResponse
     {
-        $barang = BhpKebersihanBarang::findOrFail($id);
-        $barang->status = 'nonaktif';
-        $barang->save();
+        if (! BhpAccess::canManageMaster(BhpAdminSession::role($request))) {
+            abort(403);
+        }
 
-        return back()->with('success', 'Barang dinonaktifkan.');
+        try {
+            $data = $request->validate([
+                'arah'             => ['required', 'in:tambah,kurangi'],
+                'jumlah'           => ['required', 'integer', 'min:1'],
+                'catatan'          => ['required', 'string', 'min:3', 'max:1000'],
+                'idempotency_key'  => ['nullable', 'string', 'max:80'],
+            ]);
+        } catch (ValidationException $e) {
+            return back()
+                ->withErrors($e->errors())
+                ->withInput()
+                ->with('open_koreksi_id', $id);
+        }
+
+        $barang = BhpKebersihanBarang::findOrFail($id);
+
+        try {
+            $movement = $this->stock->recordKoreksiManual(
+                $barang,
+                $data['arah'],
+                (int) $data['jumlah'],
+                $data['catatan'],
+                BhpAdminSession::userId($request),
+                $data['idempotency_key'] ?? null,
+            );
+        } catch (\InvalidArgumentException $e) {
+            return back()
+                ->withErrors(['jumlah' => $e->getMessage()])
+                ->withInput()
+                ->with('open_koreksi_id', $id);
+        }
+
+        $delta = $movement->signedDelta();
+        $deltaLabel = $delta > 0 ? '+' . $delta : (string) $delta;
+
+        return back()
+            ->with('success', 'Stok berhasil diperbarui.')
+            ->with('stok_koreksi', [
+                'sebelum' => (int) $movement->stok_sebelum,
+                'delta'   => $deltaLabel,
+                'sesudah' => (int) $movement->stok_sesudah,
+            ]);
+    }
+
+    public function destroy(Request $request, int $id): RedirectResponse
+    {
+        if (! BhpAccess::canManageMaster(BhpAdminSession::role($request))) {
+            abort(403);
+        }
+
+        $barang = BhpKebersihanBarang::findOrFail($id);
+        $result = $this->hapusAtauNonaktifkan($barang, BhpAdminSession::userId($request));
+
+        if ($result === 'deleted') {
+            return back()->with('success', 'Barang berhasil dihapus dari Master Barang.');
+        }
+
+        return back()->with(
+            'success',
+            'Barang sudah memiliki histori transaksi sehingga tidak dihapus permanen. Barang dinonaktifkan.'
+        );
+    }
+
+    public function bulkDestroy(Request $request): RedirectResponse
+    {
+        if (! BhpAccess::canManageMaster(BhpAdminSession::role($request))) {
+            abort(403);
+        }
+
+        $ids = array_values(array_unique(array_filter(
+            array_map('intval', (array) $request->input('ids', [])),
+            static fn (int $id): bool => $id > 0
+        )));
+
+        if ($ids === []) {
+            return back()->with('error', 'Pilih minimal satu barang.');
+        }
+
+        if (count($ids) > 100) {
+            return back()->with('error', 'Maksimal 100 barang per proses.');
+        }
+
+        $userId = BhpAdminSession::userId($request);
+        $items = BhpKebersihanBarang::query()->whereIn('id', $ids)->get()->keyBy('id');
+
+        $deleted = 0;
+        $nonaktif = 0;
+        $failed = 0;
+
+        foreach ($ids as $id) {
+            $barang = $items->get($id);
+            if ($barang === null) {
+                $failed++;
+
+                continue;
+            }
+
+            try {
+                $result = $this->hapusAtauNonaktifkan($barang, $userId);
+                if ($result === 'deleted') {
+                    $deleted++;
+                } else {
+                    $nonaktif++;
+                }
+            } catch (\Throwable $e) {
+                report($e);
+                $failed++;
+            }
+        }
+
+        return back()
+            ->with('success', 'Proses selesai.')
+            ->with('bulk_delete_summary', [
+                'deleted'  => $deleted,
+                'nonaktif' => $nonaktif,
+                'failed'   => $failed,
+            ]);
+    }
+
+    /**
+     * @return 'deleted'|'nonaktif'
+     */
+    private function hapusAtauNonaktifkan(BhpKebersihanBarang $barang, ?int $userId): string
+    {
+        return DB::transaction(function () use ($barang, $userId) {
+            $locked = BhpKebersihanBarang::query()->whereKey($barang->id)->lockForUpdate()->first();
+            if ($locked === null) {
+                throw new \RuntimeException('Barang tidak ditemukan.');
+            }
+
+            if ($locked->hasTransaksiHistori()) {
+                $this->tandaiNonaktif($locked, $userId);
+
+                return 'nonaktif';
+            }
+
+            $this->hapusFileFisikBarangTidakTerpakai($locked);
+
+            try {
+                $locked->delete();
+            } catch (\Throwable $e) {
+                $this->tandaiNonaktif($locked, $userId);
+
+                return 'nonaktif';
+            }
+
+            return 'deleted';
+        });
+    }
+
+    private function tandaiNonaktif(BhpKebersihanBarang $barang, ?int $userId): void
+    {
+        $barang->status = 'nonaktif';
+        if ($userId !== null) {
+            $barang->updated_by = $userId;
+        }
+        $barang->save();
+    }
+
+    private function hapusFileFisikBarangTidakTerpakai(BhpKebersihanBarang $barang): void
+    {
+        $this->foto->deleteStored($barang->foto_path);
+
+        $absolute = $this->barcode->absoluteFilePath($barang);
+        if ($absolute !== null && is_file($absolute)) {
+            @unlink($absolute);
+        }
     }
 
     public function exportExcel(Request $request): BinaryFileResponse

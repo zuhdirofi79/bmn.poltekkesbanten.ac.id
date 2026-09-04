@@ -7,7 +7,7 @@
   <link rel="shortcut icon" type="image/png" href="{{ asset('img/fav.png') }}" />
   <link rel="stylesheet" href="{{ asset('thema/assets/css/styles.min.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/persediaan.css') }}?v=3">
-  <link rel="stylesheet" href="{{ asset('css/bhp-kebersihan.css') }}?v=4">
+  <link rel="stylesheet" href="{{ asset('css/bhp-kebersihan.css') }}?v=5">
   @stack('styles')
 </head>
 <body class="pa-body">
@@ -34,9 +34,27 @@
       </div>
 
       <main class="pa-content">
-        @if(session('success'))<div class="alert alert-success">{{ session('success') }}</div>@endif
+        @if(session('success'))
+          <div class="alert alert-success">
+            <div>{{ session('success') }}</div>
+            @if(session('stok_koreksi'))
+              <div class="small mt-2 mb-0">
+                Stok sebelumnya : {{ session('stok_koreksi')['sebelum'] }}<br>
+                Perubahan : {{ session('stok_koreksi')['delta'] }}<br>
+                Stok sekarang : {{ session('stok_koreksi')['sesudah'] }}
+              </div>
+            @endif
+            @if(session('bulk_delete_summary'))
+              <div class="small mt-2 mb-0">
+                Berhasil dihapus : {{ session('bulk_delete_summary')['deleted'] }}<br>
+                Dinonaktifkan : {{ session('bulk_delete_summary')['nonaktif'] }}<br>
+                Gagal : {{ session('bulk_delete_summary')['failed'] }}
+              </div>
+            @endif
+          </div>
+        @endif
         @if(session('error'))<div class="alert alert-danger">{{ session('error') }}</div>@endif
-        @if($errors->any())
+        @if($errors->any() && !session('open_edit_id') && !session('open_koreksi_id'))
           <div class="alert alert-danger">
             <ul class="mb-0">@foreach($errors->all() as $e)<li>{{ $e }}</li>@endforeach</ul>
           </div>

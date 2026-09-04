@@ -49,6 +49,18 @@ class BhpKebersihanBarang extends Model
         return $this->hasMany(BhpKebersihanStockMovement::class, 'barang_id');
     }
 
+    public function opnameDetails()
+    {
+        return $this->hasMany(BhpKebersihanStockOpnameDetail::class, 'barang_id');
+    }
+
+    public function hasTransaksiHistori(): bool
+    {
+        return $this->movements()->exists()
+            || $this->permintaan()->exists()
+            || $this->opnameDetails()->exists();
+    }
+
     public function barcodeUrl(): string
     {
         return url('/public/bhp-kebersihan/barang/' . $this->barcode_token);

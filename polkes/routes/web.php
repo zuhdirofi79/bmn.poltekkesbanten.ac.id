@@ -248,10 +248,12 @@ Route::prefix('bhp-kebersihan')->name('bhp.admin.')->group(function (): void {
             Route::get('export-excel', 'BhpKebersihanAdmin\MasterBarangController@exportExcel')->name('export');
             Route::get('barcode-batch', 'BhpKebersihanAdmin\MasterBarangController@barcodeBatch')->name('barcode-batch');
             Route::post('generate-all-barcodes', 'BhpKebersihanAdmin\MasterBarangController@generateAllBarcodes')->name('generate-all-barcodes');
+            Route::post('bulk-delete', 'BhpKebersihanAdmin\MasterBarangController@bulkDestroy')->name('bulk-destroy');
             Route::post('/', 'BhpKebersihanAdmin\MasterBarangController@store')->name('store');
             Route::get('{id}', 'BhpKebersihanAdmin\MasterBarangController@show')->where('id', '[0-9]+')->name('show');
             Route::put('{id}', 'BhpKebersihanAdmin\MasterBarangController@update')->where('id', '[0-9]+')->name('update');
             Route::delete('{id}', 'BhpKebersihanAdmin\MasterBarangController@destroy')->where('id', '[0-9]+')->name('destroy');
+            Route::post('{id}/koreksi-stok', 'BhpKebersihanAdmin\MasterBarangController@koreksiStok')->where('id', '[0-9]+')->name('koreksi-stok');
             Route::get('{id}/print-barcode', 'BhpKebersihanAdmin\MasterBarangController@barcodePrint')->where('id', '[0-9]+')->name('print-barcode');
             Route::get('{id}/download-barcode', 'BhpKebersihanAdmin\MasterBarangController@barcodeDownload')->where('id', '[0-9]+')->name('download-barcode');
             Route::post('{id}/generate-barcode', 'BhpKebersihanAdmin\MasterBarangController@generateBarcode')->where('id', '[0-9]+')->name('generate-barcode');

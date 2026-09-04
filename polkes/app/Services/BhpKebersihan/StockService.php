@@ -233,6 +233,105 @@ class StockService
     }
 
     /**
+     * Koreksi stok manual (master barang). Tidak mengubah stok_awal.
+     * jumlah selalu positif; arah ditentukan oleh stok_sesudah vs stok_sebelum.
+     *
+     * @param  'tambah'|'kurangi'  $arah
+     */
+    public function recordKoreksiManual(
+        BhpKebersihanBarang $barang,
+        string $arah,
+        int $jumlah,
+        string $catatan,
+        ?int $createdBy = null,
+        ?string $idempotencyKey = null,
+    ): BhpKebersihanStockMovement {
+        if (! in_array($arah, ['tambah', 'kurangi'], true)) {
+            throw new \InvalidArgumentException('Jenis perubahan stok tidak valid.');
+        }
+        if ($jumlah < 1) {
+            throw new \InvalidArgumentException('Jumlah harus berupa bilangan bulat minimal 1.');
+        }
+
+        $catatan = trim($catatan);
+        if ($catatan === '') {
+            throw new \InvalidArgumentException('Alasan/keterangan wajib diisi.');
+        }
+
+        return DB::transaction(function () use ($barang, $arah, $jumlah, $catatan, $createdBy, $idempotencyKey) {
+            $cacheKey = null;
+            if ($idempotencyKey !== null && $idempotencyKey !== '') {
+                $cacheKey = 'bhp_koreksi_manual:' . sha1($idempotencyKey);
+                $existing = $this->findCachedKoreksiManual($cacheKey);
+                if ($existing !== null) {
+                    return $existing;
+                }
+
+                if (! cache()->add($cacheKey, 'pending', now()->addMinutes(10))) {
+                    $existing = $this->findCachedKoreksiManual($cacheKey, true);
+                    if ($existing !== null) {
+                        return $existing;
+                    }
+                }
+            }
+
+            try {
+                $locked = BhpKebersihanBarang::query()->whereKey($barang->id)->lockForUpdate()->firstOrFail();
+                $sebelum = $this->hitungStok($locked);
+
+                if ($arah === 'tambah') {
+                    $sesudah = $sebelum + $jumlah;
+                } else {
+                    if ($jumlah > $sebelum) {
+                        throw new \InvalidArgumentException(
+                            'Stok tidak mencukupi. Stok tersedia saat ini: ' . $sebelum . '.'
+                        );
+                    }
+                    $sesudah = $sebelum - $jumlah;
+                }
+
+                $movement = BhpKebersihanStockMovement::create([
+                    'barang_id'    => $locked->id,
+                    'tipe'         => BhpKebersihanStockMovement::TIPE_KOREKSI,
+                    'sumber'       => BhpKebersihanStockMovement::SUMBER_MANUAL,
+                    'ref_id'       => null,
+                    'jumlah'       => $jumlah,
+                    'stok_sebelum' => $sebelum,
+                    'stok_sesudah' => $sesudah,
+                    'catatan'      => $catatan,
+                    'created_by'   => $createdBy,
+                ]);
+            } catch (\Throwable $e) {
+                if ($cacheKey !== null) {
+                    cache()->forget($cacheKey);
+                }
+                throw $e;
+            }
+
+            if ($cacheKey !== null) {
+                cache()->put($cacheKey, $movement->id, now()->addMinutes(10));
+            }
+
+            return $movement;
+        });
+    }
+
+    private function findCachedKoreksiManual(string $cacheKey, bool $waitIfPending = false): ?BhpKebersihanStockMovement
+    {
+        $existingId = cache()->get($cacheKey);
+        if ($waitIfPending && $existingId === 'pending') {
+            usleep(250000);
+            $existingId = cache()->get($cacheKey);
+        }
+
+        if (is_int($existingId) || (is_string($existingId) && ctype_digit($existingId))) {
+            return BhpKebersihanStockMovement::find((int) $existingId);
+        }
+
+        return null;
+    }
+
+    /**
      * @param  \Illuminate\Database\Eloquent\Builder<\App\Models\BhpKebersihan\BhpKebersihanStockMovement>  $query
      */
     private function excludeOpeningBalance($query): void

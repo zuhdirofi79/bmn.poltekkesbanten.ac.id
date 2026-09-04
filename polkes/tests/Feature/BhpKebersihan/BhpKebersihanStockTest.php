@@ -196,6 +196,130 @@ class BhpKebersihanStockTest extends TestCase
         $this->assertSame(0, BhpKebersihanStockMovement::where('barang_id', $barang->id)->count());
     }
 
+    public function test_koreksi_manual_tambah_tidak_mengubah_stok_awal(): void
+    {
+        $barang = $this->makeBarang(1, 'hit');
+        $user = $this->loginBhpAdmin();
+
+        $movement = $this->stock->recordKoreksiManual(
+            $barang,
+            'tambah',
+            2,
+            'Penyesuaian stok hasil pengecekan fisik.',
+            (int) $user->id,
+        );
+
+        $this->assertSame(1, (int) $barang->fresh()->stok_awal);
+        $this->assertSame(3, $this->stock->stokSaatIni($barang->fresh()));
+        $this->assertSame(1, BhpKebersihanStockMovement::where('barang_id', $barang->id)->count());
+        $this->assertSame(BhpKebersihanStockMovement::TIPE_KOREKSI, $movement->tipe);
+        $this->assertSame(BhpKebersihanStockMovement::SUMBER_MANUAL, $movement->sumber);
+        $this->assertSame(1, $movement->stok_sebelum);
+        $this->assertSame(3, $movement->stok_sesudah);
+        $this->assertSame(2, $movement->jumlah);
+        $this->assertSame((int) $user->id, (int) $movement->created_by);
+    }
+
+    public function test_koreksi_manual_kurangi_sekali(): void
+    {
+        $barang = $this->makeBarang(3, 'hit');
+
+        $this->stock->recordKoreksiManual($barang, 'kurangi', 1, 'Koreksi administrasi.', 1);
+
+        $this->assertSame(3, (int) $barang->fresh()->stok_awal);
+        $this->assertSame(2, $this->stock->stokSaatIni($barang->fresh()));
+        $this->assertSame(1, BhpKebersihanStockMovement::where('barang_id', $barang->id)->count());
+    }
+
+    public function test_koreksi_manual_tidak_boleh_negatif(): void
+    {
+        $barang = $this->makeBarang(2, 'hit');
+
+        try {
+            $this->stock->recordKoreksiManual($barang, 'kurangi', 5, 'Tidak boleh negatif.', 1);
+            $this->fail('Seharusnya ditolak karena stok tidak mencukupi.');
+        } catch (\InvalidArgumentException $e) {
+            $this->assertStringContainsString('Stok tidak mencukupi. Stok tersedia saat ini: 2.', $e->getMessage());
+        }
+
+        $this->assertSame(2, $this->stock->stokSaatIni($barang->fresh()));
+        $this->assertSame(0, BhpKebersihanStockMovement::where('barang_id', $barang->id)->count());
+    }
+
+    public function test_koreksi_manual_idempotent_satu_movement(): void
+    {
+        $barang = $this->makeBarang(1, 'hit');
+        $key = 'koreksi-test-' . $barang->id;
+
+        $first = $this->stock->recordKoreksiManual($barang, 'tambah', 2, 'Stok awal salah input.', 1, $key);
+        $second = $this->stock->recordKoreksiManual($barang, 'tambah', 2, 'Stok awal salah input.', 1, $key);
+
+        $this->assertSame($first->id, $second->id);
+        $this->assertSame(3, $this->stock->stokSaatIni($barang->fresh()));
+        $this->assertSame(1, BhpKebersihanStockMovement::where('barang_id', $barang->id)->count());
+    }
+
+    public function test_endpoint_koreksi_stok_tambah(): void
+    {
+        $this->loginBhpAdmin();
+        $barang = $this->makeBarang(1, 'hit');
+
+        $this->from(route('bhp.admin.master-barang.index'))
+            ->post(route('bhp.admin.master-barang.koreksi-stok', $barang->id), [
+                'arah'            => 'tambah',
+                'jumlah'          => 2,
+                'catatan'         => 'Penyesuaian stok hasil pengecekan fisik.',
+                'idempotency_key' => 'http-koreksi-' . $barang->id,
+            ])
+            ->assertRedirect();
+
+        $this->assertSame(1, (int) $barang->fresh()->stok_awal);
+        $this->assertSame(3, $this->stock->stokSaatIni($barang->fresh()));
+        $this->assertSame(1, BhpKebersihanStockMovement::where('barang_id', $barang->id)->count());
+    }
+
+    public function test_hapus_barang_tanpa_histori_hard_delete(): void
+    {
+        $this->loginBhpAdmin();
+        $barang = $this->makeBarang(0, 'Barang Baru');
+
+        $this->delete(route('bhp.admin.master-barang.destroy', $barang->id))
+            ->assertRedirect();
+
+        $this->assertNull(BhpKebersihanBarang::find($barang->id));
+    }
+
+    public function test_hapus_barang_dengan_movement_hanya_nonaktif(): void
+    {
+        $this->loginBhpAdmin();
+        $barang = $this->makeBarang(1, 'hit');
+        $this->stock->recordKoreksiManual($barang, 'tambah', 1, 'Koreksi administrasi.', 1);
+
+        $this->delete(route('bhp.admin.master-barang.destroy', $barang->id))
+            ->assertRedirect();
+
+        $fresh = BhpKebersihanBarang::find($barang->id);
+        $this->assertNotNull($fresh);
+        $this->assertSame('nonaktif', $fresh->status);
+        $this->assertSame(1, BhpKebersihanStockMovement::where('barang_id', $barang->id)->count());
+    }
+
+    public function test_bulk_delete_campuran_histori(): void
+    {
+        $this->loginBhpAdmin();
+        $baru = $this->makeBarang(0, 'Barang Kosong');
+        $lama = $this->makeBarang(5, 'Floor Cleaner');
+        $this->stock->recordKoreksiManual($lama, 'tambah', 1, 'Penyesuaian stok hasil pengecekan fisik.', 1);
+
+        $this->post(route('bhp.admin.master-barang.bulk-destroy'), [
+            'ids' => [$baru->id, $lama->id],
+        ])->assertRedirect();
+
+        $this->assertNull(BhpKebersihanBarang::find($baru->id));
+        $this->assertSame('nonaktif', BhpKebersihanBarang::find($lama->id)->status);
+        $this->assertSame(1, BhpKebersihanStockMovement::where('barang_id', $lama->id)->count());
+    }
+
     private function makeBarang(int $stokAwal, string $nama = 'Barang Test'): BhpKebersihanBarang
     {
         return BhpKebersihanBarang::create([

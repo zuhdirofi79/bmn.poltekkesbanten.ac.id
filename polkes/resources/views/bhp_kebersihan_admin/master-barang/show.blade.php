@@ -41,6 +41,7 @@
         <div class="col-6">
           <label class="text-muted small">Stok Saat Ini</label>
           <div class="bhp-stok-inline">{{ $stokSaatIni }} {{ $barang->satuan }}</div>
+          <a href="#riwayat-stok" class="small">Riwayat Stok</a>
         </div>
         <div class="col-6">
           <label class="text-muted small">Status</label>
@@ -74,6 +75,41 @@
         @endif
       </div>
     </div>
+  </div>
+</div>
+
+<div class="pa-card mt-3" id="riwayat-stok">
+  <h2 class="mb-3">Riwayat Stok</h2>
+  <div class="table-responsive">
+    <table class="pa-table bhp-riwayat-table">
+      <thead>
+        <tr>
+          <th>Tanggal</th>
+          <th>Jenis</th>
+          <th>Perubahan</th>
+          <th>Stok Sebelum</th>
+          <th>Stok Sesudah</th>
+          <th>Keterangan</th>
+          <th>Admin</th>
+        </tr>
+      </thead>
+      <tbody>
+        @forelse($riwayat as $m)
+          @php $delta = $m->signedDelta(); @endphp
+          <tr>
+            <td>{{ optional($m->created_at)->format('d-m-Y H:i') }}</td>
+            <td>{{ $m->jenisLabel() }}</td>
+            <td class="{{ $delta >= 0 ? 'bhp-delta-plus' : 'bhp-delta-minus' }}">{{ $delta > 0 ? '+' . $delta : $delta }}</td>
+            <td>{{ $m->stok_sebelum }}</td>
+            <td>{{ $m->stok_sesudah }}</td>
+            <td>{{ $m->catatan ?: '—' }}</td>
+            <td>{{ optional($m->creator)->name ?: '—' }}</td>
+          </tr>
+        @empty
+          <tr><td colspan="7" class="text-center text-muted py-3">Belum ada pergerakan stok.</td></tr>
+        @endforelse
+      </tbody>
+    </table>
   </div>
 </div>
 @endsection

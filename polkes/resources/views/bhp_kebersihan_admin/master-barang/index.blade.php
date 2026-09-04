@@ -24,6 +24,15 @@
     </div>
   </div>
 
+  @if(!empty($canManageMaster))
+  <div id="bhpBulkBar" class="bhp-bulk-bar d-none mb-3">
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+      <strong id="bhpBulkCount">0 barang dipilih</strong>
+      <button type="button" class="btn btn-outline-danger btn-sm" id="bhpBulkDeleteBtn" disabled>Hapus Terpilih</button>
+    </div>
+  </div>
+  @endif
+
   <div class="table-responsive">
     <table class="pa-table">
       <thead>
@@ -47,7 +56,15 @@
             $fotoUrl = $fotoUrlMap[$b->id] ?? null;
           @endphp
           <tr>
-            <td><input type="checkbox" class="barang-check" name="ids[]" value="{{ $b->id }}"></td>
+            <td>
+              <input
+                type="checkbox"
+                class="barang-check"
+                value="{{ $b->id }}"
+                data-kode="{{ $b->kode_barang }}"
+                data-nama="{{ $b->nama_barang }}"
+              >
+            </td>
             <td>
               @if($fotoUrl)
                 <button type="button" class="bhp-foto-thumb-btn" data-bs-toggle="modal" data-bs-target="#fotoPreviewModal" data-foto-src="{{ $fotoUrl }}" data-foto-alt="{{ $b->nama_barang }}">
@@ -82,20 +99,42 @@
               @endif
             </td>
             <td>
-              <a href="{{ route('bhp.admin.master-barang.show', $b->id) }}" class="btn btn-outline-secondary btn-sm mb-1">Detail</a>
-              <button
-                type="button"
-                class="btn btn-outline-secondary btn-sm bhp-edit-open"
-                data-id="{{ $b->id }}"
-                data-kode="{{ $b->kode_barang }}"
-                data-nama="{{ $b->nama_barang }}"
-                data-merk="{{ $b->merk }}"
-                data-satuan="{{ $b->satuan }}"
-                data-harga="{{ $b->harga_satuan }}"
-                data-status="{{ $b->status }}"
-                data-foto="{{ $fotoUrl }}"
-                data-action="{{ route('bhp.admin.master-barang.update', $b->id) }}"
-              >Edit</button>
+              <div class="bhp-aksi-wrap">
+                <a href="{{ route('bhp.admin.master-barang.show', $b->id) }}" class="btn btn-outline-secondary btn-sm">Detail</a>
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary btn-sm bhp-edit-open"
+                  data-id="{{ $b->id }}"
+                  data-kode="{{ $b->kode_barang }}"
+                  data-nama="{{ $b->nama_barang }}"
+                  data-merk="{{ $b->merk }}"
+                  data-satuan="{{ $b->satuan }}"
+                  data-harga="{{ $b->harga_satuan }}"
+                  data-status="{{ $b->status }}"
+                  data-foto="{{ $fotoUrl }}"
+                  data-action="{{ route('bhp.admin.master-barang.update', $b->id) }}"
+                >Edit</button>
+                @if(!empty($canManageMaster))
+                <button
+                  type="button"
+                  class="btn btn-outline-success btn-sm bhp-stok-open"
+                  data-id="{{ $b->id }}"
+                  data-kode="{{ $b->kode_barang }}"
+                  data-nama="{{ $b->nama_barang }}"
+                  data-satuan="{{ $b->satuan }}"
+                  data-stok="{{ $stokMap[$b->id] ?? 0 }}"
+                  data-action="{{ route('bhp.admin.master-barang.koreksi-stok', $b->id) }}"
+                >Edit Stok</button>
+                <button
+                  type="button"
+                  class="btn btn-outline-danger btn-sm bhp-delete-open"
+                  data-id="{{ $b->id }}"
+                  data-kode="{{ $b->kode_barang }}"
+                  data-nama="{{ $b->nama_barang }}"
+                  data-action="{{ route('bhp.admin.master-barang.destroy', $b->id) }}"
+                >Hapus</button>
+                @endif
+              </div>
             </td>
           </tr>
         @empty
@@ -204,6 +243,126 @@
   </div>
 </div>
 
+<div class="modal fade bhp-edit-modal" id="bhpStokModal" tabindex="-1" aria-labelledby="bhpStokModalTitle" aria-modal="true" role="dialog" data-bs-backdrop="true" data-bs-keyboard="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable bhp-edit-modal-dialog">
+    <form method="POST" action="#" class="modal-content bhp-edit-modal-content" id="bhpStokForm">
+      @csrf
+      <input type="hidden" name="idempotency_key" id="bhpStokIdem">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bhpStokModalTitle">Koreksi Stok Barang</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger{{ session('open_koreksi_id') && $errors->any() ? '' : ' d-none' }}" id="bhpStokErrorBox">
+          @if(session('open_koreksi_id') && $errors->any())
+            <ul class="mb-0">@foreach($errors->all() as $e)<li>{{ $e }}</li>@endforeach</ul>
+          @endif
+        </div>
+
+        <div class="bhp-meta-box mb-3">
+          <div class="mb-2">
+            <div class="text-muted small">Nama Barang</div>
+            <div class="fw-semibold" id="bhpStokNama"></div>
+          </div>
+          <div class="mb-2">
+            <div class="text-muted small">Kode</div>
+            <div class="fw-semibold" id="bhpStokKode"></div>
+          </div>
+          <div>
+            <div class="text-muted small">Stok Saat Ini</div>
+            <div class="fw-semibold" id="bhpStokSekarangLabel"></div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Jenis Perubahan</label>
+          <div class="bhp-radio-row">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="arah" id="bhpStokTambah" value="tambah" checked>
+              <label class="form-check-label" for="bhpStokTambah">Tambah Stok</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="arah" id="bhpStokKurangi" value="kurangi">
+              <label class="form-check-label" for="bhpStokKurangi">Kurangi Stok</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="bhpStokJumlah">Jumlah</label>
+          <input type="number" name="jumlah" id="bhpStokJumlah" class="form-control" min="1" step="1" required>
+          <div class="invalid-feedback d-none" id="bhpStokJumlahErr"></div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="bhpStokCatatan">Alasan / Keterangan</label>
+          <textarea name="catatan" id="bhpStokCatatan" class="form-control" rows="3" required maxlength="1000" placeholder="Contoh: Penyesuaian stok hasil pengecekan fisik."></textarea>
+          <div class="invalid-feedback d-none" id="bhpStokCatatanErr"></div>
+        </div>
+
+        <div class="bhp-stok-preview">
+          <div class="text-muted small mb-2">Preview</div>
+          <div class="bhp-stok-preview-row"><span>Stok saat ini</span><span id="bhpPrevSekarang">0</span></div>
+          <div class="bhp-stok-preview-row"><span>Perubahan</span><span id="bhpPrevDelta">—</span></div>
+          <div class="bhp-stok-preview-row"><span>Stok setelah</span><span id="bhpPrevSesudah">—</span></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-prs-blue" id="bhpStokSubmit">Simpan Perubahan</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal fade bhp-edit-modal" id="bhpDeleteModal" tabindex="-1" aria-labelledby="bhpDeleteModalTitle" aria-modal="true" role="dialog">
+  <div class="modal-dialog modal-dialog-centered bhp-edit-modal-dialog">
+    <form method="POST" action="#" class="modal-content bhp-edit-modal-content" id="bhpDeleteForm">
+      @csrf @method('DELETE')
+      <div class="modal-header">
+        <h5 class="modal-title" id="bhpDeleteModalTitle">Hapus barang ini?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-2">
+          <div class="text-muted small">Nama</div>
+          <div class="fw-semibold" id="bhpDeleteNama"></div>
+        </div>
+        <div class="mb-3">
+          <div class="text-muted small">Kode</div>
+          <div class="fw-semibold" id="bhpDeleteKode"></div>
+        </div>
+        <p class="mb-0">Data barang akan dihapus dari Master Barang. Barang yang sudah punya histori transaksi akan dinonaktifkan, bukan dihapus permanen.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-danger" id="bhpDeleteSubmit">Ya, Hapus</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal fade bhp-edit-modal" id="bhpBulkDeleteModal" tabindex="-1" aria-labelledby="bhpBulkDeleteTitle" aria-modal="true" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable bhp-edit-modal-dialog">
+    <form method="POST" action="{{ route('bhp.admin.master-barang.bulk-destroy') }}" class="modal-content bhp-edit-modal-content" id="bhpBulkDeleteForm">
+      @csrf
+      <div class="modal-header">
+        <h5 class="modal-title" id="bhpBulkDeleteTitle">Hapus barang terpilih?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-2" id="bhpBulkDeleteLead"></p>
+        <ul class="mb-3" id="bhpBulkDeleteList"></ul>
+        <p class="mb-0 text-muted small">Barang tanpa histori dihapus. Barang yang sudah punya transaksi dinonaktifkan agar histori stok tetap utuh.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-danger" id="bhpBulkDeleteSubmit">Ya, Proses</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 <form method="GET" action="{{ route('bhp.admin.master-barang.barcode-batch') }}" target="_blank" id="formPrintBatch" class="d-none"></form>
 @endsection
 
@@ -218,8 +377,36 @@
 
   var editModalEl = document.getElementById('bhpEditModal');
   var fotoModalEl = document.getElementById('fotoPreviewModal');
+  var stokModalEl = document.getElementById('bhpStokModal');
+  var deleteModalEl = document.getElementById('bhpDeleteModal');
+  var bulkDeleteModalEl = document.getElementById('bhpBulkDeleteModal');
   moveToBody(editModalEl);
   moveToBody(fotoModalEl);
+  moveToBody(stokModalEl);
+  moveToBody(deleteModalEl);
+  moveToBody(bulkDeleteModalEl);
+
+  function refreshBulkUi() {
+    var boxes = document.querySelectorAll('.barang-check');
+    var checked = document.querySelectorAll('.barang-check:checked');
+    var header = document.getElementById('checkAll');
+    if (header) {
+      header.checked = boxes.length > 0 && checked.length === boxes.length;
+      header.indeterminate = checked.length > 0 && checked.length < boxes.length;
+    }
+    var bar = document.getElementById('bhpBulkBar');
+    var countEl = document.getElementById('bhpBulkCount');
+    var btn = document.getElementById('bhpBulkDeleteBtn');
+    if (countEl) {
+      countEl.textContent = checked.length + ' barang dipilih';
+    }
+    if (bar) {
+      bar.classList.toggle('d-none', checked.length === 0);
+    }
+    if (btn) {
+      btn.disabled = checked.length === 0;
+    }
+  }
 
   var checkAll = document.getElementById('checkAll');
   if (checkAll) {
@@ -227,8 +414,13 @@
       document.querySelectorAll('.barang-check').forEach(function (cb) {
         cb.checked = checkAll.checked;
       });
+      refreshBulkUi();
     });
   }
+  document.querySelectorAll('.barang-check').forEach(function (cb) {
+    cb.addEventListener('change', refreshBulkUi);
+  });
+  refreshBulkUi();
 
   var btnPrintBatch = document.getElementById('btnPrintBatch');
   var formPrintBatch = document.getElementById('formPrintBatch');
@@ -377,6 +569,224 @@
     editModal.show();
   })();
   @endif
+
+  function newIdempotencyKey() {
+    if (window.crypto && crypto.randomUUID) {
+      return crypto.randomUUID();
+    }
+    return Date.now() + '-' + Math.random().toString(16).slice(2);
+  }
+
+  var stokForm = document.getElementById('bhpStokForm');
+  var stokModal = stokModalEl && window.bootstrap ? new bootstrap.Modal(stokModalEl) : null;
+  var stokNama = document.getElementById('bhpStokNama');
+  var stokKode = document.getElementById('bhpStokKode');
+  var stokSekarangLabel = document.getElementById('bhpStokSekarangLabel');
+  var stokJumlah = document.getElementById('bhpStokJumlah');
+  var stokCatatan = document.getElementById('bhpStokCatatan');
+  var stokIdem = document.getElementById('bhpStokIdem');
+  var stokSubmit = document.getElementById('bhpStokSubmit');
+  var currentStok = 0;
+  var currentSatuan = '';
+
+  function selectedArah() {
+    var checked = stokForm ? stokForm.querySelector('input[name="arah"]:checked') : null;
+    return checked ? checked.value : 'tambah';
+  }
+
+  function updateStokPreview() {
+    var raw = stokJumlah ? String(stokJumlah.value || '').trim() : '';
+    var jumlah = parseInt(raw, 10);
+    var valid = raw !== '' && String(jumlah) === raw && jumlah >= 1;
+    var arah = selectedArah();
+    var deltaEl = document.getElementById('bhpPrevDelta');
+    var afterEl = document.getElementById('bhpPrevSesudah');
+    var nowEl = document.getElementById('bhpPrevSekarang');
+    if (nowEl) nowEl.textContent = currentStok;
+    if (!valid) {
+      if (deltaEl) deltaEl.textContent = '—';
+      if (afterEl) afterEl.textContent = '—';
+      return;
+    }
+    var delta = arah === 'tambah' ? jumlah : -jumlah;
+    var after = currentStok + delta;
+    if (deltaEl) deltaEl.textContent = delta > 0 ? '+' + delta : String(delta);
+    if (afterEl) {
+      afterEl.textContent = after < 0 ? 'Tidak valid (stok negatif)' : String(after);
+    }
+  }
+
+  function fillStokFromButton(btn, overrides) {
+    overrides = overrides || {};
+    currentStok = parseInt(btn.getAttribute('data-stok') || '0', 10) || 0;
+    currentSatuan = btn.getAttribute('data-satuan') || '';
+    stokForm.action = btn.getAttribute('data-action');
+    stokNama.textContent = btn.getAttribute('data-nama') || '';
+    stokKode.textContent = btn.getAttribute('data-kode') || '';
+    stokSekarangLabel.textContent = currentStok + (currentSatuan ? ' ' + currentSatuan : '');
+    stokJumlah.value = overrides.jumlah != null ? overrides.jumlah : '';
+    stokCatatan.value = overrides.catatan != null ? overrides.catatan : '';
+    var arah = overrides.arah || 'tambah';
+    var radio = stokForm.querySelector('input[name="arah"][value="' + arah + '"]');
+    if (radio) radio.checked = true;
+    stokIdem.value = overrides.idempotency_key || newIdempotencyKey();
+    if (stokSubmit) {
+      stokSubmit.disabled = false;
+      stokSubmit.dataset.busy = '0';
+    }
+    updateStokPreview();
+  }
+
+  document.querySelectorAll('.bhp-stok-open').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var errorBox = document.getElementById('bhpStokErrorBox');
+      if (errorBox && !errorBox.querySelector('li')) {
+        errorBox.classList.add('d-none');
+      }
+      fillStokFromButton(btn);
+      if (stokModal) stokModal.show();
+    });
+  });
+
+  if (stokJumlah) stokJumlah.addEventListener('input', updateStokPreview);
+  document.querySelectorAll('#bhpStokForm input[name="arah"]').forEach(function (el) {
+    el.addEventListener('change', updateStokPreview);
+  });
+
+  if (stokForm) {
+    stokForm.addEventListener('submit', function (e) {
+      if (stokSubmit && stokSubmit.dataset.busy === '1') {
+        e.preventDefault();
+        return;
+      }
+      var raw = String(stokJumlah.value || '').trim();
+      var jumlah = parseInt(raw, 10);
+      var catatan = String(stokCatatan.value || '').trim();
+      var jumlahErr = document.getElementById('bhpStokJumlahErr');
+      var catatanErr = document.getElementById('bhpStokCatatanErr');
+      var ok = true;
+      if (jumlahErr) {
+        jumlahErr.classList.add('d-none');
+        jumlahErr.textContent = '';
+      }
+      if (catatanErr) {
+        catatanErr.classList.add('d-none');
+        catatanErr.textContent = '';
+      }
+      if (raw === '' || String(jumlah) !== raw || jumlah < 1) {
+        ok = false;
+        if (jumlahErr) {
+          jumlahErr.textContent = 'Jumlah harus bilangan bulat minimal 1.';
+          jumlahErr.classList.remove('d-none');
+        }
+      } else if (selectedArah() === 'kurangi' && jumlah > currentStok) {
+        ok = false;
+        if (jumlahErr) {
+          jumlahErr.textContent = 'Stok tidak mencukupi. Stok tersedia saat ini: ' + currentStok + '.';
+          jumlahErr.classList.remove('d-none');
+        }
+      }
+      if (catatan === '') {
+        ok = false;
+        if (catatanErr) {
+          catatanErr.textContent = 'Alasan/keterangan wajib diisi.';
+          catatanErr.classList.remove('d-none');
+        }
+      }
+      if (!ok) {
+        e.preventDefault();
+        return;
+      }
+      if (stokSubmit) {
+        stokSubmit.dataset.busy = '1';
+        stokSubmit.disabled = true;
+      }
+    });
+  }
+
+  @if(session('open_koreksi_id') && $errors->any())
+  (function reopenStokAfterError() {
+    var id = @json((string) session('open_koreksi_id'));
+    var btn = document.querySelector('.bhp-stok-open[data-id="' + id + '"]');
+    if (!btn || !stokModal) return;
+    fillStokFromButton(btn, {
+      jumlah: @json(old('jumlah')),
+      catatan: @json(old('catatan')),
+      arah: @json(old('arah', 'tambah')),
+      idempotency_key: @json(old('idempotency_key'))
+    });
+    stokModal.show();
+  })();
+  @endif
+
+  var deleteForm = document.getElementById('bhpDeleteForm');
+  var deleteModal = deleteModalEl && window.bootstrap ? new bootstrap.Modal(deleteModalEl) : null;
+  var deleteSubmit = document.getElementById('bhpDeleteSubmit');
+  document.querySelectorAll('.bhp-delete-open').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      deleteForm.action = btn.getAttribute('data-action');
+      document.getElementById('bhpDeleteNama').textContent = btn.getAttribute('data-nama') || '';
+      document.getElementById('bhpDeleteKode').textContent = btn.getAttribute('data-kode') || '';
+      if (deleteSubmit) {
+        deleteSubmit.disabled = false;
+        deleteSubmit.dataset.busy = '0';
+      }
+      if (deleteModal) deleteModal.show();
+    });
+  });
+  if (deleteForm) {
+    deleteForm.addEventListener('submit', function (e) {
+      if (deleteSubmit && deleteSubmit.dataset.busy === '1') {
+        e.preventDefault();
+        return;
+      }
+      if (deleteSubmit) {
+        deleteSubmit.dataset.busy = '1';
+        deleteSubmit.disabled = true;
+      }
+    });
+  }
+
+  var bulkBtn = document.getElementById('bhpBulkDeleteBtn');
+  var bulkForm = document.getElementById('bhpBulkDeleteForm');
+  var bulkModal = bulkDeleteModalEl && window.bootstrap ? new bootstrap.Modal(bulkDeleteModalEl) : null;
+  var bulkSubmit = document.getElementById('bhpBulkDeleteSubmit');
+  if (bulkBtn && bulkForm) {
+    bulkBtn.addEventListener('click', function () {
+      var checked = document.querySelectorAll('.barang-check:checked');
+      if (checked.length === 0) return;
+      document.getElementById('bhpBulkDeleteTitle').textContent = 'Hapus ' + checked.length + ' barang?';
+      document.getElementById('bhpBulkDeleteLead').textContent = 'Hapus ' + checked.length + ' barang?';
+      var list = document.getElementById('bhpBulkDeleteList');
+      list.innerHTML = '';
+      bulkForm.querySelectorAll('input[name="ids[]"]').forEach(function (el) { el.remove(); });
+      checked.forEach(function (cb) {
+        var li = document.createElement('li');
+        li.textContent = (cb.getAttribute('data-kode') || '') + ' — ' + (cb.getAttribute('data-nama') || '');
+        list.appendChild(li);
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'ids[]';
+        input.value = cb.value;
+        bulkForm.appendChild(input);
+      });
+      if (bulkSubmit) {
+        bulkSubmit.disabled = false;
+        bulkSubmit.dataset.busy = '0';
+      }
+      if (bulkModal) bulkModal.show();
+    });
+    bulkForm.addEventListener('submit', function (e) {
+      if (bulkSubmit && bulkSubmit.dataset.busy === '1') {
+        e.preventDefault();
+        return;
+      }
+      if (bulkSubmit) {
+        bulkSubmit.dataset.busy = '1';
+        bulkSubmit.disabled = true;
+      }
+    });
+  }
 })();
 </script>
 @endpush
