@@ -34,17 +34,20 @@ class BarcodeUrlTest extends TestCase
         $barang->barcode_path = $relative;
 
         $url = $service->fileUrl($barang);
-        $this->assertSame(
+        $this->assertStringStartsWith(
             'https://bmn.poltekkesbanten.ac.id/uploads/barcode/bhp-kebersihan/' . basename($relative),
-            $url
+            (string) $url
         );
-        $this->assertStringStartsWith('https://bmn.poltekkesbanten.ac.id/uploads/barcode/bhp-kebersihan/', (string) $url);
         $this->assertStringNotContainsString('/storage/', (string) $url);
         $this->assertTrue($service->hasValidFile($barang));
+        $this->assertFalse($service->hasNewLabelFile($barang));
 
         $diag = $service->diagnose($barang);
         $this->assertTrue($diag['file_exists']);
-        $this->assertSame($url, $diag['public_url']);
+        $this->assertSame(
+            'https://bmn.poltekkesbanten.ac.id/uploads/barcode/bhp-kebersihan/' . basename($relative),
+            $diag['public_url']
+        );
         $this->assertSame(
             url('/public/bhp-kebersihan/barang/wadi2oldeddpf0imhi6vaptbbzbg5ulv'),
             $diag['scan_url']

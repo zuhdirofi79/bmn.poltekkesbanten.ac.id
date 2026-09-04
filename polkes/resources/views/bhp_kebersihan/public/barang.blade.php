@@ -4,7 +4,7 @@
 
 @push('styles')
   <link rel="stylesheet" href="{{ asset('css/persediaan.css') }}?v=2">
-  <link rel="stylesheet" href="{{ asset('css/bhp-kebersihan.css') }}?v=3">
+  <link rel="stylesheet" href="{{ asset('css/bhp-kebersihan.css') }}?v=8">
 @endpush
 
 @section('content')

@@ -23,7 +23,8 @@
       <a href="{{ route('bhp.admin.master-barang.export') }}" class="btn btn-outline-success btn-sm">Export Excel</a>
       <form method="POST" action="{{ route('bhp.admin.master-barang.generate-all-barcodes') }}" class="d-inline" id="formGenerateAll">
         @csrf
-        <button type="submit" class="btn btn-prs-green btn-sm">Generate Semua Barcode</button>
+        <input type="hidden" name="scope" value="all">
+        <button type="submit" class="btn btn-prs-green btn-sm" id="btnGenerateAll">Generate Semua Barcode</button>
       </form>
       <button type="button" class="btn btn-outline-primary btn-sm" id="btnPrintBatch">Print Barcode Batch</button>
     </div>
@@ -33,7 +34,14 @@
   <div id="bhpBulkBar" class="bhp-bulk-bar d-none mb-3">
     <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
       <strong id="bhpBulkCount">0 barang dipilih</strong>
-      <button type="button" class="btn btn-outline-danger btn-sm" id="bhpBulkDeleteBtn" disabled>Hapus Terpilih</button>
+      <div class="d-flex flex-wrap gap-2">
+        <form method="POST" action="{{ route('bhp.admin.master-barang.generate-all-barcodes') }}" class="d-inline" id="formGenerateSelected">
+          @csrf
+          <input type="hidden" name="scope" value="selected">
+          <button type="submit" class="btn btn-prs-green btn-sm" id="bhpBulkGenerateBtn" disabled>Generate Barcode Terpilih</button>
+        </form>
+        <button type="button" class="btn btn-outline-danger btn-sm" id="bhpBulkDeleteBtn" disabled>Hapus Terpilih</button>
+      </div>
     </div>
   </div>
   @endif
@@ -444,6 +452,7 @@
     var bar = document.getElementById('bhpBulkBar');
     var countEl = document.getElementById('bhpBulkCount');
     var btn = document.getElementById('bhpBulkDeleteBtn');
+    var genBtn = document.getElementById('bhpBulkGenerateBtn');
     if (countEl) {
       countEl.textContent = checked.length + ' barang dipilih';
     }
@@ -452,6 +461,9 @@
     }
     if (btn) {
       btn.disabled = checked.length === 0;
+    }
+    if (genBtn) {
+      genBtn.disabled = checked.length === 0;
     }
   }
 
@@ -493,15 +505,36 @@
   var formGenerateAll = document.getElementById('formGenerateAll');
   if (formGenerateAll) {
     formGenerateAll.addEventListener('submit', function () {
+      var btn = document.getElementById('btnGenerateAll');
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Generating barcode...';
+      }
+    });
+  }
+
+  var formGenerateSelected = document.getElementById('formGenerateSelected');
+  if (formGenerateSelected) {
+    formGenerateSelected.addEventListener('submit', function (e) {
       var checked = document.querySelectorAll('.barang-check:checked');
-      formGenerateAll.querySelectorAll('input[name="ids[]"]').forEach(function (el) { el.remove(); });
+      formGenerateSelected.querySelectorAll('input[name="ids[]"]').forEach(function (el) { el.remove(); });
+      if (checked.length === 0) {
+        e.preventDefault();
+        alert('Pilih barang terlebih dahulu.');
+        return;
+      }
       checked.forEach(function (cb) {
         var input = document.createElement('input');
         input.type = 'hidden';
         input.name = 'ids[]';
         input.value = cb.value;
-        formGenerateAll.appendChild(input);
+        formGenerateSelected.appendChild(input);
       });
+      var genBtn = document.getElementById('bhpBulkGenerateBtn');
+      if (genBtn) {
+        genBtn.disabled = true;
+        genBtn.textContent = 'Generating barcode...';
+      }
     });
   }
 

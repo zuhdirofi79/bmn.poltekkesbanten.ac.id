@@ -467,6 +467,7 @@ class MasterBarangController extends Controller
         }
 
         $barang = BhpKebersihanBarang::findOrFail($id);
+        $tokenBefore = (string) $barang->barcode_token;
 
         try {
             $this->barcode->generateAndSave($barang);
@@ -476,7 +477,12 @@ class MasterBarangController extends Controller
             return back()->with('error', 'Gagal generate barcode: ' . $e->getMessage());
         }
 
-        return back()->with('success', 'Barcode berhasil digenerate untuk ' . $barang->kode_barang . '.');
+        $barang->refresh();
+        if ($tokenBefore !== '' && $tokenBefore !== (string) $barang->barcode_token) {
+            return back()->with('error', 'Token barcode berubah secara tidak terduga. Generate dibatalkan secara logika — periksa data.');
+        }
+
+        return back()->with('success', 'Label QR berhasil dibuat untuk ' . $barang->kode_barang . '.');
     }
 
     public function generateAllBarcodes(Request $request): RedirectResponse
@@ -485,8 +491,21 @@ class MasterBarangController extends Controller
             abort(403);
         }
 
-        $query = BhpKebersihanBarang::query()->where('status', 'aktif');
+        @set_time_limit(180);
+        ignore_user_abort(true);
+
+        $scope = (string) $request->input('scope', 'all');
         $ids = array_values(array_filter(array_map('intval', (array) $request->input('ids', []))));
+
+        if ($scope === 'selected') {
+            if ($ids === []) {
+                return back()->with('error', 'Pilih barang terlebih dahulu untuk Generate Barcode Terpilih.');
+            }
+        } else {
+            $ids = [];
+        }
+
+        $query = BhpKebersihanBarang::query()->where('status', 'aktif');
         if ($ids !== []) {
             $query->whereIn('id', $ids);
         }
@@ -494,31 +513,49 @@ class MasterBarangController extends Controller
         $generated = 0;
         $skipped = 0;
         $failed = 0;
+        $total = (clone $query)->count();
 
-        foreach ($query->orderBy('kode_barang')->get() as $barang) {
-            if ($this->barcode->hasValidFile($barang)) {
-                $skipped++;
+        $query->chunkById(15, function ($barangs) use (&$generated, &$skipped, &$failed): void {
+            foreach ($barangs as $barang) {
+                if (! $this->barcode->needsGeneration($barang)) {
+                    $skipped++;
 
-                continue;
+                    continue;
+                }
+
+                $tokenBefore = (string) $barang->barcode_token;
+                try {
+                    $this->barcode->generateAndSave($barang);
+                    if ($tokenBefore !== '' && $tokenBefore !== (string) $barang->fresh()?->barcode_token) {
+                        $failed++;
+                        report(new \RuntimeException('barcode_token berubah saat generate ' . $barang->id));
+
+                        continue;
+                    }
+                    $generated++;
+                } catch (\Throwable $e) {
+                    $failed++;
+                    report($e);
+                }
             }
-
-            try {
-                $this->barcode->generateAndSave($barang);
-                $generated++;
-            } catch (\Throwable $e) {
-                $failed++;
-                report($e);
-            }
-        }
+        });
 
         if ($generated === 0 && $failed === 0) {
-            return back()->with('success', 'Semua barang sudah memiliki file barcode.');
+            $msg = $scope === 'selected'
+                ? 'Semua barang terpilih sudah memiliki label QR baru.'
+                : 'Semua barang aktif sudah memiliki label QR baru.';
+
+            return back()->with('success', $msg);
         }
 
-        $msg = "Generate selesai: {$generated} barcode dibuat, {$skipped} sudah ada.";
+        $msg = "Barcode berhasil dibuat: {$generated} barang.";
+        if ($skipped > 0) {
+            $msg .= " {$skipped} dilewati karena file label sudah ada.";
+        }
         if ($failed > 0) {
             $msg .= " {$failed} gagal.";
         }
+        $msg .= " Diproses dari {$total} barang.";
 
         return back()->with($failed > 0 ? 'error' : 'success', $msg);
     }
@@ -558,25 +595,22 @@ class MasterBarangController extends Controller
         }
 
         $barang = BhpKebersihanBarang::findOrFail($id);
-        $oldAbsolute = $this->barcode->absoluteFilePath($barang);
-
-        if ($oldAbsolute !== null && is_file($oldAbsolute)) {
-            @unlink($oldAbsolute);
-        }
-
-        $barang->barcode_token = $this->barcode->generateToken();
-        $barang->barcode_path = null;
-        $barang->save();
+        $tokenBefore = (string) $barang->barcode_token;
 
         try {
             $this->barcode->generateAndSave($barang);
         } catch (\Throwable $e) {
             report($e);
 
-            return back()->with('error', 'Token barcode diperbarui, tetapi gagal generate file: ' . $e->getMessage());
+            return back()->with('error', 'Gagal generate file label QR: ' . $e->getMessage());
         }
 
-        return back()->with('success', 'Barcode token & file berhasil digenerate ulang.');
+        $barang->refresh();
+        if ($tokenBefore !== '' && $tokenBefore !== (string) $barang->barcode_token) {
+            return back()->with('error', 'Token barcode tidak boleh berubah saat generate ulang file.');
+        }
+
+        return back()->with('success', 'File label QR berhasil dibuat ulang. Token scan tetap sama.');
     }
 
     /**

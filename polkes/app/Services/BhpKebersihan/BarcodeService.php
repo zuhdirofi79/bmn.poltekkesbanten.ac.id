@@ -6,12 +6,15 @@ namespace App\Services\BhpKebersihan;
 
 use App\Models\BhpKebersihan\BhpKebersihanBarang;
 use App\Support\BhpKebersihan\PublicUploadPath;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
 class BarcodeService
 {
     public const UPLOAD_REL_DIR = PublicUploadPath::BARCODE_REL_DIR;
+
+    public function __construct(private BarcodeLabelRenderer $labels)
+    {
+    }
 
     public function generateToken(): string
     {
@@ -109,6 +112,29 @@ class BarcodeService
         return $this->resolveRelativePath($barang) !== null;
     }
 
+    /**
+     * File label baru (horizontal). File QR kotak lama dianggap perlu diganti.
+     */
+    public function hasNewLabelFile(BhpKebersihanBarang $barang): bool
+    {
+        $absolute = $this->absoluteFilePath($barang);
+        if ($absolute === null || ! is_file($absolute)) {
+            return false;
+        }
+
+        $info = @getimagesize($absolute);
+        if ($info === false || ($info[0] ?? 0) < 200 || ($info[1] ?? 0) < 100) {
+            return false;
+        }
+
+        return $info[0] >= (int) ($info[1] * 1.3);
+    }
+
+    public function needsGeneration(BhpKebersihanBarang $barang): bool
+    {
+        return ! $this->hasNewLabelFile($barang);
+    }
+
     public function fileUrl(BhpKebersihanBarang $barang): ?string
     {
         $relative = $this->resolveRelativePath($barang);
@@ -116,7 +142,20 @@ class BarcodeService
             return null;
         }
 
-        return $this->assetUrl($relative);
+        $url = $this->assetUrl($relative);
+        if ($url === null || $url === '') {
+            return null;
+        }
+
+        $absolute = PublicUploadPath::firstExistingFile($relative);
+        if ($absolute !== null) {
+            $mtime = @filemtime($absolute);
+            if ($mtime) {
+                $url .= (str_contains($url, '?') ? '&' : '?') . 't=' . $mtime;
+            }
+        }
+
+        return $url;
     }
 
     public function absoluteFilePath(BhpKebersihanBarang $barang): ?string
@@ -151,12 +190,16 @@ class BarcodeService
     }
 
     /**
-     * Generate QR PNG (encode URL publik detail barang) dan simpan ke disk publik.
+     * Generate label QR PNG (encode URL publik detail barang) dan simpan ke disk publik.
+     * Tidak mengganti barcode_token yang sudah ada.
      */
     public function generateAndSave(BhpKebersihanBarang $barang, int $size = 400): string
     {
+        unset($size);
+
         if ($barang->barcode_token === null || $barang->barcode_token === '') {
             $barang->barcode_token = $this->generateToken();
+            $barang->save();
         }
 
         $dir = $this->uploadDir();
@@ -175,7 +218,11 @@ class BarcodeService
         }
 
         $targetUrl = $this->publicUrl($barang->barcode_token);
-        $png = $this->fetchQrPng($targetUrl, $size);
+        $png = $this->labels->render(
+            $targetUrl,
+            (string) $barang->nama_barang,
+            (string) $barang->kode_barang
+        );
 
         if (file_put_contents($fullPath, $png) === false) {
             throw new \RuntimeException('Gagal menyimpan file barcode ke ' . $relativePath);
@@ -206,28 +253,5 @@ class BarcodeService
         }
 
         return null;
-    }
-
-    private function fetchQrPng(string $data, int $size): string
-    {
-        $apiUrl = sprintf(
-            'https://api.qrserver.com/v1/create-qr-code/?size=%dx%d&format=png&data=%s',
-            $size,
-            $size,
-            urlencode($data),
-        );
-
-        $response = Http::timeout(30)->get($apiUrl);
-
-        if (! $response->successful()) {
-            throw new \RuntimeException('Gagal generate gambar QR barcode.');
-        }
-
-        $body = $response->body();
-        if ($body === '' || strlen($body) < 100) {
-            throw new \RuntimeException('Respon generate barcode tidak valid.');
-        }
-
-        return $body;
     }
 }

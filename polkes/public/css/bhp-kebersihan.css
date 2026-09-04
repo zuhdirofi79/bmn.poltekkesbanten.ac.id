@@ -4,21 +4,24 @@
 .prs-badge.sudah_diambil { background: #d7f0ec; color: #0b7a70; }
 
 /* Thumbnail barcode di master barang */
-.bhp-barcode-cell { min-width: 140px; vertical-align: middle; }
+.bhp-barcode-cell { min-width: 170px; vertical-align: middle; }
 .barcode-preview img,
 .bhp-barcode-thumb {
   display: block;
-  width: 56px;
-  height: 56px;
+  width: 148px;
+  height: auto;
+  max-height: 72px;
   object-fit: contain;
+  object-position: left center;
   border: 1px solid var(--prs-line, #e3e9f2);
   border-radius: 6px;
   background: #fff;
   padding: 2px;
 }
 .barcode-preview-lg img {
-  width: 140px;
-  height: 140px;
+  width: 280px;
+  height: auto;
+  max-height: 140px;
 }
 .bhp-barcode-actions {
   display: flex;
