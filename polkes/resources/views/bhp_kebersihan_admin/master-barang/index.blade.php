@@ -185,8 +185,19 @@
 
         <div class="mb-3">
           <label class="form-label" for="bhpEditKode">Kode Barang</label>
-          <input type="text" id="bhpEditKode" class="form-control" value="" readonly tabindex="-1">
-          <small class="text-muted">Kode tidak dapat diubah.</small>
+          <input
+            type="text"
+            name="kode_barang"
+            id="bhpEditKode"
+            class="form-control{{ session('open_edit_id') && $errors->has('kode_barang') ? ' is-invalid' : '' }}"
+            required
+            maxlength="100"
+            autocomplete="off"
+          >
+          <small class="text-muted" id="bhpEditKodeHint">Kode barang harus unik.</small>
+          <div class="invalid-feedback{{ session('open_edit_id') && $errors->has('kode_barang') ? ' d-block' : ' d-none' }}" id="bhpEditKodeErr">
+            @error('kode_barang'){{ $message }}@enderror
+          </div>
         </div>
         <div class="mb-3">
           <label class="form-label" for="bhpEditNama">Nama Barang</label>
@@ -229,7 +240,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-        <button type="submit" class="btn btn-prs-blue">Simpan Perubahan</button>
+        <button type="submit" class="btn btn-prs-blue" id="bhpEditSubmit">Simpan Perubahan</button>
       </div>
     </form>
   </div>
@@ -497,6 +508,9 @@
 
   var form = document.getElementById('bhpEditForm');
   var kodeEl = document.getElementById('bhpEditKode');
+  var kodeHint = document.getElementById('bhpEditKodeHint');
+  var kodeErr = document.getElementById('bhpEditKodeErr');
+  var editSubmit = document.getElementById('bhpEditSubmit');
   var namaEl = document.getElementById('bhpEditNama');
   var merkEl = document.getElementById('bhpEditMerk');
   var satuanEl = document.getElementById('bhpEditSatuan');
@@ -506,6 +520,79 @@
   var fotoImg = document.getElementById('bhpEditFotoImg');
   var fotoEmpty = document.getElementById('bhpEditFotoEmpty');
   var editModal = editModalEl && window.bootstrap ? new bootstrap.Modal(editModalEl) : null;
+  var originalKode = '';
+  var currentEditId = '';
+  var kodeCheckTimer = null;
+  var kodeCheckUrl = @json(route('bhp.admin.master-barang.check-kode'));
+  var kodeDuplicateMsg = 'Kode tersebut telah digunakan! Silahkan coba kode lainnya.';
+
+  function setKodeStatus(state, message) {
+    if (!kodeEl) return;
+    kodeEl.classList.remove('is-invalid', 'is-valid');
+    if (kodeErr) {
+      kodeErr.classList.add('d-none');
+      if (message) kodeErr.textContent = message;
+    }
+    if (kodeHint) {
+      kodeHint.classList.remove('text-danger', 'text-success');
+      kodeHint.classList.add('text-muted');
+      kodeHint.textContent = 'Kode barang harus unik.';
+    }
+    if (state === 'invalid') {
+      kodeEl.classList.add('is-invalid');
+      if (kodeErr) {
+        kodeErr.textContent = message || kodeDuplicateMsg;
+        kodeErr.classList.remove('d-none');
+        kodeErr.classList.add('d-block');
+      }
+      if (kodeHint) {
+        kodeHint.classList.remove('text-muted');
+        kodeHint.classList.add('text-danger');
+        kodeHint.textContent = message || kodeDuplicateMsg;
+      }
+      if (editSubmit) editSubmit.disabled = true;
+      return;
+    }
+    if (state === 'valid') {
+      kodeEl.classList.add('is-valid');
+      if (kodeHint) {
+        kodeHint.classList.remove('text-muted');
+        kodeHint.classList.add('text-success');
+        kodeHint.textContent = 'Kode tersedia.';
+      }
+    }
+    if (editSubmit && editSubmit.dataset.busy !== '1') {
+      editSubmit.disabled = false;
+    }
+  }
+
+  function sameAsOriginal(kode) {
+    return kode.toLowerCase() === String(originalKode || '').toLowerCase();
+  }
+
+  function checkKodeAvailability(kode) {
+    if (!kode) {
+      setKodeStatus('invalid', 'Kode barang wajib diisi.');
+      return;
+    }
+    if (sameAsOriginal(kode)) {
+      setKodeStatus('neutral');
+      return;
+    }
+    var url = kodeCheckUrl + '?kode=' + encodeURIComponent(kode) + '&ignore_id=' + encodeURIComponent(currentEditId || '0');
+    fetch(url, { headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' } })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data && data.available) {
+          setKodeStatus('valid');
+        } else {
+          setKodeStatus('invalid', kodeDuplicateMsg);
+        }
+      })
+      .catch(function () {
+        setKodeStatus('neutral');
+      });
+  }
 
   function setFotoPreview(url) {
     if (!fotoImg || !fotoEmpty) return;
@@ -523,7 +610,9 @@
   function fillEditFromButton(btn, overrides) {
     overrides = overrides || {};
     form.action = btn.getAttribute('data-action');
-    kodeEl.value = btn.getAttribute('data-kode') || '';
+    currentEditId = btn.getAttribute('data-id') || '';
+    originalKode = btn.getAttribute('data-kode') || '';
+    kodeEl.value = overrides.kode_barang != null ? overrides.kode_barang : originalKode;
     namaEl.value = overrides.nama_barang != null ? overrides.nama_barang : (btn.getAttribute('data-nama') || '');
     merkEl.value = overrides.merk != null ? overrides.merk : (btn.getAttribute('data-merk') || '');
     satuanEl.value = overrides.satuan != null ? overrides.satuan : (btn.getAttribute('data-satuan') || '');
@@ -531,6 +620,13 @@
     statusEl.value = overrides.status != null ? overrides.status : (btn.getAttribute('data-status') || 'aktif');
     fotoInput.value = '';
     setFotoPreview(btn.getAttribute('data-foto') || '');
+    if (editSubmit) {
+      editSubmit.disabled = false;
+      editSubmit.dataset.busy = '0';
+    }
+    if (!overrides.keepKodeError) {
+      setKodeStatus('neutral');
+    }
   }
 
   document.querySelectorAll('.bhp-edit-open').forEach(function (btn) {
@@ -549,8 +645,40 @@
     });
   });
 
+  if (kodeEl) {
+    kodeEl.addEventListener('input', function () {
+      var kode = String(kodeEl.value || '').trim();
+      if (kodeCheckTimer) clearTimeout(kodeCheckTimer);
+      kodeCheckTimer = setTimeout(function () {
+        checkKodeAvailability(kode);
+      }, 400);
+    });
+  }
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      if (editSubmit && editSubmit.dataset.busy === '1') {
+        e.preventDefault();
+        return;
+      }
+      if (kodeEl && kodeEl.classList.contains('is-invalid')) {
+        e.preventDefault();
+        return;
+      }
+      if (editSubmit) {
+        editSubmit.dataset.busy = '1';
+        editSubmit.disabled = true;
+      }
+    });
+  }
+
   if (editModalEl) {
     editModalEl.addEventListener('shown.bs.modal', function () {
+      if (kodeEl && kodeEl.classList.contains('is-invalid')) {
+        kodeEl.focus();
+        kodeEl.select();
+        return;
+      }
       if (namaEl) {
         namaEl.focus();
         namaEl.select();
@@ -587,12 +715,17 @@
     var btn = document.querySelector('.bhp-edit-open[data-id="' + id + '"]');
     if (!btn || !editModal) return;
     fillEditFromButton(btn, {
+      kode_barang: @json(old('kode_barang')),
       nama_barang: @json(old('nama_barang')),
       merk: @json(old('merk')),
       satuan: @json(old('satuan')),
       harga_satuan: @json(old('harga_satuan')),
-      status: @json(old('status'))
+      status: @json(old('status')),
+      keepKodeError: @json($errors->has('kode_barang'))
     });
+    @if($errors->has('kode_barang'))
+    setKodeStatus('invalid', @json($errors->first('kode_barang')));
+    @endif
     editModal.show();
   })();
   @endif

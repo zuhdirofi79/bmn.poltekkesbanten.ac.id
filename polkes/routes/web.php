@@ -249,6 +249,7 @@ Route::prefix('bhp-kebersihan')->name('bhp.admin.')->group(function (): void {
             Route::get('barcode-batch', 'BhpKebersihanAdmin\MasterBarangController@barcodeBatch')->name('barcode-batch');
             Route::post('generate-all-barcodes', 'BhpKebersihanAdmin\MasterBarangController@generateAllBarcodes')->name('generate-all-barcodes');
             Route::post('bulk-delete', 'BhpKebersihanAdmin\MasterBarangController@bulkDestroy')->name('bulk-destroy');
+            Route::get('check-kode', 'BhpKebersihanAdmin\MasterBarangController@checkKode')->name('check-kode');
             Route::post('/', 'BhpKebersihanAdmin\MasterBarangController@store')->name('store');
             Route::get('{id}', 'BhpKebersihanAdmin\MasterBarangController@show')->where('id', '[0-9]+')->name('show');
             Route::put('{id}', 'BhpKebersihanAdmin\MasterBarangController@update')->where('id', '[0-9]+')->name('update');

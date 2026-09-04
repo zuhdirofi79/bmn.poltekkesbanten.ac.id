@@ -280,6 +280,77 @@ class BhpKebersihanStockTest extends TestCase
         $this->assertSame(1, BhpKebersihanStockMovement::where('barang_id', $barang->id)->count());
     }
 
+    public function test_edit_kode_barang_berhasil_tanpa_ubah_stok_dan_barcode(): void
+    {
+        $this->loginBhpAdmin();
+        $barang = $this->makeBarang(150, 'Floor Cleaner');
+        $token = $barang->barcode_token;
+        $this->stock->recordKoreksiManual($barang, 'tambah', 1, 'Koreksi administrasi.', 1);
+
+        $this->from(route('bhp.admin.master-barang.index'))
+            ->put(route('bhp.admin.master-barang.update', $barang->id), [
+                'kode_barang'  => 'KBR-01-010',
+                'nama_barang'  => $barang->nama_barang,
+                'merk'         => $barang->merk,
+                'satuan'       => $barang->satuan,
+                'status'       => 'aktif',
+            ])
+            ->assertRedirect()
+            ->assertSessionHas('success');
+
+        $fresh = $barang->fresh();
+        $this->assertSame('KBR-01-010', $fresh->kode_barang);
+        $this->assertSame($token, $fresh->barcode_token);
+        $this->assertSame(150, (int) $fresh->stok_awal);
+        $this->assertSame(151, $this->stock->stokSaatIni($fresh));
+        $this->assertSame(1, BhpKebersihanStockMovement::where('barang_id', $barang->id)->count());
+    }
+
+    public function test_edit_kode_sendiri_tidak_dianggap_duplicate(): void
+    {
+        $this->loginBhpAdmin();
+        $barang = $this->makeBarang(1, 'hit');
+        $kode = $barang->kode_barang;
+
+        $this->from(route('bhp.admin.master-barang.index'))
+            ->put(route('bhp.admin.master-barang.update', $barang->id), [
+                'kode_barang' => $kode,
+                'nama_barang' => 'hit',
+                'satuan'      => 'pcs',
+                'status'      => 'aktif',
+            ])
+            ->assertRedirect()
+            ->assertSessionHas('success');
+
+        $this->assertSame($kode, $barang->fresh()->kode_barang);
+    }
+
+    public function test_edit_kode_duplicate_ditolak(): void
+    {
+        $this->loginBhpAdmin();
+        $satu = $this->makeBarang(1, 'Barang Satu');
+        $dua = $this->makeBarang(2, 'Barang Dua');
+        $kodeSatu = $satu->kode_barang;
+        $kodeDua = $dua->kode_barang;
+
+        $this->from(route('bhp.admin.master-barang.index'))
+            ->put(route('bhp.admin.master-barang.update', $satu->id), [
+                'kode_barang' => $kodeDua,
+                'nama_barang' => 'Nama Baru',
+                'merk'        => 'ABC',
+                'satuan'      => 'pcs',
+                'status'      => 'aktif',
+            ])
+            ->assertRedirect()
+            ->assertSessionHasErrors('kode_barang')
+            ->assertSessionHas('open_edit_id', $satu->id);
+
+        $fresh = $satu->fresh();
+        $this->assertSame($kodeSatu, $fresh->kode_barang);
+        $this->assertSame('Barang Satu', $fresh->nama_barang);
+        $this->assertSame(null, $fresh->merk);
+    }
+
     public function test_hapus_barang_tanpa_histori_hard_delete(): void
     {
         $this->loginBhpAdmin();

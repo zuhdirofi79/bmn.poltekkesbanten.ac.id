@@ -127,27 +127,67 @@ class MasterBarangController extends Controller
 
         try {
             $data = $this->validateData($request, $id);
-        } catch (\Illuminate\Validation\ValidationException $e) {
+        } catch (ValidationException $e) {
             return back()
                 ->withErrors($e->errors())
                 ->withInput()
                 ->with('open_edit_id', $id);
         }
 
-        $barang->update([
-            'nama_barang'  => $data['nama_barang'],
-            'merk'         => $data['merk'] ?? null,
-            'satuan'       => $data['satuan'],
-            'harga_satuan' => $data['harga_satuan'] ?? null,
-            'status'       => $data['status'],
-            'updated_by'   => BhpAdminSession::userId($request),
-        ]);
+        try {
+            DB::transaction(function () use ($barang, $data, $request) {
+                $barang->update([
+                    'kode_barang'  => $data['kode_barang'],
+                    'nama_barang'  => $data['nama_barang'],
+                    'merk'         => $data['merk'] ?? null,
+                    'satuan'       => $data['satuan'],
+                    'harga_satuan' => $data['harga_satuan'] ?? null,
+                    'status'       => $data['status'],
+                    'updated_by'   => BhpAdminSession::userId($request),
+                ]);
 
-        if ($request->hasFile('foto')) {
-            $this->foto->store($barang->fresh(), $request->file('foto'));
+                if ($request->hasFile('foto')) {
+                    $this->foto->store($barang->fresh(), $request->file('foto'));
+                }
+            });
+        } catch (QueryException $e) {
+            if ($this->isDuplicateKodeException($e)) {
+                return back()
+                    ->withErrors(['kode_barang' => 'Kode tersebut telah digunakan! Silahkan coba kode lainnya.'])
+                    ->withInput()
+                    ->with('open_edit_id', $id);
+            }
+
+            report($e);
+
+            return back()
+                ->with('error', 'Gagal menyimpan perubahan. Tidak ada data yang diubah.')
+                ->withInput()
+                ->with('open_edit_id', $id);
         }
 
         return back()->with('success', 'Data barang berhasil diperbarui.');
+    }
+
+    public function checkKode(Request $request)
+    {
+        if (! BhpAccess::canManageMaster(BhpAdminSession::role($request))) {
+            abort(403);
+        }
+
+        $kode = trim((string) $request->query('kode', ''));
+        $ignoreId = (int) $request->query('ignore_id', 0);
+
+        if ($kode === '') {
+            return response()->json(['available' => false]);
+        }
+
+        $exists = BhpKebersihanBarang::query()
+            ->where('kode_barang', $kode)
+            ->when($ignoreId > 0, fn ($q) => $q->where('id', '!=', $ignoreId))
+            ->exists();
+
+        return response()->json(['available' => ! $exists]);
     }
 
     public function koreksiStok(Request $request, int $id): RedirectResponse
@@ -544,7 +584,17 @@ class MasterBarangController extends Controller
      */
     private function validateData(Request $request, ?int $id = null): array
     {
+        if ($request->exists('kode_barang')) {
+            $request->merge(['kode_barang' => trim((string) $request->input('kode_barang'))]);
+        }
+
+        $unique = Rule::unique('bhp_kebersihan_barang', 'kode_barang');
+        if ($id !== null) {
+            $unique = $unique->ignore($id);
+        }
+
         $rules = [
+            'kode_barang'  => ['required', 'string', 'max:100', $unique],
             'nama_barang'  => ['required', 'string', 'max:200'],
             'merk'         => ['nullable', 'string', 'max:255'],
             'satuan'       => ['required', 'string', 'max:50'],
@@ -554,10 +604,23 @@ class MasterBarangController extends Controller
             'status'       => [$id === null ? 'nullable' : 'required', 'in:aktif,nonaktif'],
         ];
 
-        if ($id === null) {
-            $rules['kode_barang'] = ['required', 'string', 'max:100', Rule::unique('bhp_kebersihan_barang', 'kode_barang')];
-        }
+        $data = $request->validate($rules, [
+            'kode_barang.unique'   => 'Kode tersebut telah digunakan! Silahkan coba kode lainnya.',
+            'kode_barang.required' => 'Kode barang wajib diisi.',
+        ]);
 
-        return $request->validate($rules);
+        return $data;
+    }
+
+    private function isDuplicateKodeException(QueryException $e): bool
+    {
+        $sqlState = (string) ($e->errorInfo[0] ?? $e->getCode());
+        $driverCode = (int) ($e->errorInfo[1] ?? 0);
+        $message = $e->getMessage();
+
+        return $sqlState === '23000'
+            || $driverCode === 1062
+            || stripos($message, 'Duplicate') !== false
+            || stripos($message, 'UNIQUE') !== false;
     }
 }
