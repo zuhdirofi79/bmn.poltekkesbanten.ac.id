@@ -124,7 +124,7 @@ class FotoService
     public function deleteStored(?string $relativePath): void
     {
         $relative = PublicUploadPath::normalizeRelative($relativePath);
-        if ($relative === null) {
+        if ($relative === null || ! str_starts_with($relative, PublicUploadPath::FOTO_REL_DIR . '/')) {
             return;
         }
 

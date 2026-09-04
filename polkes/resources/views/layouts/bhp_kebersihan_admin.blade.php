@@ -44,16 +44,29 @@
                 Stok sekarang : {{ session('stok_koreksi')['sesudah'] }}
               </div>
             @endif
-            @if(session('bulk_delete_summary'))
+          </div>
+        @endif
+        @if(session('error'))<div class="alert alert-danger">{{ session('error') }}</div>@endif
+        @if(session('bulk_delete_summary'))
+          @php $bulk = session('bulk_delete_summary'); @endphp
+          <div class="alert {{ ($bulk['deleted'] ?? 0) > 0 ? 'alert-success' : 'alert-warning' }}">
+            <div class="fw-semibold">Hasil Penghapusan</div>
+            <div class="small mt-2 mb-0">
+              Berhasil dihapus : {{ $bulk['deleted'] ?? 0 }}<br>
+              Tidak dapat dihapus : {{ ($bulk['blocked'] ?? 0) + ($bulk['failed'] ?? 0) }}
+            </div>
+            @if(!empty($bulk['reasons']))
               <div class="small mt-2 mb-0">
-                Berhasil dihapus : {{ session('bulk_delete_summary')['deleted'] }}<br>
-                Dinonaktifkan : {{ session('bulk_delete_summary')['nonaktif'] }}<br>
-                Gagal : {{ session('bulk_delete_summary')['failed'] }}
+                Alasan:
+                <ul class="mb-0 ps-3">
+                  @foreach($bulk['reasons'] as $reason)
+                    <li>{{ $reason }}</li>
+                  @endforeach
+                </ul>
               </div>
             @endif
           </div>
         @endif
-        @if(session('error'))<div class="alert alert-danger">{{ session('error') }}</div>@endif
         @if($errors->any() && !session('open_edit_id') && !session('open_koreksi_id'))
           <div class="alert alert-danger">
             <ul class="mb-0">@foreach($errors->all() as $e)<li>{{ $e }}</li>@endforeach</ul>

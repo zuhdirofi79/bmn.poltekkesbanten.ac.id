@@ -131,6 +131,9 @@
                   data-id="{{ $b->id }}"
                   data-kode="{{ $b->kode_barang }}"
                   data-nama="{{ $b->nama_barang }}"
+                  data-merk="{{ $b->merk }}"
+                  data-stok="{{ $stokMap[$b->id] ?? 0 }}"
+                  data-satuan="{{ $b->satuan }}"
                   data-action="{{ route('bhp.admin.master-barang.destroy', $b->id) }}"
                 >Hapus</button>
                 @endif
@@ -320,23 +323,34 @@
     <form method="POST" action="#" class="modal-content bhp-edit-modal-content" id="bhpDeleteForm">
       @csrf @method('DELETE')
       <div class="modal-header">
-        <h5 class="modal-title" id="bhpDeleteModalTitle">Hapus barang ini?</h5>
+        <h5 class="modal-title" id="bhpDeleteModalTitle">Hapus Barang?</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
       </div>
       <div class="modal-body">
-        <div class="mb-2">
-          <div class="text-muted small">Nama</div>
-          <div class="fw-semibold" id="bhpDeleteNama"></div>
+        <p class="mb-3">Anda yakin ingin menghapus:</p>
+        <div class="bhp-meta-box mb-3">
+          <div class="mb-2">
+            <div class="text-muted small">Kode</div>
+            <div class="fw-semibold" id="bhpDeleteKode"></div>
+          </div>
+          <div class="mb-2">
+            <div class="text-muted small">Nama</div>
+            <div class="fw-semibold" id="bhpDeleteNama"></div>
+          </div>
+          <div class="mb-2">
+            <div class="text-muted small">Merk</div>
+            <div class="fw-semibold" id="bhpDeleteMerk"></div>
+          </div>
+          <div>
+            <div class="text-muted small">Stok Saat Ini</div>
+            <div class="fw-semibold" id="bhpDeleteStok"></div>
+          </div>
         </div>
-        <div class="mb-3">
-          <div class="text-muted small">Kode</div>
-          <div class="fw-semibold" id="bhpDeleteKode"></div>
-        </div>
-        <p class="mb-0">Data barang akan dihapus dari Master Barang. Barang yang sudah punya histori transaksi akan dinonaktifkan, bukan dihapus permanen.</p>
+        <p class="mb-0">Tindakan ini akan menghapus data barang secara permanen. Barang yang sudah punya histori transaksi tidak dapat dihapus.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-        <button type="submit" class="btn btn-danger" id="bhpDeleteSubmit">Ya, Hapus</button>
+        <button type="submit" class="btn btn-danger" id="bhpDeleteSubmit">Ya, Hapus Permanen</button>
       </div>
     </form>
   </div>
@@ -353,11 +367,11 @@
       <div class="modal-body">
         <p class="mb-2" id="bhpBulkDeleteLead"></p>
         <ul class="mb-3" id="bhpBulkDeleteList"></ul>
-        <p class="mb-0 text-muted small">Barang tanpa histori dihapus. Barang yang sudah punya transaksi dinonaktifkan agar histori stok tetap utuh.</p>
+        <p class="mb-0 text-muted small">Barang tanpa histori dihapus permanen. Barang yang sudah punya transaksi tidak dihapus dan statusnya tidak diubah.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-        <button type="submit" class="btn btn-danger" id="bhpBulkDeleteSubmit">Ya, Proses</button>
+        <button type="submit" class="btn btn-danger" id="bhpBulkDeleteSubmit">Ya, Hapus Permanen</button>
       </div>
     </form>
   </div>
@@ -727,9 +741,14 @@
       deleteForm.action = btn.getAttribute('data-action');
       document.getElementById('bhpDeleteNama').textContent = btn.getAttribute('data-nama') || '';
       document.getElementById('bhpDeleteKode').textContent = btn.getAttribute('data-kode') || '';
+      document.getElementById('bhpDeleteMerk').textContent = btn.getAttribute('data-merk') || '—';
+      var stok = btn.getAttribute('data-stok') || '0';
+      var satuan = btn.getAttribute('data-satuan') || '';
+      document.getElementById('bhpDeleteStok').textContent = stok + (satuan ? ' ' + satuan : '');
       if (deleteSubmit) {
         deleteSubmit.disabled = false;
         deleteSubmit.dataset.busy = '0';
+        deleteSubmit.textContent = 'Ya, Hapus Permanen';
       }
       if (deleteModal) deleteModal.show();
     });
@@ -743,6 +762,7 @@
       if (deleteSubmit) {
         deleteSubmit.dataset.busy = '1';
         deleteSubmit.disabled = true;
+        deleteSubmit.textContent = 'Menghapus...';
       }
     });
   }
@@ -773,6 +793,7 @@
       if (bulkSubmit) {
         bulkSubmit.disabled = false;
         bulkSubmit.dataset.busy = '0';
+        bulkSubmit.textContent = 'Ya, Hapus Permanen';
       }
       if (bulkModal) bulkModal.show();
     });
@@ -784,6 +805,7 @@
       if (bulkSubmit) {
         bulkSubmit.dataset.busy = '1';
         bulkSubmit.disabled = true;
+        bulkSubmit.textContent = 'Menghapus...';
       }
     });
   }

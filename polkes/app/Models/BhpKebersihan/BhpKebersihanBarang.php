@@ -56,9 +56,32 @@ class BhpKebersihanBarang extends Model
 
     public function hasTransaksiHistori(): bool
     {
-        return $this->movements()->exists()
-            || $this->permintaan()->exists()
-            || $this->opnameDetails()->exists();
+        return $this->alasanTidakDapatDihapus() !== [];
+    }
+
+    /**
+     * @return list<string>
+     */
+    public function alasanTidakDapatDihapus(): array
+    {
+        $alasan = [];
+
+        $nPermintaan = $this->permintaan()->count();
+        if ($nPermintaan > 0) {
+            $alasan[] = $nPermintaan . ' histori permintaan';
+        }
+
+        $nMovement = $this->movements()->count();
+        if ($nMovement > 0) {
+            $alasan[] = $nMovement . ' histori stock movement';
+        }
+
+        $nOpname = $this->opnameDetails()->count();
+        if ($nOpname > 0) {
+            $alasan[] = $nOpname . ' histori stock opname';
+        }
+
+        return $alasan;
     }
 
     public function barcodeUrl(): string

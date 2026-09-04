@@ -8,6 +8,8 @@ use App\Models\BhpKebersihan\BhpKebersihanAdmin;
 use App\Models\BhpKebersihan\BhpKebersihanBarang;
 use App\Models\BhpKebersihan\BhpKebersihanPermintaan;
 use App\Models\BhpKebersihan\BhpKebersihanStockMovement;
+use App\Models\BhpKebersihan\BhpKebersihanStockOpname;
+use App\Models\BhpKebersihan\BhpKebersihanStockOpnameDetail;
 use App\Services\BhpKebersihan\StockService;
 use App\Support\BhpKebersihan\BhpAdminSession;
 use App\User;
@@ -283,25 +285,69 @@ class BhpKebersihanStockTest extends TestCase
         $this->loginBhpAdmin();
         $barang = $this->makeBarang(0, 'Barang Baru');
 
-        $this->delete(route('bhp.admin.master-barang.destroy', $barang->id))
-            ->assertRedirect();
+        $this->from(route('bhp.admin.master-barang.index'))
+            ->delete(route('bhp.admin.master-barang.destroy', $barang->id))
+            ->assertRedirect()
+            ->assertSessionHas('success', 'Barang berhasil dihapus permanen.');
 
         $this->assertNull(BhpKebersihanBarang::find($barang->id));
     }
 
-    public function test_hapus_barang_dengan_movement_hanya_nonaktif(): void
+    public function test_hapus_barang_dengan_movement_ditolak(): void
     {
         $this->loginBhpAdmin();
         $barang = $this->makeBarang(1, 'hit');
         $this->stock->recordKoreksiManual($barang, 'tambah', 1, 'Koreksi administrasi.', 1);
 
-        $this->delete(route('bhp.admin.master-barang.destroy', $barang->id))
-            ->assertRedirect();
+        $this->from(route('bhp.admin.master-barang.index'))
+            ->delete(route('bhp.admin.master-barang.destroy', $barang->id))
+            ->assertRedirect()
+            ->assertSessionHas('error');
 
         $fresh = BhpKebersihanBarang::find($barang->id);
         $this->assertNotNull($fresh);
-        $this->assertSame('nonaktif', $fresh->status);
+        $this->assertSame('aktif', $fresh->status);
         $this->assertSame(1, BhpKebersihanStockMovement::where('barang_id', $barang->id)->count());
+    }
+
+    public function test_hapus_barang_dengan_permintaan_ditolak(): void
+    {
+        $this->loginBhpAdmin();
+        $barang = $this->makeBarang(5, 'Floor Cleaner');
+        $this->makePermintaan($barang, 1, BhpKebersihanPermintaan::STATUS_SIAP_DIAMBIL);
+
+        $this->from(route('bhp.admin.master-barang.index'))
+            ->delete(route('bhp.admin.master-barang.destroy', $barang->id))
+            ->assertRedirect()
+            ->assertSessionHas('error');
+
+        $this->assertNotNull(BhpKebersihanBarang::find($barang->id));
+        $this->assertSame('aktif', BhpKebersihanBarang::find($barang->id)->status);
+    }
+
+    public function test_hapus_barang_dengan_opname_ditolak(): void
+    {
+        $this->loginBhpAdmin();
+        $barang = $this->makeBarang(5, 'Wipol');
+        $opname = BhpKebersihanStockOpname::create([
+            'tanggal_opname' => now()->toDateString(),
+            'catatan'        => 'Test opname',
+        ]);
+        BhpKebersihanStockOpnameDetail::create([
+            'opname_id'   => $opname->id,
+            'barang_id'   => $barang->id,
+            'stok_sistem' => 5,
+            'stok_fisik'  => 5,
+            'selisih'     => 0,
+        ]);
+
+        $this->from(route('bhp.admin.master-barang.index'))
+            ->delete(route('bhp.admin.master-barang.destroy', $barang->id))
+            ->assertRedirect()
+            ->assertSessionHas('error');
+
+        $this->assertNotNull(BhpKebersihanBarang::find($barang->id));
+        $this->assertSame('aktif', BhpKebersihanBarang::find($barang->id)->status);
     }
 
     public function test_bulk_delete_campuran_histori(): void
@@ -313,11 +359,23 @@ class BhpKebersihanStockTest extends TestCase
 
         $this->post(route('bhp.admin.master-barang.bulk-destroy'), [
             'ids' => [$baru->id, $lama->id],
-        ])->assertRedirect();
+        ])->assertRedirect()
+            ->assertSessionHas('bulk_delete_summary');
 
         $this->assertNull(BhpKebersihanBarang::find($baru->id));
-        $this->assertSame('nonaktif', BhpKebersihanBarang::find($lama->id)->status);
+        $this->assertNotNull(BhpKebersihanBarang::find($lama->id));
+        $this->assertSame('aktif', BhpKebersihanBarang::find($lama->id)->status);
         $this->assertSame(1, BhpKebersihanStockMovement::where('barang_id', $lama->id)->count());
+    }
+
+    public function test_hapus_barang_tanpa_login_ditolak(): void
+    {
+        $barang = $this->makeBarang(0, 'Tanpa Login');
+
+        $this->delete(route('bhp.admin.master-barang.destroy', $barang->id))
+            ->assertRedirect(route('bhp.admin.login.show'));
+
+        $this->assertNotNull(BhpKebersihanBarang::find($barang->id));
     }
 
     private function makeBarang(int $stokAwal, string $nama = 'Barang Test'): BhpKebersihanBarang

@@ -12,9 +12,12 @@ use App\Services\BhpKebersihan\FotoService;
 use App\Services\BhpKebersihan\StockService;
 use App\Support\BhpKebersihan\BhpAccess;
 use App\Support\BhpKebersihan\BhpAdminSession;
+use App\Support\BhpKebersihan\PublicUploadPath;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
@@ -199,17 +202,22 @@ class MasterBarangController extends Controller
             abort(403);
         }
 
-        $barang = BhpKebersihanBarang::findOrFail($id);
-        $result = $this->hapusAtauNonaktifkan($barang, BhpAdminSession::userId($request));
-
-        if ($result === 'deleted') {
-            return back()->with('success', 'Barang berhasil dihapus dari Master Barang.');
+        $barang = BhpKebersihanBarang::find($id);
+        if ($barang === null) {
+            return back()->with('error', 'Barang tidak ditemukan.');
         }
 
-        return back()->with(
-            'success',
-            'Barang sudah memiliki histori transaksi sehingga tidak dihapus permanen. Barang dinonaktifkan.'
-        );
+        $result = $this->hapusPermanen($barang, BhpAdminSession::userId($request));
+
+        if ($result['status'] === 'deleted') {
+            return back()->with('success', 'Barang berhasil dihapus permanen.');
+        }
+
+        if ($result['status'] === 'not_found') {
+            return back()->with('error', 'Barang tidak ditemukan.');
+        }
+
+        return back()->with('error', $result['message']);
     }
 
     public function bulkDestroy(Request $request): RedirectResponse
@@ -235,86 +243,127 @@ class MasterBarangController extends Controller
         $items = BhpKebersihanBarang::query()->whereIn('id', $ids)->get()->keyBy('id');
 
         $deleted = 0;
-        $nonaktif = 0;
+        $blocked = 0;
         $failed = 0;
+        $reasons = [];
 
         foreach ($ids as $id) {
             $barang = $items->get($id);
             if ($barang === null) {
                 $failed++;
+                $reasons[] = 'ID ' . $id . ' tidak ditemukan.';
 
                 continue;
             }
 
             try {
-                $result = $this->hapusAtauNonaktifkan($barang, $userId);
-                if ($result === 'deleted') {
+                $result = $this->hapusPermanen($barang, $userId);
+                if ($result['status'] === 'deleted') {
                     $deleted++;
+                } elseif ($result['status'] === 'blocked') {
+                    $blocked++;
+                    $reasons[] = $result['ringkas'];
                 } else {
-                    $nonaktif++;
+                    $failed++;
+                    $reasons[] = ($barang->kode_barang ?? ('ID ' . $id)) . ' tidak ditemukan.';
                 }
             } catch (\Throwable $e) {
                 report($e);
                 $failed++;
+                $reasons[] = $barang->kode_barang . ' gagal diproses.';
             }
         }
 
-        return back()
-            ->with('success', 'Proses selesai.')
-            ->with('bulk_delete_summary', [
-                'deleted'  => $deleted,
-                'nonaktif' => $nonaktif,
-                'failed'   => $failed,
-            ]);
+        $summary = [
+            'deleted' => $deleted,
+            'blocked' => $blocked,
+            'failed'  => $failed,
+            'reasons' => $reasons,
+        ];
+
+        return back()->with('bulk_delete_summary', $summary);
     }
 
     /**
-     * @return 'deleted'|'nonaktif'
+     * Hard delete satu barang. Tidak mengubah status.
+     *
+     * @return array{status:'deleted'}|array{status:'blocked', message:string, ringkas:string, alasan:list<string>}|array{status:'not_found'}
      */
-    private function hapusAtauNonaktifkan(BhpKebersihanBarang $barang, ?int $userId): string
+    private function hapusPermanen(BhpKebersihanBarang $barang, ?int $actorId): array
     {
-        return DB::transaction(function () use ($barang, $userId) {
+        $fileSnapshot = null;
+        $audit = null;
+
+        $result = DB::transaction(function () use ($barang, &$fileSnapshot, &$audit) {
             $locked = BhpKebersihanBarang::query()->whereKey($barang->id)->lockForUpdate()->first();
             if ($locked === null) {
-                throw new \RuntimeException('Barang tidak ditemukan.');
+                return ['status' => 'not_found'];
             }
 
-            if ($locked->hasTransaksiHistori()) {
-                $this->tandaiNonaktif($locked, $userId);
+            $alasan = $locked->alasanTidakDapatDihapus();
+            if ($alasan !== []) {
+                $ringkas = $locked->kode_barang . ' — ' . $locked->nama_barang . ' memiliki ' . implode(', ', $alasan);
 
-                return 'nonaktif';
+                return [
+                    'status'  => 'blocked',
+                    'message' => 'Barang tidak dapat dihapus karena sudah memiliki histori transaksi. Barang ini tidak dapat dihapus permanen karena sudah digunakan dalam transaksi/histori sistem.',
+                    'ringkas' => $ringkas,
+                    'alasan'  => $alasan,
+                ];
             }
 
-            $this->hapusFileFisikBarangTidakTerpakai($locked);
+            $fileSnapshot = [
+                'foto_path'    => $locked->foto_path,
+                'barcode_path' => $locked->barcode_path,
+            ];
+            $audit = [
+                'id'          => $locked->id,
+                'kode_barang' => $locked->kode_barang,
+                'nama_barang' => $locked->nama_barang,
+            ];
 
             try {
                 $locked->delete();
-            } catch (\Throwable $e) {
-                $this->tandaiNonaktif($locked, $userId);
+            } catch (QueryException $e) {
+                $ringkas = $locked->kode_barang . ' — ' . $locked->nama_barang . ' memiliki histori transaksi';
 
-                return 'nonaktif';
+                return [
+                    'status'  => 'blocked',
+                    'message' => 'Barang tidak dapat dihapus karena sudah memiliki histori transaksi.',
+                    'ringkas' => $ringkas,
+                    'alasan'  => ['histori transaksi'],
+                ];
             }
 
-            return 'deleted';
+            return ['status' => 'deleted'];
         });
-    }
 
-    private function tandaiNonaktif(BhpKebersihanBarang $barang, ?int $userId): void
-    {
-        $barang->status = 'nonaktif';
-        if ($userId !== null) {
-            $barang->updated_by = $userId;
+        if (($result['status'] ?? null) === 'deleted') {
+            $this->bersihkanFileSetelahHardDelete($fileSnapshot['foto_path'] ?? null, $fileSnapshot['barcode_path'] ?? null);
+            Log::info('BHP master barang hard deleted', [
+                'actor_id'    => $actorId,
+                'barang_id'   => $audit['id'] ?? $barang->id,
+                'kode_barang' => $audit['kode_barang'] ?? $barang->kode_barang,
+                'nama_barang' => $audit['nama_barang'] ?? $barang->nama_barang,
+            ]);
         }
-        $barang->save();
+
+        return $result;
     }
 
-    private function hapusFileFisikBarangTidakTerpakai(BhpKebersihanBarang $barang): void
+    private function bersihkanFileSetelahHardDelete(?string $fotoPath, ?string $barcodePath): void
     {
-        $this->foto->deleteStored($barang->foto_path);
+        $this->foto->deleteStored($fotoPath);
 
-        $absolute = $this->barcode->absoluteFilePath($barang);
-        if ($absolute !== null && is_file($absolute)) {
-            @unlink($absolute);
+        $relative = PublicUploadPath::normalizeRelative($barcodePath);
+        if ($relative === null || ! str_starts_with($relative, PublicUploadPath::BARCODE_REL_DIR . '/')) {
+            return;
+        }
+
+        foreach (PublicUploadPath::candidateAbsolutePaths($relative) as $path) {
+            if (is_file($path)) {
+                @unlink($path);
+            }
         }
     }
 
