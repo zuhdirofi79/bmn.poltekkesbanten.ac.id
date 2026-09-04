@@ -284,6 +284,65 @@
 .bhp-delta-plus { color: #0f9b8e; font-weight: 700; }
 .bhp-delta-minus { color: #c0392b; font-weight: 700; }
 
+/* Pagination BHP — scoped. Laravel default Tailwind SVG (w-5 h-5)
+ * tidak punya ukuran tanpa Tailwind, sehingga chevron membesar ekstrem. */
+.bhp-pagination {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 0.75rem;
+}
+.bhp-pagination nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.bhp-pagination .pagination {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 0;
+}
+.bhp-pagination .page-link,
+.bhp-pagination [aria-label="Pagination Navigation"] a,
+.bhp-pagination [aria-label="Pagination Navigation"] span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  min-width: 36px;
+  border-radius: 6px;
+  flex: 0 0 auto;
+}
+.bhp-pagination svg,
+.bhp-pagination i {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  font-size: 14px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  vertical-align: middle;
+}
+
+@media (max-width: 576px) {
+  .bhp-pagination .page-link,
+  .bhp-pagination [aria-label="Pagination Navigation"] a,
+  .bhp-pagination [aria-label="Pagination Navigation"] span {
+    padding: 4px 8px;
+    font-size: 12px;
+    min-width: 30px;
+  }
+}
+
 @media (max-width: 576px) {
   .bhp-edit-modal .bhp-edit-modal-dialog {
     max-width: calc(100% - 1.5rem);

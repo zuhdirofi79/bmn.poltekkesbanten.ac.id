@@ -36,6 +36,8 @@
       </tbody>
     </table>
   </div>
-  {{ $permintaan->links() }}
+  <div class="bhp-pagination">
+    {{ $permintaan->links('pagination::bootstrap-5') }}
+  </div>
 </div>
 @endsection

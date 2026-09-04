@@ -27,6 +27,8 @@
       </tbody>
     </table>
   </div>
-  {{ $opname->links() }}
+  <div class="bhp-pagination">
+    {{ $opname->links('pagination::bootstrap-5') }}
+  </div>
 </div>
 @endsection

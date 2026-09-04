@@ -149,7 +149,9 @@
       </tbody>
     </table>
   </div>
-  {{ $barang->links() }}
+  <div class="bhp-pagination">
+    {{ $barang->links('pagination::bootstrap-5') }}
+  </div>
 </div>
 
 <div class="pa-card">
