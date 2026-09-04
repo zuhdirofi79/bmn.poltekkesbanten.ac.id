@@ -8,6 +8,7 @@ use App\Exports\Persediaan\SimpleArrayExport;
 use App\Http\Controllers\Controller;
 use App\Models\BhpKebersihan\BhpKebersihanBarang;
 use App\Services\BhpKebersihan\BarcodeService;
+use App\Services\BhpKebersihan\FotoService;
 use App\Services\BhpKebersihan\StockService;
 use App\Support\BhpKebersihan\BhpAccess;
 use App\Support\BhpKebersihan\BhpAdminSession;
@@ -24,6 +25,7 @@ class MasterBarangController extends Controller
     public function __construct(
         private StockService $stock,
         private BarcodeService $barcode,
+        private FotoService $foto,
     ) {
     }
 
@@ -32,21 +34,41 @@ class MasterBarangController extends Controller
         $query = BhpKebersihanBarang::query()
             ->when($request->filled('q'), function ($q) use ($request) {
                 $term = '%' . $request->input('q') . '%';
-                $q->where(fn ($w) => $w->where('kode_barang', 'like', $term)->orWhere('nama_barang', 'like', $term));
+                $q->where(fn ($w) => $w->where('kode_barang', 'like', $term)
+                    ->orWhere('nama_barang', 'like', $term)
+                    ->orWhere('merk', 'like', $term));
             })
             ->when($request->filled('status'), fn ($q) => $q->where('status', $request->input('status')))
             ->orderBy('kode_barang');
 
         $barang = $query->paginate(20)->withQueryString();
         $stokMap = [];
+        $barcodeUrlMap = [];
+        $fotoUrlMap = [];
         foreach ($barang as $b) {
             $stokMap[$b->id] = $this->stock->stokSaatIni($b);
+            $barcodeUrlMap[$b->id] = $this->barcode->fileUrl($b);
+            $fotoUrlMap[$b->id] = $b->fotoUrl();
         }
 
         return view('bhp_kebersihan_admin.master-barang.index', [
-            'barang'  => $barang,
-            'stokMap' => $stokMap,
-            'filters' => $request->only(['q', 'status']),
+            'barang'         => $barang,
+            'stokMap'        => $stokMap,
+            'barcodeUrlMap'  => $barcodeUrlMap,
+            'fotoUrlMap'     => $fotoUrlMap,
+            'filters'        => $request->only(['q', 'status']),
+        ]);
+    }
+
+    public function show(int $id): View
+    {
+        $barang = BhpKebersihanBarang::findOrFail($id);
+
+        return view('bhp_kebersihan_admin.master-barang.show', [
+            'barang'     => $barang,
+            'stokSaatIni'=> $this->stock->stokSaatIni($barang),
+            'barcodeUrl' => $this->barcode->fileUrl($barang),
+            'fotoUrl'    => $barang->fotoUrl(),
         ]);
     }
 
@@ -59,10 +81,11 @@ class MasterBarangController extends Controller
         $data = $this->validateData($request);
         $userId = BhpAdminSession::userId($request);
 
-        DB::transaction(function () use ($data, $userId) {
+        DB::transaction(function () use ($data, $userId, $request) {
             $barang = BhpKebersihanBarang::create([
                 'kode_barang'   => $data['kode_barang'],
                 'nama_barang'   => $data['nama_barang'],
+                'merk'          => $data['merk'] ?? null,
                 'satuan'        => $data['satuan'],
                 'stok_awal'     => (int) $data['stok_awal'],
                 'harga_satuan'  => $data['harga_satuan'] ?? null,
@@ -71,15 +94,8 @@ class MasterBarangController extends Controller
                 'created_by'    => $userId,
             ]);
 
-            if ((int) $data['stok_awal'] > 0) {
-                $this->stock->recordMasuk(
-                    $barang,
-                    (int) $data['stok_awal'],
-                    \App\Models\BhpKebersihan\BhpKebersihanStockMovement::SUMBER_MANUAL,
-                    $barang->id,
-                    'Stok awal master barang',
-                    $userId,
-                );
+            if ($request->hasFile('foto')) {
+                $this->foto->store($barang, $request->file('foto'));
             }
         });
 
@@ -98,11 +114,16 @@ class MasterBarangController extends Controller
         $barang->update([
             'kode_barang'  => $data['kode_barang'],
             'nama_barang'  => $data['nama_barang'],
+            'merk'         => $data['merk'] ?? null,
             'satuan'       => $data['satuan'],
             'harga_satuan' => $data['harga_satuan'] ?? null,
             'status'       => $request->input('status', 'aktif'),
             'updated_by'   => BhpAdminSession::userId($request),
         ]);
+
+        if ($request->hasFile('foto')) {
+            $this->foto->store($barang, $request->file('foto'));
+        }
 
         return back()->with('success', 'Barang BHP berhasil diperbarui.');
     }
@@ -121,22 +142,25 @@ class MasterBarangController extends Controller
         $barangs = BhpKebersihanBarang::query()
             ->when($request->filled('q'), function ($q) use ($request) {
                 $term = '%' . $request->input('q') . '%';
-                $q->where(fn ($w) => $w->where('kode_barang', 'like', $term)->orWhere('nama_barang', 'like', $term));
+                $q->where(fn ($w) => $w->where('kode_barang', 'like', $term)
+                    ->orWhere('nama_barang', 'like', $term)
+                    ->orWhere('merk', 'like', $term));
             })
             ->orderBy('kode_barang')
             ->get();
 
-        $headings = ['Kode Barang', 'Nama Barang', 'Satuan', 'Stok Awal', 'Stok Saat Ini', 'Harga Satuan', 'Status', 'Scan URL', 'Barcode File'];
+        $headings = ['Kode Barang', 'Nama Barang', 'Merk', 'Satuan', 'Stok Awal', 'Stok Saat Ini', 'Harga Satuan', 'Status', 'Scan URL', 'Barcode File'];
         $data = $barangs->map(fn ($b) => [
             $b->kode_barang,
             $b->nama_barang,
+            $b->merk,
             $b->satuan,
             $b->stok_awal,
             $this->stock->stokSaatIni($b),
             $b->harga_satuan,
             $b->status,
             $b->barcodeUrl(),
-            $b->barcode_path ? asset($b->barcode_path) : '-',
+            $this->barcode->fileUrl($b) ?? '-',
         ])->toArray();
 
         return Excel::download(new SimpleArrayExport($data, $headings), 'master-barang-bhp-kebersihan.xlsx');
@@ -153,7 +177,7 @@ class MasterBarangController extends Controller
 
         return view('bhp_kebersihan_admin.master-barang.barcode', [
             'barang'    => $barang,
-            'imageUrl'  => $barang->barcodeFileUrl(),
+            'imageUrl'  => $this->barcode->fileUrl($barang),
             'publicUrl' => $barang->barcodeUrl(),
             'autoPrint' => true,
         ]);
@@ -162,14 +186,17 @@ class MasterBarangController extends Controller
     public function barcodeDownload(int $id): BinaryFileResponse|RedirectResponse
     {
         $barang = BhpKebersihanBarang::findOrFail($id);
+        $absolute = $this->barcode->absoluteFilePath($barang);
 
-        if (! $this->barcode->hasValidFile($barang)) {
+        if ($absolute === null) {
             return back()->with('error', 'File barcode belum tersedia.');
         }
 
+        $relative = $this->barcode->resolveRelativePath($barang);
+
         return response()->download(
-            public_path($barang->barcode_path),
-            basename((string) $barang->barcode_path),
+            $absolute,
+            $relative !== null ? basename($relative) : basename($absolute),
             ['Content-Type' => 'image/png'],
         );
     }
@@ -256,7 +283,7 @@ class MasterBarangController extends Controller
 
         $items = $barangs->map(fn (BhpKebersihanBarang $b) => [
             'barang'    => $b,
-            'imageUrl'  => $b->barcodeFileUrl(),
+            'imageUrl'  => $this->barcode->fileUrl($b),
             'publicUrl' => $b->barcodeUrl(),
         ]);
 
@@ -272,9 +299,10 @@ class MasterBarangController extends Controller
         }
 
         $barang = BhpKebersihanBarang::findOrFail($id);
+        $oldAbsolute = $this->barcode->absoluteFilePath($barang);
 
-        if ($barang->barcode_path && is_file(public_path($barang->barcode_path))) {
-            @unlink(public_path($barang->barcode_path));
+        if ($oldAbsolute !== null && is_file($oldAbsolute)) {
+            @unlink($oldAbsolute);
         }
 
         $barang->barcode_token = $this->barcode->generateToken();
@@ -300,9 +328,11 @@ class MasterBarangController extends Controller
         return $request->validate([
             'kode_barang'  => ['required', 'string', 'max:100', Rule::unique('bhp_kebersihan_barang', 'kode_barang')->ignore($id)],
             'nama_barang'  => ['required', 'string', 'max:200'],
+            'merk'         => ['nullable', 'string', 'max:255'],
             'satuan'       => ['required', 'string', 'max:50'],
             'stok_awal'    => [$id === null ? 'required' : 'nullable', 'integer', 'min:0'],
             'harga_satuan' => ['nullable', 'numeric', 'min:0'],
+            'foto'         => ['nullable', 'file', 'max:5120', 'mimes:jpg,jpeg,png,webp'],
         ]);
     }
 }

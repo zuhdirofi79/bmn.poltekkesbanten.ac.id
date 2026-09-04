@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace App\Services\BhpKebersihan;
 
 use App\Models\BhpKebersihan\BhpKebersihanBarang;
+use App\Support\BhpKebersihan\PublicUploadPath;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
 class BarcodeService
 {
-    public const UPLOAD_REL_DIR = 'uploads/barcode/bhp-kebersihan';
+    public const UPLOAD_REL_DIR = PublicUploadPath::BARCODE_REL_DIR;
 
     public function generateToken(): string
     {
@@ -28,7 +29,7 @@ class BarcodeService
 
     public function uploadDir(): string
     {
-        return public_path(self::UPLOAD_REL_DIR);
+        return PublicUploadPath::barcodeDir();
     }
 
     public function sanitizeKode(string $kode): string
@@ -50,26 +51,107 @@ class BarcodeService
         return self::UPLOAD_REL_DIR . '/' . $this->filename($barang);
     }
 
+    /**
+     * URL publik gambar barcode (bukan path filesystem).
+     */
     public function assetUrl(?string $relativePath): ?string
     {
-        if ($relativePath === null || $relativePath === '') {
+        $relative = PublicUploadPath::normalizeRelative($relativePath);
+        if ($relative === null) {
             return null;
         }
 
-        return asset($relativePath);
+        $url = PublicUploadPath::publicUrl($relative);
+
+        return $url !== '' ? $url : null;
+    }
+
+    /**
+     * Cari file fisik tanpa generate QR baru.
+     * Urutan: barcode_path → path dari id+kode → glob token di folder barcode.
+     */
+    public function resolveRelativePath(BhpKebersihanBarang $barang): ?string
+    {
+        $candidates = [];
+
+        $fromDb = PublicUploadPath::normalizeRelative($barang->barcode_path);
+        if ($fromDb !== null) {
+            $candidates[] = $fromDb;
+        }
+
+        if ($barang->id) {
+            $candidates[] = $this->relativePath($barang);
+        }
+
+        $candidates = array_values(array_unique($candidates));
+
+        foreach ($candidates as $relative) {
+            PublicUploadPath::ensureOnPublicDisk($relative);
+            if (PublicUploadPath::firstExistingFile($relative) !== null) {
+                return $relative;
+            }
+        }
+
+        if ($barang->barcode_token) {
+            $found = $this->findFileByTokenHint($barang);
+            if ($found !== null) {
+                PublicUploadPath::ensureOnPublicDisk($found);
+
+                return $found;
+            }
+        }
+
+        return null;
     }
 
     public function hasValidFile(BhpKebersihanBarang $barang): bool
     {
-        if ($barang->barcode_path === null || $barang->barcode_path === '') {
-            return false;
+        return $this->resolveRelativePath($barang) !== null;
+    }
+
+    public function fileUrl(BhpKebersihanBarang $barang): ?string
+    {
+        $relative = $this->resolveRelativePath($barang);
+        if ($relative === null) {
+            return null;
         }
 
-        return is_file(public_path($barang->barcode_path));
+        return $this->assetUrl($relative);
+    }
+
+    public function absoluteFilePath(BhpKebersihanBarang $barang): ?string
+    {
+        $relative = $this->resolveRelativePath($barang);
+        if ($relative === null) {
+            return null;
+        }
+
+        return PublicUploadPath::firstExistingFile($relative);
     }
 
     /**
-     * Generate QR PNG (encode URL publik detail barang) dan simpan ke disk.
+     * @return array<string,mixed>
+     */
+    public function diagnose(BhpKebersihanBarang $barang): array
+    {
+        $relative = $this->resolveRelativePath($barang);
+        $absolute = $relative !== null ? PublicUploadPath::firstExistingFile($relative) : null;
+
+        return [
+            'barcode_token' => $barang->barcode_token,
+            'barcode_path' => $barang->barcode_path,
+            'resolved_relative' => $relative,
+            'physical_file_path' => $absolute,
+            'file_exists' => $absolute !== null && is_file($absolute),
+            'public_url' => $relative !== null ? $this->assetUrl($relative) : null,
+            'scan_url' => $barang->barcode_token ? $this->publicUrl($barang->barcode_token) : null,
+            'uploads_root' => PublicUploadPath::uploadsRoot(),
+            'uploads_url' => PublicUploadPath::uploadsUrl(),
+        ];
+    }
+
+    /**
+     * Generate QR PNG (encode URL publik detail barang) dan simpan ke disk publik.
      */
     public function generateAndSave(BhpKebersihanBarang $barang, int $size = 400): string
     {
@@ -78,17 +160,18 @@ class BarcodeService
         }
 
         $dir = $this->uploadDir();
-        if (! is_dir($dir)) {
-            mkdir($dir, 0755, true);
-        }
+        PublicUploadPath::ensureDir($dir);
 
         $relativePath = $this->relativePath($barang);
-        $fullPath = public_path($relativePath);
+        $fullPath = PublicUploadPath::absolute($relativePath);
 
-        if ($barang->barcode_path !== null
-            && $barang->barcode_path !== $relativePath
-            && is_file(public_path($barang->barcode_path))) {
-            @unlink(public_path($barang->barcode_path));
+        $oldRelative = PublicUploadPath::normalizeRelative($barang->barcode_path);
+        if ($oldRelative !== null && $oldRelative !== $relativePath) {
+            foreach (PublicUploadPath::candidateAbsolutePaths($oldRelative) as $oldFile) {
+                if (is_file($oldFile) && $oldFile !== $fullPath) {
+                    @unlink($oldFile);
+                }
+            }
         }
 
         $targetUrl = $this->publicUrl($barang->barcode_token);
@@ -102,6 +185,27 @@ class BarcodeService
         $barang->save();
 
         return $relativePath;
+    }
+
+    private function findFileByTokenHint(BhpKebersihanBarang $barang): ?string
+    {
+        if (! $barang->id) {
+            return null;
+        }
+
+        $expected = $this->filename($barang);
+        foreach ([PublicUploadPath::barcodeDir(), public_path(self::UPLOAD_REL_DIR)] as $dir) {
+            $dir = rtrim(str_replace('\\', '/', $dir), '/');
+            if (! is_dir($dir)) {
+                continue;
+            }
+            $path = $dir . '/' . $expected;
+            if (is_file($path)) {
+                return self::UPLOAD_REL_DIR . '/' . $expected;
+            }
+        }
+
+        return null;
     }
 
     private function fetchQrPng(string $data, int $size): string

@@ -4,7 +4,7 @@
 
 @push('styles')
   <link rel="stylesheet" href="{{ asset('css/persediaan.css') }}?v=2">
-  <link rel="stylesheet" href="{{ asset('css/bhp-kebersihan.css') }}?v=2">
+  <link rel="stylesheet" href="{{ asset('css/bhp-kebersihan.css') }}?v=3">
 @endpush
 
 @section('content')
@@ -20,10 +20,24 @@
       </a>
     </div>
 
+    @if(!empty($fotoUrl))
+      <div class="text-center mb-3">
+        <img src="{{ $fotoUrl }}" alt="Foto {{ $barang->nama_barang }}" class="bhp-foto-detail">
+      </div>
+    @endif
+
     <div class="row g-2 mb-3 bhp-detail-meta">
+      <div class="col-6">
+        <label class="text-muted small">Nama Barang</label>
+        <div class="fw-semibold">{{ $barang->nama_barang }}</div>
+      </div>
       <div class="col-6">
         <label class="text-muted small">Kode Barang</label>
         <div class="fw-semibold">{{ $barang->kode_barang }}</div>
+      </div>
+      <div class="col-6">
+        <label class="text-muted small">Merk</label>
+        <div class="fw-semibold">{{ $barang->merk ?: '—' }}</div>
       </div>
       <div class="col-6">
         <label class="text-muted small">Satuan</label>
@@ -44,6 +58,14 @@
         <div class="bhp-stok-inline">{{ $stokTersedia }} {{ $barang->satuan }}</div>
       </div>
     </div>
+
+    @if(!empty($barcodeUrl))
+      <div class="text-center mb-3">
+        <div class="barcode-preview barcode-preview-lg d-inline-block">
+          <img src="{{ $barcodeUrl }}" alt="Barcode {{ $barang->kode_barang }}">
+        </div>
+      </div>
+    @endif
 
     <div class="text-center mb-4 p-3 rounded bhp-stok-box">
       <div class="text-muted small">Stok Tersedia (Realtime)</div>
@@ -77,12 +99,12 @@
         <input type="date" value="{{ $today }}" class="form-control" readonly disabled>
       </div>
       <div class="mb-3">
-        <label class="form-label">Jumlah Diminta <span class="text-danger">*</span></label>
-        <input type="number" name="jumlah_diminta" value="{{ old('jumlah_diminta', 1) }}" min="1" max="{{ max(1, $stokTersedia) }}" class="form-control" required>
+        <label class="form-label">Jumlah yang diambil <span class="text-danger">*</span></label>
+        <input type="number" name="jumlah_diminta" value="{{ old('jumlah_diminta', 1) }}" min="1" max="{{ max(0, $stokTersedia) }}" class="form-control" required>
         <small class="text-muted">Maksimal {{ $stokTersedia }} {{ $barang->satuan }}</small>
       </div>
       <div class="mb-3">
-        <label class="form-label">Catatan</label>
+        <label class="form-label">Catatan (opsional)</label>
         <textarea name="catatan" rows="2" class="form-control" maxlength="2000" placeholder="Opsional — kebutuhan atau lokasi penggunaan">{{ old('catatan') }}</textarea>
       </div>
       <button type="submit" class="btn btn-prs-blue w-100 btn-lg" @disabled($stokTersedia < 1)>

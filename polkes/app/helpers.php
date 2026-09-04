@@ -143,6 +143,20 @@ if (! function_exists('bmn_bukti_bayar_sewa_url')) {
     }
 }
 
+if (! function_exists('bhp_kebersihan_uploads_root')) {
+    function bhp_kebersihan_uploads_root(): string
+    {
+        return \App\Support\BhpKebersihan\PublicUploadPath::uploadsRoot();
+    }
+}
+
+if (! function_exists('bhp_kebersihan_public_url')) {
+    function bhp_kebersihan_public_url(string $relativePath): string
+    {
+        return \App\Support\BhpKebersihan\PublicUploadPath::publicUrl($relativePath);
+    }
+}
+
 if (! function_exists('getPersediaanApproverByUnit')) {
     /**
      * Ambil user approver persediaan untuk unit kerja dari config eksplisit.

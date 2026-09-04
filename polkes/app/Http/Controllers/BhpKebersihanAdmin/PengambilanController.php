@@ -14,6 +14,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class PengambilanController extends Controller
@@ -59,39 +60,56 @@ class PengambilanController extends Controller
             abort(403);
         }
 
-        $permintaan = BhpKebersihanPermintaan::with('barang')->findOrFail($id);
-
-        if (! $permintaan->canProcessPickup()) {
-            return back()->with('error', 'Permintaan tidak siap untuk pengambilan.');
-        }
-
         $data = $request->validate([
             'process_note' => ['nullable', 'string', 'max:1000'],
         ]);
 
         $userId = BhpAdminSession::userId($request);
 
-        DB::transaction(function () use ($permintaan, $data, $userId) {
-            $barang = $permintaan->barang;
-            if ($barang === null) {
-                throw new \RuntimeException('Barang tidak ditemukan.');
-            }
+        try {
+            DB::transaction(function () use ($id, $data, $userId) {
+                $permintaan = BhpKebersihanPermintaan::query()
+                    ->whereKey($id)
+                    ->lockForUpdate()
+                    ->firstOrFail();
 
-            $this->stock->recordKeluar(
-                $barang,
-                (int) $permintaan->jumlah_diminta,
-                BhpKebersihanStockMovement::SUMBER_PERMINTAAN,
-                $permintaan->id,
-                'Pengambilan permintaan ' . $permintaan->nomor_permintaan,
-                $userId,
-            );
+                if ($permintaan->status === BhpKebersihanPermintaan::STATUS_SUDAH_DIAMBIL) {
+                    return;
+                }
 
-            $permintaan->status = BhpKebersihanPermintaan::STATUS_SUDAH_DIAMBIL;
-            $permintaan->processed_by = $userId;
-            $permintaan->processed_at = Carbon::now();
-            $permintaan->process_note = $data['process_note'] ?? null;
-            $permintaan->save();
-        });
+                if (! $permintaan->canProcessPickup()) {
+                    throw ValidationException::withMessages([
+                        'status' => 'Permintaan tidak siap untuk pengambilan.',
+                    ]);
+                }
+
+                $barang = $permintaan->barang()->lockForUpdate()->first();
+                if ($barang === null) {
+                    throw new \RuntimeException('Barang tidak ditemukan.');
+                }
+
+                $this->stock->recordKeluar(
+                    $barang,
+                    (int) $permintaan->jumlah_diminta,
+                    BhpKebersihanStockMovement::SUMBER_PERMINTAAN,
+                    $permintaan->id,
+                    'Pengambilan permintaan ' . $permintaan->nomor_permintaan,
+                    $userId,
+                );
+
+                $permintaan->status = BhpKebersihanPermintaan::STATUS_SUDAH_DIAMBIL;
+                $permintaan->processed_by = $userId;
+                $permintaan->processed_at = Carbon::now();
+                $permintaan->process_note = $data['process_note'] ?? null;
+                $permintaan->save();
+            });
+        } catch (\InvalidArgumentException $e) {
+            return back()->with('error', $e->getMessage());
+        } catch (ValidationException $e) {
+            $msg = collect($e->errors())->flatten()->first() ?: 'Permintaan tidak siap untuk pengambilan.';
+
+            return back()->with('error', $msg);
+        }
 
         return back()->with('success', 'Barang sudah diambil. Stok berkurang.');
     }

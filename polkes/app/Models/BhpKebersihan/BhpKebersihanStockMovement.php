@@ -16,6 +16,8 @@ class BhpKebersihanStockMovement extends Model
     public const SUMBER_OPNAME = 'opname';
     public const SUMBER_MANUAL = 'manual';
 
+    public const CATATAN_STOK_AWAL = 'Stok awal master barang';
+
     protected $table = 'bhp_kebersihan_stock_movements';
 
     protected $fillable = [

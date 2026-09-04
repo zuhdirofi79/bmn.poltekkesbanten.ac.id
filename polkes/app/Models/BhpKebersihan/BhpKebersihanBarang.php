@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Models\BhpKebersihan;
 
+use App\Services\BhpKebersihan\BarcodeService;
+use App\Services\BhpKebersihan\FotoService;
+use App\Support\BhpKebersihan\PublicUploadPath;
 use Illuminate\Database\Eloquent\Model;
 
 class BhpKebersihanBarang extends Model
@@ -13,11 +16,14 @@ class BhpKebersihanBarang extends Model
     protected $fillable = [
         'kode_barang',
         'nama_barang',
+        'merk',
         'satuan',
         'stok_awal',
         'harga_satuan',
         'barcode_token',
         'barcode_path',
+        'foto_path',
+        'foto_original_name',
         'status',
         'created_by',
         'updated_by',
@@ -50,21 +56,33 @@ class BhpKebersihanBarang extends Model
 
     public function barcodeFileUrl(): ?string
     {
-        if ($this->barcode_path === null || $this->barcode_path === '') {
-            return null;
-        }
-
-        if (! is_file(public_path($this->barcode_path))) {
-            return null;
-        }
-
-        return asset($this->barcode_path);
+        return app(BarcodeService::class)->fileUrl($this);
     }
 
     public function hasBarcodeFile(): bool
     {
-        return $this->barcode_path !== null
-            && $this->barcode_path !== ''
-            && is_file(public_path($this->barcode_path));
+        return app(BarcodeService::class)->hasValidFile($this);
+    }
+
+    public function fotoUrl(): ?string
+    {
+        $relative = PublicUploadPath::normalizeRelative($this->foto_path);
+        if ($relative === null) {
+            return null;
+        }
+
+        PublicUploadPath::ensureOnPublicDisk($relative);
+        if (PublicUploadPath::firstExistingFile($relative) === null) {
+            return null;
+        }
+
+        $url = PublicUploadPath::publicUrl($relative);
+
+        return $url !== '' ? $url : null;
+    }
+
+    public function hasFotoFile(): bool
+    {
+        return app(FotoService::class)->hasFile($this->foto_path);
     }
 }

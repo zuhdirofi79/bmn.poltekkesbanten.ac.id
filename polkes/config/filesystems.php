@@ -55,6 +55,14 @@ return [
             'visibility' => 'public',
         ],
 
+        /*
+         * Unggahan BHP Kebersihan (barcode + foto) TIDAK memakai disk "public"
+         * (storage/app/public) karena file harus bisa diakses di
+         * https://domain/uploads/... pada document root public_html.
+         * Resolusi path: App\Support\BhpKebersihan\PublicUploadPath
+         * (BHP_KEBERSIHAN_UPLOADS_PATH atau dirname(BMN_FOTO_BASE_PATH)).
+         */
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
