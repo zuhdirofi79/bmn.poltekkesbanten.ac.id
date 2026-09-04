@@ -7,7 +7,8 @@
   <link rel="shortcut icon" type="image/png" href="{{ asset('img/fav.png') }}" />
   <link rel="stylesheet" href="{{ asset('thema/assets/css/styles.min.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/persediaan.css') }}?v=3">
-  <link rel="stylesheet" href="{{ asset('css/bhp-kebersihan.css') }}?v=6">
+  <link rel="stylesheet" href="{{ asset('css/bhp-kebersihan.css') }}?v=7">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   @stack('styles')
 </head>
 <body class="pa-body">

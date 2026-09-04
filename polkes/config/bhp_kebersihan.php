@@ -18,4 +18,22 @@ return [
     */
     'uploads_path' => env('BHP_KEBERSIHAN_UPLOADS_PATH', ''),
     'uploads_url' => env('BHP_KEBERSIHAN_UPLOADS_URL', ''),
+
+    /*
+    |----------------------------------------------------------------------
+    | OCR import foto master barang
+    |----------------------------------------------------------------------
+    | Shared hosting biasanya tidak punya Tesseract. Gunakan provider API:
+    | gemini | openai | ocrspace | tesseract | auto
+    | API key WAJIB lewat .env — jangan hard-code.
+    */
+    'ocr' => [
+        'provider' => env('BHP_OCR_PROVIDER', 'auto'),
+        'api_key' => env('BHP_OCR_API_KEY', ''),
+        'model' => env('BHP_OCR_MODEL', ''),
+        'tesseract_bin' => env('BHP_OCR_TESSERACT_BIN', ''),
+        'max_files' => 10,
+        'max_file_kb' => 8192,
+        'timeout' => 90,
+    ],
 ];

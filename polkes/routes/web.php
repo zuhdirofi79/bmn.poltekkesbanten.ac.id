@@ -250,6 +250,11 @@ Route::prefix('bhp-kebersihan')->name('bhp.admin.')->group(function (): void {
             Route::post('generate-all-barcodes', 'BhpKebersihanAdmin\MasterBarangController@generateAllBarcodes')->name('generate-all-barcodes');
             Route::post('bulk-delete', 'BhpKebersihanAdmin\MasterBarangController@bulkDestroy')->name('bulk-destroy');
             Route::get('check-kode', 'BhpKebersihanAdmin\MasterBarangController@checkKode')->name('check-kode');
+            Route::get('import-foto/status', 'BhpKebersihanAdmin\ImportFotoController@status')->name('import-foto.status');
+            Route::post('import-foto/ocr', 'BhpKebersihanAdmin\ImportFotoController@ocr')
+                ->middleware('throttle:8,1')->name('import-foto.ocr');
+            Route::post('import-foto/commit', 'BhpKebersihanAdmin\ImportFotoController@commit')
+                ->middleware('throttle:10,1')->name('import-foto.commit');
             Route::post('/', 'BhpKebersihanAdmin\MasterBarangController@store')->name('store');
             Route::get('{id}', 'BhpKebersihanAdmin\MasterBarangController@show')->where('id', '[0-9]+')->name('show');
             Route::put('{id}', 'BhpKebersihanAdmin\MasterBarangController@update')->where('id', '[0-9]+')->name('update');

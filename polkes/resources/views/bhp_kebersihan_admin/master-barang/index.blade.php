@@ -15,6 +15,11 @@
       <button type="submit" class="btn btn-prs-blue btn-sm">Filter</button>
     </form>
     <div class="d-flex gap-2 flex-wrap">
+      @if(!empty($canManageMaster))
+      <button type="button" class="btn btn-prs-blue btn-sm" id="btnImportFoto">
+        <i class="ti ti-camera"></i> Import Barang by Foto
+      </button>
+      @endif
       <a href="{{ route('bhp.admin.master-barang.export') }}" class="btn btn-outline-success btn-sm">Export Excel</a>
       <form method="POST" action="{{ route('bhp.admin.master-barang.generate-all-barcodes') }}" class="d-inline" id="formGenerateAll">
         @csrf
@@ -169,6 +174,8 @@
   </form>
   <small class="text-muted d-block mt-1">Foto opsional: JPG/PNG/WEBP, maks. 5 MB. Stok awal = saldo awal, tidak dicatat ulang sebagai barang masuk.</small>
 </div>
+
+@include('bhp_kebersihan_admin.master-barang._import_foto_modal')
 
 <div class="modal fade bhp-edit-modal" id="bhpEditModal" tabindex="-1" aria-labelledby="bhpEditModalTitle" aria-modal="true" role="dialog" data-bs-backdrop="true" data-bs-keyboard="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable bhp-edit-modal-dialog">
@@ -962,4 +969,15 @@
   }
 })();
 </script>
+@if(!empty($canManageMaster))
+<script type="application/json" id="bhpImportFotoConfig">
+{!! json_encode([
+    'status_url' => route('bhp.admin.master-barang.import-foto.status'),
+    'ocr_url' => route('bhp.admin.master-barang.import-foto.ocr'),
+    'commit_url' => route('bhp.admin.master-barang.import-foto.commit'),
+    'max_files' => (int) config('bhp_kebersihan.ocr.max_files', 10),
+], JSON_UNESCAPED_SLASHES) !!}
+</script>
+<script src="{{ asset('js/bhp-import-foto.js') }}?v=1"></script>
+@endif
 @endpush
