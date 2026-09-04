@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace App\Services\BhpKebersihan;
 
+use App\Support\BhpKebersihan\PublicUploadPath;
 use Illuminate\Support\Facades\Http;
 
 /**
- * Label QR horizontal: QR + logo Poltekkes di tengah, nama & kode di kanan.
+ * Label QR horizontal: QR + logo resmi Kemenkes Poltekkes Banten di tengah, nama & kode di kanan.
  */
 final class BarcodeLabelRenderer
 {
@@ -19,14 +20,17 @@ final class BarcodeLabelRenderer
 
     public const PAD = 48;
 
-    public const LOGO_RATIO = 0.22;
+    public const LOGO_RATIO = 0.24;
 
     /** @var callable|null */
     private $qrPngFetcher;
 
-    public function __construct(?callable $qrPngFetcher = null)
+    private ?string $logoAbsolutePath;
+
+    public function __construct(?callable $qrPngFetcher = null, ?string $logoAbsolutePath = null)
     {
         $this->qrPngFetcher = $qrPngFetcher;
+        $this->logoAbsolutePath = $logoAbsolutePath;
     }
 
     public function render(string $scanUrl, string $namaBarang, string $kodeBarang): string
@@ -132,25 +136,28 @@ final class BarcodeLabelRenderer
         $white = imagecolorallocate($qr, 255, 255, 255);
         imagefilledellipse($qr, $cx, $cy, $diameter, $diameter, $white);
 
-        $logo = $this->loadLogo();
-        if ($logo !== null) {
-            $logoSize = (int) round($diameter * 0.78);
-            $dstX = (int) ($cx - $logoSize / 2);
-            $dstY = (int) ($cy - $logoSize / 2);
-            imagecopyresampled(
-                $qr,
-                $logo,
-                $dstX,
-                $dstY,
-                0,
-                0,
-                $logoSize,
-                $logoSize,
-                imagesx($logo),
-                imagesy($logo)
-            );
-            imagedestroy($logo);
-        }
+        $logo = $this->loadOfficialLogo();
+        $maxLogo = (int) round($diameter * 0.78);
+        $srcW = imagesx($logo);
+        $srcH = imagesy($logo);
+        $scale = min($maxLogo / max($srcW, 1), $maxLogo / max($srcH, 1));
+        $dstW = max(1, (int) round($srcW * $scale));
+        $dstH = max(1, (int) round($srcH * $scale));
+        $dstX = (int) ($cx - $dstW / 2);
+        $dstY = (int) ($cy - $dstH / 2);
+        imagecopyresampled(
+            $qr,
+            $logo,
+            $dstX,
+            $dstY,
+            0,
+            0,
+            $dstW,
+            $dstH,
+            $srcW,
+            $srcH
+        );
+        imagedestroy($logo);
 
         return $qr;
     }
@@ -189,49 +196,35 @@ final class BarcodeLabelRenderer
     }
 
     /**
-     * @return \GdImage|null
+     * @return \GdImage
      */
-    private function loadLogo()
+    private function loadOfficialLogo()
     {
-        foreach ([public_path('img/logo.png'), public_path('img/fav.png')] as $path) {
-            if (! is_file($path)) {
-                continue;
-            }
-            $img = @imagecreatefromstring((string) file_get_contents($path));
-            if ($img === false) {
-                continue;
-            }
-            $img = $this->ensureTrueColor($img);
-            $this->makeDarkBackgroundTransparent($img);
-
-            return $img;
+        $path = $this->resolveOfficialLogoPath();
+        $raw = @file_get_contents($path);
+        if (! is_string($raw) || $raw === '') {
+            throw new \RuntimeException('Logo Poltekkes Banten terbaru tidak ditemukan.');
         }
 
-        return null;
+        $img = @imagecreatefromstring($raw);
+        if ($img === false) {
+            throw new \RuntimeException('Logo Poltekkes Banten terbaru tidak ditemukan.');
+        }
+
+        return $this->ensureTrueColor($img);
     }
 
-    /**
-     * @param  \GdImage  $img
-     */
-    private function makeDarkBackgroundTransparent($img): void
+    private function resolveOfficialLogoPath(): string
     {
-        imagealphablending($img, false);
-        imagesavealpha($img, true);
-        $transparent = imagecolorallocatealpha($img, 0, 0, 0, 127);
-        $w = imagesx($img);
-        $h = imagesy($img);
-        for ($y = 0; $y < $h; $y++) {
-            for ($x = 0; $x < $w; $x++) {
-                $rgba = imagecolorat($img, $x, $y);
-                $r = ($rgba >> 16) & 0xFF;
-                $g = ($rgba >> 8) & 0xFF;
-                $b = $rgba & 0xFF;
-                if ($r < 28 && $g < 28 && $b < 28) {
-                    imagesetpixel($img, $x, $y, $transparent);
-                }
+        if ($this->logoAbsolutePath !== null && $this->logoAbsolutePath !== '') {
+            if (PublicUploadPath::isDeprecatedLogoFile($this->logoAbsolutePath) || ! is_file($this->logoAbsolutePath)) {
+                throw new \RuntimeException('Logo Poltekkes Banten terbaru tidak ditemukan.');
             }
+
+            return $this->logoAbsolutePath;
         }
-        imagealphablending($img, true);
+
+        return PublicUploadPath::officialLogoAbsolutePath();
     }
 
     /**

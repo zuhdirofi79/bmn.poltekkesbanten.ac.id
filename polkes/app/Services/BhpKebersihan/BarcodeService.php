@@ -113,7 +113,8 @@ class BarcodeService
     }
 
     /**
-     * File label baru (horizontal). File QR kotak lama dianggap perlu diganti.
+     * File label horizontal sudah ada. Hanya diagnostik — Generate Semua
+     * tetap meregenerate meski method ini true.
      */
     public function hasNewLabelFile(BhpKebersihanBarang $barang): bool
     {
@@ -128,11 +129,6 @@ class BarcodeService
         }
 
         return $info[0] >= (int) ($info[1] * 1.3);
-    }
-
-    public function needsGeneration(BhpKebersihanBarang $barang): bool
-    {
-        return ! $this->hasNewLabelFile($barang);
     }
 
     public function fileUrl(BhpKebersihanBarang $barang): ?string
@@ -191,7 +187,7 @@ class BarcodeService
 
     /**
      * Generate label QR PNG (encode URL publik detail barang) dan simpan ke disk publik.
-     * Tidak mengganti barcode_token yang sudah ada.
+     * Tidak mengganti barcode_token yang sudah ada. File lama dipertahankan sampai PNG baru valid.
      */
     public function generateAndSave(BhpKebersihanBarang $barang, int $size = 400): string
     {
@@ -208,6 +204,26 @@ class BarcodeService
         $relativePath = $this->relativePath($barang);
         $fullPath = PublicUploadPath::absolute($relativePath);
 
+        $targetUrl = $this->publicUrl($barang->barcode_token);
+        $png = $this->labels->render(
+            $targetUrl,
+            (string) $barang->nama_barang,
+            (string) $barang->kode_barang
+        );
+
+        $tmpPath = $fullPath . '.tmp-' . bin2hex(random_bytes(4));
+        if (file_put_contents($tmpPath, $png) === false) {
+            throw new \RuntimeException('Gagal menyimpan file barcode sementara ke ' . $relativePath);
+        }
+
+        $info = @getimagesize($tmpPath);
+        if ($info === false || ($info[0] ?? 0) < 200 || ($info[1] ?? 0) < 100) {
+            @unlink($tmpPath);
+            throw new \RuntimeException('File barcode hasil generate tidak valid.');
+        }
+
+        $this->replaceFileKeepingOldOnFailure($tmpPath, $fullPath);
+
         $oldRelative = PublicUploadPath::normalizeRelative($barang->barcode_path);
         if ($oldRelative !== null && $oldRelative !== $relativePath) {
             foreach (PublicUploadPath::candidateAbsolutePaths($oldRelative) as $oldFile) {
@@ -217,21 +233,33 @@ class BarcodeService
             }
         }
 
-        $targetUrl = $this->publicUrl($barang->barcode_token);
-        $png = $this->labels->render(
-            $targetUrl,
-            (string) $barang->nama_barang,
-            (string) $barang->kode_barang
-        );
-
-        if (file_put_contents($fullPath, $png) === false) {
-            throw new \RuntimeException('Gagal menyimpan file barcode ke ' . $relativePath);
-        }
-
         $barang->barcode_path = $relativePath;
         $barang->save();
 
         return $relativePath;
+    }
+
+    private function replaceFileKeepingOldOnFailure(string $tmpPath, string $fullPath): void
+    {
+        $replaced = false;
+        if (is_file($fullPath)) {
+            $replaced = @copy($tmpPath, $fullPath) && is_file($fullPath);
+        } else {
+            $replaced = @rename($tmpPath, $fullPath) && is_file($fullPath);
+            if (! $replaced) {
+                $replaced = @copy($tmpPath, $fullPath) && is_file($fullPath);
+            }
+        }
+
+        $tmpReal = is_file($tmpPath) ? realpath($tmpPath) : false;
+        $fullReal = is_file($fullPath) ? realpath($fullPath) : false;
+        if ($tmpReal !== false && $tmpReal !== $fullReal) {
+            @unlink($tmpPath);
+        }
+
+        if (! $replaced || ! is_file($fullPath)) {
+            throw new \RuntimeException('Gagal menimpa file barcode. File lama tetap dipertahankan.');
+        }
     }
 
     private function findFileByTokenHint(BhpKebersihanBarang $barang): ?string

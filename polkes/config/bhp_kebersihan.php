@@ -21,6 +21,16 @@ return [
 
     /*
     |----------------------------------------------------------------------
+    | Logo resmi pada generated barcode (compositing server-side)
+    |----------------------------------------------------------------------
+    | WAJIB file logo.png "Kemenkes Poltekkes Banten".
+    | Kosong = cari public_html/img/logo.png, lalu public/img/logo.png.
+    | Jangan isi logo1.png / fav1.png / fav.png (logo lama).
+    */
+    'barcode_logo_path' => env('BHP_BARCODE_LOGO_PATH', ''),
+
+    /*
+    |----------------------------------------------------------------------
     | OCR import foto master barang
     |----------------------------------------------------------------------
     | Shared hosting biasanya tidak punya Tesseract. Gunakan provider API:

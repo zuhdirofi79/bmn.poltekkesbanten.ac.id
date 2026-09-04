@@ -88,4 +88,90 @@ class PublicUploadPathTest extends TestCase
         $this->assertStringContainsString('contoh-merk', $name);
         $this->assertStringEndsWith('.png', $name);
     }
+
+    public function test_deprecated_logo_filenames_are_rejected(): void
+    {
+        $this->assertTrue(PublicUploadPath::isDeprecatedLogoFile('img/logo1.png'));
+        $this->assertTrue(PublicUploadPath::isDeprecatedLogoFile('img/fav1.png'));
+        $this->assertTrue(PublicUploadPath::isDeprecatedLogoFile('img/fav.png'));
+        $this->assertFalse(PublicUploadPath::isDeprecatedLogoFile('img/logo.png'));
+    }
+
+    public function test_official_logo_prefers_document_root_logo_png(): void
+    {
+        $root = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'bhp-logo-root-' . uniqid('', true);
+        $uploads = $root . DIRECTORY_SEPARATOR . 'uploads';
+        $img = $root . DIRECTORY_SEPARATOR . 'img';
+        mkdir($uploads, 0777, true);
+        mkdir($img, 0777, true);
+
+        $official = $img . DIRECTORY_SEPARATOR . 'logo.png';
+        $old = $img . DIRECTORY_SEPARATOR . 'logo1.png';
+        file_put_contents($official, $this->tinyPng());
+        file_put_contents($old, $this->tinyPng());
+
+        config([
+            'bhp_kebersihan.uploads_path' => $uploads,
+            'bhp_kebersihan.barcode_logo_path' => '',
+        ]);
+
+        $found = PublicUploadPath::officialLogoAbsolutePath();
+        $this->assertSame(
+            str_replace('\\', '/', $official),
+            str_replace('\\', '/', $found)
+        );
+        $this->assertStringEndsWith('/img/logo.png', str_replace('\\', '/', $found));
+        $this->assertStringNotContainsString('logo1.png', $found);
+        $this->assertStringNotContainsString('fav1.png', $found);
+
+        @unlink($official);
+        @unlink($old);
+        @rmdir($img);
+        @rmdir($uploads);
+        @rmdir($root);
+    }
+
+    public function test_official_logo_skips_explicit_deprecated_path(): void
+    {
+        $root = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'bhp-logo-skip-' . uniqid('', true);
+        $uploads = $root . DIRECTORY_SEPARATOR . 'uploads';
+        $img = $root . DIRECTORY_SEPARATOR . 'img';
+        mkdir($uploads, 0777, true);
+        mkdir($img, 0777, true);
+
+        $official = $img . DIRECTORY_SEPARATOR . 'logo.png';
+        $deprecated = $img . DIRECTORY_SEPARATOR . 'logo1.png';
+        file_put_contents($official, $this->tinyPng());
+        file_put_contents($deprecated, $this->tinyPng());
+
+        config([
+            'bhp_kebersihan.uploads_path' => $uploads,
+            'bhp_kebersihan.barcode_logo_path' => $deprecated,
+        ]);
+
+        $found = PublicUploadPath::officialLogoAbsolutePath();
+        $this->assertSame(
+            str_replace('\\', '/', $official),
+            str_replace('\\', '/', $found)
+        );
+
+        @unlink($official);
+        @unlink($deprecated);
+        @rmdir($img);
+        @rmdir($uploads);
+        @rmdir($root);
+    }
+
+    private function tinyPng(): string
+    {
+        $im = imagecreatetruecolor(16, 16);
+        $green = imagecolorallocate($im, 0, 128, 80);
+        imagefilledrectangle($im, 0, 0, 16, 16, $green);
+        ob_start();
+        imagepng($im);
+        $png = (string) ob_get_clean();
+        imagedestroy($im);
+
+        return $png;
+    }
 }

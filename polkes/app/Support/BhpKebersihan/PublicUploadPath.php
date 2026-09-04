@@ -193,6 +193,75 @@ final class PublicUploadPath
         }
     }
 
+    /**
+     * Document root tempat browser membaca /img/logo.png.
+     * Pada Hostinger ini public_html, bukan folder public Laravel.
+     */
+    public static function documentRoot(): string
+    {
+        return rtrim(str_replace('\\', '/', dirname(self::uploadsRoot())), '/');
+    }
+
+    public static function isDeprecatedLogoFile(string $path): bool
+    {
+        $base = strtolower(basename(str_replace('\\', '/', $path)));
+
+        return in_array($base, ['logo1.png', 'fav1.png', 'fav.png'], true);
+    }
+
+    /**
+     * Kandidat path logo resmi barcode: hanya logo.png (Kemenkes Poltekkes Banten).
+     * Urutan: env eksplisit → public_html/img/logo.png → public/img/logo.png.
+     *
+     * @return list<string>
+     */
+    public static function officialLogoCandidatePaths(): array
+    {
+        $paths = [];
+
+        $explicit = trim((string) (config('bhp_kebersihan.barcode_logo_path') ?? ''));
+        if ($explicit !== '') {
+            $paths[] = $explicit;
+        }
+
+        $paths[] = self::documentRoot() . '/img/logo.png';
+        $paths[] = rtrim(str_replace('\\', '/', (string) public_path('img/logo.png')), '/');
+        $paths[] = rtrim(str_replace('\\', '/', dirname((string) public_path())), '/') . '/img/logo.png';
+        $paths[] = rtrim(str_replace('\\', '/', dirname((string) base_path())), '/') . '/img/logo.png';
+
+        $normalized = [];
+        foreach ($paths as $path) {
+            $path = rtrim(str_replace('\\', '/', $path), '/');
+            if ($path === '' || in_array($path, $normalized, true)) {
+                continue;
+            }
+            $normalized[] = $path;
+        }
+
+        return $normalized;
+    }
+
+    /**
+     * Path filesystem logo resmi untuk compositing QR.
+     * Tidak pernah memakai logo1.png / fav1.png / fav.png.
+     */
+    public static function officialLogoAbsolutePath(): string
+    {
+        foreach (self::officialLogoCandidatePaths() as $path) {
+            if (self::isDeprecatedLogoFile($path)) {
+                continue;
+            }
+            if (strtolower(basename($path)) !== 'logo.png') {
+                continue;
+            }
+            if (is_file($path) && (int) filesize($path) > 100) {
+                return $path;
+            }
+        }
+
+        throw new \RuntimeException('Logo Poltekkes Banten terbaru tidak ditemukan.');
+    }
+
     private static function stripUploadsPrefix(string $relative): string
     {
         if (str_starts_with($relative, 'uploads/')) {

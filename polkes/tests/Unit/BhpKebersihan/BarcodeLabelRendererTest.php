@@ -11,7 +11,8 @@ class BarcodeLabelRendererTest extends TestCase
 {
     public function test_render_menghasilkan_png_horizontal_dengan_nama_dan_kode(): void
     {
-        $renderer = new BarcodeLabelRenderer(fn () => $this->squarePng(240));
+        $logo = $this->writeTempPng('logo.png');
+        $renderer = new BarcodeLabelRenderer(fn () => $this->squarePng(240), $logo);
         $png = $renderer->render(
             'https://bmn.poltekkesbanten.ac.id/public/bhp-kebersihan/barang/wadi2oldeddpf0imhi6vaptbbzbg5ulv',
             'Wipol 4.5 L',
@@ -24,6 +25,35 @@ class BarcodeLabelRendererTest extends TestCase
         $this->assertSame(BarcodeLabelRenderer::CANVAS_H, $info[1]);
         $this->assertGreaterThan($info[1], $info[0]);
         $this->assertSame('image/png', $info['mime']);
+        @unlink($logo);
+    }
+
+    public function test_render_menolak_logo_lama(): void
+    {
+        $oldLogo = $this->writeTempPng('logo1.png');
+        $renderer = new BarcodeLabelRenderer(fn () => $this->squarePng(240), $oldLogo);
+
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Logo Poltekkes Banten terbaru tidak ditemukan.');
+        try {
+            $renderer->render(
+                'https://bmn.poltekkesbanten.ac.id/public/bhp-kebersihan/barang/wadi2oldeddpf0imhi6vaptbbzbg5ulv',
+                'Floor Cleaner (SOS)',
+                'KBR-01-001'
+            );
+        } finally {
+            @unlink($oldLogo);
+        }
+    }
+
+    private function writeTempPng(string $basename): string
+    {
+        $dir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'bhp-test-' . uniqid('', true);
+        mkdir($dir, 0777, true);
+        $path = $dir . DIRECTORY_SEPARATOR . $basename;
+        file_put_contents($path, $this->squarePng(80));
+
+        return $path;
     }
 
     private function squarePng(int $size): string

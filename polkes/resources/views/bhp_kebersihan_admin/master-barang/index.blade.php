@@ -30,6 +30,12 @@
     </div>
   </div>
 
+  @if(!empty($allActiveHaveBarcode))
+  <div class="alert alert-info">
+    Semua barang aktif sudah memiliki barcode. Anda tetap dapat menghasilkan ulang seluruh barcode menggunakan desain terbaru.
+  </div>
+  @endif
+
   @if(!empty($canManageMaster))
   <div id="bhpBulkBar" class="bhp-bulk-bar d-none mb-3">
     <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">

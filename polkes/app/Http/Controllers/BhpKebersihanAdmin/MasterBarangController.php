@@ -59,13 +59,21 @@ class MasterBarangController extends Controller
             $fotoUrlMap[$b->id] = $b->fotoUrl();
         }
 
+        $activeCount = BhpKebersihanBarang::query()->where('status', 'aktif')->count();
+        $activeWithBarcode = BhpKebersihanBarang::query()
+            ->where('status', 'aktif')
+            ->whereNotNull('barcode_path')
+            ->where('barcode_path', '!=', '')
+            ->count();
+
         return view('bhp_kebersihan_admin.master-barang.index', [
-            'barang'           => $barang,
-            'stokMap'          => $stokMap,
-            'barcodeUrlMap'    => $barcodeUrlMap,
-            'fotoUrlMap'       => $fotoUrlMap,
-            'filters'          => $request->only(['q', 'status']),
-            'canManageMaster'  => BhpAccess::canManageMaster(BhpAdminSession::role($request)),
+            'barang'                 => $barang,
+            'stokMap'                => $stokMap,
+            'barcodeUrlMap'          => $barcodeUrlMap,
+            'fotoUrlMap'             => $fotoUrlMap,
+            'filters'                => $request->only(['q', 'status']),
+            'canManageMaster'        => BhpAccess::canManageMaster(BhpAdminSession::role($request)),
+            'allActiveHaveBarcode'   => $activeCount > 0 && $activeCount === $activeWithBarcode,
         ]);
     }
 
@@ -511,18 +519,19 @@ class MasterBarangController extends Controller
         }
 
         $generated = 0;
-        $skipped = 0;
         $failed = 0;
         $total = (clone $query)->count();
 
-        $query->chunkById(15, function ($barangs) use (&$generated, &$skipped, &$failed): void {
+        if ($total === 0) {
+            $msg = $scope === 'selected'
+                ? 'Tidak ada barang aktif terpilih untuk digenerate.'
+                : 'Tidak ada barang aktif untuk digenerate.';
+
+            return back()->with('error', $msg);
+        }
+
+        $query->chunkById(15, function ($barangs) use (&$generated, &$failed): void {
             foreach ($barangs as $barang) {
-                if (! $this->barcode->needsGeneration($barang)) {
-                    $skipped++;
-
-                    continue;
-                }
-
                 $tokenBefore = (string) $barang->barcode_token;
                 try {
                     $this->barcode->generateAndSave($barang);
@@ -540,18 +549,7 @@ class MasterBarangController extends Controller
             }
         });
 
-        if ($generated === 0 && $failed === 0) {
-            $msg = $scope === 'selected'
-                ? 'Semua barang terpilih sudah memiliki label QR baru.'
-                : 'Semua barang aktif sudah memiliki label QR baru.';
-
-            return back()->with('success', $msg);
-        }
-
-        $msg = "Barcode berhasil dibuat: {$generated} barang.";
-        if ($skipped > 0) {
-            $msg .= " {$skipped} dilewati karena file label sudah ada.";
-        }
+        $msg = "Berhasil menghasilkan ulang barcode untuk {$generated} barang.";
         if ($failed > 0) {
             $msg .= " {$failed} gagal.";
         }
