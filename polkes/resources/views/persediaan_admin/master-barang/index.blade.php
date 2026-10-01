@@ -261,7 +261,7 @@
       </tbody>
     </table>
   </div>
-  <div class="mt-3">{{ $barang->links() }}</div>
+  <div class="mt-3">{{ $barang->links('persediaan_admin.master-barang.pagination') }}</div>
 </div>
 
 {{-- Modal Import Excel --}}

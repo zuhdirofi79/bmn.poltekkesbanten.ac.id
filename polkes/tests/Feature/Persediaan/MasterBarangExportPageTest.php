@@ -141,6 +141,26 @@ class MasterBarangExportPageTest extends TestCase
         $this->assertSame('Tidak ada data untuk diekspor.', $empty->getSession()->get('error'));
     }
 
+    public function test_pagination_view_memakai_ikon_kecil_dan_menyimpan_filter(): void
+    {
+        $this->seedBarang(21, UnitKerja::DIREKTORAT, 'DIR');
+
+        $page = $this->index(['unit' => UnitKerja::DIREKTORAT, 'per_page' => 20]);
+        $html = $page->links('persediaan_admin.master-barang.pagination')->toHtml();
+
+        $this->assertStringNotContainsString('w-5 h-5', $html);
+        $this->assertStringContainsString('width="16"', $html);
+        $this->assertStringContainsString('height="16"', $html);
+        $this->assertStringContainsString('class="master-barang-pagination"', $html);
+        $this->assertStringContainsString('Previous', $html);
+        $this->assertStringContainsString('Next', $html);
+        $this->assertStringContainsString('aria-disabled="true"', $html);
+        $this->assertStringContainsString('unit=' . urlencode(UnitKerja::DIREKTORAT), $html);
+        $this->assertStringContainsString('per_page=20', $html);
+        $this->assertStringContainsString('page=2', $html);
+        $this->assertStringContainsString('.master-barang-pagination svg', $html);
+    }
+
     private function index(array $query = [])
     {
         $qs = $query === [] ? '' : '?' . http_build_query($query);
