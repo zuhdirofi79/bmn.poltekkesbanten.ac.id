@@ -202,6 +202,7 @@ Route::prefix('persediaan')->name('persediaan.admin.')->group(function (): void 
         // Master Barang
         Route::prefix('master-barang')->name('master-barang.')->group(function (): void {
             Route::get('/', 'PersediaanAdmin\MasterBarangController@index')->name('index');
+            Route::get('export', 'PersediaanAdmin\MasterBarangController@exportExcel')->name('export');
             Route::get('template-excel', 'PersediaanAdmin\MasterBarangController@templateExcel')->name('template');
             Route::post('import-excel', 'PersediaanAdmin\MasterBarangController@importExcel')->name('import');
             Route::post('generate-barcodes', 'PersediaanAdmin\MasterBarangController@generateBarcodes')->name('generate-barcodes');

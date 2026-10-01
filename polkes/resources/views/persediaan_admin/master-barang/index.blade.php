@@ -14,6 +14,16 @@
     <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#importModal">
       <i class="ti ti-file-spreadsheet"></i> Import Excel
     </button>
+    @if($barang->total() === 0)
+      <button type="button" class="btn btn-outline-success btn-sm" disabled>
+        <i class="ti ti-file-export"></i> Export Excel
+      </button>
+    @else
+      <a href="{{ route('persediaan.admin.master-barang.export', request()->except('page')) }}"
+         class="btn btn-outline-success btn-sm" id="exportMasterBarangBtn">
+        <i class="ti ti-file-export"></i> Export Excel
+      </a>
+    @endif
     <button class="btn btn-prs-green btn-sm" data-bs-toggle="modal" data-bs-target="#addModal">
       <i class="ti ti-plus"></i> Tambah Barang
     </button>
@@ -65,6 +75,7 @@
         <input type="hidden" name="{{ $fKey }}" value="{{ $fVal }}">
       @endif
     @endforeach
+    <input type="hidden" name="per_page" value="{{ $perPage }}">
     <div class="col-md-3">
       <label class="form-label">Unit Kerja</label>
       <select name="unit" class="form-select form-select-sm">
@@ -96,7 +107,25 @@
 
 <div class="pa-card">
   <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
-    <div class="small text-muted">
+    <div class="small text-muted d-flex flex-wrap align-items-center gap-2">
+      <form method="GET" action="{{ route('persediaan.admin.master-barang.index') }}" class="d-flex align-items-center gap-2 mb-0">
+        @foreach(request()->except(['per_page', 'page']) as $key => $val)
+          @if(is_array($val))
+            @foreach($val as $fv)
+              <input type="hidden" name="{{ $key }}[]" value="{{ $fv }}">
+            @endforeach
+          @elseif($val !== null && $val !== '')
+            <input type="hidden" name="{{ $key }}" value="{{ $val }}">
+          @endif
+        @endforeach
+        <label for="perPageSelect" class="mb-0">Show</label>
+        <select name="per_page" id="perPageSelect" class="form-select form-select-sm" style="width:auto;" onchange="this.form.submit()">
+          @foreach($perPageOptions as $option)
+            <option value="{{ $option }}" @selected($perPage === $option)>{{ $option }}</option>
+          @endforeach
+        </select>
+        <span>rows</span>
+      </form>
       <span id="barangSelectedCount">0</span> barang dipilih
       @if($barang->total() > 0)
         <span class="text-muted">
@@ -397,6 +426,7 @@
     });
     if (params.get('unit')) out.unit = params.get('unit');
     if (params.get('q')) out.q = params.get('q');
+    if (params.get('per_page')) out.per_page = params.get('per_page');
     return out;
   }
 
@@ -412,6 +442,7 @@
 
     if (merged.unit) parts.push('unit=' + encodeURIComponent(merged.unit));
     if (merged.q) parts.push('q=' + encodeURIComponent(merged.q));
+    if (merged.per_page) parts.push('per_page=' + encodeURIComponent(merged.per_page));
 
     COLUMN_PARAMS.forEach(function (key) {
       var vals = merged[key];
@@ -563,6 +594,27 @@
     var btn = document.querySelector('.pa-col-filter-btn[data-col="' + openDropdown.dataset.col + '"]');
     if (btn) positionDropdown(btn, openDropdown);
   });
+
+  var exportBtn = document.getElementById('exportMasterBarangBtn');
+  if (exportBtn) {
+    exportBtn.addEventListener('click', function (e) {
+      if (exportBtn.dataset.loading === '1') {
+        e.preventDefault();
+        return;
+      }
+      exportBtn.dataset.loading = '1';
+      exportBtn.classList.add('disabled');
+      exportBtn.setAttribute('aria-disabled', 'true');
+      var label = exportBtn.innerHTML;
+      exportBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Menyiapkan...';
+      window.setTimeout(function () {
+        exportBtn.dataset.loading = '0';
+        exportBtn.classList.remove('disabled');
+        exportBtn.removeAttribute('aria-disabled');
+        exportBtn.innerHTML = label;
+      }, 4000);
+    });
+  }
 
   window.addEventListener('scroll', function () {
     if (!openDropdown) return;

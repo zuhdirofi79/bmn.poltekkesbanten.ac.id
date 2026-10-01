@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\PersediaanAdmin;
 
+use App\Exports\Persediaan\MasterBarangExport;
 use App\Exports\Persediaan\MasterBarangTemplateExport;
 use App\Http\Controllers\Controller;
 use App\Imports\PersediaanMasterBarangImport;
@@ -29,6 +30,9 @@ class MasterBarangController extends Controller
     {
     }
 
+    /** @var list<int> */
+    private const PER_PAGE_OPTIONS = [20, 100, 500, 1000];
+
     /** @var list<string> */
     private const COLUMN_FILTER_KEYS = [
         'kode_barang',
@@ -45,33 +49,49 @@ class MasterBarangController extends Controller
     {
         $columnFilters = $this->extractColumnFilters($request);
         $baseQuery = $this->scopedBarangQuery($request);
+        $perPage = $this->perPage($request);
 
-        $query = (clone $baseQuery)
-            ->when($request->filled('unit'), fn ($q) => $q->where('unit_kerja', $request->input('unit')))
-            ->when($request->filled('q'), function ($q) use ($request) {
-                $term = '%' . $request->input('q') . '%';
-                $q->where(fn ($w) => $w->where('kode_barang', 'like', $term)->orWhere('nama_barang', 'like', $term));
-            });
-
-        $this->applyColumnFilters($query, $columnFilters);
-
-        $barang = $query
+        $barang = $this->applyListFilters(clone $baseQuery, $request, $columnFilters)
             ->with('rakAssignment.rak')
             ->orderBy('unit_kerja')
             ->orderBy('kode_barang')
-            ->paginate(20)
+            ->paginate($perPage)
             ->withQueryString();
 
         $satker = $this->effectiveSatker($request);
 
         return view('persediaan_admin.master-barang.index', [
-            'barang'        => $barang,
-            'units'         => $satker !== null ? [$satker] : UnitKerja::all(),
-            'filters'       => array_merge($request->only(['unit', 'q']), $columnFilters),
-            'filterOptions' => $this->buildFilterOptions($baseQuery),
+            'barang'          => $barang,
+            'units'           => $satker !== null ? [$satker] : UnitKerja::all(),
+            'filters'         => array_merge($request->only(['unit', 'q']), $columnFilters),
+            'filterOptions'   => $this->buildFilterOptions($baseQuery),
             'hasColumnFilter' => $columnFilters !== [],
-            'barcodeUrls'   => $this->barcodeUrlsForPage($barang),
+            'barcodeUrls'     => $this->barcodeUrlsForPage($barang),
+            'perPage'         => $perPage,
+            'perPageOptions'  => self::PER_PAGE_OPTIONS,
         ]);
+    }
+
+    public function exportExcel(Request $request): BinaryFileResponse|RedirectResponse
+    {
+        $query = $this->applyListFilters(
+            $this->scopedBarangQuery($request),
+            $request,
+            $this->extractColumnFilters($request),
+        );
+
+        if (! (clone $query)->exists()) {
+            return back()->with('error', 'Tidak ada data untuk diekspor.');
+        }
+
+        $filename = 'Master_Barang_Persediaan_' . now()->format('Ymd_His') . '.xlsx';
+
+        return Excel::download(
+            new MasterBarangExport(
+                $query->with('rakAssignment.rak')->orderBy('unit_kerja')->orderBy('kode_barang'),
+            ),
+            $filename,
+        );
     }
 
     public function store(Request $request): RedirectResponse
@@ -162,6 +182,38 @@ class MasterBarangController extends Controller
         return back()
             ->with('success', $msg)
             ->with('master_barang_import_errors', $errors);
+    }
+
+    /**
+     * Filter yang sama untuk halaman dan export. Tidak memakai paginate().
+     *
+     * @param  Builder<PersediaanBarang>  $query
+     * @param  array<string, list<string>>  $columnFilters
+     * @return Builder<PersediaanBarang>
+     */
+    private function applyListFilters(Builder $query, Request $request, array $columnFilters): Builder
+    {
+        $query
+            ->when($request->filled('unit'), fn ($q) => $q->where('unit_kerja', $request->input('unit')))
+            ->when($request->filled('q'), function ($q) use ($request) {
+                $term = '%' . $request->input('q') . '%';
+                $q->where(fn ($w) => $w->where('kode_barang', 'like', $term)->orWhere('nama_barang', 'like', $term));
+            });
+
+        $this->applyColumnFilters($query, $columnFilters);
+
+        return $query;
+    }
+
+    private function perPage(Request $request): int
+    {
+        $perPage = (int) $request->query('per_page', 20);
+
+        if (! in_array($perPage, self::PER_PAGE_OPTIONS, true)) {
+            return 20;
+        }
+
+        return $perPage;
     }
 
     /**
@@ -258,7 +310,7 @@ class MasterBarangController extends Controller
     private function buildFilterOptions(Builder $baseQuery): array
     {
         $distinct = static function (Builder $q, string $col): array {
-            return $q->clone()
+            return (clone $q)
                 ->select($col)
                 ->distinct()
                 ->orderBy($col)
