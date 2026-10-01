@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Http\Controllers\PersediaanAdmin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Persediaan\PersediaanBarang;
 use App\Models\Persediaan\PersediaanPermintaan;
 use App\Models\Persediaan\PersediaanStockMovement;
+use App\Services\Persediaan\PersediaanValuationService;
 use App\Services\Persediaan\StockService;
 use App\Support\Persediaan\PersediaanAccess;
 use Illuminate\Http\Request;
@@ -17,8 +17,10 @@ use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
-    public function __construct(private StockService $stock)
-    {
+    public function __construct(
+        private StockService $stock,
+        private PersediaanValuationService $valuation,
+    ) {
     }
 
     public function index(Request $request): View
@@ -45,15 +47,15 @@ class DashboardController extends Controller
         }
 
         try {
-            $barangs = PersediaanBarang::where('is_active', true)->get();
+            $catalog = $this->valuation->activeCatalogQuery();
+            $barangs = (clone $catalog)->get();
             $ringkasan = $this->stock->ringkasanBanyak($barangs);
 
             $totalPersediaan = $barangs->count();
-            $nilaiPersediaan = 0.0;
+            $nilaiPersediaan = $this->valuation->calculateTotalValue(clone $catalog);
             $stokMenipis = 0;
             foreach ($barangs as $b) {
                 $akhir = $ringkasan[$b->id]['akhir'] ?? $b->stok_awal;
-                $nilaiPersediaan += $akhir * (float) $b->harga_satuan;
                 if ($akhir <= $b->stok_minimum) {
                     $stokMenipis++;
                 }
