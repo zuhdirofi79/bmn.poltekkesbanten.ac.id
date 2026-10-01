@@ -40,7 +40,14 @@
     <div class="col-md-4"><span class="text-muted">NIP:</span> <strong>{{ optional($permintaan->pemohon)->nip }}</strong></div>
     <div class="col-md-4"><span class="text-muted">Jabatan:</span> <strong>{{ optional($permintaan->pemohon)->jabatan ?: '-' }}</strong></div>
   </div>
-  <p class="mt-2 mb-0"><span class="text-muted">Keterangan:</span> {{ $permintaan->keterangan }}</p>
+      <p class="mt-2 mb-0"><span class="text-muted">Keterangan:</span> {{ $permintaan->keterangan }}</p>
+      @if($permintaan->source === 'rack_qr')
+        <p class="mt-2 mb-0"><span class="text-muted">Sumber:</span> QR Rak
+          @if($permintaan->rak)
+            <strong>{{ $permintaan->rak->kode_rak }} – {{ $permintaan->rak->nama_rak }}</strong>
+          @endif
+        </p>
+      @endif
   @if($permintaan->status === P::STATUS_DITOLAK && $permintaan->catatan_admin)
     <div class="alert alert-danger mt-3 mb-0"><strong>Alasan Penolakan:</strong> {{ $permintaan->catatan_admin }}</div>
   @endif

@@ -55,7 +55,7 @@ class PemohonAuthController extends Controller
         Auth::guard('persediaan')->login($pemohon, (bool) $request->boolean('remember'));
         $request->session()->regenerate();
 
-        return redirect()->route('public.persediaan.permintaan.create');
+        return redirect()->intended(route('public.persediaan.permintaan.create'));
     }
 
     public function showRegister(string $unit): View
@@ -96,7 +96,7 @@ class PemohonAuthController extends Controller
         Auth::guard('persediaan')->login($pemohon);
         $request->session()->regenerate();
 
-        return redirect()->route('public.persediaan.permintaan.create')
+        return redirect()->intended(route('public.persediaan.permintaan.create'))
             ->with('success', 'Registrasi berhasil. Selamat datang, ' . $pemohon->nama . '.');
     }
 

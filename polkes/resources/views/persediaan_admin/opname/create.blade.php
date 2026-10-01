@@ -26,9 +26,13 @@
         <label class="form-label">Tanggal Opname</label>
         <input type="date" name="tanggal_opname" value="{{ date('Y-m-d') }}" class="form-control" required>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-5">
         <label class="form-label">Catatan</label>
         <input type="text" name="catatan" class="form-control" placeholder="Catatan opname (opsional)">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Scan Code 128</label>
+        <input type="text" id="opnameScan" class="form-control" placeholder="Scan barcode barang" autocomplete="off">
       </div>
     </div>
 
@@ -43,7 +47,7 @@
         </thead>
         <tbody>
           @forelse($rows as $i => $r)
-            <tr data-row>
+            <tr data-row data-kode="{{ strtolower($r['kode']) }}" data-id="{{ $r['id'] }}">
               <td><code>{{ $r['kode'] }}</code>
                 <input type="hidden" name="items[{{ $i }}][barang_id]" value="{{ $r['id'] }}">
                 <input type="hidden" name="items[{{ $i }}][stok_sistem]" value="{{ $r['sistem'] }}" class="v-sistem">
@@ -101,6 +105,35 @@
   table.addEventListener('input', recalc);
   table.addEventListener('change', recalc);
   recalc();
+
+  var scan = document.getElementById('opnameScan');
+  if (scan) {
+    scan.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter') return;
+      e.preventDefault();
+      var code = scan.value.trim();
+      if (!code) return;
+      fetch("{{ route('persediaan.admin.master-barang.lookup-barcode') }}?code=" + encodeURIComponent(code) + "&unit={{ urlencode($unit) }}", {
+        headers: { 'Accept': 'application/json' }
+      }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+        .then(function (res) {
+          if (!res.ok || !res.j.ok) {
+            alert((res.j && res.j.message) ? res.j.message : 'Barcode tidak dikenali.');
+            return;
+          }
+          var id = String(res.j.barang.id);
+          var row = table.querySelector('tr[data-id="' + id + '"]');
+          if (!row) {
+            alert('Barang tidak ada pada daftar opname unit ini.');
+            return;
+          }
+          row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          var fisik = row.querySelector('.v-fisik');
+          if (fisik) fisik.focus();
+          scan.value = '';
+        }).catch(function () { alert('Gagal membaca barcode.'); });
+    });
+  }
 })();
 </script>
 @endpush

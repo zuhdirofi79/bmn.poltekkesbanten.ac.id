@@ -49,6 +49,21 @@ Route::prefix('public/persediaan')->name('public.persediaan.')->middleware('thro
     // Pilih unit kerja (folder cards)
     Route::get('/', 'Persediaan\UnitPickerController@index')->name('index');
 
+    // QR Pintu / QR Rak — static segments MUST be before {unit}/login
+    Route::get('akses/{token}', 'Persediaan\QrAksesController@show')
+        ->where('token', '[A-Za-z0-9]{16,64}')->name('akses.show');
+    Route::get('rak/{token}', 'Persediaan\QrRakController@show')
+        ->where('token', '[A-Za-z0-9]{16,64}')->name('rak.show');
+    Route::post('rak/{token}/konfirmasi', 'Persediaan\QrRakController@confirm')
+        ->middleware('throttle:20,1')
+        ->where('token', '[A-Za-z0-9]{16,64}')->name('rak.confirm');
+    Route::post('rak/{token}/permintaan', 'Persediaan\QrRakController@store')
+        ->middleware('throttle:10,1')
+        ->where('token', '[A-Za-z0-9]{16,64}')->name('rak.store');
+    Route::get('rak-success/{id}', 'Persediaan\QrRakController@success')
+        ->middleware('persediaan.pemohon')
+        ->where('id', '[0-9]+')->name('rak.success');
+
     // Auth pemohon (terpisah dari admin BMN & admin sewa) — login via NIP
     Route::get('{unit}/register', 'Persediaan\PemohonAuthController@showRegister')
         ->where('unit', 'keperawatan|kebidanan|tlm|direktorat')->name('register');
@@ -186,9 +201,34 @@ Route::prefix('persediaan')->name('persediaan.admin.')->group(function (): void 
             Route::get('/', 'PersediaanAdmin\MasterBarangController@index')->name('index');
             Route::get('template-excel', 'PersediaanAdmin\MasterBarangController@templateExcel')->name('template');
             Route::post('import-excel', 'PersediaanAdmin\MasterBarangController@importExcel')->name('import');
+            Route::post('generate-barcodes', 'PersediaanAdmin\MasterBarangController@generateBarcodes')->name('generate-barcodes');
+            Route::get('print-barcodes', 'PersediaanAdmin\MasterBarangController@printBarcodes')->name('print-barcodes');
+            Route::get('lookup-barcode', 'PersediaanAdmin\MasterBarangController@lookupBarcode')->name('lookup-barcode');
             Route::post('/', 'PersediaanAdmin\MasterBarangController@store')->name('store');
             Route::put('{id}', 'PersediaanAdmin\MasterBarangController@update')->where('id', '[0-9]+')->name('update');
             Route::delete('{id}', 'PersediaanAdmin\MasterBarangController@destroy')->where('id', '[0-9]+')->name('destroy');
+            Route::post('{id}/generate-barcode', 'PersediaanAdmin\MasterBarangController@generateBarcode')->where('id', '[0-9]+')->name('generate-barcode');
+            Route::get('{id}/download-barcode', 'PersediaanAdmin\MasterBarangController@downloadBarcode')->where('id', '[0-9]+')->name('download-barcode');
+        });
+
+        // Master Rak (Direktorat only — enforced in controller)
+        Route::prefix('master-rak')->name('master-rak.')->group(function (): void {
+            Route::get('/', 'PersediaanAdmin\MasterRakController@index')->name('index');
+            Route::post('/', 'PersediaanAdmin\MasterRakController@store')->name('store');
+            Route::post('generate-all-qr', 'PersediaanAdmin\MasterRakController@generateAllQr')->name('generate-all-qr');
+            Route::get('print', 'PersediaanAdmin\MasterRakController@print')->name('print');
+            Route::post('mutasi', 'PersediaanAdmin\MasterRakController@mutasi')->name('mutasi');
+            Route::post('akses/generate-qr', 'PersediaanAdmin\MasterRakController@generateAksesQr')->name('akses.generate-qr');
+            Route::post('akses/rotate-token', 'PersediaanAdmin\MasterRakController@rotateAksesToken')->name('akses.rotate-token');
+            Route::get('akses/download-qr', 'PersediaanAdmin\MasterRakController@downloadAksesQr')->name('akses.download-qr');
+            Route::get('akses/print', 'PersediaanAdmin\MasterRakController@printAkses')->name('akses.print');
+            Route::get('{id}', 'PersediaanAdmin\MasterRakController@show')->where('id', '[0-9]+')->name('show');
+            Route::put('{id}', 'PersediaanAdmin\MasterRakController@update')->where('id', '[0-9]+')->name('update');
+            Route::post('{id}/generate-qr', 'PersediaanAdmin\MasterRakController@generateQr')->where('id', '[0-9]+')->name('generate-qr');
+            Route::post('{id}/rotate-token', 'PersediaanAdmin\MasterRakController@rotateRakToken')->where('id', '[0-9]+')->name('rotate-token');
+            Route::get('{id}/download-qr', 'PersediaanAdmin\MasterRakController@downloadQr')->where('id', '[0-9]+')->name('download-qr');
+            Route::post('{id}/barang', 'PersediaanAdmin\MasterRakController@assignBarang')->where('id', '[0-9]+')->name('barang.store');
+            Route::delete('{id}/barang', 'PersediaanAdmin\MasterRakController@removeBarang')->where('id', '[0-9]+')->name('barang.destroy');
         });
 
         // Pengaturan

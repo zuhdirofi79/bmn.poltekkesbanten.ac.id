@@ -39,6 +39,9 @@ class PersediaanPermintaan extends Model
         'tanda_tangan_admin_path',
         'catatan_admin',
         'approval_note',
+        'source',
+        'rak_id',
+        'idempotency_key',
     ];
 
     protected $casts = [
@@ -90,5 +93,15 @@ class PersediaanPermintaan extends Model
     public function isPending(): bool
     {
         return in_array($this->status, self::STATUS_PENDING, true);
+    }
+
+    public function rak()
+    {
+        return $this->belongsTo(PersediaanRak::class, 'rak_id');
+    }
+
+    public function isFromRackQr(): bool
+    {
+        return $this->source === 'rack_qr';
     }
 }

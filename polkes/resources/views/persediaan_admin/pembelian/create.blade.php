@@ -47,7 +47,10 @@
   <div class="pa-card">
     <div class="d-flex justify-content-between align-items-center">
       <h2>Item Barang</h2>
-      <button type="button" class="btn btn-outline-primary btn-sm" id="addRow"><i class="ti ti-plus"></i> Tambah Baris</button>
+      <div class="d-flex gap-2">
+        <input type="text" id="barcodeScan" class="form-control form-control-sm" placeholder="Scan / ketik Code 128" autocomplete="off">
+        <button type="button" class="btn btn-outline-primary btn-sm" id="addRow"><i class="ti ti-plus"></i> Tambah Baris</button>
+      </div>
     </div>
     <div class="table-responsive mt-2">
       <table class="prs-table" id="itemTable">
@@ -213,6 +216,44 @@
 
   document.getElementById('addRow').addEventListener('click', addRow);
   addRow();
+
+  var scan = document.getElementById('barcodeScan');
+  if (scan) {
+    scan.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter') return;
+      e.preventDefault();
+      var code = scan.value.trim();
+      if (!code) return;
+      var unit = unitSelect.value;
+      fetch("{{ route('persediaan.admin.master-barang.lookup-barcode') }}?code=" + encodeURIComponent(code) + (unit ? '&unit=' + encodeURIComponent(unit) : ''), {
+        headers: { 'Accept': 'application/json' }
+      }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+        .then(function (res) {
+          if (!res.ok || !res.j.ok) {
+            alert((res.j && res.j.message) ? res.j.message : 'Barcode tidak dikenali.');
+            return;
+          }
+          var b = res.j.barang;
+          if (unit && b.unit_kerja !== unit) {
+            alert('Barcode milik unit ' + b.unit_kerja + ', bukan unit yang dipilih.');
+            return;
+          }
+          if (!unit) {
+            unitSelect.value = b.unit_kerja;
+            body.querySelectorAll('.sel-barang').forEach(function (sel) { sel.innerHTML = barangOptions(); });
+          }
+          addRow();
+          var tr = body.lastElementChild;
+          var sel = tr.querySelector('.sel-barang');
+          sel.value = String(b.id);
+          sel.dispatchEvent(new Event('change', { bubbles: true }));
+          tr.querySelector('.in-jumlah').value = 1;
+          recalc();
+          scan.value = '';
+          scan.focus();
+        }).catch(function () { alert('Gagal membaca barcode.'); });
+    });
+  }
 })();
 </script>
 @endpush

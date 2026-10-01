@@ -40,4 +40,28 @@ return [
             'name'    => 'Nirmala Vitaloka',
         ],
     ],
+
+    /**
+     * Unit yang memakai sistem rak + QR Pintu/QR Rak.
+     * Unit lain tetap memakai form permintaan katalog existing.
+     *
+     * @var list<string>
+     */
+    'rack_enabled_units' => [
+        'Direktorat',
+    ],
+
+    /*
+    |----------------------------------------------------------------------
+    | Root folder uploads di document root (public_html) + URL publiknya
+    |----------------------------------------------------------------------
+    | Kosong = infer dari BMN_FOTO_BASE_PATH / BMN_FOTO_BASE_URL,
+    | lalu fallback public_path('uploads').
+    |
+    | Contoh production:
+    | PERSEDIAAN_UPLOADS_PATH=/home/.../public_html/uploads
+    | PERSEDIAAN_UPLOADS_URL=https://bmn.poltekkesbanten.ac.id/uploads
+    */
+    'uploads_path' => env('PERSEDIAAN_UPLOADS_PATH', ''),
+    'uploads_url' => env('PERSEDIAAN_UPLOADS_URL', ''),
 ];

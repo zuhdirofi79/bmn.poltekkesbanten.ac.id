@@ -19,6 +19,8 @@ class PersediaanBarang extends Model
         'stok_minimum',
         'harga_satuan',
         'is_active',
+        'barcode_path',
+        'barcode_payload',
     ];
 
     protected $casts = [
@@ -31,5 +33,10 @@ class PersediaanBarang extends Model
     public function movements()
     {
         return $this->hasMany(PersediaanStockMovement::class, 'barang_id');
+    }
+
+    public function rakAssignment()
+    {
+        return $this->hasOne(PersediaanRakBarang::class, 'barang_id');
     }
 }

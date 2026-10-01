@@ -118,6 +118,36 @@ class StockService
     }
 
     /**
+     * Validasi stok all-or-nothing. Tidak menulis movement.
+     *
+     * @param  list<array{barang: PersediaanBarang, qty: int}>  $lines
+     * @return list<string>
+     */
+    public function insufficientItemLabels(array $lines): array
+    {
+        $labels = [];
+        foreach ($lines as $line) {
+            $qty = (int) ($line['qty'] ?? 0);
+            if ($qty <= 0) {
+                continue;
+            }
+            /** @var PersediaanBarang $barang */
+            $barang = $line['barang'];
+            $stok = $this->stokAkhir($barang);
+            if ($qty > $stok) {
+                $labels[] = sprintf(
+                    '%s (diminta %d, stok %d)',
+                    $barang->nama_barang,
+                    $qty,
+                    $stok,
+                );
+            }
+        }
+
+        return $labels;
+    }
+
+    /**
      * Agregat stok untuk banyak barang sekaligus (hindari N+1 di tabel stok).
      *
      * @param  \Illuminate\Support\Collection<int,PersediaanBarang>  $barangs

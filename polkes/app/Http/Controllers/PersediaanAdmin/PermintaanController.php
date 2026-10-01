@@ -65,7 +65,7 @@ class PermintaanController extends Controller
         $userId = (int) $admin->id;
 
         $permintaan = PersediaanPermintaan::query()
-            ->with(['items', 'pemohon', 'approver'])
+            ->with(['items', 'pemohon', 'approver', 'rak'])
             ->whereKey($id)
             ->first();
 
@@ -115,38 +115,77 @@ class PermintaanController extends Controller
             return back()->with('error', 'Tanda tangan admin tidak valid.');
         }
 
-        DB::transaction(function () use ($permintaan, $data, $ttd, $userId) {
-            foreach ($permintaan->items as $item) {
-                $approved = $data['jumlah_disetujui'][$item->id] ?? $item->jumlah_diminta;
-                $item->jumlah_disetujui = max(0, (int) $approved);
-                $item->save();
-            }
+        try {
+            DB::transaction(function () use ($permintaan, $data, $ttd, $userId) {
+                $locked = PersediaanPermintaan::query()
+                    ->whereKey($permintaan->id)
+                    ->lockForUpdate()
+                    ->first();
 
-            $permintaan->status = PersediaanPermintaan::STATUS_DISETUJUI;
-            $permintaan->approved_by = $userId;
-            $permintaan->approved_at = Carbon::now();
-            $permintaan->tanda_tangan_admin_path = $ttd;
-            $permintaan->approval_note = $data['approval_note'] ?? null;
-            $permintaan->save();
-
-            foreach ($permintaan->items as $item) {
-                $qty = (int) ($item->jumlah_disetujui ?? 0);
-                if ($qty <= 0 || ! $item->barang_id) {
-                    continue;
+                if ($locked === null || ! $locked->isPending()) {
+                    throw new \RuntimeException('Permintaan sudah diproses.');
                 }
 
-                $this->stock->recordPermintaanKeluar([
-                    'barang_id'  => $item->barang_id,
-                    'unit_kerja' => $permintaan->unit_kerja,
-                    'tipe'       => PersediaanStockMovement::TIPE_KELUAR,
-                    'ref_table'  => 'persediaan_permintaan',
-                    'ref_id'     => $permintaan->id,
-                    'qty_keluar' => $qty,
-                    'keterangan' => 'Pengeluaran permintaan ' . $permintaan->nomor_permintaan,
-                    'created_by' => $userId,
-                ]);
-            }
-        });
+                $items = $locked->items()->get();
+                $barangIds = $items->pluck('barang_id')->filter()->map(fn ($id) => (int) $id)->all();
+                $barangs = \App\Models\Persediaan\PersediaanBarang::query()
+                    ->whereIn('id', $barangIds)
+                    ->lockForUpdate()
+                    ->get()
+                    ->keyBy('id');
+
+                $lines = [];
+                foreach ($items as $item) {
+                    $approved = $data['jumlah_disetujui'][$item->id] ?? $item->jumlah_diminta;
+                    $qty = max(0, (int) $approved);
+                    $item->jumlah_disetujui = $qty;
+                    $barang = $item->barang_id ? $barangs->get((int) $item->barang_id) : null;
+                    if ($qty > 0 && $barang !== null) {
+                        $lines[] = ['barang' => $barang, 'qty' => $qty];
+                    }
+                }
+
+                $insufficient = $this->stock->insufficientItemLabels($lines);
+                if ($insufficient !== []) {
+                    throw new \DomainException(
+                        'Stok tidak mencukupi: ' . implode('; ', $insufficient) . '. Persetujuan dibatalkan, stok tidak berubah.'
+                    );
+                }
+
+                foreach ($items as $item) {
+                    $item->save();
+                }
+
+                $locked->status = PersediaanPermintaan::STATUS_DISETUJUI;
+                $locked->approved_by = $userId;
+                $locked->approved_at = Carbon::now();
+                $locked->tanda_tangan_admin_path = $ttd;
+                $locked->approval_note = $data['approval_note'] ?? null;
+                $locked->save();
+
+                foreach ($items as $item) {
+                    $qty = (int) ($item->jumlah_disetujui ?? 0);
+                    if ($qty <= 0 || ! $item->barang_id) {
+                        continue;
+                    }
+
+                    $this->stock->recordPermintaanKeluar([
+                        'barang_id'  => $item->barang_id,
+                        'unit_kerja' => $locked->unit_kerja,
+                        'tipe'       => PersediaanStockMovement::TIPE_KELUAR,
+                        'ref_table'  => 'persediaan_permintaan',
+                        'ref_id'     => $locked->id,
+                        'qty_keluar' => $qty,
+                        'keterangan' => 'Pengeluaran permintaan ' . $locked->nomor_permintaan,
+                        'created_by' => $userId,
+                    ]);
+                }
+            });
+        } catch (\DomainException $e) {
+            return back()->with('error', $e->getMessage());
+        } catch (\RuntimeException $e) {
+            return back()->with('error', $e->getMessage());
+        }
 
         return back()->with('success', 'Permintaan disetujui dan ditandatangani.');
     }

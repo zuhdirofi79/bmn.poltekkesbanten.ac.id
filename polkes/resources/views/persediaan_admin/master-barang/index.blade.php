@@ -17,6 +17,16 @@
     <button class="btn btn-prs-green btn-sm" data-bs-toggle="modal" data-bs-target="#addModal">
       <i class="ti ti-plus"></i> Tambah Barang
     </button>
+    <form method="POST" action="{{ route('persediaan.admin.master-barang.generate-barcodes') }}" class="d-inline" id="generateAllBarcodeForm">
+      @csrf
+      <input type="hidden" name="scope" value="all">
+      <button class="btn btn-outline-primary btn-sm" type="submit">
+        <i class="ti ti-barcode"></i> Generate Semua Barcode
+      </button>
+    </form>
+    <a href="{{ route('persediaan.admin.master-barang.print-barcodes') }}" target="_blank" class="btn btn-outline-secondary btn-sm">
+      <i class="ti ti-printer"></i> Print Semua Barcode
+    </a>
   </div>
 </div>
 
@@ -95,6 +105,22 @@
         </span>
       @endif
     </div>
+    <div class="d-flex flex-wrap gap-2">
+      <form method="POST" action="{{ route('persediaan.admin.master-barang.generate-barcodes') }}" id="generateSelectedBarcodeForm">
+        @csrf
+        <input type="hidden" name="scope" value="selected">
+        <div id="generateSelectedIds"></div>
+        <button type="submit" class="btn btn-outline-primary btn-sm" id="btnGenerateSelected" disabled>
+          Generate Barcode Terpilih
+        </button>
+      </form>
+      <form method="GET" action="{{ route('persediaan.admin.master-barang.print-barcodes') }}" target="_blank" id="printSelectedBarcodeForm">
+        <div id="printSelectedIds"></div>
+        <button type="submit" class="btn btn-outline-secondary btn-sm" id="btnPrintSelected" disabled>
+          Print Barcode Terpilih
+        </button>
+      </form>
+    </div>
   </div>
 
   <div class="pa-table-filter-wrap">
@@ -155,6 +181,8 @@
             'options' => $filterOptions['status'] ?? [],
             'active' => $filters['status'] ?? [],
           ])
+          <th>Rak</th>
+          <th>Barcode</th>
           <th width="90"></th>
         </tr>
       </thead>
@@ -174,6 +202,14 @@
             <td class="text-end">{{ number_format($b->stok_awal, 0, ',', '.') }}</td>
             <td class="text-end">Rp {{ number_format($b->harga_satuan, 0, ',', '.') }}</td>
             <td>@if($b->is_active)<span class="prs-badge selesai">Aktif</span>@else<span class="prs-badge ditolak">Nonaktif</span>@endif</td>
+            <td>{{ optional(optional($b->rakAssignment)->rak)->kode_rak ?: '-' }}</td>
+            <td>
+              @if(!empty($barcodeUrls[$b->id]))
+                <span class="prs-badge disetujui">Ada</span>
+              @else
+                <span class="text-muted">Belum</span>
+              @endif
+            </td>
             <td class="text-end">
               <button class="btn btn-outline-primary btn-sm"
                       data-bs-toggle="modal" data-bs-target="#editModal"
@@ -191,7 +227,7 @@
             </td>
           </tr>
         @empty
-          <tr><td colspan="9" class="text-center text-muted py-3">Belum ada barang.</td></tr>
+          <tr><td colspan="11" class="text-center text-muted py-3">Belum ada barang.</td></tr>
         @endforelse
       </tbody>
     </table>
@@ -298,6 +334,27 @@
       checkAll.checked = total > 0 && checked.length === total;
       checkAll.indeterminate = checked.length > 0 && checked.length < total;
     }
+    var genWrap = document.getElementById('generateSelectedIds');
+    var printWrap = document.getElementById('printSelectedIds');
+    if (genWrap) genWrap.innerHTML = '';
+    if (printWrap) printWrap.innerHTML = '';
+    checked.forEach(function (el) {
+      if (genWrap) {
+        var h = document.createElement('input');
+        h.type = 'hidden'; h.name = 'ids[]'; h.value = el.value;
+        genWrap.appendChild(h);
+      }
+      if (printWrap) {
+        var p = document.createElement('input');
+        p.type = 'hidden'; p.name = 'ids[]'; p.value = el.value;
+        printWrap.appendChild(p);
+      }
+    });
+    var disabled = checked.length === 0;
+    var btnG = document.getElementById('btnGenerateSelected');
+    var btnP = document.getElementById('btnPrintSelected');
+    if (btnG) btnG.disabled = disabled;
+    if (btnP) btnP.disabled = disabled;
   }
 
   if (checkAll) {

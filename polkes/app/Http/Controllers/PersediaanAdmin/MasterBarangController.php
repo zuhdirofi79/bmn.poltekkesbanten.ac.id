@@ -9,9 +9,12 @@ use App\Http\Controllers\Controller;
 use App\Imports\PersediaanMasterBarangImport;
 use App\Models\Persediaan\PersediaanBarang;
 use App\Models\Persediaan\PersediaanStockMovement;
+use App\Services\Persediaan\PersediaanCodeService;
 use App\Support\Persediaan\PersediaanAdminSession;
+use App\Support\Persediaan\PublicUploadPath;
 use App\Support\Persediaan\UnitKerja;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -22,6 +25,10 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class MasterBarangController extends Controller
 {
+    public function __construct(private PersediaanCodeService $codes)
+    {
+    }
+
     /** @var list<string> */
     private const COLUMN_FILTER_KEYS = [
         'kode_barang',
@@ -49,6 +56,7 @@ class MasterBarangController extends Controller
         $this->applyColumnFilters($query, $columnFilters);
 
         $barang = $query
+            ->with('rakAssignment.rak')
             ->orderBy('unit_kerja')
             ->orderBy('kode_barang')
             ->paginate(20)
@@ -62,6 +70,7 @@ class MasterBarangController extends Controller
             'filters'       => array_merge($request->only(['unit', 'q']), $columnFilters),
             'filterOptions' => $this->buildFilterOptions($baseQuery),
             'hasColumnFilter' => $columnFilters !== [],
+            'barcodeUrls'   => $this->barcodeUrlsForPage($barang),
         ]);
     }
 
@@ -335,5 +344,167 @@ class MasterBarangController extends Controller
             'stok_minimum' => ['required', 'integer', 'min:0'],
             'harga_satuan' => ['required', 'numeric', 'min:0'],
         ]);
+    }
+
+    public function generateBarcode(Request $request, int $id): RedirectResponse
+    {
+        $barang = $this->scopedBarangQuery($request)->whereKey($id)->firstOrFail();
+        $payloadBefore = (string) ($barang->barcode_payload ?? '');
+
+        try {
+            $this->codes->generateAndSave($barang);
+        } catch (\Throwable $e) {
+            report($e);
+
+            return back()->with('error', 'Gagal generate barcode: ' . $e->getMessage());
+        }
+
+        $barang->refresh();
+        if ($payloadBefore !== '' && $payloadBefore !== (string) $barang->barcode_payload) {
+            return back()->with('error', 'Identifier barcode berubah secara tidak terduga.');
+        }
+
+        return back()->with('success', 'Barcode Code 128 berhasil dibuat untuk ' . $barang->kode_barang . '.');
+    }
+
+    public function generateBarcodes(Request $request): RedirectResponse
+    {
+        @set_time_limit(180);
+        ignore_user_abort(true);
+
+        $scope = (string) $request->input('scope', 'all');
+        $ids = array_values(array_filter(array_map('intval', (array) $request->input('ids', []))));
+
+        $query = $this->scopedBarangQuery($request)->where('is_active', true);
+        if ($scope === 'selected') {
+            if ($ids === []) {
+                return back()->with('error', 'Pilih barang terlebih dahulu untuk Generate Barcode Terpilih.');
+            }
+            $query->whereIn('id', $ids);
+        }
+
+        $generated = 0;
+        $failed = 0;
+        $total = (clone $query)->count();
+        if ($total === 0) {
+            return back()->with('error', 'Tidak ada barang aktif untuk digenerate.');
+        }
+
+        $query->orderBy('id')->chunkById(20, function ($barangs) use (&$generated, &$failed): void {
+            foreach ($barangs as $barang) {
+                $payloadBefore = (string) ($barang->barcode_payload ?? '');
+                try {
+                    $this->codes->generateAndSave($barang);
+                    if ($payloadBefore !== '' && $payloadBefore !== (string) $barang->fresh()?->barcode_payload) {
+                        $failed++;
+                        continue;
+                    }
+                    $generated++;
+                } catch (\Throwable $e) {
+                    report($e);
+                    $failed++;
+                }
+            }
+        });
+
+        $msg = "Barcode Code 128 berhasil dibuat/diperbarui untuk {$generated} barang.";
+        if ($failed > 0) {
+            $msg .= " {$failed} gagal.";
+        }
+        $msg .= " Diproses dari {$total} barang.";
+
+        return back()->with($failed > 0 ? 'error' : 'success', $msg);
+    }
+
+    public function downloadBarcode(Request $request, int $id): BinaryFileResponse|RedirectResponse
+    {
+        $barang = $this->scopedBarangQuery($request)->whereKey($id)->firstOrFail();
+        $relative = $barang->barcode_path ?: $this->codes->relativePath($barang);
+        $path = PublicUploadPath::firstExistingFile($relative);
+        if ($path === null) {
+            return back()->with('error', 'File barcode belum ada. Generate barcode terlebih dahulu.');
+        }
+
+        return response()->download($path, 'barcode-' . $barang->kode_barang . '.png');
+    }
+
+    public function printBarcodes(Request $request): View|RedirectResponse
+    {
+        $ids = array_values(array_filter(array_map('intval', (array) $request->input('ids', []))));
+        $query = $this->scopedBarangQuery($request)->where('is_active', true);
+        if ($ids !== []) {
+            $query->whereIn('id', $ids);
+        }
+
+        $barangs = $query->orderBy('unit_kerja')->orderBy('kode_barang')->get();
+        $items = [];
+        foreach ($barangs as $barang) {
+            $url = $this->codes->fileUrl($barang);
+            if ($url === null) {
+                continue;
+            }
+            $items[] = [
+                'barang'   => $barang,
+                'imageUrl' => $url,
+            ];
+        }
+
+        if ($items === []) {
+            return back()->with('error', 'Tidak ada barcode yang siap dicetak. Generate barcode terlebih dahulu.');
+        }
+
+        return view('persediaan_admin.master-barang.print-barcodes', [
+            'items' => $items,
+        ]);
+    }
+
+    public function lookupBarcode(Request $request): JsonResponse
+    {
+        $code = trim((string) $request->input('code', ''));
+        $unit = $request->input('unit');
+        $unitContext = is_string($unit) && $unit !== '' ? $unit : $this->effectiveSatker($request);
+
+        $barang = $this->codes->resolve($code, $unitContext);
+        if ($barang === null) {
+            return response()->json(['ok' => false, 'message' => 'Barcode tidak dikenali atau ambigu antar unit.'], 404);
+        }
+
+        $scoped = $this->scopedBarangQuery($request)->whereKey($barang->id)->first();
+        if ($scoped === null) {
+            return response()->json(['ok' => false, 'message' => 'Barang di luar unit Anda.'], 403);
+        }
+
+        $barang->loadMissing('rakAssignment.rak');
+        $stok = app(\App\Services\Persediaan\StockService::class)->stokAkhir($barang);
+
+        return response()->json([
+            'ok'     => true,
+            'barang' => [
+                'id'           => $barang->id,
+                'kode_barang'  => $barang->kode_barang,
+                'nama_barang'  => $barang->nama_barang,
+                'unit_kerja'   => $barang->unit_kerja,
+                'satuan'       => $barang->satuan,
+                'stok'         => $stok,
+                'status'       => $barang->is_active ? 'Aktif' : 'Nonaktif',
+                'rak'          => optional(optional($barang->rakAssignment)->rak)->kode_rak,
+                'rak_nama'     => optional(optional($barang->rakAssignment)->rak)->nama_rak,
+                'payload'      => $this->codes->payloadFor($barang),
+            ],
+        ]);
+    }
+
+    /**
+     * @param  \Illuminate\Contracts\Pagination\LengthAwarePaginator<PersediaanBarang>  $page
+     * @return array<int,string|null>
+     */
+    private function barcodeUrlsForPage($page): array
+    {
+        $urls = [];
+        foreach ($page as $barang) {
+            $urls[(int) $barang->id] = $this->codes->fileUrl($barang);
+        }
+
+        return $urls;
     }
 }

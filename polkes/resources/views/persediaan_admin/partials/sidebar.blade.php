@@ -48,6 +48,12 @@
 
       <i class="ti ti-box"></i> Master Data</a></li>
 
+    @if(\App\Support\Persediaan\RackAccess::adminCanManage(request()))
+    <li><a href="{{ route('persediaan.admin.master-rak.index') }}" class="{{ \Illuminate\Support\Str::startsWith($r, 'persediaan.admin.master-rak') ? 'active' : '' }}">
+
+      <i class="ti ti-layout-grid"></i> Master Rak</a></li>
+    @endif
+
     <li><a href="{{ route('persediaan.admin.pengaturan.index') }}" class="{{ \Illuminate\Support\Str::startsWith($r, 'persediaan.admin.pengaturan') ? 'active' : '' }}">
 
       <i class="ti ti-settings"></i> Pengaturan</a></li>

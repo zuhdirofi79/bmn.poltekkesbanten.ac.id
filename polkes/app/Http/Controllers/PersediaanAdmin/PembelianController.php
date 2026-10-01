@@ -43,11 +43,12 @@ class PembelianController extends Controller
             'units'      => UnitKerja::all(),
             'barangJson' => $barangs->groupBy('unit_kerja')->map(function ($g) {
                 return $g->map(fn ($b) => [
-                    'id'    => $b->id,
-                    'kode'  => $b->kode_barang,
-                    'nama'  => $b->nama_barang,
-                    'satuan' => $b->satuan,
-                    'harga' => (float) $b->harga_satuan,
+                    'id'      => $b->id,
+                    'kode'    => $b->kode_barang,
+                    'nama'    => $b->nama_barang,
+                    'satuan'  => $b->satuan,
+                    'harga'   => (float) $b->harga_satuan,
+                    'payload' => app(\App\Services\Persediaan\PersediaanCodeService::class)->payloadFor($b),
                 ])->values();
             }),
         ]);
