@@ -50,6 +50,45 @@ class StockService
         return $this->recordMovement($data);
     }
 
+    /**
+     * Satu detail pembelian = satu movement masuk.
+     * Idempoten pada (tipe pembelian, persediaan_pembelian_items, id item)
+     * supaya dua baris barang yang sama tetap tercatat, tetapi item yang sama tidak naik dua kali.
+     */
+    public function recordPembelianMasuk(
+        int $barangId,
+        string $unitKerja,
+        int $itemId,
+        int $qty,
+        string $keterangan,
+        ?int $userId,
+    ): ?PersediaanStockMovement {
+        if ($barangId <= 0 || $itemId <= 0 || $qty <= 0) {
+            return null;
+        }
+
+        $exists = PersediaanStockMovement::query()
+            ->where('tipe', PersediaanStockMovement::TIPE_PEMBELIAN)
+            ->where('ref_table', 'persediaan_pembelian_items')
+            ->where('ref_id', $itemId)
+            ->exists();
+
+        if ($exists) {
+            return null;
+        }
+
+        return $this->recordMovement([
+            'barang_id'  => $barangId,
+            'unit_kerja' => $unitKerja,
+            'tipe'       => PersediaanStockMovement::TIPE_PEMBELIAN,
+            'ref_table'  => 'persediaan_pembelian_items',
+            'ref_id'     => $itemId,
+            'qty_masuk'  => $qty,
+            'keterangan' => $keterangan,
+            'created_by' => $userId,
+        ]);
+    }
+
     /** Total qty masuk dari movement (semua tipe, termasuk stok_awal). */
     public function totalMasuk(int $barangId): int
     {

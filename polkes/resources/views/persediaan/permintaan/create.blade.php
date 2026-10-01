@@ -42,8 +42,10 @@
             <small>(otomatis saat disimpan)</small></strong>
         </div>
         <div class="col-md-6">
-          <label>Tanggal</label>
-          <strong>{{ $tanggal->format('d M Y') }}</strong>
+          <label for="tanggalPermintaan">Tanggal Permintaan *</label>
+          <input type="date" id="tanggalPermintaan" name="tanggal_permintaan" form="prsForm"
+                 value="{{ old('tanggal_permintaan', $tanggalValue) }}"
+                 class="form-control form-control-sm" required>
         </div>
         <div class="col-md-6">
           <label>Pemohon</label>
@@ -66,6 +68,7 @@
 
     <form method="GET" action="{{ route('public.persediaan.permintaan.create') }}" id="prsBarangFilterForm"
           class="prs-barang-filter row g-2 align-items-end mb-3">
+      <input type="hidden" name="tanggal_permintaan" id="filterTanggalPermintaan" value="{{ old('tanggal_permintaan', $tanggalValue) }}">
       @foreach(['kode_barang', 'nama_barang', 'stok_tersedia'] as $colKey)
         @foreach($columnFilters[$colKey] ?? [] as $fv)
           <input type="hidden" name="{{ $colKey }}[]" value="{{ $fv }}">
@@ -311,6 +314,9 @@
   var filterForm = document.getElementById('prsBarangFilterForm');
   if (filterForm) {
     filterForm.addEventListener('submit', function () {
+      var tgl = document.getElementById('tanggalPermintaan');
+      var tglHidden = document.getElementById('filterTanggalPermintaan');
+      if (tgl && tglHidden) tglHidden.value = tgl.value;
       var ket = form.querySelector('textarea[name="keterangan"]');
       if (ket && ket.value.trim() !== '') {
         var hk = document.createElement('input');
@@ -357,6 +363,10 @@
   }
 
   function appendFormState(parts) {
+    var tgl = document.getElementById('tanggalPermintaan');
+    if (tgl && tgl.value) {
+      parts.push('tanggal_permintaan=' + encodeURIComponent(tgl.value));
+    }
     var ket = form.querySelector('textarea[name="keterangan"]');
     if (ket && ket.value.trim() !== '') {
       parts.push('keterangan=' + encodeURIComponent(ket.value));

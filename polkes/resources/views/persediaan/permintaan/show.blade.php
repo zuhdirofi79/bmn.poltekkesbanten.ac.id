@@ -56,7 +56,7 @@
         </div>
         <hr>
         <p class="mb-1"><span class="text-muted">Unit Kerja:</span> <strong>{{ UnitKerja::label($permintaan->unit_kerja) }}</strong></p>
-        <p class="mb-1"><span class="text-muted">Tanggal:</span> <strong>{{ optional($permintaan->tanggal_permintaan)->format('d M Y') }}</strong></p>
+        <p class="mb-1"><span class="text-muted">Tanggal Permintaan:</span> <strong>{{ $permintaan->tanggal_permintaan ? $permintaan->tanggal_permintaan->copy()->locale('id')->translatedFormat('d F Y') : '-' }}</strong></p>
         <p class="mb-1"><span class="text-muted">Pemohon:</span> <strong>{{ $pemohon->nama }}</strong></p>
         <p class="mb-1"><span class="text-muted">Keterangan:</span> {{ $permintaan->keterangan }}</p>
 

@@ -12,6 +12,7 @@ use App\Services\Persediaan\NomorPermintaanService;
 use App\Services\Persediaan\SignatureService;
 use App\Services\Persediaan\StockService;
 use App\Support\Persediaan\PersediaanAccess;
+use App\Support\Persediaan\PersediaanDateParser;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
@@ -67,7 +68,7 @@ class PermintaanController extends Controller
             'pemohon'             => $pemohon,
             'barangs'             => $barangs,
             'ringkasan'           => $ringkasan,
-            'tanggal'             => Carbon::today(),
+            'tanggalValue'        => $this->resolveTanggalPermintaanInput($request),
             'filters'             => $filters,
             'columnFilters'       => $columnFilters,
             'filterOptions'       => $this->buildColumnFilterOptions($unit),
@@ -86,13 +87,19 @@ class PermintaanController extends Controller
     {
         $pemohon = $this->pemohon();
 
+        $this->prepareTanggalPermintaan($request);
+
         $data = $request->validate([
+            'tanggal_permintaan'      => ['required', 'date'],
             'keterangan'              => ['required', 'string', 'max:1000'],
             'action'                  => ['required', 'in:draft,ajukan'],
             'items'                   => ['required', 'array', 'min:1'],
             'items.*.barang_id'       => ['required', 'integer'],
             'items.*.jumlah_diminta'  => ['nullable', 'integer', 'min:0'],
             'tanda_tangan_pemohon'    => ['nullable', 'string'],
+        ], [
+            'tanggal_permintaan.required' => 'Tanggal permintaan wajib diisi.',
+            'tanggal_permintaan.date'     => 'Tanggal permintaan tidak valid.',
         ]);
 
         // Hanya barang milik unit pemohon yang valid.
@@ -148,6 +155,7 @@ class PermintaanController extends Controller
         $ttdPath = $this->signature->storeBase64($data['tanda_tangan_pemohon'] ?? null);
 
         $permintaan = DB::transaction(function () use ($pemohon, $chosen, $data, $isAjukan, $ttdPath) {
+            // Tahun nomor mengikuti tanggal pembuatan record, bukan tanggal permintaan.
             $nomor = $this->nomor->generate($pemohon->unit_kerja);
             $approverUserId = PersediaanAccess::approverUserIdForUnit($pemohon->unit_kerja);
 
@@ -155,7 +163,7 @@ class PermintaanController extends Controller
                 'nomor_permintaan'          => $nomor,
                 'pemohon_id'                => $pemohon->id,
                 'unit_kerja'                => $pemohon->unit_kerja,
-                'tanggal_permintaan'        => Carbon::today(),
+                'tanggal_permintaan'        => $data['tanggal_permintaan'],
                 'keterangan'                => $data['keterangan'],
                 'status'                    => $isAjukan
                     ? PersediaanPermintaan::STATUS_MENUNGGU
@@ -434,5 +442,39 @@ class PermintaanController extends Controller
             ->where('id', $id)
             ->where('pemohon_id', $pemohonId)
             ->firstOrFail();
+    }
+
+    /**
+     * Default tampilan memakai hari ini di timezone aplikasi.
+     * Query string yang valid (termasuk tanggal lampau) tetap dipertahankan saat filter.
+     */
+    private function resolveTanggalPermintaanInput(Request $request): string
+    {
+        $parsed = PersediaanDateParser::toDateString($request->input('tanggal_permintaan'));
+
+        return $parsed ?? Carbon::now(config('app.timezone'))->toDateString();
+    }
+
+    /**
+     * Menormalkan DD/MM/YYYY, DD-MM-YYYY, YYYY-MM-DD, dan date serial
+     * sebelum rule `date`, supaya 06/08/2026 tidak terbaca sebagai 8 Juni.
+     * Tidak ada batas hari ini.
+     */
+    private function prepareTanggalPermintaan(Request $request): void
+    {
+        $raw = $request->input('tanggal_permintaan');
+        if ($raw === null) {
+            return;
+        }
+        if (is_string($raw) && trim($raw) === '') {
+            $request->merge(['tanggal_permintaan' => '']);
+
+            return;
+        }
+
+        $parsed = PersediaanDateParser::toDateString($raw);
+        $request->merge([
+            'tanggal_permintaan' => $parsed ?? 'bukan-tanggal',
+        ]);
     }
 }

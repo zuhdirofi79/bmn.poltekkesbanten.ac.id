@@ -25,7 +25,7 @@
     <div>
       <h2>{{ $permintaan->nomor_permintaan }}</h2>
       <div class="text-muted">{{ UnitKerja::label($permintaan->unit_kerja) }} &middot;
-        {{ optional($permintaan->tanggal_permintaan)->format('d M Y') }}</div>
+        {{ $permintaan->tanggal_permintaan ? $permintaan->tanggal_permintaan->copy()->locale('id')->translatedFormat('d F Y') : '-' }}</div>
       @if($permintaan->approver_user_id)
         <div class="text-muted mt-1" style="font-size:.85rem;">
           Approver: <strong>{{ $permintaan->approverDisplayName() }}</strong>

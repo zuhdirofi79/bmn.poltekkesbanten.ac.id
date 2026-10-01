@@ -171,9 +171,12 @@ Route::prefix('persediaan')->name('persediaan.admin.')->group(function (): void 
             Route::get('/', 'PersediaanAdmin\PembelianController@index')->name('index');
             Route::get('create', 'PersediaanAdmin\PembelianController@create')->name('create');
             Route::post('/', 'PersediaanAdmin\PembelianController@store')->name('store');
-            Route::get('{id}', 'PersediaanAdmin\PembelianController@show')->where('id', '[0-9]+')->name('show');
+            Route::get('export', 'PersediaanAdmin\PembelianController@export')->name('export');
             Route::get('import/template', 'PersediaanAdmin\PembelianController@importTemplate')->name('import.template');
             Route::post('import', 'PersediaanAdmin\PembelianController@import')->name('import');
+            Route::get('import/preview', 'PersediaanAdmin\PembelianController@importPreview')->name('import.preview');
+            Route::post('import/confirm', 'PersediaanAdmin\PembelianController@importConfirm')->name('import.confirm');
+            Route::get('{id}', 'PersediaanAdmin\PembelianController@show')->where('id', '[0-9]+')->name('show');
         });
 
         // Stok Akhir
