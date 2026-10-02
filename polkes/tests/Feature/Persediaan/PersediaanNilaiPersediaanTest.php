@@ -74,7 +74,7 @@ class PersediaanNilaiPersediaanTest extends TestCase
         $this->assertSame('49950.00', $this->exportNilai());
     }
 
-    public function test_pengeluaran_sepuluh_pulpen_tidak_memotong_nilai_empat_puluh_lima_ribu(): void
+    public function test_pengeluaran_sepuluh_pulpen_mengurangi_nilai_saat_ini_empat_puluh_lima_ribu(): void
     {
         $barang = $this->barang('011698', 'Pulpen Joyko Q Gel Biru (bmn)', UnitKerja::DIREKTORAT, 29, '4500.00');
         PersediaanStockMovement::create([
@@ -88,15 +88,11 @@ class PersediaanNilaiPersediaanTest extends TestCase
             'keterangan' => 'Pengeluaran barang permintaan PRM-DIR-2026-001',
         ]);
 
-        $nilaiExport = $this->exportNilai();
-        $nilaiDashboard = $this->dashboardNilai();
-        $formulaLamaStokAkhir = bcmul('19', '4500.00', 2);
-
-        $this->assertSame('130500.00', $nilaiExport);
-        $this->assertSame('130500.00', $nilaiDashboard);
-        $this->assertSame('85500.00', $formulaLamaStokAkhir);
-        $this->assertSame('45000.00', bcsub($nilaiDashboard, $formulaLamaStokAkhir, 2));
-        $this->assertSame($this->catalogIds(), $this->exportIds());
+        $this->assertSame('130500.00', $this->exportNilai());
+        $this->assertSame('85500.00', $this->dashboardNilai());
+        $view = app(DashboardController::class)->index($this->request('/persediaan/dashboard'));
+        $this->assertSame(1, $view->getData()['totalJenisBarang']);
+        $this->assertSame(19, $view->getData()['totalStokSaatIni']);
     }
 
     public function test_ubah_harga_langsung_menaikkan_dashboard_dan_export(): void

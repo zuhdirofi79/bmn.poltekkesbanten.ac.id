@@ -6,9 +6,7 @@ namespace App\Http\Controllers\PersediaanAdmin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Persediaan\PersediaanPermintaan;
-use App\Models\Persediaan\PersediaanStockMovement;
 use App\Services\Persediaan\PersediaanValuationService;
-use App\Services\Persediaan\StockService;
 use App\Support\Persediaan\PersediaanAccess;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -17,24 +15,27 @@ use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
-    public function __construct(
-        private StockService $stock,
-        private PersediaanValuationService $valuation,
-    ) {
+    public function __construct(private PersediaanValuationService $valuation)
+    {
     }
 
     public function index(Request $request): View
     {
         $defaults = [
-            'totalPersediaan'      => 0,
-            'barangMasukBulanIni'  => 0,
-            'barangKeluarBulanIni' => 0,
-            'nilaiPersediaan'      => 0.0,
+            'totalStokSaatIni'     => 0,
+            'totalJenisBarang'     => 0,
+            'nilaiBarangMasuk'     => '0.00',
+            'jumlahBarangMasuk'    => 0,
+            'nilaiBarangKeluar'    => '0.00',
+            'jumlahBarangKeluar'   => 0,
+            'nilaiPersediaan'      => '0.00',
             'stokMenipis'          => 0,
             'permintaanPending'    => 0,
             'chartLabels'          => [],
             'chartMasuk'           => [],
             'chartKeluar'          => [],
+            'chartNilaiMasuk'      => [],
+            'chartNilaiKeluar'     => [],
             'recent'               => collect(),
             'lockedUnit'           => PersediaanAccess::lockedUnitForApprover($request),
             'isSuperadmin'         => PersediaanAccess::isSuperadmin($request),
@@ -47,32 +48,25 @@ class DashboardController extends Controller
         }
 
         try {
-            $catalog = $this->valuation->activeCatalogQuery();
-            $barangs = (clone $catalog)->get();
-            $ringkasan = $this->stock->ringkasanBanyak($barangs);
+            $saldo = $this->valuation->reconcile(['active_only' => true]);
+            $bulan = $this->valuation->reconcile([
+                'active_only' => true,
+                'from'        => Carbon::now()->startOfMonth()->toDateString(),
+                'to'          => Carbon::now()->endOfMonth()->toDateString(),
+            ]);
 
-            $totalPersediaan = $barangs->count();
-            $nilaiPersediaan = $this->valuation->calculateTotalValue(clone $catalog);
             $stokMenipis = 0;
-            foreach ($barangs as $b) {
-                $akhir = $ringkasan[$b->id]['akhir'] ?? $b->stok_awal;
-                if ($akhir <= $b->stok_minimum) {
+            $hargaById = [];
+            $ids = [];
+            foreach ($saldo['rows'] as $row) {
+                $ids[] = (int) $row['id'];
+                $hargaById[(int) $row['id']] = (string) $row['harga'];
+                if ((int) $row['stok_saat_ini'] <= (int) $row['stok_minimum']) {
                     $stokMenipis++;
                 }
             }
 
-            $startMonth = Carbon::now()->startOfMonth();
-            $barangMasukBulanIni = 0;
-            $barangKeluarBulanIni = 0;
-            if (Schema::hasTable('persediaan_stock_movements')) {
-                $barangMasukBulanIni = (int) PersediaanStockMovement::query()
-                    ->where('tipe', '!=', PersediaanStockMovement::TIPE_STOK_AWAL)
-                    ->where('created_at', '>=', $startMonth)
-                    ->sum('qty_masuk');
-                $barangKeluarBulanIni = (int) PersediaanStockMovement::query()
-                    ->where('created_at', '>=', $startMonth)
-                    ->sum('qty_keluar');
-            }
+            $chart = $this->valuation->monthlyChart($ids, $hargaById, Carbon::now(), 6);
 
             $permintaanPending = 0;
             $recent = collect();
@@ -90,42 +84,27 @@ class DashboardController extends Controller
                     ->get();
             }
 
-            $labels = [];
-            $masukSeries = [];
-            $keluarSeries = [];
-            for ($i = 5; $i >= 0; $i--) {
-                $m = Carbon::now()->startOfMonth()->subMonths($i);
-                $next = (clone $m)->addMonth();
-                $labels[] = $m->translatedFormat('M Y');
-                if (Schema::hasTable('persediaan_stock_movements')) {
-                    $masukSeries[] = (int) PersediaanStockMovement::query()
-                        ->where('tipe', '!=', PersediaanStockMovement::TIPE_STOK_AWAL)
-                        ->whereBetween('created_at', [$m, $next])
-                        ->sum('qty_masuk');
-                    $keluarSeries[] = (int) PersediaanStockMovement::query()
-                        ->whereBetween('created_at', [$m, $next])
-                        ->sum('qty_keluar');
-                } else {
-                    $masukSeries[] = 0;
-                    $keluarSeries[] = 0;
-                }
-            }
-
             return view('persediaan_admin.dashboard.index', [
-                'totalPersediaan'      => $totalPersediaan,
-                'barangMasukBulanIni'  => $barangMasukBulanIni,
-                'barangKeluarBulanIni' => $barangKeluarBulanIni,
-                'nilaiPersediaan'      => $nilaiPersediaan,
-                'stokMenipis'          => $stokMenipis,
-                'permintaanPending'    => $permintaanPending,
-                'chartLabels'          => $labels,
-                'chartMasuk'           => $masukSeries,
-                'chartKeluar'          => $keluarSeries,
-                'recent'               => $recent,
-                'lockedUnit'           => PersediaanAccess::lockedUnitForApprover($request),
-                'isSuperadmin'         => PersediaanAccess::isSuperadmin($request),
+                'totalStokSaatIni'   => $saldo['summary']['total_stok_saat_ini'],
+                'totalJenisBarang'   => $saldo['summary']['total_jenis_barang'],
+                'nilaiBarangMasuk'   => $bulan['summary']['nilai_barang_masuk'],
+                'jumlahBarangMasuk'  => $bulan['summary']['jumlah_barang_masuk'],
+                'nilaiBarangKeluar'  => $bulan['summary']['nilai_barang_keluar'],
+                'jumlahBarangKeluar' => $bulan['summary']['jumlah_barang_keluar'],
+                'nilaiPersediaan'    => $saldo['summary']['nilai_persediaan_saat_ini'],
+                'stokMenipis'        => $stokMenipis,
+                'permintaanPending'  => $permintaanPending,
+                'chartLabels'        => $chart['labels'],
+                'chartMasuk'         => $chart['masuk'],
+                'chartKeluar'        => $chart['keluar'],
+                'chartNilaiMasuk'    => $chart['nilai_masuk'],
+                'chartNilaiKeluar'   => $chart['nilai_keluar'],
+                'recent'             => $recent,
+                'lockedUnit'         => PersediaanAccess::lockedUnitForApprover($request),
+                'isSuperadmin'       => PersediaanAccess::isSuperadmin($request),
             ]);
         } catch (\Throwable $e) {
+            report($e);
             $defaults['chartLabels'] = $this->emptyChartLabels();
 
             return view('persediaan_admin.dashboard.index', $defaults);

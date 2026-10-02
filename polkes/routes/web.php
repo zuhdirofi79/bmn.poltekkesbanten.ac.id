@@ -198,6 +198,7 @@ Route::prefix('persediaan')->name('persediaan.admin.')->group(function (): void 
         // Laporan
         Route::get('laporan', 'PersediaanAdmin\LaporanController@index')->name('laporan.index');
         Route::get('laporan/export', 'PersediaanAdmin\LaporanController@exportExcel')->name('laporan.export');
+        Route::get('laporan/pdf', 'PersediaanAdmin\LaporanController@exportPdf')->name('laporan.pdf');
 
         // Master Barang
         Route::prefix('master-barang')->name('master-barang.')->group(function (): void {
