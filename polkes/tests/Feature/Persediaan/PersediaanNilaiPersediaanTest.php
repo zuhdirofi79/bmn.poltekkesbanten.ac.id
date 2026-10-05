@@ -291,6 +291,7 @@ class PersediaanNilaiPersediaanTest extends TestCase
             $table->integer('stok_minimum')->default(0);
             $table->decimal('harga_satuan', 15, 2)->nullable();
             $table->boolean('is_active')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
 

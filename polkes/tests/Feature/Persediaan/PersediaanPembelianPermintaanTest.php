@@ -84,6 +84,7 @@ class PersediaanPembelianPermintaanTest extends TestCase
             $table->integer('stok_minimum')->default(0);
             $table->decimal('harga_satuan', 15, 2)->default(0);
             $table->boolean('is_active')->default(true);
+            $table->softDeletes();
             $table->timestamps();
             $table->unique(['kode_barang', 'unit_kerja']);
         });
@@ -160,6 +161,7 @@ class PersediaanPembelianPermintaanTest extends TestCase
             $table->string('tanda_tangan_admin_path')->nullable();
             $table->text('catatan_admin')->nullable();
             $table->text('approval_note')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
 

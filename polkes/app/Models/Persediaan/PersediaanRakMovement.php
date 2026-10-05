@@ -26,7 +26,7 @@ class PersediaanRakMovement extends Model
 
     public function barang(): BelongsTo
     {
-        return $this->belongsTo(PersediaanBarang::class, 'barang_id');
+        return $this->belongsTo(PersediaanBarang::class, 'barang_id')->withTrashed();
     }
 
     public function fromRak(): BelongsTo

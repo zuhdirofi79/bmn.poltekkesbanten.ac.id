@@ -11,6 +11,7 @@ use App\Imports\PersediaanMasterBarangImport;
 use App\Models\Persediaan\PersediaanBarang;
 use App\Models\Persediaan\PersediaanStockMovement;
 use App\Services\Persediaan\PersediaanCodeService;
+use App\Services\Persediaan\PersediaanDeletionService;
 use App\Support\Persediaan\PersediaanAdminSession;
 use App\Support\Persediaan\PublicUploadPath;
 use App\Support\Persediaan\UnitKerja;
@@ -26,8 +27,10 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class MasterBarangController extends Controller
 {
-    public function __construct(private PersediaanCodeService $codes)
-    {
+    public function __construct(
+        private PersediaanCodeService $codes,
+        private PersediaanDeletionService $deletion,
+    ) {
     }
 
     /** @var list<int> */
@@ -48,7 +51,8 @@ class MasterBarangController extends Controller
     public function index(Request $request): View
     {
         $columnFilters = $this->extractColumnFilters($request);
-        $baseQuery = $this->scopedBarangQuery($request);
+        $baseQuery = $this->listQuery($request);
+        $lifecycle = $this->lifecycle($request);
         $perPage = $this->perPage($request);
 
         $barang = $this->applyListFilters(clone $baseQuery, $request, $columnFilters)
@@ -69,13 +73,14 @@ class MasterBarangController extends Controller
             'barcodeUrls'     => $this->barcodeUrlsForPage($barang),
             'perPage'         => $perPage,
             'perPageOptions'  => self::PER_PAGE_OPTIONS,
+            'lifecycle'       => $lifecycle,
         ]);
     }
 
     public function exportExcel(Request $request): BinaryFileResponse|RedirectResponse
     {
         $query = $this->applyListFilters(
-            $this->scopedBarangQuery($request),
+            $this->listQuery($request),
             $request,
             $this->extractColumnFilters($request),
         );
@@ -97,6 +102,9 @@ class MasterBarangController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $data = $this->validateData($request);
+        if ($redirect = $this->redirectIfKodeTaken($data)) {
+            return $redirect;
+        }
 
         DB::transaction(function () use ($data) {
             $barang = PersediaanBarang::create($data + ['is_active' => true]);
@@ -119,22 +127,155 @@ class MasterBarangController extends Controller
 
     public function update(Request $request, int $id): RedirectResponse
     {
-        $barang = PersediaanBarang::findOrFail($id);
+        $barang = $this->scopedBarangQuery($request)->whereKey($id)->firstOrFail();
         $data = $this->validateData($request, $id);
+        if ($redirect = $this->redirectIfKodeTaken($data, $id)) {
+            return $redirect;
+        }
 
         $barang->update($data + ['is_active' => $request->boolean('is_active')]);
 
         return back()->with('success', 'Barang berhasil diperbarui.');
     }
 
-    public function destroy(int $id): RedirectResponse
+    public function deactivate(Request $request, int $id): RedirectResponse
     {
-        $barang = PersediaanBarang::findOrFail($id);
-        // Non-destruktif: nonaktifkan agar histori stok tetap utuh.
+        $barang = $this->findBarang($request, $id, false);
         $barang->is_active = false;
         $barang->save();
 
         return back()->with('success', 'Barang dinonaktifkan.');
+    }
+
+    public function destroy(Request $request, int $id): RedirectResponse
+    {
+        $barang = $this->findBarang($request, $id, false);
+        $barang->delete();
+
+        return back()->with('success', 'Barang berhasil di-soft delete.');
+    }
+
+    public function forceDestroy(Request $request, int $id): RedirectResponse
+    {
+        $barang = $this->findBarang($request, $id, true);
+        if ($this->deletion->barangIdsWithHistory([$barang->id]) !== []) {
+            return back()->with('error', PersediaanDeletionService::BARANG_BLOCKED);
+        }
+
+        $path = $barang->barcode_path;
+        try {
+            DB::transaction(function () use ($barang): void {
+                $barang->forceDelete();
+            });
+        } catch (\Throwable $e) {
+            report($e);
+
+            return back()->with('error', 'Data gagal dihapus. Silakan coba kembali.');
+        }
+
+        $this->deletion->deleteExclusiveBarcodes([$path]);
+
+        return back()->with('success', 'Barang berhasil dihapus permanen.');
+    }
+
+    public function restore(Request $request, int $id): RedirectResponse
+    {
+        $barang = $this->findBarang($request, $id, true);
+        if (! $barang->trashed()) {
+            return back()->with('error', 'Barang ini tidak berada di sampah.');
+        }
+
+        $barang->restore();
+
+        return back()->with('success', 'Barang berhasil dipulihkan.');
+    }
+
+    public function bulkDestroy(Request $request): RedirectResponse
+    {
+        $ids = $this->deletion->normalizeIds((array) $request->input('ids', []));
+        if ($ids === []) {
+            return back()->with('error', 'Pilih data terlebih dahulu.');
+        }
+
+        $foundIds = $this->scopedBarangQuery($request)->whereIn('id', $ids)->pluck('id')->map(static fn ($id): int => (int) $id)->all();
+        if ($foundIds === []) {
+            return back()->with('error', 'Data tidak ditemukan atau berada di luar akses Anda.');
+        }
+
+        try {
+            DB::transaction(function () use ($foundIds): void {
+                PersediaanBarang::query()->whereIn('id', $foundIds)->delete();
+            });
+        } catch (\Throwable $e) {
+            report($e);
+
+            return back()->with('error', 'Data gagal dihapus. Silakan coba kembali.');
+        }
+
+        return back()->with('success', $this->countMessage(count($foundIds), count($ids) - count($foundIds), 'barang berhasil di-soft delete.'));
+    }
+
+    public function bulkForceDestroy(Request $request): RedirectResponse
+    {
+        $ids = $this->deletion->normalizeIds((array) $request->input('ids', []));
+        if ($ids === []) {
+            return back()->with('error', 'Pilih data terlebih dahulu.');
+        }
+
+        $found = $this->scopedBarangQuery($request)->withTrashed()->whereIn('id', $ids)->get();
+        if ($found->isEmpty()) {
+            return back()->with('error', 'Data tidak ditemukan atau berada di luar akses Anda.');
+        }
+
+        $blocked = array_flip($this->deletion->barangIdsWithHistory($found->pluck('id')->map(static fn ($id): int => (int) $id)->all()));
+        $safe = $found->reject(static fn (PersediaanBarang $barang): bool => isset($blocked[$barang->id]));
+        $paths = $safe->pluck('barcode_path')->all();
+
+        try {
+            DB::transaction(function () use ($safe): void {
+                $safeIds = $safe->pluck('id')->all();
+                if ($safeIds !== []) {
+                    PersediaanBarang::withTrashed()->whereIn('id', $safeIds)->forceDelete();
+                }
+            });
+        } catch (\Throwable $e) {
+            report($e);
+
+            return back()->with('error', 'Data gagal dihapus. Silakan coba kembali.');
+        }
+
+        $this->deletion->deleteExclusiveBarcodes($paths);
+
+        $done = $safe->count();
+        $message = $this->partialMessage(
+            $done,
+            count($blocked),
+            'barang berhasil dihapus permanen.',
+            'barang tidak dapat dihapus karena memiliki histori transaksi.',
+        );
+        $missing = count($ids) - $found->count();
+        if ($missing > 0) {
+            $message .= ' ' . $missing . ' data tidak ditemukan.';
+        }
+
+        return back()->with($done > 0 ? 'success' : 'error', $message);
+    }
+
+    public function bulkRestore(Request $request): RedirectResponse
+    {
+        $ids = $this->deletion->normalizeIds((array) $request->input('ids', []));
+        if ($ids === []) {
+            return back()->with('error', 'Pilih data terlebih dahulu.');
+        }
+
+        $foundIds = $this->scopedBarangQuery($request)->onlyTrashed()->whereIn('id', $ids)->pluck('id')->all();
+        if ($foundIds === []) {
+            return back()->with('error', 'Data tidak ditemukan atau berada di luar akses Anda.');
+        }
+
+        PersediaanBarang::onlyTrashed()->whereIn('id', $foundIds)->restore();
+
+        return back()->with('success', count($foundIds) . ' barang berhasil dipulihkan.');
     }
 
     public function templateExcel(): BinaryFileResponse
@@ -558,5 +699,87 @@ class MasterBarangController extends Controller
         }
 
         return $urls;
+    }
+
+    /**
+     * @return Builder<PersediaanBarang>
+     */
+    private function listQuery(Request $request): Builder
+    {
+        $query = $this->scopedBarangQuery($request);
+        $lifecycle = $this->lifecycle($request);
+
+        if ($lifecycle === 'sampah') {
+            $query->onlyTrashed();
+        } elseif ($lifecycle === 'semua') {
+            $query->withTrashed();
+        }
+
+        return $query;
+    }
+
+    private function lifecycle(Request $request): string
+    {
+        $lifecycle = (string) $request->input('lifecycle', 'aktif');
+
+        return in_array($lifecycle, ['aktif', 'sampah', 'semua'], true) ? $lifecycle : 'aktif';
+    }
+
+    private function findBarang(Request $request, int $id, bool $withTrashed): PersediaanBarang
+    {
+        $query = $this->scopedBarangQuery($request);
+        if ($withTrashed) {
+            $query->withTrashed();
+        }
+
+        $barang = $query->whereKey($id)->first();
+        abort_if($barang === null, 404);
+
+        return $barang;
+    }
+
+    /**
+     * @param  array<string, mixed>  $data
+     */
+    private function redirectIfKodeTaken(array $data, ?int $ignoreId = null): ?RedirectResponse
+    {
+        $clash = PersediaanBarang::withTrashed()
+            ->where('kode_barang', $data['kode_barang'])
+            ->where('unit_kerja', $data['unit_kerja'])
+            ->when($ignoreId !== null, fn ($q) => $q->where('id', '!=', $ignoreId))
+            ->first();
+
+        if ($clash === null) {
+            return null;
+        }
+
+        $message = $clash->trashed()
+            ? 'Kode barang sudah ada di sampah. Pulihkan barang tersebut, jangan buat duplikat.'
+            : 'Kode barang sudah digunakan pada unit ini.';
+
+        return back()->withInput()->with('error', $message);
+    }
+
+    private function countMessage(int $done, int $missing, string $doneLabel): string
+    {
+        $message = $done . ' ' . $doneLabel;
+        if ($missing > 0) {
+            $message .= ' ' . $missing . ' data tidak ditemukan.';
+        }
+
+        return $message;
+    }
+
+    private function partialMessage(int $done, int $blocked, string $doneLabel, string $blockedLabel): string
+    {
+        $parts = [];
+        if ($done > 0) {
+            $parts[] = $done . ' ' . $doneLabel;
+        }
+        if ($blocked > 0) {
+            $parts[] = $blocked . ' ' . $blockedLabel;
+        }
+
+        return $parts === [] ? 'Tidak ada data yang diproses.' : implode(' ', $parts);
     }
 }

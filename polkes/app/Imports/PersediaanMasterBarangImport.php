@@ -108,10 +108,21 @@ class PersediaanMasterBarangImport
             ];
 
             try {
-                $existing = PersediaanBarang::query()
+                $existing = PersediaanBarang::withTrashed()
                     ->where('kode_barang', $payload['kode_barang'])
                     ->where('unit_kerja', $payload['unit_kerja'])
                     ->first();
+
+                if ($existing !== null && $existing->trashed()) {
+                    $skipped++;
+                    $errors[] = [
+                        'baris'  => $excelRow,
+                        'kolom'  => 'kode_barang',
+                        'pesan'  => 'Barang ini ada di sampah. Pulihkan terlebih dahulu, jangan buat duplikat.',
+                    ];
+
+                    continue;
+                }
 
                 if ($existing !== null) {
                     $existing->update($payload);

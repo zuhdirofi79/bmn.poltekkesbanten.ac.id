@@ -83,14 +83,22 @@
         @foreach($units as $u)<option value="{{ $u }}" @selected(($filters['unit'] ?? '') === $u)>{{ UnitKerja::label($u) }}</option>@endforeach
       </select>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <label class="form-label">Kode / Nama</label>
       <input type="text" name="q" value="{{ $filters['q'] ?? '' }}" class="form-control form-control-sm" placeholder="Pencarian cepat...">
     </div>
-    <div class="col-md-2">
+    <div class="col-6 col-md-2">
+      <label class="form-label">Tampilan</label>
+      <select name="lifecycle" class="form-select form-select-sm">
+        <option value="aktif" @selected(($lifecycle ?? 'aktif') === 'aktif')>Data Aktif</option>
+        <option value="sampah" @selected(($lifecycle ?? '') === 'sampah')>Sampah</option>
+        <option value="semua" @selected(($lifecycle ?? '') === 'semua')>Semua</option>
+      </select>
+    </div>
+    <div class="col-6 col-md-2">
       <button class="btn btn-prs-blue btn-sm w-100"><i class="ti ti-filter"></i> Filter</button>
     </div>
-    <div class="col-md-3 d-flex gap-2">
+    <div class="col-md-2 d-flex gap-2">
       <a href="{{ route('persediaan.admin.master-barang.index') }}" class="btn btn-outline-secondary btn-sm flex-grow-1">
         <i class="ti ti-refresh"></i> Reset Semua Filter
       </a>
@@ -150,6 +158,39 @@
         </button>
       </form>
     </div>
+  </div>
+
+  <div id="barangBulkBar" class="pa-bulk-bar" hidden>
+    <strong id="barangBulkLabel">0 barang dipilih</strong>
+    @if(($lifecycle ?? 'aktif') !== 'sampah')
+      <button type="button" class="btn btn-warning btn-sm js-pa-bulk"
+              data-checkbox=".persediaan-barang-checkbox"
+              data-url="{{ route('persediaan.admin.master-barang.bulk-delete') }}"
+              data-method="POST"
+              data-tone="warn"
+              data-title="Soft Delete {n} Barang?"
+              data-message="Barang yang dipilih akan disembunyikan dari daftar aktif, tetapi datanya masih tersimpan dan dapat dipulihkan."
+              data-confirm="Ya, Soft Delete">Soft Delete Terpilih</button>
+    @endif
+    @if(($lifecycle ?? 'aktif') !== 'aktif')
+      <button type="button" class="btn btn-outline-success btn-sm js-pa-bulk"
+              data-checkbox=".persediaan-barang-checkbox"
+              data-url="{{ route('persediaan.admin.master-barang.bulk-restore') }}"
+              data-method="POST"
+              data-tone="warn"
+              data-title="Pulihkan {n} Barang?"
+              data-message="Barang yang dipilih akan dikembalikan ke daftar aktif."
+              data-confirm="Ya, Pulihkan"
+              data-busy-label="Memulihkan...">Pulihkan Terpilih</button>
+    @endif
+    <button type="button" class="btn btn-danger btn-sm js-pa-bulk"
+            data-checkbox=".persediaan-barang-checkbox"
+            data-url="{{ route('persediaan.admin.master-barang.bulk-force-delete') }}"
+            data-method="POST"
+            data-tone="danger"
+            data-title="Hapus Permanen {n} Barang?"
+            data-message="Tindakan ini tidak dapat dibatalkan. Barang yang sudah memiliki histori transaksi tidak akan dihapus."
+            data-confirm="Ya, Hapus Permanen">Hapus Permanen Terpilih</button>
   </div>
 
   <div class="pa-table-filter-wrap">
@@ -230,7 +271,10 @@
             <td>{{ $b->satuan }}</td>
             <td class="text-end">{{ number_format($b->stok_awal, 0, ',', '.') }}</td>
             <td class="text-end">Rp {{ number_format($b->harga_satuan, 0, ',', '.') }}</td>
-            <td>@if($b->is_active)<span class="prs-badge selesai">Aktif</span>@else<span class="prs-badge ditolak">Nonaktif</span>@endif</td>
+            <td>
+              @if($b->trashed())<span class="prs-badge ditolak">Soft Deleted</span>@endif
+              @if($b->is_active)<span class="prs-badge selesai">Aktif</span>@else<span class="prs-badge ditolak">Nonaktif</span>@endif
+            </td>
             <td>{{ optional(optional($b->rakAssignment)->rak)->kode_rak ?: '-' }}</td>
             <td>
               @if(!empty($barcodeUrls[$b->id]))
@@ -240,19 +284,53 @@
               @endif
             </td>
             <td class="text-end">
-              <button class="btn btn-outline-primary btn-sm"
-                      data-bs-toggle="modal" data-bs-target="#editModal"
-                      data-id="{{ $b->id }}" data-kode="{{ $b->kode_barang }}" data-nama="{{ $b->nama_barang }}"
-                      data-unit="{{ $b->unit_kerja }}" data-satuan="{{ $b->satuan }}"
-                      data-awal="{{ $b->stok_awal }}" data-min="{{ $b->stok_minimum }}"
-                      data-harga="{{ $b->harga_satuan }}" data-active="{{ $b->is_active ? 1 : 0 }}">
-                <i class="ti ti-edit"></i>
-              </button>
-              <form action="{{ route('persediaan.admin.master-barang.destroy', $b->id) }}" method="POST" class="d-inline"
-                    onsubmit="return confirm('Nonaktifkan barang ini?');">
-                @csrf @method('DELETE')
-                <button class="btn btn-outline-danger btn-sm"><i class="ti ti-trash"></i></button>
-              </form>
+              <div class="pa-row-actions">
+                @unless($b->trashed())
+                  <button class="btn btn-outline-primary btn-sm"
+                          data-bs-toggle="modal" data-bs-target="#editModal"
+                          data-id="{{ $b->id }}" data-kode="{{ $b->kode_barang }}" data-nama="{{ $b->nama_barang }}"
+                          data-unit="{{ $b->unit_kerja }}" data-satuan="{{ $b->satuan }}"
+                          data-awal="{{ $b->stok_awal }}" data-min="{{ $b->stok_minimum }}"
+                          data-harga="{{ $b->harga_satuan }}" data-active="{{ $b->is_active ? 1 : 0 }}">
+                    Edit
+                  </button>
+                @endunless
+                <div class="dropdown">
+                  <button class="btn btn-outline-secondary btn-sm" type="button" data-bs-toggle="dropdown"
+                          data-bs-popper-config='{"strategy":"fixed"}' aria-label="Aksi {{ $b->nama_barang }}">
+                    <i class="ti ti-dots-vertical"></i>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    @unless($b->trashed())
+                      <li><button type="button" class="dropdown-item js-pa-action"
+                                  data-url="{{ route('persediaan.admin.master-barang.deactivate', $b->id) }}"
+                                  data-method="POST" data-tone="warn" data-title="Nonaktifkan Barang"
+                                  data-subject="{{ $b->kode_barang }} — {{ $b->nama_barang }}"
+                                  data-message="Status barang menjadi nonaktif. Ini bukan soft delete. Data tetap tampil di daftar dan histori stok tidak berubah."
+                                  data-confirm="Ya, Nonaktifkan" data-busy-label="Menyimpan...">Nonaktifkan</button></li>
+                      <li><button type="button" class="dropdown-item js-pa-action"
+                                  data-url="{{ route('persediaan.admin.master-barang.destroy', $b->id) }}"
+                                  data-method="DELETE" data-tone="warn" data-title="Soft Delete Barang"
+                                  data-subject="{{ $b->kode_barang }} — {{ $b->nama_barang }}"
+                                  data-message="Barang ini akan disembunyikan dari daftar aktif, tetapi datanya masih tersimpan dan dapat dipulihkan jika diperlukan. Apakah Anda yakin ingin melakukan soft delete?"
+                                  data-confirm="Ya, Soft Delete">Soft Delete</button></li>
+                    @else
+                      <li><button type="button" class="dropdown-item js-pa-action"
+                                  data-url="{{ route('persediaan.admin.master-barang.restore', $b->id) }}"
+                                  data-method="POST" data-tone="warn" data-title="Pulihkan Barang"
+                                  data-subject="{{ $b->kode_barang }} — {{ $b->nama_barang }}"
+                                  data-message="Barang akan dikembalikan ke daftar aktif."
+                                  data-confirm="Ya, Pulihkan" data-busy-label="Memulihkan...">Restore</button></li>
+                    @endunless
+                    <li><button type="button" class="dropdown-item text-danger js-pa-action"
+                                data-url="{{ route('persediaan.admin.master-barang.force-destroy', $b->id) }}"
+                                data-method="DELETE" data-tone="danger" data-title="Hapus Permanen Barang"
+                                data-subject="{{ $b->kode_barang }} — {{ $b->nama_barang }}"
+                                data-message="PERINGATAN: Barang akan dihapus permanen dari database dan tindakan ini tidak dapat dibatalkan. Barang yang sudah memiliki histori transaksi tidak akan dihapus. Apakah Anda yakin ingin menghapus barang ini secara permanen?"
+                                data-confirm="Hapus Permanen">Permanent Delete</button></li>
+                  </ul>
+                </div>
+              </div>
             </td>
           </tr>
         @empty
@@ -323,6 +401,8 @@
     </form>
   </div>
 </div>
+
+@include('persediaan_admin._delete_modal')
 @endsection
 
 @push('scripts')
@@ -379,6 +459,12 @@
         printWrap.appendChild(p);
       }
     });
+    var bulkBar = document.getElementById('barangBulkBar');
+    if (bulkBar) {
+      bulkBar.hidden = checked.length === 0;
+    }
+    var bulkLabel = document.getElementById('barangBulkLabel');
+    if (bulkLabel) bulkLabel.textContent = checked.length + ' barang dipilih';
     var disabled = checked.length === 0;
     var btnG = document.getElementById('btnGenerateSelected');
     var btnP = document.getElementById('btnPrintSelected');
@@ -427,6 +513,7 @@
     if (params.get('unit')) out.unit = params.get('unit');
     if (params.get('q')) out.q = params.get('q');
     if (params.get('per_page')) out.per_page = params.get('per_page');
+    if (params.get('lifecycle')) out.lifecycle = params.get('lifecycle');
     return out;
   }
 
@@ -443,6 +530,7 @@
     if (merged.unit) parts.push('unit=' + encodeURIComponent(merged.unit));
     if (merged.q) parts.push('q=' + encodeURIComponent(merged.q));
     if (merged.per_page) parts.push('per_page=' + encodeURIComponent(merged.per_page));
+    if (merged.lifecycle) parts.push('lifecycle=' + encodeURIComponent(merged.lifecycle));
 
     COLUMN_PARAMS.forEach(function (key) {
       var vals = merged[key];

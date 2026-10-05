@@ -25,7 +25,7 @@ class NomorPermintaanService
         $kode = UnitKerja::kode($unitKerja);
         $prefix = sprintf('PRM-%s-%d-', $kode, $year);
 
-        // Ambil nomor terakhir untuk (unit, tahun) dengan lock baris.
+        // Sertakan baris soft-deleted supaya nomor yang sudah terpakai tidak terbit ulang.
         $last = DB::table('persediaan_permintaan')
             ->where('unit_kerja', $unitKerja)
             ->where('nomor_permintaan', 'like', $prefix . '%')

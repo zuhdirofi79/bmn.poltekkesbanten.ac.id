@@ -159,6 +159,12 @@ Route::prefix('persediaan')->name('persediaan.admin.')->group(function (): void 
         // Permintaan
         Route::prefix('permintaan')->name('permintaan.')->group(function (): void {
             Route::get('/', 'PersediaanAdmin\PermintaanController@index')->name('index');
+            Route::post('bulk-delete', 'PersediaanAdmin\PermintaanController@bulkDestroy')->name('bulk-delete');
+            Route::post('bulk-force-delete', 'PersediaanAdmin\PermintaanController@bulkForceDestroy')->name('bulk-force-delete');
+            Route::post('bulk-restore', 'PersediaanAdmin\PermintaanController@bulkRestore')->name('bulk-restore');
+            Route::delete('{id}/force', 'PersediaanAdmin\PermintaanController@forceDestroy')->where('id', '[0-9]+')->name('force-destroy');
+            Route::post('{id}/restore', 'PersediaanAdmin\PermintaanController@restore')->where('id', '[0-9]+')->name('restore');
+            Route::delete('{id}', 'PersediaanAdmin\PermintaanController@destroy')->where('id', '[0-9]+')->name('destroy');
             Route::get('{id}', 'PersediaanAdmin\PermintaanController@show')->where('id', '[0-9]+')->name('show');
             Route::post('{id}/setujui', 'PersediaanAdmin\PermintaanController@setujui')->where('id', '[0-9]+')->name('setujui');
             Route::post('{id}/tolak', 'PersediaanAdmin\PermintaanController@tolak')->where('id', '[0-9]+')->name('tolak');
@@ -209,7 +215,13 @@ Route::prefix('persediaan')->name('persediaan.admin.')->group(function (): void 
             Route::post('generate-barcodes', 'PersediaanAdmin\MasterBarangController@generateBarcodes')->name('generate-barcodes');
             Route::get('print-barcodes', 'PersediaanAdmin\MasterBarangController@printBarcodes')->name('print-barcodes');
             Route::get('lookup-barcode', 'PersediaanAdmin\MasterBarangController@lookupBarcode')->name('lookup-barcode');
+            Route::post('bulk-delete', 'PersediaanAdmin\MasterBarangController@bulkDestroy')->name('bulk-delete');
+            Route::post('bulk-force-delete', 'PersediaanAdmin\MasterBarangController@bulkForceDestroy')->name('bulk-force-delete');
+            Route::post('bulk-restore', 'PersediaanAdmin\MasterBarangController@bulkRestore')->name('bulk-restore');
             Route::post('/', 'PersediaanAdmin\MasterBarangController@store')->name('store');
+            Route::post('{id}/nonaktifkan', 'PersediaanAdmin\MasterBarangController@deactivate')->where('id', '[0-9]+')->name('deactivate');
+            Route::delete('{id}/force', 'PersediaanAdmin\MasterBarangController@forceDestroy')->where('id', '[0-9]+')->name('force-destroy');
+            Route::post('{id}/restore', 'PersediaanAdmin\MasterBarangController@restore')->where('id', '[0-9]+')->name('restore');
             Route::put('{id}', 'PersediaanAdmin\MasterBarangController@update')->where('id', '[0-9]+')->name('update');
             Route::delete('{id}', 'PersediaanAdmin\MasterBarangController@destroy')->where('id', '[0-9]+')->name('destroy');
             Route::post('{id}/generate-barcode', 'PersediaanAdmin\MasterBarangController@generateBarcode')->where('id', '[0-9]+')->name('generate-barcode');

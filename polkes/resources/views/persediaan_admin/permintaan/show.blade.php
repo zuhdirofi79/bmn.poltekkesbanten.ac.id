@@ -18,6 +18,10 @@
   </a>
 </div>
 
+@if($permintaan->trashed())
+  <div class="alert alert-warning">Permintaan ini berada di sampah. Histori stok tidak dihapus. Pulihkan dari daftar jika masih diperlukan.</div>
+@endif
+
 @php $editable = $canApprove ?? false; @endphp
 
 <div class="pa-card mt-0">

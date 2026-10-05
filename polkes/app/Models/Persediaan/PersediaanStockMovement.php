@@ -34,6 +34,6 @@ class PersediaanStockMovement extends Model
 
     public function barang()
     {
-        return $this->belongsTo(PersediaanBarang::class, 'barang_id');
+        return $this->belongsTo(PersediaanBarang::class, 'barang_id')->withTrashed();
     }
 }

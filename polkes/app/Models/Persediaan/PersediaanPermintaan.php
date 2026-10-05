@@ -7,9 +7,11 @@ namespace App\Models\Persediaan;
 use App\Support\Persediaan\PersediaanAccess;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PersediaanPermintaan extends Model
 {
+    use SoftDeletes;
     public const STATUS_DRAFT = 'draft';
     public const STATUS_DIAJUKAN = 'diajukan';
     public const STATUS_MENUNGGU = 'menunggu_persetujuan';

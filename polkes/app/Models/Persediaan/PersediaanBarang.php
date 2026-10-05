@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace App\Models\Persediaan;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PersediaanBarang extends Model
 {
+    use SoftDeletes;
     protected $table = 'persediaan_barang';
 
     protected $fillable = [
