@@ -230,7 +230,7 @@ class PersediaanQrRakBarcodeTest extends TestCase
         $codes = app(PersediaanCodeService::class);
         $codes->generateAndSave($barang);
         $payload = $barang->fresh()->barcode_payload;
-        $this->assertSame('DIR|KBR-01-004', $payload);
+        $this->assertSame('ID|' . $barang->id, $payload);
 
         $codes->generateAndSave($barang->fresh());
         $this->assertSame($payload, $barang->fresh()->barcode_payload);

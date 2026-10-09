@@ -15,14 +15,17 @@ class PersediaanCodeService
     {
     }
 
+    /**
+     * Identitas teknis barcode. kode_barang hanya tampil di label.
+     */
+    public function identityPayload(PersediaanBarang $barang): string
+    {
+        return 'ID|' . (int) $barang->id;
+    }
+
     public function payloadFor(PersediaanBarang $barang): string
     {
-        $existing = trim((string) ($barang->barcode_payload ?? ''));
-        if ($existing !== '') {
-            return $existing;
-        }
-
-        return $this->makePayload((string) $barang->unit_kerja, (string) $barang->kode_barang);
+        return $this->identityPayload($barang);
     }
 
     public function makePayload(string $unitKerja, string $kodeBarang): string
@@ -73,10 +76,17 @@ class PersediaanCodeService
     }
 
     /**
-     * Resolve Code 128. Jangan ambil barang unit lain jika kode bentrok.
+     * Resolve Code 128.
+     * Payload baru memakai ID record. Payload lama UNIT|kode hanya dipakai
+     * bila tepat satu barang aktif yang cocok.
      */
     public function resolve(string $raw, ?string $unitContext = null): ?PersediaanBarang
     {
+        $raw = trim($raw);
+        if (preg_match('/^ID\|(\d+)$/', $raw, $match) === 1) {
+            return PersediaanBarang::query()->whereKey((int) $match[1])->first();
+        }
+
         $parsed = $this->parsePayload($raw);
         if ($parsed === null) {
             return null;
@@ -92,16 +102,11 @@ class PersediaanCodeService
             $query->where('unit_kerja', $unit);
         } elseif ($unitContext !== null && $unitContext !== '') {
             $query->where('unit_kerja', $unitContext);
-        } else {
-            $matches = $query->get();
-            if ($matches->count() !== 1) {
-                return null;
-            }
-
-            return $matches->first();
         }
 
-        return $query->first();
+        $matches = $query->limit(2)->get();
+
+        return $matches->count() === 1 ? $matches->first() : null;
     }
 
     public function filename(PersediaanBarang $barang): string
@@ -139,12 +144,7 @@ class PersediaanCodeService
 
     public function generateAndSave(PersediaanBarang $barang): string
     {
-        $payloadBefore = (string) ($barang->barcode_payload ?? '');
-        $payload = $this->payloadFor($barang);
-        if ($payloadBefore !== '' && $payloadBefore !== $payload) {
-            $payload = $payloadBefore;
-        }
-
+        $payload = $this->identityPayload($barang);
         if ((string) $barang->barcode_payload !== $payload) {
             $barang->barcode_payload = $payload;
             $barang->save();

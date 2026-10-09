@@ -108,43 +108,22 @@ class PersediaanMasterBarangImport
             ];
 
             try {
-                $existing = PersediaanBarang::withTrashed()
-                    ->where('kode_barang', $payload['kode_barang'])
-                    ->where('unit_kerja', $payload['unit_kerja'])
-                    ->first();
+                DB::transaction(function () use ($payload): void {
+                    $barang = PersediaanBarang::create($payload);
 
-                if ($existing !== null && $existing->trashed()) {
-                    $skipped++;
-                    $errors[] = [
-                        'baris'  => $excelRow,
-                        'kolom'  => 'kode_barang',
-                        'pesan'  => 'Barang ini ada di sampah. Pulihkan terlebih dahulu, jangan buat duplikat.',
-                    ];
-
-                    continue;
-                }
-
-                if ($existing !== null) {
-                    $existing->update($payload);
-                    $updated++;
-                } else {
-                    DB::transaction(function () use ($payload): void {
-                        $barang = PersediaanBarang::create($payload);
-
-                        if ((int) $payload['stok_awal'] > 0) {
-                            PersediaanStockMovement::create([
-                                'barang_id'  => $barang->id,
-                                'unit_kerja' => $barang->unit_kerja,
-                                'tipe'       => PersediaanStockMovement::TIPE_STOK_AWAL,
-                                'ref_table'  => 'persediaan_barang',
-                                'ref_id'     => $barang->id,
-                                'qty_masuk'  => (int) $payload['stok_awal'],
-                                'keterangan' => 'Stok awal import master barang',
-                            ]);
-                        }
-                    });
-                    $created++;
-                }
+                    if ((int) $payload['stok_awal'] > 0) {
+                        PersediaanStockMovement::create([
+                            'barang_id'  => $barang->id,
+                            'unit_kerja' => $barang->unit_kerja,
+                            'tipe'       => PersediaanStockMovement::TIPE_STOK_AWAL,
+                            'ref_table'  => 'persediaan_barang',
+                            'ref_id'     => $barang->id,
+                            'qty_masuk'  => (int) $payload['stok_awal'],
+                            'keterangan' => 'Stok awal import master barang',
+                        ]);
+                    }
+                });
+                $created++;
             } catch (\Throwable $e) {
                 report($e);
                 $skipped++;

@@ -134,7 +134,7 @@
     list.forEach(function (b) {
       opts += '<option value="' + esc(b.id) + '" data-kode="' + esc(b.kode) + '" data-nama="' + esc(b.nama) +
         '" data-satuan="' + esc(b.satuan) + '" data-harga="' + esc(b.harga) + '"' +
-        (String(selected || '') === String(b.id) ? ' selected' : '') + '>' + esc(b.kode) + ' - ' + esc(b.nama) + '</option>';
+        (String(selected || '') === String(b.id) ? ' selected' : '') + '>[' + esc(b.kode) + '] ' + esc(b.nama) + ' - ' + esc(unit) + '</option>';
     });
     return opts;
   }

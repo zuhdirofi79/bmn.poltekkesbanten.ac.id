@@ -289,15 +289,23 @@ class PembelianController extends Controller
      */
     private function masterMap(): array
     {
-        $map = [];
+        $grouped = [];
         foreach (PersediaanBarang::query()->get() as $barang) {
-            $map[$barang->unit_kerja . '|' . mb_strtoupper((string) $barang->kode_barang)] = [
+            $key = $barang->unit_kerja . '|' . mb_strtoupper((string) $barang->kode_barang);
+            $grouped[$key][] = [
                 'id'     => (int) $barang->id,
                 'kode'   => (string) $barang->kode_barang,
                 'nama'   => (string) $barang->nama_barang,
                 'satuan' => (string) $barang->satuan,
                 'harga'  => (float) $barang->harga_satuan,
             ];
+        }
+
+        $map = [];
+        foreach ($grouped as $key => $rows) {
+            if (count($rows) === 1) {
+                $map[$key] = $rows[0];
+            }
         }
 
         return $map;

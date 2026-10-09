@@ -44,7 +44,7 @@
 
       <i class="ti ti-report"></i> Laporan</a></li>
 
-    <li><a href="{{ route('persediaan.admin.master-barang.index') }}" class="{{ \Illuminate\Support\Str::startsWith($r, 'persediaan.admin.master-barang') ? 'active' : '' }}">
+    <li><a href="{{ route('persediaan.admin.master-barang.index') }}" class="{{ \Illuminate\Support\Str::startsWith($r, 'persediaan.admin.master-barang') && ! \Illuminate\Support\Str::startsWith($r, 'persediaan.admin.master-barang.trash') ? 'active' : '' }}">
 
       <i class="ti ti-box"></i> Master Data</a></li>
 
@@ -53,6 +53,10 @@
 
       <i class="ti ti-layout-grid"></i> Master Rak</a></li>
     @endif
+
+    <li><a href="{{ route('persediaan.admin.master-barang.trash') }}" class="{{ \Illuminate\Support\Str::startsWith($r, 'persediaan.admin.master-barang.trash') ? 'active' : '' }}">
+
+      <i class="ti ti-trash"></i> Sampah</a></li>
 
     <li><a href="{{ route('persediaan.admin.pengaturan.index') }}" class="{{ \Illuminate\Support\Str::startsWith($r, 'persediaan.admin.pengaturan') ? 'active' : '' }}">
 

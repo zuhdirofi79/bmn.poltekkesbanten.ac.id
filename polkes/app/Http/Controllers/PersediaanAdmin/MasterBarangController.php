@@ -102,9 +102,6 @@ class MasterBarangController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $data = $this->validateData($request);
-        if ($redirect = $this->redirectIfKodeTaken($data)) {
-            return $redirect;
-        }
 
         DB::transaction(function () use ($data) {
             $barang = PersediaanBarang::create($data + ['is_active' => true]);
@@ -129,9 +126,6 @@ class MasterBarangController extends Controller
     {
         $barang = $this->scopedBarangQuery($request)->whereKey($id)->firstOrFail();
         $data = $this->validateData($request, $id);
-        if ($redirect = $this->redirectIfKodeTaken($data, $id)) {
-            return $redirect;
-        }
 
         $barang->update($data + ['is_active' => $request->boolean('is_active')]);
 
@@ -528,6 +522,12 @@ class MasterBarangController extends Controller
      */
     private function validateData(Request $request, ?int $id = null): array
     {
+        $request->merge([
+            'kode_barang' => trim((string) $request->input('kode_barang', '')),
+            'nama_barang' => trim((string) $request->input('nama_barang', '')),
+            'satuan'      => trim((string) $request->input('satuan', '')),
+        ]);
+
         return $request->validate([
             'kode_barang'  => ['required', 'string', 'max:100'],
             'nama_barang'  => ['required', 'string', 'max:200'],
@@ -542,7 +542,6 @@ class MasterBarangController extends Controller
     public function generateBarcode(Request $request, int $id): RedirectResponse
     {
         $barang = $this->scopedBarangQuery($request)->whereKey($id)->firstOrFail();
-        $payloadBefore = (string) ($barang->barcode_payload ?? '');
 
         try {
             $this->codes->generateAndSave($barang);
@@ -553,7 +552,7 @@ class MasterBarangController extends Controller
         }
 
         $barang->refresh();
-        if ($payloadBefore !== '' && $payloadBefore !== (string) $barang->barcode_payload) {
+        if ((string) $barang->barcode_payload !== $this->codes->identityPayload($barang)) {
             return back()->with('error', 'Identifier barcode berubah secara tidak terduga.');
         }
 
@@ -585,10 +584,10 @@ class MasterBarangController extends Controller
 
         $query->orderBy('id')->chunkById(20, function ($barangs) use (&$generated, &$failed): void {
             foreach ($barangs as $barang) {
-                $payloadBefore = (string) ($barang->barcode_payload ?? '');
                 try {
                     $this->codes->generateAndSave($barang);
-                    if ($payloadBefore !== '' && $payloadBefore !== (string) $barang->fresh()?->barcode_payload) {
+                    $fresh = $barang->fresh();
+                    if ($fresh === null || (string) $fresh->barcode_payload !== $this->codes->identityPayload($fresh)) {
                         $failed++;
                         continue;
                     }
@@ -738,26 +737,61 @@ class MasterBarangController extends Controller
         return $barang;
     }
 
-    /**
-     * @param  array<string, mixed>  $data
-     */
-    private function redirectIfKodeTaken(array $data, ?int $ignoreId = null): ?RedirectResponse
+    public function trash(Request $request): View
     {
-        $clash = PersediaanBarang::withTrashed()
-            ->where('kode_barang', $data['kode_barang'])
-            ->where('unit_kerja', $data['unit_kerja'])
-            ->when($ignoreId !== null, fn ($q) => $q->where('id', '!=', $ignoreId))
-            ->first();
+        $perPage = $this->perPage($request);
+        $barang = $this->applyListFilters($this->scopedBarangQuery($request)->onlyTrashed(), $request, [])
+            ->orderByDesc('deleted_at')
+            ->orderBy('kode_barang')
+            ->paginate($perPage)
+            ->withQueryString();
 
-        if ($clash === null) {
-            return null;
+        $satker = $this->effectiveSatker($request);
+
+        return view('persediaan_admin.master-barang.trash', [
+            'barang'         => $barang,
+            'units'          => $satker !== null ? [$satker] : UnitKerja::all(),
+            'perPage'        => $perPage,
+            'perPageOptions' => self::PER_PAGE_OPTIONS,
+        ]);
+    }
+
+    public function trashBulkForceDestroy(Request $request): RedirectResponse
+    {
+        $ids = $this->deletion->normalizeIds((array) $request->input('ids', []));
+        if ($ids === []) {
+            return back()->with('error', 'Pilih data terlebih dahulu.');
         }
 
-        $message = $clash->trashed()
-            ? 'Kode barang sudah ada di sampah. Pulihkan barang tersebut, jangan buat duplikat.'
-            : 'Kode barang sudah digunakan pada unit ini.';
+        $found = $this->scopedBarangQuery($request)->onlyTrashed()->whereIn('id', $ids)->get();
+        if ($found->count() !== count($ids)) {
+            return back()->with('error', 'Sebagian data tidak ditemukan di sampah atau berada di luar akses Anda. Tidak ada barang yang dihapus.');
+        }
 
-        return back()->withInput()->with('error', $message);
+        $blockedIds = $this->deletion->barangIdsWithHistory($found->pluck('id')->map(static fn ($id): int => (int) $id)->all());
+        if ($blockedIds !== []) {
+            $labels = $found
+                ->whereIn('id', $blockedIds)
+                ->map(static fn (PersediaanBarang $barang): string => $barang->kode_barang . ' — ' . $barang->nama_barang)
+                ->implode(', ');
+
+            return back()->with('error', PersediaanDeletionService::BARANG_BLOCKED . ' Tidak ada barang yang dihapus: ' . $labels . '.');
+        }
+
+        $paths = $found->pluck('barcode_path')->all();
+        try {
+            DB::transaction(function () use ($ids): void {
+                PersediaanBarang::onlyTrashed()->whereIn('id', $ids)->forceDelete();
+            });
+        } catch (\Throwable $e) {
+            report($e);
+
+            return back()->with('error', 'Data gagal dihapus. Silakan coba kembali.');
+        }
+
+        $this->deletion->deleteExclusiveBarcodes($paths);
+
+        return back()->with('success', count($ids) . ' barang berhasil dihapus permanen.');
     }
 
     private function countMessage(int $done, int $missing, string $doneLabel): string

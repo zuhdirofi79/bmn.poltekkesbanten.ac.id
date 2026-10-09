@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Schema;
  */
 final class PersediaanDeletionService
 {
-    public const BARANG_BLOCKED = 'Barang tidak dapat dihapus permanen karena sudah memiliki histori transaksi. Gunakan Soft Delete agar histori stok dan laporan tetap terjaga.';
+    public const BARANG_BLOCKED = 'Barang tidak dapat dihapus permanen karena masih memiliki histori transaksi. Data histori harus tetap dipertahankan untuk integritas laporan.';
 
     public const PERMINTAAN_BLOCKED = 'Permintaan ini tidak dapat dihapus permanen karena telah menghasilkan transaksi barang keluar dan memengaruhi stok. Gunakan Soft Delete untuk menjaga konsistensi stok dan audit trail.';
 
