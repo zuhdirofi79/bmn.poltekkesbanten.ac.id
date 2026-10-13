@@ -662,6 +662,9 @@
 .pa-delete-modal .modal-header.warn { background: #fff6e5; }
 .pa-delete-modal .modal-header.danger { background: #fdecec; }
 .pa-delete-modal .modal-title { font-weight: 700; }
+.pa-delete-modal .modal-header.danger { color: inherit; }
+#purgeProgress .progress { background: #f3e4e4; }
+#purgeFailureList { white-space: pre-wrap; max-height: 180px; overflow: auto; background: #fafafa; padding: .5rem; border-radius: 8px; }
 @media (max-width: 430px) {
   .pa-bulk-bar .btn { flex: 1 1 100%; }
   .pa-delete-modal .modal-footer .btn { flex: 1 1 auto; }

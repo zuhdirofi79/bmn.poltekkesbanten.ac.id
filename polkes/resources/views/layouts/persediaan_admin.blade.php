@@ -6,7 +6,7 @@
   <title>@yield('page_title', 'Admin Persediaan') — SIM-BMN Persediaan</title>
   <link rel="shortcut icon" type="image/png" href="{{ asset('img/fav.png') }}" />
   <link rel="stylesheet" href="{{ asset('thema/assets/css/styles.min.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/persediaan.css') }}?v=3">
+  <link rel="stylesheet" href="{{ asset('css/persediaan.css') }}?v=4">
   @stack('styles')
 </head>
 <body class="pa-body">

@@ -212,6 +212,10 @@ Route::prefix('persediaan')->name('persediaan.admin.')->group(function (): void 
             Route::get('sampah', 'PersediaanAdmin\MasterBarangController@trash')->name('trash');
             Route::post('trash/bulk-restore', 'PersediaanAdmin\MasterBarangController@bulkRestore')->name('trash.bulk-restore');
             Route::post('trash/bulk-force-delete', 'PersediaanAdmin\MasterBarangController@trashBulkForceDestroy')->name('trash.bulk-force-delete');
+            Route::post('trash/purge/preview', 'PersediaanAdmin\MasterBarangController@purgePreview')->name('trash.purge-preview');
+            Route::post('trash/purge/start', 'PersediaanAdmin\MasterBarangController@purgeStart')->name('trash.purge-start');
+            Route::post('trash/purge/{batch}/step', 'PersediaanAdmin\MasterBarangController@purgeStep')->where('batch', '[A-Za-z0-9\-]+')->name('trash.purge-step');
+            Route::get('trash/purge/{batch}/failures.csv', 'PersediaanAdmin\MasterBarangController@purgeFailures')->where('batch', '[A-Za-z0-9\-]+')->name('trash.purge-failures');
             Route::get('export', 'PersediaanAdmin\MasterBarangController@exportExcel')->name('export');
             Route::get('template-excel', 'PersediaanAdmin\MasterBarangController@templateExcel')->name('template');
             Route::post('import-excel', 'PersediaanAdmin\MasterBarangController@importExcel')->name('import');

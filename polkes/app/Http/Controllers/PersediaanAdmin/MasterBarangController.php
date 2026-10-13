@@ -10,8 +10,10 @@ use App\Http\Controllers\Controller;
 use App\Imports\PersediaanMasterBarangImport;
 use App\Models\Persediaan\PersediaanBarang;
 use App\Models\Persediaan\PersediaanStockMovement;
+use App\Models\Persediaan\PersediaanPurgeBatch;
 use App\Services\Persediaan\PersediaanCodeService;
 use App\Services\Persediaan\PersediaanDeletionService;
+use App\Services\Persediaan\PersediaanPurgeService;
 use App\Support\Persediaan\PersediaanAdminSession;
 use App\Support\Persediaan\PublicUploadPath;
 use App\Support\Persediaan\UnitKerja;
@@ -30,6 +32,7 @@ class MasterBarangController extends Controller
     public function __construct(
         private PersediaanCodeService $codes,
         private PersediaanDeletionService $deletion,
+        private PersediaanPurgeService $purge,
     ) {
     }
 
@@ -152,6 +155,9 @@ class MasterBarangController extends Controller
     public function forceDestroy(Request $request, int $id): RedirectResponse
     {
         $barang = $this->findBarang($request, $id, true);
+        if ($barang->trashed()) {
+            return $this->purgeTrashed($request, [(int) $barang->id], PersediaanPurgeBatch::MODE_SINGLE);
+        }
         if ($this->deletion->barangIdsWithHistory([$barang->id]) !== []) {
             return back()->with('error', PersediaanDeletionService::BARANG_BLOCKED);
         }
@@ -747,12 +753,14 @@ class MasterBarangController extends Controller
             ->withQueryString();
 
         $satker = $this->effectiveSatker($request);
+        $pageIds = $barang->getCollection()->pluck('id')->map(static fn ($id): int => (int) $id)->all();
 
         return view('persediaan_admin.master-barang.trash', [
             'barang'         => $barang,
             'units'          => $satker !== null ? [$satker] : UnitKerja::all(),
             'perPage'        => $perPage,
             'perPageOptions' => self::PER_PAGE_OPTIONS,
+            'historyIds'     => array_flip($this->deletion->barangIdsWithHistory($pageIds)),
         ]);
     }
 
@@ -763,35 +771,127 @@ class MasterBarangController extends Controller
             return back()->with('error', 'Pilih data terlebih dahulu.');
         }
 
-        $found = $this->scopedBarangQuery($request)->onlyTrashed()->whereIn('id', $ids)->get();
-        if ($found->count() !== count($ids)) {
-            return back()->with('error', 'Sebagian data tidak ditemukan di sampah atau berada di luar akses Anda. Tidak ada barang yang dihapus.');
+        return $this->purgeTrashed($request, $ids, PersediaanPurgeBatch::MODE_SELECTED);
+    }
+
+    public function purgePreview(Request $request): JsonResponse
+    {
+        if ($denied = $this->denyPurge($request)) {
+            return $denied;
         }
 
-        $blockedIds = $this->deletion->barangIdsWithHistory($found->pluck('id')->map(static fn ($id): int => (int) $id)->all());
-        if ($blockedIds !== []) {
-            $labels = $found
-                ->whereIn('id', $blockedIds)
-                ->map(static fn (PersediaanBarang $barang): string => $barang->kode_barang . ' — ' . $barang->nama_barang)
-                ->implode(', ');
+        $mode = (string) $request->input('mode', PersediaanPurgeBatch::MODE_ALL);
+        $ids = $this->deletion->normalizeIds((array) $request->input('ids', []));
+        $preview = $this->purge->preview(
+            $this->scopedBarangQuery($request)->onlyTrashed(),
+            $mode === PersediaanPurgeBatch::MODE_ALL ? [] : $ids,
+        );
 
-            return back()->with('error', PersediaanDeletionService::BARANG_BLOCKED . ' Tidak ada barang yang dihapus: ' . $labels . '.');
+        return response()->json($preview);
+    }
+
+    public function purgeStart(Request $request): JsonResponse
+    {
+        if ($denied = $this->denyPurge($request)) {
+            return $denied;
         }
 
-        $paths = $found->pluck('barcode_path')->all();
+        $mode = (string) $request->input('mode', '');
+        if (! in_array($mode, [PersediaanPurgeBatch::MODE_SINGLE, PersediaanPurgeBatch::MODE_SELECTED, PersediaanPurgeBatch::MODE_ALL], true)) {
+            return response()->json(['message' => 'Jenis penghapusan tidak dikenal.'], 422);
+        }
+        if ($mode === PersediaanPurgeBatch::MODE_ALL && $request->input('confirm') !== PersediaanPurgeService::CONFIRM_ALL) {
+            return response()->json(['message' => 'Ketik HAPUS PERMANEN untuk melanjutkan.'], 422);
+        }
+
+        $ids = $this->deletion->normalizeIds((array) $request->input('ids', []));
+        if ($mode !== PersediaanPurgeBatch::MODE_ALL && $ids === []) {
+            return response()->json(['message' => 'Pilih data terlebih dahulu.'], 422);
+        }
+
+        $result = $this->purge->start($request, $this->scopedBarangQuery($request)->onlyTrashed(), $mode, $ids);
+
+        return response()->json($result, (int) ($result['http_status'] ?? 200));
+    }
+
+    public function purgeStep(Request $request, string $batch): JsonResponse
+    {
+        if ($denied = $this->denyPurge($request)) {
+            return $denied;
+        }
+
+        return response()->json($this->purge->step($this->findPurgeBatch($request, $batch)));
+    }
+
+    public function purgeFailures(Request $request, string $batch)
+    {
+        if (! PersediaanAdminSession::isLoggedIn($request)) {
+            abort(403);
+        }
+
+        $row = $this->findPurgeBatch($request, $batch);
+        $csv = $this->purge->failureCsv($row);
+
+        return response($csv, 200, [
+            'Content-Type'        => 'text/csv; charset=UTF-8',
+            'Content-Disposition' => 'attachment; filename="kegagalan-sampah-' . $row->public_id . '.csv"',
+        ]);
+    }
+
+    /**
+     * @param  list<int>  $ids
+     */
+    private function purgeTrashed(Request $request, array $ids, string $mode): RedirectResponse
+    {
         try {
-            DB::transaction(function () use ($ids): void {
-                PersediaanBarang::onlyTrashed()->whereIn('id', $ids)->forceDelete();
-            });
+            $result = $this->purge->purgeNow($request, $this->scopedBarangQuery($request)->onlyTrashed(), $ids, $mode);
         } catch (\Throwable $e) {
             report($e);
 
             return back()->with('error', 'Data gagal dihapus. Silakan coba kembali.');
         }
 
-        $this->deletion->deleteExclusiveBarcodes($paths);
+        if (($result['ok'] ?? false) !== true) {
+            return back()->with('error', (string) ($result['message'] ?? 'Data gagal dihapus.'));
+        }
 
-        return back()->with('success', count($ids) . ' barang berhasil dihapus permanen.');
+        $done = (int) ($result['succeeded'] ?? 0);
+        $failed = (int) ($result['failed'] ?? 0);
+        if ($mode === PersediaanPurgeBatch::MODE_SINGLE && $done === 1 && $failed === 0) {
+            return back()->with('success', 'Barang berhasil dihapus permanen.');
+        }
+        if ($done === 0) {
+            $reason = $result['failures'][0]['message'] ?? 'Tidak ada barang yang dihapus.';
+
+            return back()->with('error', $reason);
+        }
+
+        $message = $done . ' barang berhasil dihapus permanen.';
+        if ($failed > 0) {
+            $message .= ' ' . $failed . ' barang gagal dan tetap ada di Sampah.';
+        }
+
+        return back()->with('success', $message);
+    }
+
+    private function denyPurge(Request $request): ?JsonResponse
+    {
+        if (! PersediaanAdminSession::isLoggedIn($request)) {
+            return response()->json(['message' => 'Akses ditolak.'], 403);
+        }
+
+        return null;
+    }
+
+    private function findPurgeBatch(Request $request, string $publicId): PersediaanPurgeBatch
+    {
+        $batch = PersediaanPurgeBatch::query()->where('public_id', $publicId)->first();
+        abort_if($batch === null, 404);
+        if (! PersediaanAdminSession::isSuperadmin($request) && (int) $batch->admin_id !== (int) PersediaanAdminSession::userId($request)) {
+            abort(403);
+        }
+
+        return $batch;
     }
 
     private function countMessage(int $done, int $missing, string $doneLabel): string

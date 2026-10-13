@@ -11,7 +11,6 @@ use App\Models\Persediaan\PersediaanAdmin;
 use App\Models\Persediaan\PersediaanBarang;
 use App\Models\Persediaan\PersediaanStockMovement;
 use App\Services\Persediaan\PersediaanCodeService;
-use App\Services\Persediaan\PersediaanDeletionService;
 use App\Support\Persediaan\PersediaanAdminSession;
 use App\Support\Persediaan\UnitKerja;
 use App\User;
@@ -46,7 +45,9 @@ class PersediaanDuplicateKodeTest extends TestCase
         Schema::dropAllTables();
         $this->createSchema();
         require_once base_path('database/migrations/2026_10_09_000001_drop_unique_kode_barang_on_persediaan_barang.php');
+        require_once base_path('database/migrations/2026_10_13_000001_create_persediaan_barang_arsip_and_purge.php');
         (new \DropUniqueKodeBarangOnPersediaanBarang())->up();
+        (new \CreatePersediaanBarangArsipAndPurge())->up();
         View::share('errors', new ViewErrorBag());
         $this->loginAdmin();
     }
@@ -127,7 +128,7 @@ class PersediaanDuplicateKodeTest extends TestCase
         $this->assertNotNull(PersediaanBarang::query()->find($a->id));
     }
 
-    public function test_hapus_permanen_barang_berhistori_ditolak_dan_bulk_tidak_sebagian(): void
+    public function test_hapus_permanen_sampah_berhistori_menyisakan_movement_dan_barang_lain(): void
     {
         $safe = $this->store('HIS-1', 'Aman');
         $histori = $this->store('HIS-1', 'Berhistori');
@@ -143,19 +144,13 @@ class PersediaanDuplicateKodeTest extends TestCase
         app(MasterBarangController::class)->destroy($this->request('DELETE', '/x'), $safe->id);
         app(MasterBarangController::class)->destroy($this->request('DELETE', '/x'), $histori->id);
 
+        $qty = (int) PersediaanStockMovement::query()->where('barang_id', $histori->id)->sum('qty_keluar');
         $single = $this->request('DELETE', '/persediaan/master-barang/' . $histori->id . '/force');
         app(MasterBarangController::class)->forceDestroy($single, $histori->id);
-        $this->assertSame(PersediaanDeletionService::BARANG_BLOCKED, $single->session()->get('error'));
-        $this->assertNotNull(PersediaanBarang::withTrashed()->find($histori->id));
-        $this->assertSame(1, PersediaanStockMovement::query()->where('barang_id', $histori->id)->count());
-
-        $bulk = $this->request('POST', '/persediaan/master-barang/trash/bulk-force-delete', [
-            'ids' => [$safe->id, $histori->id],
-        ]);
-        app(MasterBarangController::class)->trashBulkForceDestroy($bulk);
-        $this->assertStringContainsString('Tidak ada barang yang dihapus', (string) $bulk->session()->get('error'));
+        $this->assertSame('Barang berhasil dihapus permanen.', $single->session()->get('success'));
+        $this->assertNull(PersediaanBarang::withTrashed()->find($histori->id));
+        $this->assertSame($qty, (int) PersediaanStockMovement::query()->where('barang_id', $histori->id)->sum('qty_keluar'));
         $this->assertNotNull(PersediaanBarang::withTrashed()->find($safe->id));
-        $this->assertNotNull(PersediaanBarang::withTrashed()->find($histori->id));
     }
 
     public function test_barcode_dan_import_tidak_menggabungkan_kode_yang_sama(): void
